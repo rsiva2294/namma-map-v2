@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type ServiceLayer = 'PDS' | 'TNEB';
+export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB';
 
 interface MapState {
   view: {
@@ -9,23 +9,37 @@ interface MapState {
   };
   activeLayer: ServiceLayer;
   searchQuery: string;
+  searchSuggestions: any[];
+  selectedSuggestion: any | null;
   searchResult: any | null; // This is the Pincode highlight
+  districtsData: any | null; // All district boundaries
+  stateBoundaryData: any | null; // State boundary
   pdsData: any | null;
+  selectedPdsShop: any | null;
   activeDistrict: string | null;
   jurisdictionDetails: any | null; // This is the TNEB office data
   jurisdictionGeometry: any | null; // This is the TNEB polygon
   isResolving: boolean;
-  
+  theme: 'dark' | 'light';
+  isSidebarOpen: boolean;
+
   // Actions
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
   setSearchQuery: (query: string) => void;
+  setSearchSuggestions: (suggestions: any[]) => void;
+  setSelectedSuggestion: (suggestion: any | null) => void;
   setSearchResult: (result: any | null) => void;
+  setDistrictsData: (data: any | null) => void;
+  setStateBoundaryData: (data: any | null) => void;
   setPdsData: (data: any | null) => void;
+  setSelectedPdsShop: (shop: any | null) => void;
   setActiveDistrict: (district: string | null) => void;
   setJurisdictionDetails: (details: any | null, geometry?: any | null) => void;
   setIsResolving: (val: boolean) => void;
+  setSidebarOpen: (val: boolean) => void;
   clearSearch: () => void;
+  toggleTheme: () => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -33,32 +47,54 @@ export const useMapStore = create<MapState>((set) => ({
     center: [11.1271, 78.6569],
     zoom: 7,
   },
-  activeLayer: 'TNEB', // Default to TNEB
+  activeLayer: 'PINCODE', // Default to PINCODE
   searchQuery: '',
+  searchSuggestions: [],
+  selectedSuggestion: null,
   searchResult: null,
+  districtsData: null,
+  stateBoundaryData: null,
   pdsData: null,
+  selectedPdsShop: null,
   activeDistrict: null,
   jurisdictionDetails: null,
   jurisdictionGeometry: null,
   isResolving: false,
+  theme: 'light',
+  isSidebarOpen: true,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ activeLayer: layer }),
   setSearchQuery: (query) => set({ searchQuery: query }),
-  setSearchResult: (result) => set({ searchResult: result }),
+  setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
+  setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion }),
+  setSearchResult: (result) => set({ 
+    searchResult: result,
+    jurisdictionDetails: null,
+    jurisdictionGeometry: null,
+    selectedPdsShop: null
+  }),
+  setDistrictsData: (data) => set({ districtsData: data }),
+  setStateBoundaryData: (data) => set({ stateBoundaryData: data }),
   setPdsData: (data) => set({ pdsData: data }),
+  setSelectedPdsShop: (shop) => set({ selectedPdsShop: shop }),
   setActiveDistrict: (district) => set({ activeDistrict: district }),
   setJurisdictionDetails: (details, geometry = null) => set({ 
     jurisdictionDetails: details, 
     jurisdictionGeometry: geometry 
   }),
   setIsResolving: (val) => set({ isResolving: val }),
+  setSidebarOpen: (val) => set({ isSidebarOpen: val }),
   clearSearch: () => set({ 
     searchQuery: '', 
+    searchSuggestions: [],
+    selectedSuggestion: null,
     searchResult: null, 
     pdsData: null, 
+    selectedPdsShop: null,
     activeDistrict: null,
     jurisdictionDetails: null,
     jurisdictionGeometry: null
   }),
+  toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
 }));

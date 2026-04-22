@@ -1,8 +1,10 @@
 import * as topojson from 'topojson-client';
 
 let districtsGeoJson: any = null;
+let stateBoundaryGeoJson: any = null;
 let pincodesGeoJson: any = null;
 let tnebGeoJson: any = null;
+let tnebOffices: any = null;
 let loadedPds: Map<string, any> = new Map();
 
 function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
@@ -43,13 +45,32 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
+    case 'LOAD_STATE_BOUNDARY':
+      try {
+        if (!stateBoundaryGeoJson) {
+          const response = await fetch('/data/tn_state_boundary.topojson');
+          const data = await response.json();
+          const objectName = Object.keys(data.objects)[0];
+          stateBoundaryGeoJson = topojson.feature(data, data.objects[objectName]);
+        }
+        self.postMessage({ type: 'STATE_BOUNDARY_LOADED', payload: stateBoundaryGeoJson });
+      } catch (error) {
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load state boundary data' });
+      }
+      break;
+
     case 'LOAD_TNEB':
       try {
         if (!tnebGeoJson) {
-          const response = await fetch('/data/tneb_boundaries.topojson');
-          const data = await response.json();
-          const objectName = Object.keys(data.objects)[0];
-          tnebGeoJson = topojson.feature(data, data.objects[objectName]);
+          const [resBound, resOff] = await Promise.all([
+            fetch('/data/tneb_boundaries.topojson'),
+            fetch('/data/tneb_offices.geojson')
+          ]);
+          const dataBound = await resBound.json();
+          const dataOff = await resOff.json();
+          const objectName = Object.keys(dataBound.objects)[0];
+          tnebGeoJson = topojson.feature(dataBound, dataBound.objects[objectName]);
+          tnebOffices = dataOff;
         }
         self.postMessage({ type: 'TNEB_LOADED' });
       } catch (error) {
@@ -58,15 +79,58 @@ self.onmessage = async (e: MessageEvent) => {
       break;
 
     case 'RESOLVE_LOCATION':
-      const { lat, lng } = payload;
-      if (!tnebGeoJson) return;
-      const found = tnebGeoJson.features.find((f: any) => {
-        const geometry = f.geometry;
-        if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
-        if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
-        return false;
-      });
-      self.postMessage({ type: 'RESOLUTION_RESULT', payload: found ? { properties: found.properties, geometry: found.geometry } : null });
+      const { lat, lng, layer } = payload;
+      
+      if (layer === 'TNEB') {
+        if (!tnebGeoJson) return;
+        const found = tnebGeoJson.features.find((f: any) => {
+          const geometry = f.geometry;
+          if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
+          if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
+          return false;
+        });
+
+        if (found) {
+          const office = tnebOffices?.features.find((o: any) => {
+            const sCoMatch = o.properties.section_co === found.properties.section_co;
+            const cCodMatch = o.properties.circle_cod === found.properties.circle_cod;
+            const rIdMatch = (o.properties.region_id || o.properties.region_cod) === (found.properties.region_cod || found.properties.region_id);
+            return sCoMatch && cCodMatch && rIdMatch;
+          });
+
+          self.postMessage({ 
+            type: 'RESOLUTION_RESULT', 
+            payload: { 
+              properties: { ...found.properties, office_location: office?.geometry.coordinates }, 
+              geometry: found.geometry,
+              layer: 'TNEB'
+            } 
+          });
+        } else {
+          self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
+        }
+      } else if (layer === 'PINCODE' || layer === 'PDS') {
+        if (!pincodesGeoJson) return;
+        const found = pincodesGeoJson.features.find((f: any) => {
+          const geometry = f.geometry;
+          if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
+          if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
+          return false;
+        });
+
+        if (found) {
+          self.postMessage({ 
+            type: 'RESOLUTION_RESULT', 
+            payload: { 
+              properties: found.properties, 
+              geometry: found.geometry,
+              layer: layer
+            } 
+          });
+        } else {
+          self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
+        }
+      }
       break;
 
     case 'LOAD_PINCODES':
@@ -83,51 +147,64 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
-    case 'SEARCH_QUERY':
-      const query = payload.toLowerCase().trim();
-      if (!query) return;
+    case 'GET_SUGGESTIONS':
+      const q = payload.toLowerCase().trim();
+      if (!q) {
+        self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: [] });
+        return;
+      }
 
-      // 1. Check Pincodes (Numeric)
-      if (!isNaN(Number(query)) && query.length >= 4) {
-        const result = pincodesGeoJson?.features.find((f: any) => {
-          const pin = f.properties.PIN_CODE || f.properties.pincode;
-          return pin && pin.toString() === query;
-        });
-        if (result) {
-          self.postMessage({ type: 'SEARCH_RESULT', payload: result });
-          const district = result.properties.district || result.properties.DISTRICT;
-          if (district) self.postMessage({ type: 'AUTO_TRIGGER_PDS', payload: district });
-          return;
+      let suggestions: any[] = [];
+
+      // Check Pincodes (Numeric)
+      if (!isNaN(Number(q))) {
+        if (pincodesGeoJson) {
+          suggestions = pincodesGeoJson.features.filter((f: any) => {
+            const pin = f.properties.PIN_CODE || f.properties.pincode;
+            return pin && pin.toString().startsWith(q);
+          }).slice(0, 5);
+        }
+      } else {
+        // Check Districts (Text)
+        if (districtsGeoJson) {
+          suggestions = districtsGeoJson.features.filter((f: any) => {
+            const name = (f.properties.district || f.properties.DISTRICT_NAME || f.properties.NAME || '').toLowerCase();
+            return name && name.includes(q);
+          }).slice(0, 5);
         }
       }
 
-      // 2. Check Districts (Text)
-      const districtResult = districtsGeoJson?.features.find((f: any) => {
-        const name = (f.properties.district || f.properties.DISTRICT_NAME || f.properties.NAME || '').toLowerCase();
-        return name && (name === query || name.includes(query));
-      });
-
-      if (districtResult) {
-        self.postMessage({ type: 'SEARCH_RESULT', payload: districtResult });
-        // Trigger PDS for this district if in PDS mode
-        const name = districtResult.properties.district || districtResult.properties.DISTRICT_NAME || districtResult.properties.NAME;
-        self.postMessage({ type: 'AUTO_TRIGGER_PDS', payload: name });
-      } else {
-        self.postMessage({ type: 'SEARCH_RESULT', payload: null });
-      }
+      self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions });
       break;
 
     case 'LOAD_PDS':
-      const districtName = payload;
+      const { district: districtName, boundary } = payload;
+
+      const processAndSendPds = (data: any) => {
+        let filteredFeatures = data.features;
+        if (boundary) {
+          filteredFeatures = data.features.filter((f: any) => {
+            const point = f.geometry.coordinates; // [lng, lat]
+            if (boundary.type === 'Polygon') {
+              return isPointInPolygon(point, boundary.coordinates);
+            } else if (boundary.type === 'MultiPolygon') {
+              return boundary.coordinates.some((poly: any) => isPointInPolygon(point, poly));
+            }
+            return false;
+          });
+        }
+        self.postMessage({ type: 'PDS_LOADED', payload: { district: districtName, data: { ...data, features: filteredFeatures } } });
+      };
+
       if (loadedPds.has(districtName)) {
-        self.postMessage({ type: 'PDS_LOADED', payload: { district: districtName, data: loadedPds.get(districtName) } });
+        processAndSendPds(loadedPds.get(districtName));
         return;
       }
       try {
         const response = await fetch(`/data/pds/${districtName}.json`);
         const data = await response.json();
         loadedPds.set(districtName, data);
-        self.postMessage({ type: 'PDS_LOADED', payload: { district: districtName, data } });
+        processAndSendPds(data);
       } catch (error) {
         console.error(`[Worker] Failed to load PDS for ${districtName}:`, error);
       }

@@ -1,174 +1,279 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import './index.css';
-import { Search, Map as MapIcon, X, Loader2, Phone, MapPin, Zap, ShoppingCart } from 'lucide-react';
+import { 
+  Activity, 
+  Shield, 
+  Landmark, 
+  Users, 
+  Zap, 
+  ShoppingBag, 
+  Settings, 
+  Moon, 
+  Sun, 
+  HelpCircle, 
+  ChevronLeft, 
+  ChevronRight,
+  Search,
+  X,
+  MapPin,
+  Loader2,
+  LayoutGrid,
+  ShoppingCart
+} from 'lucide-react';
 import { useMapStore } from './store/useMapStore';
+import ResultCard from './components/ResultCard';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
 function App() {
   const { 
     searchQuery, setSearchQuery, clearSearch, 
-    jurisdictionDetails, isResolving, 
+    jurisdictionDetails, setJurisdictionDetails, isResolving, 
     activeLayer, setActiveLayer,
-    pdsData
+    selectedPdsShop, setSelectedPdsShop, searchResult,
+    theme, toggleTheme,
+    searchSuggestions, setSearchSuggestions, setSelectedSuggestion,
+    isSidebarOpen, setSidebarOpen
   } = useMapStore();
 
-  return (
-    <div className="app-container" style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-      <Suspense fallback={<div className="loading" style={{ color: 'white', padding: '20px' }}>Loading Engine...</div>}>
-        <GisMap />
-      </Suspense>
+  useEffect(() => {
+    if (theme === 'light') {
+      document.body.classList.add('light-mode');
+    } else {
+      document.body.classList.remove('light-mode');
+    }
+  }, [theme]);
 
-      {/* Floating Header / Search */}
-      <header 
-        className="glass" 
-        style={{ 
-          position: 'absolute', 
-          top: '20px', 
-          left: '50%', 
-          transform: 'translateX(-50%)',
-          width: 'min(95%, 600px)',
-          height: '56px',
-          borderRadius: '28px',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 20px',
-          zIndex: 1000
-        }}
-      >
-        <Search size={20} color="var(--text-secondary)" />
-        <input 
-          type="text" 
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder={activeLayer === 'TNEB' ? "Search Pincode..." : "Search Pincode to load PDS..."} 
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--text-primary)',
-            fontSize: '16px',
-            marginLeft: '12px',
-            flex: 1,
-            outline: 'none'
+  return (
+    <div className={`app-container ${theme}`} style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
+      {/* Sidebar */}
+      <aside className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}>
+        <button 
+          className="sidebar-toggle" 
+          onClick={() => setSidebarOpen(!isSidebarOpen)}
+          title={isSidebarOpen ? "Close Sidebar" : "Open Sidebar"}
+        >
+          {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+        </button>
+        
+        <div className="sidebar-scroll-content">
+          <div className="sidebar-header">
+            <div className="sidebar-logo-group">
+              <LayoutGrid size={24} color="var(--accent)" />
+              <span className="logo-text">NammaMap</span>
+            </div>
+            <div className="sub-logo-text">Tamil Nadu GIS Portal</div>
+          </div>
+
+          <div className="sidebar-section-label">Main Services</div>
+          <button 
+            className={`sidebar-menu-item ${activeLayer === 'PINCODE' ? 'active' : ''}`}
+            onClick={() => setActiveLayer('PINCODE')}
+          >
+            <MapPin size={20} />
+            <span>Pincode Areas</span>
+          </button>
+          <button 
+            className={`sidebar-menu-item ${activeLayer === 'PDS' ? 'active' : ''}`}
+            onClick={() => setActiveLayer('PDS')}
+          >
+            <ShoppingCart size={20} />
+            <span>PDS (Ration)</span>
+          </button>
+          <button 
+            className={`sidebar-menu-item ${activeLayer === 'TNEB' ? 'active' : ''}`}
+            onClick={() => setActiveLayer('TNEB')}
+          >
+            <Zap size={20} />
+            <span>TNEB (Electricity)</span>
+          </button>
+
+          <div className="sidebar-section-label">Future Modules</div>
+          <div className="sidebar-menu-item disabled">
+            <Activity size={20} />
+            <span>Health</span>
+            <span className="badge-soon">SOON</span>
+          </div>
+          <div className="sidebar-menu-item disabled">
+            <Shield size={20} />
+            <span>Police</span>
+            <span className="badge-soon">SOON</span>
+          </div>
+          <div className="sidebar-menu-item disabled">
+            <Landmark size={20} />
+            <span>Administrative</span>
+            <span className="badge-soon">SOON</span>
+          </div>
+          <div className="sidebar-menu-item disabled">
+            <Users size={20} />
+            <span>Elections</span>
+            <span className="badge-soon">SOON</span>
+          </div>
+
+          <div className="sidebar-footer">
+            <button className="sidebar-menu-item" onClick={toggleTheme}>
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+            </button>
+            <button className="sidebar-menu-item">
+              <Settings size={20} />
+              <span>Settings</span>
+            </button>
+            <button className="sidebar-menu-item">
+              <HelpCircle size={20} />
+              <span>Help & Support</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Content Area */}
+      <main style={{ flex: 1, position: 'relative', height: '100%' }}>
+        <Suspense fallback={<div className="loading" style={{ color: 'white', padding: '20px' }}>Loading Engine...</div>}>
+          <GisMap />
+        </Suspense>
+
+        {/* Floating Search - Now centered in main area */}
+        <header 
+          className="glass" 
+          style={{ 
+            position: 'absolute', 
+            top: '20px', 
+            left: '50%', 
+            transform: 'translateX(-50%)',
+            width: 'min(90%, 500px)',
+            height: '56px',
+            borderRadius: '28px',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0 20px',
+            zIndex: 1000
           }}
-        />
-        {isResolving && <Loader2 className="animate-spin" size={18} color="var(--accent)" style={{ marginRight: '10px' }} />}
-        {searchQuery && (
-          <X 
-            size={18} 
-            color="var(--text-secondary)" 
-            style={{ cursor: 'pointer', marginRight: '10px' }} 
-            onClick={clearSearch} 
+        >
+          <Search size={20} color="var(--text-secondary)" />
+          <input 
+            type="text" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={activeLayer === 'TNEB' ? "Search by Section, Sub-Division..." : "Search Pincode..."} 
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-primary)',
+              fontSize: '16px',
+              marginLeft: '12px',
+              flex: 1,
+              outline: 'none'
+            }}
+          />
+          {isResolving && <Loader2 className="animate-spin" size={18} color="var(--accent)" style={{ marginRight: '10px' }} />}
+          {searchQuery && (
+            <X 
+              size={18} 
+              color="var(--text-secondary)" 
+              style={{ cursor: 'pointer', marginRight: '10px' }} 
+              onClick={clearSearch} 
+            />
+          )}
+          
+          {/* Dropdown Suggestions */}
+          {searchSuggestions.length > 0 && (
+            <ul
+              className="glass"
+              style={{
+                position: 'absolute',
+                top: '65px',
+                left: '0',
+                right: '0',
+                borderRadius: '16px',
+                padding: '10px 0',
+                listStyle: 'none',
+                margin: 0,
+                maxHeight: '300px',
+                overflowY: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '4px'
+              }}
+            >
+              {searchSuggestions.map((suggestion, idx) => {
+                const name = suggestion.properties.district || suggestion.properties.DISTRICT_NAME || suggestion.properties.NAME || suggestion.properties.section_na || '';
+                const pin = suggestion.properties.PIN_CODE || suggestion.properties.pincode;
+                const title = pin ? `${pin} - ${name}` : name;
+                
+                return (
+                  <li
+                    key={idx}
+                    onClick={() => {
+                      setSearchQuery(title);
+                      setSelectedSuggestion(suggestion);
+                      setSearchSuggestions([]);
+                    }}
+                    style={{
+                      padding: '10px 20px',
+                      cursor: 'pointer',
+                      color: 'var(--text-primary)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--border-glass)'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                  >
+                    <MapPin size={16} color="var(--text-secondary)" />
+                    {title}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </header>
+
+        {/* Dynamic Result Cards */}
+        {activeLayer === 'PDS' && selectedPdsShop && (
+          <ResultCard
+            themeColor="red"
+            title={selectedPdsShop.properties.name || 'PDS Shop'}
+            icon={<ShoppingBag size={20} />}
+            data={[
+              { label: 'Shop Code', value: selectedPdsShop.properties.shop_code || 'N/A', isPill: true },
+              { label: 'Village', value: selectedPdsShop.properties.village || 'N/A' },
+              { label: 'Taluk', value: selectedPdsShop.properties.taluk || 'N/A' },
+              { label: 'District', value: selectedPdsShop.properties.district || 'N/A' }
+            ]}
+            onClose={() => setSelectedPdsShop(null)}
+            onDirections={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedPdsShop.geometry.coordinates[1]},${selectedPdsShop.geometry.coordinates[0]}`, '_blank')}
           />
         )}
-        <div style={{ width: '1px', height: '24px', background: 'var(--border-glass)', margin: '0 5px' }} />
-        <MapIcon size={20} color="var(--accent)" style={{ cursor: 'pointer' }} />
-      </header>
 
-      {/* Layer Toggle Actions */}
-      <nav 
-        className="glass"
-        style={{
-          position: 'absolute',
-          right: '20px',
-          top: '100px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '12px',
-          padding: '10px',
-          borderRadius: '12px',
-          zIndex: 1000
-        }}
-      >
-        <button 
-          onClick={() => setActiveLayer('TNEB')}
-          style={{
-            background: activeLayer === 'TNEB' ? 'var(--accent)' : 'transparent',
-            border: 'none',
-            borderRadius: '8px',
-            padding: '10px',
-            cursor: 'pointer',
-            transition: 'all 0.3s'
-          }}
-          title="TNEB Jurisdiction"
-        >
-          <Zap size={22} color={activeLayer === 'TNEB' ? 'white' : 'var(--text-secondary)'} />
-        </button>
-        <button 
-          onClick={() => setActiveLayer('PDS')}
-          style={{
-            background: activeLayer === 'PDS' ? '#22c55e' : 'transparent',
-            border: 'none',
-            borderRadius: '8px',
-            padding: '10px',
-            cursor: 'pointer',
-            transition: 'all 0.3s'
-          }}
-          title="PDS Ration Shops"
-        >
-          <ShoppingCart size={22} color={activeLayer === 'PDS' ? 'white' : 'var(--text-secondary)'} />
-        </button>
-      </nav>
-
-      {/* Bottom Info Sheet */}
-      <footer 
-        className="glass-heavy"
-        style={{
-          position: 'absolute',
-          bottom: '0',
-          left: '0',
-          right: '0',
-          minHeight: '100px',
-          maxHeight: '40vh',
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '20px',
-          borderTopLeftRadius: '24px',
-          borderTopRightRadius: '24px',
-          zIndex: 1000,
-          transition: 'all 0.3s ease'
-        }}
-      >
-        {activeLayer === 'TNEB' ? (
-          !jurisdictionDetails ? (
-            <div style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
-              {isResolving ? 'Locating Section Office...' : 'Click on the map to find your TNEB Section'}
-            </div>
-          ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h2 style={{ fontSize: '18px', color: 'var(--accent)', fontWeight: '600' }}>
-                  {jurisdictionDetails.section_office || 'TNEB Section'}
-                </h2>
-                <span style={{ fontSize: '12px', background: 'var(--border-glass)', padding: '4px 8px', borderRadius: '12px' }}>
-                  {jurisdictionDetails.district}
-                </span>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
-                  <Phone size={16} color="var(--text-secondary)" />
-                  <span>{jurisdictionDetails.contact_no || 'Not provided'}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
-                  <MapPin size={16} color="var(--text-secondary)" />
-                  <span>Sub-station: {jurisdictionDetails.sub_station || 'N/A'}</span>
-                </div>
-              </div>
-            </div>
-          )
-        ) : (
-          /* PDS Info */
-          <div style={{ textAlign: 'center' }}>
-            {!pdsData ? (
-              <span style={{ color: 'var(--text-secondary)' }}>Search a Pincode to load local PDS shops</span>
-            ) : (
-              <div style={{ color: '#22c55e', fontWeight: '500' }}>
-                Displaying {pdsData.features.length} shops in the area
-              </div>
-            )}
-          </div>
+        {activeLayer === 'TNEB' && jurisdictionDetails && (
+          <ResultCard
+            themeColor="orange"
+            title={jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'}
+            icon={<Zap size={20} />}
+            data={[
+              { label: 'Sub-Division', value: jurisdictionDetails.subdivisio || jurisdictionDetails.sub_division || 'N/A' },
+              { label: 'Division', value: jurisdictionDetails.division_n || jurisdictionDetails.division || 'N/A' },
+              { label: 'Circle', value: jurisdictionDetails.circle_nam || jurisdictionDetails.circle || 'N/A' },
+              { label: 'Region', value: jurisdictionDetails.region_nam || jurisdictionDetails.region || 'N/A' }
+            ]}
+            onClose={() => setJurisdictionDetails(null, null)}
+            onDirections={jurisdictionDetails.office_location ? () => window.open(`https://www.google.com/maps/dir/?api=1&destination=${jurisdictionDetails.office_location[1]},${jurisdictionDetails.office_location[0]}`, '_blank') : undefined}
+          />
         )}
-      </footer>
+
+        {(activeLayer === 'PINCODE' || activeLayer === 'PDS') && searchResult && !selectedPdsShop && !jurisdictionDetails && (
+          <ResultCard
+            themeColor="blue"
+            title={searchResult.properties.district || searchResult.properties.NAME || 'Selected Area'}
+            data={[
+              { label: 'Pincode', value: searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A', isPill: true },
+              { label: 'District', value: searchResult.properties.DISTRICT || searchResult.properties.district || searchResult.properties.NAME || 'N/A' }
+            ]}
+            onClose={clearSearch}
+          />
+        )}
+      </main>
     </div>
   );
 }
