@@ -6,15 +6,13 @@ import {
   ShoppingCart, 
   Zap, 
   Activity, 
-  Shield, 
-  Landmark, 
-  Users, 
   Sun, 
   Moon, 
   Settings, 
   HelpCircle,
   LayoutGrid
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore, type ServiceLayer } from '../../store/useMapStore';
 
 const Sidebar: React.FC = () => {
@@ -32,11 +30,16 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}>
+    <motion.aside 
+      initial={false}
+      animate={{ width: isSidebarOpen ? 280 : 0 }}
+      transition={{ type: 'spring', damping: 20, stiffness: 200 }}
+      className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}
+    >
       <button 
         className="sidebar-toggle" 
         onClick={() => setSidebarOpen(!isSidebarOpen)}
-        title={isSidebarOpen ? "Close Sidebar" : "Open Sidebar"}
+        aria-label={isSidebarOpen ? "Close Sidebar" : "Open Sidebar"}
       >
         {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
       </button>
@@ -45,9 +48,14 @@ const Sidebar: React.FC = () => {
         <div className="sidebar-header">
           <div className="sidebar-logo-group">
             <LayoutGrid size={24} color="var(--accent)" />
-            <span className="logo-text">NammaMap</span>
+            <motion.span 
+              animate={{ opacity: isSidebarOpen ? 1 : 0 }}
+              className="logo-text"
+            >
+              NammaMap
+            </motion.span>
           </div>
-          <div className="sub-logo-text">Tamil Nadu GIS Portal</div>
+          {isSidebarOpen && <div className="sub-logo-text">Tamil Nadu GIS Portal</div>}
         </div>
 
         <div className="sidebar-section-label">Main Services</div>
@@ -56,50 +64,46 @@ const Sidebar: React.FC = () => {
             key={item.id}
             className={`sidebar-menu-item ${activeLayer === item.id ? 'active' : ''}`}
             onClick={() => setActiveLayer(item.id)}
+            aria-pressed={activeLayer === item.id}
           >
             <item.icon size={20} />
-            <span>{item.label}</span>
+            <AnimatePresence>
+              {isSidebarOpen && (
+                <motion.span
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                >
+                  {item.label}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         ))}
 
         <div className="sidebar-section-label">Future Modules</div>
         <div className="sidebar-menu-item disabled">
           <Activity size={20} />
-          <span>Health</span>
-          <span className="badge-soon">SOON</span>
+          {isSidebarOpen && <span>Health</span>}
+          {isSidebarOpen && <span className="badge-soon">SOON</span>}
         </div>
-        <div className="sidebar-menu-item disabled">
-          <Shield size={20} />
-          <span>Police</span>
-          <span className="badge-soon">SOON</span>
-        </div>
-        <div className="sidebar-menu-item disabled">
-          <Landmark size={20} />
-          <span>Administrative</span>
-          <span className="badge-soon">SOON</span>
-        </div>
-        <div className="sidebar-menu-item disabled">
-          <Users size={20} />
-          <span>Elections</span>
-          <span className="badge-soon">SOON</span>
-        </div>
-
+        
         <div className="sidebar-footer">
-          <button className="sidebar-menu-item" onClick={toggleTheme}>
+          <button className="sidebar-menu-item" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+            {isSidebarOpen && <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>}
           </button>
-          <button className="sidebar-menu-item">
+          <button className="sidebar-menu-item" aria-label="Settings">
             <Settings size={20} />
-            <span>Settings</span>
+            {isSidebarOpen && <span>Settings</span>}
           </button>
-          <button className="sidebar-menu-item">
+          <button className="sidebar-menu-item" aria-label="Help">
             <HelpCircle size={20} />
-            <span>Help & Support</span>
+            {isSidebarOpen && <span>Help</span>}
           </button>
         </div>
       </div>
-    </aside>
+    </motion.aside>
   );
 };
 

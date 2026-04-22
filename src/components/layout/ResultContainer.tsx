@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShoppingBag, Zap, MapPin } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
 
@@ -13,10 +14,11 @@ const ResultContainer: React.FC = () => {
   const clearSearch = useMapStore(state => state.clearSearch);
 
   return (
-    <>
+    <AnimatePresence mode="wait">
       {/* PDS Shop Detail */}
       {activeLayer === 'PDS' && selectedPdsShop && (
         <ResultCard
+          key="pds-detail"
           themeColor="red"
           title={selectedPdsShop.properties.name || 'PDS Shop'}
           icon={<ShoppingBag size={20} />}
@@ -34,6 +36,7 @@ const ResultContainer: React.FC = () => {
       {/* PDS Layer Instruction */}
       {activeLayer === 'PDS' && searchResult && !selectedPdsShop && (
          <ResultCard
+           key="pds-instruction"
            themeColor="red"
            title={`PDS Shops in ${searchResult.properties.office_name || searchResult.properties.district || ''}`}
            icon={<ShoppingBag size={20} />}
@@ -48,6 +51,7 @@ const ResultContainer: React.FC = () => {
       {/* TNEB Section Detail */}
       {activeLayer === 'TNEB' && jurisdictionDetails && (
         <ResultCard
+          key="tneb-detail"
           themeColor="orange"
           title={jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'}
           icon={<Zap size={20} />}
@@ -65,6 +69,7 @@ const ResultContainer: React.FC = () => {
       {/* TNEB Layer Instruction */}
       {activeLayer === 'TNEB' && searchResult && !jurisdictionDetails && (
          <ResultCard
+           key="tneb-instruction"
            themeColor="orange"
            title="Find TNEB Section"
            icon={<Zap size={20} />}
@@ -79,6 +84,7 @@ const ResultContainer: React.FC = () => {
       {/* Pincode Info */}
       {activeLayer === 'PINCODE' && searchResult && (
         <ResultCard
+          key="pincode-info"
           themeColor="blue"
           title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Selected Area'}
           icon={<MapPin size={20} />}
@@ -91,7 +97,7 @@ const ResultContainer: React.FC = () => {
           onClose={clearSearch}
         />
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
