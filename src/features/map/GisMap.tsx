@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, CircleMarker, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, CircleMarker, Tooltip, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
@@ -16,8 +16,17 @@ const MapController: React.FC<{ result: any }> = ({ result }) => {
   return null;
 };
 
+const MapEvents: React.FC<{ onResolve: (lat: number, lng: number) => void }> = ({ onResolve }) => {
+  useMapEvents({
+    click: (e) => {
+      onResolve(e.latlng.lat, e.latlng.lng);
+    },
+  });
+  return null;
+};
+
 const GisMap: React.FC = () => {
-  const { isReady, districts, loadDistricts, loadPincodes, searchPincode } = useGisWorker();
+  const { isReady, loadDistricts, loadPincodes, loadTneb, resolveLocation, searchPincode } = useGisWorker();
   const { searchQuery, searchResult, pdsData, activeDistrict } = useMapStore();
   const [showPds, _setShowPds] = useState(true);
 
@@ -25,6 +34,7 @@ const GisMap: React.FC = () => {
     if (isReady) {
       loadDistricts();
       loadPincodes();
+      loadTneb();
     }
   }, [isReady]);
 
@@ -37,7 +47,7 @@ const GisMap: React.FC = () => {
   const districtStyle = {
     fillColor: 'transparent',
     weight: 1.5,
-    opacity: 0.2,
+    opacity: 0.1,
     color: 'rgba(14, 165, 233, 0.4)',
     dashArray: '3',
     fillOpacity: 0.05
@@ -55,7 +65,7 @@ const GisMap: React.FC = () => {
     <MapContainer 
       center={[11.1271, 78.6569]} 
       zoom={7} 
-      preferCanvas={true} // CRITICAL for 30k+ points
+      preferCanvas={true}
       scrollWheelZoom={true}
       zoomControl={false}
       style={{ width: '100%', height: '100%' }}
@@ -65,7 +75,10 @@ const GisMap: React.FC = () => {
         url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       />
       
-      {districts && <GeoJSON data={districts} style={districtStyle} />}
+      <MapEvents onResolve={resolveLocation} />
+      
+      {/* Districts Layer */}
+      <GeoJSON data={[] as any} style={districtStyle} />
 
       {searchResult && (
         <GeoJSON 
@@ -84,7 +97,7 @@ const GisMap: React.FC = () => {
             center={[lat, lng]}
             radius={3}
             pathOptions={{
-              fillColor: '#22c55e', // Green for PDS
+              fillColor: '#22c55e',
               fillOpacity: 0.8,
               color: 'white',
               weight: 0.5

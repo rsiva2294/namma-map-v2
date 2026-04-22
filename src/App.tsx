@@ -1,18 +1,12 @@
 import React, { Suspense } from 'react';
 import './index.css';
-import { Search, Map as MapIcon, Info, Settings, X } from 'lucide-react';
+import { Search, Map as MapIcon, X, Loader2, Phone, MapPin } from 'lucide-react';
 import { useMapStore } from './store/useMapStore';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
 function App() {
-  const { searchQuery, setSearchQuery, clearSearch } = useMapStore();
-
-  const handleSearch = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      // Search logic is handled in the map component observing the store
-    }
-  };
+  const { searchQuery, setSearchQuery, clearSearch, jurisdictionDetails, isResolving } = useMapStore();
 
   return (
     <div className="app-container" style={{ width: '100vw', height: '100vh', position: 'relative' }}>
@@ -20,6 +14,7 @@ function App() {
         <GisMap />
       </Suspense>
 
+      {/* Floating Header / Search */}
       <header 
         className="glass" 
         style={{ 
@@ -27,7 +22,7 @@ function App() {
           top: '20px', 
           left: '50%', 
           transform: 'translateX(-50%)',
-          width: 'min(90%, 600px)',
+          width: 'min(95%, 600px)',
           height: '56px',
           borderRadius: '28px',
           display: 'flex',
@@ -41,8 +36,7 @@ function App() {
           type="text" 
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyDown={handleSearch}
-          placeholder="Search by Pincode (e.g. 600001)..." 
+          placeholder="Search by Pincode..." 
           style={{
             background: 'none',
             border: 'none',
@@ -53,6 +47,7 @@ function App() {
             outline: 'none'
           }}
         />
+        {isResolving && <Loader2 className="animate-spin" size={18} color="var(--accent)" style={{ marginRight: '10px' }} />}
         {searchQuery && (
           <X 
             size={18} 
@@ -65,24 +60,7 @@ function App() {
         <MapIcon size={20} color="var(--accent)" style={{ cursor: 'pointer' }} />
       </header>
 
-      <nav 
-        className="glass"
-        style={{
-          position: 'absolute',
-          right: '20px',
-          top: '100px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '15px',
-          padding: '15px',
-          borderRadius: '16px',
-          zIndex: 1000
-        }}
-      >
-        <div className="nav-item" title="Services"><Info size={22} /></div>
-        <div className="nav-item" title="Settings"><Settings size={22} /></div>
-      </nav>
-
+      {/* Bottom Info Sheet */}
       <footer 
         className="glass-heavy"
         style={{
@@ -90,18 +68,48 @@ function App() {
           bottom: '0',
           left: '0',
           right: '0',
-          height: '80px',
+          minHeight: '100px',
+          maxHeight: '40vh',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          flexDirection: 'column',
+          padding: '20px',
           borderTopLeftRadius: '24px',
           borderTopRightRadius: '24px',
-          zIndex: 1000
+          zIndex: 1000,
+          transition: 'all 0.3s ease'
         }}
       >
-        <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
-          Select a location or search for a Pincode
-        </p>
+        {!jurisdictionDetails ? (
+          <div style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
+            {isResolving ? 'Pinpointing jurisdiction...' : 'Click anywhere on the map to find your TNEB Section Office'}
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h2 style={{ fontSize: '18px', color: 'var(--accent)', fontWeight: '600' }}>
+                TNEB Section: {jurisdictionDetails.section_office || 'Unknown'}
+              </h2>
+              <span style={{ fontSize: '12px', background: 'var(--border-glass)', padding: '4px 8px', borderRadius: '12px' }}>
+                {jurisdictionDetails.district}
+              </span>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                <Phone size={16} color="var(--text-secondary)" />
+                <span>{jurisdictionDetails.contact_no || 'Not available'}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                <MapPin size={16} color="var(--text-secondary)" />
+                <span>Sub-station: {jurisdictionDetails.sub_station || 'N/A'}</span>
+              </div>
+            </div>
+            
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', borderTop: '1px solid var(--border-glass)', paddingTop: '10px' }}>
+              Region: {jurisdictionDetails.region} | Circle: {jurisdictionDetails.circle}
+            </p>
+          </div>
+        )}
       </footer>
     </div>
   );

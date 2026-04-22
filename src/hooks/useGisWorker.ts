@@ -4,8 +4,7 @@ import { useMapStore } from '../store/useMapStore';
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const [districts, setDistricts] = useState<any>(null);
-  const { setPdsData, setActiveDistrict } = useMapStore();
+  const { setPdsData, setActiveDistrict, setJurisdictionDetails, setIsResolving } = useMapStore();
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -21,22 +20,25 @@ export const useGisWorker = () => {
           setIsReady(true);
           break;
         case 'DISTRICTS_LOADED':
-          setDistricts(payload);
+          // Optional: handle state-wide districts
           break;
         case 'SEARCH_RESULT':
           useMapStore.getState().setSearchResult(payload);
+          break;
+        case 'RESOLUTION_RESULT':
+          setJurisdictionDetails(payload);
+          setIsResolving(false);
           break;
         case 'PDS_LOADED':
           setPdsData(payload.data);
           setActiveDistrict(payload.district);
           break;
         case 'AUTO_TRIGGER_PDS':
-          // Convert "CHENNAI" or similar to Title Case if needed, 
-          // or just pass it through if our filenames match
           workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
           break;
         case 'ERROR':
           console.error('[Worker Error]', payload);
+          setIsResolving(false);
           break;
       }
     };
@@ -56,8 +58,16 @@ export const useGisWorker = () => {
     workerRef.current?.postMessage({ type: 'LOAD_PINCODES' });
   };
 
-  const loadPds = (district: string) => {
-    workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: district });
+  const loadTneb = () => {
+    workerRef.current?.postMessage({ type: 'LOAD_TNEB' });
+  };
+
+  const resolveLocation = (lat: number, lng: number) => {
+    setIsResolving(true);
+    workerRef.current?.postMessage({
+      type: 'RESOLVE_LOCATION',
+      payload: { lat, lng }
+    });
   };
 
   const searchPincode = (query: string) => {
@@ -66,10 +76,10 @@ export const useGisWorker = () => {
 
   return { 
     isReady, 
-    districts, 
     loadDistricts, 
     loadPincodes, 
-    loadPds,
+    loadTneb,
+    resolveLocation,
     searchPincode 
   };
 };
