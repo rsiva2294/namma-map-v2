@@ -22,6 +22,7 @@ interface MapState {
   isResolving: boolean;
   theme: 'dark' | 'light';
   isSidebarOpen: boolean;
+  triggerLocateMe: boolean;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -38,6 +39,7 @@ interface MapState {
   setJurisdictionDetails: (details: any | null, geometry?: any | null) => void;
   setIsResolving: (val: boolean) => void;
   setSidebarOpen: (val: boolean) => void;
+  setTriggerLocateMe: (val: boolean) => void;
   clearSearch: () => void;
   toggleTheme: () => void;
 }
@@ -62,6 +64,7 @@ export const useMapStore = create<MapState>((set) => ({
   isResolving: false,
   theme: 'light',
   isSidebarOpen: true,
+  triggerLocateMe: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ activeLayer: layer }),
@@ -85,6 +88,7 @@ export const useMapStore = create<MapState>((set) => ({
   }),
   setIsResolving: (val) => set({ isResolving: val }),
   setSidebarOpen: (val) => set({ isSidebarOpen: val }),
+  setTriggerLocateMe: (val) => set({ triggerLocateMe: val }),
   clearSearch: () => set({ 
     searchQuery: '', 
     searchSuggestions: [],

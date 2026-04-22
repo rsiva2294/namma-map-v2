@@ -18,7 +18,8 @@ import {
   MapPin,
   Loader2,
   LayoutGrid,
-  ShoppingCart
+  ShoppingCart,
+  Navigation
 } from 'lucide-react';
 import { useMapStore } from './store/useMapStore';
 import ResultCard from './components/ResultCard';
@@ -33,7 +34,8 @@ function App() {
     selectedPdsShop, setSelectedPdsShop, searchResult,
     theme, toggleTheme,
     searchSuggestions, setSearchSuggestions, setSelectedSuggestion,
-    isSidebarOpen, setSidebarOpen
+    isSidebarOpen, setSidebarOpen,
+    setTriggerLocateMe
   } = useMapStore();
 
   useEffect(() => {
@@ -175,6 +177,13 @@ function App() {
               onClick={clearSearch} 
             />
           )}
+          <Navigation 
+            size={18} 
+            color="var(--accent)" 
+            style={{ cursor: 'pointer' }} 
+            onClick={() => setTriggerLocateMe(true)}
+            title="Locate Me"
+          />
           
           {/* Dropdown Suggestions */}
           {searchSuggestions.length > 0 && (

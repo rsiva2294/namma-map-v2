@@ -57,7 +57,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -82,6 +82,28 @@ const GisMap: React.FC = () => {
       setSelectedSuggestion(null); // Clear it after processing
     }
   }, [selectedSuggestion]);
+
+  // Handle Geolocation
+  useEffect(() => {
+    if (triggerLocateMe) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            resolveLocation(position.coords.latitude, position.coords.longitude, activeLayer);
+            setTriggerLocateMe(false);
+          },
+          (error) => {
+            console.error("Error getting location:", error);
+            setTriggerLocateMe(false);
+            alert("Could not retrieve your location. Please check your browser permissions.");
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+        setTriggerLocateMe(false);
+      }
+    }
+  }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe]);
 
    const isAreaSelected = !!searchResult || !!jurisdictionGeometry;
 
