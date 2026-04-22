@@ -57,7 +57,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -68,27 +68,19 @@ const GisMap: React.FC = () => {
     }
   }, [isReady]);
 
-  // Handle Search Trigger (Pincode or Text) - only if not already resolved
+  // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
-    if (searchQuery && searchQuery.length >= 3) {
-      // Check if this query is exactly what we just resolved (to prevent recursive suggestions)
-      const currentResultName = searchResult?.properties.office_name || searchResult?.properties.district || searchResult?.properties.NAME;
-      const currentResultPin = searchResult?.properties.PIN_CODE || searchResult?.properties.pincode;
-      const currentResultTitle = currentResultPin ? `${currentResultPin} - ${currentResultName}` : currentResultName;
-      
-      const currentJurisdictionTitle = jurisdictionDetails?.section_na || jurisdictionDetails?.section_office;
-
-      if (searchQuery !== currentResultTitle && searchQuery !== currentJurisdictionTitle) {
-        getSuggestions(searchQuery, activeLayer);
-      }
-    } else {
+    if (isUserTyping && searchQuery && searchQuery.length >= 3) {
+      getSuggestions(searchQuery, activeLayer);
+    } else if (!isUserTyping || !searchQuery) {
       setSearchSuggestions([]);
     }
-  }, [searchQuery, activeLayer, searchResult, jurisdictionDetails]);
+  }, [searchQuery, activeLayer, isUserTyping]);
 
   // Handle Suggestion Selection
   useEffect(() => {
     if (selectedSuggestion) {
+      setUserTyping(false);
       selectSuggestion(selectedSuggestion, activeLayer);
       setSelectedSuggestion(null); // Clear it after processing
     }

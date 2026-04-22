@@ -14,6 +14,7 @@ const SearchBar: React.FC = () => {
   const searchSuggestions = useMapStore(state => state.searchSuggestions);
   const setSearchSuggestions = useMapStore(state => state.setSearchSuggestions);
   const setSelectedSuggestion = useMapStore(state => state.setSelectedSuggestion);
+  const setUserTyping = useMapStore(state => state.setUserTyping);
 
   return (
     <header className="floating-search-container" role="search">
@@ -22,7 +23,10 @@ const SearchBar: React.FC = () => {
         <input 
           type="text" 
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => {
+            setUserTyping(true);
+            setSearchQuery(e.target.value);
+          }}
           placeholder={
             isLocating ? "Locating you..." :
             activeLayer === 'TNEB' ? "Search Pincodes or Section Names..." : 
@@ -97,6 +101,7 @@ const SearchBar: React.FC = () => {
                   role="option"
                   aria-selected="false"
                   onClick={() => {
+                    setUserTyping(false);
                     setSearchQuery(title);
                     setSelectedSuggestion(suggestion);
                     setSearchSuggestions([]);

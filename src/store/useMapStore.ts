@@ -44,6 +44,8 @@ interface MapState {
   setTriggerLocateMe: (val: boolean) => void;
   clearSearch: () => void;
   toggleTheme: () => void;
+  isUserTyping: boolean;
+  setUserTyping: (isTyping: boolean) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -68,6 +70,7 @@ export const useMapStore = create<MapState>((set) => ({
   theme: 'light',
   isSidebarOpen: true,
   triggerLocateMe: false,
+  isUserTyping: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
@@ -91,6 +94,7 @@ export const useMapStore = create<MapState>((set) => ({
       const name = result.properties.office_name || result.properties.district || result.properties.NAME || '';
       const pin = result.properties.PIN_CODE || result.properties.pincode;
       newState.searchQuery = pin ? `${pin} - ${name}` : name;
+      newState.isUserTyping = false;
     }
 
     return newState;
@@ -107,7 +111,8 @@ export const useMapStore = create<MapState>((set) => ({
   setIsResolving: (val) => set({ isResolving: val }),
   setIsLocating: (val) => set({ isLocating: val }),
   setSidebarOpen: (val) => set({ isSidebarOpen: val }),
-  setTriggerLocateMe: (val) => set({ triggerLocateMe: val }),
+  setTriggerLocateMe: (trigger) => set({ triggerLocateMe: trigger, isUserTyping: false }),
+  setUserTyping: (isTyping) => set({ isUserTyping: isTyping }),
   clearSearch: () => set({ 
     searchQuery: '', 
     searchSuggestions: [],
