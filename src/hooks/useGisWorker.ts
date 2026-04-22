@@ -4,7 +4,7 @@ import { useMapStore } from '../store/useMapStore';
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const { setPdsData, setActiveDistrict, setJurisdictionDetails, setIsResolving, setSearchSuggestions, setSearchResult, setSearchQuery, setDistrictsData, setStateBoundaryData, setSelectedPdsShop } = useMapStore();
+  const { setPdsData, setActiveDistrict, setJurisdictionDetails, setIsResolving, setSearchSuggestions, setSearchResult, setSearchQuery, setDistrictsData, setStateBoundaryData } = useMapStore();
 
   useEffect(() => {
     workerRef.current = new Worker(

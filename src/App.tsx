@@ -189,7 +189,6 @@ function App() {
               color="var(--accent)" 
               style={{ cursor: 'pointer' }} 
               onClick={() => setTriggerLocateMe(true)}
-              title="Locate Me"
             />
           )}
           
