@@ -10,10 +10,12 @@ import {
   Moon, 
   Settings, 
   HelpCircle,
-  LayoutGrid
+  LayoutGrid,
+  type LucideIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMapStore, type ServiceLayer } from '../../store/useMapStore';
+import { useMapStore } from '../../store/useMapStore';
+import type { ServiceLayer } from '../../types/gis';
 
 const Sidebar: React.FC = () => {
   const isSidebarOpen = useMapStore(state => state.isSidebarOpen);
@@ -23,7 +25,7 @@ const Sidebar: React.FC = () => {
   const theme = useMapStore(state => state.theme);
   const toggleTheme = useMapStore(state => state.toggleTheme);
 
-  const menuItems: { id: ServiceLayer; label: string; icon: any }[] = [
+  const menuItems: { id: ServiceLayer; label: string; icon: LucideIcon }[] = [
     { id: 'PINCODE', label: 'Pincode Areas', icon: MapPin },
     { id: 'PDS', label: 'PDS (Ration)', icon: ShoppingCart },
     { id: 'TNEB', label: 'TNEB (Electricity)', icon: Zap },

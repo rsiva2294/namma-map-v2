@@ -4,8 +4,9 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
+import type { GisFeature, PdsShop, Geometry } from '../../types/gis';
 
-const MapController: React.FC<{ result: any; geometry: any }> = ({ result, geometry }) => {
+const MapController: React.FC<{ result: GisFeature | null; geometry: Geometry | null }> = ({ result, geometry }) => {
   const map = useMap();
   const { isSidebarOpen } = useMapStore();
 
@@ -66,7 +67,7 @@ const GisMap: React.FC = () => {
       loadPincodes();
       loadTneb();
     }
-  }, [isReady]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
@@ -75,7 +76,7 @@ const GisMap: React.FC = () => {
     } else if (!isUserTyping || !searchQuery) {
       setSearchSuggestions([]);
     }
-  }, [searchQuery, activeLayer, isUserTyping]);
+  }, [searchQuery, activeLayer, isUserTyping, getSuggestions, setSearchSuggestions]);
 
   // Handle Suggestion Selection
   useEffect(() => {
@@ -84,7 +85,7 @@ const GisMap: React.FC = () => {
       selectSuggestion(selectedSuggestion, activeLayer);
       setSelectedSuggestion(null); // Clear it after processing
     }
-  }, [selectedSuggestion, activeLayer]);
+  }, [selectedSuggestion, activeLayer, selectSuggestion, setSelectedSuggestion, setUserTyping]);
 
   // Handle Geolocation
   useEffect(() => {
@@ -116,10 +117,10 @@ const GisMap: React.FC = () => {
     if (activeLayer === 'PDS' && searchResult) {
       const district = searchResult.properties.district || searchResult.properties.DISTRICT || searchResult.properties.DISTRICT_NAME || searchResult.properties.NAME;
       if (district) {
-        loadPds(district, searchResult.geometry);
+        loadPds(district as string, searchResult.geometry);
       }
     }
-  }, [activeLayer, searchResult]);
+  }, [activeLayer, searchResult, loadPds]);
 
    const isAreaSelected = !!searchResult || !!jurisdictionGeometry;
 
@@ -213,7 +214,7 @@ const GisMap: React.FC = () => {
       {activeLayer === 'TNEB' && jurisdictionGeometry && (
         <>
           <GeoJSON 
-            key={`tneb-${jurisdictionGeometry.type}-${JSON.stringify(jurisdictionGeometry.coordinates[0][0])}`}
+            key={`tneb-${jurisdictionGeometry.type}-${JSON.stringify((jurisdictionGeometry.coordinates as unknown[])[0])}`}
             data={jurisdictionGeometry} 
             style={jurisdictionStyle} 
             interactive={false}
@@ -235,8 +236,8 @@ const GisMap: React.FC = () => {
         </>
       )}
 
-      {activeLayer === 'PDS' && pdsData && pdsData.features.map((f: any, i: number) => {
-        const [lng, lat] = f.geometry.coordinates;
+      {activeLayer === 'PDS' && pdsData && pdsData.features.map((f: GisFeature, i: number) => {
+        const [lng, lat] = f.geometry.coordinates as [number, number];
         return (
           <CircleMarker
             key={`pds-${activeDistrict}-${i}`}
@@ -251,7 +252,7 @@ const GisMap: React.FC = () => {
             }}
             eventHandlers={{
               click: () => {
-                setSelectedPdsShop(f);
+                setSelectedPdsShop(f as PdsShop);
               }
             }}
           >

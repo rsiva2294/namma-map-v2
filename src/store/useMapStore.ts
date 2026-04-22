@@ -1,6 +1,13 @@
 import { create } from 'zustand';
-
-export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB';
+import type { 
+  ServiceLayer, 
+  GisFeature, 
+  GisFeatureCollection, 
+  PdsShop, 
+  PdsProperties,
+  TnebSection, 
+  Geometry 
+} from '../types/gis';
 
 interface MapState {
   view: {
@@ -9,16 +16,16 @@ interface MapState {
   };
   activeLayer: ServiceLayer;
   searchQuery: string;
-  searchSuggestions: any[];
-  selectedSuggestion: any | null;
-  searchResult: any | null; // This is the Pincode highlight
-  districtsData: any | null; // All district boundaries
-  stateBoundaryData: any | null; // State boundary
-  pdsData: any | null;
-  selectedPdsShop: any | null;
+  searchSuggestions: GisFeature[];
+  selectedSuggestion: GisFeature | null;
+  searchResult: GisFeature | null; // This is the Pincode highlight
+  districtsData: GisFeatureCollection | null; // All district boundaries
+  stateBoundaryData: GisFeatureCollection | null; // State boundary
+  pdsData: GisFeatureCollection<Geometry, PdsProperties> | null;
+  selectedPdsShop: PdsShop | null;
   activeDistrict: string | null;
-  jurisdictionDetails: any | null; // This is the TNEB office data
-  jurisdictionGeometry: any | null; // This is the TNEB polygon
+  jurisdictionDetails: TnebSection | null; // This is the TNEB office data
+  jurisdictionGeometry: Geometry | null; // This is the TNEB polygon
   isResolving: boolean;
   isLocating: boolean;
   theme: 'dark' | 'light';
@@ -29,15 +36,15 @@ interface MapState {
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
   setSearchQuery: (query: string) => void;
-  setSearchSuggestions: (suggestions: any[]) => void;
-  setSelectedSuggestion: (suggestion: any | null) => void;
-  setSearchResult: (result: any | null, keepSelection?: boolean, updateQuery?: boolean) => void;
-  setDistrictsData: (data: any | null) => void;
-  setStateBoundaryData: (data: any | null) => void;
-  setPdsData: (data: any | null) => void;
-  setSelectedPdsShop: (shop: any | null) => void;
+  setSearchSuggestions: (suggestions: GisFeature[]) => void;
+  setSelectedSuggestion: (suggestion: GisFeature | null) => void;
+  setSearchResult: (result: GisFeature | null, keepSelection?: boolean, updateQuery?: boolean) => void;
+  setDistrictsData: (data: GisFeatureCollection | null) => void;
+  setStateBoundaryData: (data: GisFeatureCollection | null) => void;
+  setPdsData: (data: GisFeatureCollection<Geometry, PdsProperties> | null) => void;
+  setSelectedPdsShop: (shop: PdsShop | null) => void;
   setActiveDistrict: (district: string | null) => void;
-  setJurisdictionDetails: (details: any | null, geometry?: any | null) => void;
+  setJurisdictionDetails: (details: TnebSection | null, geometry?: Geometry | null) => void;
   setIsResolving: (val: boolean) => void;
   setIsLocating: (val: boolean) => void;
   setSidebarOpen: (val: boolean) => void;
@@ -83,7 +90,7 @@ export const useMapStore = create<MapState>((set) => ({
   setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
   setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion }),
   setSearchResult: (result, keepSelection = false, updateQuery = false) => set((state) => {
-    const newState: any = { 
+    const newState: Partial<MapState> = { 
       searchResult: result,
       jurisdictionDetails: keepSelection ? state.jurisdictionDetails : null,
       jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
@@ -91,8 +98,8 @@ export const useMapStore = create<MapState>((set) => ({
     };
 
     if (updateQuery && result) {
-      const name = result.properties.office_name || result.properties.district || result.properties.NAME || '';
-      const pin = result.properties.PIN_CODE || result.properties.pincode;
+      const name = (result.properties.office_name || result.properties.district || result.properties.NAME || '').toString();
+      const pin = (result.properties.PIN_CODE || result.properties.pincode)?.toString();
       newState.searchQuery = pin ? `${pin} - ${name}` : name;
       newState.isUserTyping = false;
     }
@@ -101,7 +108,7 @@ export const useMapStore = create<MapState>((set) => ({
   }),
   setDistrictsData: (data) => set({ districtsData: data }),
   setStateBoundaryData: (data) => set({ stateBoundaryData: data }),
-  setPdsData: (data) => set({ pdsData: data }),
+  setPdsData: (data: GisFeatureCollection<Geometry, PdsProperties> | null) => set({ pdsData: data }),
   setSelectedPdsShop: (shop) => set({ selectedPdsShop: shop }),
   setActiveDistrict: (district) => set({ activeDistrict: district }),
   setJurisdictionDetails: (details, geometry = null) => set({ 

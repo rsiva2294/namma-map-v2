@@ -79,16 +79,16 @@ const SearchBar: React.FC = () => {
               let Icon = MapPin;
 
               if (suggestion.suggestionType === 'PDS_SHOP') {
-                title = suggestion.properties.shop_code;
+                title = suggestion.properties.shop_code as string;
                 subtitle = `${suggestion.properties.name} - ${suggestion.properties.village}`;
                 Icon = ShoppingBag;
               } else if (suggestion.suggestionType === 'TNEB_SECTION') {
-                title = suggestion.properties.section_na || suggestion.properties.section_office;
+                title = (suggestion.properties.section_na || suggestion.properties.section_office || '') as string;
                 subtitle = `TNEB Section - ${suggestion.properties.circle_nam || ''}`;
                 Icon = Zap;
               } else {
-                const name = suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '';
-                const pin = suggestion.properties.PIN_CODE || suggestion.properties.pincode;
+                const name = (suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '').toString();
+                const pin = (suggestion.properties.PIN_CODE || suggestion.properties.pincode)?.toString();
                 title = pin ? `${pin} - ${name}` : name;
                 subtitle = suggestion.properties.district ? `${suggestion.properties.district} District` : 'Area Boundary';
                 Icon = MapPin;

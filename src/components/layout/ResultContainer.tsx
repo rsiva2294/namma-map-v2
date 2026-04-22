@@ -3,6 +3,7 @@ import { ShoppingBag, Zap, MapPin } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
+import type { Position } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
   const activeLayer = useMapStore(state => state.activeLayer);
@@ -29,7 +30,10 @@ const ResultContainer: React.FC = () => {
             { label: 'District', value: selectedPdsShop.properties.district || 'N/A' }
           ]}
           onClose={() => setSelectedPdsShop(null)}
-          onDirections={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedPdsShop.geometry.coordinates[1]},${selectedPdsShop.geometry.coordinates[0]}`, '_blank')}
+          onDirections={() => {
+            const coords = selectedPdsShop.geometry.coordinates as Position;
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+          }}
         />
       )}
 
@@ -78,7 +82,10 @@ const ResultContainer: React.FC = () => {
             }
           ]}
           onClose={() => setJurisdictionDetails(null, null)}
-          onDirections={jurisdictionDetails.office_location ? () => window.open(`https://www.google.com/maps/dir/?api=1&destination=${jurisdictionDetails.office_location[1]},${jurisdictionDetails.office_location[0]}`, '_blank') : undefined}
+          onDirections={jurisdictionDetails.office_location ? () => {
+            const coords = jurisdictionDetails.office_location as Position;
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+          } : undefined}
         />
       )}
 
@@ -105,10 +112,10 @@ const ResultContainer: React.FC = () => {
           title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Selected Area'}
           icon={<MapPin size={20} />}
           data={[
-            { label: 'Pincode', value: searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A', isPill: true },
+            { label: 'Pincode', value: (searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A').toString(), isPill: true },
             { label: 'District', value: searchResult.properties.district || 'N/A' },
-            { label: 'Office Type', value: searchResult.properties.office_typ || 'N/A' },
-            { label: 'Region', value: searchResult.properties.region_nam || 'N/A' }
+            { label: 'Office Type', value: (searchResult.properties.office_typ as string) || 'N/A' },
+            { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' }
           ]}
           onClose={clearSearch}
         />

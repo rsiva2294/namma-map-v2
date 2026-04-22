@@ -1,10 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useMapStore } from '../store/useMapStore';
+import type { GisFeature, Geometry } from '../types/gis';
 
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const { setPdsData, setActiveDistrict, setJurisdictionDetails, setIsResolving, setSearchSuggestions, setSearchResult, setSearchQuery, setDistrictsData, setStateBoundaryData } = useMapStore();
+  const { 
+    setPdsData, 
+    setActiveDistrict, 
+    setJurisdictionDetails, 
+    setIsResolving, 
+    setSearchSuggestions, 
+    setSearchResult, 
+    setSearchQuery, 
+    setDistrictsData, 
+    setStateBoundaryData 
+  } = useMapStore();
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -71,12 +82,22 @@ export const useGisWorker = () => {
     return () => {
       workerRef.current?.terminate();
     };
-  }, []);
+  }, [
+    setActiveDistrict, 
+    setDistrictsData, 
+    setIsResolving, 
+    setJurisdictionDetails, 
+    setPdsData, 
+    setSearchQuery, 
+    setSearchResult, 
+    setSearchSuggestions, 
+    setStateBoundaryData
+  ]);
 
-  const loadDistricts = () => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' });
-  const loadStateBoundary = () => workerRef.current?.postMessage({ type: 'LOAD_STATE_BOUNDARY' });
-  const loadPincodes = () => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' });
-  const loadTneb = () => workerRef.current?.postMessage({ type: 'LOAD_TNEB' });
+  const loadDistricts = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
+  const loadStateBoundary = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_STATE_BOUNDARY' }), []);
+  const loadPincodes = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' }), []);
+  const loadTneb = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB' }), []);
 
   const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false) => {
     setIsResolving(true);
@@ -87,15 +108,15 @@ export const useGisWorker = () => {
     });
   }, [setSearchResult, setIsResolving]);
 
-  const getSuggestions = (query: string, layer: string) => {
+  const getSuggestions = useCallback((query: string, layer: string) => {
     workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, layer } });
-  };
+  }, []);
 
-  const selectSuggestion = (item: any, activeLayer: string) => {
+  const selectSuggestion = useCallback((item: GisFeature, activeLayer: string) => {
     if (item.suggestionType === 'TNEB_SECTION') {
       const [lng, lat] = item.geometry.type === 'Point' 
-        ? item.geometry.coordinates 
-        : item.properties.office_location || [78.6569, 11.1271]; // Fallback
+        ? (item.geometry.coordinates as [number, number])
+        : (item.properties.office_location as [number, number] || [78.6569, 11.1271]); // Fallback
       resolveLocation(lat, lng, 'TNEB');
     } else {
       // PINCODE or Area
@@ -105,11 +126,11 @@ export const useGisWorker = () => {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
     }
-  };
+  }, [resolveLocation, setSearchResult]);
 
-  const loadPds = (district: string, boundary: any) => {
+  const loadPds = useCallback((district: string, boundary: Geometry) => {
     workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
-  };
+  }, []);
 
   return { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion };
 };

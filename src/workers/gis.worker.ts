@@ -1,20 +1,28 @@
 import * as topojson from 'topojson-client';
 import RBush from 'rbush';
+import type { 
+  GisFeature, 
+  GisFeatureCollection, 
+  Geometry,
+  Position,
+  Polygon,
+  MultiPolygon
+} from '../types/gis';
 
 interface SpatialItem {
   minX: number;
   minY: number;
   maxX: number;
   maxY: number;
-  feature: any;
+  feature: GisFeature;
 }
 
-let districtsGeoJson: any = null;
-let stateBoundaryGeoJson: any = null;
-let pincodesGeoJson: any = null;
-let tnebGeoJson: any = null;
-let tnebOffices: any = null;
-let loadedPds: Map<string, any> = new Map();
+let districtsGeoJson: GisFeatureCollection | null = null;
+let stateBoundaryGeoJson: GisFeatureCollection | null = null;
+let pincodesGeoJson: GisFeatureCollection | null = null;
+let tnebGeoJson: GisFeatureCollection | null = null;
+let tnebOffices: GisFeatureCollection | null = null;
+const loadedPds: Map<string, GisFeatureCollection> = new Map();
 
 async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
   for (let i = 0; i < retries; i++) {
@@ -36,17 +44,17 @@ const pincodesIndex = new RBush<SpatialItem>();
 const tnebIndex = new RBush<SpatialItem>();
 const pdsIndexes = new Map<string, RBush<SpatialItem>>();
 
-function getBBox(geometry: any) {
+function getBBox(geometry: Geometry) {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   
-  const processCoords = (coords: any) => {
-    if (typeof coords[0] === 'number') {
-      const [x, y] = coords;
+  const processCoords = (coords: unknown) => {
+    if (Array.isArray(coords) && typeof coords[0] === 'number') {
+      const [x, y] = coords as [number, number];
       if (x < minX) minX = x;
       if (y < minY) minY = y;
       if (x > maxX) maxX = x;
       if (y > maxY) maxY = y;
-    } else {
+    } else if (Array.isArray(coords)) {
       coords.forEach(processCoords);
     }
   };
@@ -77,8 +85,8 @@ function findFeatureAt(point: [number, number], index: RBush<SpatialItem>) {
   
   return candidates.find(item => {
     const geometry = item.feature.geometry;
-    if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
-    if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
+    if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], (geometry as Polygon).coordinates);
+    if (geometry.type === 'MultiPolygon') return (geometry as MultiPolygon).coordinates.some((poly: Position[][]) => isPointInPolygon([lng, lat], poly));
     return false;
   })?.feature || null;
 }
@@ -97,10 +105,11 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_districts.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          districtsGeoJson = topojson.feature(data, data.objects[objectName]);
+          districtsGeoJson = topojson.feature(data, data.objects[objectName]) as unknown as GisFeatureCollection;
         }
         self.postMessage({ type: 'DISTRICTS_LOADED', payload: districtsGeoJson });
-      } catch (error) {
+      } catch (err) {
+        console.error('[Worker] Error loading districts:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load district data' });
       }
       break;
@@ -111,10 +120,11 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_state_boundary.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          stateBoundaryGeoJson = topojson.feature(data, data.objects[objectName]);
+          stateBoundaryGeoJson = topojson.feature(data, data.objects[objectName]) as unknown as GisFeatureCollection;
         }
         self.postMessage({ type: 'STATE_BOUNDARY_LOADED', payload: stateBoundaryGeoJson });
-      } catch (error) {
+      } catch (err) {
+        console.error('[Worker] Error loading state boundary:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load state boundary data' });
       }
       break;
@@ -129,18 +139,19 @@ self.onmessage = async (e: MessageEvent) => {
           const dataBound = await resBound.json();
           const dataOff = await resOff.json();
           const objectName = Object.keys(dataBound.objects)[0];
-          tnebGeoJson = topojson.feature(dataBound, dataBound.objects[objectName]) as any;
-          tnebOffices = dataOff;
+          tnebGeoJson = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeatureCollection;
+          tnebOffices = dataOff as GisFeatureCollection;
           
           // Indexing
-          const items: SpatialItem[] = tnebGeoJson.features.map((f: any) => ({
+          const items: SpatialItem[] = tnebGeoJson.features.map((f: GisFeature) => ({
             ...getBBox(f.geometry),
             feature: f
           }));
           tnebIndex.load(items);
         }
         self.postMessage({ type: 'TNEB_LOADED' });
-      } catch (error) {
+      } catch (err) {
+        console.error('[Worker] Error loading TNEB:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load TNEB data' });
       }
       break;
@@ -148,14 +159,14 @@ self.onmessage = async (e: MessageEvent) => {
     case 'RESOLVE_LOCATION': {
       const { lat, lng, layer, keepSelection } = payload;
       
-      let found: any = null;
+      let found: GisFeature | null = null;
       if (layer === 'TNEB') {
         found = findFeatureAt([lng, lat], tnebIndex);
         if (found) {
-          const office = tnebOffices?.features.find((o: any) => {
-            const sCoMatch = o.properties.section_co === found.properties.section_co;
-            const cCodMatch = o.properties.circle_cod === found.properties.circle_cod;
-            const rIdMatch = (o.properties.region_id || o.properties.region_cod) === (found.properties.region_cod || found.properties.region_id);
+          const office = tnebOffices?.features.find((o: GisFeature) => {
+            const sCoMatch = o.properties.section_co === found?.properties.section_co;
+            const cCodMatch = o.properties.circle_cod === found?.properties.circle_cod;
+            const rIdMatch = (o.properties.region_id || o.properties.region_cod) === (found?.properties.region_cod || found?.properties.region_id);
             return sCoMatch && cCodMatch && rIdMatch;
           });
 
@@ -196,17 +207,18 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_pincodes.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          pincodesGeoJson = topojson.feature(data, data.objects[objectName]) as any;
+          pincodesGeoJson = topojson.feature(data, data.objects[objectName]) as unknown as GisFeatureCollection;
           
           // Indexing
-          const items: SpatialItem[] = pincodesGeoJson.features.map((f: any) => ({
+          const items: SpatialItem[] = pincodesGeoJson.features.map((f: GisFeature) => ({
             ...getBBox(f.geometry),
             feature: f
           }));
           pincodesIndex.load(items);
         }
         self.postMessage({ type: 'PINCODES_LOADED' });
-      } catch (error) {
+      } catch (err) {
+        console.error('[Worker] Error loading pincodes:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load pincode data' });
       }
       break;
@@ -219,27 +231,27 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
 
-      let suggestions: any[] = [];
+      let suggestions: GisFeature[] = [];
 
       if (layer === 'PINCODE' || layer === 'PDS') {
         if (pincodesGeoJson) {
-          suggestions = pincodesGeoJson.features.filter((f: any) => {
+          suggestions = pincodesGeoJson.features.filter((f: GisFeature) => {
             const pin = f.properties.PIN_CODE || f.properties.pincode || '';
-            const searchStr = (f.properties.search_string || f.properties.office_name || '').toLowerCase();
+            const searchStr = (f.properties.search_string as string || f.properties.office_name as string || '').toLowerCase();
             return pin.toString().startsWith(q) || searchStr.includes(q);
-          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
+          }).slice(0, 5).map((s: GisFeature) => ({ ...s, suggestionType: 'PINCODE' }));
         }
       } else if (layer === 'TNEB') {
         if (!isNaN(Number(q)) && pincodesGeoJson) {
-          suggestions = pincodesGeoJson.features.filter((f: any) => {
+          suggestions = pincodesGeoJson.features.filter((f: GisFeature) => {
             const pin = f.properties.PIN_CODE || f.properties.pincode || '';
             return pin.toString().startsWith(q);
-          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
+          }).slice(0, 5).map((s: GisFeature) => ({ ...s, suggestionType: 'PINCODE' }));
         } else if (tnebOffices) {
-          suggestions = tnebOffices.features.filter((f: any) => {
-            const name = (f.properties.section_na || f.properties.section_office || '').toLowerCase();
+          suggestions = tnebOffices.features.filter((f: GisFeature) => {
+            const name = (f.properties.section_na as string || f.properties.section_office as string || '').toLowerCase();
             return name.includes(q);
-          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'TNEB_SECTION' }));
+          }).slice(0, 5).map((s: GisFeature) => ({ ...s, suggestionType: 'TNEB_SECTION' }));
         }
       }
 
@@ -250,7 +262,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_PDS': {
       const { district: districtName, boundary } = payload;
 
-      const processAndSendPds = (data: any) => {
+      const processAndSendPds = (data: GisFeatureCollection) => {
         let filteredFeatures = data.features;
         if (boundary) {
           // Use R-tree for filtering PDS shops within boundary
@@ -260,11 +272,11 @@ self.onmessage = async (e: MessageEvent) => {
             const candidates = districtIndex.search(bbox);
             
             filteredFeatures = candidates.filter(item => {
-              const point = item.feature.geometry.coordinates;
+              const point = item.feature.geometry.coordinates as Position;
               if (boundary.type === 'Polygon') {
-                return isPointInPolygon(point, boundary.coordinates);
+                return isPointInPolygon(point, (boundary as Polygon).coordinates);
               } else if (boundary.type === 'MultiPolygon') {
-                return boundary.coordinates.some((poly: any) => isPointInPolygon(point, poly));
+                return (boundary as MultiPolygon).coordinates.some((poly: Position[][]) => isPointInPolygon(point, poly));
               }
               return false;
             }).map(item => item.feature);
@@ -274,17 +286,17 @@ self.onmessage = async (e: MessageEvent) => {
       };
 
       if (loadedPds.has(districtName)) {
-        processAndSendPds(loadedPds.get(districtName));
+        processAndSendPds(loadedPds.get(districtName)!);
         return;
       }
       try {
         const response = await fetchWithRetry(`/data/pds/${districtName}.json`);
-        const data = await response.json();
+        const data = await response.json() as GisFeatureCollection;
         
         // Build R-tree for this district
         const districtIndex = new RBush<SpatialItem>();
-        const items: SpatialItem[] = data.features.map((f: any) => {
-          const [lng, lat] = f.geometry.coordinates;
+        const items: SpatialItem[] = data.features.map((f: GisFeature) => {
+          const [lng, lat] = f.geometry.coordinates as Position;
           return {
             minX: lng, minY: lat, maxX: lng, maxY: lat,
             feature: f
@@ -295,8 +307,8 @@ self.onmessage = async (e: MessageEvent) => {
         
         loadedPds.set(districtName, data);
         processAndSendPds(data);
-      } catch (error) {
-        console.error(`[Worker] Failed to load PDS for ${districtName}:`, error);
+      } catch (err) {
+        console.error(`[Worker] Failed to load PDS for ${districtName}:`, err);
       }
       break;
     }
