@@ -303,7 +303,7 @@ body, html, #root {
   padding: 10px 0;
   list-style: none;
   margin: 0;
-  maxHeight: 300px;
+  max-height: 300px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
