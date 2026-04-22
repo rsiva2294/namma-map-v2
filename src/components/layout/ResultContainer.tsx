@@ -53,18 +53,18 @@ const ResultContainer: React.FC = () => {
         <ResultCard
           key="tneb-detail"
           themeColor="orange"
-          title={jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'}
+          title={`${jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'} (${jurisdictionDetails.section_co})`}
           icon={<Zap size={20} />}
           data={[
             { 
               label: 'Sub-Division', 
               value: jurisdictionDetails.subdivisio || jurisdictionDetails.sub_division || 'N/A',
-              subValue: jurisdictionDetails.sub_div_co?.toString()
+              subValue: jurisdictionDetails.subdivis_1?.toString() || jurisdictionDetails.sub_div_co?.toString()
             },
             { 
               label: 'Division', 
               value: jurisdictionDetails.division_n || jurisdictionDetails.division || 'N/A',
-              subValue: jurisdictionDetails.div_cod?.toString()
+              subValue: jurisdictionDetails.division_c?.toString() || jurisdictionDetails.div_cod?.toString()
             },
             { 
               label: 'Circle', 
