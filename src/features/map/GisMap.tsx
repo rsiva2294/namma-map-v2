@@ -31,7 +31,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number) => void; activ
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadPincodes, loadTneb, resolveLocation, searchPincode } = useGisWorker();
+  const { isReady, loadDistricts, loadPincodes, loadTneb, resolveLocation, executeSearch } = useGisWorker();
   const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionGeometry } = useMapStore();
 
   useEffect(() => {
@@ -42,9 +42,10 @@ const GisMap: React.FC = () => {
     }
   }, [isReady]);
 
+  // Handle Search Trigger (Pincode or Text)
   useEffect(() => {
-    if (searchQuery && searchQuery.length >= 6) {
-      searchPincode(searchQuery);
+    if (searchQuery && searchQuery.length >= 3) {
+      executeSearch(searchQuery);
     }
   }, [searchQuery]);
 
@@ -52,7 +53,7 @@ const GisMap: React.FC = () => {
     fillColor: 'transparent',
     weight: 2.5,
     opacity: 0.9,
-    color: 'white', // White outline for pincode search
+    color: 'white',
     fillOpacity: 0.05
   };
 
@@ -80,25 +81,22 @@ const GisMap: React.FC = () => {
       
       <MapEvents onResolve={resolveLocation} activeLayer={activeLayer} />
       
-      {/* Pincode Search Highlight */}
       {searchResult && (
         <GeoJSON 
-          key={`pin-${searchQuery}`}
+          key={`search-${searchQuery}-${searchResult.properties.PIN_CODE || searchResult.properties.NAME}`}
           data={searchResult} 
           style={pincodeStyle} 
         />
       )}
 
-      {/* TNEB Jurisdiction Boundary */}
       {activeLayer === 'TNEB' && jurisdictionGeometry && (
         <GeoJSON 
-          key={`tneb-${JSON.stringify(jurisdictionGeometry.type)}`}
+          key={`tneb-${jurisdictionGeometry.type}-${JSON.stringify(jurisdictionGeometry.coordinates[0][0])}`}
           data={jurisdictionGeometry} 
           style={jurisdictionStyle} 
         />
       )}
 
-      {/* PDS Points Layer - Only show when PDS layer is active */}
       {activeLayer === 'PDS' && pdsData && pdsData.features.map((f: any, i: number) => {
         const [lng, lat] = f.geometry.coordinates;
         return (

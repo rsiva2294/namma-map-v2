@@ -63,9 +63,9 @@ export const useGisWorker = () => {
     });
   };
 
-  const searchPincode = (query: string) => {
-    workerRef.current?.postMessage({ type: 'SEARCH_PINCODE', payload: query });
+  const executeSearch = (query: string) => {
+    workerRef.current?.postMessage({ type: 'SEARCH_QUERY', payload: query });
   };
 
-  return { isReady, loadDistricts, loadPincodes, loadTneb, resolveLocation, searchPincode };
+  return { isReady, loadDistricts, loadPincodes, loadTneb, resolveLocation, executeSearch };
 };

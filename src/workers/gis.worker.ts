@@ -8,16 +8,13 @@ let loadedPds: Map<string, any> = new Map();
 function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
   const x = point[0], y = point[1];
   let inside = false;
-  
   for (let i = 0; i < vs.length; i++) {
     const ring = vs[i];
     if (!ring || ring.length < 3) continue;
     for (let j = 0, k = ring.length - 1; j < ring.length; k = j++) {
       const xi = ring[j][0], yi = ring[j][1];
       const xj = ring[k][0], yj = ring[k][1];
-      
-      const intersect = ((yi > y) !== (yj > y))
-          && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      const intersect = ((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
       if (intersect) inside = !inside;
     }
   }
@@ -53,7 +50,6 @@ self.onmessage = async (e: MessageEvent) => {
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
           tnebGeoJson = topojson.feature(data, data.objects[objectName]);
-          console.log('[Worker] TNEB Loaded:', tnebGeoJson.features.length, 'features');
         }
         self.postMessage({ type: 'TNEB_LOADED' });
       } catch (error) {
@@ -63,32 +59,14 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'RESOLVE_LOCATION':
       const { lat, lng } = payload;
-      if (!tnebGeoJson) {
-        self.postMessage({ type: 'ERROR', payload: 'TNEB data not loaded' });
-        return;
-      }
-
+      if (!tnebGeoJson) return;
       const found = tnebGeoJson.features.find((f: any) => {
         const geometry = f.geometry;
-        if (geometry.type === 'Polygon') {
-          return isPointInPolygon([lng, lat], geometry.coordinates);
-        } else if (geometry.type === 'MultiPolygon') {
-          return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
-        }
+        if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
+        if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
         return false;
       });
-
-      if (found) {
-        self.postMessage({ 
-          type: 'RESOLUTION_RESULT', 
-          payload: { 
-            properties: found.properties,
-            geometry: found.geometry 
-          } 
-        });
-      } else {
-        self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
-      }
+      self.postMessage({ type: 'RESOLUTION_RESULT', payload: found ? { properties: found.properties, geometry: found.geometry } : null });
       break;
 
     case 'LOAD_PINCODES':
@@ -105,17 +83,35 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
-    case 'SEARCH_PINCODE':
-      if (!pincodesGeoJson) return;
-      const query = payload.toLowerCase();
-      const result = pincodesGeoJson.features.find((f: any) => {
-        const pin = f.properties.PIN_CODE || f.properties.pincode;
-        return pin && pin.toString() === query;
+    case 'SEARCH_QUERY':
+      const query = payload.toLowerCase().trim();
+      if (!query) return;
+
+      // 1. Check Pincodes (Numeric)
+      if (!isNaN(Number(query)) && query.length >= 4) {
+        const result = pincodesGeoJson?.features.find((f: any) => {
+          const pin = f.properties.PIN_CODE || f.properties.pincode;
+          return pin && pin.toString() === query;
+        });
+        if (result) {
+          self.postMessage({ type: 'SEARCH_RESULT', payload: result });
+          const district = result.properties.district || result.properties.DISTRICT;
+          if (district) self.postMessage({ type: 'AUTO_TRIGGER_PDS', payload: district });
+          return;
+        }
+      }
+
+      // 2. Check Districts (Text)
+      const districtResult = districtsGeoJson?.features.find((f: any) => {
+        const name = (f.properties.district || f.properties.DISTRICT_NAME || f.properties.NAME || '').toLowerCase();
+        return name && (name === query || name.includes(query));
       });
-      if (result) {
-        self.postMessage({ type: 'SEARCH_RESULT', payload: result });
-        const district = result.properties.district || result.properties.DISTRICT;
-        if (district) self.postMessage({ type: 'AUTO_TRIGGER_PDS', payload: district });
+
+      if (districtResult) {
+        self.postMessage({ type: 'SEARCH_RESULT', payload: districtResult });
+        // Trigger PDS for this district if in PDS mode
+        const name = districtResult.properties.district || districtResult.properties.DISTRICT_NAME || districtResult.properties.NAME;
+        self.postMessage({ type: 'AUTO_TRIGGER_PDS', payload: name });
       } else {
         self.postMessage({ type: 'SEARCH_RESULT', payload: null });
       }
