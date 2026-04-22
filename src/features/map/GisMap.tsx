@@ -57,7 +57,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -68,12 +68,23 @@ const GisMap: React.FC = () => {
     }
   }, [isReady]);
 
-  // Handle Search Trigger (Pincode or Text)
+  // Handle Search Trigger (Pincode or Text) - only if not already resolved
   useEffect(() => {
     if (searchQuery && searchQuery.length >= 3) {
-      getSuggestions(searchQuery, activeLayer);
+      // Check if this query is exactly what we just resolved (to prevent recursive suggestions)
+      const currentResultName = searchResult?.properties.office_name || searchResult?.properties.district || searchResult?.properties.NAME;
+      const currentResultPin = searchResult?.properties.PIN_CODE || searchResult?.properties.pincode;
+      const currentResultTitle = currentResultPin ? `${currentResultPin} - ${currentResultName}` : currentResultName;
+      
+      const currentJurisdictionTitle = jurisdictionDetails?.section_na || jurisdictionDetails?.section_office;
+
+      if (searchQuery !== currentResultTitle && searchQuery !== currentJurisdictionTitle) {
+        getSuggestions(searchQuery, activeLayer);
+      }
+    } else {
+      setSearchSuggestions([]);
     }
-  }, [searchQuery, activeLayer]);
+  }, [searchQuery, activeLayer, searchResult, jurisdictionDetails]);
 
   // Handle Suggestion Selection
   useEffect(() => {

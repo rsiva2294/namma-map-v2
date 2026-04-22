@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { AlertTriangle, RefreshCcw } from 'lucide-react';
 
 interface Props {
@@ -38,7 +38,7 @@ class ErrorBoundary extends Component<Props, State> {
             <AlertTriangle size={48} color="var(--danger)" />
             <h2>Something went wrong</h2>
             <p>The map engine encountered an unexpected error.</p>
-            <button 
+            <button
               onClick={this.handleReset}
               className="error-reset-btn"
             >
