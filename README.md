@@ -1,73 +1,34 @@
-# React + TypeScript + Vite
+# 🗺️ NammaMap V2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NammaMap** is a high-performance, context-aware GIS portal designed to help citizens of Tamil Nadu find their relevant administrative and utility jurisdictions with precision.
 
-Currently, two official plugins are available:
+[![Deploy to Firebase](https://img.shields.io/badge/Deploy-Firebase-orange?style=flat-square&logo=firebase)](https://namma-map.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
+Visit the live application: [**https://namma-map.web.app**](https://namma-map.web.app)
 
-## React Compiler
+## ✨ Features
+*   **Three Integrated Layers**: PINCODE, PDS (Ration Shops), and TNEB (Electricity).
+*   **Off-Thread GIS Resolution**: Lightning-fast spatial queries powered by Web Workers.
+*   **Lazy Loading Architecture**: Loads data dynamically to ensure minimal initial load time.
+*   **Locate Me**: One-tap geolocation with automatic boundary resolution.
+*   **Modern UI**: Glassmorphism design with responsive support for mobile and desktop.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📖 Documentation
+*   [**User Guide**](./docs/user_guide.md): Features, tips, and how to use the map.
+*   [**Developer Guide**](./docs/developer_guide.md): Architecture, tech stack, and development setup.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+*   **React + Vite**
+*   **Leaflet** (Map Engine)
+*   **Zustand** (State Management)
+*   **TopoJSON** (Compressed Spatial Data)
+*   **Web Workers** (Background Processing)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🏗️ Getting Started
+1. Clone the repo: `git clone https://github.com/rsiva2294/namma-map-v2.git`
+2. Install deps: `npm install`
+3. Run dev: `npm run dev`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+Developed with ❤️ for Tamil Nadu.
