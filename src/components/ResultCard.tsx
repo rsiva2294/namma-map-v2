@@ -6,7 +6,7 @@ export interface ResultCardProps {
   title: string;
   icon?: React.ReactNode;
   themeColor: 'blue' | 'red' | 'orange';
-  data: { label: string; value: string; isPill?: boolean }[];
+  data: { label: string; value: string; subValue?: string; isPill?: boolean }[];
   onClose: () => void;
   onDirections?: () => void;
 }
@@ -68,16 +68,23 @@ const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, 
           <div key={idx} className="result-card-row">
             <span className="result-card-label">{row.label}</span>
             <div className="result-card-value-group">
-              {row.isPill ? (
-                <span
-                  className="result-card-pill"
-                  style={{ backgroundColor: colors.bg, color: colors.text }}
-                >
-                  {row.value}
-                </span>
-              ) : (
-                <span className="result-card-value" title={row.value}>{row.value}</span>
-              )}
+              <div className="result-card-value-stack">
+                <div className="result-card-value-row">
+                  {row.isPill ? (
+                    <span
+                      className="result-card-pill"
+                      style={{ backgroundColor: colors.bg, color: colors.text }}
+                    >
+                      {row.value}
+                    </span>
+                  ) : (
+                    <span className="result-card-value" title={row.value}>{row.value}</span>
+                  )}
+                  {row.subValue && (
+                    <span className="result-card-subvalue">({row.subValue})</span>
+                  )}
+                </div>
+              </div>
               {row.isPill && (
                 <button
                   onClick={() => handleCopy(row.value)}

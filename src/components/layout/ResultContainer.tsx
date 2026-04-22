@@ -56,10 +56,26 @@ const ResultContainer: React.FC = () => {
           title={jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'}
           icon={<Zap size={20} />}
           data={[
-            { label: 'Sub-Division', value: jurisdictionDetails.subdivisio || jurisdictionDetails.sub_division || 'N/A' },
-            { label: 'Division', value: jurisdictionDetails.division_n || jurisdictionDetails.division || 'N/A' },
-            { label: 'Circle', value: jurisdictionDetails.circle_nam || jurisdictionDetails.circle || 'N/A' },
-            { label: 'Region', value: jurisdictionDetails.region_nam || jurisdictionDetails.region || 'N/A' }
+            { 
+              label: 'Sub-Division', 
+              value: jurisdictionDetails.subdivisio || jurisdictionDetails.sub_division || 'N/A',
+              subValue: jurisdictionDetails.sub_div_co?.toString()
+            },
+            { 
+              label: 'Division', 
+              value: jurisdictionDetails.division_n || jurisdictionDetails.division || 'N/A',
+              subValue: jurisdictionDetails.div_cod?.toString()
+            },
+            { 
+              label: 'Circle', 
+              value: jurisdictionDetails.circle_nam || jurisdictionDetails.circle || 'N/A',
+              subValue: jurisdictionDetails.circle_cod?.toString()
+            },
+            { 
+              label: 'Region', 
+              value: jurisdictionDetails.region_nam || jurisdictionDetails.region || 'N/A',
+              subValue: (jurisdictionDetails.region_id || jurisdictionDetails.region_cod)?.toString()
+            }
           ]}
           onClose={() => setJurisdictionDetails(null, null)}
           onDirections={jurisdictionDetails.office_location ? () => window.open(`https://www.google.com/maps/dir/?api=1&destination=${jurisdictionDetails.office_location[1]},${jurisdictionDetails.office_location[0]}`, '_blank') : undefined}

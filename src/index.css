@@ -440,12 +440,32 @@ body, html, #root {
   text-overflow: ellipsis;
 }
 
+.result-card-value-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.result-card-value-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.result-card-subvalue {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  opacity: 0.8;
+}
+
 .result-card-pill {
   padding: 4px 10px;
   border-radius: 16px;
   font-weight: 700;
   font-size: 12px;
 }
+
 
 .copy-button {
   background: none;
