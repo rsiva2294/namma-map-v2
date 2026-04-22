@@ -14,6 +14,7 @@
     "idb": "^8.0.3",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.8.0",
+    "rbush": "^4.0.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-leaflet": "^5.0.0",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/node": "^24.12.2",
+    "@types/rbush": "^4.0.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/topojson-client": "^3.1.5",

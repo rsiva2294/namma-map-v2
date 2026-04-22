@@ -31,7 +31,7 @@ interface MapState {
   setSearchQuery: (query: string) => void;
   setSearchSuggestions: (suggestions: any[]) => void;
   setSelectedSuggestion: (suggestion: any | null) => void;
-  setSearchResult: (result: any | null, keepSelection?: boolean) => void;
+  setSearchResult: (result: any | null, keepSelection?: boolean, updateQuery?: boolean) => void;
   setDistrictsData: (data: any | null) => void;
   setStateBoundaryData: (data: any | null) => void;
   setPdsData: (data: any | null) => void;
@@ -79,12 +79,22 @@ export const useMapStore = create<MapState>((set) => ({
   setSearchQuery: (query) => set({ searchQuery: query }),
   setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
   setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion }),
-  setSearchResult: (result, keepSelection = false) => set((state) => ({ 
-    searchResult: result,
-    jurisdictionDetails: keepSelection ? state.jurisdictionDetails : null,
-    jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
-    selectedPdsShop: keepSelection ? state.selectedPdsShop : null
-  })),
+  setSearchResult: (result, keepSelection = false, updateQuery = false) => set((state) => {
+    const newState: any = { 
+      searchResult: result,
+      jurisdictionDetails: keepSelection ? state.jurisdictionDetails : null,
+      jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
+      selectedPdsShop: keepSelection ? state.selectedPdsShop : null
+    };
+
+    if (updateQuery && result) {
+      const name = result.properties.office_name || result.properties.district || result.properties.NAME || '';
+      const pin = result.properties.PIN_CODE || result.properties.pincode;
+      newState.searchQuery = pin ? `${pin} - ${name}` : name;
+    }
+
+    return newState;
+  }),
   setDistrictsData: (data) => set({ districtsData: data }),
   setStateBoundaryData: (data) => set({ stateBoundaryData: data }),
   setPdsData: (data) => set({ pdsData: data }),

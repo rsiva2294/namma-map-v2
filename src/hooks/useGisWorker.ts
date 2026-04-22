@@ -34,9 +34,10 @@ export const useGisWorker = () => {
             if (payload.layer === 'TNEB') {
               setSearchResult(null, keepSelection);
               setJurisdictionDetails(payload.properties, payload.geometry);
-              setSearchQuery('');
+              const sectionName = payload.properties.section_na || payload.properties.section_office || '';
+              setSearchQuery(sectionName);
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS') {
-              setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection);
+              setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
               if (payload.layer === 'PDS') {
                 const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME;

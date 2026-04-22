@@ -1,4 +1,13 @@
 import * as topojson from 'topojson-client';
+import RBush from 'rbush';
+
+interface SpatialItem {
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
+  feature: any;
+}
 
 let districtsGeoJson: any = null;
 let stateBoundaryGeoJson: any = null;
@@ -6,6 +15,30 @@ let pincodesGeoJson: any = null;
 let tnebGeoJson: any = null;
 let tnebOffices: any = null;
 let loadedPds: Map<string, any> = new Map();
+
+// R-trees for spatial indexing
+const pincodesIndex = new RBush<SpatialItem>();
+const tnebIndex = new RBush<SpatialItem>();
+const pdsIndexes = new Map<string, RBush<SpatialItem>>();
+
+function getBBox(geometry: any) {
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  
+  const processCoords = (coords: any) => {
+    if (typeof coords[0] === 'number') {
+      const [x, y] = coords;
+      if (x < minX) minX = x;
+      if (y < minY) minY = y;
+      if (x > maxX) maxX = x;
+      if (y > maxY) maxY = y;
+    } else {
+      coords.forEach(processCoords);
+    }
+  };
+
+  processCoords(geometry.coordinates);
+  return { minX, minY, maxX, maxY };
+}
 
 function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
   const x = point[0], y = point[1];
@@ -21,6 +54,18 @@ function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
     }
   }
   return inside;
+}
+
+function findFeatureAt(point: [number, number], index: RBush<SpatialItem>) {
+  const [lng, lat] = point;
+  const candidates = index.search({ minX: lng, minY: lat, maxX: lng, maxY: lat });
+  
+  return candidates.find(item => {
+    const geometry = item.feature.geometry;
+    if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
+    if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
+    return false;
+  })?.feature || null;
 }
 
 self.onmessage = async (e: MessageEvent) => {
@@ -69,8 +114,15 @@ self.onmessage = async (e: MessageEvent) => {
           const dataBound = await resBound.json();
           const dataOff = await resOff.json();
           const objectName = Object.keys(dataBound.objects)[0];
-          tnebGeoJson = topojson.feature(dataBound, dataBound.objects[objectName]);
+          tnebGeoJson = topojson.feature(dataBound, dataBound.objects[objectName]) as any;
           tnebOffices = dataOff;
+          
+          // Indexing
+          const items: SpatialItem[] = tnebGeoJson.features.map((f: any) => ({
+            ...getBBox(f.geometry),
+            feature: f
+          }));
+          tnebIndex.load(items);
         }
         self.postMessage({ type: 'TNEB_LOADED' });
       } catch (error) {
@@ -81,15 +133,9 @@ self.onmessage = async (e: MessageEvent) => {
     case 'RESOLVE_LOCATION': {
       const { lat, lng, layer, keepSelection } = payload;
       
+      let found: any = null;
       if (layer === 'TNEB') {
-        if (!tnebGeoJson) return;
-        const found = tnebGeoJson.features.find((f: any) => {
-          const geometry = f.geometry;
-          if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
-          if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
-          return false;
-        });
-
+        found = findFeatureAt([lng, lat], tnebIndex);
         if (found) {
           const office = tnebOffices?.features.find((o: any) => {
             const sCoMatch = o.properties.section_co === found.properties.section_co;
@@ -107,18 +153,9 @@ self.onmessage = async (e: MessageEvent) => {
               keepSelection
             } 
           });
-        } else {
-          self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
         }
       } else if (layer === 'PINCODE' || layer === 'PDS') {
-        if (!pincodesGeoJson) return;
-        const found = pincodesGeoJson.features.find((f: any) => {
-          const geometry = f.geometry;
-          if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], geometry.coordinates);
-          if (geometry.type === 'MultiPolygon') return geometry.coordinates.some((poly: any) => isPointInPolygon([lng, lat], poly));
-          return false;
-        });
-
+        found = findFeatureAt([lng, lat], pincodesIndex);
         if (found) {
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
@@ -129,9 +166,11 @@ self.onmessage = async (e: MessageEvent) => {
               keepSelection
             } 
           });
-        } else {
-          self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
         }
+      }
+
+      if (!found) {
+        self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
       }
       break;
     }
@@ -142,14 +181,19 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetch('/data/tn_pincodes.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          pincodesGeoJson = topojson.feature(data, data.objects[objectName]);
+          pincodesGeoJson = topojson.feature(data, data.objects[objectName]) as any;
+          
+          // Indexing
+          const items: SpatialItem[] = pincodesGeoJson.features.map((f: any) => ({
+            ...getBBox(f.geometry),
+            feature: f
+          }));
+          pincodesIndex.load(items);
         }
         self.postMessage({ type: 'PINCODES_LOADED' });
       } catch (error) {
         self.postMessage({ type: 'ERROR', payload: 'Failed to load pincode data' });
       }
-      break;
-
       break;
 
     case 'GET_SUGGESTIONS': {
@@ -162,8 +206,7 @@ self.onmessage = async (e: MessageEvent) => {
 
       let suggestions: any[] = [];
 
-      // 1. PINCODE LAYER
-      if (layer === 'PINCODE') {
+      if (layer === 'PINCODE' || layer === 'PDS') {
         if (pincodesGeoJson) {
           suggestions = pincodesGeoJson.features.filter((f: any) => {
             const pin = f.properties.PIN_CODE || f.properties.pincode || '';
@@ -171,19 +214,7 @@ self.onmessage = async (e: MessageEvent) => {
             return pin.toString().startsWith(q) || searchStr.includes(q);
           }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
         }
-      } 
-      // 2. PDS LAYER (Same as Pincode Area search)
-      else if (layer === 'PDS') {
-        if (pincodesGeoJson) {
-          suggestions = pincodesGeoJson.features.filter((f: any) => {
-            const pin = f.properties.PIN_CODE || f.properties.pincode || '';
-            const searchStr = (f.properties.search_string || f.properties.office_name || '').toLowerCase();
-            return pin.toString().startsWith(q) || searchStr.includes(q);
-          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
-        }
-      }
-      // 3. TNEB LAYER
-      else if (layer === 'TNEB') {
+      } else if (layer === 'TNEB') {
         if (!isNaN(Number(q)) && pincodesGeoJson) {
           suggestions = pincodesGeoJson.features.filter((f: any) => {
             const pin = f.properties.PIN_CODE || f.properties.pincode || '';
@@ -207,15 +238,22 @@ self.onmessage = async (e: MessageEvent) => {
       const processAndSendPds = (data: any) => {
         let filteredFeatures = data.features;
         if (boundary) {
-          filteredFeatures = data.features.filter((f: any) => {
-            const point = f.geometry.coordinates; // [lng, lat]
-            if (boundary.type === 'Polygon') {
-              return isPointInPolygon(point, boundary.coordinates);
-            } else if (boundary.type === 'MultiPolygon') {
-              return boundary.coordinates.some((poly: any) => isPointInPolygon(point, poly));
-            }
-            return false;
-          });
+          // Use R-tree for filtering PDS shops within boundary
+          const districtIndex = pdsIndexes.get(districtName);
+          if (districtIndex) {
+            const bbox = getBBox(boundary);
+            const candidates = districtIndex.search(bbox);
+            
+            filteredFeatures = candidates.filter(item => {
+              const point = item.feature.geometry.coordinates;
+              if (boundary.type === 'Polygon') {
+                return isPointInPolygon(point, boundary.coordinates);
+              } else if (boundary.type === 'MultiPolygon') {
+                return boundary.coordinates.some((poly: any) => isPointInPolygon(point, poly));
+              }
+              return false;
+            }).map(item => item.feature);
+          }
         }
         self.postMessage({ type: 'PDS_LOADED', payload: { district: districtName, data: { ...data, features: filteredFeatures } } });
       };
@@ -227,6 +265,19 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         const response = await fetch(`/data/pds/${districtName}.json`);
         const data = await response.json();
+        
+        // Build R-tree for this district
+        const districtIndex = new RBush<SpatialItem>();
+        const items: SpatialItem[] = data.features.map((f: any) => {
+          const [lng, lat] = f.geometry.coordinates;
+          return {
+            minX: lng, minY: lat, maxX: lng, maxY: lat,
+            feature: f
+          };
+        });
+        districtIndex.load(items);
+        pdsIndexes.set(districtName, districtIndex);
+        
         loadedPds.set(districtName, data);
         processAndSendPds(data);
       } catch (error) {
