@@ -1,12 +1,17 @@
 import React, { Suspense } from 'react';
 import './index.css';
-import { Search, Map as MapIcon, X, Loader2, Phone, MapPin } from 'lucide-react';
+import { Search, Map as MapIcon, X, Loader2, Phone, MapPin, Zap, ShoppingCart } from 'lucide-react';
 import { useMapStore } from './store/useMapStore';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
 function App() {
-  const { searchQuery, setSearchQuery, clearSearch, jurisdictionDetails, isResolving } = useMapStore();
+  const { 
+    searchQuery, setSearchQuery, clearSearch, 
+    jurisdictionDetails, isResolving, 
+    activeLayer, setActiveLayer,
+    pdsData
+  } = useMapStore();
 
   return (
     <div className="app-container" style={{ width: '100vw', height: '100vh', position: 'relative' }}>
@@ -36,7 +41,7 @@ function App() {
           type="text" 
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search by Pincode..." 
+          placeholder={activeLayer === 'TNEB' ? "Search Pincode..." : "Search Pincode to load PDS..."} 
           style={{
             background: 'none',
             border: 'none',
@@ -60,6 +65,51 @@ function App() {
         <MapIcon size={20} color="var(--accent)" style={{ cursor: 'pointer' }} />
       </header>
 
+      {/* Layer Toggle Actions */}
+      <nav 
+        className="glass"
+        style={{
+          position: 'absolute',
+          right: '20px',
+          top: '100px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+          padding: '10px',
+          borderRadius: '12px',
+          zIndex: 1000
+        }}
+      >
+        <button 
+          onClick={() => setActiveLayer('TNEB')}
+          style={{
+            background: activeLayer === 'TNEB' ? 'var(--accent)' : 'transparent',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '10px',
+            cursor: 'pointer',
+            transition: 'all 0.3s'
+          }}
+          title="TNEB Jurisdiction"
+        >
+          <Zap size={22} color={activeLayer === 'TNEB' ? 'white' : 'var(--text-secondary)'} />
+        </button>
+        <button 
+          onClick={() => setActiveLayer('PDS')}
+          style={{
+            background: activeLayer === 'PDS' ? '#22c55e' : 'transparent',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '10px',
+            cursor: 'pointer',
+            transition: 'all 0.3s'
+          }}
+          title="PDS Ration Shops"
+        >
+          <ShoppingCart size={22} color={activeLayer === 'PDS' ? 'white' : 'var(--text-secondary)'} />
+        </button>
+      </nav>
+
       {/* Bottom Info Sheet */}
       <footer 
         className="glass-heavy"
@@ -79,35 +129,43 @@ function App() {
           transition: 'all 0.3s ease'
         }}
       >
-        {!jurisdictionDetails ? (
-          <div style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
-            {isResolving ? 'Pinpointing jurisdiction...' : 'Click anywhere on the map to find your TNEB Section Office'}
-          </div>
+        {activeLayer === 'TNEB' ? (
+          !jurisdictionDetails ? (
+            <div style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
+              {isResolving ? 'Locating Section Office...' : 'Click on the map to find your TNEB Section'}
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h2 style={{ fontSize: '18px', color: 'var(--accent)', fontWeight: '600' }}>
+                  {jurisdictionDetails.section_office || 'TNEB Section'}
+                </h2>
+                <span style={{ fontSize: '12px', background: 'var(--border-glass)', padding: '4px 8px', borderRadius: '12px' }}>
+                  {jurisdictionDetails.district}
+                </span>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                  <Phone size={16} color="var(--text-secondary)" />
+                  <span>{jurisdictionDetails.contact_no || 'Not provided'}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                  <MapPin size={16} color="var(--text-secondary)" />
+                  <span>Sub-station: {jurisdictionDetails.sub_station || 'N/A'}</span>
+                </div>
+              </div>
+            </div>
+          )
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h2 style={{ fontSize: '18px', color: 'var(--accent)', fontWeight: '600' }}>
-                TNEB Section: {jurisdictionDetails.section_office || 'Unknown'}
-              </h2>
-              <span style={{ fontSize: '12px', background: 'var(--border-glass)', padding: '4px 8px', borderRadius: '12px' }}>
-                {jurisdictionDetails.district}
-              </span>
-            </div>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
-                <Phone size={16} color="var(--text-secondary)" />
-                <span>{jurisdictionDetails.contact_no || 'Not available'}</span>
+          /* PDS Info */
+          <div style={{ textAlign: 'center' }}>
+            {!pdsData ? (
+              <span style={{ color: 'var(--text-secondary)' }}>Search a Pincode to load local PDS shops</span>
+            ) : (
+              <div style={{ color: '#22c55e', fontWeight: '500' }}>
+                Displaying {pdsData.features.length} shops in the area
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
-                <MapPin size={16} color="var(--text-secondary)" />
-                <span>Sub-station: {jurisdictionDetails.sub_station || 'N/A'}</span>
-              </div>
-            </div>
-            
-            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', borderTop: '1px solid var(--border-glass)', paddingTop: '10px' }}>
-              Region: {jurisdictionDetails.region} | Circle: {jurisdictionDetails.circle}
-            </p>
+            )}
           </div>
         )}
       </footer>

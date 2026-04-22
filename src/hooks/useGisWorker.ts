@@ -19,14 +19,15 @@ export const useGisWorker = () => {
         case 'READY':
           setIsReady(true);
           break;
-        case 'DISTRICTS_LOADED':
-          // Optional: handle state-wide districts
-          break;
         case 'SEARCH_RESULT':
           useMapStore.getState().setSearchResult(payload);
           break;
         case 'RESOLUTION_RESULT':
-          setJurisdictionDetails(payload);
+          if (payload) {
+            setJurisdictionDetails(payload.properties, payload.geometry);
+          } else {
+            setJurisdictionDetails(null, null);
+          }
           setIsResolving(false);
           break;
         case 'PDS_LOADED':
@@ -50,17 +51,9 @@ export const useGisWorker = () => {
     };
   }, []);
 
-  const loadDistricts = () => {
-    workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' });
-  };
-
-  const loadPincodes = () => {
-    workerRef.current?.postMessage({ type: 'LOAD_PINCODES' });
-  };
-
-  const loadTneb = () => {
-    workerRef.current?.postMessage({ type: 'LOAD_TNEB' });
-  };
+  const loadDistricts = () => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' });
+  const loadPincodes = () => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' });
+  const loadTneb = () => workerRef.current?.postMessage({ type: 'LOAD_TNEB' });
 
   const resolveLocation = (lat: number, lng: number) => {
     setIsResolving(true);
@@ -74,12 +67,5 @@ export const useGisWorker = () => {
     workerRef.current?.postMessage({ type: 'SEARCH_PINCODE', payload: query });
   };
 
-  return { 
-    isReady, 
-    loadDistricts, 
-    loadPincodes, 
-    loadTneb,
-    resolveLocation,
-    searchPincode 
-  };
+  return { isReady, loadDistricts, loadPincodes, loadTneb, resolveLocation, searchPincode };
 };

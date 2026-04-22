@@ -5,16 +5,13 @@ let pincodesGeoJson: any = null;
 let tnebGeoJson: any = null;
 let loadedPds: Map<string, any> = new Map();
 
-/**
- * Robust Point-in-Polygon (Ray Casting)
- */
 function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
   const x = point[0], y = point[1];
   let inside = false;
   
-  // Handle MultiPolygon (array of arrays of rings)
   for (let i = 0; i < vs.length; i++) {
     const ring = vs[i];
+    if (!ring || ring.length < 3) continue;
     for (let j = 0, k = ring.length - 1; j < ring.length; k = j++) {
       const xi = ring[j][0], yi = ring[j][1];
       const xj = ring[k][0], yj = ring[k][1];
@@ -23,9 +20,6 @@ function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
           && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
       if (intersect) inside = !inside;
     }
-    // If we're inside the outer ring and not in any inner ring (holes), we'd return.
-    // For simplicity, we assume the first ring is outer and others are holes.
-    // However, basic Ray Casting on all rings works for non-intersecting rings.
   }
   return inside;
 }
@@ -59,8 +53,9 @@ self.onmessage = async (e: MessageEvent) => {
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
           tnebGeoJson = topojson.feature(data, data.objects[objectName]);
+          console.log('[Worker] TNEB Loaded:', tnebGeoJson.features.length, 'features');
         }
-        self.postMessage({ type: 'TNEB_LOADED', payload: tnebGeoJson });
+        self.postMessage({ type: 'TNEB_LOADED' });
       } catch (error) {
         self.postMessage({ type: 'ERROR', payload: 'Failed to load TNEB data' });
       }
@@ -73,8 +68,6 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
 
-      // Simple linear scan for now. 
-      // Optimization: Bounding Box check first.
       const found = tnebGeoJson.features.find((f: any) => {
         const geometry = f.geometry;
         if (geometry.type === 'Polygon') {
@@ -85,11 +78,20 @@ self.onmessage = async (e: MessageEvent) => {
         return false;
       });
 
-      self.postMessage({ type: 'RESOLUTION_RESULT', payload: found ? found.properties : null });
+      if (found) {
+        self.postMessage({ 
+          type: 'RESOLUTION_RESULT', 
+          payload: { 
+            properties: found.properties,
+            geometry: found.geometry 
+          } 
+        });
+      } else {
+        self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
+      }
       break;
 
     case 'LOAD_PINCODES':
-      // Existing pincode logic...
       try {
         if (!pincodesGeoJson) {
           const response = await fetch('/data/tn_pincodes.topojson');
@@ -97,7 +99,7 @@ self.onmessage = async (e: MessageEvent) => {
           const objectName = Object.keys(data.objects)[0];
           pincodesGeoJson = topojson.feature(data, data.objects[objectName]);
         }
-        self.postMessage({ type: 'PINCODES_LOADED', payload: pincodesGeoJson });
+        self.postMessage({ type: 'PINCODES_LOADED' });
       } catch (error) {
         self.postMessage({ type: 'ERROR', payload: 'Failed to load pincode data' });
       }
@@ -120,7 +122,6 @@ self.onmessage = async (e: MessageEvent) => {
       break;
 
     case 'LOAD_PDS':
-      // Existing PDS logic...
       const districtName = payload;
       if (loadedPds.has(districtName)) {
         self.postMessage({ type: 'PDS_LOADED', payload: { district: districtName, data: loadedPds.get(districtName) } });
