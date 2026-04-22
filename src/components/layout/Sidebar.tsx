@@ -1,16 +1,15 @@
 import React from 'react';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  MapPin, 
-  ShoppingCart, 
-  Zap, 
-  Activity, 
-  Sun, 
-  Moon, 
-  Settings, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  ShoppingCart,
+  Zap,
+  Activity,
+  Sun,
+  Moon,
+  Settings,
   HelpCircle,
-  LayoutGrid,
   type LucideIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -32,25 +31,29 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <motion.aside 
+    <motion.aside
       initial={false}
       animate={{ width: isSidebarOpen ? 280 : 0 }}
       transition={{ type: 'spring', damping: 20, stiffness: 200 }}
       className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}
     >
-      <button 
-        className="sidebar-toggle" 
+      <button
+        className="sidebar-toggle"
         onClick={() => setSidebarOpen(!isSidebarOpen)}
         aria-label={isSidebarOpen ? "Close Sidebar" : "Open Sidebar"}
       >
         {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
       </button>
-      
+
       <div className="sidebar-scroll-content">
         <div className="sidebar-header">
           <div className="sidebar-logo-group">
-            <LayoutGrid size={24} color="var(--accent)" />
-            <motion.span 
+            <img
+              src="/branding/icon.png"
+              alt="NammaMap Logo"
+              style={{ width: 32, height: 32, objectFit: 'contain' }}
+            />
+            <motion.span
               animate={{ opacity: isSidebarOpen ? 1 : 0 }}
               className="logo-text"
             >
@@ -62,7 +65,7 @@ const Sidebar: React.FC = () => {
 
         <div className="sidebar-section-label">Main Services</div>
         {menuItems.map(item => (
-          <button 
+          <button
             key={item.id}
             className={`sidebar-menu-item ${activeLayer === item.id ? 'active' : ''}`}
             onClick={() => setActiveLayer(item.id)}
@@ -89,7 +92,7 @@ const Sidebar: React.FC = () => {
           {isSidebarOpen && <span>Health</span>}
           {isSidebarOpen && <span className="badge-soon">SOON</span>}
         </div>
-        
+
         <div className="sidebar-footer">
           <button className="sidebar-menu-item" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}

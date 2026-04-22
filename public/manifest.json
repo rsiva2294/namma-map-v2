@@ -3,13 +3,13 @@
   "name": "NammaMap: Tamil Nadu Civic GIS",
   "icons": [
     {
-      "src": "favicon.svg",
+      "src": "branding/icon.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "favicon.svg",
-      "type": "image/svg+xml",
+      "src": "branding/icon.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
