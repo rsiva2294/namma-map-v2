@@ -14,6 +14,7 @@ This repository adheres to high-quality software engineering practices:
 *   [**CHANGELOG.md**](./CHANGELOG.md): Detailed history of releases and changes.
 *   [**CONTRIBUTING.md**](./CONTRIBUTING.md): Guidelines for code contributions.
 *   [**ARCHITECTURE.md**](./ARCHITECTURE.md): Technical deep-dive and system design.
+*   [**ROADMAP.md**](./ROADMAP.md): Future features and development plans.
 *   [**User Guide**](./docs/user_guide.md): How-to for end users.
 
 ## ✨ Features
