@@ -16,6 +16,21 @@ let tnebGeoJson: any = null;
 let tnebOffices: any = null;
 let loadedPds: Map<string, any> = new Map();
 
+async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response;
+    } catch (e) {
+      if (i === retries - 1) throw e;
+      console.warn(`[Worker] Fetch failed for ${url}, retrying (${i + 1}/${retries})...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+  throw new Error('Fetch failed after retries');
+}
+
 // R-trees for spatial indexing
 const pincodesIndex = new RBush<SpatialItem>();
 const tnebIndex = new RBush<SpatialItem>();
@@ -79,7 +94,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_DISTRICTS':
       try {
         if (!districtsGeoJson) {
-          const response = await fetch('/data/tn_districts.topojson');
+          const response = await fetchWithRetry('/data/tn_districts.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
           districtsGeoJson = topojson.feature(data, data.objects[objectName]);
@@ -93,7 +108,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_STATE_BOUNDARY':
       try {
         if (!stateBoundaryGeoJson) {
-          const response = await fetch('/data/tn_state_boundary.topojson');
+          const response = await fetchWithRetry('/data/tn_state_boundary.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
           stateBoundaryGeoJson = topojson.feature(data, data.objects[objectName]);
@@ -108,8 +123,8 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         if (!tnebGeoJson) {
           const [resBound, resOff] = await Promise.all([
-            fetch('/data/tneb_boundaries.topojson'),
-            fetch('/data/tneb_offices.geojson')
+            fetchWithRetry('/data/tneb_boundaries.topojson'),
+            fetchWithRetry('/data/tneb_offices.geojson')
           ]);
           const dataBound = await resBound.json();
           const dataOff = await resOff.json();
@@ -178,7 +193,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_PINCODES':
       try {
         if (!pincodesGeoJson) {
-          const response = await fetch('/data/tn_pincodes.topojson');
+          const response = await fetchWithRetry('/data/tn_pincodes.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
           pincodesGeoJson = topojson.feature(data, data.objects[objectName]) as any;
@@ -263,7 +278,7 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
       try {
-        const response = await fetch(`/data/pds/${districtName}.json`);
+        const response = await fetchWithRetry(`/data/pds/${districtName}.json`);
         const data = await response.json();
         
         // Build R-tree for this district
