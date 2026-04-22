@@ -4,7 +4,7 @@ import { useMapStore } from '../store/useMapStore';
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const { setPdsData, setActiveDistrict, setJurisdictionDetails, setIsResolving, setSearchSuggestions, setSearchResult, setSearchQuery, setDistrictsData, setStateBoundaryData } = useMapStore();
+  const { setPdsData, setActiveDistrict, setJurisdictionDetails, setIsResolving, setSearchSuggestions, setSearchResult, setSearchQuery, setDistrictsData, setStateBoundaryData, setSelectedPdsShop } = useMapStore();
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -30,13 +30,13 @@ export const useGisWorker = () => {
           break;
         case 'RESOLUTION_RESULT':
           if (payload) {
+            const { keepSelection } = payload;
             if (payload.layer === 'TNEB') {
-              setSearchResult(null); // Clear previous pincode search boundary FIRST
-              setJurisdictionDetails(payload.properties, payload.geometry); // THEN set TNEB details
-              setSearchQuery(''); // Clear search box
+              setSearchResult(null, keepSelection);
+              setJurisdictionDetails(payload.properties, payload.geometry);
+              setSearchQuery('');
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS') {
-              setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
-              setJurisdictionDetails(null, null); // Clear TNEB if switching
+              setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection);
               
               if (payload.layer === 'PDS') {
                 const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME;
@@ -77,26 +77,38 @@ export const useGisWorker = () => {
   const loadPincodes = () => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' });
   const loadTneb = () => workerRef.current?.postMessage({ type: 'LOAD_TNEB' });
 
-  const resolveLocation = useCallback((lat: number, lng: number, layer: string) => {
+  const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false) => {
     setIsResolving(true);
-    setSearchResult(null); // Clear previous search focus immediately
+    setSearchResult(null, keepSelection);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { lat, lng, layer }
+      payload: { lat, lng, layer, keepSelection }
     });
   }, [setSearchResult, setIsResolving]);
 
-  const getSuggestions = (query: string) => {
-    workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: query });
+  const getSuggestions = (query: string, layer: string) => {
+    workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, layer } });
   };
 
-  const selectSuggestion = (feature: any) => {
-    setSearchResult(feature);
-    const district = feature.properties.district || feature.properties.DISTRICT || feature.properties.DISTRICT_NAME || feature.properties.NAME;
-    if (district) {
-      workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: feature.geometry } });
+  const selectSuggestion = (item: any, activeLayer: string) => {
+    if (item.suggestionType === 'TNEB_SECTION') {
+      const [lng, lat] = item.geometry.type === 'Point' 
+        ? item.geometry.coordinates 
+        : item.properties.office_location || [78.6569, 11.1271]; // Fallback
+      resolveLocation(lat, lng, 'TNEB');
+    } else {
+      // PINCODE or Area
+      setSearchResult(item);
+      const district = item.properties.district || item.properties.DISTRICT || item.properties.DISTRICT_NAME || item.properties.NAME;
+      if (district && activeLayer === 'PDS') {
+        workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
+      }
     }
   };
 
-  return { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, resolveLocation, getSuggestions, selectSuggestion };
+  const loadPds = (district: string, boundary: any) => {
+    workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
+  };
+
+  return { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion };
 };

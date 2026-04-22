@@ -78,8 +78,8 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
-    case 'RESOLVE_LOCATION':
-      const { lat, lng, layer } = payload;
+    case 'RESOLVE_LOCATION': {
+      const { lat, lng, layer, keepSelection } = payload;
       
       if (layer === 'TNEB') {
         if (!tnebGeoJson) return;
@@ -103,7 +103,8 @@ self.onmessage = async (e: MessageEvent) => {
             payload: { 
               properties: { ...found.properties, office_location: office?.geometry.coordinates }, 
               geometry: found.geometry,
-              layer: 'TNEB'
+              layer: 'TNEB',
+              keepSelection
             } 
           });
         } else {
@@ -124,7 +125,8 @@ self.onmessage = async (e: MessageEvent) => {
             payload: { 
               properties: found.properties, 
               geometry: found.geometry,
-              layer: layer
+              layer: layer,
+              keepSelection
             } 
           });
         } else {
@@ -132,6 +134,7 @@ self.onmessage = async (e: MessageEvent) => {
         }
       }
       break;
+    }
 
     case 'LOAD_PINCODES':
       try {
@@ -147,8 +150,11 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
-    case 'GET_SUGGESTIONS':
-      const q = payload.toLowerCase().trim();
+      break;
+
+    case 'GET_SUGGESTIONS': {
+      const { query, layer } = payload;
+      const q = (query || '').toLowerCase().trim();
       if (!q) {
         self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: [] });
         return;
@@ -156,28 +162,46 @@ self.onmessage = async (e: MessageEvent) => {
 
       let suggestions: any[] = [];
 
-      // Check Pincodes (Numeric)
-      if (!isNaN(Number(q))) {
+      // 1. PINCODE LAYER
+      if (layer === 'PINCODE') {
         if (pincodesGeoJson) {
           suggestions = pincodesGeoJson.features.filter((f: any) => {
-            const pin = f.properties.PIN_CODE || f.properties.pincode;
-            return pin && pin.toString().startsWith(q);
-          }).slice(0, 5);
+            const pin = f.properties.PIN_CODE || f.properties.pincode || '';
+            const searchStr = (f.properties.search_string || f.properties.office_name || '').toLowerCase();
+            return pin.toString().startsWith(q) || searchStr.includes(q);
+          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
         }
-      } else {
-        // Check Districts (Text)
-        if (districtsGeoJson) {
-          suggestions = districtsGeoJson.features.filter((f: any) => {
-            const name = (f.properties.district || f.properties.DISTRICT_NAME || f.properties.NAME || '').toLowerCase();
-            return name && name.includes(q);
-          }).slice(0, 5);
+      } 
+      // 2. PDS LAYER (Same as Pincode Area search)
+      else if (layer === 'PDS') {
+        if (pincodesGeoJson) {
+          suggestions = pincodesGeoJson.features.filter((f: any) => {
+            const pin = f.properties.PIN_CODE || f.properties.pincode || '';
+            const searchStr = (f.properties.search_string || f.properties.office_name || '').toLowerCase();
+            return pin.toString().startsWith(q) || searchStr.includes(q);
+          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
+        }
+      }
+      // 3. TNEB LAYER
+      else if (layer === 'TNEB') {
+        if (!isNaN(Number(q)) && pincodesGeoJson) {
+          suggestions = pincodesGeoJson.features.filter((f: any) => {
+            const pin = f.properties.PIN_CODE || f.properties.pincode || '';
+            return pin.toString().startsWith(q);
+          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'PINCODE' }));
+        } else if (tnebOffices) {
+          suggestions = tnebOffices.features.filter((f: any) => {
+            const name = (f.properties.section_na || f.properties.section_office || '').toLowerCase();
+            return name.includes(q);
+          }).slice(0, 5).map((s: any) => ({ ...s, suggestionType: 'TNEB_SECTION' }));
         }
       }
 
       self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions });
       break;
+    }
 
-    case 'LOAD_PDS':
+    case 'LOAD_PDS': {
       const { district: districtName, boundary } = payload;
 
       const processAndSendPds = (data: any) => {
@@ -209,6 +233,7 @@ self.onmessage = async (e: MessageEvent) => {
         console.error(`[Worker] Failed to load PDS for ${districtName}:`, error);
       }
       break;
+    }
 
     default:
       console.warn('[Worker] Unknown message type:', type);

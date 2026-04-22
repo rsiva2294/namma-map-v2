@@ -56,7 +56,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
   const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe } = useMapStore();
 
   useEffect(() => {
@@ -71,17 +71,17 @@ const GisMap: React.FC = () => {
   // Handle Search Trigger (Pincode or Text)
   useEffect(() => {
     if (searchQuery && searchQuery.length >= 3) {
-      getSuggestions(searchQuery);
+      getSuggestions(searchQuery, activeLayer);
     }
-  }, [searchQuery]);
+  }, [searchQuery, activeLayer]);
 
   // Handle Suggestion Selection
   useEffect(() => {
     if (selectedSuggestion) {
-      selectSuggestion(selectedSuggestion);
+      selectSuggestion(selectedSuggestion, activeLayer);
       setSelectedSuggestion(null); // Clear it after processing
     }
-  }, [selectedSuggestion]);
+  }, [selectedSuggestion, activeLayer]);
 
   // Handle Geolocation
   useEffect(() => {
@@ -104,6 +104,16 @@ const GisMap: React.FC = () => {
       }
     }
   }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe]);
+
+  // Auto-trigger PDS load on layer switch
+  useEffect(() => {
+    if (activeLayer === 'PDS' && searchResult) {
+      const district = searchResult.properties.district || searchResult.properties.DISTRICT || searchResult.properties.DISTRICT_NAME || searchResult.properties.NAME;
+      if (district) {
+        loadPds(district, searchResult.geometry);
+      }
+    }
+  }, [activeLayer, searchResult]);
 
    const isAreaSelected = !!searchResult || !!jurisdictionGeometry;
 

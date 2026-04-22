@@ -157,7 +157,10 @@ function App() {
             type="text" 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={activeLayer === 'TNEB' ? "Search by Section, Sub-Division..." : "Search Pincode..."} 
+            placeholder={
+              activeLayer === 'TNEB' ? "Search Pincodes or Section Names..." : 
+              "Search Pincodes or Areas..."
+            }
             style={{
               background: 'none',
               border: 'none',
@@ -206,9 +209,26 @@ function App() {
               }}
             >
               {searchSuggestions.map((suggestion, idx) => {
-                const name = suggestion.properties.district || suggestion.properties.DISTRICT_NAME || suggestion.properties.NAME || suggestion.properties.section_na || '';
-                const pin = suggestion.properties.PIN_CODE || suggestion.properties.pincode;
-                const title = pin ? `${pin} - ${name}` : name;
+                let title = '';
+                let subtitle = '';
+                let Icon = MapPin;
+
+                if (suggestion.suggestionType === 'PDS_SHOP') {
+                  title = suggestion.properties.shop_code;
+                  subtitle = `${suggestion.properties.name} - ${suggestion.properties.village}`;
+                  Icon = ShoppingBag;
+                } else if (suggestion.suggestionType === 'TNEB_SECTION') {
+                  title = suggestion.properties.section_na || suggestion.properties.section_office;
+                  subtitle = `TNEB Section - ${suggestion.properties.circle_nam || ''}`;
+                  Icon = Zap;
+                } else {
+                  // PINCODE or DISTRICT
+                  const name = suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '';
+                  const pin = suggestion.properties.PIN_CODE || suggestion.properties.pincode;
+                  title = pin ? `${pin} - ${name}` : name;
+                  subtitle = suggestion.properties.district ? `${suggestion.properties.district} District` : 'Area Boundary';
+                  Icon = MapPin;
+                }
                 
                 return (
                   <li
@@ -229,8 +249,11 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--border-glass)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    <MapPin size={16} color="var(--text-secondary)" />
-                    {title}
+                    <Icon size={16} color="var(--text-secondary)" />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontWeight: '500' }}>{title}</span>
+                      <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{subtitle}</span>
+                    </div>
                   </li>
                 );
               })}
@@ -255,6 +278,19 @@ function App() {
           />
         )}
 
+        {activeLayer === 'PDS' && searchResult && !selectedPdsShop && (
+           <ResultCard
+             themeColor="red"
+             title={`PDS Shops in ${searchResult.properties.office_name || searchResult.properties.district || ''}`}
+             icon={<ShoppingBag size={20} />}
+             data={[
+               { label: 'Status', value: 'Displaying all local shops', isPill: true },
+               { label: 'Instruction', value: 'Click a shop marker on the map to view detailed information.' }
+             ]}
+             onClose={clearSearch}
+           />
+        )}
+
         {activeLayer === 'TNEB' && jurisdictionDetails && (
           <ResultCard
             themeColor="orange"
@@ -271,13 +307,29 @@ function App() {
           />
         )}
 
-        {(activeLayer === 'PINCODE' || activeLayer === 'PDS') && searchResult && !selectedPdsShop && !jurisdictionDetails && (
+        {activeLayer === 'TNEB' && searchResult && !jurisdictionDetails && (
+           <ResultCard
+             themeColor="orange"
+             title="Find TNEB Section"
+             icon={<Zap size={20} />}
+             data={[
+               { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
+               { label: 'Next Step', value: 'Click your exact location on the map to resolve the section.' }
+             ]}
+             onClose={clearSearch}
+           />
+        )}
+
+        {activeLayer === 'PINCODE' && searchResult && (
           <ResultCard
             themeColor="blue"
-            title={searchResult.properties.district || searchResult.properties.NAME || 'Selected Area'}
+            title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Selected Area'}
+            icon={<MapPin size={20} />}
             data={[
               { label: 'Pincode', value: searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A', isPill: true },
-              { label: 'District', value: searchResult.properties.DISTRICT || searchResult.properties.district || searchResult.properties.NAME || 'N/A' }
+              { label: 'District', value: searchResult.properties.district || 'N/A' },
+              { label: 'Office Type', value: searchResult.properties.office_typ || 'N/A' },
+              { label: 'Region', value: searchResult.properties.region_nam || 'N/A' }
             ]}
             onClose={clearSearch}
           />

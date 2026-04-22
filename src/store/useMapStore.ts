@@ -30,7 +30,7 @@ interface MapState {
   setSearchQuery: (query: string) => void;
   setSearchSuggestions: (suggestions: any[]) => void;
   setSelectedSuggestion: (suggestion: any | null) => void;
-  setSearchResult: (result: any | null) => void;
+  setSearchResult: (result: any | null, keepSelection?: boolean) => void;
   setDistrictsData: (data: any | null) => void;
   setStateBoundaryData: (data: any | null) => void;
   setPdsData: (data: any | null) => void;
@@ -67,16 +67,21 @@ export const useMapStore = create<MapState>((set) => ({
   triggerLocateMe: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
-  setActiveLayer: (layer) => set({ activeLayer: layer }),
-  setSearchQuery: (query) => set({ searchQuery: query }),
-  setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
-  setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion }),
-  setSearchResult: (result) => set({ 
-    searchResult: result,
+  setActiveLayer: (layer) => set({ 
+    activeLayer: layer,
     jurisdictionDetails: null,
     jurisdictionGeometry: null,
     selectedPdsShop: null
   }),
+  setSearchQuery: (query) => set({ searchQuery: query }),
+  setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
+  setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion }),
+  setSearchResult: (result, keepSelection = false) => set((state) => ({ 
+    searchResult: result,
+    jurisdictionDetails: keepSelection ? state.jurisdictionDetails : null,
+    jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
+    selectedPdsShop: keepSelection ? state.selectedPdsShop : null
+  })),
   setDistrictsData: (data) => set({ districtsData: data }),
   setStateBoundaryData: (data) => set({ stateBoundaryData: data }),
   setPdsData: (data) => set({ pdsData: data }),
