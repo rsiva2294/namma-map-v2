@@ -20,6 +20,7 @@ interface MapState {
   jurisdictionDetails: any | null; // This is the TNEB office data
   jurisdictionGeometry: any | null; // This is the TNEB polygon
   isResolving: boolean;
+  isLocating: boolean;
   theme: 'dark' | 'light';
   isSidebarOpen: boolean;
   triggerLocateMe: boolean;
@@ -38,6 +39,7 @@ interface MapState {
   setActiveDistrict: (district: string | null) => void;
   setJurisdictionDetails: (details: any | null, geometry?: any | null) => void;
   setIsResolving: (val: boolean) => void;
+  setIsLocating: (val: boolean) => void;
   setSidebarOpen: (val: boolean) => void;
   setTriggerLocateMe: (val: boolean) => void;
   clearSearch: () => void;
@@ -62,6 +64,7 @@ export const useMapStore = create<MapState>((set) => ({
   jurisdictionDetails: null,
   jurisdictionGeometry: null,
   isResolving: false,
+  isLocating: false,
   theme: 'light',
   isSidebarOpen: true,
   triggerLocateMe: false,
@@ -92,6 +95,7 @@ export const useMapStore = create<MapState>((set) => ({
     jurisdictionGeometry: geometry 
   }),
   setIsResolving: (val) => set({ isResolving: val }),
+  setIsLocating: (val) => set({ isLocating: val }),
   setSidebarOpen: (val) => set({ isSidebarOpen: val }),
   setTriggerLocateMe: (val) => set({ triggerLocateMe: val }),
   clearSearch: () => set({ 

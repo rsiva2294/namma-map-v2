@@ -35,7 +35,7 @@ function App() {
     theme, toggleTheme,
     searchSuggestions, setSearchSuggestions, setSelectedSuggestion,
     isSidebarOpen, setSidebarOpen,
-    setTriggerLocateMe
+    setTriggerLocateMe, isLocating
   } = useMapStore();
 
   useEffect(() => {
@@ -158,6 +158,7 @@ function App() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={
+              isLocating ? "Locating you..." :
               activeLayer === 'TNEB' ? "Search Pincodes or Section Names..." : 
               "Search Pincodes or Areas..."
             }
@@ -180,13 +181,17 @@ function App() {
               onClick={clearSearch} 
             />
           )}
-          <Navigation 
-            size={18} 
-            color="var(--accent)" 
-            style={{ cursor: 'pointer' }} 
-            onClick={() => setTriggerLocateMe(true)}
-            title="Locate Me"
-          />
+          {isLocating ? (
+            <Loader2 className="animate-spin" size={18} color="var(--accent)" />
+          ) : (
+            <Navigation 
+              size={18} 
+              color="var(--accent)" 
+              style={{ cursor: 'pointer' }} 
+              onClick={() => setTriggerLocateMe(true)}
+              title="Locate Me"
+            />
+          )}
           
           {/* Dropdown Suggestions */}
           {searchSuggestions.length > 0 && (

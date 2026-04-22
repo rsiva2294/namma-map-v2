@@ -57,7 +57,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -87,14 +87,17 @@ const GisMap: React.FC = () => {
   useEffect(() => {
     if (triggerLocateMe) {
       if (navigator.geolocation) {
+        setIsLocating(true);
         navigator.geolocation.getCurrentPosition(
           (position) => {
             resolveLocation(position.coords.latitude, position.coords.longitude, activeLayer);
             setTriggerLocateMe(false);
+            setIsLocating(false);
           },
           (error) => {
             console.error("Error getting location:", error);
             setTriggerLocateMe(false);
+            setIsLocating(false);
             alert("Could not retrieve your location. Please check your browser permissions.");
           }
         );
@@ -103,7 +106,7 @@ const GisMap: React.FC = () => {
         setTriggerLocateMe(false);
       }
     }
-  }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe]);
+  }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe, setIsLocating]);
 
   // Auto-trigger PDS load on layer switch
   useEffect(() => {
@@ -127,17 +130,17 @@ const GisMap: React.FC = () => {
    };
 
    const pincodeStyle = {
-     fillColor: 'transparent',
-     weight: 2.5,
-     opacity: isAreaSelected ? 0.4 : 0.9,
-     color: theme === 'dark' ? 'white' : '#0f172a',
-     fillOpacity: 0.05,
+     fillColor: '#3b82f6',
+     weight: 3,
+     opacity: 1,
+     color: '#2563eb',
+     fillOpacity: 0.1,
      interactive: false
    };
 
   const jurisdictionStyle = {
     fillColor: '#f59e0b',
-    weight: 2.5,
+    weight: 3,
     opacity: 1,
     color: '#d97706',
     fillOpacity: 0.15,
