@@ -1,27 +1,25 @@
-import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap } from 'react-leaflet';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, CircleMarker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
 
-// Helper component to handle map flying
 const MapController: React.FC<{ result: any }> = ({ result }) => {
   const map = useMap();
-  
   useEffect(() => {
     if (result) {
       const bounds = L.geoJSON(result).getBounds();
       map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
     }
   }, [result, map]);
-
   return null;
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, districts, searchResult, loadDistricts, loadPincodes, searchPincode } = useGisWorker();
-  const { searchQuery, setSearchResult } = useMapStore();
+  const { isReady, districts, loadDistricts, loadPincodes, searchPincode } = useGisWorker();
+  const { searchQuery, searchResult, pdsData, activeDistrict } = useMapStore();
+  const [showPds, _setShowPds] = useState(true);
 
   useEffect(() => {
     if (isReady) {
@@ -30,61 +28,78 @@ const GisMap: React.FC = () => {
     }
   }, [isReady]);
 
-  // Handle Search Trigger
   useEffect(() => {
     if (searchQuery && searchQuery.length >= 6) {
       searchPincode(searchQuery);
     }
   }, [searchQuery]);
 
-  // Sync worker result with store
-  useEffect(() => {
-    setSearchResult(searchResult);
-  }, [searchResult, setSearchResult]);
-
   const districtStyle = {
     fillColor: 'transparent',
     weight: 1.5,
-    opacity: 0.4,
-    color: 'rgba(14, 165, 233, 0.4)', // Faded accent
+    opacity: 0.2,
+    color: 'rgba(14, 165, 233, 0.4)',
     dashArray: '3',
     fillOpacity: 0.05
   };
 
   const highlightStyle = {
     fillColor: 'var(--accent)',
-    weight: 3,
-    opacity: 1,
+    weight: 2,
+    opacity: 0.8,
     color: 'white',
-    fillOpacity: 0.3
+    fillOpacity: 0.15
   };
 
   return (
     <MapContainer 
       center={[11.1271, 78.6569]} 
       zoom={7} 
+      preferCanvas={true} // CRITICAL for 30k+ points
       scrollWheelZoom={true}
       zoomControl={false}
       style={{ width: '100%', height: '100%' }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
         url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       />
       
-      {/* Base District Boundaries */}
-      {districts && (
-        <GeoJSON data={districts} style={districtStyle} />
-      )}
+      {districts && <GeoJSON data={districts} style={districtStyle} />}
 
-      {/* Highlighted Search Result */}
       {searchResult && (
         <GeoJSON 
-          key={JSON.stringify(searchResult.properties)} // Force re-render on change
+          key={`search-${searchQuery}`}
           data={searchResult} 
           style={highlightStyle} 
         />
       )}
+
+      {/* PDS Points Layer */}
+      {showPds && pdsData && pdsData.features.map((f: any, i: number) => {
+        const [lng, lat] = f.geometry.coordinates;
+        return (
+          <CircleMarker
+            key={`pds-${activeDistrict}-${i}`}
+            center={[lat, lng]}
+            radius={3}
+            pathOptions={{
+              fillColor: '#22c55e', // Green for PDS
+              fillOpacity: 0.8,
+              color: 'white',
+              weight: 0.5
+            }}
+          >
+            <Tooltip direction="top" offset={[0, -5]} opacity={1}>
+              <div style={{ padding: '5px' }}>
+                <strong>{f.properties.name || 'PDS Shop'}</strong>
+                <br />
+                <small>{f.properties.address || 'Tamil Nadu'}</small>
+              </div>
+            </Tooltip>
+          </CircleMarker>
+        );
+      })}
 
       <MapController result={searchResult} />
       <ZoomControl position="bottomright" />

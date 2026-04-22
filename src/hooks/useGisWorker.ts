@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import { useMapStore } from '../store/useMapStore';
 
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [districts, setDistricts] = useState<any>(null);
-  const [pincodes, setPincodes] = useState<any>(null);
-  const [searchResult, setSearchResult] = useState<any>(null);
+  const { setPdsData, setActiveDistrict } = useMapStore();
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -23,11 +23,17 @@ export const useGisWorker = () => {
         case 'DISTRICTS_LOADED':
           setDistricts(payload);
           break;
-        case 'PINCODES_LOADED':
-          setPincodes(payload);
-          break;
         case 'SEARCH_RESULT':
-          setSearchResult(payload);
+          useMapStore.getState().setSearchResult(payload);
+          break;
+        case 'PDS_LOADED':
+          setPdsData(payload.data);
+          setActiveDistrict(payload.district);
+          break;
+        case 'AUTO_TRIGGER_PDS':
+          // Convert "CHENNAI" or similar to Title Case if needed, 
+          // or just pass it through if our filenames match
+          workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
           break;
         case 'ERROR':
           console.error('[Worker Error]', payload);
@@ -50,6 +56,10 @@ export const useGisWorker = () => {
     workerRef.current?.postMessage({ type: 'LOAD_PINCODES' });
   };
 
+  const loadPds = (district: string) => {
+    workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: district });
+  };
+
   const searchPincode = (query: string) => {
     workerRef.current?.postMessage({ type: 'SEARCH_PINCODE', payload: query });
   };
@@ -57,10 +67,9 @@ export const useGisWorker = () => {
   return { 
     isReady, 
     districts, 
-    pincodes, 
-    searchResult, 
     loadDistricts, 
     loadPincodes, 
+    loadPds,
     searchPincode 
   };
 };
