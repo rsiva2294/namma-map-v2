@@ -7,7 +7,10 @@ import type {
   PdsProperties,
   TnebSection, 
   Geometry,
-  ConstituencyProperties
+  Point,
+  ConstituencyProperties,
+  PoliceBoundaryProperties,
+  PoliceStationProperties
 } from '../types/gis';
 
 interface MapState {
@@ -39,6 +42,9 @@ interface MapState {
   constituencyType: 'AC' | 'PC';
   acData: GisFeatureCollection<Geometry, ConstituencyProperties> | null;
   pcData: GisFeatureCollection<Geometry, ConstituencyProperties> | null;
+  policeBoundariesData: GisFeatureCollection<Geometry, PoliceBoundaryProperties> | null;
+  policeStationsData: GisFeatureCollection<Point, PoliceStationProperties> | null;
+  selectedPoliceStation: GisFeature<Point, PoliceStationProperties> | null;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -66,6 +72,9 @@ interface MapState {
   setConstituencyType: (type: 'AC' | 'PC') => void;
   setAcData: (data: GisFeatureCollection<Geometry, ConstituencyProperties> | null) => void;
   setPcData: (data: GisFeatureCollection<Geometry, ConstituencyProperties> | null) => void;
+  setPoliceBoundariesData: (data: GisFeatureCollection<Geometry, PoliceBoundaryProperties> | null) => void;
+  setPoliceStationsData: (data: GisFeatureCollection<Point, PoliceStationProperties> | null) => void;
+  setSelectedPoliceStation: (station: PoliceStationProperties | null, geometry?: Geometry | null) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -98,6 +107,9 @@ export const useMapStore = create<MapState>((set) => ({
   constituencyType: 'AC',
   acData: null,
   pcData: null,
+  policeBoundariesData: null,
+  policeStationsData: null,
+  selectedPoliceStation: null,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
@@ -105,7 +117,8 @@ export const useMapStore = create<MapState>((set) => ({
     jurisdictionDetails: null,
     jurisdictionGeometry: null,
     selectedPdsShop: null,
-    // Reset result if switching from/to Constituency
+    selectedPoliceStation: null,
+    // Reset result if switching from/to layers
     searchResult: null
   }),
   setSearchQuery: (query) => set({ searchQuery: query }),
@@ -120,10 +133,11 @@ export const useMapStore = create<MapState>((set) => ({
     };
 
     if (updateQuery && result) {
-      const p = result.properties as any;
-      const num = p.assembly_1 || p.parliament;
-      const baseName = (p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || '').toString();
-      const name = num ? `${p.assembly_c ? 'AC' : 'PC'} #${num} - ${baseName}` : baseName;
+      const p = result.properties;
+      const num = (p.assembly_1 || p.parliament || p.ps_code || '').toString();
+      const baseName = (p.ps_name || p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || '').toString();
+      const typePrefix = p.ps_name ? 'Station' : p.assembly_c ? 'AC' : p.parliame_1 ? 'PC' : '';
+      const name = num ? `${typePrefix} #${num} - ${baseName}` : baseName;
       const pin = (p.PIN_CODE || p.pincode)?.toString();
       newState.searchQuery = pin ? `${pin} - ${name}` : name;
       newState.isUserTyping = false;
@@ -166,6 +180,7 @@ export const useMapStore = create<MapState>((set) => ({
     activeDistrict: null,
     jurisdictionDetails: null,
     jurisdictionGeometry: null,
+    selectedPoliceStation: null,
     noDataFound: false,
     lastClickedPoint: null
   }),
@@ -173,4 +188,17 @@ export const useMapStore = create<MapState>((set) => ({
   setConstituencyType: (type) => set({ constituencyType: type, searchResult: null }),
   setAcData: (data) => set({ acData: data }),
   setPcData: (data) => set({ pcData: data }),
+  setPoliceBoundariesData: (data) => set({ policeBoundariesData: data }),
+  setPoliceStationsData: (data) => set({ policeStationsData: data }),
+  setSelectedPoliceStation: (station, geometry = null) => set({ 
+    selectedPoliceStation: station ? { 
+      type: 'Feature', 
+      properties: station as PoliceStationProperties, 
+      geometry: { 
+        type: 'Point', 
+        coordinates: (station as PoliceStationProperties).station_location || [78.6569, 11.1271] 
+      } as Point 
+    } : null,
+    jurisdictionGeometry: geometry || null 
+  }),
 }));

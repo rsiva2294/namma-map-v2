@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export interface ResultCardProps {
   title: string;
   icon?: React.ReactNode;
-  themeColor: 'blue' | 'red' | 'orange' | 'indigo';
+  themeColor: 'blue' | 'red' | 'orange' | 'indigo' | 'slate';
   data: { label: string; value: string; subValue?: string; isPill?: boolean }[];
   onClose: () => void;
   onDirections?: () => void;
@@ -38,6 +38,12 @@ const colorMap = {
     text: '#4f46e5',
     button: '#4f46e5',
     hover: '#4338ca'
+  },
+  slate: {
+    bg: '#f1f5f9',
+    text: '#334155',
+    button: '#334155',
+    hover: '#1e293b'
   }
 };
 

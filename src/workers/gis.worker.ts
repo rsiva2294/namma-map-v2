@@ -25,6 +25,8 @@ let tnebGeoJson: GisFeatureCollection | null = null;
 let tnebOffices: GisFeatureCollection | null = null;
 let acGeoJson: GisFeatureCollection | null = null;
 let pcGeoJson: GisFeatureCollection | null = null;
+let policeBoundariesGeoJson: GisFeatureCollection | null = null;
+let policeStationsGeoJson: GisFeatureCollection | null = null;
 const loadedPds: Map<string, GisFeatureCollection> = new Map();
 
 async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
@@ -48,11 +50,17 @@ const tnebIndex = new RBush<SpatialItem>();
 const stateBoundaryIndex = new RBush<SpatialItem>();
 const acIndex = new RBush<SpatialItem>();
 const pcIndex = new RBush<SpatialItem>();
+const policeBoundariesIndex = new RBush<SpatialItem>();
+const policeStationsIndex = new RBush<SpatialItem>();
 const pdsIndexes = new Map<string, RBush<SpatialItem>>();
 
 function getBBox(geometry: Geometry) {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   
+  if (!geometry || !geometry.coordinates) {
+    return { minX: 0, minY: 0, maxX: 0, maxY: 0 };
+  }
+
   const processCoords = (coords: unknown) => {
     if (Array.isArray(coords) && typeof coords[0] === 'number') {
       const [x, y] = coords as [number, number];
@@ -66,6 +74,10 @@ function getBBox(geometry: Geometry) {
   };
 
   processCoords(geometry.coordinates);
+  
+  // If no valid coordinates found, return a zero bbox instead of Inifinity
+  if (minX === Infinity) return { minX: 0, minY: 0, maxX: 0, maxY: 0 };
+  
   return { minX, minY, maxX, maxY };
 }
 
@@ -87,14 +99,24 @@ function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
 
 function findFeatureAt(point: [number, number], index: RBush<SpatialItem>) {
   const [lng, lat] = point;
-  const candidates = index.search({ minX: lng, minY: lat, maxX: lng, maxY: lat });
+  // Use a tiny buffer to avoid precision issues at edges
+  const buffer = 0.00001;
+  const candidates = index.search({ 
+    minX: lng - buffer, 
+    minY: lat - buffer, 
+    maxX: lng + buffer, 
+    maxY: lat + buffer 
+  });
   
-  return candidates.find(item => {
+  const foundItem = candidates.find(item => {
     const geometry = item.feature.geometry;
+    if (!geometry) return false;
     if (geometry.type === 'Polygon') return isPointInPolygon([lng, lat], (geometry as Polygon).coordinates);
     if (geometry.type === 'MultiPolygon') return (geometry as MultiPolygon).coordinates.some((poly: Position[][]) => isPointInPolygon([lng, lat], poly));
     return false;
-  })?.feature || null;
+  });
+
+  return foundItem ? foundItem.feature : null;
 }
 
 self.onmessage = async (e: MessageEvent) => {
@@ -111,7 +133,8 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_districts.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          districtsGeoJson = topojson.feature(data, data.objects[objectName]) as unknown as GisFeatureCollection;
+          const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
+          districtsGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
         }
         self.postMessage({ type: 'DISTRICTS_LOADED', payload: districtsGeoJson });
       } catch (err) {
@@ -133,11 +156,13 @@ self.onmessage = async (e: MessageEvent) => {
             stateBoundaryGeoJson = { type: 'FeatureCollection', features: [feature as GisFeature] };
           }
           
-          // Indexing
-          const items: SpatialItem[] = stateBoundaryGeoJson!.features.map((f: GisFeature) => ({
-            ...getBBox(f.geometry),
-            feature: f
-          }));
+          // Indexing with safety filters
+          const items: SpatialItem[] = stateBoundaryGeoJson!.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({
+              ...getBBox(f.geometry),
+              feature: f
+            }));
           stateBoundaryIndex.load(items);
         }
         self.postMessage({ type: 'STATE_BOUNDARY_LOADED', payload: stateBoundaryGeoJson });
@@ -170,14 +195,17 @@ self.onmessage = async (e: MessageEvent) => {
           const dataBound = await resBound.json();
           const dataOff = await resOff.json();
           const objectName = Object.keys(dataBound.objects)[0];
-          tnebGeoJson = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeatureCollection;
+          const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
+          tnebGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
           tnebOffices = dataOff as GisFeatureCollection;
           
-          // Indexing
-          const items: SpatialItem[] = tnebGeoJson.features.map((f: GisFeature) => ({
-            ...getBBox(f.geometry),
-            feature: f
-          }));
+          // Indexing with safety filters
+          const items: SpatialItem[] = tnebGeoJson!.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({
+              ...getBBox(f.geometry),
+              feature: f
+            }));
           tnebIndex.load(items);
         }
         self.postMessage({ type: 'TNEB_LOADED' });
@@ -226,6 +254,25 @@ self.onmessage = async (e: MessageEvent) => {
             } 
           });
         }
+      } else if (layer === 'POLICE') {
+        found = findFeatureAt([lng, lat], policeBoundariesIndex);
+        if (found) {
+          // Find station by code AND name/district to disambiguate if possible
+          const station = policeStationsGeoJson?.features.find((s: GisFeature) => 
+            s.properties.ps_code === found?.properties.police_s_1 &&
+            (s.properties.ps_name === found?.properties.police_sta || s.properties.ps_name === found?.properties.police_s_2)
+          ) || policeStationsGeoJson?.features.find((s: GisFeature) => s.properties.ps_code === found?.properties.police_s_1);
+
+          self.postMessage({ 
+            type: 'RESOLUTION_RESULT', 
+            payload: { 
+              properties: { ...found.properties, station_location: station?.geometry.coordinates }, 
+              geometry: found.geometry,
+              layer: 'POLICE',
+              keepSelection
+            } 
+          });
+        }
       } else if (layer === 'PINCODE' || layer === 'PDS') {
         found = findFeatureAt([lng, lat], pincodesIndex);
         if (found) {
@@ -258,13 +305,16 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_pincodes.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          pincodesGeoJson = topojson.feature(data, data.objects[objectName]) as unknown as GisFeatureCollection;
+          const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
+          pincodesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
           
-          // Indexing
-          const items: SpatialItem[] = pincodesGeoJson.features.map((f: GisFeature) => ({
-            ...getBBox(f.geometry),
-            feature: f
-          }));
+          // Indexing with safety filters
+          const items: SpatialItem[] = pincodesGeoJson!.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({
+              ...getBBox(f.geometry),
+              feature: f
+            }));
           pincodesIndex.load(items);
         }
         self.postMessage({ type: 'PINCODES_LOADED' });
@@ -359,6 +409,15 @@ self.onmessage = async (e: MessageEvent) => {
         suggestions = [...suggestions, ...pcMatches];
       }
 
+      // 6. Search Police Stations
+      if (policeStationsGeoJson) {
+        const policeMatches = policeStationsGeoJson.features
+          .filter((f: GisFeature) => (f.properties.ps_name as string || '').toLowerCase().includes(q))
+          .slice(0, 3)
+          .map((s: GisFeature) => ({ ...s, suggestionType: 'POLICE_STATION' as const }));
+        suggestions = [...suggestions, ...policeMatches];
+      }
+
       self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions.slice(0, 8) });
       break;
     }
@@ -430,14 +489,55 @@ self.onmessage = async (e: MessageEvent) => {
           acGeoJson = topojson.feature(dataAc, dataAc.objects.tamilnadu_assemply_constituency) as unknown as GisFeatureCollection;
           pcGeoJson = topojson.feature(dataPc, dataPc.objects.tamilnadu_parliament_constituency) as unknown as GisFeatureCollection;
           
-          // Indexing
-          acIndex.load(acGeoJson.features.map(f => ({ ...getBBox(f.geometry), feature: f })));
-          pcIndex.load(pcGeoJson.features.map(f => ({ ...getBBox(f.geometry), feature: f })));
+          // Indexing with safety filters
+          acIndex.load(
+            acGeoJson.features
+              .filter(f => f.geometry && f.geometry.coordinates)
+              .map(f => ({ ...getBBox(f.geometry), feature: f }))
+          );
+          pcIndex.load(
+            pcGeoJson.features
+              .filter(f => f.geometry && f.geometry.coordinates)
+              .map(f => ({ ...getBBox(f.geometry), feature: f }))
+          );
         }
         self.postMessage({ type: 'CONSTITUENCIES_LOADED', payload: { ac: acGeoJson, pc: pcGeoJson } });
       } catch (err) {
         console.error('[Worker] Error loading constituencies:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load constituency data' });
+      }
+      break;
+
+    case 'LOAD_POLICE':
+      try {
+        if (!policeBoundariesGeoJson || !policeStationsGeoJson) {
+          const [resBound, resOff] = await Promise.all([
+            fetchWithRetry('/data/tn_police_boundaries.topojson'),
+            fetchWithRetry('/data/tn_police_stations.geojson')
+          ]);
+          const dataBound = await resBound.json();
+          const dataOff = await resOff.json();
+          const objectName = Object.keys(dataBound.objects)[0];
+          const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
+          policeBoundariesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
+          policeStationsGeoJson = dataOff as GisFeatureCollection;
+          
+          // Indexing with safety filters
+          policeBoundariesIndex.load(
+            policeBoundariesGeoJson!.features
+              .filter(f => f.geometry && f.geometry.coordinates)
+              .map(f => ({ ...getBBox(f.geometry), feature: f }))
+          );
+          policeStationsIndex.load(
+            policeStationsGeoJson.features
+              .filter(f => f.geometry && f.geometry.coordinates)
+              .map(f => ({ ...getBBox(f.geometry), feature: f }))
+          );
+        }
+        self.postMessage({ type: 'POLICE_LOADED', payload: { boundaries: policeBoundariesGeoJson, stations: policeStationsGeoJson } });
+      } catch (err) {
+        console.error('[Worker] Error loading Police data:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load police data' });
       }
       break;
 

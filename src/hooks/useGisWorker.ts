@@ -19,7 +19,10 @@ export const useGisWorker = () => {
     setActiveLayer,
     setAcData,
     setPcData,
-    setConstituencyType
+    setConstituencyType,
+    setPoliceBoundariesData,
+    setPoliceStationsData,
+    setSelectedPoliceStation
   } = useMapStore();
 
   const loadDistricts = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
@@ -28,6 +31,7 @@ export const useGisWorker = () => {
   const loadPincodes = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' }), []);
   const loadTneb = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB' }), []);
   const loadConstituencies = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
+  const loadPoliceData = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POLICE' }), []);
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -60,6 +64,10 @@ export const useGisWorker = () => {
               setJurisdictionDetails(payload.properties, payload.geometry);
               const sectionName = payload.properties.section_na || payload.properties.section_office || '';
               setSearchQuery(sectionName);
+            } else if (payload.layer === 'POLICE') {
+              setSearchResult(null, keepSelection);
+              setSelectedPoliceStation(payload.properties, payload.geometry);
+              setSearchQuery(payload.properties.ps_name || payload.properties.police_sta || '');
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
@@ -87,6 +95,10 @@ export const useGisWorker = () => {
         case 'CONSTITUENCIES_LOADED':
           setAcData(payload.ac);
           setPcData(payload.pc);
+          break;
+        case 'POLICE_LOADED':
+          setPoliceBoundariesData(payload.boundaries);
+          setPoliceStationsData(payload.stations);
           break;
         case 'AUTO_TRIGGER_PDS':
           workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
@@ -116,7 +128,10 @@ export const useGisWorker = () => {
     setNoDataFound,
     loadPdsIndex,
     setAcData,
-    setPcData
+    setPcData,
+    setPoliceBoundariesData,
+    setPoliceStationsData,
+    setSelectedPoliceStation
   ]);
 
 
@@ -166,6 +181,12 @@ export const useGisWorker = () => {
       const isPc = !!item.properties.parliame_1 && !item.properties.assembly_c;
       setConstituencyType(isPc ? 'PC' : 'AC');
       setSearchResult(item);
+    } else if (item.suggestionType === 'POLICE_STATION') {
+      if (currentLayer !== 'POLICE') setActiveLayer('POLICE');
+      const [lng, lat] = item.geometry.type === 'Point' 
+        ? (item.geometry.coordinates as [number, number])
+        : (item.properties.station_location as [number, number] || [78.6569, 11.1271]); // Fallback
+      resolveLocation(lat, lng, 'POLICE');
     } else {
       // PINCODE or Area
       if (currentLayer === 'TNEB' || currentLayer === 'CONSTITUENCY') setActiveLayer('PINCODE');
@@ -182,5 +203,5 @@ export const useGisWorker = () => {
     workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
   }, []);
 
-  return { isReady, loadDistricts, loadStateBoundary, loadPdsIndex, loadPincodes, loadTneb, loadPds, loadConstituencies, resolveLocation, getSuggestions, selectSuggestion };
+  return { isReady, loadDistricts, loadStateBoundary, loadPdsIndex, loadPincodes, loadTneb, loadPds, loadConstituencies, loadPoliceData, resolveLocation, getSuggestions, selectSuggestion };
 };

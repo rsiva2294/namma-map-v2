@@ -57,8 +57,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, theme, selectedSuggestion, setSelectedSuggestion, selectedPdsShop, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -68,8 +68,9 @@ const GisMap: React.FC = () => {
       loadTneb();
       loadPdsIndex();
       loadConstituencies();
+      loadPoliceData();
     }
-  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
@@ -162,6 +163,18 @@ const GisMap: React.FC = () => {
     fillOpacity: isAreaSelected ? 0.05 : 0.1,
     interactive: false
   };
+ 
+
+ 
+  const policeSelectedStyle = {
+    fillColor: '#475569',
+    weight: 3,
+    opacity: 1,
+    color: '#1e293b',
+    fillOpacity: 0.1,
+    dashArray: '5, 5',
+    interactive: false
+  };
 
   const constituencySelectedStyle = {
     fillColor: '#6366f1',
@@ -182,6 +195,8 @@ const GisMap: React.FC = () => {
     iconSize: [36, 36],
     iconAnchor: [18, 18]
   });
+ 
+
 
   const tnBounds: L.LatLngBoundsLiteral = [
     [8.0775, 76.2307], // Southwest
@@ -215,7 +230,7 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {(activeLayer === 'PDS' || activeLayer === 'TNEB') && stateBoundaryData && (
+      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE') && stateBoundaryData && (
         <GeoJSON 
           key={`state-${theme}-${isAreaSelected}`}
           data={stateBoundaryData}
@@ -223,6 +238,8 @@ const GisMap: React.FC = () => {
           interactive={false}
         />
       )}
+ 
+
 
       {activeLayer === 'CONSTITUENCY' && (constituencyType === 'AC' ? acData : pcData) && (
         <GeoJSON 
@@ -235,9 +252,9 @@ const GisMap: React.FC = () => {
       
       {searchResult && !jurisdictionGeometry && (
         <GeoJSON 
-          key={`search-${searchQuery}-${searchResult.properties.PIN_CODE || searchResult.properties.NAME || searchResult.properties.assembly_c || searchResult.properties.parliame_1}`}
+          key={`search-${searchQuery}-${searchResult.properties.PIN_CODE || searchResult.properties.NAME || searchResult.properties.assembly_c || searchResult.properties.parliame_1 || searchResult.properties.ps_code}`}
           data={searchResult} 
-          style={activeLayer === 'CONSTITUENCY' ? constituencySelectedStyle : pincodeStyle} 
+          style={activeLayer === 'CONSTITUENCY' ? constituencySelectedStyle : activeLayer === 'POLICE' ? policeSelectedStyle : pincodeStyle} 
           interactive={false}
         />
       )}
@@ -265,6 +282,38 @@ const GisMap: React.FC = () => {
             </Tooltip>
           </Marker>
         </>
+      )}
+ 
+      {activeLayer === 'POLICE' && jurisdictionGeometry && (
+        <GeoJSON 
+          key={`police-sel-${JSON.stringify((jurisdictionGeometry.coordinates as unknown[])[0])}`}
+          data={jurisdictionGeometry}
+          style={policeSelectedStyle}
+          interactive={false}
+        />
+      )}
+ 
+
+ 
+      {activeLayer === 'POLICE' && selectedPoliceStation && (
+        <Marker
+          position={[
+            (selectedPoliceStation.geometry.coordinates as [number, number])[1],
+            (selectedPoliceStation.geometry.coordinates as [number, number])[0]
+          ]}
+          icon={L.divIcon({
+            html: `
+              <div class="pulse-police"></div>
+              <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #334155; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); position: relative; z-index: 1;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>`,
+            className: 'selected-police-icon',
+            iconSize: [32, 32],
+            iconAnchor: [16, 16]
+          })}
+        />
       )}
 
       {activeLayer === 'PDS' && pdsData && pdsData.features.map((f: GisFeature, i: number) => {

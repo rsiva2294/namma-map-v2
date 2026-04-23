@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
@@ -12,6 +12,8 @@ const ResultContainer: React.FC = () => {
   const searchResult = useMapStore(state => state.searchResult);
   const jurisdictionDetails = useMapStore(state => state.jurisdictionDetails);
   const setJurisdictionDetails = useMapStore(state => state.setJurisdictionDetails);
+  const selectedPoliceStation = useMapStore(state => state.selectedPoliceStation);
+  const setSelectedPoliceStation = useMapStore(state => state.setSelectedPoliceStation);
   const setReportModal = useMapStore(state => state.setReportModal);
   const noDataFound = useMapStore(state => state.noDataFound);
   const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
@@ -48,6 +50,13 @@ const ResultContainer: React.FC = () => {
         'Type': rawData.assembly_c ? 'Assembly' : 'Parliamentary',
         'District': (rawData.district_n || 'N/A') as string,
         'Parliamentary': (rawData.parliame_1 || 'N/A') as string,
+      };
+    } else if (type === 'Police Station') {
+      importantData = {
+        'Station Name': (rawData.ps_name || rawData.police_sta || 'N/A') as string,
+        'Station Code': (rawData.ps_code || rawData.police_s_1 || 'N/A') as string,
+        'District': (rawData.police_dis || rawData.district_n || 'N/A') as string,
+        'Taluk': (rawData.taluk_name || 'N/A') as string,
       };
     }
 
@@ -181,6 +190,58 @@ const ResultContainer: React.FC = () => {
           ]}
           onClose={clearSearch}
           onReport={() => handleReport('Constituency', searchResult.properties)}
+        />
+      )}
+
+      {/* Police Station Info */}
+      {activeLayer === 'POLICE' && selectedPoliceStation && (
+        <ResultCard
+          key="police-detail"
+          themeColor="slate"
+          title={(selectedPoliceStation.properties?.ps_name || selectedPoliceStation.properties?.police_sta || 'Police Station').toString()}
+          icon={<Shield size={20} />}
+          data={[
+            { label: 'Station Code', value: (selectedPoliceStation.properties?.ps_code || selectedPoliceStation.properties?.police_s_1 || 'N/A').toString(), isPill: true },
+            { label: 'District', value: (selectedPoliceStation.properties?.police_dis || selectedPoliceStation.properties?.district_n || 'N/A').toString() },
+            { label: 'Taluk', value: (selectedPoliceStation.properties?.taluk_name || 'N/A').toString() },
+            { label: 'Status', value: selectedPoliceStation.properties?.status ? 'Operational' : 'Operational', isPill: true }
+          ]}
+          onClose={() => setSelectedPoliceStation(null)}
+          onDirections={selectedPoliceStation.properties?.station_location ? () => {
+            const coords = selectedPoliceStation.properties.station_location as Position;
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+          } : undefined}
+          onReport={() => handleReport('Police Station', selectedPoliceStation.properties || {})}
+        />
+      )}
+
+      {/* Police Layer Instruction */}
+      {activeLayer === 'POLICE' && searchResult && !selectedPoliceStation && !noDataFound && (
+          <ResultCard
+            key="police-instruction"
+            themeColor="slate"
+            title="Find Police Jurisdiction"
+            icon={<Shield size={20} />}
+            data={[
+              { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
+              { label: 'Next Step', value: 'Click your location on the map to find the responsible police station.' }
+            ]}
+            onClose={clearSearch}
+          />
+       )}
+
+      {/* Police Layer General Instruction */}
+      {activeLayer === 'POLICE' && !searchResult && !selectedPoliceStation && !noDataFound && (
+        <ResultCard
+          key="police-general-instruction"
+          themeColor="slate"
+          title="Police Jurisdictions"
+          icon={<Shield size={20} />}
+          data={[
+            { label: 'Status', value: 'Layer Active', isPill: true },
+            { label: 'Instruction', value: 'Search for a station or click anywhere on the map to resolve the local police jurisdiction.' }
+          ]}
+          onClose={() => {}}
         />
       )}
 

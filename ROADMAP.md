@@ -9,6 +9,7 @@ Features that provide immediate value with minimal architectural changes.
 - [ ] **Navigation Integration**: "Get Directions" button in Result Cards that opens Google Maps/Apple Maps.
 - [ ] **Bilingual Support (Tamil/English)**: Full localization of the UI and primary dataset labels.
 - [ ] **Enhanced Result Metadata**: Include phone numbers, operating hours, and official contact emails for offices.
+- [x] **Police Stations & Jurisdictions**: Complete boundary mapping and station point integration.
 
 ## 🛠️ Phase 2: User Experience & Engagement (Medium Term)
 Features that improve retention and ease of use.
@@ -35,4 +36,4 @@ Internal and research-oriented features.
 - [ ] **Automated Data Pipeline**: Scripts to automatically fetch and convert raw government CSV/JSON into optimized TopoJSON.
 
 ---
-*Last Updated: April 23, 2026*
+*Last Updated: April 23, 2026 (Police Layer Integration)*

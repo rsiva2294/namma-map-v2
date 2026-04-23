@@ -1,4 +1,4 @@
-export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY';
+export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE';
 
 export type Position = [number, number];
 export type BBox = [number, number, number, number];
@@ -55,7 +55,7 @@ export interface GisFeature<G extends Geometry = Geometry, P = GisProperties> {
   properties: P;
   bbox?: BBox;
   id?: string | number;
-  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY';
+  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION';
 }
 
 export interface ConstituencyProperties extends GisProperties {
@@ -104,4 +104,19 @@ export interface TnebProperties extends GisProperties {
 
 export interface TnebSection extends TnebProperties {
   office_location?: Position;
+}
+
+export interface PoliceBoundaryProperties extends GisProperties {
+  police_s_1: string; // Key
+  police_sta: string; // Name
+  police_dis: string;
+  taluk_name: string;
+  district_n: string;
+}
+
+export interface PoliceStationProperties extends GisProperties {
+  ps_code: string; // Key
+  ps_name: string; // Name
+  name: string;    // Full Name
+  status: boolean;
 }
