@@ -11,7 +11,8 @@ import type {
   ConstituencyProperties,
   PoliceBoundaryProperties,
   PoliceStationProperties,
-  PoliceResolutionResult
+  PoliceResolutionResult,
+  PostalOffice
 } from '../types/gis';
 
 interface MapState {
@@ -47,6 +48,8 @@ interface MapState {
   policeStationsData: GisFeatureCollection<Point, PoliceStationProperties> | null;
   selectedPoliceStation: GisFeature<Point, PoliceStationProperties> | null;
   policeResolution: PoliceResolutionResult | null;
+  selectedPostalOffices: PostalOffice[] | null;
+  selectedPostalOffice: PostalOffice | null;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -78,6 +81,8 @@ interface MapState {
   setPoliceStationsData: (data: GisFeatureCollection<Point, PoliceStationProperties> | null) => void;
   setSelectedPoliceStation: (station: PoliceStationProperties | null, geometry?: Geometry | null) => void;
   setPoliceResolution: (result: PoliceResolutionResult | null) => void;
+  setSelectedPostalOffices: (offices: PostalOffice[] | null) => void;
+  setSelectedPostalOffice: (office: PostalOffice | null) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -114,6 +119,8 @@ export const useMapStore = create<MapState>((set) => ({
   policeStationsData: null,
   selectedPoliceStation: null,
   policeResolution: null,
+  selectedPostalOffices: null,
+  selectedPostalOffice: null,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
@@ -123,6 +130,8 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPdsShop: null,
     selectedPoliceStation: null,
     policeResolution: null,
+    selectedPostalOffices: null,
+    selectedPostalOffice: null,
     // Reset result if switching from/to layers
     searchResult: null
   }),
@@ -134,7 +143,9 @@ export const useMapStore = create<MapState>((set) => ({
       searchResult: result,
       jurisdictionDetails: keepSelection ? state.jurisdictionDetails : null,
       jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
-      selectedPdsShop: keepSelection ? state.selectedPdsShop : null
+      selectedPdsShop: keepSelection ? state.selectedPdsShop : null,
+      selectedPostalOffices: keepSelection ? state.selectedPostalOffices : null,
+      selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null
     };
 
     if (updateQuery && result) {
@@ -174,7 +185,9 @@ export const useMapStore = create<MapState>((set) => ({
     // Clear other data to show only the "No Data" card
     searchResult: val ? null : undefined,
     jurisdictionDetails: val ? null : undefined,
-    policeResolution: val ? null : undefined
+    policeResolution: val ? null : undefined,
+    selectedPostalOffices: val ? null : undefined,
+    selectedPostalOffice: val ? null : undefined
   }),
   clearSearch: () => set({ 
     searchQuery: '', 
@@ -188,6 +201,8 @@ export const useMapStore = create<MapState>((set) => ({
     jurisdictionGeometry: null,
     selectedPoliceStation: null,
     policeResolution: null,
+    selectedPostalOffices: null,
+    selectedPostalOffice: null,
     noDataFound: false,
     lastClickedPoint: null
   }),
@@ -213,4 +228,6 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPoliceStation: result?.station || null,
     jurisdictionGeometry: result?.boundary.geometry || null
   }),
+  setSelectedPostalOffices: (offices) => set({ selectedPostalOffices: offices }),
+  setSelectedPostalOffice: (office) => set({ selectedPostalOffice: office }),
 }));

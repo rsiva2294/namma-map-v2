@@ -57,8 +57,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -69,8 +69,9 @@ const GisMap: React.FC = () => {
       loadPdsIndex();
       loadConstituencies();
       loadPoliceData();
+      loadPostalOffices();
     }
-  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
@@ -196,6 +197,17 @@ const GisMap: React.FC = () => {
     iconAnchor: [18, 18]
   });
  
+  const postOfficeIcon = L.divIcon({
+    html: `
+      <div class="pulse-postal"></div>
+      <div style="background: #ef4444; width: 24px; height: 24px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); position: relative; z-index: 1;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>`,
+    className: 'custom-postal-icon',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
+  });
+ 
 
 
   const tnBounds: L.LatLngBoundsLiteral = [
@@ -258,6 +270,26 @@ const GisMap: React.FC = () => {
           interactive={false}
         />
       )}
+
+      {activeLayer === 'PINCODE' && selectedPostalOffices && selectedPostalOffices.map((po, i) => (
+        <Marker
+          key={`po-${po.pincode}-${i}`}
+          position={[parseFloat(po.latitude as string), parseFloat(po.longitude as string)]}
+          icon={postOfficeIcon}
+          eventHandlers={{
+            click: () => {
+              setSelectedPostalOffice(po);
+            }
+          }}
+        >
+          <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+            <div style={{ padding: '4px 8px' }}>
+              <div style={{ fontWeight: 'bold', fontSize: '14px' }}>{po.officename}</div>
+              <div style={{ fontSize: '12px', opacity: 0.8 }}>{po.officetype} - {po.delivery}</div>
+            </div>
+          </Tooltip>
+        </Marker>
+      ))}
 
       {activeLayer === 'TNEB' && jurisdictionGeometry && (
         <>
@@ -361,6 +393,24 @@ const GisMap: React.FC = () => {
             className: 'selected-pds-icon',
             iconSize: [12, 12],
             iconAnchor: [6, 6]
+          })}
+        />
+      )}
+
+      {activeLayer === 'PINCODE' && selectedPostalOffice && (
+        <Marker
+          position={[
+            parseFloat(selectedPostalOffice.latitude as string),
+            parseFloat(selectedPostalOffice.longitude as string)
+          ]}
+          interactive={false}
+          icon={L.divIcon({
+            html: `
+              <div class="pulse-postal"></div>
+              <div style="background: #ef4444; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); position: relative; z-index: 1;"></div>`,
+            className: 'selected-postal-icon',
+            iconSize: [14, 14],
+            iconAnchor: [7, 7]
           })}
         />
       )}

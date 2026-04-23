@@ -23,7 +23,8 @@ export const useGisWorker = () => {
     setPoliceBoundariesData,
     setPoliceStationsData,
     setSelectedPoliceStation,
-    setPoliceResolution
+    setPoliceResolution,
+    setSelectedPostalOffices
   } = useMapStore();
 
   const loadDistricts = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
@@ -33,6 +34,7 @@ export const useGisWorker = () => {
   const loadTneb = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB' }), []);
   const loadConstituencies = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
   const loadPoliceData = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POLICE' }), []);
+  const loadPostalOffices = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POSTAL_OFFICES' }), []);
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -73,6 +75,10 @@ export const useGisWorker = () => {
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
+              if (payload.layer === 'PINCODE' && payload.postalOffices) {
+                setSelectedPostalOffices(payload.postalOffices);
+              }
+
               if (payload.layer === 'PDS') {
                 const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME;
                 if (district) {
@@ -105,6 +111,9 @@ export const useGisWorker = () => {
         case 'AUTO_TRIGGER_PDS':
           workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
           break;
+        case 'POSTAL_OFFICES_LOADED':
+          // Optional: handle if UI needs to know
+          break;
         case 'ERROR':
           console.error('[Worker Error]', payload);
           setIsResolving(false);
@@ -134,16 +143,17 @@ export const useGisWorker = () => {
     setPoliceBoundariesData,
     setPoliceStationsData,
     setSelectedPoliceStation,
-    setPoliceResolution
+    setPoliceResolution,
+    setSelectedPostalOffices
   ]);
 
 
-  const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false) => {
+  const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false, pincode?: string) => {
     setIsResolving(true);
     setSearchResult(null, keepSelection);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { lat, lng, layer, keepSelection, constituencyType: useMapStore.getState().constituencyType }
+      payload: { lat, lng, layer, keepSelection, pincode, constituencyType: useMapStore.getState().constituencyType }
     });
   }, [setSearchResult, setIsResolving]);
 
@@ -192,11 +202,16 @@ export const useGisWorker = () => {
       resolveLocation(lat, lng, 'POLICE');
     } else {
       // PINCODE or Area
-      if (currentLayer === 'TNEB' || currentLayer === 'CONSTITUENCY') setActiveLayer('PINCODE');
-      setSearchResult(item);
+      const pin = (item.properties.pin_code || item.properties.PIN_CODE || item.properties.pincode)?.toString();
+      
+      if (pin && (currentLayer === 'PINCODE' || currentLayer === 'CONSTITUENCY')) {
+        resolveLocation(0, 0, currentLayer, false, pin);
+      } else {
+        setSearchResult(item);
+      }
+
       const district = item.properties.district || item.properties.DISTRICT || item.properties.DISTRICT_NAME || item.properties.NAME;
-      const targetLayer = (currentLayer === 'TNEB' || currentLayer === 'CONSTITUENCY') ? 'PINCODE' : currentLayer;
-      if (district && targetLayer === 'PDS') {
+      if (district && currentLayer === 'PDS') {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
     }
@@ -206,5 +221,5 @@ export const useGisWorker = () => {
     workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
   }, []);
 
-  return { isReady, loadDistricts, loadStateBoundary, loadPdsIndex, loadPincodes, loadTneb, loadPds, loadConstituencies, loadPoliceData, resolveLocation, getSuggestions, selectSuggestion };
+  return { isReady, loadDistricts, loadStateBoundary, loadPdsIndex, loadPincodes, loadTneb, loadPds, loadConstituencies, loadPoliceData, loadPostalOffices, resolveLocation, getSuggestions, selectSuggestion };
 };

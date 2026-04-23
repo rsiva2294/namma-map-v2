@@ -12,7 +12,8 @@ import type {
   PoliceStationProperties,
   PoliceResolutionResult,
   PoliceMatchConfidence,
-  PoliceMatchDebug
+  PoliceMatchDebug,
+  PostalOffice
 } from '../types/gis';
 
 interface SpatialItem {
@@ -76,6 +77,8 @@ let acGeoJson: GisFeatureCollection | null = null;
 let pcGeoJson: GisFeatureCollection | null = null;
 let policeBoundariesGeoJson: GisFeatureCollection | null = null;
 let policeStationsGeoJson: GisFeatureCollection | null = null;
+let postalOffices: PostalOffice[] | null = null;
+const postalOfficesIndex: Map<string, PostalOffice[]> = new Map();
 const loadedPds: Map<string, GisFeatureCollection> = new Map();
 
 async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
@@ -517,11 +520,12 @@ self.onmessage = async (e: MessageEvent) => {
       break;
 
     case 'RESOLVE_LOCATION': {
-      const { lat, lng, layer, keepSelection } = payload;
+      const { lat, lng, layer, keepSelection, pincode: pincodeOverride } = payload;
       
       let found: GisFeature | null = null;
       if (layer === 'TNEB') {
         found = findFeatureAt([lng, lat], tnebIndex);
+        
         if (found) {
           const office = tnebOffices?.features.find((o: GisFeature) => {
             const sCoMatch = o.properties.section_co === found?.properties.section_co;
@@ -541,8 +545,35 @@ self.onmessage = async (e: MessageEvent) => {
           });
         }
       } else if (layer === 'CONSTITUENCY') {
-        const { constituencyType } = payload;
-        found = findFeatureAt([lng, lat], constituencyType === 'PC' ? pcIndex : acIndex);
+        const { constituencyType, pincode: pincodeOverride } = payload;
+        
+        if (pincodeOverride) {
+          const pinFeature = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString());
+          if (pinFeature) {
+            const centroid = getCentroid(pinFeature.geometry);
+            const resolvedConst = findFeatureAt(centroid as [number, number], constituencyType === 'PC' ? pcIndex : acIndex);
+            
+            if (resolvedConst) {
+              self.postMessage({ 
+                type: 'RESOLUTION_RESULT', 
+                payload: { 
+                  properties: { ...resolvedConst.properties, ...pinFeature.properties }, 
+                  geometry: pinFeature.geometry,
+                  layer: 'CONSTITUENCY',
+                  constituencyType,
+                  keepSelection
+                } 
+              });
+              return;
+            } else {
+              // Fallback to just pincode if no constituency found at centroid (unlikely but possible at borders)
+              found = pinFeature;
+            }
+          }
+        } else {
+          found = findFeatureAt([lng, lat], constituencyType === 'PC' ? pcIndex : acIndex);
+        }
+
         if (found) {
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
@@ -574,15 +605,24 @@ self.onmessage = async (e: MessageEvent) => {
           });
         }
       } else if (layer === 'PINCODE' || layer === 'PDS') {
-        found = findFeatureAt([lng, lat], pincodesIndex);
+        if (pincodeOverride) {
+           found = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
+        } else {
+           found = findFeatureAt([lng, lat], pincodesIndex);
+        }
+        
         if (found) {
+          const pincode = (found.properties.pin_code || found.properties.PIN_CODE || found.properties.pincode)?.toString();
+          const offices = pincode ? postalOfficesIndex.get(pincode) || [] : [];
+          
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
             payload: { 
               properties: found.properties, 
               geometry: found.geometry,
               layer: layer,
-              keepSelection
+              keepSelection,
+              postalOffices: offices
             } 
           });
         }
@@ -621,6 +661,31 @@ self.onmessage = async (e: MessageEvent) => {
       } catch (err) {
         console.error('[Worker] Error loading pincodes:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load pincode data' });
+      }
+      break;
+
+    case 'LOAD_POSTAL_OFFICES':
+      try {
+        if (!postalOffices) {
+          const response = await fetchWithRetry('/data/tn_postal_offices.json');
+          postalOffices = await response.json();
+          
+          // Index by pincode
+          postalOfficesIndex.clear();
+          postalOffices?.forEach(office => {
+            const pin = office.pincode?.toString();
+            if (pin) {
+              if (!postalOfficesIndex.has(pin)) {
+                postalOfficesIndex.set(pin, []);
+              }
+              postalOfficesIndex.get(pin)!.push(office);
+            }
+          });
+        }
+        self.postMessage({ type: 'POSTAL_OFFICES_LOADED' });
+      } catch (err) {
+        console.error('[Worker] Error loading postal offices:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load postal office data' });
       }
       break;
 

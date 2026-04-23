@@ -152,3 +152,16 @@ export interface PoliceStationProperties extends GisProperties {
   district?: string;
   taluk?: string;
 }
+export interface PostalOffice {
+  circlename: string;
+  regionname: string;
+  divisionname: string;
+  officename: string;
+  pincode: string;
+  officetype: string;
+  delivery: string;
+  district: string;
+  statename: string;
+  latitude: string | number;
+  longitude: string | number;
+}

@@ -19,6 +19,10 @@ const ResultContainer: React.FC = () => {
   const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
   const setNoDataFound = useMapStore(state => state.setNoDataFound);
   const clearSearch = useMapStore(state => state.clearSearch);
+  const selectedPostalOffices = useMapStore(state => state.selectedPostalOffices);
+  const selectedPostalOffice = useMapStore(state => state.selectedPostalOffice);
+  const setSelectedPostalOffice = useMapStore(state => state.setSelectedPostalOffice);
+
   const handleReport = (type: string, rawData: Record<string, unknown>) => {
     let importantData: Record<string, string | number> = {};
     
@@ -156,21 +160,51 @@ const ResultContainer: React.FC = () => {
          />
       )}
 
-      {/* Pincode Info */}
-      {activeLayer === 'PINCODE' && searchResult && (
+      {activeLayer === 'PINCODE' && searchResult && !selectedPostalOffice && (
         <ResultCard
           key="pincode-info"
           themeColor="blue"
-          title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Selected Area'}
+          title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Post Office Area'}
           icon={<MapPin size={20} />}
           data={[
             { label: 'Pincode', value: (searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A').toString(), isPill: true },
             { label: 'District', value: searchResult.properties.district || 'N/A' },
-            { label: 'Office Type', value: (searchResult.properties.office_typ as string) || 'N/A' },
-            { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' }
+            { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' },
+            ...(selectedPostalOffices && selectedPostalOffices.length > 0 ? [
+              { 
+                label: 'Local Offices', 
+                value: `${selectedPostalOffices.length} found`,
+                subValue: selectedPostalOffices.slice(0, 3).map(o => o.officename).join(', ') + (selectedPostalOffices.length > 3 ? '...' : '')
+              }
+            ] : [])
           ]}
           onClose={clearSearch}
+          onDirections={selectedPostalOffices && selectedPostalOffices.length > 0 ? () => {
+             const mainOffice = selectedPostalOffices.find(o => o.officetype === 'HO' || o.officetype === 'SO') || selectedPostalOffices[0];
+             window.open(`https://www.google.com/maps/dir/?api=1&destination=${mainOffice.latitude},${mainOffice.longitude}`, '_blank');
+          } : undefined}
           onReport={() => handleReport('Pincode Area', searchResult.properties)}
+        />
+      )}
+
+      {/* Specific Post Office Detail */}
+      {activeLayer === 'PINCODE' && selectedPostalOffice && (
+        <ResultCard
+          key="postal-detail"
+          themeColor="red"
+          title={selectedPostalOffice.officename}
+          icon={<MapPin size={20} />}
+          data={[
+            { label: 'Pincode', value: selectedPostalOffice.pincode, isPill: true },
+            { label: 'Type', value: `${selectedPostalOffice.officetype} - ${selectedPostalOffice.delivery}` },
+            { label: 'Division', value: selectedPostalOffice.divisionname },
+            { label: 'District', value: selectedPostalOffice.district }
+          ]}
+          onClose={() => setSelectedPostalOffice(null)}
+          onDirections={() => {
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedPostalOffice.latitude},${selectedPostalOffice.longitude}`, '_blank');
+          }}
+          onReport={() => handleReport('Post Office', selectedPostalOffice as unknown as Record<string, unknown>)}
         />
       )}
 

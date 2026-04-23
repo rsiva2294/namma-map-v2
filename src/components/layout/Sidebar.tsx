@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
   const setConstituencyType = useMapStore(state => state.setConstituencyType);
 
   const menuItems: { id: ServiceLayer; label: string; icon: LucideIcon }[] = [
-    { id: 'PINCODE', label: 'Pincode Areas', icon: MapPin },
+    { id: 'PINCODE', label: 'Post Offices', icon: MapPin },
     { id: 'PDS', label: 'PDS (Ration)', icon: ShoppingCart },
     { id: 'TNEB', label: 'TNEB (Electricity)', icon: Zap },
     { id: 'CONSTITUENCY', label: 'Constituencies', icon: Landmark },
