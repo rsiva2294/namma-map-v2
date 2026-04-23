@@ -4,6 +4,7 @@ import { useMapStore } from './store/useMapStore';
 import Sidebar from './components/layout/Sidebar';
 import SearchBar from './components/layout/SearchBar';
 import ResultContainer from './components/layout/ResultContainer';
+import ReportModal from './components/ReportModal';
 import ErrorBoundary from './components/ErrorBoundary';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -32,6 +33,7 @@ function App() {
 
         <SearchBar />
         <ResultContainer />
+        <ReportModal />
       </main>
     </div>
   );

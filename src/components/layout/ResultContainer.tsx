@@ -1,9 +1,9 @@
 import React from 'react';
-import { ShoppingBag, Zap, MapPin } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
-import type { Position } from '../../types/gis';
+import type { Position, TnebSection } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
   const activeLayer = useMapStore(state => state.activeLayer);
@@ -12,7 +12,39 @@ const ResultContainer: React.FC = () => {
   const searchResult = useMapStore(state => state.searchResult);
   const jurisdictionDetails = useMapStore(state => state.jurisdictionDetails);
   const setJurisdictionDetails = useMapStore(state => state.setJurisdictionDetails);
+  const setReportModal = useMapStore(state => state.setReportModal);
+  const noDataFound = useMapStore(state => state.noDataFound);
+  const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
+  const setNoDataFound = useMapStore(state => state.setNoDataFound);
   const clearSearch = useMapStore(state => state.clearSearch);
+  const handleReport = (type: string, rawData: Record<string, unknown>) => {
+    let importantData: Record<string, string | number> = {};
+    
+    if (type === 'PDS Shop') {
+      importantData = {
+        'Shop Name': rawData.name as string,
+        'Shop Code': rawData.shop_code as string,
+        'Taluk': rawData.taluk as string,
+        'District': rawData.district as string,
+      };
+    } else if (type === 'TNEB Section') {
+      const d = rawData as unknown as TnebSection;
+      importantData = {
+        'Section Name': d.section_na || d.section_office || 'N/A',
+        'Section Code': d.section_co?.toString() || 'N/A',
+        'Division': d.division_n || d.division || 'N/A',
+        'Region': d.region_nam || d.region || 'N/A',
+      };
+    } else if (type === 'Pincode Area') {
+      importantData = {
+        'Pincode': (rawData.PIN_CODE || rawData.pincode || 'N/A') as string | number,
+        'Office Name': (rawData.office_name as string) || 'N/A',
+        'District': (rawData.district as string) || 'N/A',
+      };
+    }
+
+    setReportModal(true, { type, data: importantData });
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -22,7 +54,7 @@ const ResultContainer: React.FC = () => {
           key="pds-detail"
           themeColor="red"
           title={selectedPdsShop.properties.name || 'PDS Shop'}
-          icon={<ShoppingBag size={20} />}
+          icon={<ShoppingCart size={20} />}
           data={[
             { label: 'Shop Code', value: selectedPdsShop.properties.shop_code || 'N/A', isPill: true },
             { label: 'Village', value: selectedPdsShop.properties.village || 'N/A' },
@@ -34,6 +66,7 @@ const ResultContainer: React.FC = () => {
             const coords = selectedPdsShop.geometry.coordinates as Position;
             window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
           }}
+          onReport={() => handleReport('PDS Shop', selectedPdsShop.properties)}
         />
       )}
 
@@ -43,7 +76,7 @@ const ResultContainer: React.FC = () => {
            key="pds-instruction"
            themeColor="red"
            title={`PDS Shops in ${searchResult.properties.office_name || searchResult.properties.district || ''}`}
-           icon={<ShoppingBag size={20} />}
+           icon={<ShoppingCart size={20} />}
            data={[
              { label: 'Status', value: 'Displaying all local shops', isPill: true },
              { label: 'Instruction', value: 'Click a shop marker on the map to view detailed information.' }
@@ -86,6 +119,7 @@ const ResultContainer: React.FC = () => {
             const coords = jurisdictionDetails.office_location as Position;
             window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
           } : undefined}
+          onReport={() => handleReport('TNEB Section', jurisdictionDetails)}
         />
       )}
 
@@ -118,6 +152,37 @@ const ResultContainer: React.FC = () => {
             { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' }
           ]}
           onClose={clearSearch}
+          onReport={() => handleReport('Pincode Area', searchResult.properties)}
+        />
+      )}
+
+      {/* No Data Found Card */}
+      {noDataFound && (
+        <ResultCard
+          key="no-data"
+          themeColor="blue"
+          title="No Information Found"
+          icon={<AlertCircle size={20} />}
+          data={[
+            { label: 'Status', value: 'Data Unavailable', isPill: true },
+            { label: 'Message', value: 'We don\'t have specific jurisdictional data for this exact coordinate yet.' },
+            { label: 'Location', value: lastClickedPoint ? `${lastClickedPoint.lat.toFixed(4)}, ${lastClickedPoint.lng.toFixed(4)}` : 'Unknown' }
+          ]}
+          onClose={() => setNoDataFound(false)}
+          actionLabel="CONTRIBUTE DATA"
+          onAction={() => handleReport('Missing Data', { 
+            latitude: lastClickedPoint?.lat, 
+            longitude: lastClickedPoint?.lng,
+            layer: activeLayer 
+          })}
+          onDirections={lastClickedPoint ? () => {
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${lastClickedPoint.lat},${lastClickedPoint.lng}`, '_blank');
+          } : undefined}
+          onReport={() => handleReport('Missing Data', { 
+            latitude: lastClickedPoint?.lat, 
+            longitude: lastClickedPoint?.lng,
+            layer: activeLayer 
+          })}
         />
       )}
     </AnimatePresence>

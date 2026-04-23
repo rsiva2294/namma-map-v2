@@ -31,6 +31,10 @@ interface MapState {
   theme: 'dark' | 'light';
   isSidebarOpen: boolean;
   triggerLocateMe: boolean;
+  isReportModalOpen: boolean;
+  reportContext: { type: string; data: Record<string, string | number> } | null;
+  noDataFound: boolean;
+  lastClickedPoint: { lat: number; lng: number } | null;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -49,6 +53,8 @@ interface MapState {
   setIsLocating: (val: boolean) => void;
   setSidebarOpen: (val: boolean) => void;
   setTriggerLocateMe: (val: boolean) => void;
+  setReportModal: (isOpen: boolean, context?: { type: string; data: Record<string, string | number> } | null) => void;
+  setNoDataFound: (val: boolean, point?: { lat: number; lng: number } | null) => void;
   clearSearch: () => void;
   toggleTheme: () => void;
   isUserTyping: boolean;
@@ -78,6 +84,10 @@ export const useMapStore = create<MapState>((set) => ({
   isSidebarOpen: true,
   triggerLocateMe: false,
   isUserTyping: false,
+  isReportModalOpen: false,
+  reportContext: null,
+  noDataFound: false,
+  lastClickedPoint: null,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
@@ -120,6 +130,17 @@ export const useMapStore = create<MapState>((set) => ({
   setSidebarOpen: (val) => set({ isSidebarOpen: val }),
   setTriggerLocateMe: (trigger) => set({ triggerLocateMe: trigger, isUserTyping: false }),
   setUserTyping: (isTyping) => set({ isUserTyping: isTyping }),
+  setReportModal: (isOpen, context = null) => set({ 
+    isReportModalOpen: isOpen, 
+    reportContext: context 
+  }),
+  setNoDataFound: (val, point = null) => set({ 
+    noDataFound: val, 
+    lastClickedPoint: point,
+    // Clear other data to show only the "No Data" card
+    searchResult: val ? null : undefined,
+    jurisdictionDetails: val ? null : undefined
+  }),
   clearSearch: () => set({ 
     searchQuery: '', 
     searchSuggestions: [],
@@ -129,7 +150,9 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPdsShop: null,
     activeDistrict: null,
     jurisdictionDetails: null,
-    jurisdictionGeometry: null
+    jurisdictionGeometry: null,
+    noDataFound: false,
+    lastClickedPoint: null
   }),
   toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
 }));

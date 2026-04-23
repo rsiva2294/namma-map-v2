@@ -14,8 +14,8 @@ Features that provide immediate value with minimal architectural changes.
 Features that improve retention and ease of use.
 
 - [ ] **Saved Locations ("My Places")**: LocalStorage-based saving of favorite pincodes or offices for quick access.
-- [ ] **Global Universal Search**: A single search bar that resolves Districts, Pincodes, and Offices without requiring layer switching.
-- [ ] **Crowdsourced Feedback**: "Report an Issue" button for data corrections (location shifts, name changes).
+- [x] **Global Universal Search**: A single search bar that resolves Districts, Pincodes, and Offices without requiring layer switching.
+- [x] **Crowdsourced Feedback**: "Report an Issue" button for data corrections (location shifts, name changes).
 - [ ] **Interactive Legend**: A visual guide to map markers, colors, and boundary types.
 
 ## 📡 Phase 3: Real-Time & Advanced GIS (Long Term)
@@ -34,4 +34,4 @@ Internal and research-oriented features.
 - [ ] **Automated Data Pipeline**: Scripts to automatically fetch and convert raw government CSV/JSON into optimized TopoJSON.
 
 ---
-*Last Updated: April 2026*
+*Last Updated: April 23, 2026*

@@ -57,8 +57,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, selectedPdsShop, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -66,13 +66,14 @@ const GisMap: React.FC = () => {
       loadStateBoundary();
       loadPincodes();
       loadTneb();
+      loadPdsIndex();
     }
-  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
     if (isUserTyping && searchQuery && searchQuery.length >= 3) {
-      getSuggestions(searchQuery, activeLayer);
+      getSuggestions(searchQuery);
     } else if (!isUserTyping || !searchQuery) {
       setSearchSuggestions([]);
     }
@@ -153,9 +154,11 @@ const GisMap: React.FC = () => {
   };
 
   const boltIcon = L.divIcon({
-    html: `<div style="background: #f59e0b; padding: 8px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-    </div>`,
+    html: `
+      <div class="pulse-tneb"></div>
+      <div style="background: #f59e0b; width: 36px; height: 36px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); position: relative; z-index: 1;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>`,
     className: 'custom-bolt-icon',
     iconSize: [36, 36],
     iconAnchor: [18, 18]
@@ -266,6 +269,24 @@ const GisMap: React.FC = () => {
           </CircleMarker>
         );
       })}
+
+      {activeLayer === 'PDS' && selectedPdsShop && (
+        <Marker
+          position={[
+            (selectedPdsShop.geometry.coordinates as [number, number])[1],
+            (selectedPdsShop.geometry.coordinates as [number, number])[0]
+          ]}
+          interactive={false}
+          icon={L.divIcon({
+            html: `
+              <div class="pulse-pds"></div>
+              <div style="background: #ef4444; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); position: relative; z-index: 1;"></div>`,
+            className: 'selected-pds-icon',
+            iconSize: [12, 12],
+            iconAnchor: [6, 6]
+          })}
+        />
+      )}
 
       <MapController result={searchResult} geometry={jurisdictionGeometry} />
       <MapEvents onResolve={resolveLocation} activeLayer={activeLayer} />

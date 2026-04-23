@@ -1,0 +1,104 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Send, AlertCircle } from 'lucide-react';
+import { useMapStore } from '../store/useMapStore';
+
+const ReportModal: React.FC = () => {
+  const isOpen = useMapStore(state => state.isReportModalOpen);
+  const context = useMapStore(state => state.reportContext);
+  const setReportModal = useMapStore(state => state.setReportModal);
+  const [correction, setCorrection] = useState('');
+
+  if (!isOpen || !context) return null;
+
+  const handleSend = () => {
+    const subject = encodeURIComponent(`NammaMap Data Correction: ${context.type}`);
+    const body = encodeURIComponent(
+      `Issue reported for ${context.type}\n\n` +
+      `--- FEATURE DETAILS ---\n` +
+      Object.entries(context.data)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join('\n') +
+      `\n\n--- CORRECTION / FEEDBACK ---\n` +
+      `${correction}\n\n` +
+      `------------------------\n` +
+      `Reported via NammaMap V2 Web Application`
+    );
+
+    window.open(`mailto:rsiva2294@gmail.com?subject=${subject}&body=${body}`);
+    setReportModal(false);
+    setCorrection('');
+  };
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="modal-overlay"
+        onClick={() => setReportModal(false)}
+      >
+        <motion.div
+          initial={{ scale: 0.9, y: 20, opacity: 0 }}
+          animate={{ scale: 1, y: 0, opacity: 1 }}
+          exit={{ scale: 0.9, y: 20, opacity: 0 }}
+          className="modal-content glass-heavy"
+          onClick={e => e.stopPropagation()}
+        >
+          <div className="modal-header">
+            <div className="modal-title-group">
+              <AlertCircle size={20} className="text-accent" />
+              <h3>Report an Issue</h3>
+            </div>
+            <button className="modal-close" onClick={() => setReportModal(false)}>
+              <X size={20} />
+            </button>
+          </div>
+
+          <div className="modal-body">
+            <p className="modal-description">
+              Help us improve NammaMap. Please describe the data correction for <strong>{context.type}</strong>.
+            </p>
+
+            <div className="modal-data-summary">
+              {Object.entries(context.data).map(([key, value]) => (
+                <div key={key} className="modal-data-row">
+                  <span className="modal-data-label">{key}</span>
+                  <span className="modal-data-value">{value}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="modal-form-group">
+              <label htmlFor="correction">Correction Details</label>
+              <textarea
+                id="correction"
+                placeholder="Describe what's wrong (e.g., location shift, name change, office moved...)"
+                value={correction}
+                onChange={e => setCorrection(e.target.value)}
+                autoFocus
+              />
+            </div>
+          </div>
+
+          <div className="modal-footer">
+            <button className="btn-secondary" onClick={() => setReportModal(false)}>
+              Cancel
+            </button>
+            <button 
+              className="btn-primary" 
+              onClick={handleSend}
+              disabled={!correction.trim()}
+            >
+              <Send size={16} />
+              Open Email Client
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+export default ReportModal;

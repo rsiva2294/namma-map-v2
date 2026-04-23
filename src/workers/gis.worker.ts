@@ -19,6 +19,7 @@ interface SpatialItem {
 
 let districtsGeoJson: GisFeatureCollection | null = null;
 let stateBoundaryGeoJson: GisFeatureCollection | null = null;
+let pdsIndex: [string, string, string, string, number, number][] | null = null;
 let pincodesGeoJson: GisFeatureCollection | null = null;
 let tnebGeoJson: GisFeatureCollection | null = null;
 let tnebOffices: GisFeatureCollection | null = null;
@@ -42,6 +43,7 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<R
 // R-trees for spatial indexing
 const pincodesIndex = new RBush<SpatialItem>();
 const tnebIndex = new RBush<SpatialItem>();
+const stateBoundaryIndex = new RBush<SpatialItem>();
 const pdsIndexes = new Map<string, RBush<SpatialItem>>();
 
 function getBBox(geometry: Geometry) {
@@ -120,12 +122,37 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_state_boundary.topojson');
           const data = await response.json();
           const objectName = Object.keys(data.objects)[0];
-          stateBoundaryGeoJson = topojson.feature(data, data.objects[objectName]) as unknown as GisFeatureCollection;
+          const feature = topojson.feature(data, data.objects[objectName]) as unknown;
+          if (feature && typeof feature === 'object' && 'type' in feature && feature.type === 'FeatureCollection') {
+            stateBoundaryGeoJson = feature as GisFeatureCollection;
+          } else {
+            stateBoundaryGeoJson = { type: 'FeatureCollection', features: [feature as GisFeature] };
+          }
+          
+          // Indexing
+          const items: SpatialItem[] = stateBoundaryGeoJson!.features.map((f: GisFeature) => ({
+            ...getBBox(f.geometry),
+            feature: f
+          }));
+          stateBoundaryIndex.load(items);
         }
         self.postMessage({ type: 'STATE_BOUNDARY_LOADED', payload: stateBoundaryGeoJson });
-      } catch (err) {
-        console.error('[Worker] Error loading state boundary:', err);
-        self.postMessage({ type: 'ERROR', payload: 'Failed to load state boundary data' });
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Unknown error';
+        self.postMessage({ type: 'ERROR', payload: `Failed to load state boundary: ${message}` });
+      }
+      break;
+
+    case 'LOAD_PDS_INDEX':
+      try {
+        if (!pdsIndex) {
+          const response = await fetchWithRetry('/data/pds_index.json');
+          pdsIndex = await response.json();
+        }
+        self.postMessage({ type: 'PDS_INDEX_LOADED' });
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Unknown error';
+        self.postMessage({ type: 'ERROR', payload: `Failed to load PDS index: ${message}` });
       }
       break;
 
@@ -196,7 +223,12 @@ self.onmessage = async (e: MessageEvent) => {
       }
 
       if (!found) {
-        self.postMessage({ type: 'RESOLUTION_RESULT', payload: null });
+        const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false; 
+
+        self.postMessage({ 
+          type: 'RESOLUTION_RESULT', 
+          payload: { found: false, lat, lng, layer, isInsideState: !!isInsideState } 
+        });
       }
       break;
     }
@@ -224,7 +256,7 @@ self.onmessage = async (e: MessageEvent) => {
       break;
 
     case 'GET_SUGGESTIONS': {
-      const { query, layer } = payload;
+      const { query } = payload;
       const q = (query || '').toLowerCase().trim();
       if (!q) {
         self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: [] });
@@ -233,29 +265,66 @@ self.onmessage = async (e: MessageEvent) => {
 
       let suggestions: GisFeature[] = [];
 
-      if (layer === 'PINCODE' || layer === 'PDS') {
-        if (pincodesGeoJson) {
-          suggestions = pincodesGeoJson.features.filter((f: GisFeature) => {
+      // 1. Search Districts
+      if (districtsGeoJson) {
+        const districtMatches = districtsGeoJson.features
+          .filter((f: GisFeature) => (f.properties.district || f.properties.DISTRICT || f.properties.NAME || '').toString().toLowerCase().includes(q))
+          .slice(0, 2)
+          .map((s: GisFeature) => ({ ...s, suggestionType: 'DISTRICT' as const }));
+        suggestions = [...suggestions, ...districtMatches];
+      }
+
+      // 2. Search Pincodes
+      if (pincodesGeoJson) {
+        const pinMatches = pincodesGeoJson.features
+          .filter((f: GisFeature) => {
             const pin = f.properties.PIN_CODE || f.properties.pincode || '';
             const searchStr = (f.properties.search_string as string || f.properties.office_name as string || '').toLowerCase();
             return pin.toString().startsWith(q) || searchStr.includes(q);
-          }).slice(0, 5).map((s: GisFeature) => ({ ...s, suggestionType: 'PINCODE' }));
-        }
-      } else if (layer === 'TNEB') {
-        if (!isNaN(Number(q)) && pincodesGeoJson) {
-          suggestions = pincodesGeoJson.features.filter((f: GisFeature) => {
-            const pin = f.properties.PIN_CODE || f.properties.pincode || '';
-            return pin.toString().startsWith(q);
-          }).slice(0, 5).map((s: GisFeature) => ({ ...s, suggestionType: 'PINCODE' }));
-        } else if (tnebOffices) {
-          suggestions = tnebOffices.features.filter((f: GisFeature) => {
-            const name = (f.properties.section_na as string || f.properties.section_office as string || '').toLowerCase();
-            return name.includes(q);
-          }).slice(0, 5).map((s: GisFeature) => ({ ...s, suggestionType: 'TNEB_SECTION' }));
-        }
+          })
+          .slice(0, 5)
+          .map((s: GisFeature) => ({ ...s, suggestionType: 'PINCODE' as const }));
+        suggestions = [...suggestions, ...pinMatches];
       }
 
-      self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions });
+      // 3. Search TNEB Offices
+      if (tnebOffices) {
+        const tnebMatches = tnebOffices.features
+          .filter((f: GisFeature) => {
+            const name = (f.properties.section_na as string || f.properties.section_office as string || '').toLowerCase();
+            return name.includes(q);
+          })
+          .slice(0, 5)
+          .map((s: GisFeature) => ({ ...s, suggestionType: 'TNEB_SECTION' as const }));
+        suggestions = [...suggestions, ...tnebMatches];
+      }
+
+      // 4. Search PDS Shops from Index
+      if (pdsIndex) {
+        const pdsMatches = pdsIndex
+          .filter(shop => {
+            const name = shop[1].toLowerCase();
+            const shopCode = shop[0].toLowerCase();
+            const taluk = shop[2].toLowerCase();
+            return name.includes(q) || shopCode.includes(q) || taluk.includes(q);
+          })
+          .slice(0, 5)
+          .map(shop => ({
+            type: 'Feature' as const,
+            geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
+            properties: { 
+              shop_code: shop[0], 
+              name: shop[1], 
+              taluk: shop[2], 
+              district: shop[3],
+              office_location: [shop[5], shop[4]] as [number, number]
+            },
+            suggestionType: 'PDS_SHOP' as const
+          } as GisFeature));
+        suggestions = [...suggestions, ...pdsMatches];
+      }
+
+      self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions.slice(0, 8) });
       break;
     }
 

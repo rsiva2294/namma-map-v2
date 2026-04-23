@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Copy, MapPin } from 'lucide-react';
+import { X, Copy, MapPin, AlertCircle, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export interface ResultCardProps {
@@ -9,6 +9,9 @@ export interface ResultCardProps {
   data: { label: string; value: string; subValue?: string; isPill?: boolean }[];
   onClose: () => void;
   onDirections?: () => void;
+  onReport?: () => void;
+  actionLabel?: string;
+  onAction?: () => void;
 }
 
 const colorMap = {
@@ -32,7 +35,7 @@ const colorMap = {
   }
 };
 
-const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, onClose, onDirections }) => {
+const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, onClose, onDirections, onReport, actionLabel, onAction }) => {
   const colors = colorMap[themeColor];
 
   const handleCopy = (text: string) => {
@@ -53,13 +56,25 @@ const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, 
           {icon && <span style={{ color: colors.text, display: 'flex' }}>{icon}</span>}
           <h3 className="result-card-title">{title}</h3>
         </div>
-        <button
-          onClick={onClose}
-          className="result-card-close"
-          aria-label="Close panel"
-        >
-          <X size={18} />
-        </button>
+        <div className="result-card-header-actions">
+          {onReport && (
+            <button
+              onClick={onReport}
+              className="result-card-header-btn"
+              aria-label="Report an issue"
+              title="Report an issue"
+            >
+              <AlertCircle size={18} />
+            </button>
+          )}
+          <button
+            onClick={onClose}
+            className="result-card-header-btn close"
+            aria-label="Close panel"
+          >
+            <X size={18} />
+          </button>
+        </div>
       </div>
 
       {/* Body */}
@@ -100,17 +115,17 @@ const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, 
       </div>
 
       {/* Footer Button */}
-      {onDirections && (
+      {(onDirections || onAction) && (
         <button
-          onClick={onDirections}
+          onClick={onAction || onDirections}
           className="result-card-action-button"
           style={{ backgroundColor: colors.button }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = colors.hover)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = colors.button)}
-          aria-label="Get directions to this location"
+          aria-label={actionLabel || "Get directions to this location"}
         >
-          <MapPin size={16} />
-          GET DIRECTIONS
+          {onAction ? <Send size={16} /> : <MapPin size={16} />}
+          {actionLabel || "GET DIRECTIONS"}
         </button>
       )}
     </motion.div>
