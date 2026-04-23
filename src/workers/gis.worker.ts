@@ -17,6 +17,18 @@ interface SpatialItem {
   feature: GisFeature;
 }
 
+interface ProcessedStationProperties {
+  resolved_code?: string;
+  resolved_name?: string;
+  normalized_key?: string;
+  ps_code?: string | number;
+  ps_name?: string;
+  name?: string;
+  district?: string;
+  taluk?: string;
+  [key: string]: unknown; // Fallback for other GeoJSON props
+}
+
 let districtsGeoJson: GisFeatureCollection | null = null;
 let stateBoundaryGeoJson: GisFeatureCollection | null = null;
 let pdsIndex: [string, string, string, string, number, number][] | null = null;
@@ -43,6 +55,109 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<R
   }
   throw new Error('Fetch failed after retries');
 }
+
+/**
+ * Normalizes strings for matching (uppercase, alphanumeric only)
+ */
+const normalizeString = (str: string | number | undefined | null): string => {
+  if (!str) return '';
+  return str.toString()
+    .toUpperCase()
+    .replace(/TCH/g, 'CH') // Handle NATCHIYAR vs NACHIYAR variations
+    .replace(/[^A-Z0-9]/g, '');
+};
+
+/**
+ * Extracts police station code (e.g. R3, J2, P48) from a string
+ */
+const extractPoliceCode = (str: string | undefined | null): string => {
+  if (!str) return '';
+  const match = str.trim().toUpperCase().match(/^[A-Z]+\d+/);
+  return match ? match[0] : '';
+};
+
+/**
+ * Resolves the best matching police station for a given boundary
+ */
+function resolvePoliceStation(boundary: GisFeature, stations: GisFeatureCollection, clickPoint?: [number, number]) {
+  const bProps = boundary.properties;
+  const bCode = (bProps.police_s_1 || '').toString().trim().toUpperCase();
+  const bName = (bProps.police_s_2 || bProps.police_sta || '').toString();
+  const bDistrict = (bProps.district_n || '').toString();
+  
+  // Clean name for key: strip prefix codes if they exist
+  const cleanBName = bName.replace(/^[A-Z]+\d+[\s.]*/i, '');
+  const bKey = normalizeString(bCode + cleanBName);
+
+  // 1. Fast path optimization: Exact normalized key lookup
+  const exactMatch = stations.features.find(s => s.properties.normalized_key === bKey);
+  if (exactMatch) {
+    console.log(`[PoliceResolver] Fast path match: ${bKey} -> ${exactMatch.properties.ps_name}`);
+    return exactMatch;
+  }
+
+  // 2. Weighted matching engine
+  let bestStation = null;
+  let maxScore = -1;
+  let minDistanceSq = Infinity;
+
+  for (const s of stations.features) {
+    let score = 0;
+    const sProps = s.properties as ProcessedStationProperties;
+
+    // Tier A: resolved_code == boundary_code (+70)
+    if (sProps.resolved_code && bCode && sProps.resolved_code === bCode) {
+      score += 70;
+    }
+    
+    // Tier C: resolved_name closely matches boundary_name (+40)
+    const normalizedSName = normalizeString(sProps.resolved_name);
+    const normalizedBName = normalizeString(cleanBName);
+    if (normalizedSName === normalizedBName) {
+      score += 40;
+    } else if (normalizedSName.length > 3 && (normalizedSName.includes(normalizedBName) || normalizedBName.includes(normalizedSName))) {
+      score += 20; // Partial match
+    }
+
+    // Tier D: district matches (+20)
+    const sDistrict = (sProps.district || '').toString();
+    if (normalizeString(sDistrict) === normalizeString(bDistrict)) {
+      score += 20;
+    }
+
+    // Tier E: taluk metadata match (+10)
+    if (bProps.taluk_name && sProps.taluk && normalizeString(bProps.taluk_name.toString()) === normalizeString(sProps.taluk.toString())) {
+      score += 10;
+    }
+
+    // Calculate distance to click point if available (used for tie-breaking)
+    let dSq = Infinity;
+    if (clickPoint) {
+      const sCoords = s.geometry.coordinates as [number, number];
+      dSq = Math.pow(sCoords[0] - clickPoint[0], 2) + Math.pow(sCoords[1] - clickPoint[1], 2);
+    }
+
+    if (score > maxScore) {
+      maxScore = score;
+      bestStation = s;
+      minDistanceSq = dSq;
+    } else if (score === maxScore && score > 0 && clickPoint) {
+      // Tie-breaker: pick the one closest to the click point
+      if (dSq < minDistanceSq) {
+        minDistanceSq = dSq;
+        bestStation = s;
+      }
+    }
+  }
+
+  if (bestStation && maxScore >= 40) {
+    console.log(`[PoliceResolver] Best match for ${bName} (${bCode}): ${bestStation.properties.ps_name} (Score: ${maxScore}, DistSq: ${minDistanceSq})`);
+    return bestStation;
+  }
+  
+  return null;
+}
+
 
 // R-trees for spatial indexing
 const pincodesIndex = new RBush<SpatialItem>();
@@ -256,12 +371,8 @@ self.onmessage = async (e: MessageEvent) => {
         }
       } else if (layer === 'POLICE') {
         found = findFeatureAt([lng, lat], policeBoundariesIndex);
-        if (found) {
-          // Find station by code AND name/district to disambiguate if possible
-          const station = policeStationsGeoJson?.features.find((s: GisFeature) => 
-            s.properties.ps_code === found?.properties.police_s_1 &&
-            (s.properties.ps_name === found?.properties.police_sta || s.properties.ps_name === found?.properties.police_s_2)
-          ) || policeStationsGeoJson?.features.find((s: GisFeature) => s.properties.ps_code === found?.properties.police_s_1);
+        if (found && policeStationsGeoJson) {
+          const station = resolvePoliceStation(found, policeStationsGeoJson, [lng, lat]);
 
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
@@ -521,6 +632,20 @@ self.onmessage = async (e: MessageEvent) => {
           const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           policeBoundariesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
           policeStationsGeoJson = dataOff as GisFeatureCollection;
+          
+          // Preprocess stations to handle Chennai metro data anomalies (blank codes, embedded names)
+          policeStationsGeoJson.features.forEach((f: GisFeature) => {
+            const props = f.properties;
+            const psCode = (props.ps_code || '').toString().trim();
+            const psName = (props.ps_name || props.name || '').toString();
+            
+            // Extract code from name if ps_code is missing (common in Chennai datasets)
+            props.resolved_code = psCode || extractPoliceCode(psName);
+            // Clean the name by removing prefix codes (e.g. "R3. ASHOK NAGAR" -> "ASHOK NAGAR")
+            props.resolved_name = psName.replace(/^[A-Z]+\d+[\s.]*/i, '').trim();
+            // Generate normalized key for fast-path lookups
+            props.normalized_key = normalizeString(props.resolved_code + props.resolved_name);
+          });
           
           // Indexing with safety filters
           policeBoundariesIndex.load(
