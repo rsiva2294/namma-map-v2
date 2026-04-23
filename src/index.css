@@ -418,8 +418,8 @@ body, html, #root {
   position: absolute;
   top: 86px;
   right: 20px;
-  width: 340px;
-  border-radius: 16px;
+  width: min(calc(100vw - 40px), 400px);
+  border-radius: 20px;
   z-index: 1000;
   overflow: hidden;
   display: flex;
@@ -475,16 +475,17 @@ body, html, #root {
 }
 
 .result-card-body {
-  padding: 16px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .result-card-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
   font-size: 14px;
 }
 
@@ -503,10 +504,8 @@ body, html, #root {
   color: var(--text-primary);
   font-weight: 600;
   text-align: right;
-  max-width: 180px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 280px;
+  word-break: break-word;
 }
 
 .result-card-value-stack {
@@ -526,6 +525,7 @@ body, html, #root {
   color: var(--text-secondary);
   font-weight: 500;
   opacity: 0.8;
+  margin-top: 2px;
 }
 
 .result-card-pill {

@@ -107,11 +107,40 @@ export interface TnebSection extends TnebProperties {
 }
 
 export interface PoliceBoundaryProperties extends GisProperties {
-  police_s_1: string; // Key
-  police_sta: string; // Name
+  police_s_1: string; // Key (PS Code)
+  police_sta: string; // Name alias 1
+  police_s_2?: string; // Name alias 2
   police_dis: string;
   taluk_name: string;
   district_n: string;
+}
+
+export type PoliceMatchConfidence = 'exact' | 'high' | 'medium' | 'low' | 'unresolved';
+
+export interface PoliceMatchDebug {
+  boundaryId: string; // ciprus_loc or derived
+  boundaryCode: string;
+  boundaryAliases: string[];
+  stationCode?: string;
+  stationAliases?: string[];
+  inferredStationCode?: string;
+  codeMatch: boolean;
+  aliasMatchStrength: number;
+  isInsideBoundary: boolean;
+  distanceToClick: number;
+  distanceToCentroid: number;
+  overrideUsed: boolean;
+  confidence: PoliceMatchConfidence;
+  reason: string;
+  method: string;
+}
+
+export interface PoliceResolutionResult {
+  boundary: GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>;
+  station: GisFeature<Point, PoliceStationProperties> | null;
+  confidence: PoliceMatchConfidence;
+  reason: string;
+  debug: PoliceMatchDebug;
 }
 
 export interface PoliceStationProperties extends GisProperties {
@@ -119,4 +148,7 @@ export interface PoliceStationProperties extends GisProperties {
   ps_name: string; // Name
   name: string;    // Full Name
   status: boolean;
+  station_location?: Position;
+  district?: string;
+  taluk?: string;
 }

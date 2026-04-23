@@ -10,7 +10,8 @@ import type {
   Point,
   ConstituencyProperties,
   PoliceBoundaryProperties,
-  PoliceStationProperties
+  PoliceStationProperties,
+  PoliceResolutionResult
 } from '../types/gis';
 
 interface MapState {
@@ -45,6 +46,7 @@ interface MapState {
   policeBoundariesData: GisFeatureCollection<Geometry, PoliceBoundaryProperties> | null;
   policeStationsData: GisFeatureCollection<Point, PoliceStationProperties> | null;
   selectedPoliceStation: GisFeature<Point, PoliceStationProperties> | null;
+  policeResolution: PoliceResolutionResult | null;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -75,6 +77,7 @@ interface MapState {
   setPoliceBoundariesData: (data: GisFeatureCollection<Geometry, PoliceBoundaryProperties> | null) => void;
   setPoliceStationsData: (data: GisFeatureCollection<Point, PoliceStationProperties> | null) => void;
   setSelectedPoliceStation: (station: PoliceStationProperties | null, geometry?: Geometry | null) => void;
+  setPoliceResolution: (result: PoliceResolutionResult | null) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -110,6 +113,7 @@ export const useMapStore = create<MapState>((set) => ({
   policeBoundariesData: null,
   policeStationsData: null,
   selectedPoliceStation: null,
+  policeResolution: null,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
@@ -118,6 +122,7 @@ export const useMapStore = create<MapState>((set) => ({
     jurisdictionGeometry: null,
     selectedPdsShop: null,
     selectedPoliceStation: null,
+    policeResolution: null,
     // Reset result if switching from/to layers
     searchResult: null
   }),
@@ -168,7 +173,8 @@ export const useMapStore = create<MapState>((set) => ({
     lastClickedPoint: point,
     // Clear other data to show only the "No Data" card
     searchResult: val ? null : undefined,
-    jurisdictionDetails: val ? null : undefined
+    jurisdictionDetails: val ? null : undefined,
+    policeResolution: val ? null : undefined
   }),
   clearSearch: () => set({ 
     searchQuery: '', 
@@ -181,6 +187,7 @@ export const useMapStore = create<MapState>((set) => ({
     jurisdictionDetails: null,
     jurisdictionGeometry: null,
     selectedPoliceStation: null,
+    policeResolution: null,
     noDataFound: false,
     lastClickedPoint: null
   }),
@@ -200,5 +207,10 @@ export const useMapStore = create<MapState>((set) => ({
       } as Point 
     } : null,
     jurisdictionGeometry: geometry || null 
+  }),
+  setPoliceResolution: (result) => set({ 
+    policeResolution: result,
+    selectedPoliceStation: result?.station || null,
+    jurisdictionGeometry: result?.boundary.geometry || null
   }),
 }));

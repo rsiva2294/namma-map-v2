@@ -5,8 +5,14 @@ import type {
   GisFeatureCollection, 
   Geometry,
   Position,
+  Point,
   Polygon,
-  MultiPolygon
+  MultiPolygon,
+  PoliceBoundaryProperties,
+  PoliceStationProperties,
+  PoliceResolutionResult,
+  PoliceMatchConfidence,
+  PoliceMatchDebug
 } from '../types/gis';
 
 interface SpatialItem {
@@ -17,17 +23,13 @@ interface SpatialItem {
   feature: GisFeature;
 }
 
-interface ProcessedStationProperties {
+interface ProcessedStationProperties extends PoliceStationProperties {
   resolved_code?: string;
   resolved_name?: string;
   normalized_key?: string;
-  ps_code?: string | number;
-  ps_name?: string;
-  name?: string;
-  district?: string;
-  taluk?: string;
-  [key: string]: unknown; // Fallback for other GeoJSON props
 }
+
+let policeCrosswalk: Record<string, string> | null = null;
 
 let districtsGeoJson: GisFeatureCollection | null = null;
 let stateBoundaryGeoJson: GisFeatureCollection | null = null;
@@ -57,14 +59,32 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<R
 }
 
 /**
- * Normalizes strings for matching (uppercase, alphanumeric only)
+ * Advanced normalization for police station names and codes
  */
-const normalizeString = (str: string | number | undefined | null): string => {
+const normalizePoliceName = (str: string | number | undefined | null): string => {
   if (!str) return '';
   return str.toString()
     .toUpperCase()
-    .replace(/TCH/g, 'CH') // Handle NATCHIYAR vs NACHIYAR variations
-    .replace(/[^A-Z0-9]/g, '');
+    .replace(/\./g, ' ')           // Replace dots with spaces
+    .replace(/-/g, ' ')           // Replace hyphens with spaces
+    .replace(/_/g, ' ')           // Replace underscores with spaces
+    .replace(/\//g, ' ')           // Replace slashes
+    .replace(/,/g, ' ')           // Replace commas
+    .replace(/\s+/g, ' ')         // Collapse multiple spaces
+    .trim()
+    .replace(/TCH/g, 'CH')        // Handle common spelling drift
+    .replace(/POLICE STATION/g, 'PS')
+    .replace(/P S/g, 'PS')
+    .replace(/\sPS$/g, '')         // Strip PS suffix
+    .replace(/[^A-Z0-9\s]/g, '')  // Keep spaces for token comparison
+    .trim();
+};
+
+/**
+ * Strips code prefixes like "B1 " or "R3." from names
+ */
+const stripCodePrefix = (name: string): string => {
+  return name.replace(/^[A-Z]+\d+[\s.]*/i, '').trim();
 };
 
 /**
@@ -72,90 +92,217 @@ const normalizeString = (str: string | number | undefined | null): string => {
  */
 const extractPoliceCode = (str: string | undefined | null): string => {
   if (!str) return '';
-  const match = str.trim().toUpperCase().match(/^[A-Z]+\d+/);
+  const normalized = str.toString().toUpperCase().trim();
+  const match = normalized.match(/^[A-Z]+\d+/);
   return match ? match[0] : '';
 };
 
 /**
- * Resolves the best matching police station for a given boundary
+ * Calculates string overlap/similarity score (0 to 1)
  */
-function resolvePoliceStation(boundary: GisFeature, stations: GisFeatureCollection, clickPoint?: [number, number]) {
-  const bProps = boundary.properties;
-  const bCode = (bProps.police_s_1 || '').toString().trim().toUpperCase();
-  const bName = (bProps.police_s_2 || bProps.police_sta || '').toString();
-  const bDistrict = (bProps.district_n || '').toString();
+const getAliasStrength = (a: string, b: string): number => {
+  const normA = normalizePoliceName(a);
+  const normB = normalizePoliceName(b);
   
-  // Clean name for key: strip prefix codes if they exist
-  const cleanBName = bName.replace(/^[A-Z]+\d+[\s.]*/i, '');
-  const bKey = normalizeString(bCode + cleanBName);
+  if (!normA || !normB) return 0;
+  if (normA === normB) return 1.0;
+  
+  const cleanA = normA.replace(/\s/g, '');
+  const cleanB = normB.replace(/\s/g, '');
+  if (cleanA === cleanB) return 0.95;
+  if (cleanA.includes(cleanB) || cleanB.includes(cleanA)) return 0.8;
+  
+  // Word-based overlap
+  const wordsA = normA.split(' ').filter(w => w.length > 2);
+  const wordsB = normB.split(' ').filter(w => w.length > 2);
+  if (wordsA.length === 0 || wordsB.length === 0) return 0;
+  
+  let intersection = 0;
+  const setB = new Set(wordsB);
+  wordsA.forEach(w => { if (setB.has(w)) intersection++; });
+  return intersection / Math.max(wordsA.length, wordsB.length);
+};
 
-  // 1. Fast path optimization: Exact normalized key lookup
-  const exactMatch = stations.features.find(s => s.properties.normalized_key === bKey);
-  if (exactMatch) {
-    console.log(`[PoliceResolver] Fast path match: ${bKey} -> ${exactMatch.properties.ps_name}`);
-    return exactMatch;
+const getDistance = (p1: Position, p2: Position): number => {
+  return Math.sqrt(Math.pow(p1[0] - p2[0], 2) + Math.pow(p1[1] - p2[1], 2));
+};
+
+const getCentroid = (geometry: Geometry): Position => {
+  if (geometry.type === 'Point') return geometry.coordinates as Position;
+  const bbox = getBBox(geometry);
+  return [(bbox.minX + bbox.maxX) / 2, (bbox.minY + bbox.maxY) / 2];
+};
+
+/**
+ * Resolves the best matching police station for a given boundary using a layered confidence pipeline
+ */
+function resolvePoliceStation(
+  boundary: GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
+  stations: GisFeatureCollection<Point, PoliceStationProperties>, 
+  clickPoint?: Position
+): PoliceResolutionResult {
+  const bProps = boundary.properties;
+  const bId = (bProps.ciprus_loc || `${bProps.district_n}_${bProps.police_s_1}_${normalizePoliceName(bProps.police_sta)}`).toString();
+  const bCode = (bProps.police_s_1 || '').toString().trim().toUpperCase();
+  const bAliases = [bProps.police_sta, bProps.police_s_2].filter(Boolean).map(a => a!.toString());
+  const bDistrict = bProps.district_n || '';
+  const bCentroid = getCentroid(boundary.geometry);
+
+  const debug: PoliceMatchDebug = {
+    boundaryId: bId,
+    boundaryCode: bCode,
+    boundaryAliases: bAliases,
+    codeMatch: false,
+    aliasMatchStrength: 0,
+    isInsideBoundary: false,
+    distanceToClick: clickPoint ? getDistance(clickPoint, bCentroid) : 0,
+    distanceToCentroid: 0,
+    overrideUsed: false,
+    confidence: 'unresolved',
+    reason: 'Initial state',
+    method: 'metadata'
+  };
+
+  // 1. Manual override check
+  if (policeCrosswalk && policeCrosswalk[bId]) {
+    const targetCode = policeCrosswalk[bId];
+    const match = stations.features.find(s => s.properties.ps_code === targetCode);
+    if (match) {
+      return {
+        boundary,
+        station: match,
+        confidence: 'exact',
+        reason: 'Manual crosswalk override',
+        debug: { ...debug, confidence: 'exact', reason: 'Manual crosswalk override', method: 'override', stationCode: targetCode, overrideUsed: true }
+      };
+    }
   }
 
-  // 2. Weighted matching engine
-  let bestStation = null;
-  let maxScore = -1;
-  let minDistanceSq = Infinity;
+  let bestStation: GisFeature<Point, PoliceStationProperties> | null = null;
+  let bestScore = -1;
+  let bestDebug: PoliceMatchDebug = { ...debug };
 
   for (const s of stations.features) {
-    let score = 0;
     const sProps = s.properties as ProcessedStationProperties;
-
-    // Tier A: resolved_code == boundary_code (+70)
-    if (sProps.resolved_code && bCode && sProps.resolved_code === bCode) {
-      score += 70;
-    }
+    const sRawName = sProps.ps_name || sProps.name || '';
+    const inferredCode = extractPoliceCode(sRawName);
+    const sCode = (sProps.ps_code || inferredCode).toString().trim().toUpperCase();
+    const sAliases = [sProps.ps_name, sProps.name].filter(Boolean).map(a => a!.toString());
+    const sCoords = s.geometry.coordinates as Position;
     
-    // Tier C: resolved_name closely matches boundary_name (+40)
-    const normalizedSName = normalizeString(sProps.resolved_name);
-    const normalizedBName = normalizeString(cleanBName);
-    if (normalizedSName === normalizedBName) {
-      score += 40;
-    } else if (normalizedSName.length > 3 && (normalizedSName.includes(normalizedBName) || normalizedBName.includes(normalizedSName))) {
-      score += 20; // Partial match
+    // Normalize aliases for comparison
+    const cleanSAliases = sAliases.map(stripCodePrefix);
+    const cleanBAliases = bAliases.map(stripCodePrefix);
+
+    // Scoring components
+    const codeMatch = !!(bCode && sCode && bCode === sCode);
+    
+    let maxAliasMatch = 0;
+    let bothAliasesMatch = false;
+    if (cleanBAliases.length > 1) {
+       const m1 = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[0], sa)));
+       const m2 = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[1], sa)));
+       maxAliasMatch = Math.max(m1, m2);
+       bothAliasesMatch = m1 > 0.8 && m2 > 0.8;
+    } else if (cleanBAliases.length > 0) {
+       maxAliasMatch = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[0], sa)));
     }
 
-    // Tier D: district matches (+20)
-    const sDistrict = (sProps.district || '').toString();
-    if (normalizeString(sDistrict) === normalizeString(bDistrict)) {
-      score += 20;
+    const isInside = (boundary.geometry.type === 'Polygon') 
+      ? isPointInPolygon(sCoords, (boundary.geometry as Polygon).coordinates)
+      : (boundary.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(sCoords, poly));
+
+    const distToCentroid = getDistance(sCoords, bCentroid);
+    const distToClick = clickPoint ? getDistance(sCoords, clickPoint) : distToCentroid;
+
+    // Optional enrichment (Admin match)
+    const districtMatch = sProps.district && bDistrict && normalizePoliceName(sProps.district) === normalizePoliceName(bDistrict);
+
+    // Resolution Logic
+    let currentConfidence: PoliceMatchConfidence = 'unresolved';
+    let currentReason = '';
+    let currentScore = 0;
+
+    if (codeMatch && maxAliasMatch > 0.9) {
+      currentConfidence = 'exact';
+      currentReason = 'Exact code and strong alias agreement';
+      currentScore = 100 + (bothAliasesMatch ? 5 : 0);
+    } else if (maxAliasMatch > 0.85) {
+      currentConfidence = 'high';
+      currentReason = 'Strong alias match';
+      currentScore = 80 + (isInside ? 5 : 0) + (districtMatch ? 5 : 0) + (codeMatch ? 5 : 0);
+    } else if (codeMatch && maxAliasMatch > 0.5) {
+      currentConfidence = 'medium';
+      currentReason = 'Code match with moderate alias match';
+      currentScore = 60 + (isInside ? 10 : 0);
+    } else if (maxAliasMatch > 0.6 && isInside) {
+      currentConfidence = 'medium';
+      currentReason = 'Alias match with spatial validation';
+      currentScore = 55 + (maxAliasMatch * 20);
+    } else if (isInside) {
+      currentConfidence = 'low';
+      currentReason = 'Spatial fallback (station point inside boundary)';
+      currentScore = 30 + (maxAliasMatch * 10);
+    } else if (maxAliasMatch > 0.4) {
+      currentConfidence = 'low';
+      currentReason = 'Weak metadata match fallback';
+      currentScore = 20 + (maxAliasMatch * 10);
     }
 
-    // Tier E: taluk metadata match (+10)
-    if (bProps.taluk_name && sProps.taluk && normalizeString(bProps.taluk_name.toString()) === normalizeString(sProps.taluk.toString())) {
-      score += 10;
-    }
-
-    // Calculate distance to click point if available (used for tie-breaking)
-    let dSq = Infinity;
-    if (clickPoint) {
-      const sCoords = s.geometry.coordinates as [number, number];
-      dSq = Math.pow(sCoords[0] - clickPoint[0], 2) + Math.pow(sCoords[1] - clickPoint[1], 2);
-    }
-
-    if (score > maxScore) {
-      maxScore = score;
+    if (currentScore > bestScore) {
+      bestScore = currentScore;
       bestStation = s;
-      minDistanceSq = dSq;
-    } else if (score === maxScore && score > 0 && clickPoint) {
-      // Tie-breaker: pick the one closest to the click point
-      if (dSq < minDistanceSq) {
-        minDistanceSq = dSq;
+      bestDebug = {
+        boundaryId: bId,
+        boundaryCode: bCode,
+        boundaryAliases: bAliases,
+        stationCode: sCode,
+        stationAliases: sAliases,
+        inferredStationCode: inferredCode,
+        codeMatch,
+        aliasMatchStrength: maxAliasMatch,
+        isInsideBoundary: isInside,
+        distanceToClick: distToClick,
+        distanceToCentroid: distToCentroid,
+        overrideUsed: false,
+        confidence: currentConfidence,
+        reason: currentReason,
+        method: 'layered-resolver'
+      };
+    } else if (currentScore === bestScore && currentScore > 0) {
+      // Tie-breaker: Spatial proximity
+      if (distToCentroid < bestDebug.distanceToCentroid) {
         bestStation = s;
+        bestDebug = { ...bestDebug, distanceToCentroid: distToCentroid, distanceToClick: distToClick, stationCode: sCode, stationAliases: sAliases, inferredStationCode: inferredCode };
       }
     }
   }
 
-  if (bestStation && maxScore >= 40) {
-    console.log(`[PoliceResolver] Best match for ${bName} (${bCode}): ${bestStation.properties.ps_name} (Score: ${maxScore}, DistSq: ${minDistanceSq})`);
-    return bestStation;
+  // Handle final unresolved or low-confidence fallback
+  if (!bestStation || bestScore < 30) {
+     // Check if we can find nearest as last resort
+     let nearest = null;
+     let minD = Infinity;
+     for (const s of stations.features) {
+       const d = getDistance(s.geometry.coordinates as Position, bCentroid);
+       if (d < minD) { minD = d; nearest = s; }
+     }
+     if (nearest && minD < 0.15) {
+        return {
+          boundary, station: nearest, confidence: 'low',
+          reason: 'Nearest station fallback (no strong metadata match)',
+          debug: { ...debug, confidence: 'low', reason: 'Nearest spatial fallback', method: 'spatial-fallback', stationCode: nearest.properties.ps_code, distanceToCentroid: minD }
+        };
+     }
   }
-  
-  return null;
+
+  return {
+    boundary,
+    station: bestStation,
+    confidence: bestStation ? bestDebug.confidence : 'unresolved',
+    reason: bestStation ? bestDebug.reason : 'No matching station found',
+    debug: bestDebug
+  };
 }
 
 
@@ -372,13 +519,16 @@ self.onmessage = async (e: MessageEvent) => {
       } else if (layer === 'POLICE') {
         found = findFeatureAt([lng, lat], policeBoundariesIndex);
         if (found && policeStationsGeoJson) {
-          const station = resolvePoliceStation(found, policeStationsGeoJson, [lng, lat]);
+          const result = resolvePoliceStation(
+            found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
+            policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
+            [lng, lat]
+          );
 
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
             payload: { 
-              properties: { ...found.properties, station_location: station?.geometry.coordinates }, 
-              geometry: found.geometry,
+              ...result,
               layer: 'POLICE',
               keepSelection
             } 
@@ -622,32 +772,33 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_POLICE':
       try {
         if (!policeBoundariesGeoJson || !policeStationsGeoJson) {
-          const [resBound, resOff] = await Promise.all([
+          const [resBound, resOff, resCross] = await Promise.all([
             fetchWithRetry('/data/tn_police_boundaries.topojson'),
-            fetchWithRetry('/data/tn_police_stations.geojson')
+            fetchWithRetry('/data/tn_police_stations.geojson'),
+            fetch('/data/police_crosswalk.json').catch(() => null) // Use raw fetch for optional
           ]);
           const dataBound = await resBound.json();
           const dataOff = await resOff.json();
+          
+          if (resCross && resCross.ok) {
+            const contentType = resCross.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+              policeCrosswalk = await resCross.json();
+            }
+          }
+
           const objectName = Object.keys(dataBound.objects)[0];
           const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           policeBoundariesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
           policeStationsGeoJson = dataOff as GisFeatureCollection;
           
-          // Preprocess stations to handle Chennai metro data anomalies (blank codes, embedded names)
+          // Preprocess stations to handle metadata anomalies
           policeStationsGeoJson.features.forEach((f: GisFeature) => {
             const props = f.properties;
-            const psCode = (props.ps_code || '').toString().trim();
-            const psName = (props.ps_name || props.name || '').toString();
-            
-            // Extract code from name if ps_code is missing (common in Chennai datasets)
-            props.resolved_code = psCode || extractPoliceCode(psName);
-            // Clean the name by removing prefix codes (e.g. "R3. ASHOK NAGAR" -> "ASHOK NAGAR")
-            props.resolved_name = psName.replace(/^[A-Z]+\d+[\s.]*/i, '').trim();
-            // Generate normalized key for fast-path lookups
-            props.normalized_key = normalizeString(props.resolved_code + props.resolved_name);
+            props.station_location = f.geometry.coordinates as Position;
           });
           
-          // Indexing with safety filters
+          // Indexing
           policeBoundariesIndex.load(
             policeBoundariesGeoJson!.features
               .filter(f => f.geometry && f.geometry.coordinates)
@@ -663,6 +814,32 @@ self.onmessage = async (e: MessageEvent) => {
       } catch (err) {
         console.error('[Worker] Error loading Police data:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load police data' });
+      }
+      break;
+
+    case 'AUDIT_POLICE':
+      if (policeBoundariesGeoJson && policeStationsGeoJson) {
+        console.log('[Audit] Starting Police Resolution Audit...');
+        const results = policeBoundariesGeoJson.features.map(f => 
+          resolvePoliceStation(
+            f as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
+            policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>
+          )
+        );
+        
+        const summary = {
+          total: results.length,
+          exact: results.filter(r => r.confidence === 'exact').length,
+          high: results.filter(r => r.confidence === 'high').length,
+          medium: results.filter(r => r.confidence === 'medium').length,
+          low: results.filter(r => r.confidence === 'low').length,
+          unresolved: results.filter(r => r.confidence === 'unresolved').length,
+          mismatchedCodes: results.filter(r => r.station && r.station.properties.ps_code && r.station.properties.ps_code !== r.boundary.properties.police_s_1).length,
+          outsidePolygon: results.filter(r => r.station && !r.debug.isInsideBoundary).length
+        };
+        
+        console.table(summary);
+        self.postMessage({ type: 'AUDIT_RESULT', payload: { summary, details: results } });
       }
       break;
 

@@ -12,8 +12,8 @@ const ResultContainer: React.FC = () => {
   const searchResult = useMapStore(state => state.searchResult);
   const jurisdictionDetails = useMapStore(state => state.jurisdictionDetails);
   const setJurisdictionDetails = useMapStore(state => state.setJurisdictionDetails);
-  const selectedPoliceStation = useMapStore(state => state.selectedPoliceStation);
-  const setSelectedPoliceStation = useMapStore(state => state.setSelectedPoliceStation);
+  const policeResolution = useMapStore(state => state.policeResolution);
+  const setPoliceResolution = useMapStore(state => state.setPoliceResolution);
   const setReportModal = useMapStore(state => state.setReportModal);
   const noDataFound = useMapStore(state => state.noDataFound);
   const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
@@ -53,10 +53,11 @@ const ResultContainer: React.FC = () => {
       };
     } else if (type === 'Police Station') {
       importantData = {
-        'Station Name': (rawData.ps_name || rawData.police_sta || 'N/A') as string,
-        'Station Code': (rawData.ps_code || rawData.police_s_1 || 'N/A') as string,
-        'District': (rawData.police_dis || rawData.district_n || 'N/A') as string,
-        'Taluk': (rawData.taluk_name || 'N/A') as string,
+        'Boundary Code': (rawData.boundaryCode || 'N/A') as string,
+        'Station Name': (rawData.stationName || 'N/A') as string,
+        'Station Code': (rawData.stationCode || 'N/A') as string,
+        'Confidence': (rawData.confidence || 'N/A') as string,
+        'Reason': (rawData.reason || 'N/A') as string,
       };
     }
 
@@ -194,29 +195,70 @@ const ResultContainer: React.FC = () => {
       )}
 
       {/* Police Station Info */}
-      {activeLayer === 'POLICE' && selectedPoliceStation && (
+      {activeLayer === 'POLICE' && policeResolution && (
         <ResultCard
           key="police-detail"
           themeColor="slate"
-          title={(selectedPoliceStation.properties?.ps_name || selectedPoliceStation.properties?.police_sta || 'Police Station').toString()}
+          title={policeResolution.station?.properties.ps_name || policeResolution.boundary.properties.police_sta || 'Police Jurisdiction'}
           icon={<Shield size={20} />}
           data={[
-            { label: 'Station Code', value: (selectedPoliceStation.properties?.ps_code || selectedPoliceStation.properties?.police_s_1 || 'N/A').toString(), isPill: true },
-            { label: 'District', value: (selectedPoliceStation.properties?.police_dis || selectedPoliceStation.properties?.district_n || 'N/A').toString() },
-            { label: 'Taluk', value: (selectedPoliceStation.properties?.taluk_name || 'N/A').toString() },
-            { label: 'Status', value: selectedPoliceStation.properties?.status ? 'Operational' : 'Operational', isPill: true }
+            { 
+              label: 'Resolution', 
+              value: policeResolution.confidence.toUpperCase(), 
+              isPill: true
+            },
+            { 
+              label: 'Jurisdiction', 
+              value: policeResolution.boundary.properties.police_sta || 'N/A',
+              subValue: `Boundary Code: ${policeResolution.boundary.properties.police_s_1}` 
+            },
+            ...(policeResolution.station ? [
+              { 
+                label: 'Mapped Station', 
+                value: policeResolution.station.properties.ps_name || 'N/A',
+                subValue: `Station Code: ${policeResolution.station.properties.ps_code || 'N/A'}`
+              }
+            ] : [
+              { 
+                label: 'Station Status', 
+                value: 'UNRESOLVED', 
+                subValue: 'Boundary found, but no matching station point confirmed.',
+                isPill: true 
+              }
+            ]),
+            ...(import.meta.env.DEV ? [
+              { 
+                label: 'Match Basis', 
+                value: policeResolution.reason,
+                subValue: `Logic: ${policeResolution.debug.method}` 
+              },
+              ...(policeResolution.confidence !== 'exact' && policeResolution.confidence !== 'unresolved' ? [
+                {
+                  label: 'Diagnostics',
+                  value: `${Math.round(policeResolution.debug.aliasMatchStrength * 100)}% Alias Match`,
+                  subValue: policeResolution.debug.isInsideBoundary ? 'Point Inside Polygon' : 'Point Outside Polygon'
+                }
+              ] : [])
+            ] : [])
           ]}
-          onClose={() => setSelectedPoliceStation(null)}
-          onDirections={selectedPoliceStation.properties?.station_location ? () => {
-            const coords = selectedPoliceStation.properties.station_location as Position;
+          onClose={() => setPoliceResolution(null)}
+          onDirections={policeResolution.station?.properties.station_location ? () => {
+            const coords = policeResolution.station!.properties.station_location as Position;
             window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
           } : undefined}
-          onReport={() => handleReport('Police Station', selectedPoliceStation.properties || {})}
+          onReport={() => handleReport('Police Station', {
+            boundaryCode: policeResolution.boundary.properties.police_s_1,
+            stationName: policeResolution.station?.properties.ps_name,
+            stationCode: policeResolution.station?.properties.ps_code,
+            confidence: policeResolution.confidence,
+            reason: policeResolution.reason,
+            method: policeResolution.debug.method
+          })}
         />
       )}
 
       {/* Police Layer Instruction */}
-      {activeLayer === 'POLICE' && searchResult && !selectedPoliceStation && !noDataFound && (
+      {activeLayer === 'POLICE' && searchResult && !policeResolution && !noDataFound && (
           <ResultCard
             key="police-instruction"
             themeColor="slate"
@@ -231,7 +273,7 @@ const ResultContainer: React.FC = () => {
        )}
 
       {/* Police Layer General Instruction */}
-      {activeLayer === 'POLICE' && !searchResult && !selectedPoliceStation && !noDataFound && (
+      {activeLayer === 'POLICE' && !searchResult && !policeResolution && !noDataFound && (
         <ResultCard
           key="police-general-instruction"
           themeColor="slate"

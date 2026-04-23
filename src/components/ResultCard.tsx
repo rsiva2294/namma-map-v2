@@ -107,10 +107,10 @@ const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, 
                   ) : (
                     <span className="result-card-value" title={row.value}>{row.value}</span>
                   )}
-                  {row.subValue && (
-                    <span className="result-card-subvalue">({row.subValue})</span>
-                  )}
                 </div>
+                {row.subValue && (
+                  <span className="result-card-subvalue">{row.subValue}</span>
+                )}
               </div>
               {row.isPill && (
                 <button

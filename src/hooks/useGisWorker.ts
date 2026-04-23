@@ -22,7 +22,8 @@ export const useGisWorker = () => {
     setConstituencyType,
     setPoliceBoundariesData,
     setPoliceStationsData,
-    setSelectedPoliceStation
+    setSelectedPoliceStation,
+    setPoliceResolution
   } = useMapStore();
 
   const loadDistricts = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
@@ -66,8 +67,9 @@ export const useGisWorker = () => {
               setSearchQuery(sectionName);
             } else if (payload.layer === 'POLICE') {
               setSearchResult(null, keepSelection);
-              setSelectedPoliceStation(payload.properties, payload.geometry);
-              setSearchQuery(payload.properties.ps_name || payload.properties.police_sta || '');
+              setPoliceResolution(payload);
+              const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
+              setSearchQuery(stationName);
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
@@ -131,7 +133,8 @@ export const useGisWorker = () => {
     setPcData,
     setPoliceBoundariesData,
     setPoliceStationsData,
-    setSelectedPoliceStation
+    setSelectedPoliceStation,
+    setPoliceResolution
   ]);
 
 
