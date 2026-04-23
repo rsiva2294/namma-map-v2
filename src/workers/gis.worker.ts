@@ -31,6 +31,41 @@ interface ProcessedStationProperties extends PoliceStationProperties {
 
 let policeCrosswalk: Record<string, string> | null = null;
 
+interface DistrictIdentity {
+  id: string;
+  display_name: string;
+  pds_file: string;
+  aliases: string[];
+}
+
+let pdsManifest: DistrictIdentity[] | null = null;
+
+/**
+ * Resolves a raw district string to a canonical district identity using the manifest.
+ */
+const resolveDistrictIdentity = (rawName: string): DistrictIdentity | null => {
+  if (!rawName || !pdsManifest) return null;
+
+  const normalized = rawName
+    .trim()
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, '')
+    .replace(/\s+/g, '');
+
+  // 1. Try exact alias match
+  const match = pdsManifest.find(d => 
+    d.aliases.some(alias => alias.toUpperCase().replace(/[^A-Z0-9]/g, '') === normalized)
+  );
+
+  if (match) return match;
+
+  // 2. Try partial match if no exact match found
+  return pdsManifest.find(d => 
+    d.id.toUpperCase().replace(/[^A-Z0-9]/g, '') === normalized ||
+    d.display_name.toUpperCase().replace(/[^A-Z0-9]/g, '') === normalized
+  ) || null;
+};
+
 let districtsGeoJson: GisFeatureCollection | null = null;
 let stateBoundaryGeoJson: GisFeatureCollection | null = null;
 let pdsIndex: [string, string, string, string, number, number][] | null = null;
@@ -436,14 +471,18 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'LOAD_PDS_INDEX':
       try {
-        if (!pdsIndex) {
-          const response = await fetchWithRetry('/data/pds_index.json');
-          pdsIndex = await response.json();
-        }
+        const [resIndex, resManifest] = await Promise.all([
+          !pdsIndex ? fetchWithRetry('/data/pds_index.json') : Promise.resolve(null),
+          !pdsManifest ? fetchWithRetry('/data/pds_manifest.json') : Promise.resolve(null)
+        ]);
+        
+        if (resIndex) pdsIndex = await resIndex.json();
+        if (resManifest) pdsManifest = await resManifest.json();
+        
         self.postMessage({ type: 'PDS_INDEX_LOADED' });
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : 'Unknown error';
-        self.postMessage({ type: 'ERROR', payload: `Failed to load PDS index: ${message}` });
+        self.postMessage({ type: 'ERROR', payload: `Failed to load PDS assets: ${message}` });
       }
       break;
 
@@ -598,8 +637,12 @@ self.onmessage = async (e: MessageEvent) => {
       // 1. Search Districts
       if (districtsGeoJson) {
         const districtMatches = districtsGeoJson.features
-          .filter((f: GisFeature) => (f.properties.district || f.properties.DISTRICT || f.properties.NAME || '').toString().toLowerCase().includes(q))
-          .slice(0, 2)
+          .filter((f: GisFeature) => {
+            const props = f.properties;
+            const searchBase = (props.district || props.DISTRICT || props.NAME || props.district_n || '').toString().toLowerCase();
+            return searchBase.includes(q);
+          })
+          .slice(0, 5)
           .map((s: GisFeature) => ({ ...s, suggestionType: 'DISTRICT' as const }));
         suggestions = [...suggestions, ...districtMatches];
       }
@@ -684,13 +727,26 @@ self.onmessage = async (e: MessageEvent) => {
     }
 
     case 'LOAD_PDS': {
-      const { district: districtName, boundary } = payload;
+      const { district: rawDistrictName, boundary } = payload;
+      const identity = resolveDistrictIdentity(rawDistrictName);
+
+      if (!identity) {
+        console.warn(`[Worker] Unresolved district identity for: "${rawDistrictName}"`);
+        self.postMessage({ 
+          type: 'ERROR', 
+          payload: `Could not resolve district: ${rawDistrictName}. Please verify the manifest aliases.` 
+        });
+        return;
+      }
+
+      const districtId = identity.id;
+      const pdsFileName = identity.pds_file;
 
       const processAndSendPds = (data: GisFeatureCollection) => {
         let filteredFeatures = data.features;
         if (boundary) {
           // Use R-tree for filtering PDS shops within boundary
-          const districtIndex = pdsIndexes.get(districtName);
+          const districtIndex = pdsIndexes.get(districtId);
           if (districtIndex) {
             const bbox = getBBox(boundary);
             const candidates = districtIndex.search(bbox);
@@ -706,15 +762,22 @@ self.onmessage = async (e: MessageEvent) => {
             }).map(item => item.feature);
           }
         }
-        self.postMessage({ type: 'PDS_LOADED', payload: { district: districtName, data: { ...data, features: filteredFeatures } } });
+        self.postMessage({ 
+          type: 'PDS_LOADED', 
+          payload: { 
+            district: identity.display_name, 
+            district_id: districtId,
+            data: { ...data, features: filteredFeatures } 
+          } 
+        });
       };
 
-      if (loadedPds.has(districtName)) {
-        processAndSendPds(loadedPds.get(districtName)!);
+      if (loadedPds.has(districtId)) {
+        processAndSendPds(loadedPds.get(districtId)!);
         return;
       }
       try {
-        const response = await fetchWithRetry(`/data/pds/${districtName}.json`);
+        const response = await fetchWithRetry(`/data/pds/${pdsFileName}.json`);
         const data = await response.json() as GisFeatureCollection;
         
         // Build R-tree for this district
@@ -727,12 +790,13 @@ self.onmessage = async (e: MessageEvent) => {
           };
         });
         districtIndex.load(items);
-        pdsIndexes.set(districtName, districtIndex);
+        pdsIndexes.set(districtId, districtIndex);
         
-        loadedPds.set(districtName, data);
+        loadedPds.set(districtId, data);
         processAndSendPds(data);
       } catch (err) {
-        console.error(`[Worker] Failed to load PDS for ${districtName}:`, err);
+        console.warn(`[Worker] Failed to load PDS for ${districtId} (file: ${pdsFileName}.json):`, err);
+        self.postMessage({ type: 'ERROR', payload: `Failed to load PDS data for ${identity.display_name}` });
       }
       break;
     }

@@ -1,0 +1,322 @@
+[
+  {
+    "id": "ariyalur",
+    "display_name": "Ariyalur",
+    "pds_file": "Ariyalur",
+    "aliases": [
+      "ARIYALUR"
+    ]
+  },
+  {
+    "id": "chengalpet",
+    "display_name": "Chengalpet",
+    "pds_file": "Chengalpet",
+    "aliases": [
+      "CHENGALPET",
+      "CHENGALPATTU"
+    ]
+  },
+  {
+    "id": "coimbatore",
+    "display_name": "Coimbatore",
+    "pds_file": "Coimbatore",
+    "aliases": [
+      "COIMBATORE"
+    ]
+  },
+  {
+    "id": "cuddalore",
+    "display_name": "Cuddalore",
+    "pds_file": "Cuddalore",
+    "aliases": [
+      "CUDDALORE"
+    ]
+  },
+  {
+    "id": "dharmapuri",
+    "display_name": "Dharmapuri",
+    "pds_file": "Dharmapuri",
+    "aliases": [
+      "DHARMAPURI"
+    ]
+  },
+  {
+    "id": "dindigul",
+    "display_name": "Dindigul",
+    "pds_file": "Dindigul",
+    "aliases": [
+      "DINDIGUL"
+    ]
+  },
+  {
+    "id": "erode",
+    "display_name": "Erode",
+    "pds_file": "Erode",
+    "aliases": [
+      "ERODE"
+    ]
+  },
+  {
+    "id": "kallakurichi",
+    "display_name": "Kallakurichi",
+    "pds_file": "Kallakurichi",
+    "aliases": [
+      "KALLAKURICHI"
+    ]
+  },
+  {
+    "id": "kanchipuram",
+    "display_name": "Kanchipuram",
+    "pds_file": "Kanchipuram",
+    "aliases": [
+      "KANCHIPURAM",
+      "KANCHEEPURAM"
+    ]
+  },
+  {
+    "id": "kanyakumari",
+    "display_name": "Kanyakumari",
+    "pds_file": "Kanyakumari",
+    "aliases": [
+      "KANYAKUMARI",
+      "KANNIYAKUMARI"
+    ]
+  },
+  {
+    "id": "karur",
+    "display_name": "Karur",
+    "pds_file": "Karur",
+    "aliases": [
+      "KARUR"
+    ]
+  },
+  {
+    "id": "krishnagiri",
+    "display_name": "Krishnagiri",
+    "pds_file": "Krishnagiri",
+    "aliases": [
+      "KRISHNAGIRI"
+    ]
+  },
+  {
+    "id": "madurai",
+    "display_name": "Madurai",
+    "pds_file": "Madurai",
+    "aliases": [
+      "MADURAI"
+    ]
+  },
+  {
+    "id": "mayiladuthurai",
+    "display_name": "Mayiladuthurai",
+    "pds_file": "Mayiladuthurai",
+    "aliases": [
+      "MAYILADUTHURAI"
+    ]
+  },
+  {
+    "id": "nagapattinam",
+    "display_name": "Nagapattinam",
+    "pds_file": "Nagapattinam",
+    "aliases": [
+      "NAGAPATTINAM"
+    ]
+  },
+  {
+    "id": "namakkal",
+    "display_name": "Namakkal",
+    "pds_file": "Namakkal",
+    "aliases": [
+      "NAMAKKAL"
+    ]
+  },
+  {
+    "id": "nilgiris",
+    "display_name": "Nilgiris",
+    "pds_file": "Nilgiris",
+    "aliases": [
+      "NILGIRIS"
+    ]
+  },
+  {
+    "id": "chennai",
+    "display_name": "Chennai",
+    "pds_file": "Chennai",
+    "aliases": [
+      "CHENNAI",
+      "NORTHCHENNAI",
+      "SOUTHCHENNAI"
+    ]
+  },
+  {
+    "id": "perambalur",
+    "display_name": "Perambalur",
+    "pds_file": "Perambalur",
+    "aliases": [
+      "PERAMBALUR"
+    ]
+  },
+  {
+    "id": "pudukkottai",
+    "display_name": "Pudukkottai",
+    "pds_file": "Pudukkottai",
+    "aliases": [
+      "PUDUKKOTTAI"
+    ]
+  },
+  {
+    "id": "ramanathapuram",
+    "display_name": "Ramanathapuram",
+    "pds_file": "Ramanathapuram",
+    "aliases": [
+      "RAMANATHAPURAM"
+    ]
+  },
+  {
+    "id": "ranipet",
+    "display_name": "Ranipet",
+    "pds_file": "Ranipet",
+    "aliases": [
+      "RANIPET"
+    ]
+  },
+  {
+    "id": "salem",
+    "display_name": "Salem",
+    "pds_file": "Salem",
+    "aliases": [
+      "SALEM"
+    ]
+  },
+  {
+    "id": "sivagangai",
+    "display_name": "Sivagangai",
+    "pds_file": "Sivagangai",
+    "aliases": [
+      "SIVAGANGAI",
+      "SIVAGANGA"
+    ]
+  },
+  {
+    "id": "tenkasi",
+    "display_name": "Tenkasi",
+    "pds_file": "Tenkasi",
+    "aliases": [
+      "TENKASI"
+    ]
+  },
+  {
+    "id": "thanjavur",
+    "display_name": "Thanjavur",
+    "pds_file": "Thanjavur",
+    "aliases": [
+      "THANJAVUR"
+    ]
+  },
+  {
+    "id": "theni",
+    "display_name": "Theni",
+    "pds_file": "Theni",
+    "aliases": [
+      "THENI"
+    ]
+  },
+  {
+    "id": "thiruchirapalli",
+    "display_name": "Thiruchirapalli",
+    "pds_file": "Thiruchirapalli",
+    "aliases": [
+      "THIRUCHIRAPALLI",
+      "TIRUCHIRAPPALLI",
+      "THIRUCHIRAPPALLI",
+      "TRICHY"
+    ]
+  },
+  {
+    "id": "thiruvallur",
+    "display_name": "Thiruvallur",
+    "pds_file": "Thiruvallur",
+    "aliases": [
+      "THIRUVALLUR",
+      "TIRUVALLUR"
+    ]
+  },
+  {
+    "id": "thiruvannamalai",
+    "display_name": "Thiruvannamalai",
+    "pds_file": "Thiruvannamalai",
+    "aliases": [
+      "THIRUVANNAMALAI",
+      "TIRUVANNAMALAI"
+    ]
+  },
+  {
+    "id": "thiruvarur",
+    "display_name": "Thiruvarur",
+    "pds_file": "Thiruvarur",
+    "aliases": [
+      "THIRUVARUR",
+      "TIRUVARUR"
+    ]
+  },
+  {
+    "id": "tirunelveli",
+    "display_name": "Tirunelveli",
+    "pds_file": "Tirunelveli",
+    "aliases": [
+      "TIRUNELVELI"
+    ]
+  },
+  {
+    "id": "tirupathur",
+    "display_name": "Tirupathur",
+    "pds_file": "Tirupathur",
+    "aliases": [
+      "TIRUPATHUR",
+      "TIRUPATTUR"
+    ]
+  },
+  {
+    "id": "tiruppur",
+    "display_name": "Tiruppur",
+    "pds_file": "Tiruppur",
+    "aliases": [
+      "TIRUPPUR"
+    ]
+  },
+  {
+    "id": "tuticorin",
+    "display_name": "Tuticorin",
+    "pds_file": "Tuticorin",
+    "aliases": [
+      "TUTICORIN",
+      "THOOTHUKUDI",
+      "THOOTHUKKUDI"
+    ]
+  },
+  {
+    "id": "vellore",
+    "display_name": "Vellore",
+    "pds_file": "Vellore",
+    "aliases": [
+      "VELLORE"
+    ]
+  },
+  {
+    "id": "viluppuram",
+    "display_name": "Viluppuram",
+    "pds_file": "Viluppuram",
+    "aliases": [
+      "VILUPPURAM",
+      "VILLUPURAM"
+    ]
+  },
+  {
+    "id": "virudhunagar",
+    "display_name": "Virudhunagar",
+    "pds_file": "Virudhunagar",
+    "aliases": [
+      "VIRUDHUNAGAR"
+    ]
+  }
+]

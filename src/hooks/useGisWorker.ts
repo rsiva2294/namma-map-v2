@@ -173,7 +173,7 @@ export const useGisWorker = () => {
       // Switch to PINCODE if we want to show the district boundary in that layer context
       // or PDS if that was the intent. For now, stay in current layer but focus district.
       setSearchResult(item);
-      const district = (item.properties.district || item.properties.DISTRICT || item.properties.NAME || '').toString();
+      const district = (item.properties.district || item.properties.DISTRICT || item.properties.NAME || item.properties.district_n || item.properties.DISTRICT_NAME || '').toString();
       const targetLayer = currentLayer;
       if (district && targetLayer === 'PDS') {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });

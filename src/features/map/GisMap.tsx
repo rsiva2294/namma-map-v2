@@ -118,7 +118,7 @@ const GisMap: React.FC = () => {
   // Auto-trigger PDS load on layer switch
   useEffect(() => {
     if (activeLayer === 'PDS' && searchResult) {
-      const district = searchResult.properties.district || searchResult.properties.DISTRICT || searchResult.properties.DISTRICT_NAME || searchResult.properties.NAME;
+      const district = searchResult.properties.district || searchResult.properties.DISTRICT || searchResult.properties.DISTRICT_NAME || searchResult.properties.NAME || searchResult.properties.district_n;
       if (district) {
         loadPds(district as string, searchResult.geometry);
       }
