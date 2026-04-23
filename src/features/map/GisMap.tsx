@@ -57,8 +57,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, theme, selectedSuggestion, setSelectedSuggestion, selectedPdsShop, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, theme, selectedSuggestion, setSelectedSuggestion, selectedPdsShop, setSelectedPdsShop, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -67,8 +67,9 @@ const GisMap: React.FC = () => {
       loadPincodes();
       loadTneb();
       loadPdsIndex();
+      loadConstituencies();
     }
-  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
@@ -153,6 +154,24 @@ const GisMap: React.FC = () => {
     interactive: false
   };
 
+  const constituencyStyle = {
+    fillColor: '#6366f1',
+    weight: 1.5,
+    opacity: isAreaSelected ? 0.3 : 0.6,
+    color: '#4f46e5',
+    fillOpacity: isAreaSelected ? 0.05 : 0.1,
+    interactive: false
+  };
+
+  const constituencySelectedStyle = {
+    fillColor: '#6366f1',
+    weight: 3,
+    opacity: 1,
+    color: '#4338ca',
+    fillOpacity: 0.1,
+    interactive: false
+  };
+
   const boltIcon = L.divIcon({
     html: `
       <div class="pulse-tneb"></div>
@@ -204,12 +223,21 @@ const GisMap: React.FC = () => {
           interactive={false}
         />
       )}
+
+      {activeLayer === 'CONSTITUENCY' && (constituencyType === 'AC' ? acData : pcData) && (
+        <GeoJSON 
+          key={`constituencies-${constituencyType}-${theme}-${isAreaSelected}`}
+          data={constituencyType === 'AC' ? acData! : pcData!}
+          style={constituencyStyle}
+          interactive={false}
+        />
+      )}
       
       {searchResult && !jurisdictionGeometry && (
         <GeoJSON 
-          key={`search-${searchQuery}-${searchResult.properties.PIN_CODE || searchResult.properties.NAME}`}
+          key={`search-${searchQuery}-${searchResult.properties.PIN_CODE || searchResult.properties.NAME || searchResult.properties.assembly_c || searchResult.properties.parliame_1}`}
           data={searchResult} 
-          style={pincodeStyle} 
+          style={activeLayer === 'CONSTITUENCY' ? constituencySelectedStyle : pincodeStyle} 
           interactive={false}
         />
       )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2 } from 'lucide-react';
+import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, Landmark } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 
@@ -92,6 +92,13 @@ const SearchBar: React.FC = () => {
                 subtitle = 'District Boundary';
                 Icon = Building2;
                 iconColor = '#64748b';
+              } else if (suggestion.suggestionType === 'CONSTITUENCY') {
+                const isPc = !!suggestion.properties.parliame_1 && !suggestion.properties.assembly_c;
+                const num = suggestion.properties.assembly_1 || suggestion.properties.parliament;
+                title = (suggestion.properties.assembly_c || suggestion.properties.parliame_1 || 'Constituency') as string;
+                subtitle = isPc ? `PC #${num} - Parliamentary Constituency` : `AC #${num} - Assembly Constituency (${suggestion.properties.parliame_1})`;
+                Icon = Landmark;
+                iconColor = '#4f46e5';
               } else {
                 const name = (suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '').toString();
                 const pin = (suggestion.properties.PIN_CODE || suggestion.properties.pincode)?.toString();

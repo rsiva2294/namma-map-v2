@@ -6,7 +6,8 @@ import type {
   PdsShop, 
   PdsProperties,
   TnebSection, 
-  Geometry 
+  Geometry,
+  ConstituencyProperties
 } from '../types/gis';
 
 interface MapState {
@@ -35,6 +36,9 @@ interface MapState {
   reportContext: { type: string; data: Record<string, string | number> } | null;
   noDataFound: boolean;
   lastClickedPoint: { lat: number; lng: number } | null;
+  constituencyType: 'AC' | 'PC';
+  acData: GisFeatureCollection<Geometry, ConstituencyProperties> | null;
+  pcData: GisFeatureCollection<Geometry, ConstituencyProperties> | null;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -59,6 +63,9 @@ interface MapState {
   toggleTheme: () => void;
   isUserTyping: boolean;
   setUserTyping: (isTyping: boolean) => void;
+  setConstituencyType: (type: 'AC' | 'PC') => void;
+  setAcData: (data: GisFeatureCollection<Geometry, ConstituencyProperties> | null) => void;
+  setPcData: (data: GisFeatureCollection<Geometry, ConstituencyProperties> | null) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -88,13 +95,18 @@ export const useMapStore = create<MapState>((set) => ({
   reportContext: null,
   noDataFound: false,
   lastClickedPoint: null,
+  constituencyType: 'AC',
+  acData: null,
+  pcData: null,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
     activeLayer: layer,
     jurisdictionDetails: null,
     jurisdictionGeometry: null,
-    selectedPdsShop: null
+    selectedPdsShop: null,
+    // Reset result if switching from/to Constituency
+    searchResult: null
   }),
   setSearchQuery: (query) => set({ searchQuery: query }),
   setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
@@ -108,8 +120,11 @@ export const useMapStore = create<MapState>((set) => ({
     };
 
     if (updateQuery && result) {
-      const name = (result.properties.office_name || result.properties.district || result.properties.NAME || '').toString();
-      const pin = (result.properties.PIN_CODE || result.properties.pincode)?.toString();
+      const p = result.properties as any;
+      const num = p.assembly_1 || p.parliament;
+      const baseName = (p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || '').toString();
+      const name = num ? `${p.assembly_c ? 'AC' : 'PC'} #${num} - ${baseName}` : baseName;
+      const pin = (p.PIN_CODE || p.pincode)?.toString();
       newState.searchQuery = pin ? `${pin} - ${name}` : name;
       newState.isUserTyping = false;
     }
@@ -155,4 +170,7 @@ export const useMapStore = create<MapState>((set) => ({
     lastClickedPoint: null
   }),
   toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
+  setConstituencyType: (type) => set({ constituencyType: type, searchResult: null }),
+  setAcData: (data) => set({ acData: data }),
+  setPcData: (data) => set({ pcData: data }),
 }));

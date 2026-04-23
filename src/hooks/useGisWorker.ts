@@ -16,7 +16,10 @@ export const useGisWorker = () => {
     setDistrictsData, 
     setStateBoundaryData,
     setNoDataFound,
-    setActiveLayer
+    setActiveLayer,
+    setAcData,
+    setPcData,
+    setConstituencyType
   } = useMapStore();
 
   const loadDistricts = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
@@ -24,6 +27,7 @@ export const useGisWorker = () => {
   const loadPdsIndex = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PDS_INDEX' }), []);
   const loadPincodes = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' }), []);
   const loadTneb = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB' }), []);
+  const loadConstituencies = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -56,7 +60,7 @@ export const useGisWorker = () => {
               setJurisdictionDetails(payload.properties, payload.geometry);
               const sectionName = payload.properties.section_na || payload.properties.section_office || '';
               setSearchQuery(sectionName);
-            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS') {
+            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
               if (payload.layer === 'PDS') {
@@ -79,6 +83,10 @@ export const useGisWorker = () => {
         case 'PDS_LOADED':
           setPdsData(payload.data);
           setActiveDistrict(payload.district);
+          break;
+        case 'CONSTITUENCIES_LOADED':
+          setAcData(payload.ac);
+          setPcData(payload.pc);
           break;
         case 'AUTO_TRIGGER_PDS':
           workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
@@ -106,7 +114,9 @@ export const useGisWorker = () => {
     setSearchSuggestions, 
     setStateBoundaryData,
     setNoDataFound,
-    loadPdsIndex
+    loadPdsIndex,
+    setAcData,
+    setPcData
   ]);
 
 
@@ -115,7 +125,7 @@ export const useGisWorker = () => {
     setSearchResult(null, keepSelection);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { lat, lng, layer, keepSelection }
+      payload: { lat, lng, layer, keepSelection, constituencyType: useMapStore.getState().constituencyType }
     });
   }, [setSearchResult, setIsResolving]);
 
@@ -146,24 +156,31 @@ export const useGisWorker = () => {
       // or PDS if that was the intent. For now, stay in current layer but focus district.
       setSearchResult(item);
       const district = (item.properties.district || item.properties.DISTRICT || item.properties.NAME || '').toString();
-      if (district && currentLayer === 'PDS') {
+      const targetLayer = currentLayer;
+      if (district && targetLayer === 'PDS') {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
+    } else if (item.suggestionType === 'CONSTITUENCY') {
+      if (currentLayer !== 'CONSTITUENCY') setActiveLayer('CONSTITUENCY');
+      // Detect if it's AC or PC based on properties
+      const isPc = !!item.properties.parliame_1 && !item.properties.assembly_c;
+      setConstituencyType(isPc ? 'PC' : 'AC');
+      setSearchResult(item);
     } else {
       // PINCODE or Area
-      if (currentLayer === 'TNEB') setActiveLayer('PINCODE');
+      if (currentLayer === 'TNEB' || currentLayer === 'CONSTITUENCY') setActiveLayer('PINCODE');
       setSearchResult(item);
       const district = item.properties.district || item.properties.DISTRICT || item.properties.DISTRICT_NAME || item.properties.NAME;
-      const targetLayer = (currentLayer === 'TNEB') ? 'PINCODE' : currentLayer;
+      const targetLayer = (currentLayer === 'TNEB' || currentLayer === 'CONSTITUENCY') ? 'PINCODE' : currentLayer;
       if (district && targetLayer === 'PDS') {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
     }
-  }, [resolveLocation, setSearchResult, setActiveLayer]);
+  }, [resolveLocation, setSearchResult, setActiveLayer, setConstituencyType]);
 
   const loadPds = useCallback((district: string, boundary: Geometry) => {
     workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
   }, []);
 
-  return { isReady, loadDistricts, loadStateBoundary, loadPdsIndex, loadPincodes, loadTneb, loadPds, resolveLocation, getSuggestions, selectSuggestion };
+  return { isReady, loadDistricts, loadStateBoundary, loadPdsIndex, loadPincodes, loadTneb, loadPds, loadConstituencies, resolveLocation, getSuggestions, selectSuggestion };
 };

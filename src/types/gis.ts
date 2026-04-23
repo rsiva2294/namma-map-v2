@@ -1,4 +1,4 @@
-export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB';
+export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY';
 
 export type Position = [number, number];
 export type BBox = [number, number, number, number];
@@ -55,7 +55,13 @@ export interface GisFeature<G extends Geometry = Geometry, P = GisProperties> {
   properties: P;
   bbox?: BBox;
   id?: string | number;
-  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT';
+  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY';
+}
+
+export interface ConstituencyProperties extends GisProperties {
+  district_n?: string; // For AC
+  assembly_c?: string; // For AC name
+  parliame_1?: string; // For both AC (parent) and PC (name)
 }
 
 export interface GisFeatureCollection<G extends Geometry = Geometry, P = GisProperties> {

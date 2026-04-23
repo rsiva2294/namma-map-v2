@@ -10,6 +10,7 @@ import {
   Moon,
   Settings,
   HelpCircle,
+  Landmark,
   type LucideIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,11 +24,14 @@ const Sidebar: React.FC = () => {
   const setActiveLayer = useMapStore(state => state.setActiveLayer);
   const theme = useMapStore(state => state.theme);
   const toggleTheme = useMapStore(state => state.toggleTheme);
+  const constituencyType = useMapStore(state => state.constituencyType);
+  const setConstituencyType = useMapStore(state => state.setConstituencyType);
 
   const menuItems: { id: ServiceLayer; label: string; icon: LucideIcon }[] = [
     { id: 'PINCODE', label: 'Pincode Areas', icon: MapPin },
     { id: 'PDS', label: 'PDS (Ration)', icon: ShoppingCart },
     { id: 'TNEB', label: 'TNEB (Electricity)', icon: Zap },
+    { id: 'CONSTITUENCY', label: 'Constituencies', icon: Landmark },
   ];
 
   return (
@@ -85,6 +89,64 @@ const Sidebar: React.FC = () => {
             </AnimatePresence>
           </button>
         ))}
+
+        {/* Sub-tabs for Constituencies */}
+        <AnimatePresence>
+          {activeLayer === 'CONSTITUENCY' && isSidebarOpen && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="sidebar-sub-tabs"
+              style={{ overflow: 'hidden', padding: '0 12px 12px 12px' }}
+            >
+              <div className="tab-group" style={{ 
+                display: 'flex', 
+                background: theme === 'dark' ? '#1e293b' : '#f1f5f9',
+                borderRadius: '8px',
+                padding: '4px',
+                gap: '4px'
+              }}>
+                <button 
+                  onClick={() => setConstituencyType('AC')}
+                  style={{
+                    flex: 1,
+                    padding: '6px 0',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    borderRadius: '6px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    background: constituencyType === 'AC' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                    color: constituencyType === 'AC' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                    boxShadow: constituencyType === 'AC' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  ASSEMBLY
+                </button>
+                <button 
+                  onClick={() => setConstituencyType('PC')}
+                  style={{
+                    flex: 1,
+                    padding: '6px 0',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    borderRadius: '6px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    background: constituencyType === 'PC' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                    color: constituencyType === 'PC' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                    boxShadow: constituencyType === 'PC' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  PARLIAMENT
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="sidebar-section-label">Future Modules</div>
         <div className="sidebar-menu-item disabled">

@@ -23,6 +23,8 @@ let pdsIndex: [string, string, string, string, number, number][] | null = null;
 let pincodesGeoJson: GisFeatureCollection | null = null;
 let tnebGeoJson: GisFeatureCollection | null = null;
 let tnebOffices: GisFeatureCollection | null = null;
+let acGeoJson: GisFeatureCollection | null = null;
+let pcGeoJson: GisFeatureCollection | null = null;
 const loadedPds: Map<string, GisFeatureCollection> = new Map();
 
 async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
@@ -44,6 +46,8 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<R
 const pincodesIndex = new RBush<SpatialItem>();
 const tnebIndex = new RBush<SpatialItem>();
 const stateBoundaryIndex = new RBush<SpatialItem>();
+const acIndex = new RBush<SpatialItem>();
+const pcIndex = new RBush<SpatialItem>();
 const pdsIndexes = new Map<string, RBush<SpatialItem>>();
 
 function getBBox(geometry: Geometry) {
@@ -207,6 +211,21 @@ self.onmessage = async (e: MessageEvent) => {
             } 
           });
         }
+      } else if (layer === 'CONSTITUENCY') {
+        const { constituencyType } = payload;
+        found = findFeatureAt([lng, lat], constituencyType === 'PC' ? pcIndex : acIndex);
+        if (found) {
+          self.postMessage({ 
+            type: 'RESOLUTION_RESULT', 
+            payload: { 
+              properties: found.properties, 
+              geometry: found.geometry,
+              layer: 'CONSTITUENCY',
+              constituencyType,
+              keepSelection
+            } 
+          });
+        }
       } else if (layer === 'PINCODE' || layer === 'PDS') {
         found = findFeatureAt([lng, lat], pincodesIndex);
         if (found) {
@@ -324,6 +343,22 @@ self.onmessage = async (e: MessageEvent) => {
         suggestions = [...suggestions, ...pdsMatches];
       }
 
+      // 5. Search Constituencies
+      if (acGeoJson) {
+        const acMatches = acGeoJson.features
+          .filter((f: GisFeature) => (f.properties.assembly_c as string || '').toLowerCase().includes(q))
+          .slice(0, 3)
+          .map((s: GisFeature) => ({ ...s, suggestionType: 'CONSTITUENCY' as const }));
+        suggestions = [...suggestions, ...acMatches];
+      }
+      if (pcGeoJson) {
+        const pcMatches = pcGeoJson.features
+          .filter((f: GisFeature) => (f.properties.parliame_1 as string || '').toLowerCase().includes(q))
+          .slice(0, 3)
+          .map((s: GisFeature) => ({ ...s, suggestionType: 'CONSTITUENCY' as const }));
+        suggestions = [...suggestions, ...pcMatches];
+      }
+
       self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions.slice(0, 8) });
       break;
     }
@@ -381,6 +416,30 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
     }
+
+    case 'LOAD_CONSTITUENCIES':
+      try {
+        if (!acGeoJson || !pcGeoJson) {
+          const [resAc, resPc] = await Promise.all([
+            fetchWithRetry('/data/tn_assembly_constituencies.topojson'),
+            fetchWithRetry('/data/tn_parliamentary_constituencies.topojson')
+          ]);
+          const dataAc = await resAc.json();
+          const dataPc = await resPc.json();
+          
+          acGeoJson = topojson.feature(dataAc, dataAc.objects.tamilnadu_assemply_constituency) as unknown as GisFeatureCollection;
+          pcGeoJson = topojson.feature(dataPc, dataPc.objects.tamilnadu_parliament_constituency) as unknown as GisFeatureCollection;
+          
+          // Indexing
+          acIndex.load(acGeoJson.features.map(f => ({ ...getBBox(f.geometry), feature: f })));
+          pcIndex.load(pcGeoJson.features.map(f => ({ ...getBBox(f.geometry), feature: f })));
+        }
+        self.postMessage({ type: 'CONSTITUENCIES_LOADED', payload: { ac: acGeoJson, pc: pcGeoJson } });
+      } catch (err) {
+        console.error('[Worker] Error loading constituencies:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load constituency data' });
+      }
+      break;
 
     default:
       console.warn('[Worker] Unknown message type:', type);

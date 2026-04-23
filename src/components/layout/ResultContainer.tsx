@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCart, Zap, MapPin, AlertCircle } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
@@ -40,6 +40,14 @@ const ResultContainer: React.FC = () => {
         'Pincode': (rawData.PIN_CODE || rawData.pincode || 'N/A') as string | number,
         'Office Name': (rawData.office_name as string) || 'N/A',
         'District': (rawData.district as string) || 'N/A',
+      };
+    } else if (type === 'Constituency') {
+      importantData = {
+        'Name': (rawData.assembly_c || rawData.parliame_1 || 'N/A') as string,
+        'Number': (rawData.assembly_1 || rawData.parliament || 'N/A') as string | number,
+        'Type': rawData.assembly_c ? 'Assembly' : 'Parliamentary',
+        'District': (rawData.district_n || 'N/A') as string,
+        'Parliamentary': (rawData.parliame_1 || 'N/A') as string,
       };
     }
 
@@ -153,6 +161,26 @@ const ResultContainer: React.FC = () => {
           ]}
           onClose={clearSearch}
           onReport={() => handleReport('Pincode Area', searchResult.properties)}
+        />
+      )}
+
+      {/* Constituency Info */}
+      {activeLayer === 'CONSTITUENCY' && searchResult && (
+        <ResultCard
+          key="constituency-info"
+          themeColor="indigo"
+          title={(searchResult.properties.assembly_c || searchResult.properties.parliame_1 || 'Constituency') as string}
+          icon={<Landmark size={20} />}
+          data={searchResult.properties.assembly_c ? [
+            { label: 'AC Number', value: searchResult.properties.assembly_1?.toString() || 'N/A', isPill: true },
+            { label: 'District', value: searchResult.properties.district_n as string || 'N/A' },
+            { label: 'Parliamentary', value: searchResult.properties.parliame_1 as string || 'N/A' },
+          ] : [
+            { label: 'PC Number', value: searchResult.properties.parliament?.toString() || 'N/A', isPill: true },
+            { label: 'State', value: 'Tamil Nadu' }
+          ]}
+          onClose={clearSearch}
+          onReport={() => handleReport('Constituency', searchResult.properties)}
         />
       )}
 
