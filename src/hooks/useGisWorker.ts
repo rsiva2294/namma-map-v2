@@ -181,7 +181,6 @@ export const useGisWorker = () => {
           break;
         case 'HEALTH_DISTRICT_LOADED':
           console.log('[Worker] Health District Loaded', payload.district);
-          setHealthDistrictData(payload.data);
           setActiveDistrict(payload.district);
           // Trigger filter now that data is ready
           const s = useMapStore.getState();
