@@ -52,7 +52,15 @@ const Sidebar: React.FC = () => {
         {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
       </button>
 
-      <div className="sidebar-scroll-content">
+      <motion.div 
+        animate={{ 
+          opacity: isSidebarOpen ? 1 : 0, 
+          display: isSidebarOpen ? 'flex' : 'none',
+          pointerEvents: isSidebarOpen ? 'auto' : 'none' 
+        }}
+        transition={{ duration: 0.2 }}
+        className="sidebar-scroll-content"
+      >
         <div className="sidebar-header">
           <div className="sidebar-logo-group">
             <img
@@ -175,7 +183,7 @@ const Sidebar: React.FC = () => {
             {isSidebarOpen && <span>Help</span>}
           </button>
         </div>
-      </div>
+      </motion.div>
     </motion.aside>
   );
 };

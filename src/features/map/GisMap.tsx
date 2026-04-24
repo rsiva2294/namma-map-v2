@@ -248,7 +248,7 @@ const GisMap: React.FC = () => {
       'SDH': { color: '#e11d48', size: 24, weight: 2.5, showIcon: true }, // Sub-District Hospital
       'CHC': { color: '#f43f5e', size: 20, weight: 2, showIcon: true }, // Community Health Centre
       'PHC': { color: '#fb7185', size: 12, weight: 1.5, showIcon: false }, // Primary Health Centre
-      'HSC': { color: '#fecdd3', size: 8, weight: 1, showIcon: false }  // Health Sub Centre
+      'HSC': { color: '#dc2626', size: 10, weight: 2.5, showIcon: false }  // Health Sub Centre
     };
     
     const { color, size, weight, showIcon } = tierConfig[type] || { color: '#f43f5e', size: 18, weight: 2, showIcon: true };

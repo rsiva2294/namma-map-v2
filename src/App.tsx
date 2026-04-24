@@ -7,6 +7,7 @@ import ResultContainer from './components/layout/ResultContainer';
 import ReportModal from './components/ReportModal';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
+import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
 import { useGisWorker } from './hooks/useGisWorker';
 import type { HealthScope } from './types/gis';
 
@@ -42,6 +43,7 @@ function App() {
         </ErrorBoundary>
 
         <SearchBar />
+        <HealthAreaPrompt />
         <ResultContainer />
         <ReportModal />
 
