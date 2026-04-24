@@ -13,7 +13,8 @@ import type {
   PoliceResolutionResult,
   PoliceMatchConfidence,
   PoliceMatchDebug,
-  PostalOffice
+  PostalOffice,
+  HealthManifest
 } from '../types/gis';
 
 interface SpatialItem {
@@ -81,6 +82,11 @@ let policeStationsGeoJson: GisFeatureCollection | null = null;
 let postalOffices: PostalOffice[] | null = null;
 const postalOfficesIndex: Map<string, PostalOffice[]> = new Map();
 const loadedPds: Map<string, GisFeatureCollection> = new Map();
+const loadedHealthDistricts: Map<string, GisFeatureCollection> = new Map();
+const healthDistrictIndexes: Map<string, RBush<SpatialItem>> = new Map();
+let healthManifest: HealthManifest | null = null;
+let healthPriorityGeoJson: GisFeatureCollection | null = null;
+let healthSearchIndex: any[][] | null = null;
 
 async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
   for (let i = 0; i < retries; i++) {
@@ -359,7 +365,7 @@ function resolvePoliceStation(
   // Clone boundary to avoid mutating the original indexed feature
   const boundaryClone = JSON.parse(JSON.stringify(boundary));
   if (!isBoundaryValid && boundaryClone) {
-    (boundaryClone.geometry as any) = null;
+    (boundaryClone.geometry as Geometry | null) = null;
   }
 
   return {
@@ -376,6 +382,7 @@ function resolvePoliceStation(
 
 // R-trees for spatial indexing
 const pincodesIndex = new RBush<SpatialItem>();
+const districtsIndex = new RBush<SpatialItem>();
 const tnebIndex = new RBush<SpatialItem>();
 const stateBoundaryIndex = new RBush<SpatialItem>();
 const acIndex = new RBush<SpatialItem>();
@@ -463,6 +470,15 @@ self.onmessage = async (e: MessageEvent) => {
           const objectName = Object.keys(data.objects)[0];
           const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           districtsGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
+          
+          // Indexing with safety filters
+          const items: SpatialItem[] = districtsGeoJson!.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({
+              ...getBBox(f.geometry),
+              feature: f
+            }));
+          districtsIndex.load(items);
         }
         self.postMessage({ type: 'DISTRICTS_LOADED', payload: districtsGeoJson });
       } catch (err) {
@@ -691,7 +707,7 @@ self.onmessage = async (e: MessageEvent) => {
             // CRITICAL: If boundary is flagged as wrong or missing, nullify the geometry 
             // so the MapController doesn't "fly" to a wrong location.
             if (!result.isBoundaryValid && result.boundary) {
-              (result.boundary.geometry as any) = null;
+              (result.boundary.geometry as Geometry | null) = null;
             }
           }
 
@@ -737,7 +753,32 @@ self.onmessage = async (e: MessageEvent) => {
              });
            }
         }
-      } else if (layer === 'PINCODE' || layer === 'PDS') {
+      } else if (layer === 'HEALTH') {
+         let pinFeature: GisFeature | null = null;
+         if (pincodeOverride) {
+           pinFeature = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
+         } else {
+           pinFeature = findFeatureAt([lng, lat], pincodesIndex);
+         }
+         
+         const distFeature = pinFeature 
+           ? findFeatureAt(getCentroid(pinFeature.geometry) as [number, number], districtsIndex)
+           : findFeatureAt([lng, lat], districtsIndex);
+         
+         self.postMessage({ 
+           type: 'RESOLUTION_RESULT', 
+           payload: { 
+             properties: { 
+               ...(distFeature?.properties || {}),
+               ...(pinFeature?.properties || {})
+             },
+             geometry: pinFeature?.geometry || distFeature?.geometry,
+             layer: 'HEALTH',
+             keepSelection
+           } 
+         });
+         return;
+       } else if (layer === 'PINCODE' || layer === 'PDS') {
         if (pincodeOverride) {
            found = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
         } else {
@@ -803,17 +844,13 @@ self.onmessage = async (e: MessageEvent) => {
           const response = await fetchWithRetry('/data/tn_postal_offices.json');
           postalOffices = await response.json();
           
-          // Index by pincode
-          postalOfficesIndex.clear();
-          postalOffices?.forEach(office => {
-            const pin = office.pincode?.toString();
-            if (pin) {
-              if (!postalOfficesIndex.has(pin)) {
-                postalOfficesIndex.set(pin, []);
-              }
-              postalOfficesIndex.get(pin)!.push(office);
-            }
-          });
+          if (postalOffices) {
+            postalOffices.forEach(po => {
+              const pin = po.pincode.toString();
+              if (!postalOfficesIndex.has(pin)) postalOfficesIndex.set(pin, []);
+              postalOfficesIndex.get(pin)!.push(po);
+            });
+          }
         }
         self.postMessage({ type: 'POSTAL_OFFICES_LOADED' });
       } catch (err) {
@@ -822,8 +859,235 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
+    case 'LOAD_HEALTH_MANIFEST':
+      try {
+        if (!healthManifest) {
+          const response = await fetchWithRetry('/data/health_manifest.json');
+          healthManifest = await response.json();
+        }
+        self.postMessage({ type: 'HEALTH_MANIFEST_LOADED', payload: healthManifest });
+      } catch (err) {
+        console.error('[Worker] Error loading health manifest:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load health manifest' });
+      }
+      break;
+
+    case 'LOAD_HEALTH_SEARCH_INDEX':
+      try {
+        if (!healthSearchIndex) {
+          const response = await fetchWithRetry('/data/health_search_index.json');
+          healthSearchIndex = await response.json();
+        }
+        self.postMessage({ type: 'HEALTH_SEARCH_INDEX_LOADED' });
+      } catch (err) {
+        console.error('[Worker] Error loading health search index:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load health search index' });
+      }
+      break;
+
+    case 'LOAD_HEALTH_PRIORITY':
+      try {
+        if (!healthPriorityGeoJson) {
+          const response = await fetchWithRetry('/data/health_statewide_priority.geojson');
+          healthPriorityGeoJson = await response.json();
+        }
+        self.postMessage({ type: 'HEALTH_PRIORITY_LOADED', payload: healthPriorityGeoJson });
+      } catch (err) {
+        console.error('[Worker] Error loading health priority data:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load health priority data' });
+      }
+      break;
+
+    case 'LOAD_HEALTH_DISTRICT':
+      try {
+        const { district, file_name } = payload;
+        if (!loadedHealthDistricts.has(district)) {
+          const response = await fetchWithRetry(`/data/health_by_district/${file_name}`);
+          const data = await response.json() as GisFeatureCollection;
+          loadedHealthDistricts.set(district, data);
+          
+          const index = new RBush<SpatialItem>();
+          const items: SpatialItem[] = data.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({
+              ...getBBox(f.geometry),
+              feature: f
+            }));
+          index.load(items);
+          healthDistrictIndexes.set(district, index);
+        }
+        self.postMessage({ 
+          type: 'HEALTH_DISTRICT_LOADED', 
+          payload: { district, data: loadedHealthDistricts.get(district) } 
+        });
+      } catch (err) {
+        console.error('[Worker] Error loading health district:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load health district data' });
+      }
+      break;
+
+    case 'FILTER_HEALTH': {
+      try {
+        const { scope, filters, district, pincode } = payload;
+        let features: GisFeature[] = [];
+        let activeDistrictData: GisFeatureCollection | null = null;
+
+        if (scope === 'STATE') {
+          features = healthPriorityGeoJson?.features || [];
+        } else if (scope === 'DISTRICT' || scope === 'PINCODE') {
+          if (!district) {
+            self.postMessage({ type: 'ERROR', payload: 'District name required for drill-down' });
+            return;
+          }
+          
+          const distManifest = healthManifest?.districts.find(d => 
+            d.district.toLowerCase().replace(/\s+/g, '') === district.toLowerCase().replace(/\s+/g, '')
+          );
+          if (!distManifest) {
+            self.postMessage({ type: 'ERROR', payload: `Manifest entry not found for district: ${district}` });
+            return;
+          }
+
+          if (!loadedHealthDistricts.has(district)) {
+            const response = await fetchWithRetry(`/data/health_by_district/${distManifest.file_name}`);
+            activeDistrictData = await response.json();
+            if (activeDistrictData) {
+              loadedHealthDistricts.set(district, activeDistrictData);
+            }
+          } else {
+            activeDistrictData = loadedHealthDistricts.get(district) || null;
+          }
+
+          if (!activeDistrictData) {
+            self.postMessage({ type: 'ERROR', payload: 'Failed to load health district data' });
+            return;
+          }
+
+          features = activeDistrictData.features;
+
+          if (scope === 'PINCODE' && pincode) {
+            const pinFeature = pincodesGeoJson?.features.find(f => 
+              (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincode.toString()
+            );
+            if (pinFeature) {
+              features = features.filter(f => {
+                const pt = f.geometry.coordinates as [number, number];
+                if (pinFeature.geometry.type === 'Polygon') {
+                  return isPointInPolygon(pt, (pinFeature.geometry as Polygon).coordinates);
+                } else if (pinFeature.geometry.type === 'MultiPolygon') {
+                  return (pinFeature.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
+                }
+                return false;
+              });
+            }
+          }
+        }
+
+        // Capability check helper
+        const isTrue = (val: any) => val === 1 || val === '1' || (typeof val === 'string' && val.trim().length > 0 && val !== '0' && val !== 'null');
+
+        // Apply Filters
+        const filtered = features.filter(f => {
+          const p = f.properties;
+          
+          // Facility Type
+          if (filters.facilityTypes.length > 0 && !filters.facilityTypes.includes(p.facility_t)) return false;
+          
+          // Location Type
+          if (filters.locationType === 'Urban' && p.location_t !== 'Urban') return false;
+          if (filters.locationType === 'Rural' && p.location_t !== 'Rural') return false;
+
+          // Core Capabilities
+          if (filters.isHwc === true && !isTrue(p.hwc)) return false;
+          if (filters.hasDelivery === true && !isTrue(p.delivery_p)) return false;
+          if (filters.isFru === true && !p.fru) return false;
+          if (filters.is24x7 === true && !String(p.timing_of_ || '').includes('24x7')) return false;
+
+          // Maternal / Emergency
+          if (filters.hasBloodBank === true && !isTrue(p.blood_bank)) return false;
+          if (filters.hasBloodStorage === true && !isTrue(p.blood_stor)) return false;
+
+          // Child / Neonatal
+          if (filters.hasSncu === true && !isTrue(p.sncu)) return false;
+          if (filters.hasNbsu === true && !isTrue(p.nbsu)) return false;
+          if (filters.hasDeic === true && !isTrue(p.deic)) return false;
+
+          // Diagnostics / Specialty
+          if (filters.hasCt === true && !isTrue(p.ct)) return false;
+          if (filters.hasMri === true && !isTrue(p.mri)) return false;
+          if (filters.hasDialysis === true && !isTrue(p.dialysis_c)) return false;
+          if (filters.hasCbnaat === true && !isTrue(p.cbnaat_sit)) return false;
+          if (filters.hasTeleConsultation === true && !isTrue(p.tele_v_car)) return false;
+
+          // Cardiac / Advanced
+          if (filters.hasStemiHub === true && !isTrue(p.stemi_hubs)) return false;
+          if (filters.hasStemiSpoke === true && !isTrue(p.stemi_spok)) return false;
+          if (filters.hasCathLab === true && !isTrue(p.cath_lab_m)) return false;
+
+          return true;
+        });
+
+        // Calculate Summary
+        const countsByType: Record<string, number> = {};
+        const countsByCapability: Record<string, number> = {
+          hwc: 0, delivery: 0, fru: 0, t24x7: 0,
+          blood_bank: 0, blood_stor: 0,
+          sncu: 0, nbsu: 0, deic: 0,
+          ct: 0, mri: 0, dialysis: 0, cbnaat: 0, tele: 0,
+          stemi_hub: 0, stemi_spoke: 0, cath_lab: 0
+        };
+
+        filtered.forEach(f => {
+          const p = f.properties;
+          const t = String(p.facility_t || 'Unknown');
+          countsByType[t] = (countsByType[t] || 0) + 1;
+
+          if (isTrue(p.hwc)) countsByCapability.hwc++;
+          if (isTrue(p.delivery_p)) countsByCapability.delivery++;
+          if (p.fru) countsByCapability.fru++;
+          if (String(p.timing_of_ || '').includes('24x7')) countsByCapability.t24x7++;
+          if (isTrue(p.blood_bank)) countsByCapability.blood_bank++;
+          if (isTrue(p.blood_stor)) countsByCapability.blood_stor++;
+          if (isTrue(p.sncu)) countsByCapability.sncu++;
+          if (isTrue(p.nbsu)) countsByCapability.nbsu++;
+          if (isTrue(p.deic)) countsByCapability.deic++;
+          if (isTrue(p.ct)) countsByCapability.ct++;
+          if (isTrue(p.mri)) countsByCapability.mri++;
+          if (isTrue(p.dialysis_c)) countsByCapability.dialysis++;
+          if (isTrue(p.cbnaat_sit)) countsByCapability.cbnaat++;
+          if (isTrue(p.tele_v_car)) countsByCapability.tele++;
+          if (isTrue(p.stemi_hubs)) countsByCapability.stemi_hub++;
+          if (isTrue(p.stemi_spok)) countsByCapability.stemi_spoke++;
+          if (isTrue(p.cath_lab_m)) countsByCapability.cath_lab++;
+        });
+
+        const summary = {
+          name: scope === 'STATE' ? 'Statewide (Priority)' : (scope === 'DISTRICT' ? (district || 'Selected District') : `Pincode ${pincode}`),
+          scope,
+          total: filtered.length,
+          countsByType,
+          countsByCapability,
+          activeFilters: Object.entries(filters)
+            .filter(([, v]) => v !== null && (Array.isArray(v) ? v.length > 0 : (v !== 'All' && v !== false)))
+            .map(([k]) => k),
+          district,
+          pincode
+        };
+
+        self.postMessage({ 
+          type: 'HEALTH_FILTERED', 
+          payload: { features: filtered, summary, scope } 
+        });
+      } catch (err) {
+        console.error('[Worker] Error filtering health:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to filter health data' });
+      }
+      break;
+    }
+
+
     case 'GET_SUGGESTIONS': {
-      const { query } = payload;
+      const { query, activeLayer } = payload;
       const q = (query || '').toLowerCase().trim();
       if (!q) {
         self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: [] });
@@ -844,7 +1108,7 @@ self.onmessage = async (e: MessageEvent) => {
         score: number;
       }
 
-      let allScored: ScoredSuggestion[] = [];
+      const allScored: ScoredSuggestion[] = [];
 
       // 1. Search Districts
       if (districtsGeoJson) {
@@ -872,7 +1136,61 @@ self.onmessage = async (e: MessageEvent) => {
         });
       }
 
-      // 3. Search TNEB Offices
+      if (activeLayer === 'HEALTH') {
+        if (healthSearchIndex) {
+          const tierWeights: Record<string, number> = {
+            'MCH': 1.5,
+            'DH': 1.4,
+            'SDH': 1.3,
+            'CHC': 1.1,
+            'PHC': 1.0,
+            'HSC': 0.5
+          };
+
+          healthSearchIndex.forEach(facility => {
+            const name = facility[0].toString();
+            const type = facility[3].toString();
+            const nin = (facility[8] || '').toString();
+            
+            let finalScore = getScore(name, q);
+            const ninScore = nin === q ? 100 : (nin.includes(q) ? 70 : 0);
+            finalScore = Math.max(finalScore, ninScore);
+
+            if (finalScore > 0) {
+              // Exact match bonus
+              if (name.toLowerCase() === q) finalScore += 20;
+
+              // Tier boost
+              const boost = tierWeights[type] || 1.0;
+              finalScore *= boost;
+
+              // HSC suppression for broad/short queries
+              if (type === 'HSC' && q.length < 4) {
+                finalScore *= 0.2;
+              }
+
+              if (finalScore > 5) { // Filter out low quality matches
+                allScored.push({
+                  type: 'Feature' as const,
+                  geometry: { type: 'Point' as const, coordinates: [facility[5], facility[4]] },
+                  properties: {
+                    facility_n: name,
+                    district_n: facility[1],
+                    facility_t: type,
+                    nin_number: facility[8],
+                    location_t: facility[6],
+                    block_name: facility[2]
+                  },
+                  score: finalScore,
+                  suggestionType: 'HEALTH_FACILITY' as const
+                } as ScoredSuggestion);
+              }
+            }
+          });
+        }
+      } else {
+        // Search other layer-specific items
+        // 3. Search TNEB Offices
       if (tnebOffices) {
         tnebOffices.features.forEach((f: GisFeature) => {
           const name = (f.properties.section_na as string || f.properties.section_office as string || '');
@@ -948,6 +1266,8 @@ self.onmessage = async (e: MessageEvent) => {
             allScored.push({ ...f, score: finalScore + 8, suggestionType: 'POLICE_STATION' as const });
           }
         });
+      }
+
       }
 
       // Final sort and limit

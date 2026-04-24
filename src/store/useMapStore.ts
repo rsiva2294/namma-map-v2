@@ -12,7 +12,13 @@ import type {
   PoliceBoundaryProperties,
   PoliceStationProperties,
   PoliceResolutionResult,
-  PostalOffice
+  PostalOffice,
+  HealthManifest,
+  HealthFacilityProperties,
+  HealthFacility,
+  HealthScope,
+  HealthFilters,
+  HealthSummary
 } from '../types/gis';
 
 interface MapState {
@@ -51,6 +57,14 @@ interface MapState {
   policeResolution: PoliceResolutionResult | null;
   selectedPostalOffices: PostalOffice[] | null;
   selectedPostalOffice: PostalOffice | null;
+  healthManifest: HealthManifest | null;
+  healthPriorityData: GisFeatureCollection<Point, HealthFacilityProperties> | null;
+  healthDistrictData: GisFeatureCollection<Point, HealthFacilityProperties> | null;
+  selectedHealthFacility: HealthFacility | null;
+  healthScope: HealthScope;
+  healthFilters: HealthFilters;
+  healthSummary: HealthSummary | null;
+  isHealthLoading: boolean;
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -85,6 +99,14 @@ interface MapState {
   setPoliceResolution: (result: PoliceResolutionResult | null) => void;
   setSelectedPostalOffices: (offices: PostalOffice[] | null) => void;
   setSelectedPostalOffice: (office: PostalOffice | null) => void;
+  setHealthManifest: (manifest: HealthManifest | null) => void;
+  setHealthPriorityData: (data: GisFeatureCollection<Point, HealthFacilityProperties> | null) => void;
+  setHealthDistrictData: (data: GisFeatureCollection<Point, HealthFacilityProperties> | null) => void;
+  setSelectedHealthFacility: (facility: HealthFacility | null) => void;
+  setHealthScope: (scope: HealthScope) => void;
+  setHealthFilters: (filters: HealthFilters) => void;
+  setHealthSummary: (summary: HealthSummary | null) => void;
+  setIsHealthLoading: (loading: boolean) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -124,6 +146,34 @@ export const useMapStore = create<MapState>((set) => ({
   policeResolution: null,
   selectedPostalOffices: null,
   selectedPostalOffice: null,
+  healthManifest: null,
+  healthPriorityData: null,
+  healthDistrictData: null,
+  selectedHealthFacility: null,
+  healthScope: 'STATE',
+  healthFilters: {
+    facilityTypes: [],
+    locationType: 'All',
+    isHwc: null,
+    hasDelivery: null,
+    isFru: null,
+    is24x7: null,
+    hasBloodBank: null,
+    hasBloodStorage: null,
+    hasSncu: null,
+    hasNbsu: null,
+    hasDeic: null,
+    hasCt: null,
+    hasMri: null,
+    hasDialysis: null,
+    hasCbnaat: null,
+    hasTeleConsultation: null,
+    hasStemiHub: null,
+    hasStemiSpoke: null,
+    hasCathLab: null
+  },
+  healthSummary: null,
+  isHealthLoading: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set({ 
@@ -135,6 +185,31 @@ export const useMapStore = create<MapState>((set) => ({
     policeResolution: null,
     selectedPostalOffices: null,
     selectedPostalOffice: null,
+    selectedHealthFacility: null,
+    healthDistrictData: null,
+    healthScope: 'STATE',
+    healthSummary: null,
+    healthFilters: {
+      facilityTypes: [],
+      locationType: 'All',
+      isHwc: null,
+      hasDelivery: null,
+      isFru: null,
+      is24x7: null,
+      hasBloodBank: null,
+      hasBloodStorage: null,
+      hasSncu: null,
+      hasNbsu: null,
+      hasDeic: null,
+      hasCt: null,
+      hasMri: null,
+      hasDialysis: null,
+      hasCbnaat: null,
+      hasTeleConsultation: null,
+      hasStemiHub: null,
+      hasStemiSpoke: null,
+      hasCathLab: null
+    },
     // Reset result if switching from/to layers
     searchResult: null
   }),
@@ -149,13 +224,14 @@ export const useMapStore = create<MapState>((set) => ({
       jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
       selectedPdsShop: keepSelection ? state.selectedPdsShop : null,
       selectedPostalOffices: keepSelection ? state.selectedPostalOffices : null,
-      selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null
+      selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null,
+      selectedHealthFacility: keepSelection ? state.selectedHealthFacility : null
     };
 
     if (updateQuery && result) {
       const p = result.properties;
       const num = (p.assembly_1 || p.parliament || p.ps_code || '').toString();
-      const baseName = (p.ps_name || p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || '').toString();
+      const baseName = (p.facility_n || p.ps_name || p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || '').toString();
       const typePrefix = p.ps_name ? 'Station' : p.assembly_c ? 'AC' : p.parliame_1 ? 'PC' : '';
       const name = num ? `${typePrefix} #${num} - ${baseName}` : baseName;
       const pin = (p.PIN_CODE || p.pincode)?.toString();
@@ -191,7 +267,8 @@ export const useMapStore = create<MapState>((set) => ({
     jurisdictionDetails: val ? null : undefined,
     policeResolution: val ? null : undefined,
     selectedPostalOffices: val ? null : undefined,
-    selectedPostalOffice: val ? null : undefined
+    selectedPostalOffice: val ? null : undefined,
+    selectedHealthFacility: val ? null : undefined
   }),
   clearSearch: () => set({ 
     searchQuery: '', 
@@ -208,6 +285,8 @@ export const useMapStore = create<MapState>((set) => ({
     policeResolution: null,
     selectedPostalOffices: null,
     selectedPostalOffice: null,
+    selectedHealthFacility: null,
+    healthDistrictData: null,
     noDataFound: false,
     lastClickedPoint: null
   }),
@@ -235,4 +314,12 @@ export const useMapStore = create<MapState>((set) => ({
   }),
   setSelectedPostalOffices: (offices) => set({ selectedPostalOffices: offices }),
   setSelectedPostalOffice: (office) => set({ selectedPostalOffice: office }),
+  setHealthManifest: (manifest) => set({ healthManifest: manifest }),
+  setHealthPriorityData: (data) => set({ healthPriorityData: data }),
+  setHealthDistrictData: (data) => set({ healthDistrictData: data }),
+  setIsHealthLoading: (loading: boolean) => set({ isHealthLoading: loading }),
+  setSelectedHealthFacility: (facility) => set({ selectedHealthFacility: facility }),
+  setHealthScope: (scope) => set({ healthScope: scope }),
+  setHealthFilters: (filters) => set({ healthFilters: filters }),
+  setHealthSummary: (summary) => set({ healthSummary: summary }),
 }));

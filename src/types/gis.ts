@@ -1,4 +1,4 @@
-export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE';
+export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE' | 'HEALTH';
 
 export type Position = [number, number];
 export type BBox = [number, number, number, number];
@@ -55,7 +55,7 @@ export interface GisFeature<G extends Geometry = Geometry, P = GisProperties> {
   properties: P;
   bbox?: BBox;
   id?: string | number;
-  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION';
+  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION' | 'HEALTH_FACILITY';
 }
 
 export interface ConstituencyProperties extends GisProperties {
@@ -166,4 +166,103 @@ export interface PostalOffice {
   statename: string;
   latitude: string | number;
   longitude: string | number;
+}
+
+export interface HealthFacilityProperties extends GisProperties {
+  reference_?: string | number;
+  facility_n: string;
+  facility_t: string;
+  nin_number?: string | number;
+  district_n: string;
+  sub_distri?: string;
+  block_name?: string;
+  location_t?: string;
+  timing_of_?: string;
+  phc_catego?: string;
+  fru?: string;
+  under_heal?: string;
+  hwc?: string;
+  kayakalp?: string;
+  nqas?: string;
+  delivery_p?: string;
+  blood_bank?: string;
+  blood_stor?: string;
+  ct?: string;
+  mri?: string;
+  dialysis_c?: string;
+  sncu?: string;
+  nbsu?: string;
+  deic?: string;
+  cbnaat_sit?: string;
+  tele_v_car?: string;
+  stemi_hubs?: string;
+  stemi_spok?: string;
+  cath_lab_m?: string;
+  prem_centr?: string;
+  script_hub?: string;
+  script_spo?: string;
+}
+
+export type HealthFacility = GisFeature<Point, HealthFacilityProperties>;
+
+export interface HealthDistrictSummary {
+  district: string;
+  file_name: string;
+  total: number;
+  by_type: Record<string, number>;
+  location: Record<string, number>;
+  capabilities: Record<string, number>;
+}
+
+export interface HealthManifest {
+  generated_at: string;
+  total_facilities: number;
+  district_count: number;
+  priority_types: string[];
+  capability_fields: string[];
+  statewide: {
+    by_type: Record<string, number>;
+    location: Record<string, number>;
+    capabilities: Record<string, number>;
+    priority_total: number;
+  };
+  districts: HealthDistrictSummary[];
+}
+export type HealthScope = 'STATE' | 'DISTRICT' | 'PINCODE';
+
+export interface HealthFilters {
+  facilityTypes: string[]; // e.g., ['PHC', 'CHC', 'MCH', 'DH', 'SDH', 'HSC']
+  locationType: 'Urban' | 'Rural' | 'All';
+  isHwc: boolean | null;
+  hasDelivery: boolean | null;
+  isFru: boolean | null;
+  is24x7: boolean | null;
+  // Maternal / Emergency
+  hasBloodBank: boolean | null;
+  hasBloodStorage: boolean | null;
+  // Child / Neonatal
+  hasSncu: boolean | null;
+  hasNbsu: boolean | null;
+  hasDeic: boolean | null;
+  // Diagnostics / Specialty
+  hasCt: boolean | null;
+  hasMri: boolean | null;
+  hasDialysis: boolean | null;
+  hasCbnaat: boolean | null;
+  hasTeleConsultation: boolean | null;
+  // Cardiac / Advanced
+  hasStemiHub: boolean | null;
+  hasStemiSpoke: boolean | null;
+  hasCathLab: boolean | null;
+}
+
+export interface HealthSummary {
+  name: string;
+  scope: HealthScope;
+  total: number;
+  countsByType: Record<string, number>;
+  countsByCapability: Record<string, number>;
+  activeFilters: string[];
+  district?: string;
+  pincode?: string;
 }

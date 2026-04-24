@@ -34,6 +34,7 @@ const Sidebar: React.FC = () => {
     { id: 'TNEB', label: 'TNEB (Electricity)', icon: Zap },
     { id: 'CONSTITUENCY', label: 'Constituencies', icon: Landmark },
     { id: 'POLICE', label: 'Police Jurisdictions', icon: Shield },
+    { id: 'HEALTH', label: 'Health Facilities', icon: Activity },
   ];
 
   return (
@@ -155,8 +156,8 @@ const Sidebar: React.FC = () => {
 
         <div className="sidebar-section-label">Future Modules</div>
         <div className="sidebar-menu-item disabled">
-          <Activity size={20} />
-          {isSidebarOpen && <span>Health</span>}
+          <Settings size={20} />
+          {isSidebarOpen && <span>Education</span>}
           {isSidebarOpen && <span className="badge-soon">SOON</span>}
         </div>
 

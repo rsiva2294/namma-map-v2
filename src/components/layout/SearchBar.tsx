@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, Landmark, Shield } from 'lucide-react';
+import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, Landmark, Shield, Activity } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 
@@ -165,6 +165,11 @@ const SearchBar: React.FC = () => {
                     subtitle = 'Police Station';
                     Icon = Shield;
                     iconColor = '#334155';
+                  } else if (suggestion.suggestionType === 'HEALTH_FACILITY') {
+                    title = (suggestion.properties.facility_n || '') as string;
+                    subtitle = `Health Facility - ${suggestion.properties.facility_t || ''}`;
+                    Icon = Activity;
+                    iconColor = '#f43f5e';
                   } else {
                     const name = (suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '').toString();
                     const pin = (suggestion.properties.PIN_CODE || suggestion.properties.pincode)?.toString();

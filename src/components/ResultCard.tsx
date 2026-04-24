@@ -5,8 +5,9 @@ import { motion } from 'framer-motion';
 export interface ResultCardProps {
   title: string;
   icon?: React.ReactNode;
-  themeColor: 'blue' | 'red' | 'orange' | 'indigo' | 'slate';
+  themeColor: 'blue' | 'red' | 'orange' | 'indigo' | 'slate' | 'rose';
   data: { label: string; value: string; subValue?: string; isPill?: boolean }[];
+  badges?: { label: string; color?: string; icon?: React.ReactNode }[];
   onClose: () => void;
   onDirections?: () => void;
   onReport?: () => void;
@@ -44,10 +45,18 @@ const colorMap = {
     text: '#334155',
     button: '#334155',
     hover: '#1e293b'
+  },
+  rose: {
+    bg: '#fff1f2',
+    text: '#e11d48',
+    button: '#e11d48',
+    hover: '#be123c'
   }
 };
 
-const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, onClose, onDirections, onReport, actionLabel, onAction }) => {
+const ResultCard: React.FC<ResultCardProps> = ({ 
+  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction 
+}) => {
   const colors = colorMap[themeColor];
 
   const handleCopy = (text: string) => {
@@ -88,6 +97,32 @@ const ResultCard: React.FC<ResultCardProps> = ({ title, icon, themeColor, data, 
           </button>
         </div>
       </div>
+
+      {/* Badges Section */}
+      {badges && badges.length > 0 && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', padding: '0 16px 12px 16px' }}>
+          {badges.map((badge, i) => (
+            <div 
+              key={i} 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '4px', 
+                padding: '3px 8px', 
+                borderRadius: '6px', 
+                fontSize: '10px', 
+                fontWeight: 700,
+                background: badge.color ? `${badge.color}15` : colors.bg,
+                color: badge.color || colors.text,
+                border: `1px solid ${badge.color ? `${badge.color}30` : 'transparent'}`
+              }}
+            >
+              {badge.icon}
+              <span>{badge.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Body */}
       <div className="result-card-body">

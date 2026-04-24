@@ -9,7 +9,7 @@
   --accent: #0ea5e9;
   --accent-hover: #38bdf8;
   --danger: #ef4444;
-  
+
   /* Glassmorphism */
   --blur-std: 12px;
   --blur-heavy: 24px;
@@ -52,10 +52,13 @@ body.light-mode {
   padding: 0;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* GIS apps usually manage their own scrolling */
+  overflow: hidden;
+  /* GIS apps usually manage their own scrolling */
 }
 
 .app-container {
@@ -320,7 +323,8 @@ body, html, #root {
   transition: background 0.2s ease;
 }
 
-.suggestion-item:hover, .suggestion-item.focused {
+.suggestion-item:hover,
+.suggestion-item.focused {
   background: var(--border-glass);
 }
 
@@ -361,8 +365,13 @@ body, html, #root {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Pulsating Animations */
@@ -380,8 +389,16 @@ body, html, #root {
 }
 
 @keyframes pulse-ring-tneb {
-  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-  80%, 100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
 }
 
 .pulse-pds {
@@ -398,8 +415,16 @@ body, html, #root {
 }
 
 @keyframes pulse-ring-pds {
-  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-  80%, 100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
 }
 
 .pulse-police {
@@ -420,8 +445,16 @@ body, html, #root {
 }
 
 @keyframes pulse-ring-police {
-  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-  80%, 100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
 }
 
 .pulse-postal {
@@ -438,8 +471,42 @@ body, html, #root {
 }
 
 @keyframes pulse-ring-postal {
-  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-  80%, 100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
+}
+
+.pulse-health {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  background: rgba(225, 29, 72, 0.4);
+  border-radius: 50%;
+  animation: pulse-ring-health 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-ring-health {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
 
 .loading {
@@ -799,7 +866,8 @@ body, html, #root {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   padding: 10px 20px;
   border-radius: 12px;
   font-weight: 600;
@@ -839,11 +907,15 @@ body, html, #root {
 }
 
 /* Police Marker Clusters */
-.marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
   background-color: rgba(51, 65, 85, 0.4) !important;
 }
 
-.marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div {
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
   background-color: rgba(51, 65, 85, 0.85) !important;
   color: white !important;
   font-family: 'Inter', sans-serif !important;
@@ -867,4 +939,39 @@ body, html, #root {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.health-filters-floating {
+  position: absolute;
+  left: 20px;
+  bottom: 40px;
+  width: 300px;
+  z-index: 1000;
+  pointer-events: auto;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar:not(.sidebar-closed) ~ .main-content .health-filters-floating {
+  left: 300px;
+}
+
+.map-loading-overlay {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+}
+
+.dark .map-loading-overlay {
+  background: rgba(15, 23, 42, 0.8);
+  color: #38bdf8;
 }

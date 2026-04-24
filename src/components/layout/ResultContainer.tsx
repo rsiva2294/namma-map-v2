@@ -1,9 +1,11 @@
 import React from 'react';
-import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield, Activity } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
-import type { Position, TnebSection } from '../../types/gis';
+import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
+import { useGisWorker } from '../../hooks/useGisWorker';
+import type { Position, TnebSection, HealthFilters } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
   const activeLayer = useMapStore(state => state.activeLayer);
@@ -22,6 +24,12 @@ const ResultContainer: React.FC = () => {
   const selectedPostalOffices = useMapStore(state => state.selectedPostalOffices);
   const selectedPostalOffice = useMapStore(state => state.selectedPostalOffice);
   const setSelectedPostalOffice = useMapStore(state => state.setSelectedPostalOffice);
+  const selectedHealthFacility = useMapStore(state => state.selectedHealthFacility);
+  const setSelectedHealthFacility = useMapStore(state => state.setSelectedHealthFacility);
+  const healthSummary = useMapStore(state => state.healthSummary);
+  const healthScope = useMapStore(state => state.healthScope);
+  const activeDistrict = useMapStore(state => state.activeDistrict);
+  const { filterHealth } = useGisWorker();
 
   const handleReport = (type: string, rawData: Record<string, unknown>) => {
     let importantData: Record<string, string | number> = {};
@@ -62,6 +70,13 @@ const ResultContainer: React.FC = () => {
         'Station Code': (rawData.stationCode || 'N/A') as string,
         'Confidence': (rawData.confidence || 'N/A') as string,
         'Reason': (rawData.reason || 'N/A') as string,
+      };
+    } else if (type === 'Health Facility') {
+      importantData = {
+        'Facility Name': (rawData.facility_n || rawData.NAME) as string || 'N/A',
+        'Type': (rawData.facility_t as string) || 'N/A',
+        'District': (rawData.district_n || rawData.district) as string || 'N/A',
+        'Block': (rawData.block_name as string) || 'N/A',
       };
     }
 
@@ -308,6 +323,102 @@ const ResultContainer: React.FC = () => {
           ]}
           onClose={() => {}}
         />
+      )}
+
+      {/* Health Facility Detail */}
+      {activeLayer === 'HEALTH' && selectedHealthFacility && (
+        <ResultCard
+          key="health-detail"
+          themeColor="rose"
+          title={selectedHealthFacility.properties.facility_n || selectedHealthFacility.properties.NAME || 'Health Facility'}
+          icon={<Activity size={20} />}
+          badges={[
+            ...(Number(selectedHealthFacility.properties.delivery_p) === 1 ? [{ label: 'Delivery Services', color: '#ec4899' }] : []),
+            ...(String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') ? [{ label: '24x7 Emergency', color: '#f59e0b' }] : []),
+            ...(selectedHealthFacility.properties.fru ? [{ label: 'First Referral Unit', color: '#be123c' }] : []),
+            ...(Number(selectedHealthFacility.properties.blood_bank) === 1 ? [{ label: 'Blood Bank', color: '#ef4444' }] : []),
+            ...(Number(selectedHealthFacility.properties.sncu) === 1 ? [{ label: 'Newborn Care', color: '#0ea5e9' }] : []),
+            ...(Number(selectedHealthFacility.properties.dialysis_c) === 1 ? [{ label: 'Dialysis Center', color: '#8b5cf6' }] : [])
+          ].slice(0, 4)}
+          data={[
+            { 
+              label: 'Facility Level', 
+              value: (({
+                'MCH': 'Medical College Hospital',
+                'DH': 'District Hospital',
+                'SDH': 'Sub-District Hospital',
+                'CHC': 'Community Health Centre',
+                'PHC': 'Primary Health Centre',
+                'HSC': 'Health Sub Centre'
+              } as Record<string, string>)[selectedHealthFacility.properties.facility_t]) || selectedHealthFacility.properties.facility_t || 'N/A', 
+              isPill: true 
+            },
+            { 
+              label: 'Location', 
+              value: `${selectedHealthFacility.properties.block_name || 'Local Area'}, ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`,
+              subValue: `Type: ${selectedHealthFacility.properties.location_t || 'N/A'}`
+            },
+            { 
+              label: 'Timing', 
+              value: String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') ? 'Open 24 Hours' : 'Day Services'
+            },
+            { label: 'Facility ID (NIN)', value: (selectedHealthFacility.properties.nin_number || 'N/A').toString() }
+          ]}
+          onClose={() => setSelectedHealthFacility(null)}
+          onDirections={() => {
+            const coords = selectedHealthFacility.geometry.coordinates as [number, number];
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+          }}
+          onReport={() => handleReport('Health Facility', selectedHealthFacility.properties)}
+        />
+      )}
+
+      {/* Health Discovery Summary */}
+      {activeLayer === 'HEALTH' && healthSummary && !selectedHealthFacility && (
+        <HealthSummaryCard
+          key="health-summary"
+          summary={healthSummary}
+          onClearFilters={() => {
+            const emptyFilters: HealthFilters = {
+              facilityTypes: [],
+              locationType: 'All' as const,
+              isHwc: null,
+              hasDelivery: null,
+              isFru: null,
+              is24x7: null,
+              hasBloodBank: null,
+              hasBloodStorage: null,
+              hasSncu: null,
+              hasNbsu: null,
+              hasDeic: null,
+              hasCt: null,
+              hasMri: null,
+              hasDialysis: null,
+              hasCbnaat: null,
+              hasTeleConsultation: null,
+              hasStemiHub: null,
+              hasStemiSpoke: null,
+              hasCathLab: null
+            };
+            const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode)?.toString();
+            filterHealth(healthScope, emptyFilters, activeDistrict, pincode || null);
+          }}
+        />
+      )}
+
+      {/* Health Layer Instruction (when no summary yet) */}
+      {activeLayer === 'HEALTH' && !healthSummary && !selectedHealthFacility && !noDataFound && (
+         <ResultCard
+           key="health-instruction"
+           themeColor="blue"
+           title="Health Discovery"
+           icon={<Activity size={20} />}
+           data={[
+             { label: 'Status', value: 'Statewide View', isPill: true },
+             { label: 'Next Step', value: 'Search for a district or pincode to explore local health facilities.' }
+           ]}
+           onClose={() => {}}
+         />
       )}
 
       {/* No Data Found Card */}

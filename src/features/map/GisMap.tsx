@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
-import type { GisFeature, PdsShop, Geometry } from '../../types/gis';
+import type { GisFeature, PdsShop, Geometry, Point, PoliceStationProperties, HealthFacility, PoliceResolutionResult } from '../../types/gis';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
@@ -12,7 +12,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 const MapController: React.FC<{ 
   result: GisFeature | null; 
   geometry: Geometry | null;
-  policeResolution: any | null;
+  policeResolution: PoliceResolutionResult | null;
 }> = ({ result, geometry, policeResolution }) => {
   const map = useMap();
   const { isSidebarOpen } = useMapStore();
@@ -22,27 +22,39 @@ const MapController: React.FC<{
 
     const leftPad = isSidebarOpen ? 340 : 80;
 
-    if (result) {
-      const bounds = L.geoJSON(result).getBounds();
-      map.flyToBounds(bounds, { 
-        paddingTopLeft: [leftPad, 120], 
-        paddingBottomRight: [80, 80],
-        maxZoom: 14,
-        duration: 0.8
-      });
+    if (result && result.geometry) {
+      try {
+        const bounds = L.geoJSON(result).getBounds();
+        if (bounds.isValid()) {
+          map.flyToBounds(bounds, { 
+            paddingTopLeft: [leftPad, 120], 
+            paddingBottomRight: [80, 80],
+            maxZoom: 14,
+            duration: 0.8
+          });
+        }
+      } catch (e) {
+        console.warn('Could not fly to bounds for result', e);
+      }
     } else if (policeResolution && !policeResolution.isBoundaryValid && policeResolution.station) {
       // Fly to station point if boundary is invalid
       const [lng, lat] = policeResolution.station.geometry.coordinates;
       map.flyTo([lat, lng], 14, { duration: 0.8 });
     } else if (geometry) {
-      const bounds = L.geoJSON(geometry).getBounds();
-      // Aggressive padding to force the selection into the visible 'hole'
-      map.flyToBounds(bounds, { 
-        paddingTopLeft: [leftPad, 150], // Extra top padding for search bar
-        paddingBottomRight: [420, 100], // Extra right padding for result card
-        maxZoom: 14,
-        duration: 0.8
-      });
+      try {
+        const bounds = L.geoJSON(geometry).getBounds();
+        if (bounds.isValid()) {
+          // Aggressive padding to force the selection into the visible 'hole'
+          map.flyToBounds(bounds, { 
+            paddingTopLeft: [leftPad, 150], // Extra top padding for search bar
+            paddingBottomRight: [420, 100], // Extra right padding for result card
+            maxZoom: 14,
+            duration: 0.8
+          });
+        }
+      } catch (e) {
+        console.warn('Could not fly to bounds for geometry', e);
+      }
     }
   }, [result, geometry, map, isSidebarOpen, policeResolution]);
   return null;
@@ -68,8 +80,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, setActiveDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, setSelectedHealthFacility, healthScope, isHealthLoading } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -81,13 +93,16 @@ const GisMap: React.FC = () => {
       loadConstituencies();
       loadPoliceData();
       loadPostalOffices();
+      loadHealthManifest();
+      loadHealthPriority();
+      loadHealthSearchIndex();
     }
-  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, loadHealthManifest, loadHealthPriority, loadHealthSearchIndex]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
     if (isUserTyping && searchQuery && searchQuery.length >= 3) {
-      getSuggestions(searchQuery);
+      getSuggestions(searchQuery, activeLayer);
     } else if (!isUserTyping || !searchQuery) {
       setSearchSuggestions([]);
     }
@@ -225,12 +240,52 @@ const GisMap: React.FC = () => {
     iconSize: [24, 24],
     iconAnchor: [12, 12]
   });
+
+  const healthPriorityIcon = (type: string) => {
+    const tierConfig: Record<string, { color: string; size: number; weight: number; showIcon: boolean }> = {
+      'MCH': { color: '#9d174d', size: 36, weight: 4, showIcon: true }, // Medical College
+      'DH': { color: '#be123c', size: 32, weight: 3, showIcon: true }, // District Hospital
+      'SDH': { color: '#e11d48', size: 24, weight: 2.5, showIcon: true }, // Sub-District Hospital
+      'CHC': { color: '#f43f5e', size: 20, weight: 2, showIcon: true }, // Community Health Centre
+      'PHC': { color: '#fb7185', size: 14, weight: 1.5, showIcon: false }, // Primary Health Centre
+      'HSC': { color: '#94a3b8', size: 8, weight: 1, showIcon: false }  // Health Sub Centre
+    };
+    
+    const { color, size, weight, showIcon } = tierConfig[type] || { color: '#f43f5e', size: 18, weight: 2, showIcon: true };
+    
+    return L.divIcon({
+      html: `
+        <div style="background: ${color}; width: ${size}px; height: ${size}px; border-radius: 50%; border: ${weight}px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; z-index: 1;">
+          ${showIcon && size > 16 ? `
+            <svg width="${size - 12}" height="${size - 12}" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          ` : ''}
+        </div>`,
+      className: 'custom-health-icon',
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2]
+    });
+  };
+
+  const selectedHealthIcon = L.divIcon({
+    html: `
+      <div class="pulse-health"></div>
+      <div style="background: #be123c; width: 28px; height: 28px; border-radius: 50%; border: 2.5px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4); position: relative; z-index: 10;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+      </div>`,
+    className: 'selected-health-icon',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14]
+  });
  
 
 
   const memoizedPoliceMarkers = useMemo(() => {
     if (!policeStationsData) return null;
-    return policeStationsData.features.map((f: any, i: number) => {
+    return policeStationsData.features.map((f: GisFeature<Point, PoliceStationProperties>, i: number) => {
       const [lng, lat] = f.geometry.coordinates as [number, number];
       const isSelected = selectedPoliceStation?.properties.ps_code === f.properties.ps_code;
       if (isSelected) return null;
@@ -292,7 +347,7 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE') && stateBoundaryData && (
+      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE' || activeLayer === 'HEALTH') && stateBoundaryData && (
         <GeoJSON 
           key={`state-${theme}-${isAreaSelected}`}
           data={stateBoundaryData}
@@ -373,7 +428,7 @@ const GisMap: React.FC = () => {
             type: 'Feature',
             geometry: jurisdictionGeometry,
             properties: {}
-          } as any}
+          } as GisFeature}
           style={{
             color: '#334155',
             weight: 3,
@@ -486,7 +541,90 @@ const GisMap: React.FC = () => {
         />
       )}
 
+      {activeLayer === 'HEALTH' && (healthScope === 'STATE' ? healthPriorityData : healthDistrictData) && (
+        <MarkerClusterGroup
+          chunkedLoading
+          maxClusterRadius={40}
+          showCoverageOnHover={false}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          iconCreateFunction={(cluster: any) => {
+            return L.divIcon({
+              html: `<div style="background: #be123c; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">${cluster.getChildCount()}</div>`,
+              className: 'health-cluster-icon',
+              iconSize: [30, 30]
+            });
+          }}
+        >
+          {(healthScope === 'STATE' ? healthPriorityData! : healthDistrictData!).features.map((f: HealthFacility, i: number) => {
+            const [lng, lat] = f.geometry.coordinates;
+            const isSelected = selectedHealthFacility && 
+              (selectedHealthFacility.properties.ogc_fid === f.properties.ogc_fid || 
+               selectedHealthFacility.properties.nin_number === f.properties.nin_number);
+            if (isSelected) return null;
+
+            return (
+              <Marker
+                key={`health-p-${f.id || i}`}
+                position={[lat, lng]}
+                icon={healthPriorityIcon(f.properties.facility_t)}
+                eventHandlers={{
+                  click: (e) => {
+                    L.DomEvent.stopPropagation(e);
+                    setSelectedHealthFacility(f);
+                    
+                    const district = (f.properties.district || f.properties.district_n)?.toString();
+                    const distManifest = useMapStore.getState().healthManifest?.districts.find(d => d.district === district);
+                    if (distManifest && district) {
+                      setActiveDistrict(district);
+                      loadHealthDistrict(district, distManifest.file_name);
+                    }
+                  }
+                }}
+              >
+                <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+                  <div style={{ padding: '4px 8px' }}>
+                    <div style={{ fontWeight: 'bold' }}>{f.properties.facility_n}</div>
+                    <div style={{ fontSize: '11px', opacity: 0.8 }}>{f.properties.facility_t}</div>
+                  </div>
+                </Tooltip>
+              </Marker>
+            );
+          })}
+        </MarkerClusterGroup>
+      )}
+
+      {activeLayer === 'HEALTH' && selectedHealthFacility && (
+        <Marker
+          position={[
+            selectedHealthFacility.geometry.coordinates[1],
+            selectedHealthFacility.geometry.coordinates[0]
+          ]}
+          icon={selectedHealthIcon}
+          zIndexOffset={1000}
+          eventHandlers={{
+            click: (e) => {
+              L.DomEvent.stopPropagation(e);
+            }
+          }}
+        >
+          <Tooltip direction="top" offset={[0, -14]} opacity={1} permanent>
+            <div style={{ padding: '4px 8px' }}>
+              <div style={{ fontWeight: 'bold' }}>{selectedHealthFacility.properties.facility_n || selectedHealthFacility.properties.NAME}</div>
+              <div style={{ fontSize: '11px', opacity: 0.8 }}>{selectedHealthFacility.properties.facility_t}</div>
+            </div>
+          </Tooltip>
+        </Marker>
+      )}
+
       <MapController result={searchResult} geometry={jurisdictionGeometry} policeResolution={policeResolution} />
+
+      {/* Safety check for district data */}
+      {activeLayer === 'HEALTH' && isHealthLoading && (
+        <div className="map-loading-overlay">
+          Loading health facilities...
+        </div>
+      )}
+
       <MapEvents onResolve={resolveLocation} activeLayer={activeLayer} />
       <ZoomControl position="bottomright" />
     </MapContainer>
