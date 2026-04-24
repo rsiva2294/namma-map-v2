@@ -81,7 +81,9 @@ const SearchBar: React.FC = () => {
           onKeyDown={handleKeyDown}
           placeholder={
             isLocating ? "Locating you..." :
-            "Search Districts, Pincodes, or Offices..."
+            useMapStore.getState().activeLayer === 'HEALTH' 
+              ? "Search Hospitals, Districts, or Pincodes..."
+              : "Search Districts, Pincodes, or Offices..."
           }
           className="search-input"
           aria-label="Search for a location"
@@ -166,8 +168,17 @@ const SearchBar: React.FC = () => {
                     Icon = Shield;
                     iconColor = '#334155';
                   } else if (suggestion.suggestionType === 'HEALTH_FACILITY') {
+                    const typeLabel = (({
+                      'MCH': 'Medical College Hospital',
+                      'DH': 'District Hospital',
+                      'SDH': 'Sub-District Hospital',
+                      'CHC': 'Community Health Centre',
+                      'PHC': 'Primary Health Centre',
+                      'HSC': 'Health Sub Centre'
+                    } as Record<string, string>)[String(suggestion.properties.facility_t)]) || String(suggestion.properties.facility_t || 'Health Facility');
+                    
                     title = (suggestion.properties.facility_n || '') as string;
-                    subtitle = `Health Facility - ${suggestion.properties.facility_t || ''}`;
+                    subtitle = `${typeLabel} • ${suggestion.properties.block_name || 'Local Area'} • ${suggestion.properties.district_n || suggestion.properties.district || ''}`;
                     Icon = Activity;
                     iconColor = '#f43f5e';
                   } else {

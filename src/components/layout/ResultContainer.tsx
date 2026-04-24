@@ -342,7 +342,7 @@ const ResultContainer: React.FC = () => {
           ].slice(0, 4)}
           data={[
             { 
-              label: 'Facility Level', 
+              label: 'Care Level', 
               value: (({
                 'MCH': 'Medical College Hospital',
                 'DH': 'District Hospital',
@@ -356,11 +356,13 @@ const ResultContainer: React.FC = () => {
             { 
               label: 'Location', 
               value: `${selectedHealthFacility.properties.block_name || 'Local Area'}, ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`,
-              subValue: `Type: ${selectedHealthFacility.properties.location_t || 'N/A'}`
+              subValue: `District: ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`
             },
             { 
-              label: 'Timing', 
-              value: String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') ? 'Open 24 Hours' : 'Day Services'
+              label: 'Services Timing', 
+              value: String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') 
+                ? 'Open 24 Hours' 
+                : (selectedHealthFacility.properties.timing_of_ ? 'Day Services' : 'General Hours / Contact Facility')
             },
             { label: 'Facility ID (NIN)', value: (selectedHealthFacility.properties.nin_number || 'N/A').toString() }
           ]}

@@ -16,24 +16,36 @@ interface HealthSummaryCardProps {
 
 export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, onClearFilters }) => {
   const getGuidance = () => {
+    const activeFilters = summary.activeFilters;
+    const hasEmergency = activeFilters.some(f => ['isFru', 'hasStemiHub', 'hasStemiSpoke'].includes(f));
+    const hasDelivery = activeFilters.includes('hasDelivery');
+    const hasChildCare = activeFilters.some(f => ['hasSncu', 'hasNbsu', 'hasDeic'].includes(f));
+    const hasDiagnostics = activeFilters.some(f => ['hasCt', 'hasMri', 'hasDialysis'].includes(f));
+
+    let specificCopy = '';
+    if (hasEmergency) specificCopy = 'Showing 24x7 Emergency Hubs and First Referral Units.';
+    else if (hasDelivery) specificCopy = 'Showing facilities equipped for maternal delivery services.';
+    else if (hasChildCare) specificCopy = 'Showing specialized newborn and child care centres.';
+    else if (hasDiagnostics) specificCopy = 'Showing advanced diagnostic centres (CT/MRI/Dialysis).';
+
     switch (summary.scope) {
       case 'STATE':
         return {
           title: 'Major Hospitals Across Tamil Nadu',
           label: 'Statewide View',
-          copy: 'Showing major hospitals across the state. Search a district or choose My Area to narrow results.'
+          copy: specificCopy || 'Showing major hospitals across the state. Search a district or area to find local centres.'
         };
       case 'DISTRICT':
         return {
           title: `Health Facilities in ${summary.name}`,
           label: 'District View',
-          copy: 'Use quick filters to find delivery, emergency, or diagnostics services.'
+          copy: specificCopy || 'Use the shortcuts above to quickly find specific services in this district.'
         };
       case 'PINCODE':
         return {
-          title: 'Facilities in Your Selected Area',
+          title: 'Facilities in Your Local Area',
           label: 'Local View',
-          copy: 'Tap a marker to view details and directions.'
+          copy: specificCopy || 'Tap a marker to view details, timing, and get directions.'
         };
       default:
         return { title: summary.name, label: 'Summary', copy: '' };
@@ -41,6 +53,22 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
   };
 
   const guidance = getGuidance();
+
+  const filterLabelMap: Record<string, string> = {
+    isFru: 'Emergency (FRU)',
+    hasDelivery: 'Delivery Services',
+    is24x7: '24x7 Emergency',
+    hasSncu: 'Newborn Care (SNCU)',
+    hasDialysis: 'Dialysis Center',
+    hasBloodBank: 'Blood Bank',
+    hasCt: 'CT Scan',
+    hasMri: 'MRI',
+    hasStemiHub: 'STEMI Hub',
+    hasStemiSpoke: 'STEMI Spoke',
+    hasDeic: 'Child Care (DEIC)',
+    hasNbsu: 'Newborn Stab. (NBSU)',
+    isHwc: 'Wellness Centre'
+  };
   const facilityTypes = Object.entries(summary.countsByType)
     .sort((a, b) => b[1] - a[1]);
 
@@ -174,7 +202,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                   fontWeight: 700 
                 }}>
                   <CheckCircle2 size={10} />
-                  <span>{filter.replace('is', '').replace('has', '')}</span>
+                  <span>{filterLabelMap[filter] || filter.replace('is', '').replace('has', '')}</span>
                 </div>
               ))}
             </div>

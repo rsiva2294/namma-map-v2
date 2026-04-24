@@ -627,6 +627,41 @@ const GisMap: React.FC = () => {
 
       <MapEvents onResolve={resolveLocation} activeLayer={activeLayer} />
       <ZoomControl position="bottomright" />
+
+      {/* Health Layer Legend Overlay */}
+      {activeLayer === 'HEALTH' && !isHealthLoading && (
+        <div style={{
+          position: 'absolute',
+          bottom: '100px',
+          right: '20px',
+          zIndex: 1000,
+          padding: '12px',
+          background: theme === 'dark' ? 'rgba(15, 23, 42, 0.8)' : 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(8px)',
+          borderRadius: '12px',
+          border: `1px solid ${theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'}`,
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          pointerEvents: 'none'
+        }}>
+          <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '8px' }}>
+            Map Symbols
+          </span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#9d174d', border: '1px solid white' }} />
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 600 }}>Major Hospitals</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#f43f5e', border: '1px solid white' }} />
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 600 }}>Local Centres</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white' }} />
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 600 }}>Sub Centres</span>
+            </div>
+          </div>
+        </div>
+      )}
     </MapContainer>
   );
 };

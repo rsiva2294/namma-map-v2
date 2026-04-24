@@ -176,42 +176,48 @@ export const useMapStore = create<MapState>((set) => ({
   isHealthLoading: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
-  setActiveLayer: (layer) => set({ 
-    activeLayer: layer,
-    jurisdictionDetails: null,
-    jurisdictionGeometry: null,
-    selectedPdsShop: null,
-    selectedPoliceStation: null,
-    policeResolution: null,
-    selectedPostalOffices: null,
-    selectedPostalOffice: null,
-    selectedHealthFacility: null,
-    healthDistrictData: null,
-    healthScope: 'STATE',
-    healthSummary: null,
-    healthFilters: {
-      facilityTypes: [],
-      locationType: 'All',
-      isHwc: null,
-      hasDelivery: null,
-      isFru: null,
-      is24x7: null,
-      hasBloodBank: null,
-      hasBloodStorage: null,
-      hasSncu: null,
-      hasNbsu: null,
-      hasDeic: null,
-      hasCt: null,
-      hasMri: null,
-      hasDialysis: null,
-      hasCbnaat: null,
-      hasTeleConsultation: null,
-      hasStemiHub: null,
-      hasStemiSpoke: null,
-      hasCathLab: null
-    },
-    // Reset result if switching from/to layers
-    searchResult: null
+  setActiveLayer: (layer) => set((state) => {
+    const isChangingToHealth = layer === 'HEALTH';
+    const wasHealth = state.activeLayer === 'HEALTH';
+
+    return { 
+      activeLayer: layer,
+      jurisdictionDetails: null,
+      jurisdictionGeometry: null,
+      selectedPdsShop: null,
+      selectedPoliceStation: null,
+      policeResolution: null,
+      selectedPostalOffices: null,
+      selectedPostalOffice: null,
+      selectedHealthFacility: null,
+      healthDistrictData: isChangingToHealth && wasHealth ? state.healthDistrictData : null,
+      healthScope: isChangingToHealth && wasHealth ? state.healthScope : 'STATE',
+      healthSummary: isChangingToHealth && wasHealth ? state.healthSummary : null,
+      activeDistrict: isChangingToHealth && wasHealth ? state.activeDistrict : null,
+      healthFilters: isChangingToHealth && wasHealth ? state.healthFilters : {
+        facilityTypes: [],
+        locationType: 'All',
+        isHwc: null,
+        hasDelivery: null,
+        isFru: null,
+        is24x7: null,
+        hasBloodBank: null,
+        hasBloodStorage: null,
+        hasSncu: null,
+        hasNbsu: null,
+        hasDeic: null,
+        hasCt: null,
+        hasMri: null,
+        hasDialysis: null,
+        hasCbnaat: null,
+        hasTeleConsultation: null,
+        hasStemiHub: null,
+        hasStemiSpoke: null,
+        hasCathLab: null
+      },
+      // Reset result if switching from/to layers
+      searchResult: null
+    };
   }),
   setSearchQuery: (query) => set({ searchQuery: query }),
   setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
@@ -270,7 +276,7 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPostalOffice: val ? null : undefined,
     selectedHealthFacility: val ? null : undefined
   }),
-  clearSearch: () => set({ 
+  clearSearch: () => set((state) => ({ 
     searchQuery: '', 
     searchSuggestions: [],
     selectedSuggestion: null,
@@ -278,7 +284,7 @@ export const useMapStore = create<MapState>((set) => ({
     searchResult: null, 
     pdsData: null, 
     selectedPdsShop: null,
-    activeDistrict: null,
+    activeDistrict: state.activeLayer === 'HEALTH' ? state.activeDistrict : null,
     jurisdictionDetails: null,
     jurisdictionGeometry: null,
     selectedPoliceStation: null,
@@ -286,10 +292,10 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPostalOffices: null,
     selectedPostalOffice: null,
     selectedHealthFacility: null,
-    healthDistrictData: null,
+    healthDistrictData: state.activeLayer === 'HEALTH' ? state.healthDistrictData : null,
     noDataFound: false,
     lastClickedPoint: null
-  }),
+  })),
   toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
   setConstituencyType: (type) => set({ constituencyType: type, searchResult: null }),
   setAcData: (data) => set({ acData: data }),
