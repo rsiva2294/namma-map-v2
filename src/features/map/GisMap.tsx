@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, CircleMarker, Tooltip, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
 import type { GisFeature, PdsShop, Geometry } from '../../types/gis';
+import MarkerClusterGroup from 'react-leaflet-cluster';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
 const MapController: React.FC<{ 
   result: GisFeature | null; 
@@ -205,6 +208,13 @@ const GisMap: React.FC = () => {
     iconAnchor: [18, 18]
   });
  
+  const policeDotIcon = L.divIcon({
+    html: `<div style="background: #334155; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></div>`,
+    className: 'police-dot-icon',
+    iconSize: [12, 12],
+    iconAnchor: [6, 6]
+  });
+
   const postOfficeIcon = L.divIcon({
     html: `
       <div class="pulse-postal"></div>
@@ -217,6 +227,37 @@ const GisMap: React.FC = () => {
   });
  
 
+
+  const memoizedPoliceMarkers = useMemo(() => {
+    if (!policeStationsData) return null;
+    return policeStationsData.features.map((f: any, i: number) => {
+      const [lng, lat] = f.geometry.coordinates as [number, number];
+      const isSelected = selectedPoliceStation?.properties.ps_code === f.properties.ps_code;
+      if (isSelected) return null;
+      
+      return (
+        <Marker
+          key={`ps-marker-${f.properties.ps_code}-${i}`}
+          position={[lat, lng]}
+          icon={policeDotIcon}
+          eventHandlers={{
+            click: (e) => {
+              L.DomEvent.stopPropagation(e);
+              resolveLocation(lat, lng, 'POLICE', false, undefined, f.properties.ps_code);
+            }
+          }}
+        >
+          <Tooltip direction="top" offset={[0, -5]} opacity={1}>
+            <div style={{ padding: '5px' }}>
+              <strong>{f.properties.ps_name || 'Police Station'}</strong>
+              <br />
+              <small>Click to view jurisdiction</small>
+            </div>
+          </Tooltip>
+        </Marker>
+      );
+    });
+  }, [policeStationsData, selectedPoliceStation, policeDotIcon, resolveLocation]);
 
   const tnBounds: L.LatLngBoundsLiteral = [
     [8.0775, 76.2307], // Southwest
@@ -232,6 +273,7 @@ const GisMap: React.FC = () => {
       maxBoundsViscosity={1.0}
       scrollWheelZoom={true}
       zoomControl={false}
+      preferCanvas={true}
       style={{ width: '100%', height: '100%' }}
     >
       <TileLayer
@@ -345,40 +387,16 @@ const GisMap: React.FC = () => {
  
 
  
-      {activeLayer === 'POLICE' && policeStationsData && policeStationsData.features.map((f: any, i: number) => {
-        const [lng, lat] = f.geometry.coordinates as [number, number];
-        const isSelected = selectedPoliceStation?.properties.ps_code === f.properties.ps_code;
-        if (isSelected) return null; // Render big icon separately
-        
-        return (
-          <CircleMarker
-            key={`ps-marker-${f.properties.ps_code}-${i}`}
-            center={[lat, lng]}
-            radius={6}
-            pathOptions={{
-              fillColor: '#334155',
-              fillOpacity: 0.7,
-              color: 'white',
-              weight: 1.5,
-              bubblingMouseEvents: false
-            }}
-            eventHandlers={{
-              click: (e) => {
-                L.DomEvent.stopPropagation(e);
-                resolveLocation(lat, lng, 'POLICE', false, undefined, f.properties.ps_code);
-              }
-            }}
-          >
-            <Tooltip direction="top" offset={[0, -5]} opacity={1}>
-              <div style={{ padding: '5px' }}>
-                <strong>{f.properties.ps_name || 'Police Station'}</strong>
-                <br />
-                <small>Click to view jurisdiction</small>
-              </div>
-            </Tooltip>
-          </CircleMarker>
-        );
-      })}
+      {activeLayer === 'POLICE' && policeStationsData && (
+        <MarkerClusterGroup
+          chunkedLoading
+          maxClusterRadius={50}
+          spiderfyOnMaxZoom={true}
+          showCoverageOnHover={false}
+        >
+          {memoizedPoliceMarkers}
+        </MarkerClusterGroup>
+      )}
 
       {activeLayer === 'POLICE' && selectedPoliceStation && (
         <Marker
