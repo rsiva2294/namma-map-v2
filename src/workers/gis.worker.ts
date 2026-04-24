@@ -355,9 +355,15 @@ function resolvePoliceStation(
   const stationKey = `${bestStation.properties.ps_code || ''}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
   const validation = policeValidation ? policeValidation[stationKey] : null;
   const isBoundaryValid = !validation || validation.status === 'valid';
+  
+  // Clone boundary to avoid mutating the original indexed feature
+  const boundaryClone = JSON.parse(JSON.stringify(boundary));
+  if (!isBoundaryValid && boundaryClone) {
+    (boundaryClone.geometry as any) = null;
+  }
 
   return {
-    boundary,
+    boundary: boundaryClone,
     station: bestStation,
     confidence: bestStation ? bestDebug.confidence : 'unresolved',
     reason: bestStation ? bestDebug.reason : 'No matching station found',
@@ -681,6 +687,12 @@ self.onmessage = async (e: MessageEvent) => {
             const validation = policeValidation ? policeValidation[stationKey] : null;
             result.isBoundaryValid = !validation || validation.status === 'valid';
             result.validationError = validation?.error;
+            
+            // CRITICAL: If boundary is flagged as wrong or missing, nullify the geometry 
+            // so the MapController doesn't "fly" to a wrong location.
+            if (!result.isBoundaryValid && result.boundary) {
+              (result.boundary.geometry as any) = null;
+            }
           }
 
           self.postMessage({ 
@@ -818,97 +830,132 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
 
-      let suggestions: GisFeature[] = [];
+      // Helper to calculate a simple match score
+      // Higher is better
+      const getScore = (text: string, query: string): number => {
+        const t = text.toLowerCase();
+        if (t === query) return 100;
+        if (t.startsWith(query)) return 80;
+        if (t.includes(query)) return 50;
+        return 0;
+      };
+
+      interface ScoredSuggestion extends GisFeature {
+        score: number;
+      }
+
+      let allScored: ScoredSuggestion[] = [];
 
       // 1. Search Districts
       if (districtsGeoJson) {
-        const districtMatches = districtsGeoJson.features
-          .filter((f: GisFeature) => {
-            const props = f.properties;
-            const searchBase = (props.district || props.DISTRICT || props.NAME || props.district_n || '').toString().toLowerCase();
-            return searchBase.includes(q);
-          })
-          .slice(0, 5)
-          .map((s: GisFeature) => ({ ...s, suggestionType: 'DISTRICT' as const }));
-        suggestions = [...suggestions, ...districtMatches];
+        districtsGeoJson.features.forEach((f: GisFeature) => {
+          const props = f.properties;
+          const name = (props.district || props.DISTRICT || props.NAME || props.district_n || '').toString();
+          const score = getScore(name, q);
+          if (score > 0) {
+            allScored.push({ ...f, score: score + 10, suggestionType: 'DISTRICT' as const });
+          }
+        });
       }
 
       // 2. Search Pincodes
       if (pincodesGeoJson) {
-        const pinMatches = pincodesGeoJson.features
-          .filter((f: GisFeature) => {
-            const pin = f.properties.PIN_CODE || f.properties.pincode || '';
-            const searchStr = (f.properties.search_string as string || f.properties.office_name as string || '').toLowerCase();
-            return pin.toString().startsWith(q) || searchStr.includes(q);
-          })
-          .slice(0, 5)
-          .map((s: GisFeature) => ({ ...s, suggestionType: 'PINCODE' as const }));
-        suggestions = [...suggestions, ...pinMatches];
+        pincodesGeoJson.features.forEach((f: GisFeature) => {
+          const pin = (f.properties.PIN_CODE || f.properties.pincode || '').toString();
+          const office = (f.properties.search_string as string || f.properties.office_name as string || '');
+          const pinScore = pin.startsWith(q) ? 90 : (pin.includes(q) ? 40 : 0);
+          const officeScore = getScore(office, q);
+          const finalScore = Math.max(pinScore, officeScore);
+          if (finalScore > 0) {
+            allScored.push({ ...f, score: finalScore, suggestionType: 'PINCODE' as const });
+          }
+        });
       }
 
       // 3. Search TNEB Offices
       if (tnebOffices) {
-        const tnebMatches = tnebOffices.features
-          .filter((f: GisFeature) => {
-            const name = (f.properties.section_na as string || f.properties.section_office as string || '').toLowerCase();
-            return name.includes(q);
-          })
-          .slice(0, 5)
-          .map((s: GisFeature) => ({ ...s, suggestionType: 'TNEB_SECTION' as const }));
-        suggestions = [...suggestions, ...tnebMatches];
+        tnebOffices.features.forEach((f: GisFeature) => {
+          const name = (f.properties.section_na as string || f.properties.section_office as string || '');
+          const circle = (f.properties.circle_nam as string || '');
+          const code = (f.properties.section_co as string || '');
+          const nameScore = getScore(name, q);
+          const circleScore = getScore(circle, q) * 0.7; // Lower priority for circle matches
+          const codeScore = code.includes(q) ? 60 : 0;
+          const finalScore = Math.max(nameScore, circleScore, codeScore);
+          if (finalScore > 0) {
+            allScored.push({ ...f, score: finalScore + 5, suggestionType: 'TNEB_SECTION' as const });
+          }
+        });
       }
 
       // 4. Search PDS Shops from Index
       if (pdsIndex) {
-        const pdsMatches = pdsIndex
-          .filter(shop => {
-            const name = shop[1].toLowerCase();
-            const shopCode = shop[0].toLowerCase();
-            const taluk = shop[2].toLowerCase();
-            return name.includes(q) || shopCode.includes(q) || taluk.includes(q);
-          })
-          .slice(0, 5)
-          .map(shop => ({
-            type: 'Feature' as const,
-            geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
-            properties: { 
-              shop_code: shop[0], 
-              name: shop[1], 
-              taluk: shop[2], 
-              district: shop[3],
-              office_location: [shop[5], shop[4]] as [number, number]
-            },
-            suggestionType: 'PDS_SHOP' as const
-          } as GisFeature));
-        suggestions = [...suggestions, ...pdsMatches];
+        pdsIndex.forEach(shop => {
+          const shopCode = shop[0].toString();
+          const name = shop[1].toString();
+          const taluk = shop[2].toString();
+          const nameScore = getScore(name, q);
+          const codeScore = shopCode.includes(q) ? 85 : 0;
+          const talukScore = getScore(taluk, q) * 0.6;
+          const finalScore = Math.max(nameScore, codeScore, talukScore);
+          if (finalScore > 0) {
+            allScored.push({
+              type: 'Feature' as const,
+              geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
+              properties: { 
+                shop_code: shop[0], 
+                name: shop[1], 
+                taluk: shop[2], 
+                district: shop[3],
+                office_location: [shop[5], shop[4]] as [number, number]
+              },
+              score: finalScore,
+              suggestionType: 'PDS_SHOP' as const
+            } as ScoredSuggestion);
+          }
+        });
       }
 
       // 5. Search Constituencies
       if (acGeoJson) {
-        const acMatches = acGeoJson.features
-          .filter((f: GisFeature) => (f.properties.assembly_c as string || '').toLowerCase().includes(q))
-          .slice(0, 3)
-          .map((s: GisFeature) => ({ ...s, suggestionType: 'CONSTITUENCY' as const }));
-        suggestions = [...suggestions, ...acMatches];
+        acGeoJson.features.forEach((f: GisFeature) => {
+          const name = (f.properties.assembly_c as string || '');
+          const score = getScore(name, q);
+          if (score > 0) {
+            allScored.push({ ...f, score: score + 2, suggestionType: 'CONSTITUENCY' as const });
+          }
+        });
       }
       if (pcGeoJson) {
-        const pcMatches = pcGeoJson.features
-          .filter((f: GisFeature) => (f.properties.parliame_1 as string || '').toLowerCase().includes(q))
-          .slice(0, 3)
-          .map((s: GisFeature) => ({ ...s, suggestionType: 'CONSTITUENCY' as const }));
-        suggestions = [...suggestions, ...pcMatches];
+        pcGeoJson.features.forEach((f: GisFeature) => {
+          const name = (f.properties.parliame_1 as string || '');
+          const score = getScore(name, q);
+          if (score > 0) {
+            allScored.push({ ...f, score: score + 1, suggestionType: 'CONSTITUENCY' as const });
+          }
+        });
       }
 
       // 6. Search Police Stations
       if (policeStationsGeoJson) {
-        const policeMatches = policeStationsGeoJson.features
-          .filter((f: GisFeature) => (f.properties.ps_name as string || '').toLowerCase().includes(q))
-          .slice(0, 3)
-          .map((s: GisFeature) => ({ ...s, suggestionType: 'POLICE_STATION' as const }));
-        suggestions = [...suggestions, ...policeMatches];
+        policeStationsGeoJson.features.forEach((f: GisFeature) => {
+          const name = (f.properties.ps_name as string || '');
+          const code = (f.properties.ps_code as string || '');
+          const nameScore = getScore(name, q);
+          const codeScore = code.includes(q) ? 90 : 0;
+          const finalScore = Math.max(nameScore, codeScore);
+          if (finalScore > 0) {
+            allScored.push({ ...f, score: finalScore + 8, suggestionType: 'POLICE_STATION' as const });
+          }
+        });
       }
 
-      self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: suggestions.slice(0, 8) });
+      // Final sort and limit
+      const finalSuggestions = allScored
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 15); // Show more results now that we have categories
+
+      self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: finalSuggestions });
       break;
     }
 
@@ -1050,23 +1097,23 @@ self.onmessage = async (e: MessageEvent) => {
           policeBoundariesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
           policeStationsGeoJson = dataOff as GisFeatureCollection;
           
-          // Preprocess stations to handle metadata anomalies
-          policeStationsGeoJson.features.forEach((f: GisFeature) => {
-            const props = f.properties;
-            props.station_location = f.geometry.coordinates as Position;
-          });
-          
           // Indexing
           policeBoundariesIndex.load(
             policeBoundariesGeoJson!.features
               .filter(f => f.geometry && f.geometry.coordinates)
               .map(f => ({ ...getBBox(f.geometry), feature: f }))
           );
+
           policeStationsIndex.load(
             policeStationsGeoJson.features
               .filter(f => f.geometry && f.geometry.coordinates)
               .map(f => ({ ...getBBox(f.geometry), feature: f }))
           );
+
+          // Preprocess stations to handle metadata anomalies
+          policeStationsGeoJson.features.forEach((f: GisFeature) => {
+            f.properties.station_location = f.geometry.coordinates as Position;
+          });
         }
         self.postMessage({ type: 'POLICE_LOADED', payload: { boundaries: policeBoundariesGeoJson, stations: policeStationsGeoJson } });
       } catch (err) {

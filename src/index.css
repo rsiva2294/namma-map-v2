@@ -320,8 +320,25 @@ body, html, #root {
   transition: background 0.2s ease;
 }
 
-.suggestion-item:hover {
+.suggestion-item:hover, .suggestion-item.focused {
   background: var(--border-glass);
+}
+
+.suggestion-category-header {
+  padding: 8px 20px 4px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  opacity: 0.8;
+  border-top: 1px solid var(--border-glass);
+  margin-top: 4px;
+}
+
+.suggestion-category-header:first-child {
+  border-top: none;
+  margin-top: 0;
 }
 
 .suggestion-text {

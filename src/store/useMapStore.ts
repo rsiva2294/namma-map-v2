@@ -24,6 +24,7 @@ interface MapState {
   searchQuery: string;
   searchSuggestions: GisFeature[];
   selectedSuggestion: GisFeature | null;
+  focusedSuggestionIndex: number; // For keyboard navigation
   searchResult: GisFeature | null; // This is the Pincode highlight
   districtsData: GisFeatureCollection | null; // All district boundaries
   stateBoundaryData: GisFeatureCollection | null; // State boundary
@@ -57,6 +58,7 @@ interface MapState {
   setSearchQuery: (query: string) => void;
   setSearchSuggestions: (suggestions: GisFeature[]) => void;
   setSelectedSuggestion: (suggestion: GisFeature | null) => void;
+  setFocusedSuggestionIndex: (index: number) => void;
   setSearchResult: (result: GisFeature | null, keepSelection?: boolean, updateQuery?: boolean) => void;
   setDistrictsData: (data: GisFeatureCollection | null) => void;
   setStateBoundaryData: (data: GisFeatureCollection | null) => void;
@@ -94,6 +96,7 @@ export const useMapStore = create<MapState>((set) => ({
   searchQuery: '',
   searchSuggestions: [],
   selectedSuggestion: null,
+  focusedSuggestionIndex: -1,
   searchResult: null,
   districtsData: null,
   stateBoundaryData: null,
@@ -137,7 +140,8 @@ export const useMapStore = create<MapState>((set) => ({
   }),
   setSearchQuery: (query) => set({ searchQuery: query }),
   setSearchSuggestions: (suggestions) => set({ searchSuggestions: suggestions }),
-  setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion }),
+  setSelectedSuggestion: (suggestion) => set({ selectedSuggestion: suggestion, focusedSuggestionIndex: -1 }),
+  setFocusedSuggestionIndex: (index) => set({ focusedSuggestionIndex: index }),
   setSearchResult: (result, keepSelection = false, updateQuery = false) => set((state) => {
     const newState: Partial<MapState> = { 
       searchResult: result,
@@ -193,6 +197,7 @@ export const useMapStore = create<MapState>((set) => ({
     searchQuery: '', 
     searchSuggestions: [],
     selectedSuggestion: null,
+    focusedSuggestionIndex: -1,
     searchResult: null, 
     pdsData: null, 
     selectedPdsShop: null,
