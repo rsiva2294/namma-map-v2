@@ -15,6 +15,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
   } = useMapStore();
 
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set(['care']));
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   const toggleGroup = (id: string) => {
     const next = new Set(expandedGroups);
@@ -146,157 +147,195 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
             );
           })}
         </div>
+        {!showAdvanced && (
+          <button
+            onClick={() => setShowAdvanced(true)}
+            style={{
+              padding: '10px',
+              fontSize: '11px',
+              fontWeight: 700,
+              color: 'var(--accent)',
+              background: 'transparent',
+              border: `1px dashed var(--accent)`,
+              borderRadius: '10px',
+              cursor: 'pointer',
+              marginTop: '8px'
+            }}
+          >
+            Show All Filters & Legend
+          </button>
+        )}
       </div>
 
-      <div style={{ height: '1px', background: 'var(--border-glass)', margin: '0 16px' }} />
+      {showAdvanced && (
+        <>
+          <div style={{ height: '1px', background: 'var(--border-glass)', margin: '0 16px' }} />
 
-      {/* Group: Care Level */}
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <FilterHeader id="care" label="Facility Level" icon={Stethoscope} />
-        {expandedGroups.has('care') && (
-          <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {isStatewide && hasLocalFilter && (
-              <div style={{ 
-                padding: '10px', 
-                background: 'rgba(245, 158, 11, 0.1)', 
-                borderRadius: '8px', 
-                marginBottom: '8px',
-                border: '1px solid rgba(245, 158, 11, 0.2)'
-              }}>
-                <span style={{ fontSize: '10px', color: '#d97706', fontWeight: 700 }}>
-                  💡 Local centres (PHC/HSC) are hidden in Statewide view. Search for a district to see them.
-                </span>
+          {/* Group: Care Level */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <FilterHeader id="care" label="Facility Level" icon={Stethoscope} />
+            {expandedGroups.has('care') && (
+              <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {isStatewide && hasLocalFilter && (
+                  <div style={{ 
+                    padding: '10px', 
+                    background: 'rgba(245, 158, 11, 0.1)', 
+                    borderRadius: '8px', 
+                    marginBottom: '8px',
+                    border: '1px solid rgba(245, 158, 11, 0.2)'
+                  }}>
+                    <span style={{ fontSize: '10px', color: '#d97706', fontWeight: 700 }}>
+                      💡 Local centres (PHC/HSC) are hidden in Statewide view. Search for a district to see them.
+                    </span>
+                  </div>
+                )}
+                {['MCH', 'DH', 'SDH', 'CHC', 'PHC', 'HSC'].map(type => {
+                  const isActive = healthFilters.facilityTypes.includes(type);
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => handleToggleType(type)}
+                      style={{
+                        padding: '10px 12px',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                        borderRadius: '10px',
+                        textAlign: 'left',
+                        border: `1px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
+                        background: isActive ? 'rgba(14, 165, 233, 0.05)' : 'transparent',
+                        color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <span>{typeLabels[type]}</span>
+                      {isActive && <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />}
+                    </button>
+                  );
+                })}
               </div>
             )}
-            {['MCH', 'DH', 'SDH', 'CHC', 'PHC', 'HSC'].map(type => {
-              const isActive = healthFilters.facilityTypes.includes(type);
-              return (
-                <button
-                  key={type}
-                  onClick={() => handleToggleType(type)}
-                  style={{
-                    padding: '10px 12px',
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    borderRadius: '10px',
-                    textAlign: 'left',
-                    border: `1px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
-                    background: isActive ? 'rgba(14, 165, 233, 0.05)' : 'transparent',
-                    color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                  }}
-                >
-                  <span>{typeLabels[type]}</span>
-                  {isActive && <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />}
-                </button>
-              );
-            })}
           </div>
-        )}
-      </div>
 
-      {/* Group: Services */}
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <FilterHeader id="services" label="Common Services" icon={Activity} />
-        {expandedGroups.has('services') && (
-          <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {[
-              { key: 'hasDelivery', label: 'Delivery Services', color: '#ec4899' },
-              { key: 'is24x7', label: '24x7 Availability', color: '#f59e0b' },
-              { key: 'hasSncu', label: 'Newborn Care (SNCU)', color: '#0ea5e9' },
-              { key: 'hasDialysis', label: 'Dialysis Center', color: '#c4b5fd' }
-            ].map(cap => {
-              const isActive = healthFilters[cap.key as keyof HealthFilters];
-              return (
-                <button
-                  key={cap.key}
-                  onClick={() => handleToggleFilter(cap.key as keyof HealthFilters)}
-                  style={{
-                    padding: '8px 12px',
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    borderRadius: '20px',
-                    border: `1px solid ${isActive ? cap.color : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)')}`,
-                    background: isActive ? `${cap.color}15` : 'transparent',
-                    color: isActive ? cap.color : 'var(--text-secondary)',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
-                  }}
-                >
-                  {cap.label}
-                </button>
-              );
-            })}
+          {/* Group: Services */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <FilterHeader id="services" label="Common Services" icon={Activity} />
+            {expandedGroups.has('services') && (
+              <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {[
+                  { key: 'hasDelivery', label: 'Delivery Services', color: '#ec4899' },
+                  { key: 'is24x7', label: '24x7 Availability', color: '#f59e0b' },
+                  { key: 'hasSncu', label: 'Newborn Care (SNCU)', color: '#0ea5e9' },
+                  { key: 'hasDialysis', label: 'Dialysis Center', color: '#c4b5fd' }
+                ].map(cap => {
+                  const isActive = healthFilters[cap.key as keyof HealthFilters];
+                  return (
+                    <button
+                      key={cap.key}
+                      onClick={() => handleToggleFilter(cap.key as keyof HealthFilters)}
+                      style={{
+                        padding: '8px 12px',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                        borderRadius: '20px',
+                        border: `1px solid ${isActive ? cap.color : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)')}`,
+                        background: isActive ? `${cap.color}15` : 'transparent',
+                        color: isActive ? cap.color : 'var(--text-secondary)',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      {cap.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
-      </div>
 
-      {/* Group: Advanced */}
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <FilterHeader id="advanced" label="Advanced Medical" icon={Beaker} />
-        {expandedGroups.has('advanced') && (
-          <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {[
-              { key: 'isHwc', label: 'Wellness Centre', color: '#10b981' },
-              { key: 'isFru', label: 'First Referral Unit', color: '#be123c' },
-              { key: 'hasBloodBank', label: 'Blood Bank', color: '#ef4444' },
-              { key: 'hasCt', label: 'CT Scan', color: '#8b5cf6' },
-              { key: 'hasMri', label: 'MRI', color: '#a78bfa' },
-              { key: 'hasTeleConsultation', label: 'Tele-Consultation', color: '#6366f1' },
-              { key: 'hasStemiHub', label: 'STEMI Hub', color: '#f43f5e' },
-              { key: 'hasCathLab', label: 'Cath Lab', color: '#fda4af' }
-            ].map(cap => {
-              const isActive = healthFilters[cap.key as keyof HealthFilters];
-              return (
-                <button
-                  key={cap.key}
-                  onClick={() => handleToggleFilter(cap.key as keyof HealthFilters)}
-                  style={{
-                    padding: '8px 12px',
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    borderRadius: '20px',
-                    border: `1px solid ${isActive ? cap.color : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)')}`,
-                    background: isActive ? `${cap.color}15` : 'transparent',
-                    color: isActive ? cap.color : 'var(--text-secondary)',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
-                  }}
-                >
-                  {cap.label}
-                </button>
-              );
-            })}
+          {/* Group: Advanced */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <FilterHeader id="advanced" label="Advanced Medical" icon={Beaker} />
+            {expandedGroups.has('advanced') && (
+              <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {[
+                  { key: 'isHwc', label: 'Wellness Centre', color: '#10b981' },
+                  { key: 'isFru', label: 'First Referral Unit', color: '#be123c' },
+                  { key: 'hasBloodBank', label: 'Blood Bank', color: '#ef4444' },
+                  { key: 'hasCt', label: 'CT Scan', color: '#8b5cf6' },
+                  { key: 'hasMri', label: 'MRI', color: '#a78bfa' },
+                  { key: 'hasTeleConsultation', label: 'Tele-Consultation', color: '#6366f1' },
+                  { key: 'hasStemiHub', label: 'STEMI Hub', color: '#f43f5e' },
+                  { key: 'hasCathLab', label: 'Cath Lab', color: '#fda4af' }
+                ].map(cap => {
+                  const isActive = healthFilters[cap.key as keyof HealthFilters];
+                  return (
+                    <button
+                      key={cap.key}
+                      onClick={() => handleToggleFilter(cap.key as keyof HealthFilters)}
+                      style={{
+                        padding: '8px 12px',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                        borderRadius: '20px',
+                        border: `1px solid ${isActive ? cap.color : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)')}`,
+                        background: isActive ? `${cap.color}15` : 'transparent',
+                        color: isActive ? cap.color : 'var(--text-secondary)',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      {cap.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
-      </div>
 
-      <div style={{ height: '1px', background: 'var(--border-glass)', margin: '8px 16px' }} />
+          <button
+            onClick={() => setShowAdvanced(false)}
+            style={{
+              padding: '12px',
+              fontSize: '11px',
+              fontWeight: 700,
+              color: 'var(--text-secondary)',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              textDecoration: 'underline'
+            }}
+          >
+            Hide Advanced Filters
+          </button>
 
-      {/* Map Legend Helper */}
-      <div style={{ padding: '16px', background: isDark ? 'rgba(30, 41, 59, 0.4)' : 'rgba(0, 0, 0, 0.02)', borderRadius: '16px', margin: '8px' }}>
-        <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>
-          Map Legend
-        </span>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#9d174d', border: '1px solid white' }} />
-            <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Major Hospitals (MCH/DH)</span>
+          <div style={{ height: '1px', background: 'var(--border-glass)', margin: '8px 16px' }} />
+
+          {/* Map Legend Helper */}
+          <div style={{ padding: '16px', background: isDark ? 'rgba(30, 41, 59, 0.4)' : 'rgba(0, 0, 0, 0.02)', borderRadius: '16px', margin: '8px' }}>
+            <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>
+              Map Legend
+            </span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#9d174d', border: '1px solid white' }} />
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Major Hospitals (MCH/DH)</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f43f5e', border: '1px solid white' }} />
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Local Centres (PHC/CHC)</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white' }} />
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Small Sub Centres (HSC)</span>
+              </div>
+            </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f43f5e', border: '1px solid white' }} />
-            <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Local Centres (PHC/CHC)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white' }} />
-            <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Small Sub Centres (HSC)</span>
-          </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };
