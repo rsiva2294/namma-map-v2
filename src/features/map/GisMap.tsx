@@ -6,25 +6,33 @@ import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
 import type { GisFeature, PdsShop, Geometry } from '../../types/gis';
 
-const MapController: React.FC<{ result: GisFeature | null; geometry: Geometry | null }> = ({ result, geometry }) => {
+const MapController: React.FC<{ 
+  result: GisFeature | null; 
+  geometry: Geometry | null;
+  policeResolution: any | null;
+}> = ({ result, geometry, policeResolution }) => {
   const map = useMap();
   const { isSidebarOpen } = useMapStore();
 
   useEffect(() => {
     if (!map) return;
 
+    const leftPad = isSidebarOpen ? 340 : 80;
+
     if (result) {
       const bounds = L.geoJSON(result).getBounds();
-      const leftPad = isSidebarOpen ? 340 : 80;
       map.flyToBounds(bounds, { 
         paddingTopLeft: [leftPad, 120], 
         paddingBottomRight: [80, 80],
         maxZoom: 14,
         duration: 0.8
       });
+    } else if (policeResolution && !policeResolution.isBoundaryValid && policeResolution.station) {
+      // Fly to station point if boundary is invalid
+      const [lng, lat] = policeResolution.station.geometry.coordinates;
+      map.flyTo([lat, lng], 14, { duration: 0.8 });
     } else if (geometry) {
       const bounds = L.geoJSON(geometry).getBounds();
-      const leftPad = isSidebarOpen ? 340 : 80;
       // Aggressive padding to force the selection into the visible 'hole'
       map.flyToBounds(bounds, { 
         paddingTopLeft: [leftPad, 150], // Extra top padding for search bar
@@ -33,7 +41,7 @@ const MapController: React.FC<{ result: GisFeature | null; geometry: Geometry | 
         duration: 0.8
       });
     }
-  }, [result, geometry, map, isSidebarOpen]);
+  }, [result, geometry, map, isSidebarOpen, policeResolution]);
   return null;
 };
 
@@ -58,7 +66,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -316,17 +324,62 @@ const GisMap: React.FC = () => {
         </>
       )}
  
-      {activeLayer === 'POLICE' && jurisdictionGeometry && (
-        <GeoJSON 
-          key={`police-sel-${JSON.stringify((jurisdictionGeometry.coordinates as unknown[])[0])}`}
-          data={jurisdictionGeometry}
-          style={policeSelectedStyle}
-          interactive={false}
+      {activeLayer === 'POLICE' && jurisdictionGeometry && policeResolution?.isBoundaryValid && (
+        <GeoJSON
+          key={`police-jurisdiction-${policeResolution.boundary.properties.police_s_1}`}
+          data={{
+            type: 'Feature',
+            geometry: jurisdictionGeometry,
+            properties: {}
+          } as any}
+          style={{
+            color: '#334155',
+            weight: 3,
+            opacity: 0.8,
+            fillColor: '#334155',
+            fillOpacity: 0.15,
+            dashArray: '5, 5'
+          }}
         />
       )}
  
 
  
+      {activeLayer === 'POLICE' && policeStationsData && policeStationsData.features.map((f: any, i: number) => {
+        const [lng, lat] = f.geometry.coordinates as [number, number];
+        const isSelected = selectedPoliceStation?.properties.ps_code === f.properties.ps_code;
+        if (isSelected) return null; // Render big icon separately
+        
+        return (
+          <CircleMarker
+            key={`ps-marker-${f.properties.ps_code}-${i}`}
+            center={[lat, lng]}
+            radius={6}
+            pathOptions={{
+              fillColor: '#334155',
+              fillOpacity: 0.7,
+              color: 'white',
+              weight: 1.5,
+              bubblingMouseEvents: false
+            }}
+            eventHandlers={{
+              click: (e) => {
+                L.DomEvent.stopPropagation(e);
+                resolveLocation(lat, lng, 'POLICE', false, undefined, f.properties.ps_code);
+              }
+            }}
+          >
+            <Tooltip direction="top" offset={[0, -5]} opacity={1}>
+              <div style={{ padding: '5px' }}>
+                <strong>{f.properties.ps_name || 'Police Station'}</strong>
+                <br />
+                <small>Click to view jurisdiction</small>
+              </div>
+            </Tooltip>
+          </CircleMarker>
+        );
+      })}
+
       {activeLayer === 'POLICE' && selectedPoliceStation && (
         <Marker
           position={[
@@ -336,14 +389,14 @@ const GisMap: React.FC = () => {
           icon={L.divIcon({
             html: `
               <div class="pulse-police"></div>
-              <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #334155; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); position: relative; z-index: 1;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #334155; border-radius: 50%; border: 2px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.4); position: relative; z-index: 10;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 </svg>
               </div>`,
             className: 'selected-police-icon',
-            iconSize: [32, 32],
-            iconAnchor: [16, 16]
+            iconSize: [36, 36],
+            iconAnchor: [18, 18]
           })}
         />
       )}
@@ -415,7 +468,7 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      <MapController result={searchResult} geometry={jurisdictionGeometry} />
+      <MapController result={searchResult} geometry={jurisdictionGeometry} policeResolution={policeResolution} />
       <MapEvents onResolve={resolveLocation} activeLayer={activeLayer} />
       <ZoomControl position="bottomright" />
     </MapContainer>

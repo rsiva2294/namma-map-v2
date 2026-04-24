@@ -31,6 +31,7 @@ interface ProcessedStationProperties extends PoliceStationProperties {
 }
 
 let policeCrosswalk: Record<string, string> | null = null;
+let policeValidation: Record<string, { status: string; error: string }> | null = null;
 
 interface DistrictIdentity {
   id: string;
@@ -166,6 +167,7 @@ const getDistance = (p1: Position, p2: Position): number => {
 };
 
 const getCentroid = (geometry: Geometry): Position => {
+  if (!geometry) return [0, 0];
   if (geometry.type === 'Point') return geometry.coordinates as Position;
   const bbox = getBBox(geometry);
   return [(bbox.minX + bbox.maxX) / 2, (bbox.minY + bbox.maxY) / 2];
@@ -256,6 +258,8 @@ function resolvePoliceStation(
     // Optional enrichment (Admin match)
     const districtMatch = sProps.district && bDistrict && normalizePoliceName(sProps.district) === normalizePoliceName(bDistrict);
 
+    const isNearBoundary = distToCentroid < 0.05; // Approx 5km
+
     // Resolution Logic
     let currentConfidence: PoliceMatchConfidence = 'unresolved';
     let currentReason = '';
@@ -268,7 +272,11 @@ function resolvePoliceStation(
     } else if (maxAliasMatch > 0.85) {
       currentConfidence = 'high';
       currentReason = 'Strong alias match';
-      currentScore = 80 + (isInside ? 5 : 0) + (districtMatch ? 5 : 0) + (codeMatch ? 5 : 0);
+      currentScore = 80 + (isInside ? 10 : (isNearBoundary ? 5 : 0)) + (districtMatch ? 5 : 0) + (codeMatch ? 5 : 0);
+    } else if (codeMatch && (isInside || isNearBoundary)) {
+      currentConfidence = 'high';
+      currentReason = isInside ? 'Code match with spatial validation' : 'Code match with proximity validation (Near miss)';
+      currentScore = 75 + (maxAliasMatch * 10);
     } else if (codeMatch && maxAliasMatch > 0.5) {
       currentConfidence = 'medium';
       currentReason = 'Code match with moderate alias match';
@@ -334,12 +342,28 @@ function resolvePoliceStation(
      }
   }
 
+  if (!bestStation) return {
+    boundary,
+    station: null,
+    confidence: 'unresolved',
+    reason: 'No matching station found',
+    debug: bestDebug,
+    isBoundaryValid: true
+  };
+
+  const [stLng, stLat] = bestStation.geometry.coordinates as [number, number];
+  const stationKey = `${bestStation.properties.ps_code || ''}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
+  const validation = policeValidation ? policeValidation[stationKey] : null;
+  const isBoundaryValid = !validation || validation.status === 'valid';
+
   return {
     boundary,
     station: bestStation,
     confidence: bestStation ? bestDebug.confidence : 'unresolved',
     reason: bestStation ? bestDebug.reason : 'No matching station found',
-    debug: bestDebug
+    debug: bestDebug,
+    isBoundaryValid,
+    validationError: validation?.error
   };
 }
 
@@ -397,10 +421,8 @@ function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
   return inside;
 }
 
-function findFeatureAt(point: [number, number], index: RBush<SpatialItem>) {
+function findFeatureAt(point: [number, number], index: RBush<SpatialItem>, buffer = 0.00001) {
   const [lng, lat] = point;
-  // Use a tiny buffer to avoid precision issues at edges
-  const buffer = 0.00001;
   const candidates = index.search({ 
     minX: lng - buffer, 
     minY: lat - buffer, 
@@ -587,13 +609,79 @@ self.onmessage = async (e: MessageEvent) => {
           });
         }
       } else if (layer === 'POLICE') {
-        found = findFeatureAt([lng, lat], policeBoundariesIndex);
+        const { stationCode } = payload;
+        
+        if (stationCode && policeBoundariesGeoJson) {
+           // Find all boundaries with this code (codes are not unique statewide)
+           const candidates = policeBoundariesGeoJson.features.filter(f => f.properties.police_s_1 === stationCode && f.geometry);
+           
+           if (candidates.length > 1) {
+             // Pick the one closest to the clicked coordinates to avoid cross-state teleporting
+             candidates.sort((a, b) => {
+               const da = getDistance([lng, lat], getCentroid(a.geometry));
+               const db = getDistance([lng, lat], getCentroid(b.geometry));
+               return da - db;
+             });
+             found = candidates[0];
+           } else {
+             found = candidates[0] || null;
+           }
+        } else {
+           found = findFeatureAt([lng, lat], policeBoundariesIndex);
+        }
+        
+        // Proximity Fallback: If no exact containment, try a radial search (approx 200m)
+        if (!found && !stationCode) {
+          const proximityBuffer = 0.002;
+          const candidates = policeBoundariesIndex.search({
+            minX: lng - proximityBuffer,
+            minY: lat - proximityBuffer,
+            maxX: lng + proximityBuffer,
+            maxY: lat + proximityBuffer
+          });
+          
+          if (candidates.length > 0) {
+            candidates.sort((a, b) => {
+              const da = getDistance([lng, lat], getCentroid(a.feature.geometry));
+              const db = getDistance([lng, lat], getCentroid(b.feature.geometry));
+              return da - db;
+            });
+            found = candidates[0].feature;
+          }
+        }
+
         if (found && policeStationsGeoJson) {
-          const result = resolvePoliceStation(
+           // If we have a stationCode, we want to make sure we resolve to THAT station specifically
+           // even if the resolver thinks another station is better. 
+           // Since codes are not unique, we filter and pick the closest one.
+           const targetStation = (() => {
+             if (!stationCode || !policeStationsGeoJson) return null;
+             const stations = policeStationsGeoJson.features.filter(s => s.properties.ps_code === stationCode && s.geometry);
+             if (stations.length > 1) {
+               return [...stations].sort((a, b) => {
+                 const da = getDistance([lng, lat], a.geometry.coordinates as [number, number]);
+                 const db = getDistance([lng, lat], b.geometry.coordinates as [number, number]);
+                 return da - db;
+               })[0];
+             }
+             return stations[0] || null;
+           })();
+           
+           const result = resolvePoliceStation(
             found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
             policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
             [lng, lat]
           );
+
+          if (targetStation) {
+            result.station = targetStation as GisFeature<Point, PoliceStationProperties>;
+            // Re-validate boundary for this specific target station
+            const [stLng, stLat] = targetStation.geometry.coordinates as [number, number];
+            const stationKey = `${targetStation.properties.ps_code || ''}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
+            const validation = policeValidation ? policeValidation[stationKey] : null;
+            result.isBoundaryValid = !validation || validation.status === 'valid';
+            result.validationError = validation?.error;
+          }
 
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
@@ -603,6 +691,39 @@ self.onmessage = async (e: MessageEvent) => {
               keepSelection
             } 
           });
+        } else if (stationCode && policeStationsGeoJson) {
+           // Case where boundary is missing but we have the station
+           const targetStation = (() => {
+             const stations = policeStationsGeoJson.features.filter(s => s.properties.ps_code === stationCode && s.geometry);
+             if (stations.length > 1) {
+               return [...stations].sort((a, b) => {
+                 const da = getDistance([lng, lat], a.geometry.coordinates as [number, number]);
+                 const db = getDistance([lng, lat], b.geometry.coordinates as [number, number]);
+                 return da - db;
+               })[0];
+             }
+             return stations[0] || null;
+           })();
+
+           if (targetStation) {
+             const [stLng, stLat] = targetStation.geometry.coordinates as [number, number];
+             const stationKey = `${targetStation.properties.ps_code || ''}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
+             const validation = policeValidation ? policeValidation[stationKey] : null;
+             
+             self.postMessage({
+               type: 'RESOLUTION_RESULT',
+               payload: {
+                 station: targetStation,
+                 boundary: { type: 'Feature', geometry: null, properties: {} },
+                 confidence: 'exact',
+                 reason: 'Direct station selection',
+                 isBoundaryValid: false,
+                 validationError: validation?.error || 'No boundary found for this station',
+                 layer: 'POLICE',
+                 keepSelection
+               }
+             });
+           }
         }
       } else if (layer === 'PINCODE' || layer === 'PDS') {
         if (pincodeOverride) {
@@ -901,10 +1022,11 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_POLICE':
       try {
         if (!policeBoundariesGeoJson || !policeStationsGeoJson) {
-          const [resBound, resOff, resCross] = await Promise.all([
+          const [resBound, resOff, resCross, resVal] = await Promise.all([
             fetchWithRetry('/data/tn_police_boundaries.topojson'),
             fetchWithRetry('/data/tn_police_stations.geojson'),
-            fetch('/data/police_crosswalk.json').catch(() => null) // Use raw fetch for optional
+            fetch('/data/police_crosswalk.json').catch(() => null),
+            fetch('/data/police_validation.json').catch(() => null)
           ]);
           const dataBound = await resBound.json();
           const dataOff = await resOff.json();
@@ -913,6 +1035,13 @@ self.onmessage = async (e: MessageEvent) => {
             const contentType = resCross.headers.get('content-type');
             if (contentType && contentType.includes('application/json')) {
               policeCrosswalk = await resCross.json();
+            }
+          }
+
+          if (resVal && resVal.ok) {
+            const contentType = resVal.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+              policeValidation = await resVal.json();
             }
           }
 

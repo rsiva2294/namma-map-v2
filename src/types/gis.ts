@@ -141,6 +141,8 @@ export interface PoliceResolutionResult {
   confidence: PoliceMatchConfidence;
   reason: string;
   debug: PoliceMatchDebug;
+  isBoundaryValid?: boolean;
+  validationError?: string;
 }
 
 export interface PoliceStationProperties extends GisProperties {

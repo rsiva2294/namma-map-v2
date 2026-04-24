@@ -237,42 +237,31 @@ const ResultContainer: React.FC = () => {
           icon={<Shield size={20} />}
           data={[
             { 
-              label: 'Resolution', 
-              value: policeResolution.confidence.toUpperCase(), 
-              isPill: true
+              label: 'Station Name', 
+              value: policeResolution.station?.properties.ps_name || policeResolution.boundary.properties.police_sta || 'N/A',
+              subValue: policeResolution.station?.properties.ps_code ? `Code: ${policeResolution.station.properties.ps_code}` : undefined
             },
             { 
-              label: 'Jurisdiction', 
-              value: policeResolution.boundary.properties.police_sta || 'N/A',
-              subValue: `Boundary Code: ${policeResolution.boundary.properties.police_s_1}` 
+              label: 'Boundary Status', 
+              value: policeResolution.isBoundaryValid ? 'VERIFIED' : 'UNAVAILABLE', 
+              isPill: true,
+              subValue: policeResolution.isBoundaryValid 
+                ? `Jurisdiction Code: ${policeResolution.boundary.properties.police_s_1}` 
+                : (policeResolution.validationError || 'Official boundary data for this station is currently being updated.')
             },
-            ...(policeResolution.station ? [
-              { 
-                label: 'Mapped Station', 
-                value: policeResolution.station.properties.ps_name || 'N/A',
-                subValue: `Station Code: ${policeResolution.station.properties.ps_code || 'N/A'}`
-              }
-            ] : [
-              { 
-                label: 'Station Status', 
-                value: 'UNRESOLVED', 
-                subValue: 'Boundary found, but no matching station point confirmed.',
-                isPill: true 
-              }
-            ]),
+            ...(policeResolution.isBoundaryValid ? [
+               {
+                 label: 'Jurisdiction',
+                 value: policeResolution.boundary.properties.police_sta || 'N/A',
+                 subValue: `${policeResolution.boundary.properties.district_n || ''} District`
+               }
+            ] : []),
             ...(import.meta.env.DEV ? [
               { 
-                label: 'Match Basis', 
-                value: policeResolution.reason,
-                subValue: `Logic: ${policeResolution.debug.method}` 
-              },
-              ...(policeResolution.confidence !== 'exact' && policeResolution.confidence !== 'unresolved' ? [
-                {
-                  label: 'Diagnostics',
-                  value: `${Math.round(policeResolution.debug.aliasMatchStrength * 100)}% Alias Match`,
-                  subValue: policeResolution.debug.isInsideBoundary ? 'Point Inside Polygon' : 'Point Outside Polygon'
-                }
-              ] : [])
+                label: 'Match Confidence', 
+                value: policeResolution.confidence.toUpperCase(),
+                subValue: `Logic: ${policeResolution.debug.method} (${policeResolution.reason})` 
+              }
             ] : [])
           ]}
           onClose={() => setPoliceResolution(null)}
@@ -314,8 +303,8 @@ const ResultContainer: React.FC = () => {
           title="Police Jurisdictions"
           icon={<Shield size={20} />}
           data={[
-            { label: 'Status', value: 'Layer Active', isPill: true },
-            { label: 'Instruction', value: 'Search for a station or click anywhere on the map to resolve the local police jurisdiction.' }
+            { label: 'Status', value: 'Station-First Discovery', isPill: true },
+            { label: 'Instruction', value: 'Click any police station marker to view its jurisdictional boundary and details.' }
           ]}
           onClose={() => {}}
         />

@@ -148,12 +148,12 @@ export const useGisWorker = () => {
   ]);
 
 
-  const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false, pincode?: string) => {
+  const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false, pincode?: string, stationCode?: string) => {
     setIsResolving(true);
     setSearchResult(null, keepSelection);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { lat, lng, layer, keepSelection, pincode, constituencyType: useMapStore.getState().constituencyType }
+      payload: { lat, lng, layer, keepSelection, pincode, stationCode, constituencyType: useMapStore.getState().constituencyType }
     });
   }, [setSearchResult, setIsResolving]);
 
@@ -199,7 +199,7 @@ export const useGisWorker = () => {
       const [lng, lat] = item.geometry.type === 'Point' 
         ? (item.geometry.coordinates as [number, number])
         : (item.properties.station_location as [number, number] || [78.6569, 11.1271]); // Fallback
-      resolveLocation(lat, lng, 'POLICE');
+      resolveLocation(lat, lng, 'POLICE', false, undefined, item.properties.ps_code as string);
     } else {
       // PINCODE or Area
       const pin = (item.properties.pin_code || item.properties.PIN_CODE || item.properties.pincode)?.toString();

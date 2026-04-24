@@ -1,0 +1,1254 @@
+{
+  "P38|13.11497|79.42104": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P43|12.48691|78.57025": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P44|12.89407|79.11952": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P1|10.75876|78.70774": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P2|10.81051|78.72141": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P4|10.78018|78.67322": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P6|10.81597|78.69444": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P7|10.77991|78.71533": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P8|10.81248|78.67834": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P14|10.75719|78.68889": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P22|10.80703|78.69720": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P24|11.01201|78.63865": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P30|10.81594|78.64460": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P31|10.85722|78.68977": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P33|10.82288|78.68272": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P37|10.75193|78.82364": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P43|10.82555|78.67315": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P2|12.67268|79.28204": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P26|12.17974|78.85867": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P36|12.50688|79.60455": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P33|8.20487|77.57158": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P13|9.16838|77.85473": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P22|9.14245|77.78921": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P24|8.56322|77.97864": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P30|8.82512|77.84818": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P36|8.62541|77.90811": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P45|8.80030|78.13683": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P16|9.92283|77.52088": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P19|9.60944|77.17036": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P26|11.74184|78.04360": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P31|11.47345|77.86724": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P8|9.28100|79.31489": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P21|10.69631|78.73380": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P29|10.42873|78.97725": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P35|10.32648|78.88580": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P12|11.27045|77.94635": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P22|11.27967|78.33208": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P5|12.80401|77.97191": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P8|12.72621|77.85813": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P16|12.47383|78.19311": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P24|12.66778|78.01678": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P20|11.35378|77.72889": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P1|11.62143|77.74244": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P24|10.44663|77.45693": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P15|12.38500|78.00229": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P17|10.93885|76.95111": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P16|11.10247|77.27104": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P31|12.24159|79.30920": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P4|12.78247|78.71913": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P8|12.89719|79.35154": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P33|11.86108|79.36566": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P2|9.37129|77.67135": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P21|9.49459|77.69377": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P31|9.42345|77.50512": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P32|9.77655|78.34146": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P23|10.64909|79.68814": {
+    "status": "wrong",
+    "error": "Coordinates outside boundary"
+  },
+  "P15|9.90622|78.12466": {
+    "status": "wrong",
+    "error": "Null geometry in boundary"
+  },
+  "P3|10.80702|78.68259": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P40|10.55157|78.30344": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P40|12.66693|79.54138": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P41|12.50653|79.60522": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P44|8.72337|77.66332": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P60|8.73871|77.77125": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P60|8.72149|77.73741": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P60|8.70412|77.73195": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P60|8.72669|77.68617": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P37|9.18615|77.53507": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P60|8.75218|77.69476": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P61|9.08940|77.68267": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P62|8.64802|77.42752": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P63|9.17018|77.53210": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P64|8.78884|77.60502": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P65|8.71257|77.75055": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P66|8.72660|77.68621": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P67|8.72041|77.74065": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P68|8.72597|77.69335": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P69|8.70712|77.68663": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P28|8.80748|78.08311": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P11|10.66905|79.44591": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P21|10.53760|79.63247": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P25|10.69611|79.32754": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P1|10.60632|79.66007": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P2|10.72393|79.46671": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P10|10.66912|79.44695": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P13|10.88177|79.60907": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P17|10.48015|79.49708": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P19|10.56113|79.57040": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P22|10.77693|79.62060": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P23|10.77461|79.63223": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P1|13.54133|80.06980": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P3|13.41586|80.13424": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P4|13.20576|79.75610": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P5|13.11049|79.86721": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P7|13.36718|80.13925": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P8|13.08444|79.90270": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P11|13.44321|80.00177": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P17|13.17287|79.89102": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P18|13.15072|79.43163": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P21|13.24300|80.16213": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P20|13.41157|80.11199": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P25|13.14435|79.89651": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P26|13.14467|79.90557": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P2|9.99928|77.62293": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P3|10.03624|77.66868": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P4|10.02261|77.35125": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P5|10.01073|77.35111": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P7|9.74141|77.28633": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P8|9.73134|77.28204": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P9|10.14617|77.64228": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P10|9.92150|77.51680": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P11|9.68619|77.24901": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P12|9.67843|77.24864": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P15|9.80796|77.50190": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P17|9.96673|77.59917": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P21|9.78722|77.51833": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P23|9.99729|77.46653": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P26|9.77260|77.33622": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P31|10.05102|77.59443": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P32|9.72121|77.51351": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P1|10.34041|79.38554": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P8|10.96604|79.39349": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P9|10.95535|79.36552": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P15|10.91493|79.44514": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P21|10.41726|79.31684": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P22|10.42670|79.32024": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P23|10.28062|79.19024": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P24|10.25271|79.28207": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P27|10.73360|79.09826": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P28|10.79541|79.14062": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P29|10.76843|79.12937": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P31|10.78817|79.14105": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P33|10.84916|78.95482": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P35|11.09136|79.45290": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P36|10.87810|79.09884": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P37|10.99836|79.45493": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P10|10.95857|79.37464": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P30|10.77436|79.13285": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P21|9.54858|78.58718": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P17|9.98485|79.20125": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P27|11.42481|76.87876": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P26|11.37797|77.89464": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P27|11.10996|78.00930": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P30|12.94578|80.03572": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P29|12.84560|79.70169": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P2|12.87682|79.61682": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P19|12.78951|80.03104": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P10|12.82301|79.73707": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P31|12.96360|79.94926": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P37|10.48735|77.75141": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P38|10.43858|78.09976": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P39|10.23740|77.49532": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P40|10.16494|77.85268": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P41|10.45269|77.51527": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P33|11.00287|76.99168": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P5|11.04259|79.06635": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P17|11.20770|79.36680": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P47|11.68231|79.75194": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P48|11.51382|79.32131": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P49|11.77615|79.66821": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P50|11.39757|79.69086": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P26|11.08899|77.33242": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P13|10.84975|77.44720": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P27|11.09803|77.35478": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P22|12.19621|79.94379": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04139|80.13329": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11726|80.10276": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12912|80.10743": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11571|80.13724": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10047|80.18847": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12211|80.06268": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03324|80.25609": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.16013|80.20279": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.02357|80.27511": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05229|80.27749": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.01736|80.24120": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03580|80.26992": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04042|80.27894": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05209|80.26373": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.19182|80.18529": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08568|80.28831": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05602|80.26558": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12480|80.03263": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08198|80.27879": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03445|80.15591": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07902|80.28521": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.99767|80.25577": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.00064|80.26590": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.02236|80.22611": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.00930|80.21077": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.98099|80.22085": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.85854|80.23010": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.92778|80.23843": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.98452|80.26096": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.94754|80.25409": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.94741|80.24032": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.02826|80.21656": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.99459|80.24292": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.85113|80.24138": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.99922|80.20003": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.01611|80.18940": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.98175|80.19172": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.98081|80.16357": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.92300|80.13526": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.92553|80.11453": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.95322|80.14133": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.90554|80.09766": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.96530|80.20620": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.98941|80.20188": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.91727|80.19489": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.98640|80.17489": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.93732|80.13778": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.96785|80.14912": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.96823|80.12495": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.13134|80.23788": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.15504|80.24128": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.20896|80.31634": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.16351|80.26304": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.20650|80.27610": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.14086|80.28763": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03502|80.22945": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04982|80.21180": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04967|80.19933": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04402|80.21723": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04360|80.19857": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03112|80.20173": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04877|80.24944": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04134|80.23413": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03743|80.18072": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04817|80.21739": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03191|80.17876": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03500|80.22967": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10855|80.28077": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12327|80.28737": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12445|80.27712": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.15405|80.30077": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11187|80.29381": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11997|80.29488": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11761|80.27998": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.13934|80.28904": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.13459|80.29709": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08838|80.28167": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09268|80.27515": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09888|80.28168": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09984|80.28686": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08390|80.26999": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08989|80.29049": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08676|80.28513": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09930|80.29410": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07488|80.27225": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06234|80.22768": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07494|80.25676": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05967|80.24283": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05908|80.27056": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06112|80.26220": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06089|80.27961": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05987|80.25477": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.15161|80.05189": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|12.99737|80.09241": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.03320|80.10932": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.05004|80.09087": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.04658|80.07761": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10728|80.15260": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09548|80.16384": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10741|80.18673": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07382|80.12525": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P16|9.65016|77.57774": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P2|9.95140|78.81455": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P37|9.92930|78.68451": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P9|10.07578|78.77954": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P10|10.07560|78.77916": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P14|9.68967|78.45809": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P19|10.26209|78.59352": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P26|9.85813|78.48916": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P27|9.85261|78.48299": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P29|10.11204|78.48370": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P30|10.17223|78.48030": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P33|10.15112|78.58880": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P36|10.31990|78.50649": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P38|10.08065|78.79359": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "P25|10.77358|79.84026": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11140|80.22634": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11090|80.24011": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12243|80.23623": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09999|80.25994": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10029|80.25152": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11988|80.26580": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09509|80.26621": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12322|80.26133": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.13148|80.25699": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10017|80.26054": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09265|80.21792": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06843|80.21377": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08271|80.20033": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.12218|80.20533": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.11017|80.21371": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08129|80.21803": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06967|80.20033": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06726|80.17646": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10366|80.20626": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08516|80.18742": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08252|80.17057": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07054|80.19922": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.10047|80.21470": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07829|80.24898": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08114|80.23031": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08624|80.26101": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07073|80.24208": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09890|80.23243": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.09343|80.24335": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.08311|80.27083": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.07124|80.25787": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06538|80.28442": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  },
+  "|13.06704|80.27363": {
+    "status": "missing",
+    "error": "No boundary found for this station"
+  }
+}
