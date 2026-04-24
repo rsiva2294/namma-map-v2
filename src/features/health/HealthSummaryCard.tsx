@@ -8,6 +8,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useMapStore } from '../../store/useMapStore';
 
 interface HealthSummaryCardProps {
   summary: HealthSummary;
@@ -21,12 +22,21 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
     const hasDelivery = activeFilters.includes('hasDelivery');
     const hasChildCare = activeFilters.some(f => ['hasSncu', 'hasNbsu', 'hasDeic'].includes(f));
     const hasDiagnostics = activeFilters.some(f => ['hasCt', 'hasMri', 'hasDialysis'].includes(f));
+    const isStatewide = summary.scope === 'STATE';
 
     let specificCopy = '';
     if (hasEmergency) specificCopy = 'Showing 24x7 Emergency Hubs and First Referral Units.';
     else if (hasDelivery) specificCopy = 'Showing facilities equipped for maternal delivery services.';
     else if (hasChildCare) specificCopy = 'Showing specialized newborn and child care centres.';
     else if (hasDiagnostics) specificCopy = 'Showing advanced diagnostic centres (CT/MRI/Dialysis).';
+
+    if (isStatewide && (activeFilters.includes('PHC') || activeFilters.includes('HSC'))) {
+      return {
+        title: 'Local Centres Focused',
+        label: 'Action Required',
+        copy: 'Local Centres (PHC/HSC) are visible when viewing a specific District or Pincode. Search for an area to see local results.'
+      };
+    }
 
     switch (summary.scope) {
       case 'STATE':
@@ -71,6 +81,8 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
   };
   const facilityTypes = Object.entries(summary.countsByType)
     .sort((a, b) => b[1] - a[1]);
+
+  const setTriggerLocateMe = useMapStore(state => state.setTriggerLocateMe);
 
   return (
     <motion.div
@@ -206,6 +218,29 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {summary.scope === 'STATE' && (summary.activeFilters.includes('PHC') || summary.activeFilters.includes('HSC')) && (
+          <div style={{
+            marginTop: '8px',
+            padding: '16px',
+            background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.05))',
+            borderRadius: '16px',
+            border: '1px dashed var(--accent)',
+            textAlign: 'center'
+          }}>
+            <p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '12px' }}>
+              Want to see local health centres?
+            </p>
+            <button 
+              onClick={() => setTriggerLocateMe(true)}
+              className="btn-primary" 
+              style={{ width: '100%', padding: '10px', fontSize: '12px' }}
+            >
+              <MapPin size={14} />
+              Find Facilities Near Me
+            </button>
           </div>
         )}
 

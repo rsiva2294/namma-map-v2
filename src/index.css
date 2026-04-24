@@ -135,7 +135,6 @@ html,
 }
 
 .sidebar-closed {
-  transform: translateX(-280px);
   border-right: none;
 }
 
