@@ -635,29 +635,32 @@ const GisMap: React.FC = () => {
           bottom: '100px',
           right: '20px',
           zIndex: 1000,
-          padding: '12px',
-          background: theme === 'dark' ? 'rgba(15, 23, 42, 0.8)' : 'rgba(255, 255, 255, 0.9)',
-          backdropFilter: 'blur(8px)',
-          borderRadius: '12px',
+          padding: '12px 16px',
+          background: theme === 'dark' ? 'rgba(15, 23, 42, 0.9)' : 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(20px)',
+          borderRadius: '16px',
           border: `1px solid ${theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'}`,
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          pointerEvents: 'none'
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+          pointerEvents: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px'
         }}>
-          <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '8px' }}>
-            Map Symbols
+          <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', display: 'block' }}>
+            Map Hierarchy
           </span>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#9d174d', border: '1px solid white' }} />
-              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 600 }}>Major Hospitals</span>
+          <div style={{ display: 'flex', gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#9d174d', border: '1.5px solid white', boxShadow: '0 0 0 1px rgba(0,0,0,0.1)' }} />
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>Major</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#f43f5e', border: '1px solid white' }} />
-              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 600 }}>Local Centres</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f43f5e', border: '1.5px solid white', boxShadow: '0 0 0 1px rgba(0,0,0,0.1)' }} />
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>Local</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white' }} />
-              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 600 }}>Sub Centres</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white', boxShadow: '0 0 0 1px rgba(0,0,0,0.1)' }} />
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>Sub-Centre</span>
             </div>
           </div>
         </div>

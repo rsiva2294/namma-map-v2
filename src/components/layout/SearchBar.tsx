@@ -48,7 +48,7 @@ const SearchBar: React.FC = () => {
     );
   };
 
-  // Group suggestions by type
+  const activeLayer = useMapStore(state => state.activeLayer);
   const groupedSuggestions = searchSuggestions.reduce((acc, curr) => {
     const type = curr.suggestionType || 'OTHER';
     if (!acc[type]) acc[type] = [];
@@ -63,6 +63,7 @@ const SearchBar: React.FC = () => {
     'DISTRICT': 'Districts',
     'PDS_SHOP': 'PDS Shops',
     'CONSTITUENCY': 'Constituencies',
+    'HEALTH_FACILITY': 'Hospitals & Health Centres',
     'OTHER': 'Other'
   };
 
@@ -81,7 +82,7 @@ const SearchBar: React.FC = () => {
           onKeyDown={handleKeyDown}
           placeholder={
             isLocating ? "Locating you..." :
-            useMapStore.getState().activeLayer === 'HEALTH' 
+            activeLayer === 'HEALTH' 
               ? "Search Hospitals, Districts, or Pincodes..."
               : "Search Districts, Pincodes, or Offices..."
           }
@@ -178,7 +179,7 @@ const SearchBar: React.FC = () => {
                     } as Record<string, string>)[String(suggestion.properties.facility_t)]) || String(suggestion.properties.facility_t || 'Health Facility');
                     
                     title = (suggestion.properties.facility_n || '') as string;
-                    subtitle = `${typeLabel} • ${suggestion.properties.block_name || 'Local Area'} • ${suggestion.properties.district_n || suggestion.properties.district || ''}`;
+                    subtitle = `${typeLabel} • ${suggestion.properties.district_n || suggestion.properties.district || ''} • ${suggestion.properties.block_name || 'Local Area'}`;
                     Icon = Activity;
                     iconColor = '#f43f5e';
                   } else {

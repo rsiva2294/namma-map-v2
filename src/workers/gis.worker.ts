@@ -14,7 +14,8 @@ import type {
   PoliceMatchConfidence,
   PoliceMatchDebug,
   PostalOffice,
-  HealthManifest
+  HealthManifest,
+  HealthFacilityProperties
 } from '../types/gis';
 
 interface SpatialItem {
@@ -990,6 +991,8 @@ self.onmessage = async (e: MessageEvent) => {
         const filtered = features.filter(f => {
           const p = f.properties;
           
+          // 1. Mandatory Filters (AND)
+          
           // Facility Type
           if (filters.facilityTypes.length > 0 && !filters.facilityTypes.includes(p.facility_t)) return false;
           
@@ -997,32 +1000,36 @@ self.onmessage = async (e: MessageEvent) => {
           if (filters.locationType === 'Urban' && p.location_t !== 'Urban') return false;
           if (filters.locationType === 'Rural' && p.location_t !== 'Rural') return false;
 
-          // Core Capabilities
-          if (filters.isHwc === true && !isTrue(p.hwc)) return false;
-          if (filters.hasDelivery === true && !isTrue(p.delivery_p)) return false;
-          if (filters.isFru === true && !p.fru) return false;
-          if (filters.is24x7 === true && !String(p.timing_of_ || '').includes('24x7')) return false;
+          // 2. Capability Filters (OR)
+          // If no capability filters are active, we don't filter by them (passes through)
+          // If any are active, the facility must match AT LEAST ONE of the active filters
+          
+          const capabilityCriteria: { key: string; check: (p: HealthFacilityProperties) => boolean }[] = [
+            { key: 'isHwc', check: (p) => isTrue(p.hwc) },
+            { key: 'hasDelivery', check: (p) => isTrue(p.delivery_p) },
+            { key: 'isFru', check: (p) => !!p.fru },
+            { key: 'is24x7', check: (p) => String(p.timing_of_ || '').includes('24x7') },
+            { key: 'hasBloodBank', check: (p) => isTrue(p.blood_bank) },
+            { key: 'hasBloodStorage', check: (p) => isTrue(p.blood_stor) },
+            { key: 'hasSncu', check: (p) => isTrue(p.sncu) },
+            { key: 'hasNbsu', check: (p) => isTrue(p.nbsu) },
+            { key: 'hasDeic', check: (p) => isTrue(p.deic) },
+            { key: 'hasCt', check: (p) => isTrue(p.ct) },
+            { key: 'hasMri', check: (p) => isTrue(p.mri) },
+            { key: 'hasDialysis', check: (p) => isTrue(p.dialysis_c) },
+            { key: 'hasCbnaat', check: (p) => isTrue(p.cbnaat_sit) },
+            { key: 'hasTeleConsultation', check: (p) => isTrue(p.tele_v_car) },
+            { key: 'hasStemiHub', check: (p) => isTrue(p.stemi_hubs) },
+            { key: 'hasStemiSpoke', check: (p) => isTrue(p.stemi_spok) },
+            { key: 'hasCathLab', check: (p) => isTrue(p.cath_lab_m) }
+          ];
 
-          // Maternal / Emergency
-          if (filters.hasBloodBank === true && !isTrue(p.blood_bank)) return false;
-          if (filters.hasBloodStorage === true && !isTrue(p.blood_stor)) return false;
+          const activeCriteria = capabilityCriteria.filter(c => filters[c.key as keyof typeof filters] === true);
 
-          // Child / Neonatal
-          if (filters.hasSncu === true && !isTrue(p.sncu)) return false;
-          if (filters.hasNbsu === true && !isTrue(p.nbsu)) return false;
-          if (filters.hasDeic === true && !isTrue(p.deic)) return false;
-
-          // Diagnostics / Specialty
-          if (filters.hasCt === true && !isTrue(p.ct)) return false;
-          if (filters.hasMri === true && !isTrue(p.mri)) return false;
-          if (filters.hasDialysis === true && !isTrue(p.dialysis_c)) return false;
-          if (filters.hasCbnaat === true && !isTrue(p.cbnaat_sit)) return false;
-          if (filters.hasTeleConsultation === true && !isTrue(p.tele_v_car)) return false;
-
-          // Cardiac / Advanced
-          if (filters.hasStemiHub === true && !isTrue(p.stemi_hubs)) return false;
-          if (filters.hasStemiSpoke === true && !isTrue(p.stemi_spok)) return false;
-          if (filters.hasCathLab === true && !isTrue(p.cath_lab_m)) return false;
+          if (activeCriteria.length > 0) {
+            const matchesAny = activeCriteria.some(c => c.check(p as HealthFacilityProperties));
+            if (!matchesAny) return false;
+          }
 
           return true;
         });

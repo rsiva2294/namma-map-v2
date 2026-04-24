@@ -5,7 +5,8 @@ import {
   MapPin, 
   Building2, 
   Filter,
-  CheckCircle2
+  CheckCircle2,
+  ChevronRight
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
@@ -25,50 +26,54 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
     const isStatewide = summary.scope === 'STATE';
 
     let specificCopy = '';
-    if (hasEmergency) specificCopy = 'Showing 24x7 Emergency Hubs and First Referral Units.';
-    else if (hasDelivery) specificCopy = 'Showing facilities equipped for maternal delivery services.';
+    if (hasEmergency) specificCopy = 'Showing emergency hubs and referral units.';
+    else if (hasDelivery) specificCopy = 'Showing facilities for maternal delivery services.';
     else if (hasChildCare) specificCopy = 'Showing specialized newborn and child care centres.';
-    else if (hasDiagnostics) specificCopy = 'Showing advanced diagnostic centres (CT/MRI/Dialysis).';
+    else if (hasDiagnostics) specificCopy = 'Showing diagnostic centres (CT/MRI/Dialysis).';
 
     if (isStatewide && (activeFilters.includes('PHC') || activeFilters.includes('HSC'))) {
       return {
         title: 'Local Centres Focused',
         label: 'Action Required',
-        copy: 'Local Centres (PHC/HSC) are visible when viewing a specific District or Pincode. Search for an area to see local results.'
+        copy: 'Local Centres (PHC/HSC) are visible when viewing a specific District or Pincode.',
+        nextStep: 'Search a district or use My Area to see local results.'
       };
     }
 
     switch (summary.scope) {
       case 'STATE':
         return {
-          title: 'Major Hospitals Across Tamil Nadu',
+          title: 'Tamil Nadu Major Hospitals',
           label: 'Statewide View',
-          copy: specificCopy || 'Showing major hospitals across the state. Search a district or area to find local centres.'
+          copy: specificCopy || 'Showing major hospitals across the state.',
+          nextStep: 'Search a district or area to find local centres.'
         };
       case 'DISTRICT':
         return {
           title: `Health Facilities in ${summary.name}`,
           label: 'District View',
-          copy: specificCopy || 'Use the shortcuts above to quickly find specific services in this district.'
+          copy: specificCopy || 'Exploring healthcare infrastructure in this district.',
+          nextStep: 'Tap a marker to view details or filter by service.'
         };
       case 'PINCODE':
         return {
-          title: 'Facilities in Your Local Area',
+          title: 'Local Health Services',
           label: 'Local View',
-          copy: specificCopy || 'Tap a marker to view details, timing, and get directions.'
+          copy: specificCopy || 'Viewing facilities near your selected area.',
+          nextStep: 'Tap a marker to view timing and get directions.'
         };
       default:
-        return { title: summary.name, label: 'Summary', copy: '' };
+        return { title: summary.name, label: 'Summary', copy: '', nextStep: '' };
     }
   };
 
   const guidance = getGuidance();
 
   const filterLabelMap: Record<string, string> = {
-    isFru: 'Emergency (FRU)',
+    isFru: 'Emergency Referral',
     hasDelivery: 'Delivery Services',
     is24x7: '24x7 Emergency',
-    hasSncu: 'Newborn Care (SNCU)',
+    hasSncu: 'Newborn Care',
     hasDialysis: 'Dialysis Center',
     hasBloodBank: 'Blood Bank',
     hasCt: 'CT Scan',
@@ -106,9 +111,25 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
             <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.5px', marginBottom: '4px' }}>
               {guidance.title}
             </h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, maxWidth: '240px', marginBottom: '16px' }}>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, maxWidth: '240px', marginBottom: '8px' }}>
               {guidance.copy}
             </p>
+            <div style={{ 
+              fontSize: '11px', 
+              fontWeight: 700, 
+              color: 'var(--accent)', 
+              background: 'rgba(14, 165, 233, 0.05)', 
+              padding: '8px 12px', 
+              borderRadius: '8px',
+              borderLeft: '3px solid var(--accent)',
+              marginBottom: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}>
+              <ChevronRight size={14} />
+              {guidance.nextStep}
+            </div>
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontSize: '32px', fontWeight: 900, color: 'var(--accent)', lineHeight: 1 }}>{summary.total}</div>
@@ -146,7 +167,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent)', marginBottom: '12px' }}>
               <CheckCircle2 size={14} />
-              <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Top Services Available</span>
+              <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Service Highlights</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               {Object.entries(summary.countsByCapability)
@@ -157,13 +178,13 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                   const labelMap: Record<string, string> = {
                     hwc: 'Wellness Centres',
                     delivery: 'Delivery Points',
-                    fru: 'FRU Units',
+                    fru: 'Emergency Referral',
                     t24x7: '24x7 Emergency',
                     blood_bank: 'Blood Banks',
                     blood_stor: 'Blood Storage',
                     sncu: 'Newborn Care',
-                    nbsu: 'NBSU Units',
-                    deic: 'DEIC Centres',
+                    nbsu: 'Newborn Stability',
+                    deic: 'Child Support',
                     ct: 'CT Scans',
                     mri: 'MRIs',
                     dialysis: 'Dialysis Units',

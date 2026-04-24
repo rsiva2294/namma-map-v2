@@ -362,7 +362,7 @@ const ResultContainer: React.FC = () => {
               label: 'Services Timing', 
               value: String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') 
                 ? 'Open 24 Hours' 
-                : (selectedHealthFacility.properties.timing_of_ ? 'Day Services' : 'General Hours / Contact Facility')
+                : (String(selectedHealthFacility.properties.timing_of_ || '').toLowerCase().includes('day') ? 'Day Services (General Hours)' : 'General Hours / Contact Facility')
             },
             { label: 'Facility ID (NIN)', value: (selectedHealthFacility.properties.nin_number || 'N/A').toString() }
           ]}

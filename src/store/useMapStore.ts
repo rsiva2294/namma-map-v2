@@ -177,9 +177,6 @@ export const useMapStore = create<MapState>((set) => ({
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set((state) => {
-    const isChangingToHealth = layer === 'HEALTH';
-    const wasHealth = state.activeLayer === 'HEALTH';
-
     return { 
       activeLayer: layer,
       jurisdictionDetails: null,
@@ -190,31 +187,11 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffices: null,
       selectedPostalOffice: null,
       selectedHealthFacility: null,
-      healthDistrictData: isChangingToHealth && wasHealth ? state.healthDistrictData : null,
-      healthScope: isChangingToHealth && wasHealth ? state.healthScope : 'STATE',
-      healthSummary: isChangingToHealth && wasHealth ? state.healthSummary : null,
-      activeDistrict: isChangingToHealth && wasHealth ? state.activeDistrict : null,
-      healthFilters: isChangingToHealth && wasHealth ? state.healthFilters : {
-        facilityTypes: [],
-        locationType: 'All',
-        isHwc: null,
-        hasDelivery: null,
-        isFru: null,
-        is24x7: null,
-        hasBloodBank: null,
-        hasBloodStorage: null,
-        hasSncu: null,
-        hasNbsu: null,
-        hasDeic: null,
-        hasCt: null,
-        hasMri: null,
-        hasDialysis: null,
-        hasCbnaat: null,
-        hasTeleConsultation: null,
-        hasStemiHub: null,
-        hasStemiSpoke: null,
-        hasCathLab: null
-      },
+      healthDistrictData: state.healthDistrictData,
+      healthScope: state.healthScope,
+      healthSummary: state.healthSummary,
+      activeDistrict: state.activeDistrict,
+      healthFilters: state.healthFilters,
       // Reset result if switching from/to layers
       searchResult: null
     };

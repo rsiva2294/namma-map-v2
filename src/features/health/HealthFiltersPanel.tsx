@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMapStore } from '../../store/useMapStore';
-import type { HealthFilters } from '../../types/gis';
-import { ChevronDown, ChevronRight, Activity, Stethoscope, Beaker } from 'lucide-react';
+import type { HealthFilters, HealthScope } from '../../types/gis';
+import { ChevronDown, ChevronRight, Activity, Stethoscope, Beaker, Globe, Navigation, Search } from 'lucide-react';
 
 interface HealthFiltersPanelProps {
   onFilterChange: (filters: HealthFilters) => void;
@@ -10,6 +10,10 @@ interface HealthFiltersPanelProps {
 export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilterChange }) => {
   const { 
     healthFilters, 
+    healthScope,
+    setHealthScope,
+    activeDistrict,
+    setTriggerLocateMe,
     theme
   } = useMapStore();
 
@@ -51,7 +55,6 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
 
   const isDark = theme === 'dark';
 
-
   const quickServices = [
     { id: 'emergency', label: 'Emergency', icon: '🚑', keys: ['isFru', 'hasStemiHub', 'hasStemiSpoke'] },
     { id: 'delivery', label: 'Delivery', icon: '👶', keys: ['hasDelivery'] },
@@ -66,6 +69,14 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       (newFilters as any)[k] = !allActive;
     });
     onFilterChange(newFilters);
+  };
+
+  const handleScopeChange = (scope: HealthScope) => {
+    if (scope === 'PINCODE') {
+      setTriggerLocateMe(true);
+    } else {
+      setHealthScope(scope);
+    }
   };
 
   const FilterHeader = ({ id, label, icon: Icon }: { id: string, label: string, icon: any }) => (
@@ -94,7 +105,6 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
     </button>
   );
 
-
   return (
     <div style={{
       display: 'flex',
@@ -112,19 +122,64 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.2)'
     }} className="custom-scrollbar">
       
-      {/* Top Section: Quick Shortcuts (Always Visible) */}
-      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {/* Scope Switcher */}
+      <div style={{ padding: '8px 12px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1fr 1fr 1fr', 
+          gap: '4px', 
+          background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
+          padding: '4px',
+          borderRadius: '12px'
+        }}>
+          {[
+            { id: 'STATE', label: 'Statewide', icon: Globe },
+            { id: 'DISTRICT', label: 'District', icon: Search },
+            { id: 'PINCODE', label: 'My Area', icon: Navigation }
+          ].map(scope => {
+            const isActive = healthScope === scope.id || (scope.id === 'PINCODE' && healthScope === 'PINCODE');
+            const Icon = scope.icon;
+            return (
+              <button
+                key={scope.id}
+                onClick={() => handleScopeChange(scope.id as HealthScope)}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '8px 4px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  background: isActive ? (isDark ? 'rgba(255,255,255,0.1)' : '#fff') : 'transparent',
+                  color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: isActive ? '0 2px 4px rgba(0,0,0,0.05)' : 'none'
+                }}
+              >
+                <Icon size={14} strokeWidth={isActive ? 2.5 : 2} />
+                <span style={{ fontSize: '10px', fontWeight: isActive ? 700 : 600 }}>{scope.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Assistant Section */}
+      <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           <label style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
             Health Assistant
           </label>
           <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 700 }}>
-            How can we help you?
+            {healthScope === 'STATE' ? 'Tamil Nadu Health Services' : (activeDistrict ? `Health in ${activeDistrict}` : 'Explore Local Health')}
           </span>
           <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 500 }}>
-            Select a service to find the nearest facility.
+            Choose a need or search your district / pincode to begin.
           </span>
         </div>
+        
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
           {quickServices.map(service => {
             const isActive = service.keys.every(k => healthFilters[k as keyof HealthFilters]);
@@ -137,7 +192,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   alignItems: 'center',
                   gap: '10px',
                   padding: '12px',
-                  fontSize: '12px',
+                  fontSize: '11px',
                   fontWeight: 600,
                   borderRadius: '12px',
                   border: `1px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
@@ -157,7 +212,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
 
       <div style={{ height: '1px', background: 'var(--border-glass)', margin: '0 16px' }} />
 
-      {/* Basic View: Grouped Facility Levels */}
+      {/* Facility Levels */}
       <div style={{ padding: '8px 16px 16px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
           <Stethoscope size={14} color="var(--accent)" />
@@ -232,7 +287,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                 {[
                   { key: 'hasDelivery', label: 'Delivery Services', color: '#ec4899' },
                   { key: 'is24x7', label: '24x7 Availability', color: '#f59e0b' },
-                  { key: 'hasSncu', label: 'Newborn Care (SNCU)', color: '#0ea5e9' },
+                  { key: 'hasSncu', label: 'Newborn care', color: '#0ea5e9', tech: 'SNCU' },
                   { key: 'hasDialysis', label: 'Dialysis Center', color: '#c4b5fd' }
                 ].map(cap => {
                   const isActive = healthFilters[cap.key as keyof HealthFilters];
@@ -252,7 +307,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                         transition: 'all 0.2s'
                       }}
                     >
-                      {cap.label}
+                      {cap.label} {cap.tech && <span style={{ opacity: 0.6, fontSize: '9px' }}>({cap.tech})</span>}
                     </button>
                   );
                 })}
@@ -306,13 +361,14 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {[
                   { key: 'isHwc', label: 'Wellness Centre', color: '#10b981' },
-                  { key: 'isFru', label: 'Emergency Unit (FRU)', color: '#be123c' },
+                  { key: 'isFru', label: 'Emergency Referral', color: '#be123c', tech: 'FRU' },
                   { key: 'hasBloodBank', label: 'Blood Bank', color: '#ef4444' },
                   { key: 'hasCt', label: 'CT Scan', color: '#8b5cf6' },
                   { key: 'hasMri', label: 'MRI', color: '#a78bfa' },
                   { key: 'hasTeleConsultation', label: 'Tele-Consultation', color: '#6366f1' },
                   { key: 'hasStemiHub', label: 'STEMI Hub', color: '#f43f5e' },
-                  { key: 'hasCathLab', label: 'Cath Lab', color: '#fda4af' }
+                  { key: 'hasCathLab', label: 'Cath Lab', color: '#fda4af' },
+                  { key: 'hasDeic', label: 'Child support services', color: '#f59e0b', tech: 'DEIC' }
                 ].map(cap => {
                   const isActive = healthFilters[cap.key as keyof HealthFilters];
                   return (
@@ -331,7 +387,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                         transition: 'all 0.2s'
                       }}
                     >
-                      {cap.label}
+                      {cap.label} {cap.tech && <span style={{ opacity: 0.6, fontSize: '9px' }}>({cap.tech})</span>}
                     </button>
                   );
                 })}
@@ -386,29 +442,6 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           >
             Hide Expert Filters
           </button>
-
-          <div style={{ height: '1px', background: 'var(--border-glass)', margin: '8px 16px' }} />
-
-          {/* Map Legend Helper */}
-          <div style={{ padding: '16px', background: isDark ? 'rgba(30, 41, 59, 0.4)' : 'rgba(0, 0, 0, 0.02)', borderRadius: '16px', margin: '8px' }}>
-            <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>
-              Map Legend
-            </span>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#9d174d', border: '1px solid white' }} />
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Major Hospitals (MCH/DH)</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f43f5e', border: '1px solid white' }} />
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Local Centres (PHC/CHC)</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white' }} />
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Small Sub Centres (HSC)</span>
-              </div>
-            </div>
-          </div>
         </>
       )}
     </div>
