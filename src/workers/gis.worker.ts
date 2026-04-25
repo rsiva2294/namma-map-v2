@@ -1436,7 +1436,7 @@ self.onmessage = async (e: MessageEvent) => {
       } else {
         // Search other layer-specific items
         // 3. Search TNEB Offices from Index
-        if (tnebSearchIndex) {
+        if (activeLayer === 'TNEB' && tnebSearchIndex) {
           tnebSearchIndex.forEach(section => {
             const [name, sectionCode, circleCode, lat, lng, district] = section;
             const nameScore = getScore(name, q);
@@ -1462,7 +1462,7 @@ self.onmessage = async (e: MessageEvent) => {
         }
 
       // 4. Search PDS Shops from Index
-      if (pdsIndex) {
+      if (activeLayer === 'PDS' && pdsIndex) {
         pdsIndex.forEach(shop => {
           const shopCode = shop[0].toString();
           const name = shop[1].toString();
@@ -1490,27 +1490,29 @@ self.onmessage = async (e: MessageEvent) => {
       }
 
       // 5. Search Constituencies
-      if (acGeoJson) {
-        acGeoJson.features.forEach((f: GisFeature) => {
-          const name = (f.properties.assembly_c as string || '');
-          const score = getScore(name, q);
-          if (score > 0) {
-            allScored.push({ ...f, score: score + 2, suggestionType: 'CONSTITUENCY' as const });
-          }
-        });
-      }
-      if (pcGeoJson) {
-        pcGeoJson.features.forEach((f: GisFeature) => {
-          const name = (f.properties.parliame_1 as string || '');
-          const score = getScore(name, q);
-          if (score > 0) {
-            allScored.push({ ...f, score: score + 1, suggestionType: 'CONSTITUENCY' as const });
-          }
-        });
+      if (activeLayer === 'CONSTITUENCY') {
+        if (acGeoJson) {
+          acGeoJson.features.forEach((f: GisFeature) => {
+            const name = (f.properties.assembly_c as string || '');
+            const score = getScore(name, q);
+            if (score > 0) {
+              allScored.push({ ...f, score: score + 2, suggestionType: 'CONSTITUENCY' as const });
+            }
+          });
+        }
+        if (pcGeoJson) {
+          pcGeoJson.features.forEach((f: GisFeature) => {
+            const name = (f.properties.parliame_1 as string || '');
+            const score = getScore(name, q);
+            if (score > 0) {
+              allScored.push({ ...f, score: score + 1, suggestionType: 'CONSTITUENCY' as const });
+            }
+          });
+        }
       }
 
       // 6. Search Police Stations from Index
-      if (policeSearchIndex) {
+      if (activeLayer === 'POLICE' && policeSearchIndex) {
         policeSearchIndex.forEach(station => {
           const [name, psCode, lat, lng, district] = station;
           const nameScore = getScore(name, q);
