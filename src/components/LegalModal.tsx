@@ -11,7 +11,7 @@ const LegalModal: React.FC = () => {
   if (!isOpen) return null;
 
   const tabs = [
-    { id: 'disclaimer', label: 'Disclaimer', icon: Scale },
+    { id: 'disclaimer', label: 'About & Disclaimer', icon: Scale },
     { id: 'privacy', label: 'Privacy', icon: Shield },
     { id: 'terms', label: 'Terms', icon: FileText }
   ];
@@ -134,7 +134,7 @@ const LegalModal: React.FC = () => {
           <div className="modal-header">
             <div className="modal-title-group">
               <Scale size={20} className="text-accent" />
-              <h3>Legal Information</h3>
+              <h3>About & Legal Information</h3>
             </div>
             <button className="modal-close" onClick={() => setLegalModal(false)}>
               <X size={20} />

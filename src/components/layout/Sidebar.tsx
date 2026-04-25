@@ -192,13 +192,9 @@ const Sidebar: React.FC = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             {isSidebarOpen && <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>}
           </button>
-          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label="Legal & Disclaimer">
+          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label="About & Legal">
             <Scale size={20} />
-            {isSidebarOpen && <span>Legal & Disclaimer</span>}
-          </button>
-          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label="About Developer">
-            <User size={20} />
-            {isSidebarOpen && <span>About Developer</span>}
+            {isSidebarOpen && <span>About & Legal</span>}
           </button>
         </div>
       </motion.div>
