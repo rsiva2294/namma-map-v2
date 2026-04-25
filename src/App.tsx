@@ -91,7 +91,7 @@ function App() {
       <Helmet>
         <title>{getPageTitle()}</title>
         <meta name="description" content={`Find ${activeLayer.toLowerCase()} services across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping.`} />
-        <link rel="canonical" href={`https://nammamap.in/${activeLayer.toLowerCase()}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
+        <link rel="canonical" href={`https://namma-map.web.app/${activeLayer.toLowerCase()}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
       </Helmet>
 
       <Routes>
