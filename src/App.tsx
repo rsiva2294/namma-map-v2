@@ -7,6 +7,7 @@ import Sidebar from './components/layout/Sidebar';
 import SearchBar from './components/layout/SearchBar';
 import ResultContainer from './components/layout/ResultContainer';
 import ReportModal from './components/ReportModal';
+import LegalModal from './components/LegalModal';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
 import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
@@ -113,6 +114,7 @@ function App() {
         <HealthAreaPrompt />
         <ResultContainer />
         <ReportModal />
+        <LegalModal />
 
         {activeLayer === 'HEALTH' && (
           <div className="health-filters-floating">

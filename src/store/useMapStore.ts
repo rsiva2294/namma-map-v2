@@ -65,6 +65,8 @@ interface MapState {
   healthFilters: HealthFilters;
   healthSummary: HealthSummary | null;
   isHealthLoading: boolean;
+  isLegalModalOpen: boolean;
+  legalTab: 'disclaimer' | 'privacy' | 'terms';
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -99,6 +101,7 @@ interface MapState {
   setPoliceResolution: (result: PoliceResolutionResult | null) => void;
   setSelectedPostalOffices: (offices: PostalOffice[] | null) => void;
   setSelectedPostalOffice: (office: PostalOffice | null) => void;
+  setLegalModal: (open: boolean, tab?: 'disclaimer' | 'privacy' | 'terms') => void;
   setHealthManifest: (manifest: HealthManifest | null) => void;
   setHealthPriorityData: (data: GisFeatureCollection<Point, HealthFacilityProperties> | null) => void;
   setHealthDistrictData: (data: GisFeatureCollection<Point, HealthFacilityProperties> | null) => void;
@@ -174,6 +177,8 @@ export const useMapStore = create<MapState>((set) => ({
   },
   healthSummary: null,
   isHealthLoading: false,
+  isLegalModalOpen: false,
+  legalTab: 'disclaimer',
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set((state) => {
@@ -302,6 +307,10 @@ export const useMapStore = create<MapState>((set) => ({
   }),
   setSelectedPostalOffices: (offices) => set({ selectedPostalOffices: offices }),
   setSelectedPostalOffice: (office) => set({ selectedPostalOffice: office }),
+  setLegalModal: (open, tab) => set((state) => ({ 
+    isLegalModalOpen: open, 
+    legalTab: tab || state.legalTab 
+  })),
   setHealthManifest: (manifest) => set({ healthManifest: manifest }),
   setHealthPriorityData: (data) => set({ healthPriorityData: data }),
   setHealthDistrictData: (data) => set({ healthDistrictData: data }),

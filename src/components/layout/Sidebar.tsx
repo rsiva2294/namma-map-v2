@@ -9,9 +9,10 @@ import {
   Sun,
   Moon,
   Settings,
-  HelpCircle,
   Landmark,
   Shield,
+  Scale,
+  User,
   type LucideIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,6 +29,7 @@ const Sidebar: React.FC = () => {
   const toggleTheme = useMapStore(state => state.toggleTheme);
   const constituencyType = useMapStore(state => state.constituencyType);
   const setConstituencyType = useMapStore(state => state.setConstituencyType);
+  const setLegalModal = useMapStore(state => state.setLegalModal);
 
   const menuItems: { id: ServiceLayer; label: string; icon: LucideIcon }[] = [
     { id: 'PINCODE', label: 'Post Offices', icon: MapPin },
@@ -91,7 +93,7 @@ const Sidebar: React.FC = () => {
               NammaMap
             </motion.span>
           </div>
-          {isSidebarOpen && <div className="sub-logo-text">Tamil Nadu GIS Portal</div>}
+          {isSidebarOpen && <div className="sub-logo-text">Independent Tamil Nadu GIS Portal</div>}
         </div>
 
         <div className="sidebar-section-label">Main Services</div>
@@ -190,12 +192,13 @@ const Sidebar: React.FC = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             {isSidebarOpen && <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>}
           </button>
-          <button className="sidebar-menu-item" aria-label="Settings">
-            <Settings size={20} />
-            {isSidebarOpen && <span>Settings</span>}
+          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label="Legal & Disclaimer">
+            <Scale size={20} />
+            {isSidebarOpen && <span>Legal & Disclaimer</span>}
           </button>
-          <button className="sidebar-menu-item" aria-label="Help">
-            <HelpCircle size={20} />
+          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label="About Developer">
+            <User size={20} />
+            {isSidebarOpen && <span>About Developer</span>}
           </button>
         </div>
       </motion.div>
