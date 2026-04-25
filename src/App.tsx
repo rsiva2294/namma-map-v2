@@ -13,7 +13,7 @@ import { useGisWorker } from './hooks/useGisWorker';
 import type { HealthScope } from './types/gis';
 import UpdateNotification from './components/UpdateNotification';
 
-const APP_VERSION = '2026-04-25T09:34:14.171Z';
+const APP_VERSION = '2026-04-25T09:39:07.255Z';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
