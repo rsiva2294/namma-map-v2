@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "update-version": "node -e \"const fs = require('fs'); const v = new Date().toISOString(); fs.writeFileSync('public/version.json', JSON.stringify({version: v})); const app = fs.readFileSync('src/App.tsx', 'utf8'); fs.writeFileSync('src/App.tsx', app.replace(/const APP_VERSION = '.*';/, 'const APP_VERSION = \\'' + v + '\\';'));\"",
+    "build": "npm run update-version && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

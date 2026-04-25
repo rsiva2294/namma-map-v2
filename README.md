@@ -18,9 +18,11 @@ This repository adheres to high-quality software engineering practices:
 *   [**User Guide**](./docs/user_guide.md): How-to for end users.
 
 ## ✨ Features
-*   **Context-Aware Engine**: Search and map interactions adapt to the active layer (PINCODE | PDS | TNEB).
-*   **Off-Thread Processing**: All spatial queries run in Web Workers to ensure 60fps UI performance.
-*   **Mobile-First Design**: Optimized for field use with glassmorphism and responsive layouts.
+*   **Context-Aware Engine**: Search and map interactions adapt to the active layer (PINCODE | PDS | TNEB | HEALTH).
+*   **Off-Thread Processing**: All spatial queries run in Web Workers with `RBush` indexing to ensure 60fps UI performance.
+*   **Persistent Caching**: Integrated IndexedDB caching for all GIS datasets, ensuring near-instant subsequent loads.
+*   **Mobile-Native UX**: Advanced responsive design with glassmorphism, dynamic viewport units (`dvh`), and bottom-sheet interactions.
+*   **Automated Updates**: Integrated version tracking prompts users to refresh when new updates are deployed.
 *   **Automated Geolocation**: Resolve jurisdictions with a single tap.
 
 ## 🛠️ Tech Stack

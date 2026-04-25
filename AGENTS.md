@@ -71,6 +71,8 @@ For any non-trivial change:
 - Prefer CSS classes and CSS variables over inline styles when changing presentation.
 - Reuse existing visual patterns before creating new ones.
 - Keep map interactions responsive and mobile-friendly.
+- Use `dvh` (dynamic viewport height) units for bottom sheets and floating panels to account for mobile browser toolbars.
+- Use `env(safe-area-inset-bottom)` for padding in bottom-anchored UI to support modern mobile device navigation bars.
 - For accessibility, prefer semantic buttons, labels, and ARIA only where it adds real value.
 - Do not add UI controls that have no behavior behind them unless the task explicitly calls for placeholders.
 
@@ -109,6 +111,12 @@ If a validation step cannot be run, say so explicitly in the final summary.
 - Keep docs concise and aligned with the codebase as it exists now.
 - If a change makes a doc inaccurate, update the smallest relevant doc instead of rewriting all docs.
 - Avoid creating new roadmap or review markdown files unless the user explicitly asks for them.
+
+## Deployment And Versioning Rules
+
+- The application uses an automated versioning system triggered by `npm run build`.
+- Do not manually edit `public/version.json` or the `APP_VERSION` constant in `src/App.tsx`; they are synchronized during the build process.
+- When adding a new feature that requires a specific data schema, ensure the build version is updated to force user-side cache invalidation.
 
 ## Editing Rules
 

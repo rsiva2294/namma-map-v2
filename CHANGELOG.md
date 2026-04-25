@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-04-25
+### Added
+- **Mobile Bottom Sheets**: Converted result cards, health summaries, and filters into native-feeling responsive bottom sheets.
+- **Update Notification System**: Automated versioning and background polling to prompt users for refresh on new deployments.
+- **Persistent Caching**: Implemented a 24-hour IndexedDB cache for all GIS datasets, significantly reducing subsequent load times.
+- **Spatial Indexing**: Integrated `RBush` for high-performance (O(log n)) marker and boundary lookups in the worker.
+- **Locating Overlay**: Full-screen visual feedback when using the "Locate Me" feature.
+
+### Changed
+- **Responsive Layout**: Sidebar converted to a drawer on mobile with a dimmed backdrop.
+- **Performance**: Implemented "Property Thinning" to reduce worker-to-main thread message payload sizes.
+- **Mobile Styling**: Switched to `dvh` units and added Safe Area support for notched devices and modern browsers.
+
+### Fixed
+- **Constituency Loading**: Resolved a regression where boundaries were not appearing due to redundant data parsing.
+- **Result Card Clipping**: Fixed an issue where long lists of details were cut off on mobile browsers with toolbars.
+
 ## [1.0.0-beta.2] - 2026-04-22
 ### Added
 - **Context-Aware Search**: The search bar now adapts suggestions based on the active layer (PINCODE, PDS, TNEB).

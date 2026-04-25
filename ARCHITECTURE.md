@@ -9,14 +9,16 @@ graph TD
     UI[React UI - App.tsx] <--> Store[Zustand Store]
     UI <--> Hook[useGisWorker Hook]
     Hook <--> Worker[Web Worker - gis.worker.ts]
-    Worker <--> Data[TopoJSON Datasets]
+    Worker <--> Cache[IndexedDB - Cache Service]
+    Cache <--> Data[Remote TopoJSON Datasets]
+    UI <--> Version[version.json Polling]
 ```
 
 ### 1. The GIS Worker (Background Engine)
 To prevent UI jank, all heavy lifting happens in `gis.worker.ts`.
-*   **Spatial Indexing**: Loads and parses TopoJSON files off-thread.
-*   **Resolution Engine**: Performs point-in-polygon checks using a ray-casting algorithm.
-*   **Lazy Loading**: Only fetches district-specific PDS data when the user selects a region.
+*   **Spatial Indexing**: Uses `RBush` for high-speed spatial searches (O(log n)) instead of linear scans.
+*   **Caching Layer**: Implements a 24-hour IndexedDB cache via `cacheService.ts`. All remote data fetches are persisted locally to ensure sub-second loads on subsequent visits.
+*   **Property Thinning**: Automatically strips unnecessary metadata from GeoJSON features before sending them to the main thread, reducing message serialization overhead.
 
 ### 2. State Management (The Source of Truth)
 We use **Zustand** for lightweight, performant state.
@@ -25,7 +27,7 @@ We use **Zustand** for lightweight, performant state.
 
 ### 3. Data Strategy (Efficiency)
 *   **TopoJSON Compression**: We use TopoJSON instead of raw GeoJSON, reducing file sizes by up to 80% through shared topology and quantization.
-*   **Global-to-Local**: We avoid loading the entire state's point data. Instead, we use a global boundary index to trigger targeted loading of local datasets.
+*   **Update Notification**: A polling system in `App.tsx` compares the local `APP_VERSION` with a server-side `version.json` every 5 minutes, prompting users to refresh when new builds are deployed.
 
 ## 🛠️ Data Layers
 

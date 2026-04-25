@@ -6,7 +6,7 @@ This document outlines the planned and proposed features for the evolution of Na
 Features that provide immediate value with minimal architectural changes.
 
 - [ ] **Deep Linking & Shareable URLs**: State-reflective URLs (e.g., `/tneb/section-code`) to allow users to share specific jurisdictions.
-- [ ] **Navigation Integration**: "Get Directions" button in Result Cards that opens Google Maps/Apple Maps.
+- [x] **Navigation Integration**: "Get Directions" button in Result Cards that opens Google Maps/Apple Maps.
 - [ ] **Bilingual Support (Tamil/English)**: Full localization of the UI and primary dataset labels.
 - [ ] **Enhanced Result Metadata**: Include phone numbers, operating hours, and official contact emails for offices.
 - [x] **Police Stations & Jurisdictions**: Complete boundary mapping and station point integration.
@@ -14,10 +14,11 @@ Features that provide immediate value with minimal architectural changes.
 ## 🛠️ Phase 2: User Experience & Engagement (Medium Term)
 Features that improve retention and ease of use.
 
-- [ ] **Saved Locations ("My Places")**: LocalStorage-based saving of favorite pincodes or offices for quick access.
+- [x] **Saved Locations ("My Places")**: LocalStorage-based saving of favorite pincodes or offices for quick access.
 - [x] **Global Universal Search**: A single search bar that resolves Districts, Pincodes, and Offices without requiring layer switching.
 - [x] **Assembly & Parliamentary Constituency Layers (AC/PC)**: Complete boundary mapping and toggle controls.
 - [x] **Crowdsourced Feedback**: "Report an Issue" button for data corrections (location shifts, name changes).
+- [x] **Mobile Responsiveness & Performance**: Premium bottom sheet interactions and IndexedDB data caching.
 - [ ] **Interactive Legend**: A visual guide to map markers, colors, and boundary types.
 
 ## 📡 Phase 3: Real-Time & Advanced GIS (Long Term)
@@ -36,4 +37,4 @@ Internal and research-oriented features.
 - [ ] **Automated Data Pipeline**: Scripts to automatically fetch and convert raw government CSV/JSON into optimized TopoJSON.
 
 ---
-*Last Updated: April 23, 2026 (Police Layer Integration)*
+*Last Updated: April 25, 2026 (Performance & Mobile Release)*
