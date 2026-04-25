@@ -87,7 +87,6 @@ let districtsGeoJson: GisFeatureCollection | null = null;
 let stateBoundaryGeoJson: GisFeatureCollection | null = null;
 let pdsIndex: [string, string, string, string, number, number][] | null = null;
 let pincodesGeoJson: GisFeatureCollection | null = null;
-let tnebGeoJson: GisFeatureCollection | null = null;
 let tnebOffices: GisFeatureCollection | null = null;
 let acGeoJson: GisFeatureCollection | null = null;
 let pcGeoJson: GisFeatureCollection | null = null;
@@ -98,6 +97,7 @@ const loadedPds: Map<string, GisFeatureCollection> = new Map();
 const loadedHealthDistricts: Map<string, GisFeatureCollection> = new Map();
 const loadedPostalDistricts: Map<string, PostalOffice[]> = new Map();
 const loadedPoliceDistricts: Map<string, { boundaries: GisFeatureCollection, stations: GisFeatureCollection }> = new Map();
+const loadedTnebDistricts: Map<string, { boundaries: GisFeatureCollection, offices: GisFeatureCollection }> = new Map();
 const healthDistrictIndexes: Map<string, RBush<SpatialItem>> = new Map();
 let healthManifest: HealthManifest | null = null;
 let healthPriorityGeoJson: GisFeatureCollection | null = null;
@@ -568,31 +568,55 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
-    case 'LOAD_TNEB':
+    case 'LOAD_TNEB_STATEWIDE':
       try {
-        if (!tnebGeoJson) {
-          const [dataBound, dataOff] = await Promise.all([
-            fetchWithRetry('/data/tneb_boundaries.topojson'),
-            fetchWithRetry('/data/tneb_offices.geojson')
-          ]);
-          const objectName = Object.keys(dataBound.objects)[0];
-          const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
-          tnebGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
-          tnebOffices = dataOff as GisFeatureCollection;
-          
-          // Indexing with safety filters
-          const items: SpatialItem[] = tnebGeoJson!.features
-            .filter(f => f.geometry && f.geometry.coordinates)
-            .map((f: GisFeature) => ({
-              ...getBBox(f.geometry),
-              feature: f
-            }));
-          tnebIndex.load(items);
+        if (!tnebOffices) {
+          tnebOffices = await fetchWithRetry('/data/tneb_offices.geojson');
         }
-        self.postMessage({ type: 'TNEB_LOADED' });
+        self.postMessage({ type: 'TNEB_STATEWIDE_LOADED' });
       } catch (err) {
-        console.error('[Worker] Error loading TNEB:', err);
-        self.postMessage({ type: 'ERROR', payload: 'Failed to load TNEB data' });
+        console.error('[Worker] Error loading TNEB search index:', err);
+      }
+      break;
+
+    case 'LOAD_TNEB_DISTRICT':
+      try {
+        const { district } = payload;
+        if (!district) return;
+        
+        if (!loadedTnebDistricts.has(district)) {
+          const [dataBound, dataOff] = await Promise.all([
+            fetchWithRetry(`/data/tneb_by_district/${district}_boundaries.json`),
+            fetchWithRetry(`/data/tneb_by_district/${district}_offices.json`)
+          ]);
+          
+          const boundaries = dataBound as GisFeatureCollection;
+          const offices = dataOff as GisFeatureCollection;
+          
+          loadedTnebDistricts.set(district, { boundaries, offices });
+          
+          // Index boundaries for spatial resolution
+          const items: SpatialItem[] = boundaries.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f }));
+          tnebIndex.load(items);
+          
+          // Merge offices into the statewide collection if not already there (for metadata fallbacks)
+          if (!tnebOffices) {
+            tnebOffices = { type: 'FeatureCollection', features: [] };
+          }
+          offices.features.forEach((f: GisFeature) => {
+            if (!tnebOffices!.features.some(o => o.properties.section_co === f.properties.section_co && o.properties.circle_cod === f.properties.circle_cod)) {
+              tnebOffices!.features.push(f);
+            }
+          });
+        }
+        
+        const { boundaries, offices } = loadedTnebDistricts.get(district)!;
+        self.postMessage({ type: 'TNEB_DISTRICT_LOADED', payload: { district, boundaries, offices } });
+      } catch (err) {
+        console.error('[Worker] Error loading TNEB district:', err);
+        self.postMessage({ type: 'ERROR', payload: `Failed to load TNEB data for ${payload.district}` });
       }
       break;
 
@@ -601,6 +625,41 @@ self.onmessage = async (e: MessageEvent) => {
       
       let found: GisFeature | null = null;
       if (layer === 'TNEB') {
+        if (tnebIndex.all().length === 0 || !findFeatureAt([lng, lat], tnebIndex)) {
+          const distFeature = findFeatureAt([lng, lat], districtsIndex);
+          const districtName = (distFeature?.properties.district_n || distFeature?.properties.district)?.toString();
+          
+          if (districtName && !loadedTnebDistricts.has(districtName)) {
+            try {
+              const [dataBound, dataOff] = await Promise.all([
+                fetchWithRetry(`/data/tneb_by_district/${districtName}_boundaries.json`),
+                fetchWithRetry(`/data/tneb_by_district/${districtName}_offices.json`)
+              ]);
+              
+              const boundaries = dataBound as GisFeatureCollection;
+              const offices = dataOff as GisFeatureCollection;
+              
+              loadedTnebDistricts.set(districtName, { boundaries, offices });
+              
+              const items: SpatialItem[] = boundaries.features
+                .filter(f => f.geometry && f.geometry.coordinates)
+                .map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f }));
+              tnebIndex.load(items);
+              
+              if (!tnebOffices) {
+                tnebOffices = { type: 'FeatureCollection', features: [] };
+              }
+              offices.features.forEach((f: GisFeature) => {
+                if (!tnebOffices!.features.some(o => o.properties.section_co === f.properties.section_co && o.properties.circle_cod === f.properties.circle_cod)) {
+                  tnebOffices!.features.push(f);
+                }
+              });
+            } catch (err) {
+              console.error('[Worker] Error lazy loading TNEB district:', err);
+            }
+          }
+        }
+
         found = findFeatureAt([lng, lat], tnebIndex);
         
         if (found) {

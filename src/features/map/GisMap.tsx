@@ -103,7 +103,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
   const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, setActiveDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading } = useMapStore();
 
   useEffect(() => {
@@ -111,7 +111,7 @@ const GisMap: React.FC = () => {
       loadDistricts();
       loadStateBoundary();
       loadPincodes();
-      loadTneb();
+      loadTnebStatewide();
       loadPdsIndex();
       loadConstituencies();
       loadPoliceData();
@@ -119,7 +119,14 @@ const GisMap: React.FC = () => {
       loadHealthPriority();
       loadHealthSearchIndex();
     }
-  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthSearchIndex]);
+  }, [isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthSearchIndex]);
+
+  // Handle TNEB auto-load when active district is set and layer is TNEB
+  useEffect(() => {
+    if (activeLayer === 'TNEB' && activeDistrict) {
+      loadTnebDistrict(activeDistrict);
+    }
+  }, [activeLayer, activeDistrict, loadTnebDistrict]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {

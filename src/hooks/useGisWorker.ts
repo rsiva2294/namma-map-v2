@@ -45,7 +45,10 @@ export const useGisWorker = () => {
   const loadStateBoundary = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_STATE_BOUNDARY' }), []);
   const loadPdsIndex = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PDS_INDEX' }), []);
   const loadPincodes = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' }), []);
-  const loadTneb = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB' }), []);
+  const loadTnebStatewide = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB_STATEWIDE' }), []);
+  const loadTnebDistrict = useCallback((district: string) => {
+    workerRef.current?.postMessage({ type: 'LOAD_TNEB_DISTRICT', payload: { district } });
+  }, []);
   const loadConstituencies = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
   const loadPoliceData = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POLICE' }), []);
   const loadPostalDistrict = useCallback((district: string) => {
@@ -158,6 +161,12 @@ export const useGisWorker = () => {
             }
           }
           setIsResolving(false);
+          break;
+        case 'TNEB_STATEWIDE_LOADED':
+          // statewide search index ready
+          break;
+        case 'TNEB_DISTRICT_LOADED':
+          setActiveDistrict(payload.district);
           break;
         case 'PDS_LOADED':
           setPdsData(payload.data);
@@ -363,7 +372,8 @@ export const useGisWorker = () => {
     loadStateBoundary, 
     loadPdsIndex, 
     loadPincodes, 
-    loadTneb, 
+    loadTnebStatewide,
+    loadTnebDistrict, 
     loadPds, 
     loadConstituencies, 
     loadPoliceData, 
