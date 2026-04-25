@@ -100,7 +100,12 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
       className="glass result-card health-summary-card"
       style={{ padding: '24px' }}
     >
-      <div className="flex-col gap-4">
+      <div className="flex-col gap-4" style={{ 
+        overflowY: 'auto', 
+        flex: 1, 
+        minHeight: 0,
+        padding: isMobile ? '0 4px' : '0' // Add slight padding for scrollbar
+      }}>
         <div className="flex items-start justify-between" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
           <div className="flex flex-col">
             <div className="flex items-center gap-2" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>

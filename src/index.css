@@ -606,9 +606,9 @@ html,
     right: 0;
     width: 100%;
     border-radius: 24px 24px 0 0;
-    max-height: 70vh;
+    max-height: 85vh;
     z-index: var(--z-bottom-sheet);
-    box-shadow: 0 -10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
   }
   
   /* Add a drag handle visual for bottom sheets */
@@ -632,6 +632,7 @@ html,
   justify-content: space-between;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border-glass);
+  flex-shrink: 0;
 }
 
 .result-card-title-group {
@@ -679,6 +680,9 @@ html,
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0; /* Important for flex-overflow */
 }
 
 .result-card-row {
@@ -753,17 +757,18 @@ html,
 
 .result-card-action-button {
   width: 100%;
-  color: #ffffff;
-  border: none;
-  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-weight: bold;
-  font-size: 14px;
+  gap: 10px;
+  padding: 16px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
   cursor: pointer;
-  transition: filter 0.2s;
+  transition: all 0.2s;
+  flex-shrink: 0;
   margin-top: auto;
 }
 
