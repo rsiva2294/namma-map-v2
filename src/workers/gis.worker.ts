@@ -958,7 +958,52 @@ self.onmessage = async (e: MessageEvent) => {
         let features: GisFeature[] = [];
         let activeDistrictData: GisFeatureCollection | null = null;
 
+        // Optimization: If no filters are active, use the manifest for summary
+        const noFiltersActive = filters.facilityTypes.length === 0 && 
+                              filters.locationType === 'All' && 
+                              Object.values(filters).every(v => v === null || v === false || Array.isArray(v));
+
+        if (noFiltersActive && healthManifest) {
+          if (scope === 'STATE') {
+            const stateSummary = {
+              name: 'Tamil Nadu (Statewide)',
+              scope: 'STATE' as const,
+              total: healthManifest.total_facilities,
+              countsByType: healthManifest.statewide.by_type,
+              countsByCapability: healthManifest.statewide.capabilities,
+              activeFilters: [],
+              district: null,
+              pincode: null
+            };
+            self.postMessage({ type: 'HEALTH_FILTERED', payload: { features: [], summary: stateSummary, scope: 'STATE' } });
+            return;
+          } else if (scope === 'DISTRICT' && district) {
+            const distData = healthManifest.districts.find(d => 
+              d.district.toLowerCase().replace(/\s+/g, '') === district.toLowerCase().replace(/\s+/g, '')
+            );
+            if (distData) {
+              const distSummary = {
+                name: distData.district,
+                scope: 'DISTRICT' as const,
+                total: distData.total,
+                countsByType: distData.by_type,
+                countsByCapability: distData.capabilities,
+                activeFilters: [],
+                district: distData.district,
+                pincode: null
+              };
+              self.postMessage({ type: 'HEALTH_FILTERED', payload: { features: [], summary: distSummary, scope: 'DISTRICT' } });
+              return;
+            }
+          }
+        }
+
+        // If filters are active, we proceed with actual data filtering
         if (scope === 'STATE') {
+          if (!healthPriorityGeoJson) {
+             // Lazy load priority data if needed for filtering
+             healthPriorityGeoJson = await fetchWithRetry('/data/health_statewide_priority.geojson');
+          }
           features = healthPriorityGeoJson?.features || [];
         } else if (scope === 'DISTRICT' || scope === 'PINCODE') {
           if (!district) {
@@ -978,15 +1023,10 @@ self.onmessage = async (e: MessageEvent) => {
             activeDistrictData = await fetchWithRetry(`/data/health_by_district/${distManifest.file_name}`);
             if (activeDistrictData) {
               loadedHealthDistricts.set(district, activeDistrictData);
-              
-              // Also index it for spatial lookups
               const index = new RBush<SpatialItem>();
               const items: SpatialItem[] = activeDistrictData.features
                 .filter(f => f.geometry && f.geometry.coordinates)
-                .map((f: GisFeature) => ({
-                  ...getBBox(f.geometry),
-                  feature: f
-                }));
+                .map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f }));
               index.load(items);
               healthDistrictIndexes.set(district, index);
             }
@@ -1006,21 +1046,20 @@ self.onmessage = async (e: MessageEvent) => {
               (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincode.toString()
             );
             if (pinFeature) {
-            const distIndex = healthDistrictIndexes.get(district);
-            if (distIndex) {
-              const bbox = getBBox(pinFeature.geometry);
-              const candidates = distIndex.search(bbox);
-              
-              features = candidates.filter(item => {
-                const pt = item.feature.geometry.coordinates as [number, number];
-                if (pinFeature!.geometry.type === 'Polygon') {
-                  return isPointInPolygon(pt, (pinFeature!.geometry as Polygon).coordinates);
-                } else if (pinFeature!.geometry.type === 'MultiPolygon') {
-                  return (pinFeature!.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
-                }
-                return false;
-              }).map(item => item.feature);
-            }
+              const distIndex = healthDistrictIndexes.get(district);
+              if (distIndex) {
+                const bbox = getBBox(pinFeature.geometry);
+                const candidates = distIndex.search(bbox);
+                features = candidates.filter(item => {
+                  const pt = item.feature.geometry.coordinates as [number, number];
+                  if (pinFeature!.geometry.type === 'Polygon') {
+                    return isPointInPolygon(pt, (pinFeature!.geometry as Polygon).coordinates);
+                  } else if (pinFeature!.geometry.type === 'MultiPolygon') {
+                    return (pinFeature!.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
+                  }
+                  return false;
+                }).map(item => item.feature);
+              }
             }
           }
         }
@@ -1031,20 +1070,10 @@ self.onmessage = async (e: MessageEvent) => {
         // Apply Filters
         const filtered = features.filter(f => {
           const p = f.properties;
-          
-          // 1. Mandatory Filters (AND)
-          
-          // Facility Type
           if (filters.facilityTypes.length > 0 && !filters.facilityTypes.includes(p.facility_t)) return false;
-          
-          // Location Type
           if (filters.locationType === 'Urban' && p.location_t !== 'Urban') return false;
           if (filters.locationType === 'Rural' && p.location_t !== 'Rural') return false;
 
-          // 2. Capability Filters (OR)
-          // If no capability filters are active, we don't filter by them (passes through)
-          // If any are active, the facility must match AT LEAST ONE of the active filters
-          
           const capabilityCriteria: { key: string; check: (p: HealthFacilityProperties) => boolean }[] = [
             { key: 'isHwc', check: (p) => isTrue(p.hwc) },
             { key: 'hasDelivery', check: (p) => isTrue(p.delivery_p) },
@@ -1066,22 +1095,18 @@ self.onmessage = async (e: MessageEvent) => {
           ];
 
           const activeCriteria = capabilityCriteria.filter(c => filters[c.key as keyof typeof filters] === true);
-
           if (activeCriteria.length > 0) {
             const matchesAny = activeCriteria.some(c => c.check(p as HealthFacilityProperties));
             if (!matchesAny) return false;
           }
-
           return true;
         });
 
         // Calculate Summary
         const countsByType: Record<string, number> = {};
         const countsByCapability: Record<string, number> = {
-          hwc: 0, delivery: 0, fru: 0, t24x7: 0,
-          blood_bank: 0, blood_stor: 0,
-          sncu: 0, nbsu: 0, deic: 0,
-          ct: 0, mri: 0, dialysis: 0, cbnaat: 0, tele: 0,
+          hwc: 0, delivery: 0, fru: 0, t24x7: 0, blood_bank: 0, blood_stor: 0,
+          sncu: 0, nbsu: 0, deic: 0, ct: 0, mri: 0, dialysis: 0, cbnaat: 0, tele: 0,
           stemi_hub: 0, stemi_spoke: 0, cath_lab: 0
         };
 
@@ -1089,7 +1114,6 @@ self.onmessage = async (e: MessageEvent) => {
           const p = f.properties;
           const t = String(p.facility_t || 'Unknown');
           countsByType[t] = (countsByType[t] || 0) + 1;
-
           if (isTrue(p.hwc)) countsByCapability.hwc++;
           if (isTrue(p.delivery_p)) countsByCapability.delivery++;
           if (p.fru) countsByCapability.fru++;
@@ -1122,26 +1146,10 @@ self.onmessage = async (e: MessageEvent) => {
           pincode
         };
 
-        // Thinned Payload for Map
-        const thinnedFeatures = filtered.map((f, idx) => ({
-          type: 'Feature',
-          id: f.id || idx,
-          geometry: f.geometry,
-          properties: {
-            ogc_fid: f.properties.ogc_fid,
-            nin_number: f.properties.nin_number || f.properties.nin,
-            facility_n: f.properties.facility_n || f.properties.name,
-            facility_t: f.properties.facility_t || f.properties.type,
-            district_n: f.properties.district_n || f.properties.district,
-            hwc: f.properties.hwc,
-            delivery_p: f.properties.delivery_p
-          }
-        }));
-
         self.postMessage({ 
           type: 'HEALTH_FILTERED', 
           payload: { 
-            features: thinnedFeatures, 
+            features: filtered, 
             summary, 
             scope 
           } 

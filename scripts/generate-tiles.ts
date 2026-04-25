@@ -1,17 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import geojsonvt from 'geojson-vt';
+// @ts-ignore
 import vtpbf from 'vt-pbf';
+import * as topojson from 'topojson-client';
 
 const DATA_DIR = path.join(process.cwd(), 'public/data');
 const TILE_DIR = path.join(process.cwd(), 'public/tiles');
 
-async function generateTiles(layerName: string, sourceFile: string) {
-  console.log(`Generating binary tiles for ${layerName}...`);
+async function generateTiles(layerName: string, geojson: any) {
+  console.log(`Generating binary tiles for ${layerName} (${geojson.features.length} features)...`);
   
-  const rawData = fs.readFileSync(path.join(DATA_DIR, sourceFile), 'utf8');
-  const geojson = JSON.parse(rawData);
-
   const tileIndex = geojsonvt(geojson, {
     maxZoom: 14,
     indexMaxZoom: 5,
@@ -23,35 +22,55 @@ async function generateTiles(layerName: string, sourceFile: string) {
   const layerPath = path.join(TILE_DIR, layerName);
   if (!fs.existsSync(layerPath)) fs.mkdirSync(layerPath, { recursive: true });
 
-  // For the proof of concept, we'll generate tiles for Madurai area at zoom 12-14
-  // Madurai is around lat 9.9, lng 78.1
-  // We'll generate a small box to verify
-  
-  console.log('Writing binary .pbf tiles...');
-  
-  // Madurai z12 tile coords: x=2936, y=1878 approx
-  for (let z = 5; z <= 14; z++) {
-    // Generate a few tiles per zoom level for testing
-    // In production, we'd iterate over the whole index
-    const tiles = (tileIndex as any).tileCoords; // Not easily accessible in JS
-    
-    // We'll just generate the one tile for Madurai at each level to verify
-    const lon = 78.1;
-    const lat = 9.9;
-    const x = Math.floor((lon + 180) / 360 * Math.pow(2, z));
-    const y = Math.floor((1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, z));
+  const zoomLevels = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  let totalTiles = 0;
 
-    const tile = tileIndex.getTile(z, x, y);
-    if (tile) {
-      const pbf = vtpbf.fromGeojsonVt({ [layerName]: tile });
-      const zPath = path.join(layerPath, z.toString());
-      const xPath = path.join(zPath, x.toString());
-      if (!fs.existsSync(xPath)) fs.mkdirSync(xPath, { recursive: true });
-      fs.writeFileSync(path.join(xPath, `${y}.pbf`), Buffer.from(pbf));
+  for (const z of zoomLevels) {
+    // Tamil Nadu bounds: approx 76.2 to 80.3 E, 8.1 to 13.5 N
+    const minLon = 76.0, maxLon = 80.5, minLat = 8.0, maxLat = 14.0;
+    
+    const minX = Math.floor((minLon + 180) / 360 * Math.pow(2, z));
+    const maxX = Math.floor((maxLon + 180) / 360 * Math.pow(2, z));
+    const minY = Math.floor((1 - Math.log(Math.tan(maxLat * Math.PI / 180) + 1 / Math.cos(maxLat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, z));
+    const maxY = Math.floor((1 - Math.log(Math.tan(minLat * Math.PI / 180) + 1 / Math.cos(minLat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, z));
+
+    for (let x = minX; x <= maxX; x++) {
+      for (let y = minY; y <= maxY; y++) {
+        const tile = tileIndex.getTile(z, x, y);
+        if (tile && tile.features.length > 0) {
+          const pbf = vtpbf.fromGeojsonVt({ [layerName]: tile });
+          const zPath = path.join(layerPath, z.toString());
+          const xPath = path.join(zPath, x.toString());
+          if (!fs.existsSync(xPath)) fs.mkdirSync(xPath, { recursive: true });
+          fs.writeFileSync(path.join(xPath, `${y}.pbf`), Buffer.from(pbf));
+          totalTiles++;
+        }
+      }
     }
   }
 
-  console.log(`Done! Binary tiles ready in public/tiles/${layerName}`);
+  console.log(`Done! Generated ${totalTiles} binary tiles for ${layerName} in public/tiles/${layerName}`);
 }
 
-generateTiles('health', 'health_statewide_priority.geojson').catch(console.error);
+async function run() {
+  // 1. TNEB Boundaries
+  const tnebTopo = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tneb_boundaries.topojson'), 'utf8'));
+  const tnebGeo = topojson.feature(tnebTopo, tnebTopo.objects[Object.keys(tnebTopo.objects)[0]]) as any;
+  await generateTiles('tneb', tnebGeo);
+
+  // 2. PDS Shops (Aggregated)
+  console.log('Aggregating PDS shops...');
+  const pdsDir = path.join(DATA_DIR, 'pds');
+  const pdsFiles = fs.readdirSync(pdsDir).filter(f => f.endsWith('.json'));
+  const allPdsFeatures: any[] = [];
+  
+  for (const file of pdsFiles) {
+    const data = JSON.parse(fs.readFileSync(path.join(pdsDir, file), 'utf8'));
+    allPdsFeatures.push(...data.features);
+  }
+  
+  const pdsGeo = { type: 'FeatureCollection', features: allPdsFeatures };
+  await generateTiles('pds', pdsGeo);
+}
+
+run().catch(console.error);

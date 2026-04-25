@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, CircleMarker, Tooltip, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, Tooltip, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
@@ -83,8 +83,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, loadHealthManifest, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, selectedHealthFacility, isHealthLoading } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, isHealthLoading, healthScope } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -145,14 +145,23 @@ const GisMap: React.FC = () => {
   }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe, setIsLocating]);
 
   // Auto-trigger PDS load on layer switch
+  // PDS data is now handled via Vector Tiles
+
+  // Auto-trigger Health load
   useEffect(() => {
-    if (activeLayer === 'PDS' && searchResult) {
-      const district = searchResult.properties.district || searchResult.properties.DISTRICT || searchResult.properties.DISTRICT_NAME || searchResult.properties.NAME || searchResult.properties.district_n;
-      if (district) {
-        loadPds(district as string, searchResult.geometry);
+    if (activeLayer === 'HEALTH' && isReady) {
+      if (healthScope === 'STATE') {
+        loadHealthPriority();
+      } else if (healthScope === 'DISTRICT' && activeDistrict) {
+        const distManifest = useMapStore.getState().healthManifest?.districts.find(d => 
+          d.district.toLowerCase().replace(/\s+/g, '') === activeDistrict.toLowerCase().replace(/\s+/g, '')
+        );
+        if (distManifest) {
+          loadHealthDistrict(distManifest.district, distManifest.file_name);
+        }
       }
     }
-  }, [activeLayer, searchResult, loadPds]);
+  }, [activeLayer, isReady, healthScope, activeDistrict, loadHealthPriority, loadHealthDistrict]);
 
    const isAreaSelected = !!searchResult || !!jurisdictionGeometry;
 
@@ -243,7 +252,20 @@ const GisMap: React.FC = () => {
     iconAnchor: [12, 12]
   });
 
-  // healthPriorityIcon was removed as it is now handled by vector tile styles
+  const healthPriorityIcon = (type: string) => {
+    let color = '#be123c';
+    let size = 12;
+    if (type.includes('District')) { color = '#9d174d'; size = 16; }
+    else if (type.includes('Medical College')) { color = '#881337'; size = 20; }
+    else if (type.includes('Sub-Centre')) { color = '#f43f5e'; size = 8; }
+    
+    return L.divIcon({
+      html: `<div style="background: ${color}; width: ${size}px; height: ${size}px; border-radius: 50%; border: 1.5px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>`,
+      className: 'health-priority-icon',
+      iconSize: [size, size],
+      iconAnchor: [size/2, size/2]
+    });
+  };
 
   const selectedHealthIcon = L.divIcon({
     html: `
@@ -373,6 +395,29 @@ const GisMap: React.FC = () => {
         </Marker>
       ))}
 
+      {activeLayer === 'TNEB' && (
+        <VectorTileLayer 
+          url="/tiles/tneb/{z}/{x}/{y}.pbf"
+          style={{
+            vectorTileLayerStyles: {
+              tneb: (_properties: any) => ({
+                weight: 1.5,
+                color: '#f59e0b',
+                opacity: isAreaSelected ? 0.2 : 0.5,
+                fillColor: '#f59e0b',
+                fillOpacity: isAreaSelected ? 0.02 : 0.1,
+                fill: true
+              })
+            }
+          }}
+          onClick={(e: any) => {
+            if (e.latlng) {
+              resolveLocation(e.latlng.lat, e.latlng.lng, 'TNEB');
+            }
+          }}
+        />
+      )}
+
       {activeLayer === 'TNEB' && jurisdictionGeometry && (
         <>
           <GeoJSON 
@@ -451,36 +496,43 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {activeLayer === 'PDS' && pdsData && pdsData.features.map((f: GisFeature, i: number) => {
-        const [lng, lat] = f.geometry.coordinates as [number, number];
-        return (
-          <CircleMarker
-            key={`pds-${activeDistrict}-${i}`}
-            center={[lat, lng]}
-            radius={6}
-            pathOptions={{
-              fillColor: '#ef4444',
-              fillOpacity: 0.9,
-              color: 'white',
-              weight: 1.5,
-              bubblingMouseEvents: false
-            }}
-            eventHandlers={{
-              click: () => {
-                setSelectedPdsShop(f as PdsShop);
-              }
-            }}
-          >
-            <Tooltip direction="top" offset={[0, -5]} opacity={1}>
-              <div style={{ padding: '5px' }}>
-                <strong>{f.properties.name || 'PDS Shop'}</strong>
-                <br />
-                <small>{f.properties.village || 'Tamil Nadu'}</small>
-              </div>
-            </Tooltip>
-          </CircleMarker>
-        );
-      })}
+      {activeLayer === 'PDS' && (
+        <VectorTileLayer 
+          url="/tiles/pds/{z}/{x}/{y}.pbf"
+          style={{
+            vectorTileLayerStyles: {
+              pds: (_properties: any) => ({
+                weight: 1.5,
+                color: 'white',
+                opacity: 0.9,
+                fillColor: '#ef4444',
+                fillOpacity: 0.9,
+                radius: 6,
+                fill: true
+              })
+            }
+          }}
+          onClick={(e: any) => {
+            if (e.layer && e.layer.properties) {
+              const props = e.layer.properties;
+              // Mock a feature object for setSelectedPdsShop
+              const mockFeature: PdsShop = {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [e.latlng.lng, e.latlng.lat]
+                },
+                properties: {
+                  ...props,
+                  name: props.name || props.shop_name,
+                  shop_code: props.shop_code || props.code
+                }
+              } as PdsShop;
+              setSelectedPdsShop(mockFeature);
+            }
+          }}
+        />
+      )}
 
       {activeLayer === 'PDS' && selectedPdsShop && (
         <Marker
@@ -518,34 +570,45 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {activeLayer === 'HEALTH' && (
-        <VectorTileLayer 
-          url="/tiles/health/{z}/{x}/{y}.pbf"
-          style={{
-            vectorTileLayerStyles: {
-              health: (_properties: any) => ({
-                weight: 2,
-                color: 'var(--accent)',
-                opacity: 0.8,
-                fillColor: 'var(--accent)',
-                fillOpacity: 0.2,
-                radius: 6,
-                fill: true
-              })
-            }
-          }}
-          onClick={(e: any) => {
-            if (e.layer && e.layer.properties) {
-              const props = e.layer.properties;
-              const dist = (props.district || props.district_n)?.toString() || activeDistrict;
-              resolveHealthFacility(
-                (props.ogc_fid || 0) as string | number, 
-                props.nin_number as string | number | undefined, 
-                dist
-              );
-            }
-          }}
-        />
+      {activeLayer === 'HEALTH' && (healthScope === 'STATE' ? healthPriorityData : healthDistrictData) && (
+        <MarkerClusterGroup
+          chunkedLoading
+          maxClusterRadius={40}
+          spiderfyOnMaxZoom={true}
+          showCoverageOnHover={false}
+        >
+          {(healthScope === 'STATE' ? healthPriorityData : healthDistrictData)!.features.map((f, i) => {
+             const isSelected = selectedHealthFacility?.properties.ogc_fid === f.properties.ogc_fid;
+             if (isSelected) return null;
+
+             return (
+               <Marker
+                 key={`health-${f.properties.ogc_fid}-${i}`}
+                 position={[f.geometry.coordinates[1], f.geometry.coordinates[0]]}
+                 icon={healthPriorityIcon(f.properties.facility_t || '')}
+                 eventHandlers={{
+                   click: (e) => {
+                     L.DomEvent.stopPropagation(e);
+                     const dist = (f.properties.district || f.properties.district_n)?.toString() || activeDistrict;
+                     resolveHealthFacility(
+                        (f.properties.ogc_fid || 0) as string | number, 
+                        f.properties.nin_number as string | number | undefined, 
+                        dist || null
+                      );
+                   }
+                 }}
+               >
+                 <Tooltip direction="top" offset={[0, -5]} opacity={1}>
+                    <div style={{ padding: '4px' }}>
+                      <strong>{f.properties.facility_n || f.properties.NAME}</strong>
+                      <br/>
+                      <small>{f.properties.facility_t}</small>
+                    </div>
+                 </Tooltip>
+               </Marker>
+             );
+          })}
+        </MarkerClusterGroup>
       )}
 
       {activeLayer === 'HEALTH' && selectedHealthFacility && (
