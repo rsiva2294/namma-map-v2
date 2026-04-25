@@ -303,6 +303,7 @@ export const useGisWorker = () => {
       const [lng, lat] = item.geometry.type === 'Point' 
         ? (item.geometry.coordinates as [number, number])
         : (item.properties.office_location as [number, number] || [78.6569, 11.1271]); // Fallback
+      const district = item.properties.district as string;
       if (district) {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
