@@ -1469,7 +1469,7 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
       try {
-        const data = await fetchWithRetry(`/data/pds/${pdsFileName}.json`) as GisFeatureCollection;
+        const data = await fetchWithRetry(`/data/pds_by_district/${pdsFileName}.json`) as GisFeatureCollection;
         
         // Build R-tree for this district
         const districtIndex = new RBush<SpatialItem>();

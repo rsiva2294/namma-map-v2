@@ -265,7 +265,7 @@ The app consumes the following static datasets from `public/data`.
 - `tn_police_stations.geojson`: 1315 police station points
 - `pds_manifest.json`: 38 canonical PDS district identities, 54 aliases
 - `pds_index.json`: 34,746 flattened PDS search rows
-- `public/data/pds/*.json`: 38 district-specific point datasets
+- `public/data/pds_by_district/*.json`: 38 district-specific point datasets
 - `police_crosswalk.json`: optional file, not present in this workspace
 
 ### 7.1 District boundaries
@@ -387,7 +387,7 @@ Schema per entry:
 
 - `id`: canonical internal district id, lowercase slug
 - `display_name`: user-facing district name
-- `pds_file`: basename of JSON file in `public/data/pds`
+- `pds_file`: basename of JSON file in `public/data/pds_by_district`
 - `aliases`: accepted district-name variants
 
 Purpose:
@@ -448,7 +448,7 @@ Returned suggestion payload shape for PDS search is synthetic, not raw dataset s
 
 ### 7.6 District-specific PDS shop datasets
 
-Files: `public/data/pds/*.json`
+Files: `public/data/pds_by_district/*.json`
 
 Loaded by:
 
@@ -473,7 +473,7 @@ How PDS works in the app:
 1. The app resolves a pincode polygon first.
 2. It extracts a district name from the selected polygon.
 3. The worker maps that district through the manifest.
-4. The worker loads `public/data/pds/<pds_file>.json`.
+4. The worker loads `public/data/pds_by_district/<pds_file>.json`.
 5. If a boundary geometry was supplied, the worker filters only shops that fall inside the selected polygon.
 6. Those points are rendered as `CircleMarker`s.
 7. Clicking a point sets `selectedPdsShop` and opens the detail card.

@@ -3,7 +3,7 @@ const path = require('path');
 
 // Resolve paths relative to the script location
 const MANIFEST_PATH = path.join(__dirname, '../public/data/pds_manifest.json');
-const PDS_DATA_DIR = path.join(__dirname, '../public/data/pds');
+const PDS_DATA_DIR = path.join(__dirname, '../public/data/pds_by_district');
 
 function audit() {
   console.log('--- PDS District Registry Audit ---');

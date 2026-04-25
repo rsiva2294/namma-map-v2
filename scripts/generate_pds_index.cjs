@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const pdsDir = './public/data/pds';
+const pdsDir = './public/data/pds_by_district';
 const files = fs.readdirSync(pdsDir).filter(f => f.endsWith('.json'));
 
 const index = [];
