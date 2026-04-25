@@ -129,7 +129,7 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<a
           url,
           data,
           timestamp: Date.now(),
-          expiresAt: Date.now() + (24 * 60 * 60 * 1000) // 24h
+          expiresAt: Date.now() + (7 * 24 * 60 * 60 * 1000) // 7 days
         });
       } catch (e) {
         console.warn('[Worker] Cache update failed', e);
@@ -528,6 +528,21 @@ self.onmessage = async (e: MessageEvent) => {
   const { type, payload } = e.data;
 
   switch (type) {
+    case 'SET_VERSION':
+      try {
+        const { version } = payload;
+        const db = await getCacheDB();
+        const stored = await db.get(CACHE_STORE, 'app-version');
+        if (stored && stored.data !== version) {
+          await db.clear(CACHE_STORE);
+          console.log('[Worker] App version changed. Cache cleared.');
+        }
+        await db.put(CACHE_STORE, { url: 'app-version', data: version, expiresAt: Infinity });
+      } catch (e) {
+        console.warn('[Worker] Version sync failed', e);
+      }
+      break;
+
     case 'INIT_DB':
       self.postMessage({ type: 'READY' });
       break;

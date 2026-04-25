@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useMapStore } from '../store/useMapStore';
 import type { GisFeature, Geometry, HealthFilters, HealthScope } from '../types/gis';
+import { APP_VERSION } from '../constants';
 
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
@@ -84,6 +85,7 @@ export const useGisWorker = () => {
       switch (type) {
         case 'READY':
           setIsReady(true);
+          workerRef.current?.postMessage({ type: 'SET_VERSION', payload: { version: APP_VERSION } });
           break;
         case 'DISTRICTS_LOADED':
           setDistrictsData(payload);

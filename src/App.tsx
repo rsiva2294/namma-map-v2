@@ -15,8 +15,9 @@ import { useGisWorker } from './hooks/useGisWorker';
 import type { HealthScope } from './types/gis';
 import UpdateNotification from './components/UpdateNotification';
 import { RouteManager } from './components/routing/RouteManager';
+import { useRegisterSW } from 'virtual:pwa-register/react';
 
-const APP_VERSION = '2026-04-25T15:13:15.813Z';
+import { APP_VERSION } from './constants';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
@@ -30,17 +31,31 @@ function App() {
   const { filterHealth } = useGisWorker();
   const [updateAvailable, setUpdateAvailable] = React.useState(false);
 
+  const {
+    needRefresh: [needRefresh, setNeedRefresh],
+    updateServiceWorker,
+  } = useRegisterSW();
+
   // Dynamic SEO Meta Tags
   const getPageTitle = () => {
     const layerName = activeLayer === 'PINCODE' ? 'Post Offices' : 
                      activeLayer === 'PDS' ? 'Ration Shops' :
-                     activeLayer === 'TNEB' ? 'Electricity Board' :
+                     activeLayer === 'TNEB' ? 'Electricity Board (TNEB)' :
                      activeLayer === 'HEALTH' ? 'Health Facilities' :
-                     activeLayer === 'POLICE' ? 'Police Jurisdictions' : 'Constituencies';
+                     activeLayer === 'POLICE' ? 'Police Stations' : 'Constituencies';
     
-    if (activeDistrict) {
-      return `${layerName} in ${activeDistrict} | NammaMap`;
+    if (searchResult) {
+      const locationName = searchResult.properties.office_name || 
+                          searchResult.properties.district || 
+                          searchResult.properties.NAME || 
+                          (searchResult.properties.pin_code || searchResult.properties.PIN_CODE);
+      return `${layerName} in ${locationName} | NammaMap`;
     }
+
+    if (activeDistrict) {
+      return `${layerName} in ${activeDistrict} District | NammaMap`;
+    }
+    
     return `NammaMap | Tamil Nadu ${layerName} Locator`;
   };
 
@@ -76,6 +91,7 @@ function App() {
       <Helmet>
         <title>{getPageTitle()}</title>
         <meta name="description" content={`Find ${activeLayer.toLowerCase()} services across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping.`} />
+        <link rel="canonical" href={`https://nammamap.in/${activeLayer.toLowerCase()}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
       </Helmet>
 
       <Routes>
@@ -116,9 +132,15 @@ function App() {
         )}
 
         <UpdateNotification 
-          show={updateAvailable} 
-          onRefresh={() => window.location.reload()} 
-          onClose={() => setUpdateAvailable(false)}
+          show={updateAvailable || needRefresh} 
+          onRefresh={() => {
+            if (needRefresh) updateServiceWorker(true);
+            else window.location.reload();
+          }} 
+          onClose={() => {
+            setUpdateAvailable(false);
+            setNeedRefresh(false);
+          }}
         />
       </main>
     </div>

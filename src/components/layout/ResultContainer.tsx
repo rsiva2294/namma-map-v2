@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield, Activity } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
 import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
@@ -83,8 +84,49 @@ const ResultContainer: React.FC = () => {
     setReportModal(true, { type, data: importantData });
   };
 
+  const renderStructuredData = () => {
+    if (activeLayer === 'PINCODE' && selectedPostalOffice) {
+      const ld = {
+        "@context": "https://schema.org",
+        "@type": "GovernmentOffice",
+        "name": selectedPostalOffice.officename,
+        "address": {
+          "@type": "PostalAddress",
+          "postalCode": selectedPostalOffice.pincode,
+          "addressLocality": selectedPostalOffice.district,
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        },
+        "description": `${selectedPostalOffice.officetype} - ${selectedPostalOffice.delivery} post office in ${selectedPostalOffice.district}`
+      };
+      return <script type="application/ld+json">{JSON.stringify(ld)}</script>;
+    }
+
+    if (activeLayer === 'HEALTH' && selectedHealthFacility) {
+      const p = selectedHealthFacility.properties;
+      const ld = {
+        "@context": "https://schema.org",
+        "@type": "Hospital",
+        "name": p.facility_n || p.NAME,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": p.district_n || p.district,
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        },
+        "description": `${p.facility_t} level health facility providing ${p.timing_of_ || 'medical'} services.`
+      };
+      return <script type="application/ld+json">{JSON.stringify(ld)}</script>;
+    }
+
+    return null;
+  };
+
   return (
     <div className="result-cards-stack">
+      <Helmet>
+        {renderStructuredData()}
+      </Helmet>
       <AnimatePresence mode="popLayout">
         {/* PDS Shop Detail */}
         {activeLayer === 'PDS' && selectedPdsShop && (

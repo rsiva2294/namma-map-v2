@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "update-version": "node -e \"const fs = require('fs'); const v = new Date().toISOString(); fs.writeFileSync('public/version.json', JSON.stringify({version: v})); const app = fs.readFileSync('src/App.tsx', 'utf8'); fs.writeFileSync('src/App.tsx', app.replace(/const APP_VERSION = '.*';/, 'const APP_VERSION = \\'' + v + '\\';'));\"",
+    "update-version": "node -e \"const fs = require('fs'); const v = new Date().toISOString(); fs.writeFileSync('public/version.json', JSON.stringify({version: v})); const constants = fs.readFileSync('src/constants.ts', 'utf8'); fs.writeFileSync('src/constants.ts', constants.replace(/const APP_VERSION = '.*';/, 'const APP_VERSION = \\'' + v + '\\';'));\"",
     "build": "npm run update-version && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -43,6 +43,7 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.9",
+    "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.1.5"
   }
 }
