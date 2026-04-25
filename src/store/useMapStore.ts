@@ -67,6 +67,10 @@ interface MapState {
   isHealthLoading: boolean;
   isLegalModalOpen: boolean;
   legalTab: 'disclaimer' | 'privacy' | 'terms';
+  postalFilters: {
+    delivery: 'All' | 'Delivery' | 'Non Delivery';
+    type: 'All' | 'HO' | 'SO' | 'BO';
+  };
 
   // Actions
   setView: (center: [number, number], zoom: number) => void;
@@ -110,6 +114,7 @@ interface MapState {
   setHealthFilters: (filters: HealthFilters) => void;
   setHealthSummary: (summary: HealthSummary | null) => void;
   setIsHealthLoading: (loading: boolean) => void;
+  setPostalFilters: (filters: Partial<MapState['postalFilters']>) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -179,6 +184,10 @@ export const useMapStore = create<MapState>((set) => ({
   isHealthLoading: false,
   isLegalModalOpen: false,
   legalTab: 'disclaimer',
+  postalFilters: {
+    delivery: 'All',
+    type: 'All'
+  },
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set((state) => {
@@ -319,4 +328,7 @@ export const useMapStore = create<MapState>((set) => ({
   setHealthScope: (scope) => set({ healthScope: scope }),
   setHealthFilters: (filters) => set({ healthFilters: filters }),
   setHealthSummary: (summary) => set({ healthSummary: summary }),
+  setPostalFilters: (filters) => set((state) => ({
+    postalFilters: { ...state.postalFilters, ...filters }
+  })),
 }));

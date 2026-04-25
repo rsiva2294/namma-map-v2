@@ -6,6 +6,7 @@ import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
 import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
+import { getOfficeTypeLabel, getDeliveryLabel, getOfficeExplanation } from '../../utils/postal';
 import type { Position, TnebSection, HealthFilters } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
@@ -236,7 +237,7 @@ const ResultContainer: React.FC = () => {
                   { 
                     label: 'Local Offices', 
                     value: `${validOffices.length} found`,
-                    subValue: validOffices.slice(0, 3).map(o => o.officename).join(', ') + (validOffices.length > 3 ? '...' : '')
+                    subValue: validOffices.map(o => o.officename).join(', ')
                   }
                 ] : []),
                 ...(outlierOffices.length > 0 ? [
@@ -261,15 +262,17 @@ const ResultContainer: React.FC = () => {
         {activeLayer === 'PINCODE' && selectedPostalOffice && (
           <ResultCard
             key="postal-detail"
-            themeColor={selectedPostalOffice.isOutlier ? 'orange' : 'red'}
+            themeColor={selectedPostalOffice.isOutlier ? 'orange' : 'blue'}
             title={selectedPostalOffice.officename}
             icon={<MapPin size={20} />}
             badges={selectedPostalOffice.isOutlier ? [{ label: 'Location Accuracy Warning', color: '#f97316', icon: <AlertCircle size={12} /> }] : []}
             data={[
-              { label: 'Pincode', value: selectedPostalOffice.pincode, isPill: true },
-              { label: 'Type', value: `${selectedPostalOffice.officetype} - ${selectedPostalOffice.delivery}` },
-              { label: 'Division', value: selectedPostalOffice.divisionname },
-              { label: 'District', value: selectedPostalOffice.district },
+              { label: '📍 PIN Code', value: selectedPostalOffice.pincode, isPill: true },
+              { label: '📬 Delivery Status', value: getDeliveryLabel(selectedPostalOffice.delivery) },
+              { label: '🏢 Office Type', value: getOfficeTypeLabel(selectedPostalOffice.officetype) },
+              { label: '💡 About this office', value: getOfficeExplanation(selectedPostalOffice.officetype, selectedPostalOffice.delivery) },
+              { label: '🗺️ District', value: selectedPostalOffice.district },
+              { label: 'ℹ️ More Info', value: selectedPostalOffice.divisionname, subValue: `Division: ${selectedPostalOffice.divisionname} • Region: ${selectedPostalOffice.regionname}` },
               ...(selectedPostalOffice.isOutlier ? [{ label: 'Note', value: 'This office coordinates in the official registry appear to be incorrect and have been hidden from the map for clarity.' }] : [])
             ]}
             onClose={() => setSelectedPostalOffice(null)}

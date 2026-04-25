@@ -8,6 +8,8 @@ import type { GisFeature, PdsShop, Geometry, Point, PoliceStationProperties, Hea
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+import { getOfficeTypeLabel, getDeliveryLabel } from '../../utils/postal';
+import { PostalLegendPanel } from '../postal/PostalFiltersPanel';
 
 const MapController: React.FC<{ 
   result: GisFeature | null; 
@@ -259,16 +261,23 @@ const GisMap: React.FC = () => {
     iconAnchor: [6, 6]
   });
 
-  const postOfficeIcon = L.divIcon({
-    html: `
-      <div class="pulse-postal"></div>
-      <div style="background: #ef4444; width: 24px; height: 24px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); position: relative; z-index: 1;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      </div>`,
-    className: 'custom-postal-icon',
-    iconSize: [24, 24],
-    iconAnchor: [12, 12]
-  });
+  const getPostOfficeIcon = (type: string, delivery: string) => {
+    let color = '#10b981'; // Green for Delivery
+    if (type === 'HO') color = '#3b82f6'; // Blue for Head Office
+    else if (delivery?.toLowerCase().includes('non')) color = '#f59e0b'; // Yellow for Non Delivery
+
+    return L.divIcon({
+      html: `
+        <div class="pulse-postal" style="background: ${color}"></div>
+        <div style="background: ${color}; width: 24px; height: 24px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); position: relative; z-index: 1;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>`,
+      className: 'custom-div-icon',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+      popupAnchor: [0, -12]
+    });
+  };
 
   const healthPriorityIcon = (type: string) => {
     const tierConfig: Record<string, { color: string; size: number; weight: number; showIcon: boolean }> = {
@@ -411,7 +420,7 @@ const GisMap: React.FC = () => {
         <Marker
           key={`po-${po.pincode}-${i}`}
           position={[parseFloat(po.latitude as string), parseFloat(po.longitude as string)]}
-          icon={postOfficeIcon}
+          icon={getPostOfficeIcon(po.officetype, po.delivery)}
           eventHandlers={{
             click: () => {
               setSelectedPostalOffice(po);
@@ -421,11 +430,13 @@ const GisMap: React.FC = () => {
           <Tooltip direction="top" offset={[0, -10]} opacity={1}>
             <div style={{ padding: '4px 8px' }}>
               <div style={{ fontWeight: 'bold', fontSize: '14px' }}>{po.officename}</div>
-              <div style={{ fontSize: '12px', opacity: 0.8 }}>{po.officetype} - {po.delivery}</div>
+              <div style={{ fontSize: '12px', opacity: 0.8 }}>{getOfficeTypeLabel(po.officetype)} • {getDeliveryLabel(po.delivery)}</div>
             </div>
           </Tooltip>
         </Marker>
       ))}
+
+      {activeLayer === 'PINCODE' && <PostalLegendPanel />}
 
       {activeLayer === 'TNEB' && jurisdictionGeometry && (
         <>

@@ -129,36 +129,34 @@ const ResultCard: React.FC<ResultCardProps> = ({
       {/* Body */}
       <div className="result-card-body">
         {data.map((row, idx) => (
-          <div key={idx} className="result-card-row">
-            <span className="result-card-label">{row.label}</span>
-            <div className="result-card-value-group">
-              <div className="result-card-value-stack">
-                <div className="result-card-value-row">
-                  {row.isPill ? (
-                    <span
-                      className="result-card-pill"
-                      style={{ backgroundColor: colors.bg, color: colors.text }}
-                    >
-                      {row.value}
-                    </span>
-                  ) : (
-                    <span className="result-card-value" title={row.value}>{row.value}</span>
-                  )}
-                </div>
-                {row.subValue && (
-                  <span className="result-card-subvalue">{row.subValue}</span>
+          <div key={idx} className={`result-card-row ${row.subValue ? 'has-subvalue' : ''}`}>
+            <div className="result-card-main-row">
+              <span className="result-card-label">{row.label}</span>
+              <div className="result-card-value-group">
+                {row.isPill ? (
+                  <span
+                    className="result-card-pill"
+                    style={{ backgroundColor: colors.bg, color: colors.text }}
+                  >
+                    {row.value}
+                  </span>
+                ) : (
+                  <span className="result-card-value" title={row.value}>{row.value}</span>
+                )}
+                {row.isPill && (
+                  <button
+                    onClick={() => handleCopy(row.value)}
+                    className="copy-button"
+                    aria-label={`Copy ${row.label}`}
+                  >
+                    <Copy size={14} color="var(--text-secondary)" />
+                  </button>
                 )}
               </div>
-              {row.isPill && (
-                <button
-                  onClick={() => handleCopy(row.value)}
-                  className="copy-button"
-                  aria-label={`Copy ${row.label}`}
-                >
-                  <Copy size={14} color="var(--text-secondary)" />
-                </button>
-              )}
             </div>
+            {row.subValue && (
+              <span className="result-card-subvalue">{row.subValue}</span>
+            )}
           </div>
         ))}
       </div>

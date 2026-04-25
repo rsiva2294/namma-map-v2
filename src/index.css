@@ -688,10 +688,16 @@ html,
 
 .result-card-row {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  gap: 4px;
   font-size: 14px;
+}
+
+.result-card-main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .result-card-label {
@@ -709,14 +715,7 @@ html,
   color: var(--text-primary);
   font-weight: 600;
   text-align: right;
-  max-width: 280px;
   word-break: break-word;
-}
-
-.result-card-value-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
 .result-card-value-row {
@@ -726,11 +725,17 @@ html,
 }
 
 .result-card-subvalue {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-secondary);
-  font-weight: 500;
-  opacity: 0.8;
+  font-weight: 400;
+  line-height: 1.5;
   margin-top: 2px;
+  padding-left: 0;
+}
+
+.has-subvalue .result-card-label {
+  font-size: 13px;
+  opacity: 0.9;
 }
 
 .result-card-pill {
@@ -1463,4 +1468,100 @@ html,
 .dev-link:hover {
   background: var(--border-glass);
   transform: translateY(-2px);
+}
+
+/* Postal Legend Panel */
+.postal-legend-panel {
+  position: absolute;
+  top: 80px;
+  left: 300px;
+  z-index: 1000;
+  width: 240px;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideInLeft 0.3s ease-out;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.postal-legend-panel.sidebar-closed {
+  left: 20px;
+}
+
+@media (max-width: 768px) {
+  .postal-legend-panel {
+    top: 140px;
+    bottom: auto;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    padding: 12px;
+  }
+}
+
+.legend-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.legend-icon {
+  color: var(--accent);
+}
+
+.legend-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.legend-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-glass);
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
