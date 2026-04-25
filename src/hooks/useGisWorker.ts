@@ -62,6 +62,10 @@ export const useGisWorker = () => {
   const filterHealth = useCallback((scope: HealthScope, filters: HealthFilters, district: string | null, pincode: string | null) => {
     workerRef.current?.postMessage({ type: 'FILTER_HEALTH', payload: { scope, filters, district, pincode } });
   }, []);
+  
+  const resolveHealthFacility = useCallback((id: string | number, nin: string | number | undefined, district: string | null) => {
+    workerRef.current?.postMessage({ type: 'RESOLVE_HEALTH_FACILITY', payload: { id, nin, district } });
+  }, []);
 
   useEffect(() => {
     workerRef.current = new Worker(
@@ -201,6 +205,11 @@ export const useGisWorker = () => {
           setHealthScope(payload.scope);
           setIsHealthLoading(false);
           break;
+        case 'HEALTH_FACILITY_RESOLVED':
+          if (payload) {
+            setSelectedHealthFacility(payload);
+          }
+          break;
         case 'ERROR':
           console.error('[Worker Error]', payload);
           setIsResolving(false);
@@ -240,11 +249,20 @@ export const useGisWorker = () => {
   ]);
 
 
-  // Reactive filtering for Health Module
+  // Reactive filtering for Health Module with Debounce
+  const filterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   useEffect(() => {
     if (activeLayer === 'HEALTH' && isReady) {
-      filterHealth(healthScope, healthFilters, activeDistrict, pincode);
+      if (filterTimeoutRef.current) clearTimeout(filterTimeoutRef.current);
+      
+      filterTimeoutRef.current = setTimeout(() => {
+        filterHealth(healthScope, healthFilters, activeDistrict, pincode);
+      }, 50); // 50ms debounce
     }
+    return () => {
+      if (filterTimeoutRef.current) clearTimeout(filterTimeoutRef.current);
+    };
   }, [activeLayer, isReady, healthScope, healthFilters, activeDistrict, pincode, filterHealth]);
 
   const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false, pincode?: string, stationCode?: string) => {
@@ -353,6 +371,7 @@ export const useGisWorker = () => {
     loadHealthDistrict, 
     loadHealthSearchIndex,
     filterHealth,
+    resolveHealthFacility,
     resolveLocation, 
     getSuggestions, 
     selectSuggestion 

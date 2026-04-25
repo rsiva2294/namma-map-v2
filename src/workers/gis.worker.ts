@@ -18,6 +18,8 @@ import type {
   HealthFacilityProperties
 } from '../types/gis';
 
+import { openDB } from 'idb';
+
 interface SpatialItem {
   minX: number;
   minY: number;
@@ -25,6 +27,17 @@ interface SpatialItem {
   maxY: number;
   feature: GisFeature;
 }
+
+const CACHE_DB = 'nammamap-cache';
+const CACHE_STORE = 'gis-data';
+
+const getCacheDB = () => openDB(CACHE_DB, 1, {
+  upgrade(db) {
+    if (!db.objectStoreNames.contains(CACHE_STORE)) {
+      db.createObjectStore(CACHE_STORE, { keyPath: 'url' });
+    }
+  }
+});
 
 interface ProcessedStationProperties extends PoliceStationProperties {
   resolved_code?: string;
@@ -89,12 +102,39 @@ let healthManifest: HealthManifest | null = null;
 let healthPriorityGeoJson: GisFeatureCollection | null = null;
 let healthSearchIndex: any[][] | null = null;
 
-async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<Response> {
+async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<any> {
+  // 1. Try Cache First
+  try {
+    const db = await getCacheDB();
+    const cached = await db.get(CACHE_STORE, url);
+    if (cached && cached.expiresAt > Date.now()) {
+      return cached.data;
+    }
+  } catch (e) {
+    console.warn('[Worker] Cache check failed', e);
+  }
+
+  // 2. Network Fallback
   for (let i = 0; i < retries; i++) {
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      return response;
+      const data = await response.json();
+
+      // 3. Update Cache
+      try {
+        const db = await getCacheDB();
+        await db.put(CACHE_STORE, {
+          url,
+          data,
+          timestamp: Date.now(),
+          expiresAt: Date.now() + (24 * 60 * 60 * 1000) // 24h
+        });
+      } catch (e) {
+        console.warn('[Worker] Cache update failed', e);
+      }
+
+      return data;
     } catch (e) {
       if (i === retries - 1) throw e;
       console.warn(`[Worker] Fetch failed for ${url}, retrying (${i + 1}/${retries})...`);
@@ -466,8 +506,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_DISTRICTS':
       try {
         if (!districtsGeoJson) {
-          const response = await fetchWithRetry('/data/tn_districts.topojson');
-          const data = await response.json();
+          const data = await fetchWithRetry('/data/tn_districts.topojson');
           const objectName = Object.keys(data.objects)[0];
           const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           districtsGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
@@ -491,8 +530,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_STATE_BOUNDARY':
       try {
         if (!stateBoundaryGeoJson) {
-          const response = await fetchWithRetry('/data/tn_state_boundary.topojson');
-          const data = await response.json();
+          const data = await fetchWithRetry('/data/tn_state_boundary.topojson');
           const objectName = Object.keys(data.objects)[0];
           const feature = topojson.feature(data, data.objects[objectName]) as unknown;
           if (feature && typeof feature === 'object' && 'type' in feature && feature.type === 'FeatureCollection') {
@@ -519,13 +557,8 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'LOAD_PDS_INDEX':
       try {
-        const [resIndex, resManifest] = await Promise.all([
-          !pdsIndex ? fetchWithRetry('/data/pds_index.json') : Promise.resolve(null),
-          !pdsManifest ? fetchWithRetry('/data/pds_manifest.json') : Promise.resolve(null)
-        ]);
-        
-        if (resIndex) pdsIndex = await resIndex.json();
-        if (resManifest) pdsManifest = await resManifest.json();
+        if (!pdsIndex) pdsIndex = await fetchWithRetry('/data/pds_index.json');
+        if (!pdsManifest) pdsManifest = await fetchWithRetry('/data/pds_manifest.json');
         
         self.postMessage({ type: 'PDS_INDEX_LOADED' });
       } catch (err: unknown) {
@@ -537,12 +570,10 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_TNEB':
       try {
         if (!tnebGeoJson) {
-          const [resBound, resOff] = await Promise.all([
+          const [dataBound, dataOff] = await Promise.all([
             fetchWithRetry('/data/tneb_boundaries.topojson'),
             fetchWithRetry('/data/tneb_offices.geojson')
           ]);
-          const dataBound = await resBound.json();
-          const dataOff = await resOff.json();
           const objectName = Object.keys(dataBound.objects)[0];
           const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           tnebGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
@@ -817,8 +848,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_PINCODES':
       try {
         if (!pincodesGeoJson) {
-          const response = await fetchWithRetry('/data/tn_pincodes.topojson');
-          const data = await response.json();
+          const data = await fetchWithRetry('/data/tn_pincodes.topojson');
           const objectName = Object.keys(data.objects)[0];
           const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           pincodesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
@@ -842,8 +872,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_POSTAL_OFFICES':
       try {
         if (!postalOffices) {
-          const response = await fetchWithRetry('/data/tn_postal_offices.json');
-          postalOffices = await response.json();
+          postalOffices = await fetchWithRetry('/data/tn_postal_offices.json');
           
           if (postalOffices) {
             postalOffices.forEach(po => {
@@ -863,8 +892,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_HEALTH_MANIFEST':
       try {
         if (!healthManifest) {
-          const response = await fetchWithRetry('/data/health_manifest.json');
-          healthManifest = await response.json();
+          healthManifest = await fetchWithRetry('/data/health_manifest.json');
         }
         self.postMessage({ type: 'HEALTH_MANIFEST_LOADED', payload: healthManifest });
       } catch (err) {
@@ -876,8 +904,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_HEALTH_SEARCH_INDEX':
       try {
         if (!healthSearchIndex) {
-          const response = await fetchWithRetry('/data/health_search_index.json');
-          healthSearchIndex = await response.json();
+          healthSearchIndex = await fetchWithRetry('/data/health_search_index.json');
         }
         self.postMessage({ type: 'HEALTH_SEARCH_INDEX_LOADED' });
       } catch (err) {
@@ -889,8 +916,7 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_HEALTH_PRIORITY':
       try {
         if (!healthPriorityGeoJson) {
-          const response = await fetchWithRetry('/data/health_statewide_priority.geojson');
-          healthPriorityGeoJson = await response.json();
+          healthPriorityGeoJson = await fetchWithRetry('/data/health_statewide_priority.geojson');
         }
         self.postMessage({ type: 'HEALTH_PRIORITY_LOADED', payload: healthPriorityGeoJson });
       } catch (err) {
@@ -903,8 +929,7 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         const { district, file_name } = payload;
         if (!loadedHealthDistricts.has(district)) {
-          const response = await fetchWithRetry(`/data/health_by_district/${file_name}`);
-          const data = await response.json() as GisFeatureCollection;
+          const data = await fetchWithRetry(`/data/health_by_district/${file_name}`) as GisFeatureCollection;
           loadedHealthDistricts.set(district, data);
           
           const index = new RBush<SpatialItem>();
@@ -950,10 +975,20 @@ self.onmessage = async (e: MessageEvent) => {
           }
 
           if (!loadedHealthDistricts.has(district)) {
-            const response = await fetchWithRetry(`/data/health_by_district/${distManifest.file_name}`);
-            activeDistrictData = await response.json();
+            activeDistrictData = await fetchWithRetry(`/data/health_by_district/${distManifest.file_name}`);
             if (activeDistrictData) {
               loadedHealthDistricts.set(district, activeDistrictData);
+              
+              // Also index it for spatial lookups
+              const index = new RBush<SpatialItem>();
+              const items: SpatialItem[] = activeDistrictData.features
+                .filter(f => f.geometry && f.geometry.coordinates)
+                .map((f: GisFeature) => ({
+                  ...getBBox(f.geometry),
+                  feature: f
+                }));
+              index.load(items);
+              healthDistrictIndexes.set(district, index);
             }
           } else {
             activeDistrictData = loadedHealthDistricts.get(district) || null;
@@ -971,15 +1006,21 @@ self.onmessage = async (e: MessageEvent) => {
               (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincode.toString()
             );
             if (pinFeature) {
-              features = features.filter(f => {
-                const pt = f.geometry.coordinates as [number, number];
-                if (pinFeature.geometry.type === 'Polygon') {
-                  return isPointInPolygon(pt, (pinFeature.geometry as Polygon).coordinates);
-                } else if (pinFeature.geometry.type === 'MultiPolygon') {
-                  return (pinFeature.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
+            const distIndex = healthDistrictIndexes.get(district);
+            if (distIndex) {
+              const bbox = getBBox(pinFeature.geometry);
+              const candidates = distIndex.search(bbox);
+              
+              features = candidates.filter(item => {
+                const pt = item.feature.geometry.coordinates as [number, number];
+                if (pinFeature!.geometry.type === 'Polygon') {
+                  return isPointInPolygon(pt, (pinFeature!.geometry as Polygon).coordinates);
+                } else if (pinFeature!.geometry.type === 'MultiPolygon') {
+                  return (pinFeature!.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
                 }
                 return false;
-              });
+              }).map(item => item.feature);
+            }
             }
           }
         }
@@ -1081,9 +1122,29 @@ self.onmessage = async (e: MessageEvent) => {
           pincode
         };
 
+        // Thinned Payload for Map
+        const thinnedFeatures = filtered.map((f, idx) => ({
+          type: 'Feature',
+          id: f.id || idx,
+          geometry: f.geometry,
+          properties: {
+            ogc_fid: f.properties.ogc_fid,
+            nin_number: f.properties.nin_number || f.properties.nin,
+            facility_n: f.properties.facility_n || f.properties.name,
+            facility_t: f.properties.facility_t || f.properties.type,
+            district_n: f.properties.district_n || f.properties.district,
+            hwc: f.properties.hwc,
+            delivery_p: f.properties.delivery_p
+          }
+        }));
+
         self.postMessage({ 
           type: 'HEALTH_FILTERED', 
-          payload: { features: filtered, summary, scope } 
+          payload: { 
+            features: thinnedFeatures, 
+            summary, 
+            scope 
+          } 
         });
       } catch (err) {
         console.error('[Worker] Error filtering health:', err);
@@ -1337,8 +1398,7 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
       try {
-        const response = await fetchWithRetry(`/data/pds/${pdsFileName}.json`);
-        const data = await response.json() as GisFeatureCollection;
+        const data = await fetchWithRetry(`/data/pds/${pdsFileName}.json`) as GisFeatureCollection;
         
         // Build R-tree for this district
         const districtIndex = new RBush<SpatialItem>();
@@ -1396,14 +1456,15 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_POLICE':
       try {
         if (!policeBoundariesGeoJson || !policeStationsGeoJson) {
-          const [resBound, resOff, resCross, resVal] = await Promise.all([
+          const [dataBound, dataOff] = await Promise.all([
             fetchWithRetry('/data/tn_police_boundaries.topojson'),
-            fetchWithRetry('/data/tn_police_stations.geojson'),
+            fetchWithRetry('/data/tn_police_stations.geojson')
+          ]);
+          
+          const [resCross, resVal] = await Promise.all([
             fetch('/data/police_crosswalk.json').catch(() => null),
             fetch('/data/police_validation.json').catch(() => null)
           ]);
-          const dataBound = await resBound.json();
-          const dataOff = await resOff.json();
           
           if (resCross && resCross.ok) {
             const contentType = resCross.headers.get('content-type');
@@ -1474,6 +1535,26 @@ self.onmessage = async (e: MessageEvent) => {
         self.postMessage({ type: 'AUDIT_RESULT', payload: { summary, details: results } });
       }
       break;
+
+    case 'RESOLVE_HEALTH_FACILITY': {
+      const { id, nin, district } = payload;
+      let found: GisFeature | null = null;
+      
+      if (district && loadedHealthDistricts.has(district)) {
+        found = loadedHealthDistricts.get(district)!.features.find(f => 
+          (f.id === id) || (f.properties.nin_number === nin) || (f.properties.ogc_fid === id)
+        ) || null;
+      }
+      
+      if (!found && healthPriorityGeoJson) {
+        found = healthPriorityGeoJson.features.find(f => 
+          (f.id === id) || (f.properties.nin_number === nin) || (f.properties.ogc_fid === id)
+        ) || null;
+      }
+      
+      self.postMessage({ type: 'HEALTH_FACILITY_RESOLVED', payload: found });
+      break;
+    }
 
     default:
       console.warn('[Worker] Unknown message type:', type);

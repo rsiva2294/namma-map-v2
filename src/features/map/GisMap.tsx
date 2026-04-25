@@ -80,8 +80,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, setActiveDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, setSelectedHealthFacility, healthScope, isHealthLoading } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTneb, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadPostalOffices, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, setActiveDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -570,13 +570,17 @@ const GisMap: React.FC = () => {
                 eventHandlers={{
                   click: (e) => {
                     L.DomEvent.stopPropagation(e);
-                    setSelectedHealthFacility(f);
+                    const dist = (f.properties.district || f.properties.district_n)?.toString() || activeDistrict;
+                    resolveHealthFacility((f.id || f.properties.ogc_fid || 0) as string | number, f.properties.nin_number as string | number | undefined, dist);
                     
-                    const district = (f.properties.district || f.properties.district_n)?.toString();
-                    const distManifest = useMapStore.getState().healthManifest?.districts.find(d => d.district === district);
-                    if (distManifest && district) {
-                      setActiveDistrict(district);
-                      loadHealthDistrict(district, distManifest.file_name);
+                    if (dist) {
+                      const distManifest = useMapStore.getState().healthManifest?.districts.find(d => 
+                        d.district.toLowerCase().replace(/\s+/g, '') === dist.toLowerCase().replace(/\s+/g, '')
+                      );
+                      if (distManifest) {
+                        setActiveDistrict(distManifest.district);
+                        loadHealthDistrict(distManifest.district, distManifest.file_name);
+                      }
                     }
                   }
                 }}

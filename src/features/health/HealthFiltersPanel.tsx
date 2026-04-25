@@ -127,10 +127,11 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: '1fr 1fr 1fr', 
-          gap: '4px', 
-          background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
+          gap: '6px', 
+          background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(2, 132, 199, 0.08)',
           padding: '4px',
-          borderRadius: '12px'
+          borderRadius: '14px',
+          border: `1px solid ${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(2, 132, 199, 0.12)'}`
         }}>
           {[
             { id: 'STATE', label: 'Statewide', icon: Globe },
@@ -143,23 +144,37 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               <button
                 key={scope.id}
                 onClick={() => handleScopeChange(scope.id as HealthScope)}
+                aria-pressed={isActive}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '4px',
-                  padding: '8px 4px',
-                  borderRadius: '8px',
-                  border: 'none',
-                  background: isActive ? (isDark ? 'rgba(255,255,255,0.1)' : '#fff') : 'transparent',
-                  color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
+                  justifyContent: 'center',
+                  gap: '5px',
+                  minHeight: '70px',
+                  padding: '10px 4px',
+                  borderRadius: '11px',
+                  border: `1px solid ${isActive ? 'rgba(255,255,255,0.7)' : 'transparent'}`,
+                  background: isActive 
+                    ? 'linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%)'
+                    : 'transparent',
+                  color: isActive ? '#ffffff' : 'var(--text-secondary)',
                   cursor: 'pointer',
-                  transition: 'all 0.2s',
-                  boxShadow: isActive ? '0 2px 4px rgba(0,0,0,0.05)' : 'none'
+                  transition: 'background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s',
+                  boxShadow: isActive 
+                    ? (isDark ? '0 12px 24px rgba(14, 165, 233, 0.32)' : '0 10px 22px rgba(2, 132, 199, 0.28)')
+                    : 'none',
+                  transform: isActive ? 'translateY(-1px)' : 'translateY(0)'
                 }}
               >
-                <Icon size={14} strokeWidth={isActive ? 2.5 : 2} />
-                <span style={{ fontSize: '10px', fontWeight: isActive ? 700 : 600 }}>{scope.label}</span>
+                <Icon size={isActive ? 19 : 17} strokeWidth={isActive ? 3 : 2.2} />
+                <span style={{ 
+                  fontSize: '11px', 
+                  fontWeight: isActive ? 800 : 650,
+                  lineHeight: 1.1
+                }}>
+                  {scope.label}
+                </span>
               </button>
             );
           })}
