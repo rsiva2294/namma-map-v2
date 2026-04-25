@@ -13,6 +13,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
     healthScope,
     setHealthScope,
     activeDistrict,
+    setActiveDistrict,
+    setSearchResult,
     setTriggerLocateMe,
     theme
   } = useMapStore();
@@ -74,8 +76,18 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
   const handleScopeChange = (scope: HealthScope) => {
     if (scope === 'PINCODE') {
       setTriggerLocateMe(true);
+    } else if (scope === 'DISTRICT') {
+      if (activeDistrict) {
+        setSearchResult(null); // Clear pincode highlight/zoom
+        setHealthScope('DISTRICT');
+      } else {
+        // If no district, we can't really go to district scope
+        setTriggerLocateMe(true);
+      }
     } else {
-      setHealthScope(scope);
+      setActiveDistrict(null);
+      setSearchResult(null);
+      setHealthScope('STATE');
     }
   };
 

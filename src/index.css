@@ -1050,9 +1050,15 @@ html,
   left: 20px;
   bottom: 40px;
   width: 300px;
-  z-index: var(--z-panel);
+  z-index: 2000; /* Above map elements but below some modals */
   pointer-events: auto;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 769px) {
+  .sidebar:not(.sidebar-closed) ~ .main-content .health-filters-floating {
+    left: 320px; /* Offset by sidebar width (280) + gap (40) */
+  }
 }
 
 @media (max-width: 768px) {

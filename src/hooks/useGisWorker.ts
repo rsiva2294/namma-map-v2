@@ -117,7 +117,8 @@ export const useGisWorker = () => {
                 setSelectedPostalOffices(payload.postalOffices);
               }
 
-              if (payload.layer === 'HEALTH') {
+              const isHealthModule = useMapStore.getState().activeLayer === 'HEALTH';
+              if (payload.layer === 'HEALTH' || (isHealthModule && (payload.layer === 'PINCODE' || payload.layer === 'DISTRICT'))) {
                 const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME || payload.properties.district_n;
                 const pincode = payload.properties.PIN_CODE || payload.properties.pincode || payload.properties.pin_code;
                 
@@ -125,10 +126,11 @@ export const useGisWorker = () => {
                 
                 if (district) {
                   const districtName = district.toString();
+                  console.log('[useGisWorker] Synchronizing Health context for district:', districtName);
                   setActiveDistrict(districtName);
                   
-                  // Auto-switch scope
-                  const newScope = pincode ? 'PINCODE' : 'DISTRICT';
+                  // Auto-switch scope based on what was found
+                  const newScope = (payload.layer === 'PINCODE' || pincode) ? 'PINCODE' : 'DISTRICT';
                   setHealthScope(newScope);
 
                   // Load district shard if manifest is available
@@ -140,10 +142,11 @@ export const useGisWorker = () => {
                     setActiveDistrict(distManifest.district);
                     loadHealthDistrict(distManifest.district, distManifest.file_name);
                   } else {
+                    console.warn('[useGisWorker] District manifest not found for:', districtName);
                     setIsHealthLoading(false);
                   }
                 } else {
-                  setIsHealthLoading(false);
+                  if (isHealthModule) setIsHealthLoading(false);
                 }
               }
 
@@ -270,8 +273,17 @@ export const useGisWorker = () => {
       if (filterTimeoutRef.current) clearTimeout(filterTimeoutRef.current);
       
       filterTimeoutRef.current = setTimeout(() => {
-        filterHealth(healthScope, healthFilters, activeDistrict, pincode);
-      }, 50); // 50ms debounce
+        const state = useMapStore.getState();
+        const currentPincode = (state.searchResult?.properties?.PIN_CODE || state.searchResult?.properties?.pincode || state.searchResult?.properties?.pin_code)?.toString() || null;
+        
+        console.log('[useGisWorker] Triggering filterHealth with latest state:', { 
+          scope: state.healthScope, 
+          district: state.activeDistrict, 
+          pincode: currentPincode 
+        });
+        
+        filterHealth(state.healthScope, state.healthFilters, state.activeDistrict, currentPincode);
+      }, 150); // 150ms debounce for stability
     }
     return () => {
       if (filterTimeoutRef.current) clearTimeout(filterTimeoutRef.current);
