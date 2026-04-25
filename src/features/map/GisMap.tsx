@@ -398,7 +398,7 @@ const GisMap: React.FC = () => {
       
       {searchResult && !jurisdictionGeometry && (
         <GeoJSON 
-          key={`search-${searchQuery}-${searchResult.properties.PIN_CODE || searchResult.properties.NAME || searchResult.properties.assembly_c || searchResult.properties.parliame_1 || searchResult.properties.ps_code}`}
+          key={`search-result-${searchResult.properties.PIN_CODE || searchResult.properties.pincode || searchResult.properties.office_name || searchResult.properties.NAME || searchResult.properties.ps_code}-${searchResult.geometry.type}`}
           data={searchResult} 
           style={activeLayer === 'CONSTITUENCY' ? constituencySelectedStyle : activeLayer === 'POLICE' ? policeSelectedStyle : pincodeStyle} 
           interactive={false}

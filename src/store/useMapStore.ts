@@ -206,9 +206,13 @@ export const useMapStore = create<MapState>((set) => ({
       jurisdictionDetails: keepSelection ? state.jurisdictionDetails : null,
       jurisdictionGeometry: keepSelection ? state.jurisdictionGeometry : null,
       selectedPdsShop: keepSelection ? state.selectedPdsShop : null,
+      selectedPoliceStation: keepSelection ? state.selectedPoliceStation : null,
+      policeResolution: keepSelection ? state.policeResolution : null,
       selectedPostalOffices: keepSelection ? state.selectedPostalOffices : null,
       selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null,
-      selectedHealthFacility: keepSelection ? state.selectedHealthFacility : null
+      selectedHealthFacility: keepSelection ? state.selectedHealthFacility : null,
+      healthSummary: keepSelection ? state.healthSummary : null,
+      noDataFound: false
     };
 
     if (updateQuery && result) {
@@ -248,6 +252,7 @@ export const useMapStore = create<MapState>((set) => ({
     // Clear other data to show only the "No Data" card
     searchResult: val ? null : undefined,
     jurisdictionDetails: val ? null : undefined,
+    selectedPoliceStation: val ? null : undefined,
     policeResolution: val ? null : undefined,
     selectedPostalOffices: val ? null : undefined,
     selectedPostalOffice: val ? null : undefined,

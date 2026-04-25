@@ -303,16 +303,16 @@ export const useGisWorker = () => {
       const [lng, lat] = item.geometry.type === 'Point' 
         ? (item.geometry.coordinates as [number, number])
         : (item.properties.office_location as [number, number] || [78.6569, 11.1271]); // Fallback
-      const district = item.properties.district as string;
       if (district) {
-        workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: null } });
+        workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
       // Trigger resolution for the shop itself to show the card
-      resolveLocation(lat, lng, 'PDS');
+      setSearchResult(item, false, true);
+      resolveLocation(lat, lng, 'PDS', true);
     } else if (item.suggestionType === 'DISTRICT') {
       // Switch to PINCODE if we want to show the district boundary in that layer context
       // or PDS if that was the intent. For now, stay in current layer but focus district.
-      setSearchResult(item);
+      setSearchResult(item, false, true);
       const district = (item.properties.district || item.properties.DISTRICT || item.properties.NAME || item.properties.district_n || item.properties.DISTRICT_NAME || '').toString();
       const targetLayer = currentLayer;
       if (district && targetLayer === 'PDS') {
@@ -323,7 +323,7 @@ export const useGisWorker = () => {
       // Detect if it's AC or PC based on properties
       const isPc = !!item.properties.parliame_1 && !item.properties.assembly_c;
       setConstituencyType(isPc ? 'PC' : 'AC');
-      setSearchResult(item);
+      setSearchResult(item, false, true);
     } else if (item.suggestionType === 'POLICE_STATION') {
       if (currentLayer !== 'POLICE') setActiveLayer('POLICE');
       const [lng, lat] = item.geometry.type === 'Point' 
@@ -332,7 +332,7 @@ export const useGisWorker = () => {
       resolveLocation(lat, lng, 'POLICE', false, undefined, item.properties.ps_code as string);
     } else if (item.suggestionType === 'HEALTH_FACILITY') {
       if (currentLayer !== 'HEALTH') setActiveLayer('HEALTH');
-      setSearchResult(item);
+      setSearchResult(item, false, true);
       setSelectedHealthFacility(item as any);
       setHealthScope('DISTRICT');
       
@@ -354,7 +354,7 @@ export const useGisWorker = () => {
       if (pin && (currentLayer === 'PINCODE' || currentLayer === 'CONSTITUENCY' || currentLayer === 'HEALTH')) {
         resolveLocation(0, 0, currentLayer, false, pin);
       } else {
-        setSearchResult(item);
+        setSearchResult(item, false, true);
       }
 
       const district = item.properties.district || item.properties.DISTRICT || item.properties.DISTRICT_NAME || item.properties.NAME;
