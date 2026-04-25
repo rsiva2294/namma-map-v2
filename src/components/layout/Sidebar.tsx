@@ -8,11 +8,10 @@ import {
   Activity,
   Sun,
   Moon,
-  Settings,
   Landmark,
   Shield,
   Scale,
-  User,
+  Building2,
   type LucideIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -182,8 +181,8 @@ const Sidebar: React.FC = () => {
 
         <div className="sidebar-section-label">Future Modules</div>
         <div className="sidebar-menu-item disabled">
-          <Settings size={20} />
-          {isSidebarOpen && <span>Education</span>}
+          <Building2 size={20} />
+          {isSidebarOpen && <span>Civic Bodies</span>}
           {isSidebarOpen && <span className="badge-soon">SOON</span>}
         </div>
 
