@@ -606,9 +606,10 @@ html,
     right: 0;
     width: 100%;
     border-radius: 24px 24px 0 0;
-    max-height: 85vh;
+    max-height: 85dvh;
     z-index: var(--z-bottom-sheet);
     box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+    padding-bottom: env(safe-area-inset-bottom, 12px);
   }
   
   /* Add a drag handle visual for bottom sheets */

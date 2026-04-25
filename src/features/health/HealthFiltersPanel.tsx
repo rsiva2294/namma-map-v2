@@ -116,7 +116,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       borderRadius: '20px',
       border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'}`,
       marginTop: '8px',
-      maxHeight: '85vh',
+      maxHeight: '85dvh',
       overflowY: 'auto',
       boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.2)'
     }} className="custom-scrollbar health-filters-inner">
