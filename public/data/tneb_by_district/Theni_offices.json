@@ -1,0 +1,1295 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5469,
+          10.1092
+        ]
+      },
+      "properties": {
+        "section_na": "AE/THAMARAIKULAM",
+        "section_co": "523",
+        "subdivisio": "EAST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47621",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2700,
+        "search_string": "    ae/thamaraikulam"
+      },
+      "bbox": [
+        77.5469,
+        10.1092,
+        77.5469,
+        10.1092
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4813,
+          10.0143
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/EAST/THENI",
+        "section_co": "506",
+        "subdivisio": "RURAL/THENI",
+        "region_id": "05",
+        "subdivis_1": "47632",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2701,
+        "search_string": "    ae/rural/east/theni"
+      },
+      "bbox": [
+        77.4813,
+        10.0143,
+        77.4813,
+        10.0143
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5251,
+          9.9308
+        ]
+      },
+      "properties": {
+        "section_na": "AE/GANDAMANUR",
+        "section_co": "509",
+        "subdivisio": "RURAL/THENI",
+        "region_id": "05",
+        "subdivis_1": "47632",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2702,
+        "search_string": "    ae/gandamanur"
+      },
+      "bbox": [
+        77.5251,
+        9.9308,
+        77.5251,
+        9.9308
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3555,
+          10.0163
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/BODI",
+        "section_co": "511",
+        "subdivisio": "BODI",
+        "region_id": "05",
+        "subdivis_1": "47633",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2703,
+        "search_string": "    ae/town/bodi"
+      },
+      "bbox": [
+        77.3555,
+        10.0163,
+        77.3555,
+        10.0163
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3555,
+          10.0163
+        ]
+      },
+      "properties": {
+        "section_na": "AE/EAST/BODI",
+        "section_co": "512",
+        "subdivisio": "BODI",
+        "region_id": "05",
+        "subdivis_1": "47633",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2704,
+        "search_string": "    ae/east/bodi"
+      },
+      "bbox": [
+        77.3555,
+        10.0163,
+        77.3555,
+        10.0163
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3555,
+          10.0163
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/WEST/BODI",
+        "section_co": "513",
+        "subdivisio": "BODI",
+        "region_id": "05",
+        "subdivis_1": "47633",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2705,
+        "search_string": "    ae/rural/west/bodi"
+      },
+      "bbox": [
+        77.3555,
+        10.0163,
+        77.3555,
+        10.0163
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3336,
+          9.937
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RASINGAPURAM",
+        "section_co": "516",
+        "subdivisio": "RASINGAPURAM",
+        "region_id": "05",
+        "subdivis_1": "47634",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2706,
+        "search_string": "    ae/rasingapuram"
+      },
+      "bbox": [
+        77.3336,
+        9.937,
+        77.3336,
+        9.937
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2807,
+          9.8965
+        ]
+      },
+      "properties": {
+        "section_na": "AE/THEVARAM-I",
+        "section_co": "517",
+        "subdivisio": "RASINGAPURAM",
+        "region_id": "05",
+        "subdivis_1": "47634",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2707,
+        "search_string": "    ae/thevaram-i"
+      },
+      "bbox": [
+        77.2807,
+        9.8965,
+        77.2807,
+        9.8965
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2834,
+          9.8964
+        ]
+      },
+      "properties": {
+        "section_na": "AE/THEVARAM-II",
+        "section_co": "518",
+        "subdivisio": "RASINGAPURAM",
+        "region_id": "05",
+        "subdivis_1": "47634",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2708,
+        "search_string": "    ae/thevaram-ii"
+      },
+      "bbox": [
+        77.2834,
+        9.8964,
+        77.2834,
+        9.8964
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5808,
+          10.101
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/EAST/PERIYAKULAM",
+        "section_co": "521",
+        "subdivisio": "EAST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47621",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2709,
+        "search_string": "    ae/rural/east/periyakulam"
+      },
+      "bbox": [
+        77.5808,
+        10.101,
+        77.5808,
+        10.101
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.509,
+          10.058
+        ]
+      },
+      "properties": {
+        "section_na": "AE/MADURAPURI",
+        "section_co": "522",
+        "subdivisio": "EAST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47621",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2710,
+        "search_string": "    ae/madurapuri"
+      },
+      "bbox": [
+        77.509,
+        10.058,
+        77.509,
+        10.058
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6105,
+          10.0963
+        ]
+      },
+      "properties": {
+        "section_na": "AE/JEYAMANGALAM",
+        "section_co": "524",
+        "subdivisio": "EAST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47621",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2711,
+        "search_string": "    ae/jeyamangalam"
+      },
+      "bbox": [
+        77.6105,
+        10.0963,
+        77.6105,
+        10.0963
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4812,
+          10.0139
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/THENI",
+        "section_co": "501",
+        "subdivisio": "TOWN/THENI",
+        "region_id": "05",
+        "subdivis_1": "47631",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2712,
+        "search_string": "    ae/town/theni"
+      },
+      "bbox": [
+        77.4812,
+        10.0139,
+        77.4812,
+        10.0139
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4813,
+          10.0144
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/WEST/THENI",
+        "section_co": "507",
+        "subdivisio": "RURAL/THENI",
+        "region_id": "05",
+        "subdivis_1": "47632",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2713,
+        "search_string": "    ae/rural/west/theni"
+      },
+      "bbox": [
+        77.4813,
+        10.0144,
+        77.4813,
+        10.0144
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.468,
+          10.0024
+        ]
+      },
+      "properties": {
+        "section_na": "AE/P.C.PATTI",
+        "section_co": "503",
+        "subdivisio": "TOWN/THENI",
+        "region_id": "05",
+        "subdivis_1": "47631",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2714,
+        "search_string": "    ae/p.c.patti"
+      },
+      "bbox": [
+        77.468,
+        10.0024,
+        77.468,
+        10.0024
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4347,
+          9.9649
+        ]
+      },
+      "properties": {
+        "section_na": "AE/VEERAPANDI",
+        "section_co": "504",
+        "subdivisio": "TOWN/THENI",
+        "region_id": "05",
+        "subdivis_1": "47631",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2715,
+        "search_string": "    ae/veerapandi"
+      },
+      "bbox": [
+        77.4347,
+        9.9649,
+        77.4347,
+        9.9649
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4813,
+          10.0144
+        ]
+      },
+      "properties": {
+        "section_na": "AE/NORTH/THENI",
+        "section_co": "502",
+        "subdivisio": "TOWN/THENI",
+        "region_id": "05",
+        "subdivis_1": "47631",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2716,
+        "search_string": "    ae/north/theni"
+      },
+      "bbox": [
+        77.4813,
+        10.0144,
+        77.4813,
+        10.0144
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4788,
+          10.0156
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/SOUTH/THENI",
+        "section_co": "508",
+        "subdivisio": "RURAL/THENI",
+        "region_id": "05",
+        "subdivis_1": "47632",
+        "division_n": "THENI",
+        "division_c": "4763",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2717,
+        "search_string": "    ae/rural/south/theni"
+      },
+      "bbox": [
+        77.4788,
+        10.0156,
+        77.4788,
+        10.0156
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5959,
+          10.052
+        ]
+      },
+      "properties": {
+        "section_na": "AE/VAIGAI",
+        "section_co": "533",
+        "subdivisio": "EAST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47623",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2718,
+        "search_string": "    ae/vaigai"
+      },
+      "bbox": [
+        77.5959,
+        10.052,
+        77.5959,
+        10.052
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6004,
+          10.0018
+        ]
+      },
+      "properties": {
+        "section_na": "AE/WEST/AUNDIPATTI",
+        "section_co": "536",
+        "subdivisio": "WEST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47624",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2719,
+        "search_string": "    ae/west/aundipatti"
+      },
+      "bbox": [
+        77.6004,
+        10.0018,
+        77.6004,
+        10.0018
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.592,
+          9.9326
+        ]
+      },
+      "properties": {
+        "section_na": "AE/SOUTH/AUNDIPATTI",
+        "section_co": "537",
+        "subdivisio": "WEST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47624",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2720,
+        "search_string": "    ae/south/aundipatti"
+      },
+      "bbox": [
+        77.592,
+        9.9326,
+        77.592,
+        9.9326
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5026,
+          9.8223
+        ]
+      },
+      "properties": {
+        "section_na": "AE/KADAMALAIGUNDU",
+        "section_co": "538",
+        "subdivisio": "WEST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47624",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2721,
+        "search_string": "    ae/kadamalaigundu"
+      },
+      "bbox": [
+        77.5026,
+        9.8223,
+        77.5026,
+        9.8223
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5153,
+          9.7836
+        ]
+      },
+      "properties": {
+        "section_na": "AE/MYLADUMPARAI",
+        "section_co": "539",
+        "subdivisio": "WEST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47624",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2722,
+        "search_string": "    ae/myladumparai"
+      },
+      "bbox": [
+        77.5153,
+        9.7836,
+        77.5153,
+        9.7836
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3857,
+          9.8457
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/CHINNAMANUR",
+        "section_co": "541",
+        "subdivisio": "CHINNAMANUR",
+        "region_id": "05",
+        "subdivis_1": "47611",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2723,
+        "search_string": "    ae/town/chinnamanur"
+      },
+      "bbox": [
+        77.3857,
+        9.8457,
+        77.3857,
+        9.8457
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3868,
+          9.8466
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/CHINNAMANUR",
+        "section_co": "542",
+        "subdivisio": "CHINNAMANUR",
+        "region_id": "05",
+        "subdivis_1": "47611",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2724,
+        "search_string": "    ae/rural/chinnamanur"
+      },
+      "bbox": [
+        77.3868,
+        9.8466,
+        77.3868,
+        9.8466
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3551,
+          9.8603
+        ]
+      },
+      "properties": {
+        "section_na": "AE/MARGAYANKOTTAI",
+        "section_co": "543",
+        "subdivisio": "CHINNAMANUR",
+        "region_id": "05",
+        "subdivis_1": "47611",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2725,
+        "search_string": "    ae/margayankottai"
+      },
+      "bbox": [
+        77.3551,
+        9.8603,
+        77.3551,
+        9.8603
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.381,
+          9.7858
+        ]
+      },
+      "properties": {
+        "section_na": "AE/ERASACKANAICKANUR",
+        "section_co": "544",
+        "subdivisio": "CHINNAMANUR",
+        "region_id": "05",
+        "subdivis_1": "47611",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2726,
+        "search_string": "    ae/erasackanaickanur"
+      },
+      "bbox": [
+        77.381,
+        9.7858,
+        77.381,
+        9.7858
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3215,
+          9.8149
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/UTHAMAPALAYAM",
+        "section_co": "551",
+        "subdivisio": "UTHAMAPALAYAM",
+        "region_id": "05",
+        "subdivis_1": "47613",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2727,
+        "search_string": "    ae/town/uthamapalayam"
+      },
+      "bbox": [
+        77.3215,
+        9.8149,
+        77.3215,
+        9.8149
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3193,
+          9.7392
+        ]
+      },
+      "properties": {
+        "section_na": "AE/K.K.PATTI",
+        "section_co": "552",
+        "subdivisio": "UTHAMAPALAYAM",
+        "region_id": "05",
+        "subdivis_1": "47613",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2728,
+        "search_string": "    ae/k.k.patti"
+      },
+      "bbox": [
+        77.3193,
+        9.7392,
+        77.3193,
+        9.7392
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5493,
+          10.1203
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/PERIYAKULAM",
+        "section_co": "526",
+        "subdivisio": "WEST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47622",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2729,
+        "search_string": "    ae/town/periyakulam"
+      },
+      "bbox": [
+        77.5493,
+        10.1203,
+        77.5493,
+        10.1203
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5519,
+          10.1346
+        ]
+      },
+      "properties": {
+        "section_na": "AE/KEELAVADAGARAI",
+        "section_co": "527",
+        "subdivisio": "WEST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47622",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2730,
+        "search_string": "    ae/keelavadagarai"
+      },
+      "bbox": [
+        77.5519,
+        10.1346,
+        77.5519,
+        10.1346
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.642,
+          10.1477
+        ]
+      },
+      "properties": {
+        "section_na": "AE/DEVATHANAPATTI",
+        "section_co": "528",
+        "subdivisio": "WEST/PERIYAKULAM",
+        "region_id": "05",
+        "subdivis_1": "47622",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2731,
+        "search_string": "    ae/devathanapatti"
+      },
+      "bbox": [
+        77.642,
+        10.1477,
+        77.642,
+        10.1477
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6004,
+          10.0018
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/AUNDIPATTI",
+        "section_co": "531",
+        "subdivisio": "EAST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47623",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2732,
+        "search_string": "    ae/town/aundipatti"
+      },
+      "bbox": [
+        77.6004,
+        10.0018,
+        77.6004,
+        10.0018
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6004,
+          10.0018
+        ]
+      },
+      "properties": {
+        "section_na": "AE/EAST/AUNDIPATTI",
+        "section_co": "532",
+        "subdivisio": "EAST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47623",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2733,
+        "search_string": "    ae/east/aundipatti"
+      },
+      "bbox": [
+        77.6004,
+        10.0018,
+        77.6004,
+        10.0018
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6004,
+          10.0018
+        ]
+      },
+      "properties": {
+        "section_na": "AE/NORTH/AUNDIPATTI",
+        "section_co": "534",
+        "subdivisio": "EAST/AUNDIPATTI",
+        "region_id": "05",
+        "subdivis_1": "47623",
+        "division_n": "PERIYAKULAM",
+        "division_c": "4762",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2734,
+        "search_string": "    ae/north/aundipatti"
+      },
+      "bbox": [
+        77.6004,
+        10.0018,
+        77.6004,
+        10.0018
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2717,
+          9.7335
+        ]
+      },
+      "properties": {
+        "section_na": "AE/TOWN/CUMBUM",
+        "section_co": "556",
+        "subdivisio": "CUMBUM",
+        "region_id": "05",
+        "subdivis_1": "47614",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2735,
+        "search_string": "    ae/town/cumbum"
+      },
+      "bbox": [
+        77.2717,
+        9.7335,
+        77.2717,
+        9.7335
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2717,
+          9.7335
+        ]
+      },
+      "properties": {
+        "section_na": "AE/NORTH/CUMBUM",
+        "section_co": "560",
+        "subdivisio": "CUMBUM",
+        "region_id": "05",
+        "subdivis_1": "47614",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2736,
+        "search_string": "    ae/north/cumbum"
+      },
+      "bbox": [
+        77.2717,
+        9.7335,
+        77.2717,
+        9.7335
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3087,
+          9.7655
+        ]
+      },
+      "properties": {
+        "section_na": "AE/RURAL/CUMBUM",
+        "section_co": "557",
+        "subdivisio": "CUMBUM",
+        "region_id": "05",
+        "subdivis_1": "47614",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2737,
+        "search_string": "    ae/rural/cumbum"
+      },
+      "bbox": [
+        77.3087,
+        9.7655,
+        77.3087,
+        9.7655
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3003,
+          9.7025
+        ]
+      },
+      "properties": {
+        "section_na": "AE/SURULIPATTI",
+        "section_co": "559",
+        "subdivisio": "CUMBUM",
+        "region_id": "05",
+        "subdivis_1": "47614",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2738,
+        "search_string": "    ae/surulipatti"
+      },
+      "bbox": [
+        77.3003,
+        9.7025,
+        77.3003,
+        9.7025
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.2429,
+          9.6803
+        ]
+      },
+      "properties": {
+        "section_na": "AE/GUDALUR",
+        "section_co": "558",
+        "subdivisio": "CUMBUM",
+        "region_id": "05",
+        "subdivis_1": "47614",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2739,
+        "search_string": "    ae/gudalur"
+      },
+      "bbox": [
+        77.2429,
+        9.6803,
+        77.2429,
+        9.6803
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.462,
+          9.8759
+        ]
+      },
+      "properties": {
+        "section_na": "AE/KAMATCHIPURAM",
+        "section_co": "546",
+        "subdivisio": "KAMATCHIPURAM",
+        "region_id": "05",
+        "subdivis_1": "47612",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2740,
+        "search_string": "    ae/kamatchipuram"
+      },
+      "bbox": [
+        77.462,
+        9.8759,
+        77.462,
+        9.8759
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4462,
+          9.8298
+        ]
+      },
+      "properties": {
+        "section_na": "AE/ODAIPATTI",
+        "section_co": "547",
+        "subdivisio": "KAMATCHIPURAM",
+        "region_id": "05",
+        "subdivis_1": "47612",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2741,
+        "search_string": "    ae/odaipatti"
+      },
+      "bbox": [
+        77.4462,
+        9.8298,
+        77.4462,
+        9.8298
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3012,
+          9.8428
+        ]
+      },
+      "properties": {
+        "section_na": "AE/KOMBAI",
+        "section_co": "553",
+        "subdivisio": "UTHAMAPALAYAM",
+        "region_id": "05",
+        "subdivis_1": "47613",
+        "division_n": "CHINNAMANUR",
+        "division_c": "4761",
+        "circle_nam": "THENI",
+        "circle_cod": "0476",
+        "region_nam": "MADURAI",
+        "object_id": 2742,
+        "search_string": "    ae/kombai"
+      },
+      "bbox": [
+        77.3012,
+        9.8428,
+        77.3012,
+        9.8428
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3185 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7665,
+          11.7506
+        ]
+      },
+      "properties": {
+        "section_na": "NEW TOWN (PUDUPALAYAM)",
+        "section_co": "003",
+        "subdivisio": "TOWN/NORTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB1",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 876,
+        "search_string": "    new town (pudupalayam)"
+      },
+      "bbox": [
+        79.7665,
+        11.7506,
+        79.7665,
+        11.7506
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7602,
+          11.7586
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN MANJAKUPPAM",
+        "section_co": "002",
+        "subdivisio": "TOWN/NORTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB1",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 877,
+        "search_string": "    urban manjakuppam"
+      },
+      "bbox": [
+        79.7602,
+        11.7586,
+        79.7602,
+        11.7586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7457,
+          11.7698
+        ]
+      },
+      "properties": {
+        "section_na": "JOTHI NAGAR",
+        "section_co": "093",
+        "subdivisio": "TOWN/NORTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB1",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 878,
+        "search_string": "    jothi nagar"
+      },
+      "bbox": [
+        79.7457,
+        11.7698,
+        79.7457,
+        11.7698
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7663,
+          11.7791
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL MANJAKUPPAM",
+        "section_co": "001",
+        "subdivisio": "TOWN/NORTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB1",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 879,
+        "search_string": "    rural manjakuppam"
+      },
+      "bbox": [
+        79.7663,
+        11.7791,
+        79.7663,
+        11.7791
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6994,
+          11.868
+        ]
+      },
+      "properties": {
+        "section_na": "NALLATHUR",
+        "section_co": "004",
+        "subdivisio": "TOWN/NORTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB1",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 880,
+        "search_string": "    nallathur"
+      },
+      "bbox": [
+        79.6994,
+        11.868,
+        79.6994,
+        11.868
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7574,
+          11.8648
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUKADAI",
+        "section_co": "005",
+        "subdivisio": "TOWN/NORTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB1",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 881,
+        "search_string": "    pudukadai"
+      },
+      "bbox": [
+        79.7574,
+        11.8648,
+        79.7574,
+        11.8648
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.74,
+          11.6533
+        ]
+      },
+      "properties": {
+        "section_na": "SEMMANKUPPAM",
+        "section_co": "011",
+        "subdivisio": "SEMMANKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "CUDRB3",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 882,
+        "search_string": "    semmankuppam"
+      },
+      "bbox": [
+        79.74,
+        11.6533,
+        79.74,
+        11.6533
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7269,
+          11.6173
+        ]
+      },
+      "properties": {
+        "section_na": "ALAPAKKAM",
+        "section_co": "013",
+        "subdivisio": "SEMMANKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "CUDRB3",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 883,
+        "search_string": "    alapakkam"
+      },
+      "bbox": [
+        79.7269,
+        11.6173,
+        79.7269,
+        11.6173
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.728,
+          11.6718
+        ]
+      },
+      "properties": {
+        "section_na": "ANNAVALLI",
+        "section_co": "015",
+        "subdivisio": "SEMMANKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "CUDRB3",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 884,
+        "search_string": "    annavalli"
+      },
+      "bbox": [
+        79.728,
+        11.6718,
+        79.728,
+        11.6718
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7047,
+          11.6516
+        ]
+      },
+      "properties": {
+        "section_na": "SUBRAMANIYAPURAM",
+        "section_co": "012",
+        "subdivisio": "SEMMANKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "CUDRB3",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 885,
+        "search_string": "    subramaniyapuram"
+      },
+      "bbox": [
+        79.7047,
+        11.6516,
+        79.7047,
+        11.6516
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.749,
+          11.748
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUPATHIRIPULIYUR",
+        "section_co": "006",
+        "subdivisio": "TOWN/SOUTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB2",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 886,
+        "search_string": "    thirupathiripuliyur"
+      },
+      "bbox": [
+        79.749,
+        11.748,
+        79.749,
+        11.748
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7724,
+          11.7177
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/CUDDALORE PORT",
+        "section_co": "008",
+        "subdivisio": "TOWN/SOUTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB2",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 887,
+        "search_string": "    town/cuddalore port"
+      },
+      "bbox": [
+        79.7724,
+        11.7177,
+        79.7724,
+        11.7177
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7724,
+          11.7177
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/NORTH/CUDDALORE PORT",
+        "section_co": "009",
+        "subdivisio": "TOWN/SOUTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB2",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 888,
+        "search_string": "    rural/north/cuddalore port"
+      },
+      "bbox": [
+        79.7724,
+        11.7177,
+        79.7724,
+        11.7177
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7032,
+          11.7096
+        ]
+      },
+      "properties": {
+        "section_na": "S PUDUR",
+        "section_co": "010",
+        "subdivisio": "TOWN/SOUTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB2",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 889,
+        "search_string": "    s pudur"
+      },
+      "bbox": [
+        79.7032,
+        11.7096,
+        79.7032,
+        11.7096
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7236,
+          11.6889
+        ]
+      },
+      "properties": {
+        "section_na": "VAZHISODANAIPALAYAM",
+        "section_co": "014",
+        "subdivisio": "SEMMANKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "CUDRB3",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 890,
+        "search_string": "    vazhisodanaipalayam"
+      },
+      "bbox": [
+        79.7236,
+        11.6889,
+        79.7236,
+        11.6889
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7338,
+          11.7468
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/WEST/CUDDALORE",
+        "section_co": "007",
+        "subdivisio": "TOWN/SOUTH/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "CUDRB2",
+        "division_n": "CUDDALORE",
+        "division_c": "cudrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 891,
+        "search_string": "    rural/west/cuddalore"
+      },
+      "bbox": [
+        79.7338,
+        11.7468,
+        79.7338,
+        11.7468
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6612,
+          11.778
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/NELLIKUPPAM",
+        "section_co": "016",
+        "subdivisio": "TOWN/NELLIKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "NPMRB1",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 892,
+        "search_string": "    town/nellikuppam"
+      },
+      "bbox": [
+        79.6612,
+        11.778,
+        79.6612,
+        11.778
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5961,
+          11.79
+        ]
+      },
+      "properties": {
+        "section_na": "KOZHIPAKKAM",
+        "section_co": "017",
+        "subdivisio": "TOWN/NELLIKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "NPMRB1",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 893,
+        "search_string": "    kozhipakkam"
+      },
+      "bbox": [
+        79.5961,
+        11.79,
+        79.5961,
+        11.79
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6308,
+          11.7874
+        ]
+      },
+      "properties": {
+        "section_na": "MELPATTAMPAKKAM",
+        "section_co": "018",
+        "subdivisio": "TOWN/NELLIKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "NPMRB1",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 894,
+        "search_string": "    melpattampakkam"
+      },
+      "bbox": [
+        79.6308,
+        11.7874,
+        79.6308,
+        11.7874
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.661,
+          11.778
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/NELLIKUPPAM",
+        "section_co": "019",
+        "subdivisio": "TOWN/NELLIKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "NPMRB1",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 895,
+        "search_string": "    rural/nellikuppam"
+      },
+      "bbox": [
+        79.661,
+        11.778,
+        79.661,
+        11.778
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6348,
+          11.765
+        ]
+      },
+      "properties": {
+        "section_na": "PALUR",
+        "section_co": "020",
+        "subdivisio": "CHITHARASUR",
+        "region_id": "02",
+        "subdivis_1": "NPMRB2",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 896,
+        "search_string": "    palur"
+      },
+      "bbox": [
+        79.6348,
+        11.765,
+        79.6348,
+        11.765
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6189,
+          11.7302
+        ]
+      },
+      "properties": {
+        "section_na": "C N PALAYAM",
+        "section_co": "021",
+        "subdivisio": "CHITHARASUR",
+        "region_id": "02",
+        "subdivis_1": "NPMRB2",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 897,
+        "search_string": "    c n palayam"
+      },
+      "bbox": [
+        79.6189,
+        11.7302,
+        79.6189,
+        11.7302
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6215,
+          11.7283
+        ]
+      },
+      "properties": {
+        "section_na": "NADUVEERAPATTU",
+        "section_co": "022",
+        "subdivisio": "CHITHARASUR",
+        "region_id": "02",
+        "subdivis_1": "NPMRB2",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 898,
+        "search_string": "    naduveerapattu"
+      },
+      "bbox": [
+        79.6215,
+        11.7283,
+        79.6215,
+        11.7283
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6985,
+          11.7617
+        ]
+      },
+      "properties": {
+        "section_na": "VARAKALPATTU",
+        "section_co": "023",
+        "subdivisio": "RURAL/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "NPMRB3",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 899,
+        "search_string": "    varakalpattu"
+      },
+      "bbox": [
+        79.6985,
+        11.7617,
+        79.6985,
+        11.7617
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7121,
+          11.827
+        ]
+      },
+      "properties": {
+        "section_na": "KUTTIYANKUPPAM",
+        "section_co": "024",
+        "subdivisio": "RURAL/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "NPMRB3",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 900,
+        "search_string": "    kuttiyankuppam"
+      },
+      "bbox": [
+        79.7121,
+        11.827,
+        79.7121,
+        11.827
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6646,
+          11.7407
+        ]
+      },
+      "properties": {
+        "section_na": "ARUNGUNAM",
+        "section_co": "025",
+        "subdivisio": "RURAL/CUDDALORE",
+        "region_id": "02",
+        "subdivis_1": "NPMRB3",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 901,
+        "search_string": "    arungunam"
+      },
+      "bbox": [
+        79.6646,
+        11.7407,
+        79.6646,
+        11.7407
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5558,
+          11.7842
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/PANRUTI",
+        "section_co": "026",
+        "subdivisio": "TOWN/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB1",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 902,
+        "search_string": "    town/panruti"
+      },
+      "bbox": [
+        79.5558,
+        11.7842,
+        79.5558,
+        11.7842
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5554,
+          11.7842
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/EAST/PANRUTI",
+        "section_co": "028",
+        "subdivisio": "TOWN/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB1",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 903,
+        "search_string": "    rural/east/panruti"
+      },
+      "bbox": [
+        79.5554,
+        11.7842,
+        79.5554,
+        11.7842
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5513,
+          11.7063
+        ]
+      },
+      "properties": {
+        "section_na": "KADAMPULIYUR",
+        "section_co": "027",
+        "subdivisio": "TOWN/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB1",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 904,
+        "search_string": "    kadampuliyur"
+      },
+      "bbox": [
+        79.5513,
+        11.7063,
+        79.5513,
+        11.7063
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5373,
+          11.6537
+        ]
+      },
+      "properties": {
+        "section_na": "MARUNGUR",
+        "section_co": "094",
+        "subdivisio": "TOWN/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB1",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 905,
+        "search_string": "    marungur"
+      },
+      "bbox": [
+        79.5373,
+        11.6537,
+        79.5373,
+        11.6537
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5555,
+          11.7842
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/SOUTH/PANRUTI",
+        "section_co": "029",
+        "subdivisio": "RURAL/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB2",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 906,
+        "search_string": "    rural/south/panruti"
+      },
+      "bbox": [
+        79.5555,
+        11.7842,
+        79.5555,
+        11.7842
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5289,
+          11.7922
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUPETTAI",
+        "section_co": "030",
+        "subdivisio": "RURAL/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB2",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 907,
+        "search_string": "    pudupettai"
+      },
+      "bbox": [
+        79.5289,
+        11.7922,
+        79.5289,
+        11.7922
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5253,
+          11.7777
+        ]
+      },
+      "properties": {
+        "section_na": "A C PALAYAM",
+        "section_co": "032",
+        "subdivisio": "RURAL/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB2",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 908,
+        "search_string": "    a c palayam"
+      },
+      "bbox": [
+        79.5253,
+        11.7777,
+        79.5253,
+        11.7777
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4783,
+          11.7732
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUVAMOOR",
+        "section_co": "033",
+        "subdivisio": "RURAL/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB2",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 909,
+        "search_string": "    thiruvamoor"
+      },
+      "bbox": [
+        79.4783,
+        11.7732,
+        79.4783,
+        11.7732
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.448,
+          11.7751
+        ]
+      },
+      "properties": {
+        "section_na": "V P NALLUR",
+        "section_co": "031",
+        "subdivisio": "RURAL/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB2",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 910,
+        "search_string": "    v p nallur"
+      },
+      "bbox": [
+        79.448,
+        11.7751,
+        79.448,
+        11.7751
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5552,
+          11.7844
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/NORTH/PANRUTI",
+        "section_co": "035",
+        "subdivisio": "RURAL/NORTH/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB3",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 911,
+        "search_string": "    rural/north/panruti"
+      },
+      "bbox": [
+        79.5552,
+        11.7844,
+        79.5552,
+        11.7844
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5549,
+          11.7845
+        ]
+      },
+      "properties": {
+        "section_na": "KANDRAKOTTAI",
+        "section_co": "034",
+        "subdivisio": "RURAL/NORTH/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB3",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 912,
+        "search_string": "    kandrakottai"
+      },
+      "bbox": [
+        79.5549,
+        11.7845,
+        79.5549,
+        11.7845
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5099,
+          11.813
+        ]
+      },
+      "properties": {
+        "section_na": "ORAIYUR",
+        "section_co": "036",
+        "subdivisio": "RURAL/NORTH/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB3",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 913,
+        "search_string": "    oraiyur"
+      },
+      "bbox": [
+        79.5099,
+        11.813,
+        79.5099,
+        11.813
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5193,
+          11.8291
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUTHURAIYUR",
+        "section_co": "037",
+        "subdivisio": "RURAL/NORTH/PANRUTI",
+        "region_id": "02",
+        "subdivis_1": "PRTRB3",
+        "division_n": "PANRUTI",
+        "division_c": "prtrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 914,
+        "search_string": "    thiruthuraiyur"
+      },
+      "bbox": [
+        79.5193,
+        11.8291,
+        79.5193,
+        11.8291
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5884,
+          11.5645
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/KURINJIPADY",
+        "section_co": "038",
+        "subdivisio": "KURINJIPADY",
+        "region_id": "02",
+        "subdivis_1": "KPYRB1",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 915,
+        "search_string": "    urban/kurinjipady"
+      },
+      "bbox": [
+        79.5884,
+        11.5645,
+        79.5884,
+        11.5645
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5882,
+          11.5643
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/KURINJIPADY",
+        "section_co": "039",
+        "subdivisio": "KURINJIPADY",
+        "region_id": "02",
+        "subdivis_1": "KPYRB1",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 916,
+        "search_string": "    rural/kurinjipady"
+      },
+      "bbox": [
+        79.5882,
+        11.5643,
+        79.5882,
+        11.5643
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5881,
+          11.5645
+        ]
+      },
+      "properties": {
+        "section_na": "RUAL/NORTH/KURINJIPADY",
+        "section_co": "040",
+        "subdivisio": "KURINJIPADY",
+        "region_id": "02",
+        "subdivis_1": "KPYRB1",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 917,
+        "search_string": "    rual/north/kurinjipady"
+      },
+      "bbox": [
+        79.5881,
+        11.5645,
+        79.5881,
+        11.5645
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6006,
+          11.6155
+        ]
+      },
+      "properties": {
+        "section_na": "VENKADAMPETTAI",
+        "section_co": "041",
+        "subdivisio": "KURINJIPADY",
+        "region_id": "02",
+        "subdivis_1": "KPYRB1",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 918,
+        "search_string": "    venkadampettai"
+      },
+      "bbox": [
+        79.6006,
+        11.6155,
+        79.6006,
+        11.6155
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6742,
+          11.6264
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/KULLANCHAVADI",
+        "section_co": "042",
+        "subdivisio": "KULLANCHAVADI",
+        "region_id": "02",
+        "subdivis_1": "KPYRB2",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 919,
+        "search_string": "    urban/kullanchavadi"
+      },
+      "bbox": [
+        79.6742,
+        11.6264,
+        79.6742,
+        11.6264
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6718,
+          11.6303
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/KULLANCHAVADI",
+        "section_co": "043",
+        "subdivisio": "KULLANCHAVADI",
+        "region_id": "02",
+        "subdivis_1": "KPYRB2",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 920,
+        "search_string": "    rural/kullanchavadi"
+      },
+      "bbox": [
+        79.6718,
+        11.6303,
+        79.6718,
+        11.6303
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5529,
+          11.5879
+        ]
+      },
+      "properties": {
+        "section_na": "SFC/VADAKUTHU",
+        "section_co": "044",
+        "subdivisio": "VADALUR",
+        "region_id": "02",
+        "subdivis_1": "KPYRB3",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 921,
+        "search_string": "    sfc/vadakuthu"
+      },
+      "bbox": [
+        79.5529,
+        11.5879,
+        79.5529,
+        11.5879
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5558,
+          11.5546
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/VADALUR",
+        "section_co": "045",
+        "subdivisio": "VADALUR",
+        "region_id": "02",
+        "subdivis_1": "KPYRB3",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 922,
+        "search_string": "    urban/vadalur"
+      },
+      "bbox": [
+        79.5558,
+        11.5546,
+        79.5558,
+        11.5546
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4696,
+          11.5379
+        ]
+      },
+      "properties": {
+        "section_na": "GANGAIKONDAN",
+        "section_co": "046",
+        "subdivisio": "VADALUR",
+        "region_id": "02",
+        "subdivis_1": "KPYRB3",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 923,
+        "search_string": "    gangaikondan"
+      },
+      "bbox": [
+        79.4696,
+        11.5379,
+        79.4696,
+        11.5379
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5572,
+          11.5391
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/VADALUR",
+        "section_co": "095",
+        "subdivisio": "VADALUR",
+        "region_id": "02",
+        "subdivis_1": "KPYRB3",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 924,
+        "search_string": "    rural/vadalur"
+      },
+      "bbox": [
+        79.5572,
+        11.5391,
+        79.5572,
+        11.5391
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5421,
+          11.6185
+        ]
+      },
+      "properties": {
+        "section_na": "INDIRA NAGAR",
+        "section_co": "103",
+        "subdivisio": "VADALUR",
+        "region_id": "02",
+        "subdivis_1": "KPYRB3",
+        "division_n": "KURINJIPADY",
+        "division_c": "kpyrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 925,
+        "search_string": "    indira nagar"
+      },
+      "bbox": [
+        79.5421,
+        11.6185,
+        79.5421,
+        11.6185
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6833,
+          11.3987
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/EAST/CHIDAMBARAM",
+        "section_co": "047",
+        "subdivisio": "TOWN/CHIDAMBARAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB1",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 926,
+        "search_string": "    urban/east/chidambaram"
+      },
+      "bbox": [
+        79.6833,
+        11.3987,
+        79.6833,
+        11.3987
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6828,
+          11.3991
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/WEST/CHIDAMBARAM",
+        "section_co": "048",
+        "subdivisio": "TOWN/CHIDAMBARAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB1",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 927,
+        "search_string": "    urban/west/chidambaram"
+      },
+      "bbox": [
+        79.6828,
+        11.3991,
+        79.6828,
+        11.3991
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6833,
+          11.399
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/SOUTH/CHIDAMBARAM",
+        "section_co": "051",
+        "subdivisio": "TOWN/CHIDAMBARAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB1",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 928,
+        "search_string": "    urban/south/chidambaram"
+      },
+      "bbox": [
+        79.6833,
+        11.399,
+        79.6833,
+        11.399
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6833,
+          11.399
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/CHIDAMBARAM",
+        "section_co": "049",
+        "subdivisio": "TOWN/CHIDAMBARAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB1",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 929,
+        "search_string": "    rural/chidambaram"
+      },
+      "bbox": [
+        79.6833,
+        11.399,
+        79.6833,
+        11.399
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7045,
+          11.3866
+        ]
+      },
+      "properties": {
+        "section_na": "ANNAMALAI NAGAR",
+        "section_co": "096",
+        "subdivisio": "TOWN/CHIDAMBARAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB1",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 930,
+        "search_string": "    annamalai nagar"
+      },
+      "bbox": [
+        79.7045,
+        11.3866,
+        79.7045,
+        11.3866
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7151,
+          11.4822
+        ]
+      },
+      "properties": {
+        "section_na": "B MUTLUR",
+        "section_co": "097",
+        "subdivisio": "B MUTLUR",
+        "region_id": "02",
+        "subdivis_1": "CDMRB2",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 931,
+        "search_string": "    b mutlur"
+      },
+      "bbox": [
+        79.7151,
+        11.4822,
+        79.7151,
+        11.4822
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6271,
+          11.3066
+        ]
+      },
+      "properties": {
+        "section_na": "KUMARATCHI",
+        "section_co": "050",
+        "subdivisio": "KATTUMANNARKOIL",
+        "region_id": "02",
+        "subdivis_1": "CDMRB5",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 932,
+        "search_string": "    kumaratchi"
+      },
+      "bbox": [
+        79.6271,
+        11.3066,
+        79.6271,
+        11.3066
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5593,
+          11.2726
+        ]
+      },
+      "properties": {
+        "section_na": "KATTUMANNARKOIL",
+        "section_co": "055",
+        "subdivisio": "KATTUMANNARKOIL",
+        "region_id": "02",
+        "subdivis_1": "CDMRB5",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 933,
+        "search_string": "    kattumannarkoil"
+      },
+      "bbox": [
+        79.5593,
+        11.2726,
+        79.5593,
+        11.2726
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5554,
+          11.2983
+        ]
+      },
+      "properties": {
+        "section_na": "LALPET",
+        "section_co": "058",
+        "subdivisio": "KATTUMANNARKOIL",
+        "region_id": "02",
+        "subdivis_1": "CDMRB5",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 934,
+        "search_string": "    lalpet"
+      },
+      "bbox": [
+        79.5554,
+        11.2983,
+        79.5554,
+        11.2983
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5575,
+          11.2284
+        ]
+      },
+      "properties": {
+        "section_na": "MUTTAM",
+        "section_co": "098",
+        "subdivisio": "KATTUMANNARKOIL",
+        "region_id": "02",
+        "subdivis_1": "CDMRB5",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 935,
+        "search_string": "    muttam"
+      },
+      "bbox": [
+        79.5575,
+        11.2284,
+        79.5575,
+        11.2284
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5016,
+          11.3235
+        ]
+      },
+      "properties": {
+        "section_na": "VANAMADEVI",
+        "section_co": "099",
+        "subdivisio": "KATTUMANNARKOIL",
+        "region_id": "02",
+        "subdivis_1": "CDMRB5",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 936,
+        "search_string": "    vanamadevi"
+      },
+      "bbox": [
+        79.5016,
+        11.3235,
+        79.5016,
+        11.3235
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.627,
+          11.4402
+        ]
+      },
+      "properties": {
+        "section_na": "BHUVANAGIRI",
+        "section_co": "052",
+        "subdivisio": "B MUTLUR",
+        "region_id": "02",
+        "subdivis_1": "CDMRB2",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 937,
+        "search_string": "    bhuvanagiri"
+      },
+      "bbox": [
+        79.627,
+        11.4402,
+        79.627,
+        11.4402
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.745,
+          11.4838
+        ]
+      },
+      "properties": {
+        "section_na": "PARANGIPETTAI",
+        "section_co": "053",
+        "subdivisio": "B MUTLUR",
+        "region_id": "02",
+        "subdivis_1": "CDMRB2",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 938,
+        "search_string": "    parangipettai"
+      },
+      "bbox": [
+        79.745,
+        11.4838,
+        79.745,
+        11.4838
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6508,
+          11.4364
+        ]
+      },
+      "properties": {
+        "section_na": "KEERAPALAYAM",
+        "section_co": "054",
+        "subdivisio": "B MUTLUR",
+        "region_id": "02",
+        "subdivis_1": "CDMRB2",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 939,
+        "search_string": "    keerapalayam"
+      },
+      "bbox": [
+        79.6508,
+        11.4364,
+        79.6508,
+        11.4364
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4707,
+          11.4463
+        ]
+      },
+      "properties": {
+        "section_na": "MUGANTIRAIYANKUPPAM",
+        "section_co": "056",
+        "subdivisio": "SETHIYATHOPE",
+        "region_id": "02",
+        "subdivis_1": "CDMRB3",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 940,
+        "search_string": "    mugantiraiyankuppam"
+      },
+      "bbox": [
+        79.4707,
+        11.4463,
+        79.4707,
+        11.4463
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5373,
+          11.4222
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/SETHIYATHOPE",
+        "section_co": "057",
+        "subdivisio": "SETHIYATHOPE",
+        "region_id": "02",
+        "subdivis_1": "CDMRB3",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 941,
+        "search_string": "    south/sethiyathope"
+      },
+      "bbox": [
+        79.5373,
+        11.4222,
+        79.5373,
+        11.4222
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5466,
+          11.4531
+        ]
+      },
+      "properties": {
+        "section_na": "EAST/SETHIYATHOPE",
+        "section_co": "059",
+        "subdivisio": "SETHIYATHOPE",
+        "region_id": "02",
+        "subdivis_1": "CDMRB3",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 942,
+        "search_string": "    east/sethiyathope"
+      },
+      "bbox": [
+        79.5466,
+        11.4531,
+        79.5466,
+        11.4531
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5092,
+          11.3641
+        ]
+      },
+      "properties": {
+        "section_na": "SOZHATHARAM",
+        "section_co": "064",
+        "subdivisio": "SETHIYATHOPE",
+        "region_id": "02",
+        "subdivis_1": "CDMRB3",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 943,
+        "search_string": "    sozhatharam"
+      },
+      "bbox": [
+        79.5092,
+        11.3641,
+        79.5092,
+        11.3641
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3952,
+          11.4051
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/SRIMUSHNAM",
+        "section_co": "060",
+        "subdivisio": "SRIMUSHNAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB4",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 944,
+        "search_string": "    town/srimushnam"
+      },
+      "bbox": [
+        79.3952,
+        11.4051,
+        79.3952,
+        11.4051
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4691,
+          11.3726
+        ]
+      },
+      "properties": {
+        "section_na": "PALAYAMKOTTAI",
+        "section_co": "061",
+        "subdivisio": "SRIMUSHNAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB4",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 945,
+        "search_string": "    palayamkottai"
+      },
+      "bbox": [
+        79.4691,
+        11.3726,
+        79.4691,
+        11.3726
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4691,
+          11.3978
+        ]
+      },
+      "properties": {
+        "section_na": "KANUR",
+        "section_co": "062",
+        "subdivisio": "SRIMUSHNAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB4",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 946,
+        "search_string": "    kanur"
+      },
+      "bbox": [
+        79.4691,
+        11.3978,
+        79.4691,
+        11.3978
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3951,
+          11.4051
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/SRIMUSHNAM",
+        "section_co": "063",
+        "subdivisio": "SRIMUSHNAM",
+        "region_id": "02",
+        "subdivis_1": "CDMRB4",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 947,
+        "search_string": "    rural/srimushnam"
+      },
+      "bbox": [
+        79.3951,
+        11.4051,
+        79.3951,
+        11.4051
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3379,
+          11.5105
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/VRIDHACHALAM",
+        "section_co": "065",
+        "subdivisio": "TOWN/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB1",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 948,
+        "search_string": "    town/vridhachalam"
+      },
+      "bbox": [
+        79.3379,
+        11.5105,
+        79.3379,
+        11.5105
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3375,
+          11.5109
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/NORTH/VRIDHACHALAM",
+        "section_co": "066",
+        "subdivisio": "TOWN/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB1",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 949,
+        "search_string": "    rural/north/vridhachalam"
+      },
+      "bbox": [
+        79.3375,
+        11.5109,
+        79.3375,
+        11.5109
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3378,
+          11.5107
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/KANDIYANKUPPAM",
+        "section_co": "100",
+        "subdivisio": "TOWN/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB1",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 950,
+        "search_string": "    urban/kandiyankuppam"
+      },
+      "bbox": [
+        79.3378,
+        11.5107,
+        79.3378,
+        11.5107
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3377,
+          11.5107
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/EAST/VRIDHACHALAM",
+        "section_co": "068",
+        "subdivisio": "RURAL/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB2",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 951,
+        "search_string": "    rural/east/vridhachalam"
+      },
+      "bbox": [
+        79.3377,
+        11.5107,
+        79.3377,
+        11.5107
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2871,
+          11.5178
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/WEST/VRIDHACHALAM",
+        "section_co": "069",
+        "subdivisio": "RURAL/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB2",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 952,
+        "search_string": "    rural/west/vridhachalam"
+      },
+      "bbox": [
+        79.2871,
+        11.5178,
+        79.2871,
+        11.5178
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4319,
+          11.4761
+        ]
+      },
+      "properties": {
+        "section_na": "KAMMAPURAM",
+        "section_co": "071",
+        "subdivisio": "RURAL/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB2",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 953,
+        "search_string": "    kammapuram"
+      },
+      "bbox": [
+        79.4319,
+        11.4761,
+        79.4319,
+        11.4761
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1899,
+          11.5693
+        ]
+      },
+      "properties": {
+        "section_na": "NALLUR",
+        "section_co": "070",
+        "subdivisio": "RURAL/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB2",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 954,
+        "search_string": "    nallur"
+      },
+      "bbox": [
+        79.1899,
+        11.5693,
+        79.1899,
+        11.5693
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2083,
+          11.5316
+        ]
+      },
+      "properties": {
+        "section_na": "A CHITHOOR",
+        "section_co": "072",
+        "subdivisio": "RURAL/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB2",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 955,
+        "search_string": "    a chithoor"
+      },
+      "bbox": [
+        79.2083,
+        11.5316,
+        79.2083,
+        11.5316
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4245,
+          11.5346
+        ]
+      },
+      "properties": {
+        "section_na": "U MANGALAM",
+        "section_co": "102",
+        "subdivisio": "RURAL/VRIDHACHALAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB2",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 956,
+        "search_string": "    u mangalam"
+      },
+      "bbox": [
+        79.4245,
+        11.5346,
+        79.4245,
+        11.5346
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3108,
+          11.6096
+        ]
+      },
+      "properties": {
+        "section_na": "KO POOVANUR",
+        "section_co": "088",
+        "subdivisio": "KO POOVANUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB5",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 957,
+        "search_string": "    ko poovanur"
+      },
+      "bbox": [
+        79.3108,
+        11.6096,
+        79.3108,
+        11.6096
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2798,
+          11.6422
+        ]
+      },
+      "properties": {
+        "section_na": "MANGALAMPETTAI",
+        "section_co": "089",
+        "subdivisio": "KO POOVANUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB5",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 958,
+        "search_string": "    mangalampettai"
+      },
+      "bbox": [
+        79.2798,
+        11.6422,
+        79.2798,
+        11.6422
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2555,
+          11.5793
+        ]
+      },
+      "properties": {
+        "section_na": "M PARUR",
+        "section_co": "087",
+        "subdivisio": "KO POOVANUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB5",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 959,
+        "search_string": "    m parur"
+      },
+      "bbox": [
+        79.2555,
+        11.5793,
+        79.2555,
+        11.5793
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.365,
+          11.6339
+        ]
+      },
+      "properties": {
+        "section_na": "ALADI",
+        "section_co": "067",
+        "subdivisio": "KO POOVANUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB5",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 960,
+        "search_string": "    aladi"
+      },
+      "bbox": [
+        79.365,
+        11.6339,
+        79.365,
+        11.6339
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3184,
+          11.4639
+        ]
+      },
+      "properties": {
+        "section_na": "KARUVEPILANKURUCHI",
+        "section_co": "078",
+        "subdivisio": "KARUVEPILANKURUCHI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB7",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 961,
+        "search_string": "    karuvepilankuruchi"
+      },
+      "bbox": [
+        79.3184,
+        11.4639,
+        79.3184,
+        11.4639
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3769,
+          11.4661
+        ]
+      },
+      "properties": {
+        "section_na": "KARMANGUDI",
+        "section_co": "077",
+        "subdivisio": "KARUVEPILANKURUCHI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB7",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 962,
+        "search_string": "    karmangudi"
+      },
+      "bbox": [
+        79.3769,
+        11.4661,
+        79.3769,
+        11.4661
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3482,
+          11.4265
+        ]
+      },
+      "properties": {
+        "section_na": "RAJENDRAPATTINAM",
+        "section_co": "076",
+        "subdivisio": "KARUVEPILANKURUCHI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB7",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 963,
+        "search_string": "    rajendrapattinam"
+      },
+      "bbox": [
+        79.3482,
+        11.4265,
+        79.3482,
+        11.4265
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3006,
+          11.4452
+        ]
+      },
+      "properties": {
+        "section_na": "SATHIYAVADI",
+        "section_co": "079",
+        "subdivisio": "KARUVEPILANKURUCHI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB7",
+        "division_n": "VRIDHACHALAM",
+        "division_c": "vrdrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 964,
+        "search_string": "    sathiyavadi"
+      },
+      "bbox": [
+        79.3006,
+        11.4452,
+        79.3006,
+        11.4452
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.131,
+          11.3987
+        ]
+      },
+      "properties": {
+        "section_na": "TITTAGUDI SS",
+        "section_co": "081",
+        "subdivisio": "TITTAGUDI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB4",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 965,
+        "search_string": "    tittagudi ss"
+      },
+      "bbox": [
+        79.131,
+        11.3987,
+        79.131,
+        11.3987
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1312,
+          11.3981
+        ]
+      },
+      "properties": {
+        "section_na": "AVINANGUDI",
+        "section_co": "083",
+        "subdivisio": "TITTAGUDI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB4",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 966,
+        "search_string": "    avinangudi"
+      },
+      "bbox": [
+        79.1312,
+        11.3981,
+        79.1312,
+        11.3981
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1166,
+          11.4584
+        ]
+      },
+      "properties": {
+        "section_na": "E KEERANUR",
+        "section_co": "101",
+        "subdivisio": "TITTAGUDI",
+        "region_id": "02",
+        "subdivis_1": "VRDRB4",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 967,
+        "search_string": "    e keeranur"
+      },
+      "bbox": [
+        79.1166,
+        11.4584,
+        79.1166,
+        11.4584
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1266,
+          11.5384
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/SOUTH/VEPPUR",
+        "section_co": "090",
+        "subdivisio": "VEPPUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB6",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 968,
+        "search_string": "    rural/south/veppur"
+      },
+      "bbox": [
+        79.1266,
+        11.5384,
+        79.1266,
+        11.5384
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.127,
+          11.5384
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/WEST/VEPPUR",
+        "section_co": "091",
+        "subdivisio": "VEPPUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB6",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 969,
+        "search_string": "    rural/west/veppur"
+      },
+      "bbox": [
+        79.127,
+        11.5384,
+        79.127,
+        11.5384
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.04,
+          11.5497
+        ]
+      },
+      "properties": {
+        "section_na": "ADARI",
+        "section_co": "092",
+        "subdivisio": "VEPPUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB6",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 970,
+        "search_string": "    adari"
+      },
+      "bbox": [
+        79.04,
+        11.5497,
+        79.04,
+        11.5497
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9846,
+          11.549
+        ]
+      },
+      "properties": {
+        "section_na": "SIRUPAKKAM",
+        "section_co": "085",
+        "subdivisio": "VEPPUR",
+        "region_id": "02",
+        "subdivis_1": "VRDRB6",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 971,
+        "search_string": "    sirupakkam"
+      },
+      "bbox": [
+        78.9846,
+        11.549,
+        78.9846,
+        11.549
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.231,
+          11.3999
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/PENNADAM",
+        "section_co": "080",
+        "subdivisio": "PENNADAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB3",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 972,
+        "search_string": "    urban/pennadam"
+      },
+      "bbox": [
+        79.231,
+        11.3999,
+        79.231,
+        11.3999
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2312,
+          11.4
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/EAST/PENNADAM",
+        "section_co": "073",
+        "subdivisio": "PENNADAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB3",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 973,
+        "search_string": "    rural/east/pennadam"
+      },
+      "bbox": [
+        79.2312,
+        11.4,
+        79.2312,
+        11.4
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2311,
+          11.4
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/WEST/PENNADAM",
+        "section_co": "074",
+        "subdivisio": "PENNADAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB3",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 974,
+        "search_string": "    rural/west/pennadam"
+      },
+      "bbox": [
+        79.2311,
+        11.4,
+        79.2311,
+        11.4
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0066,
+          11.407
+        ]
+      },
+      "properties": {
+        "section_na": "THOLUDUR",
+        "section_co": "082",
+        "subdivisio": "THOLUDUR",
+        "region_id": "02",
+        "subdivis_1": "TGIRB4",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 975,
+        "search_string": "    tholudur"
+      },
+      "bbox": [
+        79.0066,
+        11.407,
+        79.0066,
+        11.407
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3003,
+          11.4453
+        ]
+      },
+      "properties": {
+        "section_na": "MURUGANGUDI",
+        "section_co": "075",
+        "subdivisio": "PENNADAM",
+        "region_id": "02",
+        "subdivis_1": "VRDRB3",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 976,
+        "search_string": "    murugangudi"
+      },
+      "bbox": [
+        79.3003,
+        11.4453,
+        79.3003,
+        11.4453
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0181,
+          11.5072
+        ]
+      },
+      "properties": {
+        "section_na": "MANGALORE",
+        "section_co": "084",
+        "subdivisio": "THOLUDUR",
+        "region_id": "02",
+        "subdivis_1": "TGIRB4",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 977,
+        "search_string": "    mangalore"
+      },
+      "bbox": [
+        79.0181,
+        11.5072,
+        79.0181,
+        11.5072
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9498,
+          11.4286
+        ]
+      },
+      "properties": {
+        "section_na": "KEELKALPOONDI",
+        "section_co": "086",
+        "subdivisio": "THOLUDUR",
+        "region_id": "02",
+        "subdivis_1": "TGIRB4",
+        "division_n": "TITTAGUDI",
+        "division_c": "tgirb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 978,
+        "search_string": "    keelkalpoondi"
+      },
+      "bbox": [
+        78.9498,
+        11.4286,
+        78.9498,
+        11.4286
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5934,
+          11.4599
+        ]
+      },
+      "properties": {
+        "section_na": "B UDAIYUR",
+        "section_co": "106",
+        "subdivisio": "SETHIYATHOPE",
+        "region_id": "02",
+        "subdivis_1": "CDMRB3",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 979,
+        "search_string": "    b udaiyur"
+      },
+      "bbox": [
+        79.5934,
+        11.4599,
+        79.5934,
+        11.4599
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5454,
+          11.3495
+        ]
+      },
+      "properties": {
+        "section_na": "T NEDUNCHERRY",
+        "section_co": "107",
+        "subdivisio": "KATTUMANNARKOIL",
+        "region_id": "02",
+        "subdivis_1": "CDMRB5",
+        "division_n": "CHIDAMBARAM",
+        "division_c": "cdmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 980,
+        "search_string": "    t neduncherry"
+      },
+      "bbox": [
+        79.5454,
+        11.3495,
+        79.5454,
+        11.3495
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6016,
+          11.7875
+        ]
+      },
+      "properties": {
+        "section_na": "ANNAGRAMAM",
+        "section_co": "104",
+        "subdivisio": "TOWN NELLIKUPPAM",
+        "region_id": "02",
+        "subdivis_1": "NPMRB1",
+        "division_n": "NELLIKUPPAM",
+        "division_c": "npmrb",
+        "circle_nam": "CUDDALORE",
+        "circle_cod": "0418",
+        "region_nam": "VILLUPURAM",
+        "object_id": 981,
+        "search_string": "    annagramam"
+      },
+      "bbox": [
+        79.6016,
+        11.7875,
+        79.6016,
+        11.7875
+      ]
+    }
+  ]
+}

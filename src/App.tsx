@@ -16,7 +16,7 @@ import type { HealthScope } from './types/gis';
 import UpdateNotification from './components/UpdateNotification';
 import { RouteManager } from './components/routing/RouteManager';
 
-const APP_VERSION = '2026-04-25T13:48:55.028Z';
+const APP_VERSION = '2026-04-25T15:13:15.813Z';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 

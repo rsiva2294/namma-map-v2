@@ -1,0 +1,1175 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6346,
+          11.2958
+        ]
+      },
+      "properties": {
+        "section_na": "Yedakadu",
+        "section_co": "439",
+        "subdivisio": "Kundah AD",
+        "region_id": "03",
+        "subdivis_1": "48225",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2775,
+        "search_string": "    yedakadu"
+      },
+      "bbox": [
+        76.6346,
+        11.2958,
+        76.6346,
+        11.2958
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.3555,
+          11.5146
+        ]
+      },
+      "properties": {
+        "section_na": "Uppatty",
+        "section_co": "416",
+        "subdivisio": "Pandhalur AD",
+        "region_id": "03",
+        "subdivis_1": "48232",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2776,
+        "search_string": "    uppatty"
+      },
+      "bbox": [
+        76.3555,
+        11.5146,
+        76.3555,
+        11.5146
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7029,
+          11.2991
+        ]
+      },
+      "properties": {
+        "section_na": "Haruguchi",
+        "section_co": "430",
+        "subdivisio": "Kundah AD",
+        "region_id": "03",
+        "subdivis_1": "48225",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2777,
+        "search_string": "    haruguchi"
+      },
+      "bbox": [
+        76.7029,
+        11.2991,
+        76.7029,
+        11.2991
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.3102,
+          11.5569
+        ]
+      },
+      "properties": {
+        "section_na": "Ayyankolly",
+        "section_co": "420",
+        "subdivisio": "Pandhalur AD",
+        "region_id": "03",
+        "subdivis_1": "48232",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2778,
+        "search_string": "    ayyankolly"
+      },
+      "bbox": [
+        76.3102,
+        11.5569,
+        76.3102,
+        11.5569
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6501,
+          11.5753
+        ]
+      },
+      "properties": {
+        "section_na": "Masinagudi",
+        "section_co": "417",
+        "subdivisio": "Gudalur AD",
+        "region_id": "03",
+        "subdivis_1": "48231",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2779,
+        "search_string": "    masinagudi"
+      },
+      "bbox": [
+        76.6501,
+        11.5753,
+        76.6501,
+        11.5753
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6971,
+          11.4047
+        ]
+      },
+      "properties": {
+        "section_na": "Ettines Road",
+        "section_co": "402",
+        "subdivisio": "Ooty Town AD",
+        "region_id": "03",
+        "subdivis_1": "48211",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2780,
+        "search_string": "    ettines road"
+      },
+      "bbox": [
+        76.6971,
+        11.4047,
+        76.6971,
+        11.4047
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6802,
+          11.4052
+        ]
+      },
+      "properties": {
+        "section_na": "Lake view",
+        "section_co": "403",
+        "subdivisio": "Ooty Town AD",
+        "region_id": "03",
+        "subdivis_1": "48211",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2781,
+        "search_string": "    lake view"
+      },
+      "bbox": [
+        76.6802,
+        11.4052,
+        76.6802,
+        11.4052
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6971,
+          11.4045
+        ]
+      },
+      "properties": {
+        "section_na": "Commercial Road",
+        "section_co": "401",
+        "subdivisio": "Ooty Town AD",
+        "region_id": "03",
+        "subdivis_1": "48211",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2782,
+        "search_string": "    commercial road"
+      },
+      "bbox": [
+        76.6971,
+        11.4045,
+        76.6971,
+        11.4045
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.669,
+          11.4385
+        ]
+      },
+      "properties": {
+        "section_na": "Thalakundah",
+        "section_co": "404",
+        "subdivisio": "Ooty Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48212",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2783,
+        "search_string": "    thalakundah"
+      },
+      "bbox": [
+        76.669,
+        11.4385,
+        76.669,
+        11.4385
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.697,
+          11.4047
+        ]
+      },
+      "properties": {
+        "section_na": "Hospital Road",
+        "section_co": "415",
+        "subdivisio": "Ooty Town AD",
+        "region_id": "03",
+        "subdivis_1": "48211",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2784,
+        "search_string": "    hospital road"
+      },
+      "bbox": [
+        76.697,
+        11.4047,
+        76.697,
+        11.4047
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6802,
+          11.4052
+        ]
+      },
+      "properties": {
+        "section_na": "Tamilagam",
+        "section_co": "418",
+        "subdivisio": "Ooty Town AD",
+        "region_id": "03",
+        "subdivis_1": "48211",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2785,
+        "search_string": "    tamilagam"
+      },
+      "bbox": [
+        76.6802,
+        11.4052,
+        76.6802,
+        11.4052
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.4902,
+          11.5062
+        ]
+      },
+      "properties": {
+        "section_na": "Town Gudalur",
+        "section_co": "408",
+        "subdivisio": "Gudalur AD",
+        "region_id": "03",
+        "subdivis_1": "48231",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2786,
+        "search_string": "    town gudalur"
+      },
+      "bbox": [
+        76.4902,
+        11.5062,
+        76.4902,
+        11.5062
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.4902,
+          11.5062
+        ]
+      },
+      "properties": {
+        "section_na": "Town South Gudalur",
+        "section_co": "410",
+        "subdivisio": "Gudalur AD",
+        "region_id": "03",
+        "subdivis_1": "48231",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2787,
+        "search_string": "    town south gudalur"
+      },
+      "bbox": [
+        76.4902,
+        11.5062,
+        76.4902,
+        11.5062
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.282,
+          11.5158
+        ]
+      },
+      "properties": {
+        "section_na": "Chermbady",
+        "section_co": "413",
+        "subdivisio": "Pandhalur AD",
+        "region_id": "03",
+        "subdivis_1": "48232",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2788,
+        "search_string": "    chermbady"
+      },
+      "bbox": [
+        76.282,
+        11.5158,
+        76.282,
+        11.5158
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6041,
+          11.4688
+        ]
+      },
+      "properties": {
+        "section_na": "pykara",
+        "section_co": "419",
+        "subdivisio": "Ooty Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48212",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2789,
+        "search_string": "    pykara"
+      },
+      "bbox": [
+        76.6041,
+        11.4688,
+        76.6041,
+        11.4688
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6575,
+          11.3698
+        ]
+      },
+      "properties": {
+        "section_na": "M Pallada",
+        "section_co": "407",
+        "subdivisio": "Ooty Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48212",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2790,
+        "search_string": "    m pallada"
+      },
+      "bbox": [
+        76.6575,
+        11.3698,
+        76.6575,
+        11.3698
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7235,
+          11.4566
+        ]
+      },
+      "properties": {
+        "section_na": "Denadcombai",
+        "section_co": "414",
+        "subdivisio": "Ooty Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48212",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2791,
+        "search_string": "    denadcombai"
+      },
+      "bbox": [
+        76.7235,
+        11.4566,
+        76.7235,
+        11.4566
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6849,
+          11.3429
+        ]
+      },
+      "properties": {
+        "section_na": "Adigratty",
+        "section_co": "429",
+        "subdivisio": "Kundah AD",
+        "region_id": "03",
+        "subdivis_1": "48225",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2792,
+        "search_string": "    adigratty"
+      },
+      "bbox": [
+        76.6849,
+        11.3429,
+        76.6849,
+        11.3429
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.6478,
+          11.2776
+        ]
+      },
+      "properties": {
+        "section_na": "Kundah",
+        "section_co": "428",
+        "subdivisio": "Kundah AD",
+        "region_id": "03",
+        "subdivis_1": "48225",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2793,
+        "search_string": "    kundah"
+      },
+      "bbox": [
+        76.6478,
+        11.2776,
+        76.6478,
+        11.2776
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7424,
+          11.3783
+        ]
+      },
+      "properties": {
+        "section_na": "Yellanalli",
+        "section_co": "406",
+        "subdivisio": "Ooty Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48212",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2794,
+        "search_string": "    yellanalli"
+      },
+      "bbox": [
+        76.7424,
+        11.3783,
+        76.7424,
+        11.3783
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7458,
+          11.4411
+        ]
+      },
+      "properties": {
+        "section_na": "Thumannatty",
+        "section_co": "405",
+        "subdivisio": "Ooty Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48212",
+        "division_n": "ooty",
+        "division_c": "4821",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2795,
+        "search_string": "    thumannatty"
+      },
+      "bbox": [
+        76.7458,
+        11.4411,
+        76.7458,
+        11.4411
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8021,
+          11.3522
+        ]
+      },
+      "properties": {
+        "section_na": "Sims park",
+        "section_co": "421",
+        "subdivisio": "Coonoor Town AD",
+        "region_id": "03",
+        "subdivis_1": "48221",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2796,
+        "search_string": "    sims park"
+      },
+      "bbox": [
+        76.8021,
+        11.3522,
+        76.8021,
+        11.3522
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7938,
+          11.3435
+        ]
+      },
+      "properties": {
+        "section_na": "Mount Road",
+        "section_co": "422",
+        "subdivisio": "Coonoor Town AD",
+        "region_id": "03",
+        "subdivis_1": "48221",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2797,
+        "search_string": "    mount road"
+      },
+      "bbox": [
+        76.7938,
+        11.3435,
+        76.7938,
+        11.3435
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7862,
+          11.3472
+        ]
+      },
+      "properties": {
+        "section_na": "Mount Pleasent",
+        "section_co": "423",
+        "subdivisio": "Coonoor Town AD",
+        "region_id": "03",
+        "subdivis_1": "48221",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2798,
+        "search_string": "    mount pleasent"
+      },
+      "bbox": [
+        76.7862,
+        11.3472,
+        76.7862,
+        11.3472
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7373,
+          11.3295
+        ]
+      },
+      "properties": {
+        "section_na": "Selas",
+        "section_co": "426",
+        "subdivisio": "Coonoor Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48222",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2799,
+        "search_string": "    selas"
+      },
+      "bbox": [
+        76.7373,
+        11.3295,
+        76.7373,
+        11.3295
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.3421,
+          11.4891
+        ]
+      },
+      "properties": {
+        "section_na": "Pandhalur",
+        "section_co": "412",
+        "subdivisio": "Pandhalur AD",
+        "region_id": "03",
+        "subdivis_1": "48232",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2800,
+        "search_string": "    pandhalur"
+      },
+      "bbox": [
+        76.3421,
+        11.4891,
+        76.3421,
+        11.4891
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9336,
+          11.4503
+        ]
+      },
+      "properties": {
+        "section_na": "Kilkotagiri",
+        "section_co": "435",
+        "subdivisio": "Kotagiri Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48224",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2801,
+        "search_string": "    kilkotagiri"
+      },
+      "bbox": [
+        76.9336,
+        11.4503,
+        76.9336,
+        11.4503
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8108,
+          11.3797
+        ]
+      },
+      "properties": {
+        "section_na": "Yedapalli",
+        "section_co": "424",
+        "subdivisio": "Coonoor Town AD",
+        "region_id": "03",
+        "subdivis_1": "48221",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2802,
+        "search_string": "    yedapalli"
+      },
+      "bbox": [
+        76.8108,
+        11.3797,
+        76.8108,
+        11.3797
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.7871,
+          11.3306
+        ]
+      },
+      "properties": {
+        "section_na": "Glendale",
+        "section_co": "425",
+        "subdivisio": "Coonoor Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48222",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2803,
+        "search_string": "    glendale"
+      },
+      "bbox": [
+        76.7871,
+        11.3306,
+        76.7871,
+        11.3306
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.765,
+          11.3613
+        ]
+      },
+      "properties": {
+        "section_na": "Hubathalai",
+        "section_co": "427",
+        "subdivisio": "Coonoor Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48222",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2804,
+        "search_string": "    hubathalai"
+      },
+      "bbox": [
+        76.765,
+        11.3613,
+        76.765,
+        11.3613
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9023,
+          11.4966
+        ]
+      },
+      "properties": {
+        "section_na": "Nedugula",
+        "section_co": "436",
+        "subdivisio": "Kotagiri Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48224",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2805,
+        "search_string": "    nedugula"
+      },
+      "bbox": [
+        76.9023,
+        11.4966,
+        76.9023,
+        11.4966
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8658,
+          11.4263
+        ]
+      },
+      "properties": {
+        "section_na": "Kotagiri Rural",
+        "section_co": "434",
+        "subdivisio": "Kotagiri Rural AD",
+        "region_id": "03",
+        "subdivis_1": "48224",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2806,
+        "search_string": "    kotagiri rural"
+      },
+      "bbox": [
+        76.8658,
+        11.4263,
+        76.8658,
+        11.4263
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.4903,
+          11.5062
+        ]
+      },
+      "properties": {
+        "section_na": "Lower Gudalur",
+        "section_co": "409",
+        "subdivisio": "Gudalur AD",
+        "region_id": "03",
+        "subdivis_1": "48231",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2807,
+        "search_string": "    lower gudalur"
+      },
+      "bbox": [
+        76.4903,
+        11.5062,
+        76.4903,
+        11.5062
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8667,
+          11.4273
+        ]
+      },
+      "properties": {
+        "section_na": "kotagiri town",
+        "section_co": "431",
+        "subdivisio": "Kotagiri Town AD",
+        "region_id": "03",
+        "subdivis_1": "48223",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2808,
+        "search_string": "    kotagiri town"
+      },
+      "bbox": [
+        76.8667,
+        11.4273,
+        76.8667,
+        11.4273
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8021,
+          11.3523
+        ]
+      },
+      "properties": {
+        "section_na": "Barracks",
+        "section_co": "437",
+        "subdivisio": "Coonoor Town AD",
+        "region_id": "03",
+        "subdivis_1": "48221",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2809,
+        "search_string": "    barracks"
+      },
+      "bbox": [
+        76.8021,
+        11.3523,
+        76.8021,
+        11.3523
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8742,
+          11.4104
+        ]
+      },
+      "properties": {
+        "section_na": "Aravenu",
+        "section_co": "432",
+        "subdivisio": "Kotagiri Town AD",
+        "region_id": "03",
+        "subdivis_1": "48223",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2810,
+        "search_string": "    aravenu"
+      },
+      "bbox": [
+        76.8742,
+        11.4104,
+        76.8742,
+        11.4104
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8257,
+          11.4235
+        ]
+      },
+      "properties": {
+        "section_na": "West brooke",
+        "section_co": "433",
+        "subdivisio": "Kotagiri Town AD",
+        "region_id": "03",
+        "subdivis_1": "48223",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2811,
+        "search_string": "    west brooke"
+      },
+      "bbox": [
+        76.8257,
+        11.4235,
+        76.8257,
+        11.4235
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8115,
+          11.412
+        ]
+      },
+      "properties": {
+        "section_na": "Kattabettu",
+        "section_co": "438",
+        "subdivisio": "Kotagiri Town AD",
+        "region_id": "03",
+        "subdivis_1": "48223",
+        "division_n": "coonoor",
+        "division_c": "4822",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2812,
+        "search_string": "    kattabettu"
+      },
+      "bbox": [
+        76.8115,
+        11.412,
+        76.8115,
+        11.412
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.4413,
+          11.5437
+        ]
+      },
+      "properties": {
+        "section_na": "Devarsola",
+        "section_co": "411",
+        "subdivisio": "Gudalur AD",
+        "region_id": "03",
+        "subdivis_1": "48231",
+        "division_n": "GUDALUR",
+        "division_c": "4823",
+        "circle_nam": "Nilgiris",
+        "circle_cod": "0482",
+        "region_nam": "Coimbatore",
+        "object_id": 2813,
+        "search_string": "    devarsola"
+      },
+      "bbox": [
+        76.4413,
+        11.5437,
+        76.4413,
+        11.5437
+      ]
+    }
+  ]
+}

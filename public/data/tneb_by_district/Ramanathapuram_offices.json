@@ -1,0 +1,965 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9191,
+          9.295
+        ]
+      },
+      "properties": {
+        "section_na": "REGUNATHAPURAM",
+        "section_co": "304",
+        "subdivisio": "TOWN RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee1",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2743,
+        "search_string": "    regunathapuram"
+      },
+      "bbox": [
+        78.9191,
+        9.295,
+        78.9191,
+        9.295
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8417,
+          9.3588
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH RAMNAD",
+        "section_co": "301",
+        "subdivisio": "TOWN RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee1",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2744,
+        "search_string": "    south ramnad"
+      },
+      "bbox": [
+        78.8417,
+        9.3588,
+        78.8417,
+        9.3588
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8477,
+          9.6383
+        ]
+      },
+      "properties": {
+        "section_na": "RS MANGALAM",
+        "section_co": "314",
+        "subdivisio": "THIRUVADANAI",
+        "region_id": "05",
+        "subdivis_1": "4781aee3",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2745,
+        "search_string": "    rs mangalam"
+      },
+      "bbox": [
+        78.8477,
+        9.6383,
+        78.8477,
+        9.6383
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8856,
+          9.359
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL RAMNAD",
+        "section_co": "306",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2746,
+        "search_string": "    rural ramnad"
+      },
+      "bbox": [
+        78.8856,
+        9.359,
+        78.8856,
+        9.359
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6943,
+          9.5457
+        ]
+      },
+      "properties": {
+        "section_na": "NAINARKOVIL",
+        "section_co": "345",
+        "subdivisio": "RURAL PARAMAKUDI",
+        "region_id": "05",
+        "subdivis_1": "4782aee2",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2747,
+        "search_string": "    nainarkovil"
+      },
+      "bbox": [
+        78.6943,
+        9.5457,
+        78.6943,
+        9.5457
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5746,
+          9.5557
+        ]
+      },
+      "properties": {
+        "section_na": "T/S/PARAMAKUDI",
+        "section_co": "341",
+        "subdivisio": "TOWN PARAMAKUDI",
+        "region_id": "05",
+        "subdivis_1": "4782aee1",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2748,
+        "search_string": "    t/s/paramakudi"
+      },
+      "bbox": [
+        78.5746,
+        9.5557,
+        78.5746,
+        9.5557
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4518,
+          9.5907
+        ]
+      },
+      "properties": {
+        "section_na": "PARTHIBANOOR",
+        "section_co": "344",
+        "subdivisio": "RURAL PARAMAKUDI",
+        "region_id": "05",
+        "subdivis_1": "4782aee2",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2749,
+        "search_string": "    parthibanoor"
+      },
+      "bbox": [
+        78.4518,
+        9.5907,
+        78.4518,
+        9.5907
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3675,
+          9.4162
+        ]
+      },
+      "properties": {
+        "section_na": "KAMUTHI TOWN",
+        "section_co": "347",
+        "subdivisio": "KAMUTHI",
+        "region_id": "05",
+        "subdivis_1": "4782aee3",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2750,
+        "search_string": "    kamuthi town"
+      },
+      "bbox": [
+        78.3675,
+        9.4162,
+        78.3675,
+        9.4162
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.693,
+          9.4151
+        ]
+      },
+      "properties": {
+        "section_na": "Chathirakudi",
+        "section_co": "346",
+        "subdivisio": "RURAL PMK",
+        "region_id": "05",
+        "subdivis_1": "4782aee2",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2751,
+        "search_string": "    chathirakudi"
+      },
+      "bbox": [
+        78.693,
+        9.4151,
+        78.693,
+        9.4151
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4381,
+          9.1771
+        ]
+      },
+      "properties": {
+        "section_na": "SAYALKUDI",
+        "section_co": "354",
+        "subdivisio": "MUDUKULATHUR",
+        "region_id": "05",
+        "subdivis_1": "4782aee4",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2752,
+        "search_string": "    sayalkudi"
+      },
+      "bbox": [
+        78.4381,
+        9.1771,
+        78.4381,
+        9.1771
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5746,
+          9.5557
+        ]
+      },
+      "properties": {
+        "section_na": "T/N/PARAMAKUDI",
+        "section_co": "342",
+        "subdivisio": "TOWN PARAMAKUDI",
+        "region_id": "05",
+        "subdivis_1": "4782aee1",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2753,
+        "search_string": "    t/n/paramakudi"
+      },
+      "bbox": [
+        78.5746,
+        9.5557,
+        78.5746,
+        9.5557
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5746,
+          9.5557
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL PARAMAKUDI",
+        "section_co": "343",
+        "subdivisio": "RURAL PARAMAKUDI",
+        "region_id": "05",
+        "subdivis_1": "4782aee2",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2754,
+        "search_string": "    rural paramakudi"
+      },
+      "bbox": [
+        78.5746,
+        9.5557,
+        78.5746,
+        9.5557
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8856,
+          9.359
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH RAMNAD",
+        "section_co": "302",
+        "subdivisio": "TOWN RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee1",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2755,
+        "search_string": "    north ramnad"
+      },
+      "bbox": [
+        78.8856,
+        9.359,
+        78.8856,
+        9.359
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4966,
+          9.2267
+        ]
+      },
+      "properties": {
+        "section_na": "KADALADI",
+        "section_co": "353",
+        "subdivisio": "MUDUKULATHUR",
+        "region_id": "05",
+        "subdivis_1": "4782aee4",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2756,
+        "search_string": "    kadaladi"
+      },
+      "bbox": [
+        78.4966,
+        9.2267,
+        78.4966,
+        9.2267
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4407,
+          9.4478
+        ]
+      },
+      "properties": {
+        "section_na": "ABIRAMAM",
+        "section_co": "351",
+        "subdivisio": "KAMUTHI",
+        "region_id": "05",
+        "subdivis_1": "4782aee3",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2757,
+        "search_string": "    abiramam"
+      },
+      "bbox": [
+        78.4407,
+        9.4478,
+        78.4407,
+        9.4478
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3871,
+          9.4161
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH KAMUTHI",
+        "section_co": "349",
+        "subdivisio": "KAMUTHI",
+        "region_id": "05",
+        "subdivis_1": "4782aee3",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2758,
+        "search_string": "    north kamuthi"
+      },
+      "bbox": [
+        78.3871,
+        9.4161,
+        78.3871,
+        9.4161
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3677,
+          9.4163
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH KAMUTHI",
+        "section_co": "348",
+        "subdivisio": "KAMUTHI",
+        "region_id": "05",
+        "subdivis_1": "4782aee3",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2759,
+        "search_string": "    south kamuthi"
+      },
+      "bbox": [
+        78.3677,
+        9.4163,
+        78.3677,
+        9.4163
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9494,
+          9.3677
+        ]
+      },
+      "properties": {
+        "section_na": "PANAIKULAM",
+        "section_co": "310",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2760,
+        "search_string": "    panaikulam"
+      },
+      "bbox": [
+        78.9494,
+        9.3677,
+        78.9494,
+        9.3677
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0101,
+          9.3137
+        ]
+      },
+      "properties": {
+        "section_na": "UCHIPULI",
+        "section_co": "309",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2761,
+        "search_string": "    uchipuli"
+      },
+      "bbox": [
+        79.0101,
+        9.3137,
+        79.0101,
+        9.3137
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8009,
+          9.4209
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL RAMNAD",
+        "section_co": "306",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2762,
+        "search_string": "    rural ramnad"
+      },
+      "bbox": [
+        78.8009,
+        9.4209,
+        78.8009,
+        9.4209
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3179,
+          9.2366
+        ]
+      },
+      "properties": {
+        "section_na": "PERUNALI",
+        "section_co": "350",
+        "subdivisio": "KAMUTHI",
+        "region_id": "05",
+        "subdivis_1": "4782aee3",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2763,
+        "search_string": "    perunali"
+      },
+      "bbox": [
+        78.3179,
+        9.2366,
+        78.3179,
+        9.2366
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6444,
+          9.2464
+        ]
+      },
+      "properties": {
+        "section_na": "SIKKAL",
+        "section_co": "355",
+        "subdivisio": "MUDUKULATHUR",
+        "region_id": "05",
+        "subdivis_1": "4782aee4",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2764,
+        "search_string": "    sikkal"
+      },
+      "bbox": [
+        78.6444,
+        9.2464,
+        78.6444,
+        9.2464
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5264,
+          9.363
+        ]
+      },
+      "properties": {
+        "section_na": "MUDUKULATHUR",
+        "section_co": "352",
+        "subdivisio": "MUDUKULATHUR",
+        "region_id": "05",
+        "subdivis_1": "4782aee4",
+        "division_n": "PARAMAKUDI",
+        "division_c": "4782",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2765,
+        "search_string": "    mudukulathur"
+      },
+      "bbox": [
+        78.5264,
+        9.363,
+        78.5264,
+        9.363
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7885,
+          9.2534
+        ]
+      },
+      "properties": {
+        "section_na": "KEELAKARAI",
+        "section_co": "303",
+        "subdivisio": "TOWN RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee1",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2766,
+        "search_string": "    keelakarai"
+      },
+      "bbox": [
+        78.7885,
+        9.2534,
+        78.7885,
+        9.2534
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1386,
+          9.2799
+        ]
+      },
+      "properties": {
+        "section_na": "MANDAPAM",
+        "section_co": "308",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2767,
+        "search_string": "    mandapam"
+      },
+      "bbox": [
+        79.1386,
+        9.2799,
+        79.1386,
+        9.2799
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2981,
+          9.2879
+        ]
+      },
+      "properties": {
+        "section_na": "RAMESWARAM",
+        "section_co": "307",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2768,
+        "search_string": "    rameswaram"
+      },
+      "bbox": [
+        79.2981,
+        9.2879,
+        79.2981,
+        9.2879
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7398,
+          9.3169
+        ]
+      },
+      "properties": {
+        "section_na": "T.U.MANGAI",
+        "section_co": "311",
+        "subdivisio": "RURAL RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee2",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2769,
+        "search_string": "    t.u.mangai"
+      },
+      "bbox": [
+        78.7398,
+        9.3169,
+        78.7398,
+        9.3169
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8946,
+          9.485
+        ]
+      },
+      "properties": {
+        "section_na": "DEVIPATTINAM",
+        "section_co": "305",
+        "subdivisio": "TOWN RAMNAD",
+        "region_id": "05",
+        "subdivis_1": "4781aee1",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2770,
+        "search_string": "    devipattinam"
+      },
+      "bbox": [
+        78.8946,
+        9.485,
+        78.8946,
+        9.485
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7631,
+          9.76
+        ]
+      },
+      "properties": {
+        "section_na": "D/THIRUVADANAI",
+        "section_co": "312",
+        "subdivisio": "THIRUVADANAI",
+        "region_id": "05",
+        "subdivis_1": "4781aee3",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2771,
+        "search_string": "    d/thiruvadanai"
+      },
+      "bbox": [
+        78.7631,
+        9.76,
+        78.7631,
+        9.76
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0106,
+          9.7394
+        ]
+      },
+      "properties": {
+        "section_na": "THONDI",
+        "section_co": "315",
+        "subdivisio": "THIRUVADAI",
+        "region_id": "05",
+        "subdivis_1": "4781aee3",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2772,
+        "search_string": "    thondi"
+      },
+      "bbox": [
+        79.0106,
+        9.7394,
+        79.0106,
+        9.7394
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8936,
+          9.7964
+        ]
+      },
+      "properties": {
+        "section_na": "SS/THIRUVADANAI",
+        "section_co": "313",
+        "subdivisio": "THIRUVADANAI",
+        "region_id": "05",
+        "subdivis_1": "4781aee3",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2773,
+        "search_string": "    ss/thiruvadanai"
+      },
+      "bbox": [
+        78.8936,
+        9.7964,
+        78.8936,
+        9.7964
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9245,
+          9.7805
+        ]
+      },
+      "properties": {
+        "section_na": "D/THIRUVADANAI",
+        "section_co": "312",
+        "subdivisio": "THIRUVADAI",
+        "region_id": "05",
+        "subdivis_1": "4781aee3",
+        "division_n": "RAMNAD",
+        "division_c": "4781",
+        "circle_nam": "RAMNAD",
+        "circle_cod": "0478",
+        "region_nam": "Madurai",
+        "object_id": 2774,
+        "search_string": "    d/thiruvadanai"
+      },
+      "bbox": [
+        78.9245,
+        9.7805,
+        78.9245,
+        9.7805
+      ]
+    }
+  ]
+}

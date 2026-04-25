@@ -222,6 +222,34 @@ const getCentroid = (geometry: Geometry): Position => {
 };
 
 /**
+ * Flags postal offices that are geographically too far from their pincode boundary.
+ */
+const flagPostalOutliers = (offices: PostalOffice[], boundary: Geometry): PostalOffice[] => {
+  if (!boundary || !offices.length) return offices;
+  
+  const centroid = getCentroid(boundary);
+  if (!centroid) return offices;
+
+  return offices.map(off => {
+    const lat = parseFloat(off.latitude as string);
+    const lng = parseFloat(off.longitude as string);
+    
+    if (isNaN(lat) || isNaN(lng)) {
+      return { ...off, isOutlier: true, outlierReason: 'Invalid coordinates' };
+    }
+
+    const dist = getDistance([centroid[0], centroid[1]], [lng, lat]);
+    
+    // Threshold in degrees. 0.15 degrees is approximately 16-17km.
+    if (dist > 0.15) {
+      return { ...off, isOutlier: true, outlierReason: 'Coordinates far from pincode area' };
+    }
+
+    return { ...off, isOutlier: false };
+  });
+};
+
+/**
  * Resolves the best matching police station for a given boundary using a layered confidence pipeline
  */
 function resolvePoliceStation(
@@ -942,15 +970,16 @@ self.onmessage = async (e: MessageEvent) => {
           }
 
           const offices = pincode ? postalOfficesIndex.get(pincode) || [] : [];
+          const flaggedOffices = flagPostalOutliers(offices, found.geometry);
           
           self.postMessage({ 
             type: 'RESOLUTION_RESULT', 
             payload: { 
               properties: found.properties, 
               geometry: found.geometry,
-              layer: layer,
-              keepSelection,
-              postalOffices: offices
+              layer: 'PINCODE',
+              postalOffices: flaggedOffices,
+              keepSelection
             } 
           });
         }

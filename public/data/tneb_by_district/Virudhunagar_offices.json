@@ -1,0 +1,2045 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6128,
+          9.4858
+        ]
+      },
+      "properties": {
+        "section_na": "265-PADAIKASUVAITHANPATTI",
+        "section_co": "265",
+        "subdivisio": "RURAL SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46242",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2386,
+        "search_string": "    265-padaikasuvaithanpatti"
+      },
+      "bbox": [
+        77.6128,
+        9.4858,
+        77.6128,
+        9.4858
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.585,
+          9.5007
+        ]
+      },
+      "properties": {
+        "section_na": "267-MAMSAPURAM",
+        "section_co": "267",
+        "subdivisio": "RURAL SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46242",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2387,
+        "search_string": "    267-mamsapuram"
+      },
+      "bbox": [
+        77.585,
+        9.5007,
+        77.585,
+        9.5007
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0969,
+          9.5033
+        ]
+      },
+      "properties": {
+        "section_na": "201-TOWN EAST ARUPPUKOTTAI",
+        "section_co": "201",
+        "subdivisio": "TOWN ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46211",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2388,
+        "search_string": "    201-town east aruppukottai"
+      },
+      "bbox": [
+        78.0969,
+        9.5033,
+        78.0969,
+        9.5033
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9743,
+          9.5672
+        ]
+      },
+      "properties": {
+        "section_na": "227-RURAL SOUTH VIRUDHUNAGAR",
+        "section_co": "227",
+        "subdivisio": "RURAL VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46222",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2389,
+        "search_string": "    227-rural south virudhunagar"
+      },
+      "bbox": [
+        77.9743,
+        9.5672,
+        77.9743,
+        9.5672
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9589,
+          9.5898
+        ]
+      },
+      "properties": {
+        "section_na": "228-RURAL NORTH VIRUDHUNAGAR",
+        "section_co": "228",
+        "subdivisio": "RURAL VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46222",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2390,
+        "search_string": "    228-rural north virudhunagar"
+      },
+      "bbox": [
+        77.9589,
+        9.5898,
+        77.9589,
+        9.5898
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9671,
+          9.5925
+        ]
+      },
+      "properties": {
+        "section_na": "230-PANDIAN NAGAR",
+        "section_co": "230",
+        "subdivisio": "RURAL VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46222",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2391,
+        "search_string": "    230-pandian nagar"
+      },
+      "bbox": [
+        77.9671,
+        9.5925,
+        77.9671,
+        9.5925
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.857,
+          9.548
+        ]
+      },
+      "properties": {
+        "section_na": "234-AMATHUR",
+        "section_co": "234",
+        "subdivisio": "THULUKKAPATTY",
+        "region_id": "07",
+        "subdivis_1": "46223",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2392,
+        "search_string": "    234-amathur"
+      },
+      "bbox": [
+        77.857,
+        9.548,
+        77.857,
+        9.548
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7995,
+          9.4577
+        ]
+      },
+      "properties": {
+        "section_na": "237-TOWN EAST SIVAKASI",
+        "section_co": "237",
+        "subdivisio": "TOWN SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46231",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2393,
+        "search_string": "    237-town east sivakasi"
+      },
+      "bbox": [
+        77.7995,
+        9.4577,
+        77.7995,
+        9.4577
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7996,
+          9.4576
+        ]
+      },
+      "properties": {
+        "section_na": "238-TOWN WEST SIVAKASI",
+        "section_co": "238",
+        "subdivisio": "TOWN SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46231",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2394,
+        "search_string": "    238-town west sivakasi"
+      },
+      "bbox": [
+        77.7996,
+        9.4576,
+        77.7996,
+        9.4576
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8182,
+          9.4362
+        ]
+      },
+      "properties": {
+        "section_na": "242-PARAIPATTY",
+        "section_co": "242",
+        "subdivisio": "RURAL SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46232",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2395,
+        "search_string": "    242-paraipatty"
+      },
+      "bbox": [
+        77.8182,
+        9.4362,
+        77.8182,
+        9.4362
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7772,
+          9.3504
+        ]
+      },
+      "properties": {
+        "section_na": "243-VEMPAKOTTAI",
+        "section_co": "243",
+        "subdivisio": "RURAL SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46232",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2396,
+        "search_string": "    243-vempakottai"
+      },
+      "bbox": [
+        77.7772,
+        9.3504,
+        77.7772,
+        9.3504
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7894,
+          9.4757
+        ]
+      },
+      "properties": {
+        "section_na": "244-SENGAMALANACHIYARPURAM",
+        "section_co": "244",
+        "subdivisio": "TIRUTHANGAL",
+        "region_id": "07",
+        "subdivis_1": "46235",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2397,
+        "search_string": "    244-sengamalanachiyarpuram"
+      },
+      "bbox": [
+        77.7894,
+        9.4757,
+        77.7894,
+        9.4757
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9163,
+          9.3657
+        ]
+      },
+      "properties": {
+        "section_na": "247-O&M SATTUR",
+        "section_co": "247",
+        "subdivisio": "SATTUR",
+        "region_id": "07",
+        "subdivis_1": "46233",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2398,
+        "search_string": "    247-o&m sattur"
+      },
+      "bbox": [
+        77.9163,
+        9.3657,
+        77.9163,
+        9.3657
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9033,
+          9.2621
+        ]
+      },
+      "properties": {
+        "section_na": "248-N.SUBBIYAHPURAM",
+        "section_co": "248",
+        "subdivisio": "N.SUBBIYAHPURAM",
+        "region_id": "07",
+        "subdivis_1": "46234",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2399,
+        "search_string": "    248-n.subbiyahpuram"
+      },
+      "bbox": [
+        77.9033,
+        9.2621,
+        77.9033,
+        9.2621
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.784,
+          9.4238
+        ]
+      },
+      "properties": {
+        "section_na": "250-SITHURAJAPURAM",
+        "section_co": "250",
+        "subdivisio": "RURAL SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46232",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2400,
+        "search_string": "    250-sithurajapuram"
+      },
+      "bbox": [
+        77.784,
+        9.4238,
+        77.784,
+        9.4238
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6417,
+          9.5003
+        ]
+      },
+      "properties": {
+        "section_na": "257-MARKET BAZAR",
+        "section_co": "257",
+        "subdivisio": "TOWN SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46241",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2401,
+        "search_string": "    257-market bazar"
+      },
+      "bbox": [
+        77.6417,
+        9.5003,
+        77.6417,
+        9.5003
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9488,
+          9.5897
+        ]
+      },
+      "properties": {
+        "section_na": "220-TOWN SOUTH VIRUDHUNAGAR",
+        "section_co": "220",
+        "subdivisio": "TOWN VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46221",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2402,
+        "search_string": "    220-town south virudhunagar"
+      },
+      "bbox": [
+        77.9488,
+        9.5897,
+        77.9488,
+        9.5897
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6202,
+          9.5167
+        ]
+      },
+      "properties": {
+        "section_na": "269-RURAL SOUTH SRIVILLIPUTHUR",
+        "section_co": "269",
+        "subdivisio": "RURAL SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46242",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2403,
+        "search_string": "    269-rural south srivilliputhur"
+      },
+      "bbox": [
+        77.6202,
+        9.5167,
+        77.6202,
+        9.5167
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6405,
+          9.65
+        ]
+      },
+      "properties": {
+        "section_na": "273-EAST WATRAP",
+        "section_co": "273",
+        "subdivisio": "WATRAP",
+        "region_id": "07",
+        "subdivis_1": "46243",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2404,
+        "search_string": "    273-east watrap"
+      },
+      "bbox": [
+        77.6405,
+        9.65,
+        77.6405,
+        9.65
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6402,
+          9.65
+        ]
+      },
+      "properties": {
+        "section_na": "274-WEST WATRAP",
+        "section_co": "274",
+        "subdivisio": "WATRAP",
+        "region_id": "07",
+        "subdivis_1": "46243",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2405,
+        "search_string": "    274-west watrap"
+      },
+      "bbox": [
+        77.6402,
+        9.65,
+        77.6402,
+        9.65
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6401,
+          9.6502
+        ]
+      },
+      "properties": {
+        "section_na": "272-TOWN WATRAP",
+        "section_co": "272",
+        "subdivisio": "WATRAP",
+        "region_id": "07",
+        "subdivis_1": "46243",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2406,
+        "search_string": "    272-town watrap"
+      },
+      "bbox": [
+        77.6401,
+        9.6502,
+        77.6401,
+        9.6502
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6726,
+          9.5994
+        ]
+      },
+      "properties": {
+        "section_na": "275-SUNDARAPANDIYAM",
+        "section_co": "275",
+        "subdivisio": "WATRAP",
+        "region_id": "07",
+        "subdivis_1": "46243",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2407,
+        "search_string": "    275-sundarapandiyam"
+      },
+      "bbox": [
+        77.6726,
+        9.5994,
+        77.6726,
+        9.5994
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6,
+          9.6449
+        ]
+      },
+      "properties": {
+        "section_na": "276-KOOMAPATTY",
+        "section_co": "276",
+        "subdivisio": "WATRAP",
+        "region_id": "07",
+        "subdivis_1": "46243",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2408,
+        "search_string": "    276-koomapatty"
+      },
+      "bbox": [
+        77.6,
+        9.6449,
+        77.6,
+        9.6449
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5703,
+          9.4304
+        ]
+      },
+      "properties": {
+        "section_na": "279-TOWN SOUTH RAJAPALAYAM",
+        "section_co": "279",
+        "subdivisio": "TOWN RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46251",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2409,
+        "search_string": "    279-town south rajapalayam"
+      },
+      "bbox": [
+        77.5703,
+        9.4304,
+        77.5703,
+        9.4304
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5704,
+          9.4304
+        ]
+      },
+      "properties": {
+        "section_na": "280-TOWN EAST RAJAPALAYAM",
+        "section_co": "280",
+        "subdivisio": "TOWN RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46251",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2410,
+        "search_string": "    280-town east rajapalayam"
+      },
+      "bbox": [
+        77.5704,
+        9.4304,
+        77.5704,
+        9.4304
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1637,
+          9.4668
+        ]
+      },
+      "properties": {
+        "section_na": "209-MUTHURAMALINGAPURAM",
+        "section_co": "209",
+        "subdivisio": "RURAL ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46212",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2411,
+        "search_string": "    209-muthuramalingapuram"
+      },
+      "bbox": [
+        78.1637,
+        9.4668,
+        78.1637,
+        9.4668
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0966,
+          9.5479
+        ]
+      },
+      "properties": {
+        "section_na": "210-PALAYAMPATTY",
+        "section_co": "210",
+        "subdivisio": "RURAL ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46212",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2412,
+        "search_string": "    210-palayampatty"
+      },
+      "bbox": [
+        78.0966,
+        9.5479,
+        78.0966,
+        9.5479
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7001,
+          9.5705
+        ]
+      },
+      "properties": {
+        "section_na": "263-VALAYAPATTY",
+        "section_co": "263",
+        "subdivisio": "TOWN SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46241",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2413,
+        "search_string": "    263-valayapatty"
+      },
+      "bbox": [
+        77.7001,
+        9.5705,
+        77.7001,
+        9.5705
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6994,
+          9.5886
+        ]
+      },
+      "properties": {
+        "section_na": "264-KUNNUR",
+        "section_co": "264",
+        "subdivisio": "TOWN SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46241",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2414,
+        "search_string": "    264-kunnur"
+      },
+      "bbox": [
+        77.6994,
+        9.5886,
+        77.6994,
+        9.5886
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6202,
+          9.5167
+        ]
+      },
+      "properties": {
+        "section_na": "266-RURAL NORTH SRIVILLIPUTHUR",
+        "section_co": "266",
+        "subdivisio": "RURAL SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46242",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2415,
+        "search_string": "    266-rural north srivilliputhur"
+      },
+      "bbox": [
+        77.6202,
+        9.5167,
+        77.6202,
+        9.5167
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6897,
+          9.4785
+        ]
+      },
+      "properties": {
+        "section_na": "268-MALLIPUTHUR",
+        "section_co": "268",
+        "subdivisio": "RURAL SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46242",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2416,
+        "search_string": "    268-malliputhur"
+      },
+      "bbox": [
+        77.6897,
+        9.4785,
+        77.6897,
+        9.4785
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0956,
+          9.5206
+        ]
+      },
+      "properties": {
+        "section_na": "203-TOWN NORTH ARUPPUKOTTAI",
+        "section_co": "203",
+        "subdivisio": "TOWN ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46211",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2417,
+        "search_string": "    203-town north aruppukottai"
+      },
+      "bbox": [
+        78.0956,
+        9.5206,
+        78.0956,
+        9.5206
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1216,
+          9.5002
+        ]
+      },
+      "properties": {
+        "section_na": "211-RURAL ARUPPUKOTTAI",
+        "section_co": "211",
+        "subdivisio": "RURAL ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46212",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2418,
+        "search_string": "    211-rural aruppukottai"
+      },
+      "bbox": [
+        78.1216,
+        9.5002,
+        78.1216,
+        9.5002
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0946,
+          9.6745
+        ]
+      },
+      "properties": {
+        "section_na": "214-NORTH KARIAPATTY",
+        "section_co": "214",
+        "subdivisio": "KARIAPATTI",
+        "region_id": "07",
+        "subdivis_1": "46213",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2419,
+        "search_string": "    214-north kariapatty"
+      },
+      "bbox": [
+        78.0946,
+        9.6745,
+        78.0946,
+        9.6745
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0946,
+          9.6745
+        ]
+      },
+      "properties": {
+        "section_na": "215-SOUTH KARIAPATTY",
+        "section_co": "215",
+        "subdivisio": "KARIAPATTI",
+        "region_id": "07",
+        "subdivis_1": "46213",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2420,
+        "search_string": "    215-south kariapatty"
+      },
+      "bbox": [
+        78.0946,
+        9.6745,
+        78.0946,
+        9.6745
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3619,
+          9.5489
+        ]
+      },
+      "properties": {
+        "section_na": "216-VEERACHOLAN",
+        "section_co": "216",
+        "subdivisio": "KARIAPATTI",
+        "region_id": "07",
+        "subdivis_1": "46213",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2421,
+        "search_string": "    216-veeracholan"
+      },
+      "bbox": [
+        78.3619,
+        9.5489,
+        78.3619,
+        9.5489
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9486,
+          9.59
+        ]
+      },
+      "properties": {
+        "section_na": "221-TOWN EAST VIRUDHUNAGAR",
+        "section_co": "221",
+        "subdivisio": "TOWN VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46221",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2422,
+        "search_string": "    221-town east virudhunagar"
+      },
+      "bbox": [
+        77.9486,
+        9.59,
+        77.9486,
+        9.59
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9428,
+          9.5586
+        ]
+      },
+      "properties": {
+        "section_na": "229-SOOLAKKARAI",
+        "section_co": "229",
+        "subdivisio": "RURAL VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46222",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2423,
+        "search_string": "    229-soolakkarai"
+      },
+      "bbox": [
+        77.9428,
+        9.5586,
+        77.9428,
+        9.5586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0766,
+          9.5171
+        ]
+      },
+      "properties": {
+        "section_na": "202-TOWN WEST ARUPPUKOTTAI NEW",
+        "section_co": "202",
+        "subdivisio": "TOWN ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46211",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2424,
+        "search_string": "    202-town west aruppukottai new"
+      },
+      "bbox": [
+        78.0766,
+        9.5171,
+        78.0766,
+        9.5171
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1042,
+          9.405
+        ]
+      },
+      "properties": {
+        "section_na": "204-PANDALGUDI",
+        "section_co": "204",
+        "subdivisio": "TOWN ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46211",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2425,
+        "search_string": "    204-pandalgudi"
+      },
+      "bbox": [
+        78.1042,
+        9.405,
+        78.1042,
+        9.405
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.205,
+          9.5331
+        ]
+      },
+      "properties": {
+        "section_na": "207-TIRUCHULI",
+        "section_co": "207",
+        "subdivisio": "RURAL ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46212",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2426,
+        "search_string": "    207-tiruchuli"
+      },
+      "bbox": [
+        78.205,
+        9.5331,
+        78.205,
+        9.5331
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2643,
+          9.3539
+        ]
+      },
+      "properties": {
+        "section_na": "208-PARALACHI",
+        "section_co": "208",
+        "subdivisio": "RURAL ARUPPUKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "46212",
+        "division_n": "ARUPPUKOTTAI",
+        "division_c": "4621",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2427,
+        "search_string": "    208-paralachi"
+      },
+      "bbox": [
+        78.2643,
+        9.3539,
+        78.2643,
+        9.3539
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9484,
+          9.5901
+        ]
+      },
+      "properties": {
+        "section_na": "222-TOWN WEST VIRUDHUNAGAR",
+        "section_co": "222",
+        "subdivisio": "TOWN VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46221",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2428,
+        "search_string": "    222-town west virudhunagar"
+      },
+      "bbox": [
+        77.9484,
+        9.5901,
+        77.9484,
+        9.5901
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0375,
+          9.5965
+        ]
+      },
+      "properties": {
+        "section_na": "226-MALLANKINAR",
+        "section_co": "226",
+        "subdivisio": "RURAL VIRUDHUNAGAR",
+        "region_id": "07",
+        "subdivis_1": "46222",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2429,
+        "search_string": "    226-mallankinar"
+      },
+      "bbox": [
+        78.0375,
+        9.5965,
+        78.0375,
+        9.5965
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9255,
+          9.4634
+        ]
+      },
+      "properties": {
+        "section_na": "233-THULUKKAPATTY",
+        "section_co": "233",
+        "subdivisio": "THULUKKAPATTY",
+        "region_id": "07",
+        "subdivis_1": "46223",
+        "division_n": "VIRUDHUNAGAR",
+        "division_c": "4622",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2430,
+        "search_string": "    233-thulukkapatty"
+      },
+      "bbox": [
+        77.9255,
+        9.4634,
+        77.9255,
+        9.4634
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7994,
+          9.4577
+        ]
+      },
+      "properties": {
+        "section_na": "239-TOWN NORTH SIVAKASI",
+        "section_co": "239",
+        "subdivisio": "TOWN SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46231",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2431,
+        "search_string": "    239-town north sivakasi"
+      },
+      "bbox": [
+        77.7994,
+        9.4577,
+        77.7994,
+        9.4577
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.781,
+          9.4633
+        ]
+      },
+      "properties": {
+        "section_na": "240-SS SIVAKASI",
+        "section_co": "240",
+        "subdivisio": "TOWN SIVAKASI",
+        "region_id": "07",
+        "subdivis_1": "46231",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2432,
+        "search_string": "    240-ss sivakasi"
+      },
+      "bbox": [
+        77.781,
+        9.4633,
+        77.781,
+        9.4633
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8293,
+          9.2753
+        ]
+      },
+      "properties": {
+        "section_na": "249-ELAYIRAMPANNAI",
+        "section_co": "249",
+        "subdivisio": "N.SUBBIYAHPURAM",
+        "region_id": "07",
+        "subdivis_1": "46234",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2433,
+        "search_string": "    249-elayirampannai"
+      },
+      "bbox": [
+        77.8293,
+        9.2753,
+        77.8293,
+        9.2753
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7993,
+          9.4816
+        ]
+      },
+      "properties": {
+        "section_na": "241-TIRUTHANGAL",
+        "section_co": "241",
+        "subdivisio": "TIRUTHANGAL",
+        "region_id": "07",
+        "subdivis_1": "46235",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2434,
+        "search_string": "    241-tiruthangal"
+      },
+      "bbox": [
+        77.7993,
+        9.4816,
+        77.7993,
+        9.4816
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9161,
+          9.3655
+        ]
+      },
+      "properties": {
+        "section_na": "245-TOWN SATTUR",
+        "section_co": "245",
+        "subdivisio": "SATTUR",
+        "region_id": "07",
+        "subdivis_1": "46233",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2435,
+        "search_string": "    245-town sattur"
+      },
+      "bbox": [
+        77.9161,
+        9.3655,
+        77.9161,
+        9.3655
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0107,
+          9.3446
+        ]
+      },
+      "properties": {
+        "section_na": "246-RURAL EAST SATTUR",
+        "section_co": "246",
+        "subdivisio": "SATTUR",
+        "region_id": "07",
+        "subdivis_1": "46233",
+        "division_n": "SIVAKASI",
+        "division_c": "4623",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2436,
+        "search_string": "    246-rural east sattur"
+      },
+      "bbox": [
+        78.0107,
+        9.3446,
+        78.0107,
+        9.3446
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6418,
+          9.5004
+        ]
+      },
+      "properties": {
+        "section_na": "258-TOWN WEST SRIVILLIPUTHUR",
+        "section_co": "258",
+        "subdivisio": "TOWN SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46241",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2437,
+        "search_string": "    258-town west srivilliputhur"
+      },
+      "bbox": [
+        77.6418,
+        9.5004,
+        77.6418,
+        9.5004
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6416,
+          9.5005
+        ]
+      },
+      "properties": {
+        "section_na": "259-TOWN EAST SRIVILLIPUTHUR",
+        "section_co": "259",
+        "subdivisio": "TOWN SRIVILLIPUTHUR",
+        "region_id": "07",
+        "subdivis_1": "46241",
+        "division_n": "SRIVILLIPUTHUR",
+        "division_c": "4624",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2438,
+        "search_string": "    259-town east srivilliputhur"
+      },
+      "bbox": [
+        77.6416,
+        9.5005,
+        77.6416,
+        9.5005
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5502,
+          9.4522
+        ]
+      },
+      "properties": {
+        "section_na": "281-TOWN NORTH RAJAPALAYAM",
+        "section_co": "281",
+        "subdivisio": "TOWN RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46251",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2439,
+        "search_string": "    281-town north rajapalayam"
+      },
+      "bbox": [
+        77.5502,
+        9.4522,
+        77.5502,
+        9.4522
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5501,
+          9.4521
+        ]
+      },
+      "properties": {
+        "section_na": "282-TOWN WEST RAJAPALAYAM",
+        "section_co": "282",
+        "subdivisio": "TOWN RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46251",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2440,
+        "search_string": "    282-town west rajapalayam"
+      },
+      "bbox": [
+        77.5501,
+        9.4521,
+        77.5501,
+        9.4521
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5904,
+          9.4612
+        ]
+      },
+      "properties": {
+        "section_na": "283-THOTTIYAPATTY",
+        "section_co": "283",
+        "subdivisio": "SS RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46252",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2441,
+        "search_string": "    283-thottiyapatty"
+      },
+      "bbox": [
+        77.5904,
+        9.4612,
+        77.5904,
+        9.4612
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5563,
+          9.4623
+        ]
+      },
+      "properties": {
+        "section_na": "284-AVARAMPATTY",
+        "section_co": "284",
+        "subdivisio": "TOWN RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46251",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2442,
+        "search_string": "    284-avarampatty"
+      },
+      "bbox": [
+        77.5563,
+        9.4623,
+        77.5563,
+        9.4623
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5986,
+          9.4145
+        ]
+      },
+      "properties": {
+        "section_na": "285-CHATRAPPATTI",
+        "section_co": "285",
+        "subdivisio": "SS RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46252",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2443,
+        "search_string": "    285-chatrappatti"
+      },
+      "bbox": [
+        77.5986,
+        9.4145,
+        77.5986,
+        9.4145
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5731,
+          9.3838
+        ]
+      },
+      "properties": {
+        "section_na": "286-ASILAPURAM",
+        "section_co": "286",
+        "subdivisio": "SS RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46252",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2444,
+        "search_string": "    286-asilapuram"
+      },
+      "bbox": [
+        77.5731,
+        9.3838,
+        77.5731,
+        9.3838
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5157,
+          9.473
+        ]
+      },
+      "properties": {
+        "section_na": "287-VADAKKUVENGANALOOR",
+        "section_co": "287",
+        "subdivisio": "SS RAJAPALAYAM",
+        "region_id": "07",
+        "subdivis_1": "46252",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2445,
+        "search_string": "    287-vadakkuvenganaloor"
+      },
+      "bbox": [
+        77.5157,
+        9.473,
+        77.5157,
+        9.473
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4846,
+          9.3992
+        ]
+      },
+      "properties": {
+        "section_na": "288-SEITHUR",
+        "section_co": "288",
+        "subdivisio": "SEITHUR",
+        "region_id": "07",
+        "subdivis_1": "46253",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2446,
+        "search_string": "    288-seithur"
+      },
+      "bbox": [
+        77.4846,
+        9.3992,
+        77.4846,
+        9.3992
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5055,
+          9.4215
+        ]
+      },
+      "properties": {
+        "section_na": "289-KRISHNAPURAM",
+        "section_co": "289",
+        "subdivisio": "SEITHUR",
+        "region_id": "07",
+        "subdivis_1": "46253",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2447,
+        "search_string": "    289-krishnapuram"
+      },
+      "bbox": [
+        77.5055,
+        9.4215,
+        77.5055,
+        9.4215
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.498,
+          9.3964
+        ]
+      },
+      "properties": {
+        "section_na": "292-O&M DHALAVAIPURAM",
+        "section_co": "292",
+        "subdivisio": "SEITHUR",
+        "region_id": "07",
+        "subdivis_1": "46253",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2448,
+        "search_string": "    292-o&m dhalavaipuram"
+      },
+      "bbox": [
+        77.498,
+        9.3964,
+        77.498,
+        9.3964
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.498,
+          9.3964
+        ]
+      },
+      "properties": {
+        "section_na": "293-RURAL DHALAVAIPURAM",
+        "section_co": "293",
+        "subdivisio": "SEITHUR",
+        "region_id": "07",
+        "subdivis_1": "46253",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2449,
+        "search_string": "    293-rural dhalavaipuram"
+      },
+      "bbox": [
+        77.498,
+        9.3964,
+        77.498,
+        9.3964
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6745,
+          9.3792
+        ]
+      },
+      "properties": {
+        "section_na": "296-RURAL ALANKULAM",
+        "section_co": "296",
+        "subdivisio": "ALANKULAM",
+        "region_id": "07",
+        "subdivis_1": "46254",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2450,
+        "search_string": "    296-rural alankulam"
+      },
+      "bbox": [
+        77.6745,
+        9.3792,
+        77.6745,
+        9.3792
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7127,
+          9.3791
+        ]
+      },
+      "properties": {
+        "section_na": "297-KALLAMANAICKENPATTI",
+        "section_co": "297",
+        "subdivisio": "ALANKULAM",
+        "region_id": "07",
+        "subdivis_1": "46254",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2451,
+        "search_string": "    297-kallamanaickenpatti"
+      },
+      "bbox": [
+        77.7127,
+        9.3791,
+        77.7127,
+        9.3791
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6327,
+          9.428
+        ]
+      },
+      "properties": {
+        "section_na": "298-KEELARAJAKULARAMAN",
+        "section_co": "298",
+        "subdivisio": "ALANKULAM",
+        "region_id": "07",
+        "subdivis_1": "46254",
+        "division_n": "RAJAPALAYAM",
+        "division_c": "4625",
+        "circle_nam": "VIRUDHUNAGAR",
+        "circle_cod": "0462",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2452,
+        "search_string": "    298-keelarajakularaman"
+      },
+      "bbox": [
+        77.6327,
+        9.428,
+        77.6327,
+        9.428
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4432,
+          9.3591
+        ]
+      },
+      "properties": {
+        "section_na": "SIVAGIRI RURAL",
+        "section_co": "103",
+        "subdivisio": "SIVAGIRI",
+        "region_id": "07",
+        "subdivis_1": "47273",
+        "division_n": "KADAYANALLUR",
+        "division_c": "4727",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2592,
+        "search_string": "    sivagiri rural"
+      },
+      "bbox": [
+        77.4432,
+        9.3591,
+        77.4432,
+        9.3591
+      ]
+    }
+  ]
+}

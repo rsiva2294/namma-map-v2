@@ -1,0 +1,1505 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0706,
+          10.9609
+        ]
+      },
+      "properties": {
+        "section_na": "Urban south",
+        "section_co": "001",
+        "subdivisio": "Urban",
+        "region_id": "06",
+        "subdivis_1": "44311",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1926,
+        "search_string": "    urban south"
+      },
+      "bbox": [
+        78.0706,
+        10.9609,
+        78.0706,
+        10.9609
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0706,
+          10.9609
+        ]
+      },
+      "properties": {
+        "section_na": "Urban North",
+        "section_co": "002",
+        "subdivisio": "Urban",
+        "region_id": "06",
+        "subdivis_1": "44311",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1927,
+        "search_string": "    urban north"
+      },
+      "bbox": [
+        78.0706,
+        10.9609,
+        78.0706,
+        10.9609
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0705,
+          10.961
+        ]
+      },
+      "properties": {
+        "section_na": "Urban west",
+        "section_co": "012",
+        "subdivisio": "West",
+        "region_id": "06",
+        "subdivis_1": "44315",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1928,
+        "search_string": "    urban west"
+      },
+      "bbox": [
+        78.0705,
+        10.961,
+        78.0705,
+        10.961
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0793,
+          10.9795
+        ]
+      },
+      "properties": {
+        "section_na": "vengamedu",
+        "section_co": "004",
+        "subdivisio": "North",
+        "region_id": "06",
+        "subdivis_1": "44312",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1929,
+        "search_string": "    vengamedu"
+      },
+      "bbox": [
+        78.0793,
+        10.9795,
+        78.0793,
+        10.9795
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0238,
+          10.9785
+        ]
+      },
+      "properties": {
+        "section_na": "O& M karur",
+        "section_co": "003",
+        "subdivisio": "West",
+        "region_id": "06",
+        "subdivis_1": "44315",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1930,
+        "search_string": "    o& m karur"
+      },
+      "bbox": [
+        78.0238,
+        10.9785,
+        78.0238,
+        10.9785
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1165,
+          11.0419
+        ]
+      },
+      "properties": {
+        "section_na": "Vangal",
+        "section_co": "005",
+        "subdivisio": "North",
+        "region_id": "06",
+        "subdivis_1": "44312",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1931,
+        "search_string": "    vangal"
+      },
+      "bbox": [
+        78.1165,
+        11.0419,
+        78.1165,
+        11.0419
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0928,
+          10.9214
+        ]
+      },
+      "properties": {
+        "section_na": "Thanthonimalai",
+        "section_co": "010",
+        "subdivisio": "Velliyanai",
+        "region_id": "06",
+        "subdivis_1": "44314",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1932,
+        "search_string": "    thanthonimalai"
+      },
+      "bbox": [
+        78.0928,
+        10.9214,
+        78.0928,
+        10.9214
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1078,
+          10.9455
+        ]
+      },
+      "properties": {
+        "section_na": "Ganthigramam",
+        "section_co": "014",
+        "subdivisio": "Urban",
+        "region_id": "06",
+        "subdivis_1": "44311",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1933,
+        "search_string": "    ganthigramam"
+      },
+      "bbox": [
+        78.1078,
+        10.9455,
+        78.1078,
+        10.9455
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.967,
+          10.8361
+        ]
+      },
+      "properties": {
+        "section_na": "Rural malaikovilur",
+        "section_co": "024",
+        "subdivisio": "South",
+        "region_id": "06",
+        "subdivis_1": "44321",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1934,
+        "search_string": "    rural malaikovilur"
+      },
+      "bbox": [
+        77.967,
+        10.8361,
+        77.967,
+        10.8361
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9044,
+          10.7796
+        ]
+      },
+      "properties": {
+        "section_na": "Aravaklurichy",
+        "section_co": "023",
+        "subdivisio": "South",
+        "region_id": "06",
+        "subdivis_1": "44321",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1935,
+        "search_string": "    aravaklurichy"
+      },
+      "bbox": [
+        77.9044,
+        10.7796,
+        77.9044,
+        10.7796
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9948,
+          11.0635
+        ]
+      },
+      "properties": {
+        "section_na": "Velayuthampalayam",
+        "section_co": "036",
+        "subdivisio": "Pugalur",
+        "region_id": "06",
+        "subdivis_1": "44322",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1936,
+        "search_string": "    velayuthampalayam"
+      },
+      "bbox": [
+        77.9948,
+        11.0635,
+        77.9948,
+        11.0635
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0166,
+          11.0725
+        ]
+      },
+      "properties": {
+        "section_na": "Thottakurichy",
+        "section_co": "035",
+        "subdivisio": "Pugalur",
+        "region_id": "06",
+        "subdivis_1": "44322",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1937,
+        "search_string": "    thottakurichy"
+      },
+      "bbox": [
+        78.0166,
+        11.0725,
+        78.0166,
+        11.0725
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.898,
+          10.7191
+        ]
+      },
+      "properties": {
+        "section_na": "Urban pallapatty",
+        "section_co": "029",
+        "subdivisio": "Pallapatty",
+        "region_id": "06",
+        "subdivis_1": "44324",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1938,
+        "search_string": "    urban pallapatty"
+      },
+      "bbox": [
+        77.898,
+        10.7191,
+        77.898,
+        10.7191
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8484,
+          10.8566
+        ]
+      },
+      "properties": {
+        "section_na": "Rural Chinnadharapuram",
+        "section_co": "027",
+        "subdivisio": "Chinnadharapuram",
+        "region_id": "06",
+        "subdivis_1": "44323",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1939,
+        "search_string": "    rural chinnadharapuram"
+      },
+      "bbox": [
+        77.8484,
+        10.8566,
+        77.8484,
+        10.8566
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8321,
+          10.9451
+        ]
+      },
+      "properties": {
+        "section_na": "Thennilai",
+        "section_co": "028",
+        "subdivisio": "Chinnadharapuram",
+        "region_id": "06",
+        "subdivis_1": "44323",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1940,
+        "search_string": "    thennilai"
+      },
+      "bbox": [
+        77.8321,
+        10.9451,
+        77.8321,
+        10.9451
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9792,
+          11.0168
+        ]
+      },
+      "properties": {
+        "section_na": "Chatram",
+        "section_co": "037",
+        "subdivisio": "Pugalur",
+        "region_id": "06",
+        "subdivis_1": "44322",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1941,
+        "search_string": "    chatram"
+      },
+      "bbox": [
+        77.9792,
+        11.0168,
+        77.9792,
+        11.0168
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.925,
+          11.0455
+        ]
+      },
+      "properties": {
+        "section_na": "Noyyal",
+        "section_co": "034",
+        "subdivisio": "Pugalur",
+        "region_id": "06",
+        "subdivis_1": "44322",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1942,
+        "search_string": "    noyyal"
+      },
+      "bbox": [
+        77.925,
+        11.0455,
+        77.925,
+        11.0455
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1432,
+          10.9402
+        ]
+      },
+      "properties": {
+        "section_na": "West puliyur",
+        "section_co": "008",
+        "subdivisio": "Puliyur",
+        "region_id": "06",
+        "subdivis_1": "44313",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1943,
+        "search_string": "    west puliyur"
+      },
+      "bbox": [
+        78.1432,
+        10.9402,
+        78.1432,
+        10.9402
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1746,
+          10.8972
+        ]
+      },
+      "properties": {
+        "section_na": "Uppidamangalam",
+        "section_co": "007",
+        "subdivisio": "Puliyur",
+        "region_id": "06",
+        "subdivis_1": "44313",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1944,
+        "search_string": "    uppidamangalam"
+      },
+      "bbox": [
+        78.1746,
+        10.8972,
+        78.1746,
+        10.8972
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1662,
+          10.938
+        ]
+      },
+      "properties": {
+        "section_na": "Puliyur O & M",
+        "section_co": "006",
+        "subdivisio": "Puliyur",
+        "region_id": "06",
+        "subdivis_1": "44313",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1945,
+        "search_string": "    puliyur o & m"
+      },
+      "bbox": [
+        78.1662,
+        10.938,
+        78.1662,
+        10.938
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1406,
+          10.9944
+        ]
+      },
+      "properties": {
+        "section_na": "Othakadai",
+        "section_co": "013",
+        "subdivisio": "North",
+        "region_id": "06",
+        "subdivis_1": "44312",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1946,
+        "search_string": "    othakadai"
+      },
+      "bbox": [
+        78.1406,
+        10.9944,
+        78.1406,
+        10.9944
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0658,
+          11.001
+        ]
+      },
+      "properties": {
+        "section_na": "Manmangalam",
+        "section_co": "015",
+        "subdivisio": "North",
+        "region_id": "06",
+        "subdivis_1": "44312",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1947,
+        "search_string": "    manmangalam"
+      },
+      "bbox": [
+        78.0658,
+        11.001,
+        78.0658,
+        11.001
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2026,
+          10.8053
+        ]
+      },
+      "properties": {
+        "section_na": "Kaniyalampatty",
+        "section_co": "011",
+        "subdivisio": "Puliyur",
+        "region_id": "06",
+        "subdivis_1": "44313",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1948,
+        "search_string": "    kaniyalampatty"
+      },
+      "bbox": [
+        78.2026,
+        10.8053,
+        78.2026,
+        10.8053
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1198,
+          10.8406
+        ]
+      },
+      "properties": {
+        "section_na": "velliyanai",
+        "section_co": "009",
+        "subdivisio": "Velliyanai",
+        "region_id": "06",
+        "subdivis_1": "44314",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1949,
+        "search_string": "    velliyanai"
+      },
+      "bbox": [
+        78.1198,
+        10.8406,
+        78.1198,
+        10.8406
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0832,
+          10.9364
+        ]
+      },
+      "properties": {
+        "section_na": "South karur",
+        "section_co": "021",
+        "subdivisio": "Velliyanai",
+        "region_id": "06",
+        "subdivis_1": "44314",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1950,
+        "search_string": "    south karur"
+      },
+      "bbox": [
+        78.0832,
+        10.9364,
+        78.0832,
+        10.9364
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9858,
+          10.9582
+        ]
+      },
+      "properties": {
+        "section_na": "Pavithram",
+        "section_co": "038",
+        "subdivisio": "West",
+        "region_id": "06",
+        "subdivis_1": "44315",
+        "division_n": "URBAN",
+        "division_c": "4431",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1951,
+        "search_string": "    pavithram"
+      },
+      "bbox": [
+        77.9858,
+        10.9582,
+        77.9858,
+        10.9582
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8572,
+          10.8543
+        ]
+      },
+      "properties": {
+        "section_na": "Chinnadharapuram O & M",
+        "section_co": "025",
+        "subdivisio": "Chinnadharapuram",
+        "region_id": "06",
+        "subdivis_1": "44323",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1952,
+        "search_string": "    chinnadharapuram o & m"
+      },
+      "bbox": [
+        77.8572,
+        10.8543,
+        77.8572,
+        10.8543
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9072,
+          10.9589
+        ]
+      },
+      "properties": {
+        "section_na": "K.Paramathy",
+        "section_co": "026",
+        "subdivisio": "Chinnadharapuram",
+        "region_id": "06",
+        "subdivis_1": "44323",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1953,
+        "search_string": "    k.paramathy"
+      },
+      "bbox": [
+        77.9072,
+        10.9589,
+        77.9072,
+        10.9589
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8976,
+          10.7189
+        ]
+      },
+      "properties": {
+        "section_na": "Rural North pallapatty",
+        "section_co": "030",
+        "subdivisio": "pallapatty",
+        "region_id": "06",
+        "subdivis_1": "44324",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1954,
+        "search_string": "    rural north pallapatty"
+      },
+      "bbox": [
+        77.8976,
+        10.7189,
+        77.8976,
+        10.7189
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8976,
+          10.719
+        ]
+      },
+      "properties": {
+        "section_na": "Rural south pallapatty",
+        "section_co": "031",
+        "subdivisio": "Pallapatty",
+        "region_id": "06",
+        "subdivis_1": "44324",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1955,
+        "search_string": "    rural south pallapatty"
+      },
+      "bbox": [
+        77.8976,
+        10.719,
+        77.8976,
+        10.719
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9272,
+          10.6811
+        ]
+      },
+      "properties": {
+        "section_na": "Andipatty",
+        "section_co": "032",
+        "subdivisio": "Pallapatty",
+        "region_id": "06",
+        "subdivis_1": "44324",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1956,
+        "search_string": "    andipatty"
+      },
+      "bbox": [
+        77.9272,
+        10.6811,
+        77.9272,
+        10.6811
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.002,
+          10.7069
+        ]
+      },
+      "properties": {
+        "section_na": "Esanatham",
+        "section_co": "033",
+        "subdivisio": "Pallapatty",
+        "region_id": "06",
+        "subdivis_1": "44324",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1957,
+        "search_string": "    esanatham"
+      },
+      "bbox": [
+        78.002,
+        10.7069,
+        78.002,
+        10.7069
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4164,
+          10.9411
+        ]
+      },
+      "properties": {
+        "section_na": "Kulithalai",
+        "section_co": "041",
+        "subdivisio": "Kulithalai",
+        "region_id": "06",
+        "subdivis_1": "44331",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1958,
+        "search_string": "    kulithalai"
+      },
+      "bbox": [
+        78.4164,
+        10.9411,
+        78.4164,
+        10.9411
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2348,
+          10.9475
+        ]
+      },
+      "properties": {
+        "section_na": "Mayanur O&M",
+        "section_co": "043",
+        "subdivisio": "Kulithalai",
+        "region_id": "06",
+        "subdivis_1": "44331",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1959,
+        "search_string": "    mayanur o&m"
+      },
+      "bbox": [
+        78.2348,
+        10.9475,
+        78.2348,
+        10.9475
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2349,
+          10.9475
+        ]
+      },
+      "properties": {
+        "section_na": "Rural Mayanur",
+        "section_co": "044",
+        "subdivisio": "kulithalai",
+        "region_id": "06",
+        "subdivis_1": "44331",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1960,
+        "search_string": "    rural mayanur"
+      },
+      "bbox": [
+        78.2349,
+        10.9475,
+        78.2349,
+        10.9475
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4947,
+          10.828
+        ]
+      },
+      "properties": {
+        "section_na": "Nachalur",
+        "section_co": "042",
+        "subdivisio": "Kulithalai",
+        "region_id": "06",
+        "subdivis_1": "44331",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1961,
+        "search_string": "    nachalur"
+      },
+      "bbox": [
+        78.4947,
+        10.828,
+        78.4947,
+        10.828
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3094,
+          10.8299
+        ]
+      },
+      "properties": {
+        "section_na": "Panjapatty",
+        "section_co": "045",
+        "subdivisio": "Kulithalai",
+        "region_id": "06",
+        "subdivis_1": "44331",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1962,
+        "search_string": "    panjapatty"
+      },
+      "bbox": [
+        78.3094,
+        10.8299,
+        78.3094,
+        10.8299
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4483,
+          10.8776
+        ]
+      },
+      "properties": {
+        "section_na": "Panickampatty",
+        "section_co": "055",
+        "subdivisio": "Kulithalai",
+        "region_id": "06",
+        "subdivis_1": "44331",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1963,
+        "search_string": "    panickampatty"
+      },
+      "bbox": [
+        78.4483,
+        10.8776,
+        78.4483,
+        10.8776
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3861,
+          10.8635
+        ]
+      },
+      "properties": {
+        "section_na": "North Ayyermalai",
+        "section_co": "047",
+        "subdivisio": "Ayyermalai",
+        "region_id": "06",
+        "subdivis_1": "44332",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1964,
+        "search_string": "    north ayyermalai"
+      },
+      "bbox": [
+        78.3861,
+        10.8635,
+        78.3861,
+        10.8635
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3866,
+          10.8636
+        ]
+      },
+      "properties": {
+        "section_na": "South Ayyermalai",
+        "section_co": "046",
+        "subdivisio": "Ayyermalai",
+        "region_id": "06",
+        "subdivis_1": "44332",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1965,
+        "search_string": "    south ayyermalai"
+      },
+      "bbox": [
+        78.3866,
+        10.8636,
+        78.3866,
+        10.8636
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4028,
+          10.7496
+        ]
+      },
+      "properties": {
+        "section_na": "North thogamalai",
+        "section_co": "049",
+        "subdivisio": "Ayyermalai",
+        "region_id": "06",
+        "subdivis_1": "44332",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1966,
+        "search_string": "    north thogamalai"
+      },
+      "bbox": [
+        78.4028,
+        10.7496,
+        78.4028,
+        10.7496
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.504,
+          10.7458
+        ]
+      },
+      "properties": {
+        "section_na": "Kavalkaranpatty",
+        "section_co": "050",
+        "subdivisio": "Ayyermalai",
+        "region_id": "06",
+        "subdivis_1": "44332",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1967,
+        "search_string": "    kavalkaranpatty"
+      },
+      "bbox": [
+        78.504,
+        10.7458,
+        78.504,
+        10.7458
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5255,
+          10.7955
+        ]
+      },
+      "properties": {
+        "section_na": "Chinnapanaiyur",
+        "section_co": "056",
+        "subdivisio": "Ayyermalai",
+        "region_id": "06",
+        "subdivis_1": "44332",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1968,
+        "search_string": "    chinnapanaiyur"
+      },
+      "bbox": [
+        78.5255,
+        10.7955,
+        78.5255,
+        10.7955
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2365,
+          10.7298
+        ]
+      },
+      "properties": {
+        "section_na": "Chinthamanipatty O & M",
+        "section_co": "051",
+        "subdivisio": "Chinthamanipatty",
+        "region_id": "06",
+        "subdivis_1": "44333",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1969,
+        "search_string": "    chinthamanipatty o & m"
+      },
+      "bbox": [
+        78.2365,
+        10.7298,
+        78.2365,
+        10.7298
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2364,
+          10.7304
+        ]
+      },
+      "properties": {
+        "section_na": "Rural chinthamanipatty",
+        "section_co": "054",
+        "subdivisio": "Chinthamanipatty",
+        "region_id": "06",
+        "subdivis_1": "44333",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1970,
+        "search_string": "    rural chinthamanipatty"
+      },
+      "bbox": [
+        78.2364,
+        10.7304,
+        78.2364,
+        10.7304
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2362,
+          10.7306
+        ]
+      },
+      "properties": {
+        "section_na": "South chinthamanipatty",
+        "section_co": "053",
+        "subdivisio": "Chinthamanipatty",
+        "region_id": "06",
+        "subdivis_1": "44333",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1971,
+        "search_string": "    south chinthamanipatty"
+      },
+      "bbox": [
+        78.2362,
+        10.7306,
+        78.2362,
+        10.7306
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2414,
+          10.6545
+        ]
+      },
+      "properties": {
+        "section_na": "Palaviduthi",
+        "section_co": "052",
+        "subdivisio": "Chinthamanipatty",
+        "region_id": "06",
+        "subdivis_1": "44333",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1972,
+        "search_string": "    palaviduthi"
+      },
+      "bbox": [
+        78.2414,
+        10.6545,
+        78.2414,
+        10.6545
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3217,
+          10.7417
+        ]
+      },
+      "properties": {
+        "section_na": "Kosur",
+        "section_co": "057",
+        "subdivisio": "Chinthamanipatty",
+        "region_id": "06",
+        "subdivis_1": "44333",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1973,
+        "search_string": "    kosur"
+      },
+      "bbox": [
+        78.3217,
+        10.7417,
+        78.3217,
+        10.7417
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0537,
+          10.9352
+        ]
+      },
+      "properties": {
+        "section_na": "Rural karur",
+        "section_co": "022",
+        "subdivisio": "South",
+        "region_id": "06",
+        "subdivis_1": "44321",
+        "division_n": "RURAL",
+        "division_c": "4432",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1974,
+        "search_string": "    rural karur"
+      },
+      "bbox": [
+        78.0537,
+        10.9352,
+        78.0537,
+        10.9352
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.408,
+          10.7277
+        ]
+      },
+      "properties": {
+        "section_na": "South thogamalai",
+        "section_co": "048",
+        "subdivisio": "Ayyermalai",
+        "region_id": "06",
+        "subdivis_1": "44332",
+        "division_n": "KULITHALAI",
+        "division_c": "4433",
+        "circle_nam": "KARUR",
+        "circle_cod": "0443",
+        "region_nam": "TRICHY",
+        "object_id": 1975,
+        "search_string": "    south thogamalai"
+      },
+      "bbox": [
+        78.408,
+        10.7277,
+        78.408,
+        10.7277
+      ]
+    }
+  ]
+}

@@ -84,375 +84,421 @@ const ResultContainer: React.FC = () => {
   };
 
   return (
-    <AnimatePresence mode="wait">
-      {/* PDS Shop Detail */}
-      {activeLayer === 'PDS' && selectedPdsShop && (
-        <ResultCard
-          key="pds-detail"
-          themeColor="red"
-          title={selectedPdsShop.properties.name || 'PDS Shop'}
-          icon={<ShoppingCart size={20} />}
-          data={[
-            { label: 'Shop Code', value: selectedPdsShop.properties.shop_code || 'N/A', isPill: true },
-            { label: 'Village', value: selectedPdsShop.properties.village || 'N/A' },
-            { label: 'Taluk', value: selectedPdsShop.properties.taluk || 'N/A' },
-            { label: 'District', value: selectedPdsShop.properties.district || 'N/A' }
-          ]}
-          onClose={() => setSelectedPdsShop(null)}
-          onDirections={() => {
-            const coords = selectedPdsShop.geometry.coordinates as Position;
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
-          }}
-          onReport={() => handleReport('PDS Shop', selectedPdsShop.properties)}
-        />
-      )}
-
-      {/* PDS Layer Instruction */}
-      {activeLayer === 'PDS' && searchResult && !selectedPdsShop && (
-         <ResultCard
-           key="pds-instruction"
-           themeColor="red"
-           title={`PDS Shops in ${searchResult.properties.office_name || searchResult.properties.district || ''}`}
-           icon={<ShoppingCart size={20} />}
-           data={[
-             { label: 'Status', value: 'Displaying all local shops', isPill: true },
-             { label: 'Instruction', value: 'Click a shop marker on the map to view detailed information.' }
-           ]}
-           onClose={clearSearch}
-         />
-      )}
-
-      {/* TNEB Section Detail */}
-      {activeLayer === 'TNEB' && jurisdictionDetails && (
-        <ResultCard
-          key="tneb-detail"
-          themeColor="orange"
-          title={`${jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'} (${jurisdictionDetails.section_co})`}
-          icon={<Zap size={20} />}
-          data={[
-            { 
-              label: 'Sub-Division', 
-              value: jurisdictionDetails.subdivisio || jurisdictionDetails.sub_division || 'N/A',
-              subValue: jurisdictionDetails.subdivis_1?.toString() || jurisdictionDetails.sub_div_co?.toString()
-            },
-            { 
-              label: 'Division', 
-              value: jurisdictionDetails.division_n || jurisdictionDetails.division || 'N/A',
-              subValue: jurisdictionDetails.division_c?.toString() || jurisdictionDetails.div_cod?.toString()
-            },
-            { 
-              label: 'Circle', 
-              value: jurisdictionDetails.circle_nam || jurisdictionDetails.circle || 'N/A',
-              subValue: jurisdictionDetails.circle_cod?.toString()
-            },
-            { 
-              label: 'Region', 
-              value: jurisdictionDetails.region_nam || jurisdictionDetails.region || 'N/A',
-              subValue: (jurisdictionDetails.region_id || jurisdictionDetails.region_cod)?.toString()
-            }
-          ]}
-          onClose={() => setJurisdictionDetails(null, null)}
-          onDirections={jurisdictionDetails.office_location ? () => {
-            const coords = jurisdictionDetails.office_location as Position;
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
-          } : undefined}
-          onReport={() => handleReport('TNEB Section', jurisdictionDetails)}
-        />
-      )}
-
-      {/* TNEB Layer Instruction */}
-      {activeLayer === 'TNEB' && searchResult && !jurisdictionDetails && (
-         <ResultCard
-           key="tneb-instruction"
-           themeColor="orange"
-           title="Find TNEB Section"
-           icon={<Zap size={20} />}
-           data={[
-             { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
-             { label: 'Next Step', value: 'Click your exact location on the map to resolve the section.' }
-           ]}
-           onClose={clearSearch}
-         />
-      )}
-
-      {activeLayer === 'PINCODE' && searchResult && !selectedPostalOffice && (
-        <ResultCard
-          key="pincode-info"
-          themeColor="blue"
-          title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Post Office Area'}
-          icon={<MapPin size={20} />}
-          data={[
-            { label: 'Pincode', value: (searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A').toString(), isPill: true },
-            { label: 'District', value: searchResult.properties.district || 'N/A' },
-            { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' },
-            ...(selectedPostalOffices && selectedPostalOffices.length > 0 ? [
-              { 
-                label: 'Local Offices', 
-                value: `${selectedPostalOffices.length} found`,
-                subValue: selectedPostalOffices.slice(0, 3).map(o => o.officename).join(', ') + (selectedPostalOffices.length > 3 ? '...' : '')
-              }
-            ] : [])
-          ]}
-          onClose={clearSearch}
-          onDirections={selectedPostalOffices && selectedPostalOffices.length > 0 ? () => {
-             const mainOffice = selectedPostalOffices.find(o => o.officetype === 'HO' || o.officetype === 'SO') || selectedPostalOffices[0];
-             window.open(`https://www.google.com/maps/dir/?api=1&destination=${mainOffice.latitude},${mainOffice.longitude}`, '_blank');
-          } : undefined}
-          onReport={() => handleReport('Pincode Area', searchResult.properties)}
-        />
-      )}
-
-      {/* Specific Post Office Detail */}
-      {activeLayer === 'PINCODE' && selectedPostalOffice && (
-        <ResultCard
-          key="postal-detail"
-          themeColor="red"
-          title={selectedPostalOffice.officename}
-          icon={<MapPin size={20} />}
-          data={[
-            { label: 'Pincode', value: selectedPostalOffice.pincode, isPill: true },
-            { label: 'Type', value: `${selectedPostalOffice.officetype} - ${selectedPostalOffice.delivery}` },
-            { label: 'Division', value: selectedPostalOffice.divisionname },
-            { label: 'District', value: selectedPostalOffice.district }
-          ]}
-          onClose={() => setSelectedPostalOffice(null)}
-          onDirections={() => {
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedPostalOffice.latitude},${selectedPostalOffice.longitude}`, '_blank');
-          }}
-          onReport={() => handleReport('Post Office', selectedPostalOffice as unknown as Record<string, unknown>)}
-        />
-      )}
-
-      {/* Constituency Info */}
-      {activeLayer === 'CONSTITUENCY' && searchResult && (
-        <ResultCard
-          key="constituency-info"
-          themeColor="indigo"
-          title={(searchResult.properties.assembly_c || searchResult.properties.parliame_1 || 'Constituency') as string}
-          icon={<Landmark size={20} />}
-          data={searchResult.properties.assembly_c ? [
-            { label: 'AC Number', value: searchResult.properties.assembly_1?.toString() || 'N/A', isPill: true },
-            { label: 'District', value: searchResult.properties.district_n as string || 'N/A' },
-            { label: 'Parliamentary', value: searchResult.properties.parliame_1 as string || 'N/A' },
-          ] : [
-            { label: 'PC Number', value: searchResult.properties.parliament?.toString() || 'N/A', isPill: true },
-            { label: 'State', value: 'Tamil Nadu' }
-          ]}
-          onClose={clearSearch}
-          onReport={() => handleReport('Constituency', searchResult.properties)}
-        />
-      )}
-
-      {/* Police Station Info */}
-      {activeLayer === 'POLICE' && policeResolution && (
-        <ResultCard
-          key="police-detail"
-          themeColor="slate"
-          title={policeResolution.station?.properties.ps_name || policeResolution.boundary.properties.police_sta || 'Police Jurisdiction'}
-          icon={<Shield size={20} />}
-          data={[
-            { 
-              label: 'Station Name', 
-              value: policeResolution.station?.properties.ps_name || policeResolution.boundary.properties.police_sta || 'N/A',
-              subValue: policeResolution.station?.properties.ps_code ? `Code: ${policeResolution.station.properties.ps_code}` : undefined
-            },
-            { 
-              label: 'Boundary Status', 
-              value: policeResolution.isBoundaryValid ? 'VERIFIED' : 'UNAVAILABLE', 
-              isPill: true,
-              subValue: policeResolution.isBoundaryValid 
-                ? `Jurisdiction Code: ${policeResolution.boundary.properties.police_s_1}` 
-                : (policeResolution.validationError || 'Official boundary data for this station is currently being updated.')
-            },
-            ...(policeResolution.isBoundaryValid ? [
-               {
-                 label: 'Jurisdiction',
-                 value: policeResolution.boundary.properties.police_sta || 'N/A',
-                 subValue: `${policeResolution.boundary.properties.district_n || ''} District`
-               }
-            ] : []),
-            ...(import.meta.env.DEV ? [
-              { 
-                label: 'Match Confidence', 
-                value: policeResolution.confidence.toUpperCase(),
-                subValue: `Logic: ${policeResolution.debug.method} (${policeResolution.reason})` 
-              }
-            ] : [])
-          ]}
-          onClose={() => setPoliceResolution(null)}
-          onDirections={policeResolution.station?.properties.station_location ? () => {
-            const coords = policeResolution.station!.properties.station_location as Position;
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
-          } : undefined}
-          onReport={() => handleReport('Police Station', {
-            boundaryCode: policeResolution.boundary.properties.police_s_1,
-            stationName: policeResolution.station?.properties.ps_name,
-            stationCode: policeResolution.station?.properties.ps_code,
-            confidence: policeResolution.confidence,
-            reason: policeResolution.reason,
-            method: policeResolution.debug.method
-          })}
-        />
-      )}
-
-      {/* Police Layer Instruction */}
-      {activeLayer === 'POLICE' && searchResult && !policeResolution && !noDataFound && (
+    <div className="result-cards-stack">
+      <AnimatePresence mode="popLayout">
+        {/* PDS Shop Detail */}
+        {activeLayer === 'PDS' && selectedPdsShop && (
           <ResultCard
-            key="police-instruction"
-            themeColor="slate"
-            title="Find Police Jurisdiction"
-            icon={<Shield size={20} />}
+            key="pds-detail"
+            themeColor="red"
+            title={selectedPdsShop.properties.name || 'PDS Shop'}
+            icon={<ShoppingCart size={20} />}
             data={[
-              { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
-              { label: 'Next Step', value: 'Click your location on the map to find the responsible police station.' }
+              { label: 'Shop Code', value: selectedPdsShop.properties.shop_code || 'N/A', isPill: true },
+              { label: 'Village', value: selectedPdsShop.properties.village || 'N/A' },
+              { label: 'Taluk', value: selectedPdsShop.properties.taluk || 'N/A' },
+              { label: 'District', value: selectedPdsShop.properties.district || 'N/A' }
+            ]}
+            onClose={() => setSelectedPdsShop(null)}
+            onDirections={() => {
+              const coords = selectedPdsShop.geometry.coordinates as Position;
+              window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+            }}
+            onReport={() => handleReport('PDS Shop', selectedPdsShop.properties)}
+          />
+        )}
+
+        {/* PDS Layer Instruction */}
+        {activeLayer === 'PDS' && searchResult && !selectedPdsShop && (
+           <ResultCard
+             key="pds-instruction"
+             themeColor="red"
+             title={`PDS Shops in ${searchResult.properties.office_name || searchResult.properties.district || ''}`}
+             icon={<ShoppingCart size={20} />}
+             data={[
+               { label: 'Status', value: 'Displaying all local shops', isPill: true },
+               { label: 'Instruction', value: 'Click a shop marker on the map to view detailed information.' }
+             ]}
+             onClose={clearSearch}
+           />
+        )}
+
+        {/* TNEB Section Detail */}
+        {activeLayer === 'TNEB' && jurisdictionDetails && (
+          <ResultCard
+            key="tneb-detail"
+            themeColor="orange"
+            title={`${jurisdictionDetails.section_na || jurisdictionDetails.section_office || 'TNEB Section'} (${jurisdictionDetails.section_co})`}
+            icon={<Zap size={20} />}
+            data={[
+              { 
+                label: 'Sub-Division', 
+                value: jurisdictionDetails.subdivisio || jurisdictionDetails.sub_division || 'N/A',
+                subValue: jurisdictionDetails.subdivis_1?.toString() || jurisdictionDetails.sub_div_co?.toString()
+              },
+              { 
+                label: 'Division', 
+                value: jurisdictionDetails.division_n || jurisdictionDetails.division || 'N/A',
+                subValue: jurisdictionDetails.division_c?.toString() || jurisdictionDetails.div_cod?.toString()
+              },
+              { 
+                label: 'Circle', 
+                value: jurisdictionDetails.circle_nam || jurisdictionDetails.circle || 'N/A',
+                subValue: jurisdictionDetails.circle_cod?.toString()
+              },
+              { 
+                label: 'Region', 
+                value: jurisdictionDetails.region_nam || jurisdictionDetails.region || 'N/A',
+                subValue: (jurisdictionDetails.region_id || jurisdictionDetails.region_cod)?.toString()
+              }
+            ]}
+            onClose={() => setJurisdictionDetails(null, null)}
+            onDirections={jurisdictionDetails.office_location ? () => {
+              const coords = jurisdictionDetails.office_location as Position;
+              window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+            } : undefined}
+            onReport={() => handleReport('TNEB Section', jurisdictionDetails)}
+          />
+        )}
+
+        {/* TNEB Layer Instruction */}
+        {activeLayer === 'TNEB' && searchResult && !jurisdictionDetails && (
+           <ResultCard
+             key="tneb-instruction"
+             themeColor="orange"
+             title="Find TNEB Section"
+             icon={<Zap size={20} />}
+             data={[
+               { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
+               { label: 'Next Step', value: 'Click your exact location on the map to resolve the section.' }
+             ]}
+             onClose={clearSearch}
+           />
+        )}
+
+        {activeLayer === 'PINCODE' && searchResult && !selectedPostalOffice && (() => {
+          const validOffices = selectedPostalOffices?.filter(o => !o.isOutlier) || [];
+          const outlierOffices = selectedPostalOffices?.filter(o => o.isOutlier) || [];
+          
+          return (
+            <ResultCard
+              key="pincode-info"
+              themeColor="blue"
+              title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Post Office Area'}
+              icon={<MapPin size={20} />}
+              data={[
+                { label: 'Pincode', value: (searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A').toString(), isPill: true },
+                { label: 'District', value: searchResult.properties.district || 'N/A' },
+                { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' },
+                ...(validOffices.length > 0 ? [
+                  { 
+                    label: 'Local Offices', 
+                    value: `${validOffices.length} found`,
+                    subValue: validOffices.slice(0, 3).map(o => o.officename).join(', ') + (validOffices.length > 3 ? '...' : '')
+                  }
+                ] : []),
+                ...(outlierOffices.length > 0 ? [
+                  {
+                    label: 'Potential Data Errors',
+                    value: `${outlierOffices.length} offices misplaced`,
+                    subValue: outlierOffices.map(o => o.officename).join(', ')
+                  }
+                ] : [])
+              ]}
+              onClose={clearSearch}
+              onDirections={validOffices.length > 0 ? () => {
+                 const mainOffice = validOffices.find(o => o.officetype === 'HO' || o.officetype === 'SO') || validOffices[0];
+                 window.open(`https://www.google.com/maps/dir/?api=1&destination=${mainOffice.latitude},${mainOffice.longitude}`, '_blank');
+              } : undefined}
+              onReport={() => handleReport('Pincode Area', searchResult.properties)}
+            />
+          );
+        })()}
+
+        {/* Specific Post Office Detail */}
+        {activeLayer === 'PINCODE' && selectedPostalOffice && (
+          <ResultCard
+            key="postal-detail"
+            themeColor={selectedPostalOffice.isOutlier ? 'orange' : 'red'}
+            title={selectedPostalOffice.officename}
+            icon={<MapPin size={20} />}
+            badges={selectedPostalOffice.isOutlier ? [{ label: 'Location Accuracy Warning', color: '#f97316', icon: <AlertCircle size={12} /> }] : []}
+            data={[
+              { label: 'Pincode', value: selectedPostalOffice.pincode, isPill: true },
+              { label: 'Type', value: `${selectedPostalOffice.officetype} - ${selectedPostalOffice.delivery}` },
+              { label: 'Division', value: selectedPostalOffice.divisionname },
+              { label: 'District', value: selectedPostalOffice.district },
+              ...(selectedPostalOffice.isOutlier ? [{ label: 'Note', value: 'This office coordinates in the official registry appear to be incorrect and have been hidden from the map for clarity.' }] : [])
+            ]}
+            onClose={() => setSelectedPostalOffice(null)}
+            onDirections={!selectedPostalOffice.isOutlier ? () => {
+              window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedPostalOffice.latitude},${selectedPostalOffice.longitude}`, '_blank');
+            } : undefined}
+            onReport={() => handleReport('Post Office', selectedPostalOffice as unknown as Record<string, unknown>)}
+          />
+        )}
+
+        {/* Outliers List Card */}
+        {activeLayer === 'PINCODE' && searchResult && !selectedPostalOffice && (() => {
+          const outlierOffices = selectedPostalOffices?.filter(o => o.isOutlier) || [];
+          if (outlierOffices.length === 0) return null;
+          
+          return (
+            <div key="outliers-group" className="result-card-group">
+              <div className="result-card-group-label">
+                <AlertCircle size={14} color="#f97316" />
+                Misplaced Data Found
+              </div>
+              {outlierOffices.map((off, idx) => (
+                <ResultCard
+                  key={`outlier-${idx}`}
+                  themeColor="slate"
+                  title={off.officename}
+                  icon={<MapPin size={18} />}
+                  data={[
+                    { label: 'Office Type', value: `${off.officetype} (${off.delivery})`, isPill: true },
+                    { label: 'Reason', value: 'Geographically misplaced in registry' }
+                  ]}
+                  actionLabel="VIEW DETAILS"
+                  onAction={() => setSelectedPostalOffice(off)}
+                  onClose={() => {}} 
+                />
+              ))}
+            </div>
+          );
+        })()}
+
+        {/* Constituency Info */}
+        {activeLayer === 'CONSTITUENCY' && searchResult && (
+          <ResultCard
+            key="constituency-info"
+            themeColor="indigo"
+            title={(searchResult.properties.assembly_c || searchResult.properties.parliame_1 || 'Constituency') as string}
+            icon={<Landmark size={20} />}
+            data={searchResult.properties.assembly_c ? [
+              { label: 'AC Number', value: searchResult.properties.assembly_1?.toString() || 'N/A', isPill: true },
+              { label: 'District', value: searchResult.properties.district_n as string || 'N/A' },
+              { label: 'Parliamentary', value: searchResult.properties.parliame_1 as string || 'N/A' },
+            ] : [
+              { label: 'PC Number', value: searchResult.properties.parliament?.toString() || 'N/A', isPill: true },
+              { label: 'State', value: 'Tamil Nadu' }
             ]}
             onClose={clearSearch}
+            onReport={() => handleReport('Constituency', searchResult.properties)}
           />
-       )}
+        )}
 
-      {/* Police Layer General Instruction */}
-      {activeLayer === 'POLICE' && !searchResult && !policeResolution && !noDataFound && (
-        <ResultCard
-          key="police-general-instruction"
-          themeColor="slate"
-          title="Police Jurisdictions"
-          icon={<Shield size={20} />}
-          data={[
-            { label: 'Status', value: 'Station-First Discovery', isPill: true },
-            { label: 'Instruction', value: 'Click any police station marker to view its jurisdictional boundary and details.' }
-          ]}
-          onClose={() => {}}
-        />
-      )}
+        {/* Police Station Info */}
+        {activeLayer === 'POLICE' && policeResolution && (
+          <ResultCard
+            key="police-detail"
+            themeColor="slate"
+            title={policeResolution.station?.properties.ps_name || policeResolution.boundary.properties.police_sta || 'Police Jurisdiction'}
+            icon={<Shield size={20} />}
+            data={[
+              { 
+                label: 'Station Name', 
+                value: policeResolution.station?.properties.ps_name || policeResolution.boundary.properties.police_sta || 'N/A',
+                subValue: policeResolution.station?.properties.ps_code ? `Code: ${policeResolution.station.properties.ps_code}` : undefined
+              },
+              { 
+                label: 'Boundary Status', 
+                value: policeResolution.isBoundaryValid ? 'VERIFIED' : 'UNAVAILABLE', 
+                isPill: true,
+                subValue: policeResolution.isBoundaryValid 
+                  ? `Jurisdiction Code: ${policeResolution.boundary.properties.police_s_1}` 
+                  : (policeResolution.validationError || 'Official boundary data for this station is currently being updated.')
+              },
+              ...(policeResolution.isBoundaryValid ? [
+                 {
+                   label: 'Jurisdiction',
+                   value: policeResolution.boundary.properties.police_sta || 'N/A',
+                   subValue: `${policeResolution.boundary.properties.district_n || ''} District`
+                 }
+              ] : []),
+              ...(import.meta.env.DEV ? [
+                { 
+                  label: 'Match Confidence', 
+                  value: policeResolution.confidence.toUpperCase(),
+                  subValue: `Logic: ${policeResolution.debug.method} (${policeResolution.reason})` 
+                }
+              ] : [])
+            ]}
+            onClose={() => setPoliceResolution(null)}
+            onDirections={policeResolution.station?.properties.station_location ? () => {
+              const coords = policeResolution.station!.properties.station_location as Position;
+              window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+            } : undefined}
+            onReport={() => handleReport('Police Station', {
+              boundaryCode: policeResolution.boundary.properties.police_s_1,
+              stationName: policeResolution.station?.properties.ps_name,
+              stationCode: policeResolution.station?.properties.ps_code,
+              confidence: policeResolution.confidence,
+              reason: policeResolution.reason,
+              method: policeResolution.debug.method
+            })}
+          />
+        )}
 
-      {/* Health Facility Detail */}
-      {activeLayer === 'HEALTH' && selectedHealthFacility && (
-        <ResultCard
-          key="health-detail"
-          themeColor="rose"
-          title={selectedHealthFacility.properties.facility_n || selectedHealthFacility.properties.NAME || 'Health Facility'}
-          icon={<Activity size={20} />}
-          badges={[
-            ...(Number(selectedHealthFacility.properties.delivery_p) === 1 ? [{ label: 'Delivery Services', color: '#ec4899' }] : []),
-            ...(String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') ? [{ label: '24x7 Emergency', color: '#f59e0b' }] : []),
-            ...(selectedHealthFacility.properties.fru ? [{ label: 'First Referral Unit', color: '#be123c' }] : []),
-            ...(Number(selectedHealthFacility.properties.blood_bank) === 1 ? [{ label: 'Blood Bank', color: '#ef4444' }] : []),
-            ...(Number(selectedHealthFacility.properties.sncu) === 1 ? [{ label: 'Newborn Care', color: '#0ea5e9' }] : []),
-            ...(Number(selectedHealthFacility.properties.dialysis_c) === 1 ? [{ label: 'Dialysis Center', color: '#8b5cf6' }] : [])
-          ].slice(0, 4)}
-          data={[
-            { 
-              label: 'Care Level', 
-              value: (({
-                'MCH': 'Medical College Hospital',
-                'DH': 'District Hospital',
-                'SDH': 'Sub-District Hospital',
-                'CHC': 'Community Health Centre',
-                'PHC': 'Primary Health Centre',
-                'HSC': 'Health Sub Centre'
-              } as Record<string, string>)[selectedHealthFacility.properties.facility_t]) || selectedHealthFacility.properties.facility_t || 'N/A', 
-              isPill: true 
-            },
-            { 
-              label: 'Location', 
-              value: `${selectedHealthFacility.properties.block_name || 'Local Area'}, ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`,
-              subValue: `District: ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`
-            },
-            { 
-              label: 'Services Timing', 
-              value: String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') 
-                ? 'Open 24 Hours' 
-                : (String(selectedHealthFacility.properties.timing_of_ || '').toLowerCase().includes('day') ? 'Day Services (General Hours)' : 'General Hours / Contact Facility')
-            },
-            { label: 'Facility ID (NIN)', value: (selectedHealthFacility.properties.nin_number || 'N/A').toString() }
-          ]}
-          onClose={() => setSelectedHealthFacility(null)}
-          onDirections={() => {
-            const coords = selectedHealthFacility.geometry.coordinates as [number, number];
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
-          }}
-          onReport={() => handleReport('Health Facility', selectedHealthFacility.properties)}
-        />
-      )}
+        {/* Police Layer Instruction */}
+        {activeLayer === 'POLICE' && searchResult && !policeResolution && !noDataFound && (
+            <ResultCard
+              key="police-instruction"
+              themeColor="slate"
+              title="Find Police Jurisdiction"
+              icon={<Shield size={20} />}
+              data={[
+                { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
+                { label: 'Next Step', value: 'Click your location on the map to find the responsible police station.' }
+              ]}
+              onClose={clearSearch}
+            />
+         )}
 
-      {/* Health Discovery Summary */}
-      {activeLayer === 'HEALTH' && healthSummary && !selectedHealthFacility && (
-        <HealthSummaryCard
-          key="health-summary"
-          summary={healthSummary}
-          onClearFilters={() => {
-            const emptyFilters: HealthFilters = {
-              facilityTypes: [],
-              locationType: 'All' as const,
-              isHwc: null,
-              hasDelivery: null,
-              isFru: null,
-              is24x7: null,
-              hasBloodBank: null,
-              hasBloodStorage: null,
-              hasSncu: null,
-              hasNbsu: null,
-              hasDeic: null,
-              hasCt: null,
-              hasMri: null,
-              hasDialysis: null,
-              hasCbnaat: null,
-              hasTeleConsultation: null,
-              hasStemiHub: null,
-              hasStemiSpoke: null,
-              hasCathLab: null
-            };
-            const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode)?.toString();
-            filterHealth(healthScope, emptyFilters, activeDistrict, pincode || null);
-          }}
-        />
-      )}
+        {/* Police Layer General Instruction */}
+        {activeLayer === 'POLICE' && !searchResult && !policeResolution && !noDataFound && (
+          <ResultCard
+            key="police-general-instruction"
+            themeColor="slate"
+            title="Police Jurisdictions"
+            icon={<Shield size={20} />}
+            data={[
+              { label: 'Status', value: 'Station-First Discovery', isPill: true },
+              { label: 'Instruction', value: 'Click any police station marker to view its jurisdictional boundary and details.' }
+            ]}
+            onClose={() => {}}
+          />
+        )}
 
-      {/* Health Layer Instruction (when no summary yet) */}
-      {activeLayer === 'HEALTH' && !healthSummary && !selectedHealthFacility && !noDataFound && (
-         <ResultCard
-           key="health-instruction"
-           themeColor="blue"
-           title="Health Discovery"
-           icon={<Activity size={20} />}
-           data={[
-             { label: 'Status', value: 'Statewide View', isPill: true },
-             { label: 'Next Step', value: 'Search for a district or pincode to explore local health facilities.' }
-           ]}
-           onClose={() => {}}
-         />
-      )}
+        {/* Health Facility Detail */}
+        {activeLayer === 'HEALTH' && selectedHealthFacility && (
+          <ResultCard
+            key="health-detail"
+            themeColor="rose"
+            title={selectedHealthFacility.properties.facility_n || selectedHealthFacility.properties.NAME || 'Health Facility'}
+            icon={<Activity size={20} />}
+            badges={[
+              ...(Number(selectedHealthFacility.properties.delivery_p) === 1 ? [{ label: 'Delivery Services', color: '#ec4899' }] : []),
+              ...(String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') ? [{ label: '24x7 Emergency', color: '#f59e0b' }] : []),
+              ...(selectedHealthFacility.properties.fru ? [{ label: 'First Referral Unit', color: '#be123c' }] : []),
+              ...(Number(selectedHealthFacility.properties.blood_bank) === 1 ? [{ label: 'Blood Bank', color: '#ef4444' }] : []),
+              ...(Number(selectedHealthFacility.properties.sncu) === 1 ? [{ label: 'Newborn Care', color: '#0ea5e9' }] : []),
+              ...(Number(selectedHealthFacility.properties.dialysis_c) === 1 ? [{ label: 'Dialysis Center', color: '#8b5cf6' }] : [])
+            ].slice(0, 4)}
+            data={[
+              { 
+                label: 'Care Level', 
+                value: (({
+                  'MCH': 'Medical College Hospital',
+                  'DH': 'District Hospital',
+                  'SDH': 'Sub-District Hospital',
+                  'CHC': 'Community Health Centre',
+                  'PHC': 'Primary Health Centre',
+                  'HSC': 'Health Sub Centre'
+                } as Record<string, string>)[selectedHealthFacility.properties.facility_t]) || selectedHealthFacility.properties.facility_t || 'N/A', 
+                isPill: true 
+              },
+              { 
+                label: 'Location', 
+                value: `${selectedHealthFacility.properties.block_name || 'Local Area'}, ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`,
+                subValue: `District: ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`
+              },
+              { 
+                label: 'Services Timing', 
+                value: String(selectedHealthFacility.properties.timing_of_ || '').includes('24x7') 
+                  ? 'Open 24 Hours' 
+                  : (String(selectedHealthFacility.properties.timing_of_ || '').toLowerCase().includes('day') ? 'Day Services (General Hours)' : 'General Hours / Contact Facility')
+              },
+              { label: 'Facility ID (NIN)', value: (selectedHealthFacility.properties.nin_number || 'N/A').toString() }
+            ]}
+            onClose={() => setSelectedHealthFacility(null)}
+            onDirections={() => {
+              const coords = selectedHealthFacility.geometry.coordinates as [number, number];
+              window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
+            }}
+            onReport={() => handleReport('Health Facility', selectedHealthFacility.properties)}
+          />
+        )}
 
-      {/* No Data Found Card */}
-      {noDataFound && (
-        <ResultCard
-          key="no-data"
-          themeColor="blue"
-          title="No Information Found"
-          icon={<AlertCircle size={20} />}
-          data={[
-            { label: 'Status', value: 'Data Unavailable', isPill: true },
-            { label: 'Message', value: 'We don\'t have specific jurisdictional data for this exact coordinate yet.' },
-            { label: 'Location', value: lastClickedPoint ? `${lastClickedPoint.lat.toFixed(4)}, ${lastClickedPoint.lng.toFixed(4)}` : 'Unknown' }
-          ]}
-          onClose={() => setNoDataFound(false)}
-          actionLabel="CONTRIBUTE DATA"
-          onAction={() => handleReport('Missing Data', { 
-            latitude: lastClickedPoint?.lat, 
-            longitude: lastClickedPoint?.lng,
-            layer: activeLayer 
-          })}
-          onDirections={lastClickedPoint ? () => {
-            window.open(`https://www.google.com/maps/dir/?api=1&destination=${lastClickedPoint.lat},${lastClickedPoint.lng}`, '_blank');
-          } : undefined}
-          onReport={() => handleReport('Missing Data', { 
-            latitude: lastClickedPoint?.lat, 
-            longitude: lastClickedPoint?.lng,
-            layer: activeLayer 
-          })}
-        />
-      )}
-    </AnimatePresence>
+        {/* Health Discovery Summary */}
+        {activeLayer === 'HEALTH' && healthSummary && !selectedHealthFacility && (
+          <HealthSummaryCard
+            key="health-summary"
+            summary={healthSummary}
+            onClearFilters={() => {
+              const emptyFilters: HealthFilters = {
+                facilityTypes: [],
+                locationType: 'All' as const,
+                isHwc: null,
+                hasDelivery: null,
+                isFru: null,
+                is24x7: null,
+                hasBloodBank: null,
+                hasBloodStorage: null,
+                hasSncu: null,
+                hasNbsu: null,
+                hasDeic: null,
+                hasCt: null,
+                hasMri: null,
+                hasDialysis: null,
+                hasCbnaat: null,
+                hasTeleConsultation: null,
+                hasStemiHub: null,
+                hasStemiSpoke: null,
+                hasCathLab: null
+              };
+              const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode)?.toString();
+              filterHealth(healthScope, emptyFilters, activeDistrict, pincode || null);
+            }}
+          />
+        )}
+
+        {/* Health Layer Instruction (when no summary yet) */}
+        {activeLayer === 'HEALTH' && !healthSummary && !selectedHealthFacility && !noDataFound && (
+           <ResultCard
+             key="health-instruction"
+             themeColor="blue"
+             title="Health Discovery"
+             icon={<Activity size={20} />}
+             data={[
+               { label: 'Status', value: 'Statewide View', isPill: true },
+               { label: 'Next Step', value: 'Search for a district or pincode to explore local health facilities.' }
+             ]}
+             onClose={() => {}}
+           />
+        )}
+
+        {/* No Data Found Card */}
+        {noDataFound && (
+          <ResultCard
+            key="no-data"
+            themeColor="blue"
+            title="No Information Found"
+            icon={<AlertCircle size={20} />}
+            data={[
+              { label: 'Status', value: 'Data Unavailable', isPill: true },
+              { label: 'Message', value: 'We don\'t have specific jurisdictional data for this exact coordinate yet.' },
+              { label: 'Location', value: lastClickedPoint ? `${lastClickedPoint.lat.toFixed(4)}, ${lastClickedPoint.lng.toFixed(4)}` : 'Unknown' }
+            ]}
+            onClose={() => setNoDataFound(false)}
+            actionLabel="CONTRIBUTE DATA"
+            onAction={() => handleReport('Missing Data', { 
+              latitude: lastClickedPoint?.lat, 
+              longitude: lastClickedPoint?.lng,
+              layer: activeLayer 
+            })}
+            onDirections={lastClickedPoint ? () => {
+              window.open(`https://www.google.com/maps/dir/?api=1&destination=${lastClickedPoint.lat},${lastClickedPoint.lng}`, '_blank');
+            } : undefined}
+            onReport={() => handleReport('Missing Data', { 
+              latitude: lastClickedPoint?.lat, 
+              longitude: lastClickedPoint?.lng,
+              layer: activeLayer 
+            })}
+          />
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

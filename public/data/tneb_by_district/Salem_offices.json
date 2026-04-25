@@ -1,0 +1,4115 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2206,
+          11.9532
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH BOMMIDI",
+        "section_co": "158",
+        "subdivisio": "BOMMIDI",
+        "region_id": "08",
+        "subdivis_1": "42062",
+        "division_n": "KADATHUR",
+        "division_c": "4206",
+        "circle_nam": "DHARMAPURI",
+        "circle_cod": "0420",
+        "region_nam": "VELLORE",
+        "object_id": 1026,
+        "search_string": "    south bommidi"
+      },
+      "bbox": [
+        78.2206,
+        11.9532,
+        78.2206,
+        11.9532
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7503,
+          11.8515
+        ]
+      },
+      "properties": {
+        "section_na": "KOLATHUR NORTH SECTION OFFICE",
+        "section_co": "104",
+        "subdivisio": "KOLATHUR",
+        "region_id": "04",
+        "subdivis_1": "42215",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1108,
+        "search_string": "    kolathur north section office"
+      },
+      "bbox": [
+        77.7503,
+        11.8515,
+        77.7503,
+        11.8515
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.981,
+          11.8972
+        ]
+      },
+      "properties": {
+        "section_na": "VELLAR SECTION OFFICE",
+        "section_co": "128",
+        "subdivisio": "DEEVATTIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42224",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1109,
+        "search_string": "    vellar section office"
+      },
+      "bbox": [
+        77.981,
+        11.8972,
+        77.981,
+        11.8972
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7978,
+          11.7862
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN METTUR SECTION OFFICE.",
+        "section_co": "101",
+        "subdivisio": "METTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42211",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1110,
+        "search_string": "    town mettur section office."
+      },
+      "bbox": [
+        77.7978,
+        11.7862,
+        77.7978,
+        11.7862
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7505,
+          11.8588
+        ]
+      },
+      "properties": {
+        "section_na": "KOLATHUR SOUTH SECTION",
+        "section_co": "103",
+        "subdivisio": "KOLATHUR",
+        "region_id": "04",
+        "subdivis_1": "42215",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1111,
+        "search_string": "    kolathur south section"
+      },
+      "bbox": [
+        77.7505,
+        11.8588,
+        77.7505,
+        11.8588
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7506,
+          11.8586
+        ]
+      },
+      "properties": {
+        "section_na": "KOLATHUR RURAL SECTION",
+        "section_co": "105",
+        "subdivisio": "KOLATHUR",
+        "region_id": "04",
+        "subdivis_1": "42215",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1112,
+        "search_string": "    kolathur rural section"
+      },
+      "bbox": [
+        77.7506,
+        11.8586,
+        77.7506,
+        11.8586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9725,
+          11.7488
+        ]
+      },
+      "properties": {
+        "section_na": "THOLASAMPATTY SECTION OFFICE",
+        "section_co": "136",
+        "subdivisio": "OMALUR",
+        "region_id": "04",
+        "subdivis_1": "42221",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1113,
+        "search_string": "    tholasampatty section office"
+      },
+      "bbox": [
+        77.9725,
+        11.7488,
+        77.9725,
+        11.7488
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9483,
+          11.6469
+        ]
+      },
+      "properties": {
+        "section_na": "PAPAMPADI SECTION OFFICE",
+        "section_co": "137",
+        "subdivisio": "THARAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42222",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1114,
+        "search_string": "    papampadi section office"
+      },
+      "bbox": [
+        77.9483,
+        11.6469,
+        77.9483,
+        11.6469
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0727,
+          11.8307
+        ]
+      },
+      "properties": {
+        "section_na": "THUMBIPADY SECTION OFFICE",
+        "section_co": "140",
+        "subdivisio": "OMALUR",
+        "region_id": "04",
+        "subdivis_1": "42221",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1115,
+        "search_string": "    thumbipady section office"
+      },
+      "bbox": [
+        78.0727,
+        11.8307,
+        78.0727,
+        11.8307
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0111,
+          11.7642
+        ]
+      },
+      "properties": {
+        "section_na": "PANCHUKALIPATTY SECTION",
+        "section_co": "141",
+        "subdivisio": "OMALUR",
+        "region_id": "04",
+        "subdivis_1": "42221",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1116,
+        "search_string": "    panchukalipatty section"
+      },
+      "bbox": [
+        78.0111,
+        11.7642,
+        78.0111,
+        11.7642
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7978,
+          11.7863
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL METTUR SECTION OFFICE",
+        "section_co": "102",
+        "subdivisio": "METTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42211",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1117,
+        "search_string": "    rural mettur section office"
+      },
+      "bbox": [
+        77.7978,
+        11.7863,
+        77.7978,
+        11.7863
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9484,
+          11.5251
+        ]
+      },
+      "properties": {
+        "section_na": "VAIKUNDAM OFFICE",
+        "section_co": "167",
+        "subdivisio": "EAST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42234",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1118,
+        "search_string": "    vaikundam office"
+      },
+      "bbox": [
+        77.9484,
+        11.5251,
+        77.9484,
+        11.5251
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8648,
+          11.4722
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN SANKARI OFFICE",
+        "section_co": "164",
+        "subdivisio": "EAST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42234",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1120,
+        "search_string": "    town sankari office"
+      },
+      "bbox": [
+        77.8648,
+        11.4722,
+        77.8648,
+        11.4722
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8564,
+          11.8185
+        ]
+      },
+      "properties": {
+        "section_na": "KUNJANDIYUR SECTION OFFICE",
+        "section_co": "106",
+        "subdivisio": "MECHERI",
+        "region_id": "04",
+        "subdivis_1": "42212",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1121,
+        "search_string": "    kunjandiyur section office"
+      },
+      "bbox": [
+        77.8564,
+        11.8185,
+        77.8564,
+        11.8185
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8953,
+          11.4947
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL SANKARI SECTION OFFICE",
+        "section_co": "165",
+        "subdivisio": "EAST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42234",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1122,
+        "search_string": "    rural sankari section office"
+      },
+      "bbox": [
+        77.8953,
+        11.4947,
+        77.8953,
+        11.4947
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7561,
+          11.5284
+        ]
+      },
+      "properties": {
+        "section_na": "THEVOOR TOWN SECTION OFFICE,",
+        "section_co": "155",
+        "subdivisio": "TOWN EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42271",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1123,
+        "search_string": "    thevoor town section office,"
+      },
+      "bbox": [
+        77.7561,
+        11.5284,
+        77.7561,
+        11.5284
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9878,
+          11.5474
+        ]
+      },
+      "properties": {
+        "section_na": "M.D.CHOULDRY SECTION OFFICE",
+        "section_co": "166",
+        "subdivisio": "EAST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42234",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1124,
+        "search_string": "    m.d.chouldry section office"
+      },
+      "bbox": [
+        77.9878,
+        11.5474,
+        77.9878,
+        11.5474
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8738,
+          11.4589
+        ]
+      },
+      "properties": {
+        "section_na": "SANKARI RS SECTION OFFICE",
+        "section_co": "170",
+        "subdivisio": "EAST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42234",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1125,
+        "search_string": "    sankari rs section office"
+      },
+      "bbox": [
+        77.8738,
+        11.4589,
+        77.8738,
+        11.4589
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9011,
+          11.5709
+        ]
+      },
+      "properties": {
+        "section_na": "KONGANAPURAM SECTION OFFICE",
+        "section_co": "113",
+        "subdivisio": "RURAL EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42272",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1126,
+        "search_string": "    konganapuram section office"
+      },
+      "bbox": [
+        77.9011,
+        11.5709,
+        77.9011,
+        11.5709
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9358,
+          11.5848
+        ]
+      },
+      "properties": {
+        "section_na": "KANNANTHERI SECTION",
+        "section_co": "114",
+        "subdivisio": "RURAL EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42272",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1127,
+        "search_string": "    kannantheri section"
+      },
+      "bbox": [
+        77.9358,
+        11.5848,
+        77.9358,
+        11.5848
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0411,
+          11.7398
+        ]
+      },
+      "properties": {
+        "section_na": "OMALUR TOWN SECTION OFFICE",
+        "section_co": "126",
+        "subdivisio": "OMALUR",
+        "region_id": "04",
+        "subdivis_1": "42221",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1128,
+        "search_string": "    omalur town section office"
+      },
+      "bbox": [
+        78.0411,
+        11.7398,
+        78.0411,
+        11.7398
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0298,
+          11.8322
+        ]
+      },
+      "properties": {
+        "section_na": "CHINNATHIRUPATHY SECTION OFFICE",
+        "section_co": "127",
+        "subdivisio": "OMALUR",
+        "region_id": "04",
+        "subdivis_1": "42221",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1129,
+        "search_string": "    chinnathirupathy section office"
+      },
+      "bbox": [
+        78.0298,
+        11.8322,
+        78.0298,
+        11.8322
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8254,
+          11.64
+        ]
+      },
+      "properties": {
+        "section_na": "CHITTOOR SECTION OFFICE",
+        "section_co": "110",
+        "subdivisio": "TOWN EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42271",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1130,
+        "search_string": "    chittoor section office"
+      },
+      "bbox": [
+        77.8254,
+        11.64,
+        77.8254,
+        11.64
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9467,
+          11.8314
+        ]
+      },
+      "properties": {
+        "section_na": "EAST/MECHERI SECTION OFFICE",
+        "section_co": "108",
+        "subdivisio": "MECHERI",
+        "region_id": "04",
+        "subdivis_1": "42212",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1131,
+        "search_string": "    east/mecheri section office"
+      },
+      "bbox": [
+        77.9467,
+        11.8314,
+        77.9467,
+        11.8314
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7648,
+          11.6547
+        ]
+      },
+      "properties": {
+        "section_na": "POOLAMPATTY SECTION OFFICE",
+        "section_co": "111",
+        "subdivisio": "TOWN EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42271",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1132,
+        "search_string": "    poolampatty section office"
+      },
+      "bbox": [
+        77.7648,
+        11.6547,
+        77.7648,
+        11.6547
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.747,
+          11.5794
+        ]
+      },
+      "properties": {
+        "section_na": "KONERIPATTY SECTION",
+        "section_co": "116",
+        "subdivisio": "TOWN EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42271",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1133,
+        "search_string": "    koneripatty section"
+      },
+      "bbox": [
+        77.747,
+        11.5794,
+        77.747,
+        11.5794
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8507,
+          11.6445
+        ]
+      },
+      "properties": {
+        "section_na": "CHETTIMANCHURUCHI",
+        "section_co": "142",
+        "subdivisio": "JALAKANDAPURAM",
+        "region_id": "04",
+        "subdivis_1": "42273",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1134,
+        "search_string": "    chettimanchuruchi"
+      },
+      "bbox": [
+        77.8507,
+        11.6445,
+        77.8507,
+        11.6445
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1004,
+          11.8711
+        ]
+      },
+      "properties": {
+        "section_na": "KADAYAMPATTY SECTION OFFICE",
+        "section_co": "129",
+        "subdivisio": "DEEVATTIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42224",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1135,
+        "search_string": "    kadayampatty section office"
+      },
+      "bbox": [
+        78.1004,
+        11.8711,
+        78.1004,
+        11.8711
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8959,
+          11.7552
+        ]
+      },
+      "properties": {
+        "section_na": "NAGAVALLY SECTION OFFICE",
+        "section_co": "133",
+        "subdivisio": "THARAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42222",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1136,
+        "search_string": "    nagavally section office"
+      },
+      "bbox": [
+        77.8959,
+        11.7552,
+        77.8959,
+        11.7552
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9292,
+          11.846
+        ]
+      },
+      "properties": {
+        "section_na": "WEST MECHERI SECTION OFFICE",
+        "section_co": "115",
+        "subdivisio": "MECHERI",
+        "region_id": "04",
+        "subdivis_1": "42212",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1137,
+        "search_string": "    west mecheri section office"
+      },
+      "bbox": [
+        77.9292,
+        11.846,
+        77.9292,
+        11.846
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8244,
+          11.5881
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN EDAPPADY SECTION OFFICE",
+        "section_co": "109",
+        "subdivisio": "TOWN EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42271",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1138,
+        "search_string": "    town edappady section office"
+      },
+      "bbox": [
+        77.8244,
+        11.5881,
+        77.8244,
+        11.5881
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8594,
+          11.583
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL EDAPPADI SECTION OFFICE",
+        "section_co": "112",
+        "subdivisio": "RURAL EDAPPADY",
+        "region_id": "04",
+        "subdivis_1": "42272",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1139,
+        "search_string": "    rural edappadi section office"
+      },
+      "bbox": [
+        77.8594,
+        11.583,
+        77.8594,
+        11.583
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8766,
+          11.7513
+        ]
+      },
+      "properties": {
+        "section_na": "VANAVASI SECTION OFFICE",
+        "section_co": "134",
+        "subdivisio": "THARAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42222",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1140,
+        "search_string": "    vanavasi section office"
+      },
+      "bbox": [
+        77.8766,
+        11.7513,
+        77.8766,
+        11.7513
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9754,
+          11.6977
+        ]
+      },
+      "properties": {
+        "section_na": "THARAMANGALAM SECTION OFFICE",
+        "section_co": "135",
+        "subdivisio": "THARAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42222",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1141,
+        "search_string": "    tharamangalam section office"
+      },
+      "bbox": [
+        77.9754,
+        11.6977,
+        77.9754,
+        11.6977
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0454,
+          11.6691
+        ]
+      },
+      "properties": {
+        "section_na": "ALAGUSAMUDRAM SECTION",
+        "section_co": "138",
+        "subdivisio": "THARAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42222",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1142,
+        "search_string": "    alagusamudram section"
+      },
+      "bbox": [
+        78.0454,
+        11.6691,
+        78.0454,
+        11.6691
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0824,
+          11.8668
+        ]
+      },
+      "properties": {
+        "section_na": "DEEVATTIPATTY SECTION OFFICE",
+        "section_co": "139",
+        "subdivisio": "DEEVATTIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42224",
+        "division_n": "OMALUR",
+        "division_c": "4222",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1143,
+        "search_string": "    deevattipatty section office"
+      },
+      "bbox": [
+        78.0824,
+        11.8668,
+        78.0824,
+        11.8668
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8369,
+          11.8119
+        ]
+      },
+      "properties": {
+        "section_na": "SAMPALLI SECTION",
+        "section_co": "107",
+        "subdivisio": "METTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42211",
+        "division_n": "METTUR",
+        "division_c": "4221",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1144,
+        "search_string": "    sampalli section"
+      },
+      "bbox": [
+        77.8369,
+        11.8119,
+        77.8369,
+        11.8119
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8938,
+          11.6973
+        ]
+      },
+      "properties": {
+        "section_na": "JALAKANDAPURAM RURAL SECTION OFFICE",
+        "section_co": "130",
+        "subdivisio": "JALAKANDAPURAM",
+        "region_id": "04",
+        "subdivis_1": "42273",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1145,
+        "search_string": "    jalakandapuram rural section office"
+      },
+      "bbox": [
+        77.8938,
+        11.6973,
+        77.8938,
+        11.6973
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8758,
+          11.7034
+        ]
+      },
+      "properties": {
+        "section_na": "JALAKANDAPURAM SOUTH SECTION OFFICE",
+        "section_co": "131",
+        "subdivisio": "JALAKANDAPURAM",
+        "region_id": "04",
+        "subdivis_1": "42273",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1146,
+        "search_string": "    jalakandapuram south section office"
+      },
+      "bbox": [
+        77.8758,
+        11.7034,
+        77.8758,
+        11.7034
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8761,
+          11.7035
+        ]
+      },
+      "properties": {
+        "section_na": "JALAKANDAPURAN NORTH SECTION OFFICE",
+        "section_co": "132",
+        "subdivisio": "JALAKANDAPURAM",
+        "region_id": "04",
+        "subdivis_1": "42273",
+        "division_n": "EDAPPADY",
+        "division_c": "4227",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1147,
+        "search_string": "    jalakandapuran north section office"
+      },
+      "bbox": [
+        77.8761,
+        11.7035,
+        77.8761,
+        11.7035
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.828,
+          11.4444
+        ]
+      },
+      "properties": {
+        "section_na": "ICL COLONY SECTION",
+        "section_co": "153",
+        "subdivisio": "WEST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42231",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1148,
+        "search_string": "    icl colony section"
+      },
+      "bbox": [
+        77.828,
+        11.4444,
+        77.828,
+        11.4444
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7888,
+          11.5609
+        ]
+      },
+      "properties": {
+        "section_na": "ARAGALUR",
+        "section_co": "571",
+        "subdivisio": "VEERAGANOOR",
+        "region_id": "04",
+        "subdivis_1": "42456",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1150,
+        "search_string": "    aragalur"
+      },
+      "bbox": [
+        78.7888,
+        11.5609,
+        78.7888,
+        11.5609
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1406,
+          11.6511
+        ]
+      },
+      "properties": {
+        "section_na": "ARISIPALAYAM",
+        "section_co": "452",
+        "subdivisio": "SHEVAPET",
+        "region_id": "04",
+        "subdivis_1": "42431",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1151,
+        "search_string": "    arisipalayam"
+      },
+      "bbox": [
+        78.1406,
+        11.6511,
+        78.1406,
+        11.6511
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1472,
+          11.6227
+        ]
+      },
+      "properties": {
+        "section_na": "SEELANAICKENPATTY",
+        "section_co": "405",
+        "subdivisio": "SEELANAICKENPATTY",
+        "region_id": "04",
+        "subdivis_1": "42411",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1152,
+        "search_string": "    seelanaickenpatty"
+      },
+      "bbox": [
+        78.1472,
+        11.6227,
+        78.1472,
+        11.6227
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3503,
+          11.6509
+        ]
+      },
+      "properties": {
+        "section_na": "SESHANCHAVADI",
+        "section_co": "440",
+        "subdivisio": "KARIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42423",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1153,
+        "search_string": "    seshanchavadi"
+      },
+      "bbox": [
+        78.3503,
+        11.6509,
+        78.3503,
+        11.6509
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6351,
+          11.5923
+        ]
+      },
+      "properties": {
+        "section_na": "ATTUR RURAL",
+        "section_co": "555",
+        "subdivisio": "ATTUR EAST",
+        "region_id": "04",
+        "subdivis_1": "42452",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1154,
+        "search_string": "    attur rural"
+      },
+      "bbox": [
+        78.6351,
+        11.5923,
+        78.6351,
+        11.5923
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1884,
+          11.6602
+        ]
+      },
+      "properties": {
+        "section_na": "AMMAPET",
+        "section_co": "433",
+        "subdivisio": "UDAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42422",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1155,
+        "search_string": "    ammapet"
+      },
+      "bbox": [
+        78.1884,
+        11.6602,
+        78.1884,
+        11.6602
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0763,
+          11.5946
+        ]
+      },
+      "properties": {
+        "section_na": "ARIYANOOR",
+        "section_co": "491",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1156,
+        "search_string": "    ariyanoor"
+      },
+      "bbox": [
+        78.0763,
+        11.5946,
+        78.0763,
+        11.5946
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0549,
+          11.5327
+        ]
+      },
+      "properties": {
+        "section_na": "ATTAYAMPATTY RURAL",
+        "section_co": "486",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1157,
+        "search_string": "    attayampatty rural"
+      },
+      "bbox": [
+        78.0549,
+        11.5327,
+        78.0549,
+        11.5327
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2315,
+          11.6695
+        ]
+      },
+      "properties": {
+        "section_na": "AYYOTHIYAPATTINAM EAST",
+        "section_co": "438",
+        "subdivisio": "KARIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42423",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1158,
+        "search_string": "    ayyothiyapattinam east"
+      },
+      "bbox": [
+        78.2315,
+        11.6695,
+        78.2315,
+        11.6695
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2316,
+          11.6696
+        ]
+      },
+      "properties": {
+        "section_na": "AYYOTHIYAPATTINAM WEST",
+        "section_co": "431",
+        "subdivisio": "UDAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42422",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1159,
+        "search_string": "    ayyothiyapattinam west"
+      },
+      "bbox": [
+        78.2316,
+        11.6696,
+        78.2316,
+        11.6696
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1609,
+          11.6534
+        ]
+      },
+      "properties": {
+        "section_na": "BAZZAR",
+        "section_co": "409",
+        "subdivisio": "KITCHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42412",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1160,
+        "search_string": "    bazzar"
+      },
+      "bbox": [
+        78.1609,
+        11.6534,
+        78.1609,
+        11.6534
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4142,
+          11.7006
+        ]
+      },
+      "properties": {
+        "section_na": "BELUR - I",
+        "section_co": "532",
+        "subdivisio": "VALAPADY NORTH",
+        "region_id": "04",
+        "subdivis_1": "42462",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1161,
+        "search_string": "    belur - i"
+      },
+      "bbox": [
+        78.4142,
+        11.7006,
+        78.4142,
+        11.7006
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4119,
+          11.73
+        ]
+      },
+      "properties": {
+        "section_na": "BELUR WEST",
+        "section_co": "534",
+        "subdivisio": "VALAPADY NORTH",
+        "region_id": "04",
+        "subdivis_1": "42462",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1162,
+        "search_string": "    belur west"
+      },
+      "bbox": [
+        78.4119,
+        11.73,
+        78.4119,
+        11.73
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1602,
+          11.6588
+        ]
+      },
+      "properties": {
+        "section_na": "CENTRAL UPGRADE SECTION",
+        "section_co": "410",
+        "subdivisio": "UPGRADE SECTION",
+        "region_id": "04",
+        "subdivis_1": "42413",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1163,
+        "search_string": "    central upgrade section"
+      },
+      "bbox": [
+        78.1602,
+        11.6588,
+        78.1602,
+        11.6588
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.146,
+          11.6359
+        ]
+      },
+      "properties": {
+        "section_na": "DADAGAPATTY",
+        "section_co": "408",
+        "subdivisio": "SEELANAICKENPATTY",
+        "region_id": "04",
+        "subdivis_1": "42412",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1164,
+        "search_string": "    dadagapatty"
+      },
+      "bbox": [
+        78.146,
+        11.6359,
+        78.146,
+        11.6359
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1455,
+          11.6146
+        ]
+      },
+      "properties": {
+        "section_na": "DASANAICKENPATTY",
+        "section_co": "402",
+        "subdivisio": "SEELANAICKENPATTY",
+        "region_id": "04",
+        "subdivis_1": "42411",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1165,
+        "search_string": "    dasanaickenpatty"
+      },
+      "bbox": [
+        78.1455,
+        11.6146,
+        78.1455,
+        11.6146
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0021,
+          11.6053
+        ]
+      },
+      "properties": {
+        "section_na": "EDANGANASALAI",
+        "section_co": "482",
+        "subdivisio": "VEMBADITHALAM",
+        "region_id": "04",
+        "subdivis_1": "42443",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1166,
+        "search_string": "    edanganasalai"
+      },
+      "bbox": [
+        78.0021,
+        11.6053,
+        78.0021,
+        11.6053
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0037,
+          11.6056
+        ]
+      },
+      "properties": {
+        "section_na": "ELLAMPILLAI",
+        "section_co": "480",
+        "subdivisio": "VEMBADITHALAM",
+        "region_id": "04",
+        "subdivis_1": "42443",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1167,
+        "search_string": "    ellampillai"
+      },
+      "bbox": [
+        78.0037,
+        11.6056,
+        78.0037,
+        11.6056
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4741,
+          11.6635
+        ]
+      },
+      "properties": {
+        "section_na": "ETHAPUR",
+        "section_co": "537",
+        "subdivisio": "PETHANAICKENPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42463",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1168,
+        "search_string": "    ethapur"
+      },
+      "bbox": [
+        78.4741,
+        11.6635,
+        78.4741,
+        11.6635
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6443,
+          11.5011
+        ]
+      },
+      "properties": {
+        "section_na": "GANGAVALLY",
+        "section_co": "565",
+        "subdivisio": "GANGAVALLY",
+        "region_id": "04",
+        "subdivis_1": "42455",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1169,
+        "search_string": "    gangavally"
+      },
+      "bbox": [
+        78.6443,
+        11.5011,
+        78.6443,
+        11.5011
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1594,
+          11.6953
+        ]
+      },
+      "properties": {
+        "section_na": "GORIMEDU",
+        "section_co": "428",
+        "subdivisio": "MARAVANERI",
+        "region_id": "04",
+        "subdivis_1": "42421",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1170,
+        "search_string": "    gorimedu"
+      },
+      "bbox": [
+        78.1594,
+        11.6953,
+        78.1594,
+        11.6953
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5884,
+          11.4606
+        ]
+      },
+      "properties": {
+        "section_na": "GUDAMALAI",
+        "section_co": "567",
+        "subdivisio": "GANGAVALLY",
+        "region_id": "04",
+        "subdivis_1": "42455",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1171,
+        "search_string": "    gudamalai"
+      },
+      "bbox": [
+        78.5884,
+        11.4606,
+        78.5884,
+        11.4606
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1559,
+          11.6461
+        ]
+      },
+      "properties": {
+        "section_na": "GUGAI",
+        "section_co": "401",
+        "subdivisio": "GUGAI",
+        "region_id": "04",
+        "subdivis_1": "42411",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1172,
+        "search_string": "    gugai"
+      },
+      "bbox": [
+        78.1559,
+        11.6461,
+        78.1559,
+        11.6461
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0051,
+          11.6259
+        ]
+      },
+      "properties": {
+        "section_na": "K.K.NAGAR",
+        "section_co": "484",
+        "subdivisio": "VEMBADITHALAM",
+        "region_id": "04",
+        "subdivis_1": "42443",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1173,
+        "search_string": "    k.k.nagar"
+      },
+      "bbox": [
+        78.0051,
+        11.6259,
+        78.0051,
+        11.6259
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6044,
+          11.5015
+        ]
+      },
+      "properties": {
+        "section_na": "KADAMPUR",
+        "section_co": "554",
+        "subdivisio": "ATTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42451",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1174,
+        "search_string": "    kadampur"
+      },
+      "bbox": [
+        78.6044,
+        11.5015,
+        78.6044,
+        11.5015
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1684,
+          11.6423
+        ]
+      },
+      "properties": {
+        "section_na": "KALARAMPATTY",
+        "section_co": "407",
+        "subdivisio": "KITCHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42412",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1175,
+        "search_string": "    kalarampatty"
+      },
+      "bbox": [
+        78.1684,
+        11.6423,
+        78.1684,
+        11.6423
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7563,
+          11.5458
+        ]
+      },
+      "properties": {
+        "section_na": "KAMAKAPALAYAM",
+        "section_co": "572",
+        "subdivisio": "VEERAGANOOR",
+        "region_id": "04",
+        "subdivis_1": "42456",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1176,
+        "search_string": "    kamakapalayam"
+      },
+      "bbox": [
+        78.7563,
+        11.5458,
+        78.7563,
+        11.5458
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1775,
+          11.6967
+        ]
+      },
+      "properties": {
+        "section_na": "KANNANKURICHI",
+        "section_co": "427",
+        "subdivisio": "MARAVANERI",
+        "region_id": "04",
+        "subdivis_1": "42421",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1177,
+        "search_string": "    kannankurichi"
+      },
+      "bbox": [
+        78.1775,
+        11.6967,
+        78.1775,
+        11.6967
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2829,
+          11.667
+        ]
+      },
+      "properties": {
+        "section_na": "KARIPPATY",
+        "section_co": "436",
+        "subdivisio": "KARIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42423",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1178,
+        "search_string": "    karippaty"
+      },
+      "bbox": [
+        78.2829,
+        11.667,
+        78.2829,
+        11.667
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6243,
+          11.818
+        ]
+      },
+      "properties": {
+        "section_na": "KARUMANDURAI",
+        "section_co": "539",
+        "subdivisio": "PETHANAICKENPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42463",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1179,
+        "search_string": "    karumandurai"
+      },
+      "bbox": [
+        78.6243,
+        11.818,
+        78.6243,
+        11.818
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1051,
+          11.7075
+        ]
+      },
+      "properties": {
+        "section_na": "KARUPPUR",
+        "section_co": "458",
+        "subdivisio": "KARUPPUR",
+        "region_id": "04",
+        "subdivis_1": "42434",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1180,
+        "search_string": "    karuppur"
+      },
+      "bbox": [
+        78.1051,
+        11.7075,
+        78.1051,
+        11.7075
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6671,
+          11.5951
+        ]
+      },
+      "properties": {
+        "section_na": "KATTUKOTTAI",
+        "section_co": "556",
+        "subdivisio": "ATTUR EAST",
+        "region_id": "04",
+        "subdivis_1": "42452",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1181,
+        "search_string": "    kattukottai"
+      },
+      "bbox": [
+        78.6671,
+        11.5951,
+        78.6671,
+        11.5951
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4834,
+          11.5374
+        ]
+      },
+      "properties": {
+        "section_na": "KEERIPATTY",
+        "section_co": "543",
+        "subdivisio": "THAMMAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42464",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1182,
+        "search_string": "    keeripatty"
+      },
+      "bbox": [
+        78.4834,
+        11.5374,
+        78.4834,
+        11.5374
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1678,
+          11.6428
+        ]
+      },
+      "properties": {
+        "section_na": "KITCHIPALAYAM",
+        "section_co": "406",
+        "subdivisio": "KITCHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42412",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1183,
+        "search_string": "    kitchipalayam"
+      },
+      "bbox": [
+        78.1678,
+        11.6428,
+        78.1678,
+        11.6428
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1285,
+          11.6296
+        ]
+      },
+      "properties": {
+        "section_na": "KONDALAMPATTTY",
+        "section_co": "454",
+        "subdivisio": "SHEVAPET",
+        "region_id": "04",
+        "subdivis_1": "42431",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1184,
+        "search_string": "    kondalampattty"
+      },
+      "bbox": [
+        78.1285,
+        11.6296,
+        78.1285,
+        11.6296
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3193,
+          11.7102
+        ]
+      },
+      "properties": {
+        "section_na": "KOOTTATHUPATTY",
+        "section_co": "439",
+        "subdivisio": "KARIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42423",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1185,
+        "search_string": "    koottathupatty"
+      },
+      "bbox": [
+        78.3193,
+        11.7102,
+        78.3193,
+        11.7102
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7181,
+          11.6131
+        ]
+      },
+      "properties": {
+        "section_na": "M.V.COLONY",
+        "section_co": "558",
+        "subdivisio": "THALAIVASAL",
+        "region_id": "04",
+        "subdivis_1": "42454",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1186,
+        "search_string": "    m.v.colony"
+      },
+      "bbox": [
+        78.7181,
+        11.6131,
+        78.7181,
+        11.6131
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1015,
+          11.6782
+        ]
+      },
+      "properties": {
+        "section_na": "MMPATTY",
+        "section_co": "456",
+        "subdivisio": "SWARNAPURI",
+        "region_id": "04",
+        "subdivis_1": "42433",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1187,
+        "search_string": "    mmpatty"
+      },
+      "bbox": [
+        78.1015,
+        11.6782,
+        78.1015,
+        11.6782
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4941,
+          11.5681
+        ]
+      },
+      "properties": {
+        "section_na": "MALLIYAKARAI",
+        "section_co": "528",
+        "subdivisio": "VALAPADY SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42461",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1188,
+        "search_string": "    malliyakarai"
+      },
+      "bbox": [
+        78.4941,
+        11.5681,
+        78.4941,
+        11.5681
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1425,
+          11.5427
+        ]
+      },
+      "properties": {
+        "section_na": "MALLUR RURAL",
+        "section_co": "476",
+        "subdivisio": "MALLUR",
+        "region_id": "04",
+        "subdivis_1": "42442",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1189,
+        "search_string": "    mallur rural"
+      },
+      "bbox": [
+        78.1425,
+        11.5427,
+        78.1425,
+        11.5427
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1425,
+          11.5427
+        ]
+      },
+      "properties": {
+        "section_na": "MALLUR WEST",
+        "section_co": "477",
+        "subdivisio": "MALLUR",
+        "region_id": "04",
+        "subdivis_1": "42442",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1190,
+        "search_string": "    mallur west"
+      },
+      "bbox": [
+        78.1425,
+        11.5427,
+        78.1425,
+        11.5427
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1555,
+          11.6653
+        ]
+      },
+      "properties": {
+        "section_na": "MARAVANERI",
+        "section_co": "426",
+        "subdivisio": "MARAVANERI",
+        "region_id": "04",
+        "subdivis_1": "42421",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1192,
+        "search_string": "    maravaneri"
+      },
+      "bbox": [
+        78.1555,
+        11.6653,
+        78.1555,
+        11.6653
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1424,
+          11.6664
+        ]
+      },
+      "properties": {
+        "section_na": "MEYYANUR",
+        "section_co": "453",
+        "subdivisio": "SHEVAPET",
+        "region_id": "04",
+        "subdivis_1": "42431",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1193,
+        "search_string": "    meyyanur"
+      },
+      "bbox": [
+        78.1424,
+        11.6664,
+        78.1424,
+        11.6664
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0337,
+          11.7124
+        ]
+      },
+      "properties": {
+        "section_na": "MUTHANAICKENPATTY I",
+        "section_co": "460",
+        "subdivisio": "KARUPPUR",
+        "region_id": "04",
+        "subdivis_1": "42434",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1194,
+        "search_string": "    muthanaickenpatty i"
+      },
+      "bbox": [
+        78.0337,
+        11.7124,
+        78.0337,
+        11.7124
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5399,
+          11.6273
+        ]
+      },
+      "properties": {
+        "section_na": "NARASINGAPURAM RURAL",
+        "section_co": "560",
+        "subdivisio": "ATTUR WEST",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1195,
+        "search_string": "    narasingapuram rural"
+      },
+      "bbox": [
+        78.5399,
+        11.6273,
+        78.5399,
+        11.6273
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5776,
+          11.602
+        ]
+      },
+      "properties": {
+        "section_na": "NARASINGAPURAM TOWN",
+        "section_co": "559",
+        "subdivisio": "ATTUR WEST",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1196,
+        "search_string": "    narasingapuram town"
+      },
+      "bbox": [
+        78.5776,
+        11.602,
+        78.5776,
+        11.602
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1097,
+          11.6928
+        ]
+      },
+      "properties": {
+        "section_na": "NARASOTHIPATTY",
+        "section_co": "457",
+        "subdivisio": "SWARNAPURI",
+        "region_id": "04",
+        "subdivis_1": "42433",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1197,
+        "search_string": "    narasothipatty"
+      },
+      "bbox": [
+        78.1097,
+        11.6928,
+        78.1097,
+        11.6928
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1228,
+          11.6399
+        ]
+      },
+      "properties": {
+        "section_na": "NETHIMEDU RURAL",
+        "section_co": "464",
+        "subdivisio": "SURAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42432",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1198,
+        "search_string": "    nethimedu rural"
+      },
+      "bbox": [
+        78.1228,
+        11.6399,
+        78.1228,
+        11.6399
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1421,
+          11.6416
+        ]
+      },
+      "properties": {
+        "section_na": "NETHIMEDU TOWN",
+        "section_co": "404",
+        "subdivisio": "GUGAI",
+        "region_id": "04",
+        "subdivis_1": "42411",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1199,
+        "search_string": "    nethimedu town"
+      },
+      "bbox": [
+        78.1421,
+        11.6416,
+        78.1421,
+        11.6416
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.61,
+          11.5937
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH ATTUR",
+        "section_co": "553",
+        "subdivisio": "ATTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42451",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1200,
+        "search_string": "    north attur"
+      },
+      "bbox": [
+        78.61,
+        11.5937,
+        78.61,
+        11.5937
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5059,
+          11.6487
+        ]
+      },
+      "properties": {
+        "section_na": "P.N.PALAYAM",
+        "section_co": "535",
+        "subdivisio": "PETHANAICKENPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42463",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1201,
+        "search_string": "    p.n.palayam"
+      },
+      "bbox": [
+        78.5059,
+        11.6487,
+        78.5059,
+        11.6487
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1621,
+          11.562
+        ]
+      },
+      "properties": {
+        "section_na": "PANAMARATHUPATTY TOWN",
+        "section_co": "479",
+        "subdivisio": "MALLUR",
+        "region_id": "04",
+        "subdivis_1": "42442",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1202,
+        "search_string": "    panamarathupatty town"
+      },
+      "bbox": [
+        78.1621,
+        11.562,
+        78.1621,
+        11.562
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0087,
+          11.586
+        ]
+      },
+      "properties": {
+        "section_na": "PERUMAGOUNDAMPATTY",
+        "section_co": "483",
+        "subdivisio": "VEMBADITHALAM",
+        "region_id": "04",
+        "subdivis_1": "42443",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1203,
+        "search_string": "    perumagoundampatty"
+      },
+      "bbox": [
+        78.0087,
+        11.586,
+        78.0087,
+        11.586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.175,
+          11.6558
+        ]
+      },
+      "properties": {
+        "section_na": "PONNAMMAPET UPGRADE",
+        "section_co": "413",
+        "subdivisio": "UPGRADE SECTION",
+        "region_id": "04",
+        "subdivis_1": "42416",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1204,
+        "search_string": "    ponnammapet upgrade"
+      },
+      "bbox": [
+        78.175,
+        11.6558,
+        78.175,
+        11.6558
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7983,
+          11.5075
+        ]
+      },
+      "properties": {
+        "section_na": "PULIYANKURICHI",
+        "section_co": "570",
+        "subdivisio": "VEERAGANOOR",
+        "region_id": "04",
+        "subdivis_1": "42456",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1205,
+        "search_string": "    puliyankurichi"
+      },
+      "bbox": [
+        78.7983,
+        11.5075,
+        78.7983,
+        11.5075
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4792,
+          11.6541
+        ]
+      },
+      "properties": {
+        "section_na": "PUTHIRAGOUNDAPALAYAM",
+        "section_co": "536",
+        "subdivisio": "PETHANAICKENPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42463",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1206,
+        "search_string": "    puthiragoundapalayam"
+      },
+      "bbox": [
+        78.4792,
+        11.6541,
+        78.4792,
+        11.6541
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6971,
+          11.5368
+        ]
+      },
+      "properties": {
+        "section_na": "SATHAPADY",
+        "section_co": "557",
+        "subdivisio": "ATTUR EAST",
+        "region_id": "04",
+        "subdivis_1": "42452",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1207,
+        "search_string": "    sathapady"
+      },
+      "bbox": [
+        78.6971,
+        11.5368,
+        78.6971,
+        11.5368
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5169,
+          11.437
+        ]
+      },
+      "properties": {
+        "section_na": "SENDARAPATTY",
+        "section_co": "544",
+        "subdivisio": "THAMMAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42464",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1208,
+        "search_string": "    sendarapatty"
+      },
+      "bbox": [
+        78.5169,
+        11.437,
+        78.5169,
+        11.437
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1382,
+          11.6423
+        ]
+      },
+      "properties": {
+        "section_na": "SHEVAPET",
+        "section_co": "451",
+        "subdivisio": "ATTUR WEST",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1209,
+        "search_string": "    shevapet"
+      },
+      "bbox": [
+        78.1382,
+        11.6423,
+        78.1382,
+        11.6423
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7525,
+          11.6461
+        ]
+      },
+      "properties": {
+        "section_na": "SIRIVACHOOR",
+        "section_co": "564",
+        "subdivisio": "THALAIVASAL",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1210,
+        "search_string": "    sirivachoor"
+      },
+      "bbox": [
+        78.7525,
+        11.6461,
+        78.7525,
+        11.6461
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1093,
+          11.6509
+        ]
+      },
+      "properties": {
+        "section_na": "SIVATHAPURAM",
+        "section_co": "463",
+        "subdivisio": "SURAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42432",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1211,
+        "search_string": "    sivathapuram"
+      },
+      "bbox": [
+        78.1093,
+        11.6509,
+        78.1093,
+        11.6509
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5965,
+          11.5954
+        ]
+      },
+      "properties": {
+        "section_na": "ATTUR SOUTH",
+        "section_co": "552",
+        "subdivisio": "ATTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42451",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1212,
+        "search_string": "    attur south"
+      },
+      "bbox": [
+        78.5965,
+        11.5954,
+        78.5965,
+        11.5954
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1208,
+          11.6756
+        ]
+      },
+      "properties": {
+        "section_na": "SURAMANGALAM",
+        "section_co": "462",
+        "subdivisio": "SURAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42432",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1213,
+        "search_string": "    suramangalam"
+      },
+      "bbox": [
+        78.1208,
+        11.6756,
+        78.1208,
+        11.6756
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1462,
+          11.6784
+        ]
+      },
+      "properties": {
+        "section_na": "SWARNAPURI",
+        "section_co": "455",
+        "subdivisio": "SWARNAPURI",
+        "region_id": "04",
+        "subdivis_1": "42433",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1214,
+        "search_string": "    swarnapuri"
+      },
+      "bbox": [
+        78.1462,
+        11.6784,
+        78.1462,
+        11.6784
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7356,
+          11.5849
+        ]
+      },
+      "properties": {
+        "section_na": "THALAIVASAL",
+        "section_co": "562",
+        "subdivisio": "THALAIVASAL",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1215,
+        "search_string": "    thalaivasal"
+      },
+      "bbox": [
+        78.7356,
+        11.5849,
+        78.7356,
+        11.5849
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4841,
+          11.4544
+        ]
+      },
+      "properties": {
+        "section_na": "THAMMAMPATTY TOWN",
+        "section_co": "540",
+        "subdivisio": "THAMMAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42464",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1216,
+        "search_string": "    thammampatty town"
+      },
+      "bbox": [
+        78.4841,
+        11.4544,
+        78.4841,
+        11.4544
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5652,
+          11.5938
+        ]
+      },
+      "properties": {
+        "section_na": "THANDAVARAYAPURAM",
+        "section_co": "561",
+        "subdivisio": "ATTUR WEST",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1217,
+        "search_string": "    thandavarayapuram"
+      },
+      "bbox": [
+        78.5652,
+        11.5938,
+        78.5652,
+        11.5938
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6913,
+          11.4966
+        ]
+      },
+      "properties": {
+        "section_na": "THEDAVOOR",
+        "section_co": "568",
+        "subdivisio": "GANGAVALLY",
+        "region_id": "04",
+        "subdivis_1": "42455",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1218,
+        "search_string": "    thedavoor"
+      },
+      "bbox": [
+        78.6913,
+        11.4966,
+        78.6913,
+        11.4966
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1767,
+          11.6653
+        ]
+      },
+      "properties": {
+        "section_na": "THILLAI NAGAR",
+        "section_co": "411",
+        "subdivisio": "UPGRADE SECTION",
+        "region_id": "04",
+        "subdivis_1": "42414",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1219,
+        "search_string": "    thillai nagar"
+      },
+      "bbox": [
+        78.1767,
+        11.6653,
+        78.1767,
+        11.6653
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3262,
+          11.5806
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUMANOOR",
+        "section_co": "530",
+        "subdivisio": "VALAPADY SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42461",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1221,
+        "search_string": "    thirumanoor"
+      },
+      "bbox": [
+        78.3262,
+        11.5806,
+        78.3262,
+        11.5806
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1238,
+          11.6754
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUVAGOUNDANOOR",
+        "section_co": "465",
+        "subdivisio": "SURAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42432",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1222,
+        "search_string": "    thiruvagoundanoor"
+      },
+      "bbox": [
+        78.1238,
+        11.6754,
+        78.1238,
+        11.6754
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5172,
+          11.7796
+        ]
+      },
+      "properties": {
+        "section_na": "THUMABAL",
+        "section_co": "538",
+        "subdivisio": "PETHANAICKENPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42463",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1223,
+        "search_string": "    thumabal"
+      },
+      "bbox": [
+        78.5172,
+        11.7796,
+        78.5172,
+        11.7796
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5964,
+          11.5955
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN ATTUR",
+        "section_co": "551",
+        "subdivisio": "ATTUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42451",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1224,
+        "search_string": "    town attur"
+      },
+      "bbox": [
+        78.5964,
+        11.5955,
+        78.5964,
+        11.5955
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2062,
+          11.6617
+        ]
+      },
+      "properties": {
+        "section_na": "UDAYAPATTY",
+        "section_co": "432",
+        "subdivisio": "UDAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42422",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1225,
+        "search_string": "    udayapatty"
+      },
+      "bbox": [
+        78.2062,
+        11.6617,
+        78.2062,
+        11.6617
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4583,
+          11.4686
+        ]
+      },
+      "properties": {
+        "section_na": "ULIPURAM",
+        "section_co": "542",
+        "subdivisio": "THAMMAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42464",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1226,
+        "search_string": "    ulipuram"
+      },
+      "bbox": [
+        78.4583,
+        11.4686,
+        78.4583,
+        11.4686
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3992,
+          11.6565
+        ]
+      },
+      "properties": {
+        "section_na": "VALAPADY NORTH",
+        "section_co": "531",
+        "subdivisio": "VALAPADY NORTH",
+        "region_id": "04",
+        "subdivis_1": "42462",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1227,
+        "search_string": "    valapady north"
+      },
+      "bbox": [
+        78.3992,
+        11.6565,
+        78.3992,
+        11.6565
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4029,
+          11.6539
+        ]
+      },
+      "properties": {
+        "section_na": "VALAPADY SOUTH",
+        "section_co": "526",
+        "subdivisio": "VALAPADY SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42461",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1228,
+        "search_string": "    valapady south"
+      },
+      "bbox": [
+        78.4029,
+        11.6539,
+        78.4029,
+        11.6539
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2521,
+          11.7025
+        ]
+      },
+      "properties": {
+        "section_na": "VALASIYUR",
+        "section_co": "435",
+        "subdivisio": "UDAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42422",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1229,
+        "search_string": "    valasiyur"
+      },
+      "bbox": [
+        78.2521,
+        11.7025,
+        78.2521,
+        11.7025
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.735,
+          11.4768
+        ]
+      },
+      "properties": {
+        "section_na": "VEERAGANOOR",
+        "section_co": "569",
+        "subdivisio": "VEERAGANOOR",
+        "region_id": "04",
+        "subdivis_1": "42456",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1230,
+        "search_string": "    veeraganoor"
+      },
+      "bbox": [
+        78.735,
+        11.4768,
+        78.735,
+        11.4768
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2014,
+          11.6736
+        ]
+      },
+      "properties": {
+        "section_na": "VEERANAM",
+        "section_co": "434",
+        "subdivisio": "UDAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42422",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1231,
+        "search_string": "    veeranam"
+      },
+      "bbox": [
+        78.2014,
+        11.6736,
+        78.2014,
+        11.6736
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0726,
+          11.5767
+        ]
+      },
+      "properties": {
+        "section_na": "VEERAPANDY",
+        "section_co": "490",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1232,
+        "search_string": "    veerapandy"
+      },
+      "bbox": [
+        78.0726,
+        11.5767,
+        78.0726,
+        11.5767
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.325,
+          11.6306
+        ]
+      },
+      "properties": {
+        "section_na": "VELLALAGUNDAM",
+        "section_co": "437",
+        "subdivisio": "KARIPATTY",
+        "region_id": "04",
+        "subdivis_1": "42423",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1233,
+        "search_string": "    vellalagundam"
+      },
+      "bbox": [
+        78.325,
+        11.6306,
+        78.325,
+        11.6306
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1002,
+          11.7468
+        ]
+      },
+      "properties": {
+        "section_na": "VELLALAPATTY",
+        "section_co": "459",
+        "subdivisio": "KARUPPUR",
+        "region_id": "04",
+        "subdivis_1": "42434",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1234,
+        "search_string": "    vellalapatty"
+      },
+      "bbox": [
+        78.1002,
+        11.7468,
+        78.1002,
+        11.7468
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0106,
+          11.578
+        ]
+      },
+      "properties": {
+        "section_na": "VEMBADITHALAM",
+        "section_co": "481",
+        "subdivisio": "VEMBADITHALAM",
+        "region_id": "04",
+        "subdivis_1": "42443",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1235,
+        "search_string": "    vembadithalam"
+      },
+      "bbox": [
+        78.0106,
+        11.578,
+        78.0106,
+        11.578
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1437,
+          11.6425
+        ]
+      },
+      "properties": {
+        "section_na": "LINEMEDU",
+        "section_co": "403",
+        "subdivisio": "GUGAI",
+        "region_id": "04",
+        "subdivis_1": "42411",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1238,
+        "search_string": "    linemedu"
+      },
+      "bbox": [
+        78.1437,
+        11.6425,
+        78.1437,
+        11.6425
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6334,
+          11.5578
+        ]
+      },
+      "properties": {
+        "section_na": "MANJINI",
+        "section_co": "566",
+        "subdivisio": "ATTUR EAST",
+        "region_id": "04",
+        "subdivis_1": "42455",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1239,
+        "search_string": "    manjini"
+      },
+      "bbox": [
+        78.6334,
+        11.5578,
+        78.6334,
+        11.5578
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0548,
+          11.5327
+        ]
+      },
+      "properties": {
+        "section_na": "ATTAYAMPATTY TOWN",
+        "section_co": "485",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1240,
+        "search_string": "    attayampatty town"
+      },
+      "bbox": [
+        78.0548,
+        11.5327,
+        78.0548,
+        11.5327
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4434,
+          11.7181
+        ]
+      },
+      "properties": {
+        "section_na": "BELUR II",
+        "section_co": "533",
+        "subdivisio": "VALAPADY NORTH",
+        "region_id": "04",
+        "subdivis_1": "42462",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1241,
+        "search_string": "    belur ii"
+      },
+      "bbox": [
+        78.4434,
+        11.7181,
+        78.4434,
+        11.7181
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0336,
+          11.7124
+        ]
+      },
+      "properties": {
+        "section_na": "MUTHANAICKENPATTY II",
+        "section_co": "461",
+        "subdivisio": "KARUPPUR",
+        "region_id": "04",
+        "subdivis_1": "42434",
+        "division_n": "WEST",
+        "division_c": "4243",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1242,
+        "search_string": "    muthanaickenpatty ii"
+      },
+      "bbox": [
+        78.0336,
+        11.7124,
+        78.0336,
+        11.7124
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1621,
+          11.562
+        ]
+      },
+      "properties": {
+        "section_na": "PANAMARATHUPATTY RURAL",
+        "section_co": "478",
+        "subdivisio": "MALLUR",
+        "region_id": "04",
+        "subdivis_1": "42442",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1243,
+        "search_string": "    panamarathupatty rural"
+      },
+      "bbox": [
+        78.1621,
+        11.562,
+        78.1621,
+        11.562
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7357,
+          11.5849
+        ]
+      },
+      "properties": {
+        "section_na": "DEVIYAKURICHI",
+        "section_co": "563",
+        "subdivisio": "THALAIVASAL",
+        "region_id": "04",
+        "subdivis_1": "42453",
+        "division_n": "ATTUR",
+        "division_c": "4245",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1244,
+        "search_string": "    deviyakurichi"
+      },
+      "bbox": [
+        78.7357,
+        11.5849,
+        78.7357,
+        11.5849
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4841,
+          11.4544
+        ]
+      },
+      "properties": {
+        "section_na": "THAMMAMPATTY RURAL",
+        "section_co": "541",
+        "subdivisio": "THAMMAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42464",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1245,
+        "search_string": "    thammampatty rural"
+      },
+      "bbox": [
+        78.4841,
+        11.4544,
+        78.4841,
+        11.4544
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1601,
+          11.6589
+        ]
+      },
+      "properties": {
+        "section_na": "FORT",
+        "section_co": "412",
+        "subdivisio": "UPGRADE SECTION",
+        "region_id": "04",
+        "subdivis_1": "42415",
+        "division_n": "TOWN",
+        "division_c": "4241",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1246,
+        "search_string": "    fort"
+      },
+      "bbox": [
+        78.1601,
+        11.6589,
+        78.1601,
+        11.6589
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.206,
+          11.7843
+        ]
+      },
+      "properties": {
+        "section_na": "YERCAUD 1",
+        "section_co": "430",
+        "subdivisio": "MARAVANERI",
+        "region_id": "04",
+        "subdivis_1": "42421",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1247,
+        "search_string": "    yercaud 1"
+      },
+      "bbox": [
+        78.206,
+        11.7843,
+        78.206,
+        11.7843
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2108,
+          11.7754
+        ]
+      },
+      "properties": {
+        "section_na": "YERCAUD 2",
+        "section_co": "441",
+        "subdivisio": "MARAVANERI",
+        "region_id": "04",
+        "subdivis_1": "42421",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1248,
+        "search_string": "    yercaud 2"
+      },
+      "bbox": [
+        78.2108,
+        11.7754,
+        78.2108,
+        11.7754
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1624,
+          11.6818
+        ]
+      },
+      "properties": {
+        "section_na": "HASTHAMPATTY",
+        "section_co": "429",
+        "subdivisio": "MARAVANERI",
+        "region_id": "04",
+        "subdivis_1": "42421",
+        "division_n": "EAST",
+        "division_c": "4242",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1249,
+        "search_string": "    hasthampatty"
+      },
+      "bbox": [
+        78.1624,
+        11.6818,
+        78.1624,
+        11.6818
+      ]
+    }
+  ]
+}

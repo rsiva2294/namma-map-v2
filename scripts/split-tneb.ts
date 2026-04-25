@@ -22,7 +22,7 @@ function isPointInMultiPolygon(point: [number, number], multiPolygon: any[][][])
 }
 
 async function run() {
-  console.log('🚀 Starting TNEB District Split...');
+  console.log('🚀 Starting TNEB District Split (Boundaries & Offices)...');
 
   const dataDir = path.resolve('public/data');
   const outputDir = path.join(dataDir, 'tneb_by_district');
@@ -32,24 +32,54 @@ async function run() {
   }
 
   // 1. Load Data
-  const tnebData = JSON.parse(fs.readFileSync(path.join(dataDir, 'tneb_offices.geojson'), 'utf8'));
+  const tnebOfficesData = JSON.parse(fs.readFileSync(path.join(dataDir, 'tneb_offices.geojson'), 'utf8'));
+  const tnebBoundariesTopo = JSON.parse(fs.readFileSync(path.join(dataDir, 'tneb_boundaries.topojson'), 'utf8')) as unknown as Topology;
   const districtsTopo = JSON.parse(fs.readFileSync(path.join(dataDir, 'tn_districts.topojson'), 'utf8')) as unknown as Topology;
 
   // 2. Convert TopoJSON to GeoJSON
   const districtsGeo = feature(districtsTopo, districtsTopo.objects.Districts as any) as any;
+  const tnebBoundariesGeo = feature(tnebBoundariesTopo, tnebBoundariesTopo.objects.TNEB_Section_Boundary as any) as any;
 
-  const districtGroups: Record<string, any[]> = {};
+  const districtBoundaries: Record<string, any[]> = {};
+  const districtOffices: Record<string, any[]> = {};
 
-  // 3. Process Offices
-  console.log(`📊 Processing ${tnebData.features.length} TNEB offices...`);
+  // 3. Process Boundaries
+  console.log(`📊 Partitioning ${tnebBoundariesGeo.features.length} TNEB boundaries...`);
+  for (const boundary of tnebBoundariesGeo.features) {
+    // TNEB boundaries often don't have a district field, or it's messy. 
+    // We'll use the centroid or a point inside to find the district.
+    const coords = boundary.geometry.type === 'Polygon' 
+      ? boundary.geometry.coordinates[0][0] 
+      : boundary.geometry.coordinates[0][0][0];
+    
+    let foundDistrict = 'Unknown';
+    for (const dist of districtsGeo.features) {
+      const name = dist.properties.district_n || dist.properties.district || dist.properties.DISTRICT || dist.properties.NAME;
+      if (dist.geometry.type === 'Polygon') {
+        if (isPointInPolygon(coords, dist.geometry.coordinates[0])) {
+          foundDistrict = name;
+          break;
+        }
+      } else if (dist.geometry.type === 'MultiPolygon') {
+        if (isPointInMultiPolygon(coords, dist.geometry.coordinates)) {
+          foundDistrict = name;
+          break;
+        }
+      }
+    }
+    
+    if (!districtBoundaries[foundDistrict]) districtBoundaries[foundDistrict] = [];
+    districtBoundaries[foundDistrict].push(boundary);
+  }
 
-  for (const office of tnebData.features) {
+  // 4. Process Offices
+  console.log(`📊 Partitioning ${tnebOfficesData.features.length} TNEB offices...`);
+  for (const office of tnebOfficesData.features) {
     const coords = office.geometry.coordinates as [number, number];
     let foundDistrict = 'Unknown';
 
     for (const district of districtsGeo.features) {
       const name = district.properties.district_n || district.properties.district || district.properties.DISTRICT || district.properties.NAME;
-      
       if (district.geometry.type === 'Polygon') {
         if (isPointInPolygon(coords, district.geometry.coordinates[0])) {
           foundDistrict = name;
@@ -63,20 +93,26 @@ async function run() {
       }
     }
 
-    if (!districtGroups[foundDistrict]) {
-      districtGroups[foundDistrict] = [];
-    }
-    districtGroups[foundDistrict].push(office);
+    if (!districtOffices[foundDistrict]) districtOffices[foundDistrict] = [];
+    districtOffices[foundDistrict].push(office);
   }
 
-  // 4. Save Files
-  for (const [district, features] of Object.entries(districtGroups)) {
-    const filePath = path.join(outputDir, `${district}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(features, null, 2));
-    console.log(`✅ Saved ${features.length} offices to ${district}.json`);
+  // 5. Save Shards
+  const allDistricts = new Set([...Object.keys(districtBoundaries), ...Object.keys(districtOffices)]);
+  
+  for (const district of allDistricts) {
+    if (district === 'Unknown') continue;
+
+    const boundPath = path.join(outputDir, `${district}_boundaries.json`);
+    const offPath = path.join(outputDir, `${district}_offices.json`);
+
+    fs.writeFileSync(boundPath, JSON.stringify({ type: 'FeatureCollection', features: districtBoundaries[district] || [] }, null, 2));
+    fs.writeFileSync(offPath, JSON.stringify({ type: 'FeatureCollection', features: districtOffices[district] || [] }, null, 2));
+    
+    console.log(`✅ Saved ${district}: ${districtBoundaries[district]?.length || 0} boundaries, ${districtOffices[district]?.length || 0} offices`);
   }
 
-  console.log('🎉 TNEB splitting complete!');
+  console.log('🎉 TNEB sharding complete!');
 }
 
 run().catch(console.error);

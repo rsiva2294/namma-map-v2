@@ -1,0 +1,2885 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4056,
+          11.4056
+        ]
+      },
+      "properties": {
+        "section_na": "A.PALLIPATTY",
+        "section_co": "132",
+        "subdivisio": "PAPPIREDDIPATTY",
+        "region_id": "08",
+        "subdivis_1": "42053",
+        "division_n": "HARUR",
+        "division_c": "4205",
+        "circle_nam": "DHARMAPURI",
+        "circle_cod": "0420",
+        "region_nam": "VELLORE",
+        "object_id": 1004,
+        "search_string": "    a.pallipatty"
+      },
+      "bbox": [
+        78.4056,
+        11.4056,
+        78.4056,
+        11.4056
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.776,
+          11.4522
+        ]
+      },
+      "properties": {
+        "section_na": "PALLAKKAPALAYAM SECTION OFFICE",
+        "section_co": "152",
+        "subdivisio": "WEST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42231",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1119,
+        "search_string": "    pallakkapalayam section office"
+      },
+      "bbox": [
+        77.776,
+        11.4522,
+        77.776,
+        11.4522
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1013,
+          11.4974
+        ]
+      },
+      "properties": {
+        "section_na": "ALAVAIPATTY",
+        "section_co": "489",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1149,
+        "search_string": "    alavaipatty"
+      },
+      "bbox": [
+        78.1013,
+        11.4974,
+        78.1013,
+        11.4974
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3795,
+          11.5664
+        ]
+      },
+      "properties": {
+        "section_na": "MANGALAPURAM",
+        "section_co": "529",
+        "subdivisio": "VALAPADY SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42461",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1191,
+        "search_string": "    mangalapuram"
+      },
+      "bbox": [
+        78.3795,
+        11.5664,
+        78.3795,
+        11.5664
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4439,
+          11.5854
+        ]
+      },
+      "properties": {
+        "section_na": "THIMMANAICKENPATTY",
+        "section_co": "527",
+        "subdivisio": "VALAPADY SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42461",
+        "division_n": "VALAPADY",
+        "division_c": "4246",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1220,
+        "search_string": "    thimmanaickenpatty"
+      },
+      "bbox": [
+        78.4439,
+        11.5854,
+        78.4439,
+        11.5854
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0894,
+          11.5136
+        ]
+      },
+      "properties": {
+        "section_na": "VENNADUR RURAL",
+        "section_co": "488",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1236,
+        "search_string": "    vennadur rural"
+      },
+      "bbox": [
+        78.0894,
+        11.5136,
+        78.0894,
+        11.5136
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0927,
+          11.5131
+        ]
+      },
+      "properties": {
+        "section_na": "VENNADUR TOWN",
+        "section_co": "487",
+        "subdivisio": "ATTAYAMPATTY",
+        "region_id": "04",
+        "subdivis_1": "42441",
+        "division_n": "SOUTH",
+        "division_c": "4244",
+        "circle_nam": "SALEM",
+        "circle_cod": "0424",
+        "region_nam": "ERODE",
+        "object_id": 1237,
+        "search_string": "    vennadur town"
+      },
+      "bbox": [
+        78.0927,
+        11.5131,
+        78.0927,
+        11.5131
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0218,
+          11.156
+        ]
+      },
+      "properties": {
+        "section_na": "236 PARAMATHY",
+        "section_co": "236",
+        "subdivisio": "KABILARMALAI",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1577,
+        "search_string": "    236 paramathy"
+      },
+      "bbox": [
+        78.0218,
+        11.156,
+        78.0218,
+        11.156
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.853,
+          11.3908
+        ]
+      },
+      "properties": {
+        "section_na": "178 DEVANAKURICHI",
+        "section_co": "178",
+        "subdivisio": "THIRUCHENGODE SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42241",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1578,
+        "search_string": "    178 devanakurichi"
+      },
+      "bbox": [
+        77.853,
+        11.3908,
+        77.853,
+        11.3908
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1568,
+          11.2188
+        ]
+      },
+      "properties": {
+        "section_na": "208 RURAL WEST NAMAKKAL",
+        "section_co": "208",
+        "subdivisio": "VALAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42252",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1579,
+        "search_string": "    208 rural west namakkal"
+      },
+      "bbox": [
+        78.1568,
+        11.2188,
+        78.1568,
+        11.2188
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1669,
+          11.2582
+        ]
+      },
+      "properties": {
+        "section_na": "209 RURAL NORTH NMKL",
+        "section_co": "209",
+        "subdivisio": "VALAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42252",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1580,
+        "search_string": "    209 rural north nmkl"
+      },
+      "bbox": [
+        78.1669,
+        11.2582,
+        78.1669,
+        11.2582
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1466,
+          11.2394
+        ]
+      },
+      "properties": {
+        "section_na": "203 NALLIPALAYAM",
+        "section_co": "203",
+        "subdivisio": "TOWN NAMAKKAL",
+        "region_id": "04",
+        "subdivis_1": "42251",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1581,
+        "search_string": "    203 nallipalayam"
+      },
+      "bbox": [
+        78.1466,
+        11.2394,
+        78.1466,
+        11.2394
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.273,
+          11.1693
+        ]
+      },
+      "properties": {
+        "section_na": "205 POTTIREDDYPATTY",
+        "section_co": "205",
+        "subdivisio": "ERUMAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42253",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1582,
+        "search_string": "    205 pottireddypatty"
+      },
+      "bbox": [
+        78.273,
+        11.1693,
+        78.273,
+        11.1693
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2134,
+          11.1506
+        ]
+      },
+      "properties": {
+        "section_na": "211 N PUDUPATTY",
+        "section_co": "211",
+        "subdivisio": "VALAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42252",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1583,
+        "search_string": "    211 n pudupatty"
+      },
+      "bbox": [
+        78.2134,
+        11.1506,
+        78.2134,
+        11.1506
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1614,
+          11.3917
+        ]
+      },
+      "properties": {
+        "section_na": "215 PUDUCHATHIRAM",
+        "section_co": "215",
+        "subdivisio": "PUDANSANTHAI",
+        "region_id": "04",
+        "subdivis_1": "42255",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1584,
+        "search_string": "    215 puduchathiram"
+      },
+      "bbox": [
+        78.1614,
+        11.3917,
+        78.1614,
+        11.3917
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.235,
+          11.2951
+        ]
+      },
+      "properties": {
+        "section_na": "216 NORTH SENDAMANGALAM",
+        "section_co": "216",
+        "subdivisio": "SENDAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42254",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1585,
+        "search_string": "    216 north sendamangalam"
+      },
+      "bbox": [
+        78.235,
+        11.2951,
+        78.235,
+        11.2951
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.157,
+          11.2187
+        ]
+      },
+      "properties": {
+        "section_na": "201 TOWN/NORTH/NAMAKKAL",
+        "section_co": "201",
+        "subdivisio": "TOWN NAMAKKAL",
+        "region_id": "04",
+        "subdivis_1": "42251",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1586,
+        "search_string": "    201 town/north/namakkal"
+      },
+      "bbox": [
+        78.157,
+        11.2187,
+        78.157,
+        11.2187
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8874,
+          11.36
+        ]
+      },
+      "properties": {
+        "section_na": "176 RURAL TCODE",
+        "section_co": "176",
+        "subdivisio": "THIRUCHENGODE SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42241",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1587,
+        "search_string": "    176 rural tcode"
+      },
+      "bbox": [
+        77.8874,
+        11.36,
+        77.8874,
+        11.36
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0172,
+          11.3298
+        ]
+      },
+      "properties": {
+        "section_na": "179 MANICKAMPALAYAM",
+        "section_co": "179",
+        "subdivisio": "THIRUCHENGODE SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42241",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1588,
+        "search_string": "    179 manickampalayam"
+      },
+      "bbox": [
+        78.0172,
+        11.3298,
+        78.0172,
+        11.3298
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9615,
+          11.4437
+        ]
+      },
+      "properties": {
+        "section_na": "182 MOREPALAYAM",
+        "section_co": "182",
+        "subdivisio": "MALLASAMUDRAM",
+        "region_id": "04",
+        "subdivis_1": "42243",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1589,
+        "search_string": "    182 morepalayam"
+      },
+      "bbox": [
+        77.9615,
+        11.4437,
+        77.9615,
+        11.4437
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1568,
+          11.2187
+        ]
+      },
+      "properties": {
+        "section_na": "202 TOWN/SOUTH/NAMAKKAL",
+        "section_co": "202",
+        "subdivisio": "TOWN NAMAKKAL",
+        "region_id": "04",
+        "subdivis_1": "42251",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1590,
+        "search_string": "    202 town/south/namakkal"
+      },
+      "bbox": [
+        78.1568,
+        11.2187,
+        78.1568,
+        11.2187
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.182,
+          11.2092
+        ]
+      },
+      "properties": {
+        "section_na": "224 KOSAVAMPATTY",
+        "section_co": "224",
+        "subdivisio": "TOWN NAMAKKAL",
+        "region_id": "04",
+        "subdivis_1": "42251",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1591,
+        "search_string": "    224 kosavampatty"
+      },
+      "bbox": [
+        78.182,
+        11.2092,
+        78.182,
+        11.2092
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1162,
+          11.3486
+        ]
+      },
+      "properties": {
+        "section_na": "213 THATHIRIPURAM",
+        "section_co": "213",
+        "subdivisio": "PUDANSANTHAI",
+        "region_id": "04",
+        "subdivis_1": "42255",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1592,
+        "search_string": "    213 thathiripuram"
+      },
+      "bbox": [
+        78.1162,
+        11.3486,
+        78.1162,
+        11.3486
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8828,
+          11.3817
+        ]
+      },
+      "properties": {
+        "section_na": "177 TIRUCHENGODE SOUTH",
+        "section_co": "177",
+        "subdivisio": "THIRUCHENGODE SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42241",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1593,
+        "search_string": "    177 tiruchengode south"
+      },
+      "bbox": [
+        77.8828,
+        11.3817,
+        77.8828,
+        11.3817
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9296,
+          11.369
+        ]
+      },
+      "properties": {
+        "section_na": "183 KUMARAMANGALAM",
+        "section_co": "183",
+        "subdivisio": "THIRUCHENGODE NORTH",
+        "region_id": "04",
+        "subdivis_1": "42242",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1594,
+        "search_string": "    183 kumaramangalam"
+      },
+      "bbox": [
+        77.9296,
+        11.369,
+        77.9296,
+        11.369
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0272,
+          11.4981
+        ]
+      },
+      "properties": {
+        "section_na": "185 RURAL MALLASAMUDRAM",
+        "section_co": "185",
+        "subdivisio": "MALLASAMUDRAM",
+        "region_id": "04",
+        "subdivis_1": "42243",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1595,
+        "search_string": "    185 rural mallasamudram"
+      },
+      "bbox": [
+        78.0272,
+        11.4981,
+        78.0272,
+        11.4981
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0272,
+          11.4981
+        ]
+      },
+      "properties": {
+        "section_na": "186 MALLASAMUDRAM TOWN",
+        "section_co": "186",
+        "subdivisio": "MALLASAMUDRAM",
+        "region_id": "04",
+        "subdivis_1": "42243",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1596,
+        "search_string": "    186 mallasamudram town"
+      },
+      "bbox": [
+        78.0272,
+        11.4981,
+        78.0272,
+        11.4981
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1989,
+          11.2149
+        ]
+      },
+      "properties": {
+        "section_na": "204 RURAL SOUTH NAMAKKAL",
+        "section_co": "204",
+        "subdivisio": "ERUMAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42253",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1597,
+        "search_string": "    204 rural south namakkal"
+      },
+      "bbox": [
+        78.1989,
+        11.2149,
+        78.1989,
+        11.2149
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3465,
+          11.1473
+        ]
+      },
+      "properties": {
+        "section_na": "206 VARAGUR",
+        "section_co": "206",
+        "subdivisio": "ERUMAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42253",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1598,
+        "search_string": "    206 varagur"
+      },
+      "bbox": [
+        78.3465,
+        11.1473,
+        78.3465,
+        11.1473
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3062,
+          11.1552
+        ]
+      },
+      "properties": {
+        "section_na": "207 ERUMAPATTY",
+        "section_co": "207",
+        "subdivisio": "ERUMAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42253",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1599,
+        "search_string": "    207 erumapatty"
+      },
+      "bbox": [
+        78.3062,
+        11.1552,
+        78.3062,
+        11.1552
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2239,
+          11.1344
+        ]
+      },
+      "properties": {
+        "section_na": "210 VALAYAPATTY",
+        "section_co": "210",
+        "subdivisio": "VALAYAPATTY",
+        "region_id": "04",
+        "subdivis_1": "42252",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1600,
+        "search_string": "    210 valayapatty"
+      },
+      "bbox": [
+        78.2239,
+        11.1344,
+        78.2239,
+        11.1344
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1735,
+          11.3355
+        ]
+      },
+      "properties": {
+        "section_na": "212 KALANGANI",
+        "section_co": "212",
+        "subdivisio": "PUDANSANTHAI",
+        "region_id": "04",
+        "subdivis_1": "42255",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1601,
+        "search_string": "    212 kalangani"
+      },
+      "bbox": [
+        78.1735,
+        11.3355,
+        78.1735,
+        11.3355
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1763,
+          11.3209
+        ]
+      },
+      "properties": {
+        "section_na": "214 PUDANSANTHAI",
+        "section_co": "214",
+        "subdivisio": "PUDANSANTHAI",
+        "region_id": "04",
+        "subdivis_1": "42255",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1602,
+        "search_string": "    214 pudansanthai"
+      },
+      "bbox": [
+        78.1763,
+        11.3209,
+        78.1763,
+        11.3209
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2387,
+          11.2892
+        ]
+      },
+      "properties": {
+        "section_na": "217 SOUTH SENDAMANGALAM",
+        "section_co": "217",
+        "subdivisio": "SENDAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42254",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1603,
+        "search_string": "    217 south sendamangalam"
+      },
+      "bbox": [
+        78.2387,
+        11.2892,
+        78.2387,
+        11.2892
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2227,
+          11.2432
+        ]
+      },
+      "properties": {
+        "section_na": "218 MUTHUGAPATTY",
+        "section_co": "218",
+        "subdivisio": "SENDAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42254",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1604,
+        "search_string": "    218 muthugapatty"
+      },
+      "bbox": [
+        78.2227,
+        11.2432,
+        78.2227,
+        11.2432
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2165,
+          11.3641
+        ]
+      },
+      "properties": {
+        "section_na": "219 THIRUMALAIPATTY",
+        "section_co": "219",
+        "subdivisio": "SENDAMANGALAM",
+        "region_id": "04",
+        "subdivis_1": "42254",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1605,
+        "search_string": "    219 thirumalaipatty"
+      },
+      "bbox": [
+        78.2165,
+        11.3641,
+        78.2165,
+        11.3641
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2539,
+          11.3439
+        ]
+      },
+      "properties": {
+        "section_na": "220 KLAPANAICKANPATTY TOWN",
+        "section_co": "220",
+        "subdivisio": "KALAPPANAICKANPATTY",
+        "region_id": "04",
+        "subdivis_1": "42256",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1606,
+        "search_string": "    220 klapanaickanpatty town"
+      },
+      "bbox": [
+        78.2539,
+        11.3439,
+        78.2539,
+        11.3439
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3328,
+          11.2802
+        ]
+      },
+      "properties": {
+        "section_na": "221 KOLLI HILLS I(SEMEDU)",
+        "section_co": "221",
+        "subdivisio": "KALAPPANAICKANPATTY",
+        "region_id": "04",
+        "subdivis_1": "42256",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1607,
+        "search_string": "    221 kolli hills i(semedu)"
+      },
+      "bbox": [
+        78.3328,
+        11.2802,
+        78.3328,
+        11.2802
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2499,
+          11.3886
+        ]
+      },
+      "properties": {
+        "section_na": "222 BELUKURICHI",
+        "section_co": "222",
+        "subdivisio": "KALAPPANAICKANPATTY",
+        "region_id": "04",
+        "subdivis_1": "42256",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1608,
+        "search_string": "    222 belukurichi"
+      },
+      "bbox": [
+        78.2499,
+        11.3886,
+        78.2499,
+        11.3886
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3488,
+          11.3099
+        ]
+      },
+      "properties": {
+        "section_na": "223 KOLLI HILLS II(SOLAKADU)10",
+        "section_co": "223",
+        "subdivisio": "KALAPPANAICKANPATTY",
+        "region_id": "04",
+        "subdivis_1": "42256",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1609,
+        "search_string": "    223 kolli hills ii(solakadu)10"
+      },
+      "bbox": [
+        78.3488,
+        11.3099,
+        78.3488,
+        11.3099
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3193,
+          11.3284
+        ]
+      },
+      "properties": {
+        "section_na": "225 KARAVALLI",
+        "section_co": "225",
+        "subdivisio": "KALAPPANAICKANPATTY",
+        "region_id": "04",
+        "subdivis_1": "42256",
+        "division_n": "NAMAKKAL",
+        "division_c": "4225",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1610,
+        "search_string": "    225 karavalli"
+      },
+      "bbox": [
+        78.3193,
+        11.3284,
+        78.3193,
+        11.3284
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7845,
+          11.4062
+        ]
+      },
+      "properties": {
+        "section_na": "VEPPADAI NORTH SECTION OFFICE",
+        "section_co": "151",
+        "subdivisio": "VEPPADAI",
+        "region_id": "04",
+        "subdivis_1": "42283",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1611,
+        "search_string": "    veppadai north section office"
+      },
+      "bbox": [
+        77.7845,
+        11.4062,
+        77.7845,
+        11.4062
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.829,
+          11.4192
+        ]
+      },
+      "properties": {
+        "section_na": "THANEERPANDALPALAYAM SECTION",
+        "section_co": "154",
+        "subdivisio": "WEST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42231",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1612,
+        "search_string": "    thaneerpandalpalayam section"
+      },
+      "bbox": [
+        77.829,
+        11.4192,
+        77.829,
+        11.4192
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6964,
+          11.4546
+        ]
+      },
+      "properties": {
+        "section_na": "C.N.PALAYAM SECTION",
+        "section_co": "156",
+        "subdivisio": "KOMARAPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42281",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1613,
+        "search_string": "    c.n.palayam section"
+      },
+      "bbox": [
+        77.6964,
+        11.4546,
+        77.6964,
+        11.4546
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.712,
+          11.4445
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH KOMARAPLAYAM SECTION OFFICE",
+        "section_co": "157",
+        "subdivisio": "KOMARAPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42281",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1614,
+        "search_string": "    south komaraplayam section office"
+      },
+      "bbox": [
+        77.712,
+        11.4445,
+        77.712,
+        11.4445
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7117,
+          11.4444
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL KOMARAPLAYAM SECTION OFFICE",
+        "section_co": "158",
+        "subdivisio": "KOMARAPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42281",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1615,
+        "search_string": "    rural komaraplayam section office"
+      },
+      "bbox": [
+        77.7117,
+        11.4444,
+        77.7117,
+        11.4444
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7475,
+          11.361
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN PALLIPALAYAM SECTION",
+        "section_co": "159",
+        "subdivisio": "PALLIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42282",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1616,
+        "search_string": "    town pallipalayam section"
+      },
+      "bbox": [
+        77.7475,
+        11.361,
+        77.7475,
+        11.361
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7452,
+          11.3734
+        ]
+      },
+      "properties": {
+        "section_na": "PALLIPALAYAM AGRAHARAM OFFICE",
+        "section_co": "160",
+        "subdivisio": "VEPPADAI",
+        "region_id": "04",
+        "subdivis_1": "42283",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1617,
+        "search_string": "    pallipalayam agraharam office"
+      },
+      "bbox": [
+        77.7452,
+        11.3734,
+        77.7452,
+        11.3734
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7848,
+          11.3672
+        ]
+      },
+      "properties": {
+        "section_na": "SPB COLONY SECTION OFFICE",
+        "section_co": "161",
+        "subdivisio": "PALLIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42282",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1618,
+        "search_string": "    spb colony section office"
+      },
+      "bbox": [
+        77.7848,
+        11.3672,
+        77.7848,
+        11.3672
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7862,
+          11.3129
+        ]
+      },
+      "properties": {
+        "section_na": "KOKKARAYANPETTAI",
+        "section_co": "162",
+        "subdivisio": "PALLIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42282",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1619,
+        "search_string": "    kokkarayanpettai"
+      },
+      "bbox": [
+        77.7862,
+        11.3129,
+        77.7862,
+        11.3129
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7848,
+          11.3672
+        ]
+      },
+      "properties": {
+        "section_na": "EAST PALLIPALAYAM SECTION OFFICE",
+        "section_co": "163",
+        "subdivisio": "PALLIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42282",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1620,
+        "search_string": "    east pallipalayam section office"
+      },
+      "bbox": [
+        77.7848,
+        11.3672,
+        77.7848,
+        11.3672
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7845,
+          11.4062
+        ]
+      },
+      "properties": {
+        "section_na": "VEPPADAI SOUTH AE OFFICE",
+        "section_co": "168",
+        "subdivisio": "VEPPADAI",
+        "region_id": "04",
+        "subdivis_1": "42283",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1621,
+        "search_string": "    veppadai south ae office"
+      },
+      "bbox": [
+        77.7845,
+        11.4062,
+        77.7845,
+        11.4062
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.709,
+          11.4132
+        ]
+      },
+      "properties": {
+        "section_na": "KUPPANDAPALAYAM SECTION OFFICE",
+        "section_co": "169",
+        "subdivisio": "KOMARAPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42281",
+        "division_n": "PALLIPALAYAM",
+        "division_c": "4228",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1622,
+        "search_string": "    kuppandapalayam section office"
+      },
+      "bbox": [
+        77.709,
+        11.4132,
+        77.709,
+        11.4132
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7326,
+          11.4442
+        ]
+      },
+      "properties": {
+        "section_na": "EHIRMEDU SECTION OFFICE",
+        "section_co": "171",
+        "subdivisio": "WEST SANKARI",
+        "region_id": "04",
+        "subdivis_1": "42231",
+        "division_n": "SANKARI",
+        "division_c": "4223",
+        "circle_nam": "METTUR",
+        "circle_cod": "0422",
+        "region_nam": "ERODE",
+        "object_id": 1623,
+        "search_string": "    ehirmedu section office"
+      },
+      "bbox": [
+        77.7326,
+        11.4442,
+        77.7326,
+        11.4442
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9138,
+          11.4372
+        ]
+      },
+      "properties": {
+        "section_na": "180 EAST THIRUCHENGODE",
+        "section_co": "180",
+        "subdivisio": "THIRUCHENGODE NORTH",
+        "region_id": "04",
+        "subdivis_1": "42242",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1624,
+        "search_string": "    180 east thiruchengode"
+      },
+      "bbox": [
+        77.9138,
+        11.4372,
+        77.9138,
+        11.4372
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9008,
+          11.3908
+        ]
+      },
+      "properties": {
+        "section_na": "181 NORTH THIRUCHENGODE",
+        "section_co": "181",
+        "subdivisio": "THIRUCHENGODE NORTH",
+        "region_id": "04",
+        "subdivis_1": "42242",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1625,
+        "search_string": "    181 north thiruchengode"
+      },
+      "bbox": [
+        77.9008,
+        11.3908,
+        77.9008,
+        11.3908
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8899,
+          11.3795
+        ]
+      },
+      "properties": {
+        "section_na": "184 CENTRAL THIRUCHENGODE",
+        "section_co": "184",
+        "subdivisio": "THIRUCHENGODE NORTH",
+        "region_id": "04",
+        "subdivis_1": "42242",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1626,
+        "search_string": "    184 central thiruchengode"
+      },
+      "bbox": [
+        77.8899,
+        11.3795,
+        77.8899,
+        11.3795
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0371,
+          11.517
+        ]
+      },
+      "properties": {
+        "section_na": "187 KALIPATTY",
+        "section_co": "187",
+        "subdivisio": "MALLASAMUDRAM",
+        "region_id": "04",
+        "subdivis_1": "42243",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1627,
+        "search_string": "    187 kalipatty"
+      },
+      "bbox": [
+        78.0371,
+        11.517,
+        78.0371,
+        11.517
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0821,
+          11.4149
+        ]
+      },
+      "properties": {
+        "section_na": "188 VAIYAPAMALAI WEST",
+        "section_co": "188",
+        "subdivisio": "ELACHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42244",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1628,
+        "search_string": "    188 vaiyapamalai west"
+      },
+      "bbox": [
+        78.0821,
+        11.4149,
+        78.0821,
+        11.4149
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0731,
+          11.3721
+        ]
+      },
+      "properties": {
+        "section_na": "190 PERIYAMANALI",
+        "section_co": "190",
+        "subdivisio": "ELACHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42244",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1629,
+        "search_string": "    190 periyamanali"
+      },
+      "bbox": [
+        78.0731,
+        11.3721,
+        78.0731,
+        11.3721
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0013,
+          11.3828
+        ]
+      },
+      "properties": {
+        "section_na": "191 ELACHIPALAYAM",
+        "section_co": "191",
+        "subdivisio": "ELACHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42244",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1630,
+        "search_string": "    191 elachipalayam"
+      },
+      "bbox": [
+        78.0013,
+        11.3828,
+        78.0013,
+        11.3828
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0679,
+          11.287
+        ]
+      },
+      "properties": {
+        "section_na": "192 VELAGOUNDAMPATTY",
+        "section_co": "192",
+        "subdivisio": "ELACHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42244",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1631,
+        "search_string": "    192 velagoundampatty"
+      },
+      "bbox": [
+        78.0679,
+        11.287,
+        78.0679,
+        11.287
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8616,
+          11.3582
+        ]
+      },
+      "properties": {
+        "section_na": "193 KOOTAPALLY",
+        "section_co": "193",
+        "subdivisio": "THIRUCHENGODE SOUTH",
+        "region_id": "04",
+        "subdivis_1": "42241",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1632,
+        "search_string": "    193 kootapally"
+      },
+      "bbox": [
+        77.8616,
+        11.3582,
+        77.8616,
+        11.3582
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9566,
+          11.3534
+        ]
+      },
+      "properties": {
+        "section_na": "194 UNJANAI",
+        "section_co": "194",
+        "subdivisio": "THIRUCHENGODE NORTH",
+        "region_id": "04",
+        "subdivis_1": "42242",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1633,
+        "search_string": "    194 unjanai"
+      },
+      "bbox": [
+        77.9566,
+        11.3534,
+        77.9566,
+        11.3534
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1945,
+          11.4673
+        ]
+      },
+      "properties": {
+        "section_na": "501 TOWN RASIPURAM",
+        "section_co": "501",
+        "subdivisio": "RASIPURAM TOWN",
+        "region_id": "04",
+        "subdivis_1": "42471",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1634,
+        "search_string": "    501 town rasipuram"
+      },
+      "bbox": [
+        78.1945,
+        11.4673,
+        78.1945,
+        11.4673
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1944,
+          11.4794
+        ]
+      },
+      "properties": {
+        "section_na": "502 R PUDUPALAYAM",
+        "section_co": "502",
+        "subdivisio": "RASIPURAM TOWN",
+        "region_id": "04",
+        "subdivis_1": "42471",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1635,
+        "search_string": "    502 r pudupalayam"
+      },
+      "bbox": [
+        78.1944,
+        11.4794,
+        78.1944,
+        11.4794
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2104,
+          11.4729
+        ]
+      },
+      "properties": {
+        "section_na": "503 PATTANAM",
+        "section_co": "503",
+        "subdivisio": "RASIPURAM TOWN",
+        "region_id": "04",
+        "subdivis_1": "42471",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1636,
+        "search_string": "    503 pattanam"
+      },
+      "bbox": [
+        78.2104,
+        11.4729,
+        78.2104,
+        11.4729
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1578,
+          11.4461
+        ]
+      },
+      "properties": {
+        "section_na": "504 ANDAGALOREGATE",
+        "section_co": "504",
+        "subdivisio": "RASIPURAM TOWN",
+        "region_id": "04",
+        "subdivis_1": "42471",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1637,
+        "search_string": "    504 andagaloregate"
+      },
+      "bbox": [
+        78.1578,
+        11.4461,
+        78.1578,
+        11.4461
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1839,
+          11.4643
+        ]
+      },
+      "properties": {
+        "section_na": "505 RURAL SOUTH RASIPURAM",
+        "section_co": "505",
+        "subdivisio": "RASIPURAM RURAL",
+        "region_id": "04",
+        "subdivis_1": "42472",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1638,
+        "search_string": "    505 rural south rasipuram"
+      },
+      "bbox": [
+        78.1839,
+        11.4643,
+        78.1839,
+        11.4643
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2218,
+          11.416
+        ]
+      },
+      "properties": {
+        "section_na": "506 SINGALANTHAPURAM",
+        "section_co": "506",
+        "subdivisio": "RASIPURAM RURAL",
+        "region_id": "04",
+        "subdivis_1": "42472",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1639,
+        "search_string": "    506 singalanthapuram"
+      },
+      "bbox": [
+        78.2218,
+        11.416,
+        78.2218,
+        11.416
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1367,
+          11.5015
+        ]
+      },
+      "properties": {
+        "section_na": "507 ATHANOOR",
+        "section_co": "507",
+        "subdivisio": "RASIPURAM RURAL",
+        "region_id": "04",
+        "subdivis_1": "42472",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1640,
+        "search_string": "    507 athanoor"
+      },
+      "bbox": [
+        78.1367,
+        11.5015,
+        78.1367,
+        11.5015
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1356,
+          11.4302
+        ]
+      },
+      "properties": {
+        "section_na": "508 GURUSAMYPALAYAM",
+        "section_co": "508",
+        "subdivisio": "RASIPURAM RURAL",
+        "region_id": "04",
+        "subdivis_1": "42472",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1641,
+        "search_string": "    508 gurusamypalayam"
+      },
+      "bbox": [
+        78.1356,
+        11.4302,
+        78.1356,
+        11.4302
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2211,
+          11.4494
+        ]
+      },
+      "properties": {
+        "section_na": "509 KAKKAVERY",
+        "section_co": "509",
+        "subdivisio": "RASIPURAM RURAL",
+        "region_id": "04",
+        "subdivis_1": "42472",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1642,
+        "search_string": "    509 kakkavery"
+      },
+      "bbox": [
+        78.2211,
+        11.4494,
+        78.2211,
+        11.4494
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2728,
+          11.4566
+        ]
+      },
+      "properties": {
+        "section_na": "510 NAMAGIRIPET I",
+        "section_co": "510",
+        "subdivisio": "NAMAGIRIPET EAST",
+        "region_id": "04",
+        "subdivis_1": "42473",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1643,
+        "search_string": "    510 namagiripet i"
+      },
+      "bbox": [
+        78.2728,
+        11.4566,
+        78.2728,
+        11.4566
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3447,
+          11.5133
+        ]
+      },
+      "properties": {
+        "section_na": "511 METTALA",
+        "section_co": "511",
+        "subdivisio": "NAMAGIRIPET EAST",
+        "region_id": "04",
+        "subdivis_1": "42473",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1644,
+        "search_string": "    511 mettala"
+      },
+      "bbox": [
+        78.3447,
+        11.5133,
+        78.3447,
+        11.5133
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3953,
+          11.4608
+        ]
+      },
+      "properties": {
+        "section_na": "512 MULLUKURICHI",
+        "section_co": "512",
+        "subdivisio": "NAMAGIRIPET EAST",
+        "region_id": "04",
+        "subdivis_1": "42473",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1645,
+        "search_string": "    512 mullukurichi"
+      },
+      "bbox": [
+        78.3953,
+        11.4608,
+        78.3953,
+        11.4608
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2634,
+          11.456
+        ]
+      },
+      "properties": {
+        "section_na": "513 NAMAGIRIPET II",
+        "section_co": "513",
+        "subdivisio": "NAMAGIRIPET WEST",
+        "region_id": "04",
+        "subdivis_1": "42474",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1646,
+        "search_string": "    513 namagiripet ii"
+      },
+      "bbox": [
+        78.2634,
+        11.456,
+        78.2634,
+        11.456
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2634,
+          11.4564
+        ]
+      },
+      "properties": {
+        "section_na": "514 ARIYAGOUNDAMPATTY",
+        "section_co": "514",
+        "subdivisio": "NAMAGIRIPET WEST",
+        "region_id": "04",
+        "subdivis_1": "42474",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1647,
+        "search_string": "    514 ariyagoundampatty"
+      },
+      "bbox": [
+        78.2634,
+        11.4564,
+        78.2634,
+        11.4564
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2712,
+          11.4937
+        ]
+      },
+      "properties": {
+        "section_na": "515 R PUDUPATTY",
+        "section_co": "515",
+        "subdivisio": "NAMAGIRIPET WEST",
+        "region_id": "04",
+        "subdivis_1": "42474",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1648,
+        "search_string": "    515 r pudupatty"
+      },
+      "bbox": [
+        78.2712,
+        11.4937,
+        78.2712,
+        11.4937
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2467,
+          11.4286
+        ]
+      },
+      "properties": {
+        "section_na": "516 T JEDARPALAYAM",
+        "section_co": "516",
+        "subdivisio": "NAMAGIRIPET WEST",
+        "region_id": "04",
+        "subdivis_1": "42474",
+        "division_n": "RASIPURAM",
+        "division_c": "4247",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1649,
+        "search_string": "    516 t jedarpalayam"
+      },
+      "bbox": [
+        78.2467,
+        11.4286,
+        78.2467,
+        11.4286
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.008,
+          11.1139
+        ]
+      },
+      "properties": {
+        "section_na": "226 TOWN P VELUR",
+        "section_co": "226",
+        "subdivisio": "P VELUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42261",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1650,
+        "search_string": "    226 town p velur"
+      },
+      "bbox": [
+        78.008,
+        11.1139,
+        78.008,
+        11.1139
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9896,
+          11.1111
+        ]
+      },
+      "properties": {
+        "section_na": "227 POTHANUR",
+        "section_co": "227",
+        "subdivisio": "P VELUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42261",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1651,
+        "search_string": "    227 pothanur"
+      },
+      "bbox": [
+        77.9896,
+        11.1111,
+        77.9896,
+        11.1111
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.068,
+          11.0906
+        ]
+      },
+      "properties": {
+        "section_na": "229 PALAPATTY",
+        "section_co": "229",
+        "subdivisio": "P VELUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42261",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1652,
+        "search_string": "    229 palapatty"
+      },
+      "bbox": [
+        78.068,
+        11.0906,
+        78.068,
+        11.0906
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9663,
+          11.1066
+        ]
+      },
+      "properties": {
+        "section_na": "228 PANDAMANGALAM",
+        "section_co": "228",
+        "subdivisio": "P VELUR TOWN",
+        "region_id": "04",
+        "subdivis_1": "42261",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1653,
+        "search_string": "    228 pandamangalam"
+      },
+      "bbox": [
+        77.9663,
+        11.1066,
+        77.9663,
+        11.1066
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1382,
+          11.0615
+        ]
+      },
+      "properties": {
+        "section_na": "230 TOWN MOHANUR",
+        "section_co": "230",
+        "subdivisio": "MOHANUR",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1654,
+        "search_string": "    230 town mohanur"
+      },
+      "bbox": [
+        78.1382,
+        11.0615,
+        78.1382,
+        11.0615
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1468,
+          11.0618
+        ]
+      },
+      "properties": {
+        "section_na": "231 RURAL MOHANUR",
+        "section_co": "231",
+        "subdivisio": "MOHANUR",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1655,
+        "search_string": "    231 rural mohanur"
+      },
+      "bbox": [
+        78.1468,
+        11.0618,
+        78.1468,
+        11.0618
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1584,
+          11.1407
+        ]
+      },
+      "properties": {
+        "section_na": "232 ANIYAPURAM",
+        "section_co": "232",
+        "subdivisio": "MOHANUR",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1656,
+        "search_string": "    232 aniyapuram"
+      },
+      "bbox": [
+        78.1584,
+        11.1407,
+        78.1584,
+        11.1407
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9221,
+          11.3176
+        ]
+      },
+      "properties": {
+        "section_na": "233 CHITALANDUR",
+        "section_co": "233",
+        "subdivisio": "NALLUR",
+        "region_id": "04",
+        "subdivis_1": "42263",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1657,
+        "search_string": "    233 chitalandur"
+      },
+      "bbox": [
+        77.9221,
+        11.3176,
+        77.9221,
+        11.3176
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9879,
+          11.2053
+        ]
+      },
+      "properties": {
+        "section_na": "234 NADANTHAI",
+        "section_co": "234",
+        "subdivisio": "NALLUR",
+        "region_id": "04",
+        "subdivis_1": "42263",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1658,
+        "search_string": "    234 nadanthai"
+      },
+      "bbox": [
+        77.9879,
+        11.2053,
+        77.9879,
+        11.2053
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9493,
+          11.2578
+        ]
+      },
+      "properties": {
+        "section_na": "235 KANDAMPALAYAM",
+        "section_co": "235",
+        "subdivisio": "NALLUR",
+        "region_id": "04",
+        "subdivis_1": "42263",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1659,
+        "search_string": "    235 kandampalayam"
+      },
+      "bbox": [
+        77.9493,
+        11.2578,
+        77.9493,
+        11.2578
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8776,
+          11.243
+        ]
+      },
+      "properties": {
+        "section_na": "240 SOLASIRAMANI",
+        "section_co": "240",
+        "subdivisio": "NALLUR",
+        "region_id": "04",
+        "subdivis_1": "42263",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1660,
+        "search_string": "    240 solasiramani"
+      },
+      "bbox": [
+        77.8776,
+        11.243,
+        77.8776,
+        11.243
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8915,
+          11.1512
+        ]
+      },
+      "properties": {
+        "section_na": "237 P JEDARPALAYAM",
+        "section_co": "237",
+        "subdivisio": "KABILARMALAI",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1661,
+        "search_string": "    237 p jedarpalayam"
+      },
+      "bbox": [
+        77.8915,
+        11.1512,
+        77.8915,
+        11.1512
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9523,
+          11.1386
+        ]
+      },
+      "properties": {
+        "section_na": "238 KABILARMALAI",
+        "section_co": "238",
+        "subdivisio": "KABILARMALAI",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1662,
+        "search_string": "    238 kabilarmalai"
+      },
+      "bbox": [
+        77.9523,
+        11.1386,
+        77.9523,
+        11.1386
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9098,
+          11.0898
+        ]
+      },
+      "properties": {
+        "section_na": "241 PILIKALPALAYAM",
+        "section_co": "241",
+        "subdivisio": "KABILARMALAI",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1663,
+        "search_string": "    241 pilikalpalayam"
+      },
+      "bbox": [
+        77.9098,
+        11.0898,
+        77.9098,
+        11.0898
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0896,
+          11.1916
+        ]
+      },
+      "properties": {
+        "section_na": "239 KEERAMBUR",
+        "section_co": "239",
+        "subdivisio": "MOHANUR",
+        "region_id": "04",
+        "subdivis_1": "42264",
+        "division_n": "P VELUR",
+        "division_c": "4226",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1664,
+        "search_string": "    239 keerambur"
+      },
+      "bbox": [
+        78.0896,
+        11.1916,
+        78.0896,
+        11.1916
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0822,
+          11.4147
+        ]
+      },
+      "properties": {
+        "section_na": "189 VAIAYAPAMALAI EAST",
+        "section_co": "189",
+        "subdivisio": "ELACHIPALAYAM",
+        "region_id": "04",
+        "subdivis_1": "42244",
+        "division_n": "THIRUCHENGODE",
+        "division_c": "4224",
+        "circle_nam": "NAMAKKAL",
+        "circle_cod": "0437",
+        "region_nam": "ERODE",
+        "object_id": 1665,
+        "search_string": "    189 vaiayapamalai east"
+      },
+      "bbox": [
+        78.0822,
+        11.4147,
+        78.0822,
+        11.4147
+      ]
+    }
+  ]
+}

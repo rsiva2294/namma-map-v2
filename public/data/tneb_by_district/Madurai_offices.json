@@ -1,0 +1,2885 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9295,
+          10
+        ]
+      },
+      "properties": {
+        "section_na": "VICKRAMANGALAM",
+        "section_co": "162",
+        "subdivisio": "VADIPATTY",
+        "region_id": "05",
+        "subdivis_1": "45232",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2296,
+        "search_string": "    vickramangalam"
+      },
+      "bbox": [
+        77.9295,
+        10,
+        77.9295,
+        10
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8043,
+          9.9619
+        ]
+      },
+      "properties": {
+        "section_na": "WEST USILAMPATTY",
+        "section_co": "180",
+        "subdivisio": "TOWN USILAMPATTY",
+        "region_id": "05",
+        "subdivis_1": "45241",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2297,
+        "search_string": "    west usilampatty"
+      },
+      "bbox": [
+        77.8043,
+        9.9619,
+        77.8043,
+        9.9619
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1964,
+          9.9546
+        ]
+      },
+      "properties": {
+        "section_na": "OTHAKADAI",
+        "section_co": "118",
+        "subdivisio": "OTHAKADAI",
+        "region_id": "05",
+        "subdivis_1": "45212",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2298,
+        "search_string": "    othakadai"
+      },
+      "bbox": [
+        78.1964,
+        9.9546,
+        78.1964,
+        9.9546
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9775,
+          9.8267
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH THIRUMANGALAM",
+        "section_co": "132",
+        "subdivisio": "THIRUMANGALAM",
+        "region_id": "05",
+        "subdivis_1": "45221",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2299,
+        "search_string": "    north thirumangalam"
+      },
+      "bbox": [
+        77.9775,
+        9.8267,
+        77.9775,
+        9.8267
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9659,
+          9.6999
+        ]
+      },
+      "properties": {
+        "section_na": "KALLIGUDI",
+        "section_co": "134",
+        "subdivisio": "THIRUMANGALAM",
+        "region_id": "05",
+        "subdivis_1": "45221",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2300,
+        "search_string": "    kalligudi"
+      },
+      "bbox": [
+        77.9659,
+        9.6999,
+        77.9659,
+        9.6999
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7373,
+          9.7766
+        ]
+      },
+      "properties": {
+        "section_na": "SAPTUR",
+        "section_co": "142",
+        "subdivisio": "T.KALLUPATTY",
+        "region_id": "05",
+        "subdivis_1": "45223",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2301,
+        "search_string": "    saptur"
+      },
+      "bbox": [
+        77.7373,
+        9.7766,
+        77.7373,
+        9.7766
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7852,
+          9.7332
+        ]
+      },
+      "properties": {
+        "section_na": "PERAIYUR",
+        "section_co": "141",
+        "subdivisio": "T.KALLUPATTY",
+        "region_id": "05",
+        "subdivis_1": "45223",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2302,
+        "search_string": "    peraiyur"
+      },
+      "bbox": [
+        77.7852,
+        9.7332,
+        77.7852,
+        9.7332
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0537,
+          9.8816
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL THIRUPARANKUNDRAM",
+        "section_co": "144",
+        "subdivisio": "KAPPALUR",
+        "region_id": "05",
+        "subdivis_1": "45222",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2303,
+        "search_string": "    rural thiruparankundram"
+      },
+      "bbox": [
+        78.0537,
+        9.8816,
+        78.0537,
+        9.8816
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0121,
+          10.03
+        ]
+      },
+      "properties": {
+        "section_na": "AYYANGOTTAI",
+        "section_co": "164",
+        "subdivisio": "SAMAYANALLUR",
+        "region_id": "05",
+        "subdivis_1": "45231",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2304,
+        "search_string": "    ayyangottai"
+      },
+      "bbox": [
+        78.0121,
+        10.03,
+        78.0121,
+        10.03
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0597,
+          9.9597
+        ]
+      },
+      "properties": {
+        "section_na": "KEELAMATHUR",
+        "section_co": "154",
+        "subdivisio": "VADIPATTY",
+        "region_id": "05",
+        "subdivis_1": "45232",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2305,
+        "search_string": "    keelamathur"
+      },
+      "bbox": [
+        78.0597,
+        9.9597,
+        78.0597,
+        9.9597
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0967,
+          9.9667
+        ]
+      },
+      "properties": {
+        "section_na": "KOODAL NAGAR",
+        "section_co": "172",
+        "subdivisio": "SAMAYANALLUR",
+        "region_id": "05",
+        "subdivis_1": "45231",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2306,
+        "search_string": "    koodal nagar"
+      },
+      "bbox": [
+        78.0967,
+        9.9667,
+        78.0967,
+        9.9667
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0422,
+          9.9728
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL SAMAYANALLUR",
+        "section_co": "170",
+        "subdivisio": "SAMAYANALLUR",
+        "region_id": "05",
+        "subdivis_1": "45231",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2307,
+        "search_string": "    rural samayanallur"
+      },
+      "bbox": [
+        78.0422,
+        9.9728,
+        78.0422,
+        9.9728
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8041,
+          9.9626
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL SOUTH USILAMPATTY",
+        "section_co": "185",
+        "subdivisio": "TOWN USILAMPATTY",
+        "region_id": "05",
+        "subdivis_1": "45241",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2308,
+        "search_string": "    rural south usilampatty"
+      },
+      "bbox": [
+        77.8041,
+        9.9626,
+        77.8041,
+        9.9626
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7138,
+          9.8347
+        ]
+      },
+      "properties": {
+        "section_na": "T.RAMANATHAPURAM",
+        "section_co": "189",
+        "subdivisio": "ELUMALAI",
+        "region_id": "05",
+        "subdivis_1": "45243",
+        "division_n": "USILAMPATTY",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2309,
+        "search_string": "    t.ramanathapuram"
+      },
+      "bbox": [
+        77.7138,
+        9.8347,
+        77.7138,
+        9.8347
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7982,
+          9.8417
+        ]
+      },
+      "properties": {
+        "section_na": "CHINNAKATTALAI",
+        "section_co": "186",
+        "subdivisio": "ELUMALAI",
+        "region_id": "05",
+        "subdivis_1": "45243",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2310,
+        "search_string": "    chinnakattalai"
+      },
+      "bbox": [
+        77.7982,
+        9.8417,
+        77.7982,
+        9.8417
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0206,
+          9.8643
+        ]
+      },
+      "properties": {
+        "section_na": "INDUSTRIAL ESTATE",
+        "section_co": "136",
+        "subdivisio": "KAPPALUR",
+        "region_id": "05",
+        "subdivis_1": "45222",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2311,
+        "search_string": "    industrial estate"
+      },
+      "bbox": [
+        78.0206,
+        9.8643,
+        78.0206,
+        9.8643
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1606,
+          9.9037
+        ]
+      },
+      "properties": {
+        "section_na": "VIRAGANOOR",
+        "section_co": "121",
+        "subdivisio": "AIRPORT",
+        "region_id": "05",
+        "subdivis_1": "45215",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2312,
+        "search_string": "    viraganoor"
+      },
+      "bbox": [
+        78.1606,
+        9.9037,
+        78.1606,
+        9.9037
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7912,
+          10.0367
+        ]
+      },
+      "properties": {
+        "section_na": "UTHAPPANAICKANUR",
+        "section_co": "179",
+        "subdivisio": "CHECKANOORNI",
+        "region_id": "05",
+        "subdivis_1": "45242",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2313,
+        "search_string": "    uthappanaickanur"
+      },
+      "bbox": [
+        77.7912,
+        10.0367,
+        77.7912,
+        10.0367
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8487,
+          9.7114
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN T.KALLUPATTY",
+        "section_co": "139",
+        "subdivisio": "T.KALLUPATTY",
+        "region_id": "05",
+        "subdivis_1": "45223",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2314,
+        "search_string": "    town t.kallupatty"
+      },
+      "bbox": [
+        77.8487,
+        9.7114,
+        77.8487,
+        9.7114
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0963,
+          9.8442
+        ]
+      },
+      "properties": {
+        "section_na": "PERUNGUDI",
+        "section_co": "123",
+        "subdivisio": "AIRPORT",
+        "region_id": "05",
+        "subdivis_1": "45215",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2315,
+        "search_string": "    perungudi"
+      },
+      "bbox": [
+        78.0963,
+        9.8442,
+        78.0963,
+        9.8442
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3365,
+          10.0301
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN MELUR",
+        "section_co": "110",
+        "subdivisio": "SOUTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45214",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2316,
+        "search_string": "    town melur"
+      },
+      "bbox": [
+        78.3365,
+        10.0301,
+        78.3365,
+        10.0301
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0459,
+          9.9304
+        ]
+      },
+      "properties": {
+        "section_na": "ALWAR NAGAR",
+        "section_co": "175",
+        "subdivisio": "CHECKANOORNI",
+        "region_id": "05",
+        "subdivis_1": "45242",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2317,
+        "search_string": "    alwar nagar"
+      },
+      "bbox": [
+        78.0459,
+        9.9304,
+        78.0459,
+        9.9304
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0202,
+          9.8639
+        ]
+      },
+      "properties": {
+        "section_na": "DISTRIBUTION KAPPALUR",
+        "section_co": "143",
+        "subdivisio": "KAPPALUR",
+        "region_id": "05",
+        "subdivis_1": "45222",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2318,
+        "search_string": "    distribution kappalur"
+      },
+      "bbox": [
+        78.0202,
+        9.8639,
+        78.0202,
+        9.8639
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0907,
+          10.0471
+        ]
+      },
+      "properties": {
+        "section_na": "ALANGANALLUR",
+        "section_co": "166",
+        "subdivisio": "SAMAYANALLUR",
+        "region_id": "05",
+        "subdivis_1": "45231",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2319,
+        "search_string": "    alanganallur"
+      },
+      "bbox": [
+        78.0907,
+        10.0471,
+        78.0907,
+        10.0471
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1108,
+          10.1086
+        ]
+      },
+      "properties": {
+        "section_na": "PALAMEDU",
+        "section_co": "168",
+        "subdivisio": "SAMAYANALLUR",
+        "region_id": "05",
+        "subdivis_1": "45231",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2320,
+        "search_string": "    palamedu"
+      },
+      "bbox": [
+        78.1108,
+        10.1086,
+        78.1108,
+        10.1086
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.966,
+          10.0147
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL SHOLAVANDAN",
+        "section_co": "160",
+        "subdivisio": "VADIPATTY",
+        "region_id": "05",
+        "subdivis_1": "45232",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2321,
+        "search_string": "    rural sholavandan"
+      },
+      "bbox": [
+        77.966,
+        10.0147,
+        77.966,
+        10.0147
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8485,
+          9.7113
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL T.KALLUPATTY",
+        "section_co": "140",
+        "subdivisio": "T.KALLUPATTY",
+        "region_id": "05",
+        "subdivis_1": "45223",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2322,
+        "search_string": "    rural t.kallupatty"
+      },
+      "bbox": [
+        77.8485,
+        9.7113,
+        77.8485,
+        9.7113
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.978,
+          9.83
+        ]
+      },
+      "properties": {
+        "section_na": "EAST THIRUMANGALAM",
+        "section_co": "137",
+        "subdivisio": "KAPPALUR",
+        "region_id": "05",
+        "subdivis_1": "45222",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2323,
+        "search_string": "    east thirumangalam"
+      },
+      "bbox": [
+        77.978,
+        9.83,
+        77.978,
+        9.83
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6909,
+          9.8586
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN ELUMALAI",
+        "section_co": "191",
+        "subdivisio": "ELUMALAI",
+        "region_id": "05",
+        "subdivis_1": "45243",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2324,
+        "search_string": "    town elumalai"
+      },
+      "bbox": [
+        77.6909,
+        9.8586,
+        77.6909,
+        9.8586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9661,
+          10.0146
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN SHOLAVANDAN",
+        "section_co": "158",
+        "subdivisio": "VADIPATTY",
+        "region_id": "05",
+        "subdivis_1": "45232",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2325,
+        "search_string": "    town sholavandan"
+      },
+      "bbox": [
+        77.9661,
+        10.0146,
+        77.9661,
+        10.0146
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8723,
+          9.9518
+        ]
+      },
+      "properties": {
+        "section_na": "VALANDUR",
+        "section_co": "178",
+        "subdivisio": "CHECKANOORNI",
+        "region_id": "05",
+        "subdivis_1": "45242",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2326,
+        "search_string": "    valandur"
+      },
+      "bbox": [
+        77.8723,
+        9.9518,
+        77.8723,
+        9.9518
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9793,
+          10.0691
+        ]
+      },
+      "properties": {
+        "section_na": "VADIPATTY",
+        "section_co": "156",
+        "subdivisio": "VADIPATTY",
+        "region_id": "05",
+        "subdivis_1": "45232",
+        "division_n": "SAMAYANALLUR DIV.",
+        "division_c": "4523",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2327,
+        "search_string": "    vadipatty"
+      },
+      "bbox": [
+        77.9793,
+        10.0691,
+        77.9793,
+        10.0691
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8043,
+          9.9619
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL NORTH USILAMPATTY",
+        "section_co": "184",
+        "subdivisio": "TOWN USILAMPATTY",
+        "region_id": "05",
+        "subdivis_1": "45241",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2328,
+        "search_string": "    rural north usilampatty"
+      },
+      "bbox": [
+        77.8043,
+        9.9619,
+        77.8043,
+        9.9619
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6909,
+          9.8586
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL ELUMALAI",
+        "section_co": "192",
+        "subdivisio": "ELUMALAI",
+        "region_id": "05",
+        "subdivis_1": "45243",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2329,
+        "search_string": "    rural elumalai"
+      },
+      "bbox": [
+        77.6909,
+        9.8586,
+        77.6909,
+        9.8586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9778,
+          9.8265
+        ]
+      },
+      "properties": {
+        "section_na": "SENGULAM",
+        "section_co": "135",
+        "subdivisio": "THIRUMANGALAM",
+        "region_id": "05",
+        "subdivis_1": "45221",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2330,
+        "search_string": "    sengulam"
+      },
+      "bbox": [
+        77.9778,
+        9.8265,
+        77.9778,
+        9.8265
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9776,
+          9.8266
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH THIRUMANGALAM",
+        "section_co": "133",
+        "subdivisio": "THIRUMANGALAM",
+        "region_id": "05",
+        "subdivis_1": "45221",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2331,
+        "search_string": "    south thirumangalam"
+      },
+      "bbox": [
+        77.9776,
+        9.8266,
+        77.9776,
+        9.8266
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3366,
+          10.0301
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL EAST MELUR",
+        "section_co": "111",
+        "subdivisio": "NORTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45213",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2332,
+        "search_string": "    rural east melur"
+      },
+      "bbox": [
+        78.3366,
+        10.0301,
+        78.3366,
+        10.0301
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3743,
+          10.2045
+        ]
+      },
+      "properties": {
+        "section_na": "KOTTAMPATTY",
+        "section_co": "114",
+        "subdivisio": "NORTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45213",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2333,
+        "search_string": "    kottampatty"
+      },
+      "bbox": [
+        78.3743,
+        10.2045,
+        78.3743,
+        10.2045
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3355,
+          10.0267
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL WEST MELUR",
+        "section_co": "115",
+        "subdivisio": "SOUTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45214",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2334,
+        "search_string": "    rural west melur"
+      },
+      "bbox": [
+        78.3355,
+        10.0267,
+        78.3355,
+        10.0267
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9758,
+          9.9389
+        ]
+      },
+      "properties": {
+        "section_na": "CHECKANOORNI",
+        "section_co": "176",
+        "subdivisio": "CHECKANOORNI",
+        "region_id": "05",
+        "subdivis_1": "45242",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2335,
+        "search_string": "    checkanoorni"
+      },
+      "bbox": [
+        77.9758,
+        9.9389,
+        77.9758,
+        9.9389
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8701,
+          9.8733
+        ]
+      },
+      "properties": {
+        "section_na": "SINDUPATTY",
+        "section_co": "177",
+        "subdivisio": "TOWN USILAMPATTY",
+        "region_id": "05",
+        "subdivis_1": "45241",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2336,
+        "search_string": "    sindupatty"
+      },
+      "bbox": [
+        77.8701,
+        9.8733,
+        77.8701,
+        9.8733
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2286,
+          9.9148
+        ]
+      },
+      "properties": {
+        "section_na": "URANGANPATTY",
+        "section_co": "120",
+        "subdivisio": "OTHAKADAI",
+        "region_id": "05",
+        "subdivis_1": "45212",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2337,
+        "search_string": "    uranganpatty"
+      },
+      "bbox": [
+        78.2286,
+        9.9148,
+        78.2286,
+        9.9148
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8043,
+          9.9619
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN USILAMPATTY",
+        "section_co": "183",
+        "subdivisio": "TOWN USILAMPATTY",
+        "region_id": "05",
+        "subdivis_1": "45241",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2338,
+        "search_string": "    town usilampatty"
+      },
+      "bbox": [
+        77.8043,
+        9.9619,
+        77.8043,
+        9.9619
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9778,
+          9.8265
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN THIRUMANGALAM",
+        "section_co": "131",
+        "subdivisio": "THIRUMANGALAM",
+        "region_id": "05",
+        "subdivis_1": "45221",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2339,
+        "search_string": "    town thirumangalam"
+      },
+      "bbox": [
+        77.9778,
+        9.8265,
+        77.9778,
+        9.8265
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2156,
+          10.0709
+        ]
+      },
+      "properties": {
+        "section_na": "ALAGARKOVIL",
+        "section_co": "109",
+        "subdivisio": "SOUTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45214",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2340,
+        "search_string": "    alagarkovil"
+      },
+      "bbox": [
+        78.2156,
+        10.0709,
+        78.2156,
+        10.0709
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1711,
+          9.983
+        ]
+      },
+      "properties": {
+        "section_na": "KADACHANENDAL",
+        "section_co": "108",
+        "subdivisio": "OTHAKADAI",
+        "region_id": "05",
+        "subdivis_1": "45212",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2341,
+        "search_string": "    kadachanendal"
+      },
+      "bbox": [
+        78.1711,
+        9.983,
+        78.1711,
+        9.983
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3597,
+          10.1595
+        ]
+      },
+      "properties": {
+        "section_na": "KARUNGALAKUDY",
+        "section_co": "113",
+        "subdivisio": "NORTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45213",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2342,
+        "search_string": "    karungalakudy"
+      },
+      "bbox": [
+        78.3597,
+        10.1595,
+        78.3597,
+        10.1595
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1789,
+          9.9317
+        ]
+      },
+      "properties": {
+        "section_na": "KARUPPAYURNI",
+        "section_co": "105",
+        "subdivisio": "OTHAKADAI",
+        "region_id": "05",
+        "subdivis_1": "45212",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2343,
+        "search_string": "    karuppayurni"
+      },
+      "bbox": [
+        78.1789,
+        9.9317,
+        78.1789,
+        9.9317
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3833,
+          10.0477
+        ]
+      },
+      "properties": {
+        "section_na": "KEELAIYUR",
+        "section_co": "112",
+        "subdivisio": "NORTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45213",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2344,
+        "search_string": "    keelaiyur"
+      },
+      "bbox": [
+        78.3833,
+        10.0477,
+        78.3833,
+        10.0477
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2597,
+          9.9999
+        ]
+      },
+      "properties": {
+        "section_na": "NARASINGAMPATTY",
+        "section_co": "117",
+        "subdivisio": "SOUTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45214",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2345,
+        "search_string": "    narasingampatty"
+      },
+      "bbox": [
+        78.2597,
+        9.9999,
+        78.2597,
+        9.9999
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1528,
+          9.8794
+        ]
+      },
+      "properties": {
+        "section_na": "PANAIYUR",
+        "section_co": "122",
+        "subdivisio": "AIRPORT",
+        "region_id": "05",
+        "subdivis_1": "45215",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2346,
+        "search_string": "    panaiyur"
+      },
+      "bbox": [
+        78.1528,
+        9.8794,
+        78.1528,
+        9.8794
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3355,
+          10.0267
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL SOUTH MELUR",
+        "section_co": "116",
+        "subdivisio": "SOUTH MELUR",
+        "region_id": "05",
+        "subdivis_1": "45214",
+        "division_n": "EAST MADURAI DIV.",
+        "division_c": "4521",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2347,
+        "search_string": "    rural south melur"
+      },
+      "bbox": [
+        78.3355,
+        10.0267,
+        78.3355,
+        10.0267
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9924,
+          9.8307
+        ]
+      },
+      "properties": {
+        "section_na": "WEST THIRUMANGALAM",
+        "section_co": "138",
+        "subdivisio": "KAPPALUR",
+        "region_id": "05",
+        "subdivis_1": "45222",
+        "division_n": "THIRUMANGALAM DIV.",
+        "division_c": "4522",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2348,
+        "search_string": "    west thirumangalam"
+      },
+      "bbox": [
+        77.9924,
+        9.8307,
+        77.9924,
+        9.8307
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6758,
+          9.8242
+        ]
+      },
+      "properties": {
+        "section_na": "M.KALLUPATTY",
+        "section_co": "190",
+        "subdivisio": "ELUMALAI",
+        "region_id": "05",
+        "subdivis_1": "45243",
+        "division_n": "USILAMPATTY DIV.",
+        "division_c": "4524",
+        "circle_nam": "MADURAI",
+        "circle_cod": "0452",
+        "region_nam": "madurai",
+        "object_id": 2349,
+        "search_string": "    m.kallupatty"
+      },
+      "bbox": [
+        77.6758,
+        9.8242,
+        77.6758,
+        9.8242
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1135,
+          9.9103
+        ]
+      },
+      "properties": {
+        "section_na": "JANCI",
+        "section_co": "034",
+        "subdivisio": "KOVIL",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee2",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2453,
+        "search_string": "    janci"
+      },
+      "bbox": [
+        78.1135,
+        9.9103,
+        78.1135,
+        9.9103
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0966,
+          9.9666
+        ]
+      },
+      "properties": {
+        "section_na": "VILANGUDI",
+        "section_co": "044",
+        "subdivisio": "NORTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee1",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2454,
+        "search_string": "    vilangudi"
+      },
+      "bbox": [
+        78.0966,
+        9.9666,
+        78.0966,
+        9.9666
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1255,
+          9.9311
+        ]
+      },
+      "properties": {
+        "section_na": "SELLUR",
+        "section_co": "003",
+        "subdivisio": "THAMUKKAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee1",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2455,
+        "search_string": "    sellur"
+      },
+      "bbox": [
+        78.1255,
+        9.9311,
+        78.1255,
+        9.9311
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1255,
+          9.9311
+        ]
+      },
+      "properties": {
+        "section_na": "TAGORE NAGAR",
+        "section_co": "004",
+        "subdivisio": "THAMUKKAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee1",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2456,
+        "search_string": "    tagore nagar"
+      },
+      "bbox": [
+        78.1255,
+        9.9311,
+        78.1255,
+        9.9311
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1449,
+          9.9427
+        ]
+      },
+      "properties": {
+        "section_na": "K. PUDUR",
+        "section_co": "006",
+        "subdivisio": "K.PUDUR",
+        "region_id": "05",
+        "subdivis_1": "mdm006ae",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2457,
+        "search_string": "    k. pudur"
+      },
+      "bbox": [
+        78.1449,
+        9.9427,
+        78.1449,
+        9.9427
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.141,
+          9.9772
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUPPALAI",
+        "section_co": "015",
+        "subdivisio": "THIRUPPALAI",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee7",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2458,
+        "search_string": "    thiruppalai"
+      },
+      "bbox": [
+        78.141,
+        9.9772,
+        78.141,
+        9.9772
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1459,
+          9.9582
+        ]
+      },
+      "properties": {
+        "section_na": "ATHIKULAM",
+        "section_co": "017",
+        "subdivisio": "THIRUPPALAI",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee7",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2459,
+        "search_string": "    athikulam"
+      },
+      "bbox": [
+        78.1459,
+        9.9582,
+        78.1459,
+        9.9582
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1135,
+          9.9098
+        ]
+      },
+      "properties": {
+        "section_na": "SUBRAMANIAPURAM",
+        "section_co": "021",
+        "subdivisio": "SUBRAMANIAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee1",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2460,
+        "search_string": "    subramaniapuram"
+      },
+      "bbox": [
+        78.1135,
+        9.9098,
+        78.1135,
+        9.9098
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1132,
+          9.9297
+        ]
+      },
+      "properties": {
+        "section_na": "ARAPALAYAM",
+        "section_co": "022",
+        "subdivisio": "SUBRAMANIAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee1",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2461,
+        "search_string": "    arapalayam"
+      },
+      "bbox": [
+        78.1132,
+        9.9297,
+        78.1132,
+        9.9297
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1187,
+          9.9249
+        ]
+      },
+      "properties": {
+        "section_na": "TAMILSANGAM",
+        "section_co": "024",
+        "subdivisio": "SUBRAMANIAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee1",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2462,
+        "search_string": "    tamilsangam"
+      },
+      "bbox": [
+        78.1187,
+        9.9249,
+        78.1187,
+        9.9249
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0951,
+          9.9069
+        ]
+      },
+      "properties": {
+        "section_na": "PALANGANATHAM",
+        "section_co": "048",
+        "subdivisio": "SOUTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee2",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2463,
+        "search_string": "    palanganatham"
+      },
+      "bbox": [
+        78.0951,
+        9.9069,
+        78.0951,
+        9.9069
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0993,
+          9.9286
+        ]
+      },
+      "properties": {
+        "section_na": "SS COLONY",
+        "section_co": "050",
+        "subdivisio": "SOUTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee2",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2464,
+        "search_string": "    ss colony"
+      },
+      "bbox": [
+        78.0993,
+        9.9286,
+        78.0993,
+        9.9286
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0944,
+          9.8984
+        ]
+      },
+      "properties": {
+        "section_na": "TVS NAGAR",
+        "section_co": "052",
+        "subdivisio": "VILLAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee3",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2465,
+        "search_string": "    tvs nagar"
+      },
+      "bbox": [
+        78.0944,
+        9.8984,
+        78.0944,
+        9.8984
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.117,
+          9.9058
+        ]
+      },
+      "properties": {
+        "section_na": "JAIHINDPURAM",
+        "section_co": "055",
+        "subdivisio": "VILLAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee3",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2466,
+        "search_string": "    jaihindpuram"
+      },
+      "bbox": [
+        78.117,
+        9.9058,
+        78.117,
+        9.9058
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.122,
+          9.926
+        ]
+      },
+      "properties": {
+        "section_na": "YANAIKKAL",
+        "section_co": "026",
+        "subdivisio": "SUBRAMANIAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee1",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2467,
+        "search_string": "    yanaikkal"
+      },
+      "bbox": [
+        78.122,
+        9.926,
+        78.122,
+        9.926
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1158,
+          9.8895
+        ]
+      },
+      "properties": {
+        "section_na": "AVANIAPURAM",
+        "section_co": "064",
+        "subdivisio": "VILLAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee3",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2468,
+        "search_string": "    avaniapuram"
+      },
+      "bbox": [
+        78.1158,
+        9.8895,
+        78.1158,
+        9.8895
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1172,
+          9.906
+        ]
+      },
+      "properties": {
+        "section_na": "VILLAPURAM",
+        "section_co": "066",
+        "subdivisio": "VILLAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee3",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2469,
+        "search_string": "    villapuram"
+      },
+      "bbox": [
+        78.1172,
+        9.906,
+        78.1172,
+        9.906
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1276,
+          9.9409
+        ]
+      },
+      "properties": {
+        "section_na": "CHOKKIKULAM",
+        "section_co": "005",
+        "subdivisio": "THAMUKKAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee1",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2470,
+        "search_string": "    chokkikulam"
+      },
+      "bbox": [
+        78.1276,
+        9.9409,
+        78.1276,
+        9.9409
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1439,
+          9.9438
+        ]
+      },
+      "properties": {
+        "section_na": "RACE COURSE",
+        "section_co": "002",
+        "subdivisio": "THAMUKKAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee1",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2471,
+        "search_string": "    race course"
+      },
+      "bbox": [
+        78.1439,
+        9.9438,
+        78.1439,
+        9.9438
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1394,
+          9.9125
+        ]
+      },
+      "properties": {
+        "section_na": "THEPPAM",
+        "section_co": "027",
+        "subdivisio": "THEPPAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee3",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2472,
+        "search_string": "    theppam"
+      },
+      "bbox": [
+        78.1394,
+        9.9125,
+        78.1394,
+        9.9125
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1393,
+          9.9125
+        ]
+      },
+      "properties": {
+        "section_na": "MUNICHALAI",
+        "section_co": "028",
+        "subdivisio": "THEPPAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee3",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2473,
+        "search_string": "    munichalai"
+      },
+      "bbox": [
+        78.1393,
+        9.9125,
+        78.1393,
+        9.9125
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1393,
+          9.9126
+        ]
+      },
+      "properties": {
+        "section_na": "KEELAVASAL",
+        "section_co": "029",
+        "subdivisio": "THEPPAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee3",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2474,
+        "search_string": "    keelavasal"
+      },
+      "bbox": [
+        78.1393,
+        9.9126,
+        78.1393,
+        9.9126
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1203,
+          9.9215
+        ]
+      },
+      "properties": {
+        "section_na": "KOVIL",
+        "section_co": "031",
+        "subdivisio": "KOVIL",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee2",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2475,
+        "search_string": "    kovil"
+      },
+      "bbox": [
+        78.1203,
+        9.9215,
+        78.1203,
+        9.9215
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0998,
+          9.9285
+        ]
+      },
+      "properties": {
+        "section_na": "WEST ARASARADI",
+        "section_co": "045",
+        "subdivisio": "NORTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee1",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2476,
+        "search_string": "    west arasaradi"
+      },
+      "bbox": [
+        78.0998,
+        9.9285,
+        78.0998,
+        9.9285
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0996,
+          9.9284
+        ]
+      },
+      "properties": {
+        "section_na": "PP CHAVADI",
+        "section_co": "046",
+        "subdivisio": "NORTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee1",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2477,
+        "search_string": "    pp chavadi"
+      },
+      "bbox": [
+        78.0996,
+        9.9284,
+        78.0996,
+        9.9284
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1257,
+          9.9146
+        ]
+      },
+      "properties": {
+        "section_na": "MAHAL",
+        "section_co": "032",
+        "subdivisio": "KOVIL",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee2",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2478,
+        "search_string": "    mahal"
+      },
+      "bbox": [
+        78.1257,
+        9.9146,
+        78.1257,
+        9.9146
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0562,
+          9.8859
+        ]
+      },
+      "properties": {
+        "section_na": "PASUMALAI",
+        "section_co": "051",
+        "subdivisio": "SOUTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee2",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2479,
+        "search_string": "    pasumalai"
+      },
+      "bbox": [
+        78.0562,
+        9.8859,
+        78.0562,
+        9.8859
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0682,
+          9.8825
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUPARANKUNDRAM",
+        "section_co": "053",
+        "subdivisio": "SOUTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee2",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2480,
+        "search_string": "    thiruparankundram"
+      },
+      "bbox": [
+        78.0682,
+        9.8825,
+        78.0682,
+        9.8825
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1172,
+          9.9059
+        ]
+      },
+      "properties": {
+        "section_na": "JEEVA NAGAR",
+        "section_co": "056",
+        "subdivisio": "VILLAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee3",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2481,
+        "search_string": "    jeeva nagar"
+      },
+      "bbox": [
+        78.1172,
+        9.9059,
+        78.1172,
+        9.9059
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0996,
+          9.9283
+        ]
+      },
+      "properties": {
+        "section_na": "GANAOLIPURAM",
+        "section_co": "057",
+        "subdivisio": "NORTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee1",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2482,
+        "search_string": "    ganaolipuram"
+      },
+      "bbox": [
+        78.0996,
+        9.9283,
+        78.0996,
+        9.9283
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1229,
+          9.9066
+        ]
+      },
+      "properties": {
+        "section_na": "MAHALIPATTY",
+        "section_co": "033",
+        "subdivisio": "KOVIL",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee2",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2483,
+        "search_string": "    mahalipatty"
+      },
+      "bbox": [
+        78.1229,
+        9.9066,
+        78.1229,
+        9.9066
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.144,
+          9.9322
+        ]
+      },
+      "properties": {
+        "section_na": "KK NAGAR",
+        "section_co": "007",
+        "subdivisio": "KK NAGAR",
+        "region_id": "05",
+        "subdivis_1": "mdm007ae",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2484,
+        "search_string": "    kk nagar"
+      },
+      "bbox": [
+        78.144,
+        9.9322,
+        78.144,
+        9.9322
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1312,
+          9.9159
+        ]
+      },
+      "properties": {
+        "section_na": "ARASAMARAM",
+        "section_co": "036",
+        "subdivisio": "KOVIL",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee2",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2485,
+        "search_string": "    arasamaram"
+      },
+      "bbox": [
+        78.1312,
+        9.9159,
+        78.1312,
+        9.9159
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.144,
+          9.9322
+        ]
+      },
+      "properties": {
+        "section_na": "ANNA NAGAR",
+        "section_co": "008",
+        "subdivisio": "ANNA NAGAR",
+        "region_id": "05",
+        "subdivis_1": "mdm008ae",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2486,
+        "search_string": "    anna nagar"
+      },
+      "bbox": [
+        78.144,
+        9.9322,
+        78.144,
+        9.9322
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1541,
+          9.9252
+        ]
+      },
+      "properties": {
+        "section_na": "MELAMADAI",
+        "section_co": "009",
+        "subdivisio": "MELAMADAI",
+        "region_id": "05",
+        "subdivis_1": "mdm009ae",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2487,
+        "search_string": "    melamadai"
+      },
+      "bbox": [
+        78.1541,
+        9.9252,
+        78.1541,
+        9.9252
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1224,
+          9.9506
+        ]
+      },
+      "properties": {
+        "section_na": "ANAIYUR",
+        "section_co": "016",
+        "subdivisio": "THIRUPPALAI",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee7",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2488,
+        "search_string": "    anaiyur"
+      },
+      "bbox": [
+        78.1224,
+        9.9506,
+        78.1224,
+        9.9506
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1452,
+          9.9009
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL ANUPANADI",
+        "section_co": "037",
+        "subdivisio": "THEPPAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee3",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2489,
+        "search_string": "    rural anupanadi"
+      },
+      "bbox": [
+        78.1452,
+        9.9009,
+        78.1452,
+        9.9009
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1328,
+          9.9306
+        ]
+      },
+      "properties": {
+        "section_na": "THAMUKKAM SECTION OFFICE",
+        "section_co": "001",
+        "subdivisio": "THAMUKKAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4631aee1",
+        "division_n": "EE North",
+        "division_c": "mdm4631ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2490,
+        "search_string": "    thamukkam section office"
+      },
+      "bbox": [
+        78.1328,
+        9.9306,
+        78.1328,
+        9.9306
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1065,
+          9.9171
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN HALL",
+        "section_co": "025",
+        "subdivisio": "SUBRAMANIAPURAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee1",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2491,
+        "search_string": "    town hall"
+      },
+      "bbox": [
+        78.1065,
+        9.9171,
+        78.1065,
+        9.9171
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1452,
+          9.9009
+        ]
+      },
+      "properties": {
+        "section_na": "CHINTHAMANI",
+        "section_co": "038",
+        "subdivisio": "THEPPAM",
+        "region_id": "05",
+        "subdivis_1": "mdm4632aee3",
+        "division_n": "EE South",
+        "division_c": "mdm4632ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2492,
+        "search_string": "    chinthamani"
+      },
+      "bbox": [
+        78.1452,
+        9.9009,
+        78.1452,
+        9.9009
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0996,
+          9.9284
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH ARASARADY",
+        "section_co": "041",
+        "subdivisio": "NORTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee1",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2493,
+        "search_string": "    north arasarady"
+      },
+      "bbox": [
+        78.0996,
+        9.9284,
+        78.0996,
+        9.9284
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0998,
+          9.9284
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH ARASARADY",
+        "section_co": "042",
+        "subdivisio": "SOUTH ARASARADY",
+        "region_id": "05",
+        "subdivis_1": "mdm4633aee2",
+        "division_n": "EE West",
+        "division_c": "mdm4633ee",
+        "circle_nam": "Madurai Metro",
+        "circle_cod": "0463",
+        "region_nam": "Madurai",
+        "object_id": 2494,
+        "search_string": "    south arasarady"
+      },
+      "bbox": [
+        78.0998,
+        9.9284,
+        78.0998,
+        9.9284
+      ]
+    }
+  ]
+}

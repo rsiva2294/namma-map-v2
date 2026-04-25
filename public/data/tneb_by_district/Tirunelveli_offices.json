@@ -1,0 +1,1625 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7388,
+          8.6648
+        ]
+      },
+      "properties": {
+        "section_na": "REDDIARPATTI",
+        "section_co": "093",
+        "subdivisio": "JUNCTION",
+        "region_id": "07",
+        "subdivis_1": "47211",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2551,
+        "search_string": "    reddiarpatti"
+      },
+      "bbox": [
+        77.7388,
+        8.6648,
+        77.7388,
+        8.6648
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7525,
+          8.7334
+        ]
+      },
+      "properties": {
+        "section_na": "SANTHINAGAR",
+        "section_co": "094",
+        "subdivisio": "PALAYAMKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "47212",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2552,
+        "search_string": "    santhinagar"
+      },
+      "bbox": [
+        77.7525,
+        8.7334,
+        77.7525,
+        8.7334
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6372,
+          8.7112
+        ]
+      },
+      "properties": {
+        "section_na": "SUTHAMALLI",
+        "section_co": "095",
+        "subdivisio": "RURAL / TIRUNELVELI",
+        "region_id": "07",
+        "subdivis_1": "47221",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2553,
+        "search_string": "    suthamalli"
+      },
+      "bbox": [
+        77.6372,
+        8.7112,
+        77.6372,
+        8.7112
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7183,
+          8.7941
+        ]
+      },
+      "properties": {
+        "section_na": "THALAIYUTHU TOWN II",
+        "section_co": "096",
+        "subdivisio": "THALAIYUTHU",
+        "region_id": "07",
+        "subdivis_1": "47222",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2554,
+        "search_string": "    thalaiyuthu town ii"
+      },
+      "bbox": [
+        77.7183,
+        8.7941,
+        77.7183,
+        8.7941
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7157,
+          8.7249
+        ]
+      },
+      "properties": {
+        "section_na": "JUNCTION",
+        "section_co": "001",
+        "subdivisio": "JUNCTION",
+        "region_id": "07",
+        "subdivis_1": "47211",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2556,
+        "search_string": "    junction"
+      },
+      "bbox": [
+        77.7157,
+        8.7249,
+        77.7157,
+        8.7249
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7535,
+          8.7017
+        ]
+      },
+      "properties": {
+        "section_na": "MAHARAJANAGAR",
+        "section_co": "003",
+        "subdivisio": "JUNCTION",
+        "region_id": "07",
+        "subdivis_1": "47211",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2557,
+        "search_string": "    maharajanagar"
+      },
+      "bbox": [
+        77.7535,
+        8.7017,
+        77.7535,
+        8.7017
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7135,
+          8.6889
+        ]
+      },
+      "properties": {
+        "section_na": "MELAPALAYAM II",
+        "section_co": "005",
+        "subdivisio": "JUNCTION",
+        "region_id": "07",
+        "subdivis_1": "47211",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2558,
+        "search_string": "    melapalayam ii"
+      },
+      "bbox": [
+        77.7135,
+        8.6889,
+        77.7135,
+        8.6889
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7435,
+          8.726
+        ]
+      },
+      "properties": {
+        "section_na": "SAMATHANAPURAM",
+        "section_co": "010",
+        "subdivisio": "PALAYAMKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "47212",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2559,
+        "search_string": "    samathanapuram"
+      },
+      "bbox": [
+        77.7435,
+        8.726,
+        77.7435,
+        8.726
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7762,
+          8.7142
+        ]
+      },
+      "properties": {
+        "section_na": "V.M.CHATRAM",
+        "section_co": "011",
+        "subdivisio": "PALAYAMKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "47212",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2560,
+        "search_string": "    v.m.chatram"
+      },
+      "bbox": [
+        77.7762,
+        8.7142,
+        77.7762,
+        8.7142
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6677,
+          8.7389
+        ]
+      },
+      "properties": {
+        "section_na": "PALAYAPETTAI",
+        "section_co": "008",
+        "subdivisio": "TOWN",
+        "region_id": "07",
+        "subdivis_1": "47213",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2561,
+        "search_string": "    palayapettai"
+      },
+      "bbox": [
+        77.6677,
+        8.7389,
+        77.6677,
+        8.7389
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6575,
+          8.7199
+        ]
+      },
+      "properties": {
+        "section_na": "PETTAI",
+        "section_co": "009",
+        "subdivisio": "TOWN",
+        "region_id": "07",
+        "subdivis_1": "47213",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2562,
+        "search_string": "    pettai"
+      },
+      "bbox": [
+        77.6575,
+        8.7199,
+        77.6575,
+        8.7199
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7126,
+          8.77
+        ]
+      },
+      "properties": {
+        "section_na": "THACHANALLUR",
+        "section_co": "007",
+        "subdivisio": "TOWN",
+        "region_id": "07",
+        "subdivis_1": "47213",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2563,
+        "search_string": "    thachanallur"
+      },
+      "bbox": [
+        77.7126,
+        8.77,
+        77.7126,
+        8.77
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7339,
+          8.7026
+        ]
+      },
+      "properties": {
+        "section_na": "PERUMALPURAM",
+        "section_co": "002",
+        "subdivisio": "PERUMALPURAM",
+        "region_id": "07",
+        "subdivis_1": "47215",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2564,
+        "search_string": "    perumalpuram"
+      },
+      "bbox": [
+        77.7339,
+        8.7026,
+        77.7339,
+        8.7026
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5671,
+          8.5076
+        ]
+      },
+      "properties": {
+        "section_na": "KALAKAD TOWN",
+        "section_co": "077",
+        "subdivisio": "ERUVADI",
+        "region_id": "07",
+        "subdivis_1": "47263",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2568,
+        "search_string": "    kalakad town"
+      },
+      "bbox": [
+        77.5671,
+        8.5076,
+        77.5671,
+        8.5076
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5668,
+          8.5078
+        ]
+      },
+      "properties": {
+        "section_na": "KALAKAD RURAL",
+        "section_co": "078",
+        "subdivisio": "ERUVADI",
+        "region_id": "07",
+        "subdivis_1": "47263",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2569,
+        "search_string": "    kalakad rural"
+      },
+      "bbox": [
+        77.5668,
+        8.5078,
+        77.5668,
+        8.5078
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5655,
+          8.4346
+        ]
+      },
+      "properties": {
+        "section_na": "TIRUKKURUNGUDI",
+        "section_co": "079",
+        "subdivisio": "ERUVADI",
+        "region_id": "07",
+        "subdivis_1": "47263",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2571,
+        "search_string": "    tirukkurungudi"
+      },
+      "bbox": [
+        77.5655,
+        8.4346,
+        77.5655,
+        8.4346
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7503,
+          8.3436
+        ]
+      },
+      "properties": {
+        "section_na": "KOTTAIKARUNKULAM",
+        "section_co": "075",
+        "subdivisio": "THISAYANVILAI",
+        "region_id": "07",
+        "subdivis_1": "47264",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2575,
+        "search_string": "    kottaikarunkulam"
+      },
+      "bbox": [
+        77.7503,
+        8.3436,
+        77.7503,
+        8.3436
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6025,
+          8.4319
+        ]
+      },
+      "properties": {
+        "section_na": "ERUVADI",
+        "section_co": "076",
+        "subdivisio": "ERUVADI",
+        "region_id": "07",
+        "subdivis_1": "47263",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2593,
+        "search_string": "    eruvadi"
+      },
+      "bbox": [
+        77.6025,
+        8.4319,
+        77.6025,
+        8.4319
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7138,
+          8.703
+        ]
+      },
+      "properties": {
+        "section_na": "MELAPALAYAM I",
+        "section_co": "004",
+        "subdivisio": "JUNCTION",
+        "region_id": "07",
+        "subdivis_1": "47211",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2594,
+        "search_string": "    melapalayam i"
+      },
+      "bbox": [
+        77.7138,
+        8.703,
+        77.7138,
+        8.703
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7435,
+          8.726
+        ]
+      },
+      "properties": {
+        "section_na": "VANNARPETTAI",
+        "section_co": "012",
+        "subdivisio": "PALAYAMKOTTAI",
+        "region_id": "07",
+        "subdivis_1": "47212",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2595,
+        "search_string": "    vannarpettai"
+      },
+      "bbox": [
+        77.7435,
+        8.726,
+        77.7435,
+        8.726
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6981,
+          8.7299
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN",
+        "section_co": "006",
+        "subdivisio": "TOWN",
+        "region_id": "07",
+        "subdivis_1": "47216",
+        "division_n": "URBAN/TIRUNELVELI",
+        "division_c": "4721",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2596,
+        "search_string": "    town"
+      },
+      "bbox": [
+        77.6981,
+        8.7299,
+        77.6981,
+        8.7299
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6675,
+          8.7391
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL NORTH / TIRUNELVELI",
+        "section_co": "013",
+        "subdivisio": "RURAL / TIRUNELVELI",
+        "region_id": "07",
+        "subdivis_1": "47221",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2597,
+        "search_string": "    rural north / tirunelveli"
+      },
+      "bbox": [
+        77.6675,
+        8.7391,
+        77.6675,
+        8.7391
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6528,
+          8.8574
+        ]
+      },
+      "properties": {
+        "section_na": "MANUR",
+        "section_co": "014",
+        "subdivisio": "RURAL / TIRUNELVELI",
+        "region_id": "07",
+        "subdivis_1": "47221",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2598,
+        "search_string": "    manur"
+      },
+      "bbox": [
+        77.6528,
+        8.8574,
+        77.6528,
+        8.8574
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6359,
+          8.9619
+        ]
+      },
+      "properties": {
+        "section_na": "DEVARKULAM",
+        "section_co": "016",
+        "subdivisio": "RURAL / TIRUNELVELI",
+        "region_id": "07",
+        "subdivis_1": "47221",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2599,
+        "search_string": "    devarkulam"
+      },
+      "bbox": [
+        77.6359,
+        8.9619,
+        77.6359,
+        8.9619
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6285,
+          8.9849
+        ]
+      },
+      "properties": {
+        "section_na": "VANNIKONENDAL",
+        "section_co": "015",
+        "subdivisio": "RURAL / TIRUNELVELI",
+        "region_id": "07",
+        "subdivis_1": "47221",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2600,
+        "search_string": "    vannikonendal"
+      },
+      "bbox": [
+        77.6285,
+        8.9849,
+        77.6285,
+        8.9849
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7182,
+          8.7944
+        ]
+      },
+      "properties": {
+        "section_na": "THALAIYUTHU TOWN I",
+        "section_co": "022",
+        "subdivisio": "THALAIYUTHU",
+        "region_id": "07",
+        "subdivis_1": "47222",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2601,
+        "search_string": "    thalaiyuthu town i"
+      },
+      "bbox": [
+        77.7182,
+        8.7944,
+        77.7182,
+        8.7944
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7717,
+          8.8443
+        ]
+      },
+      "properties": {
+        "section_na": "GANGAIKONDAN",
+        "section_co": "023",
+        "subdivisio": "THALAIYUTHU",
+        "region_id": "07",
+        "subdivis_1": "47222",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2602,
+        "search_string": "    gangaikondan"
+      },
+      "bbox": [
+        77.7717,
+        8.8443,
+        77.7717,
+        8.8443
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6564,
+          8.4916
+        ]
+      },
+      "properties": {
+        "section_na": "NANGUNERI TOWN",
+        "section_co": "024",
+        "subdivisio": "NANGUNERI",
+        "region_id": "07",
+        "subdivis_1": "47224",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2607,
+        "search_string": "    nanguneri town"
+      },
+      "bbox": [
+        77.6564,
+        8.4916,
+        77.6564,
+        8.4916
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7311,
+          8.442
+        ]
+      },
+      "properties": {
+        "section_na": "NANGUNERI RURAL",
+        "section_co": "025",
+        "subdivisio": "NANGUNERI",
+        "region_id": "07",
+        "subdivis_1": "47224",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2608,
+        "search_string": "    nanguneri rural"
+      },
+      "bbox": [
+        77.7311,
+        8.442,
+        77.7311,
+        8.442
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7982,
+          8.5177
+        ]
+      },
+      "properties": {
+        "section_na": "MUNANJIPATTI",
+        "section_co": "026",
+        "subdivisio": "NANGUNERI",
+        "region_id": "07",
+        "subdivis_1": "47224",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2609,
+        "search_string": "    munanjipatti"
+      },
+      "bbox": [
+        77.7982,
+        8.5177,
+        77.7982,
+        8.5177
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7736,
+          8.5405
+        ]
+      },
+      "properties": {
+        "section_na": "MOOLAIKARAIPATTI",
+        "section_co": "027",
+        "subdivisio": "NANGUNERI",
+        "region_id": "07",
+        "subdivis_1": "47224",
+        "division_n": "RURAL/TIRUNELVELI",
+        "division_c": "4722",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2610,
+        "search_string": "    moolaikaraipatti"
+      },
+      "bbox": [
+        77.7736,
+        8.5405,
+        77.7736,
+        8.5405
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8135,
+          8.3874
+        ]
+      },
+      "properties": {
+        "section_na": "ITAMOZHI",
+        "section_co": "074",
+        "subdivisio": "THISAYANVILAI",
+        "region_id": "07",
+        "subdivis_1": "47264",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2616,
+        "search_string": "    itamozhi"
+      },
+      "bbox": [
+        77.8135,
+        8.3874,
+        77.8135,
+        8.3874
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8675,
+          8.3412
+        ]
+      },
+      "properties": {
+        "section_na": "THISAYANVILAI RURAL",
+        "section_co": "073",
+        "subdivisio": "THISAYANVILAI",
+        "region_id": "07",
+        "subdivis_1": "47264",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2619,
+        "search_string": "    thisayanvilai rural"
+      },
+      "bbox": [
+        77.8675,
+        8.3412,
+        77.8675,
+        8.3412
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4638,
+          8.6831
+        ]
+      },
+      "properties": {
+        "section_na": "KALLIDAIKURICHI",
+        "section_co": "050",
+        "subdivisio": "KALLIDAIKURICHI",
+        "region_id": "07",
+        "subdivis_1": "47251",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2629,
+        "search_string": "    kallidaikurichi"
+      },
+      "bbox": [
+        77.4638,
+        8.6831,
+        77.4638,
+        8.6831
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5137,
+          8.6871
+        ]
+      },
+      "properties": {
+        "section_na": "VEERAVANALLUR",
+        "section_co": "051",
+        "subdivisio": "KALLIDAIKURICHI",
+        "region_id": "07",
+        "subdivis_1": "47251",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2630,
+        "search_string": "    veeravanallur"
+      },
+      "bbox": [
+        77.5137,
+        8.6871,
+        77.5137,
+        8.6871
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4031,
+          8.711
+        ]
+      },
+      "properties": {
+        "section_na": "VK PURAM TOWN",
+        "section_co": "053",
+        "subdivisio": "VK PURAM",
+        "region_id": "07",
+        "subdivis_1": "47252",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2631,
+        "search_string": "    vk puram town"
+      },
+      "bbox": [
+        77.4031,
+        8.711,
+        77.4031,
+        8.711
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.374,
+          8.7199
+        ]
+      },
+      "properties": {
+        "section_na": "VK PURAM SS",
+        "section_co": "054",
+        "subdivisio": "VK PURAM",
+        "region_id": "07",
+        "subdivis_1": "47252",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2632,
+        "search_string": "    vk puram ss"
+      },
+      "bbox": [
+        77.374,
+        8.7199,
+        77.374,
+        8.7199
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3568,
+          8.7044
+        ]
+      },
+      "properties": {
+        "section_na": "LOWER CAMP",
+        "section_co": "056",
+        "subdivisio": "VK PURAM",
+        "region_id": "07",
+        "subdivis_1": "47252",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2634,
+        "search_string": "    lower camp"
+      },
+      "bbox": [
+        77.3568,
+        8.7044,
+        77.3568,
+        8.7044
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4571,
+          8.7105
+        ]
+      },
+      "properties": {
+        "section_na": "AMBASAMUTHIRAM TOWN",
+        "section_co": "057",
+        "subdivisio": "AMBASAMUTHIRAM",
+        "region_id": "07",
+        "subdivis_1": "47253",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2635,
+        "search_string": "    ambasamuthiram town"
+      },
+      "bbox": [
+        77.4571,
+        8.7105,
+        77.4571,
+        8.7105
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4385,
+          8.7076
+        ]
+      },
+      "properties": {
+        "section_na": "AMBASAMUTHIRAM RURAL",
+        "section_co": "058",
+        "subdivisio": "AMBASAMUTHIRAM",
+        "region_id": "07",
+        "subdivis_1": "47253",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2636,
+        "search_string": "    ambasamuthiram rural"
+      },
+      "bbox": [
+        77.4385,
+        8.7076,
+        77.4385,
+        8.7076
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5075,
+          8.7629
+        ]
+      },
+      "properties": {
+        "section_na": "PAPPAKUDI",
+        "section_co": "059",
+        "subdivisio": "AMBASAMUTHIRAM",
+        "region_id": "07",
+        "subdivis_1": "47253",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2637,
+        "search_string": "    pappakudi"
+      },
+      "bbox": [
+        77.5075,
+        8.7629,
+        77.5075,
+        8.7629
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.563,
+          8.681
+        ]
+      },
+      "properties": {
+        "section_na": "CHERANMAHADEVI",
+        "section_co": "061",
+        "subdivisio": "CHERANMAHADEVI",
+        "region_id": "07",
+        "subdivis_1": "47254",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2639,
+        "search_string": "    cheranmahadevi"
+      },
+      "bbox": [
+        77.563,
+        8.681,
+        77.563,
+        8.681
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6394,
+          8.6738
+        ]
+      },
+      "properties": {
+        "section_na": "GOPALASAMUTHIRAM",
+        "section_co": "062",
+        "subdivisio": "CHERANMAHADEVI",
+        "region_id": "07",
+        "subdivis_1": "47254",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2640,
+        "search_string": "    gopalasamuthiram"
+      },
+      "bbox": [
+        77.6394,
+        8.6738,
+        77.6394,
+        8.6738
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5245,
+          8.7386
+        ]
+      },
+      "properties": {
+        "section_na": "MUKKUDAL",
+        "section_co": "063",
+        "subdivisio": "CHERANMAHADEVI",
+        "region_id": "07",
+        "subdivis_1": "47254",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2641,
+        "search_string": "    mukkudal"
+      },
+      "bbox": [
+        77.5245,
+        8.7386,
+        77.5245,
+        8.7386
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6131,
+          8.3866
+        ]
+      },
+      "properties": {
+        "section_na": "VALLIYOOR",
+        "section_co": "064",
+        "subdivisio": "VALLIYOOR",
+        "region_id": "07",
+        "subdivis_1": "47262",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2642,
+        "search_string": "    valliyoor"
+      },
+      "bbox": [
+        77.6131,
+        8.3866,
+        77.6131,
+        8.3866
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.577,
+          8.311
+        ]
+      },
+      "properties": {
+        "section_na": "PANAGUDI",
+        "section_co": "068",
+        "subdivisio": "PANAGUDI",
+        "region_id": "07",
+        "subdivis_1": "47261",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2643,
+        "search_string": "    panagudi"
+      },
+      "bbox": [
+        77.577,
+        8.311,
+        77.577,
+        8.311
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6054,
+          8.2668
+        ]
+      },
+      "properties": {
+        "section_na": "VADAKKANKULAM",
+        "section_co": "069",
+        "subdivisio": "PANAGUDI",
+        "region_id": "07",
+        "subdivis_1": "47261",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2644,
+        "search_string": "    vadakkankulam"
+      },
+      "bbox": [
+        77.6054,
+        8.2668,
+        77.6054,
+        8.2668
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.663,
+          8.2644
+        ]
+      },
+      "properties": {
+        "section_na": "RADHAPURAM",
+        "section_co": "065",
+        "subdivisio": "VALLIYOOR",
+        "region_id": "07",
+        "subdivis_1": "47262",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2645,
+        "search_string": "    radhapuram"
+      },
+      "bbox": [
+        77.663,
+        8.2644,
+        77.663,
+        8.2644
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6625,
+          8.3503
+        ]
+      },
+      "properties": {
+        "section_na": "KALLIKULAM",
+        "section_co": "066",
+        "subdivisio": "VALLIYOOR",
+        "region_id": "07",
+        "subdivis_1": "47262",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2646,
+        "search_string": "    kallikulam"
+      },
+      "bbox": [
+        77.6625,
+        8.3503,
+        77.6625,
+        8.3503
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.694,
+          8.1897
+        ]
+      },
+      "properties": {
+        "section_na": "KOODANKULAM",
+        "section_co": "067",
+        "subdivisio": "VALLIYOOR",
+        "region_id": "07",
+        "subdivis_1": "47262",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2647,
+        "search_string": "    koodankulam"
+      },
+      "bbox": [
+        77.694,
+        8.1897,
+        77.694,
+        8.1897
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5763,
+          8.236
+        ]
+      },
+      "properties": {
+        "section_na": "PERUNGUDI",
+        "section_co": "071",
+        "subdivisio": "PANAGUDI",
+        "region_id": "07",
+        "subdivis_1": "47261",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2648,
+        "search_string": "    perungudi"
+      },
+      "bbox": [
+        77.5763,
+        8.236,
+        77.5763,
+        8.236
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5712,
+          8.1563
+        ]
+      },
+      "properties": {
+        "section_na": "LEVENJIPURAM",
+        "section_co": "070",
+        "subdivisio": "PANAGUDI",
+        "region_id": "07",
+        "subdivis_1": "47261",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2649,
+        "search_string": "    levenjipuram"
+      },
+      "bbox": [
+        77.5712,
+        8.1563,
+        77.5712,
+        8.1563
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8675,
+          8.3412
+        ]
+      },
+      "properties": {
+        "section_na": "THISAYANVILAI TOWN",
+        "section_co": "072",
+        "subdivisio": "THISAYANVILAI",
+        "region_id": "07",
+        "subdivis_1": "47264",
+        "division_n": "VALLIYOOR",
+        "division_c": "4726",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2650,
+        "search_string": "    thisayanvilai town"
+      },
+      "bbox": [
+        77.8675,
+        8.3412,
+        77.8675,
+        8.3412
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4076,
+          8.5694
+        ]
+      },
+      "properties": {
+        "section_na": "MANJOLAI",
+        "section_co": "052",
+        "subdivisio": "KALLIDAIKURICHI",
+        "region_id": "07",
+        "subdivis_1": "47251",
+        "division_n": "KALLIDAIKURICHI",
+        "division_c": "4725",
+        "circle_nam": "TIRUNELVELI",
+        "circle_cod": "0472",
+        "region_nam": "TIRUNELVELI",
+        "object_id": 2652,
+        "search_string": "    manjolai"
+      },
+      "bbox": [
+        77.4076,
+        8.5694,
+        77.4076,
+        8.5694
+      ]
+    }
+  ]
+}

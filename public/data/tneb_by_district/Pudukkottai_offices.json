@@ -1,0 +1,2015 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9576,
+          10.5192
+        ]
+      },
+      "properties": {
+        "section_na": "ADANAKOTTAI",
+        "section_co": "125",
+        "subdivisio": "GANDARVAKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44614",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2111,
+        "search_string": "    adanakottai"
+      },
+      "bbox": [
+        78.9576,
+        10.5192,
+        78.9576,
+        10.5192
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9278,
+          10.4887
+        ]
+      },
+      "properties": {
+        "section_na": "PERUNGALUR",
+        "section_co": "127",
+        "subdivisio": "GANDARVAKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44614",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2112,
+        "search_string": "    perungalur"
+      },
+      "bbox": [
+        78.9278,
+        10.4887,
+        78.9278,
+        10.4887
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0446,
+          10.6552
+        ]
+      },
+      "properties": {
+        "section_na": "SS/PUNALKULAM",
+        "section_co": "126",
+        "subdivisio": "GANDARVAKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44614",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2113,
+        "search_string": "    ss/punalkulam"
+      },
+      "bbox": [
+        79.0446,
+        10.6552,
+        79.0446,
+        10.6552
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1034,
+          10.1517
+        ]
+      },
+      "properties": {
+        "section_na": "NAGUDY",
+        "section_co": "141",
+        "subdivisio": "TOWN/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44621",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2114,
+        "search_string": "    nagudy"
+      },
+      "bbox": [
+        79.1034,
+        10.1517,
+        79.1034,
+        10.1517
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9964,
+          10.1743
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/ARANTHANGI",
+        "section_co": "131",
+        "subdivisio": "TOWN/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44621",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2115,
+        "search_string": "    town/aranthangi"
+      },
+      "bbox": [
+        78.9964,
+        10.1743,
+        78.9964,
+        10.1743
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9932,
+          10.2276
+        ]
+      },
+      "properties": {
+        "section_na": "SILATTUR",
+        "section_co": "135",
+        "subdivisio": "KEERAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44625",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2116,
+        "search_string": "    silattur"
+      },
+      "bbox": [
+        78.9932,
+        10.2276,
+        78.9932,
+        10.2276
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6223,
+          10.5125
+        ]
+      },
+      "properties": {
+        "section_na": "ILUPPUR",
+        "section_co": "120",
+        "subdivisio": "ILUPPUR",
+        "region_id": "06",
+        "subdivis_1": "44613",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2117,
+        "search_string": "    iluppur"
+      },
+      "bbox": [
+        78.6223,
+        10.5125,
+        78.6223,
+        10.5125
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8936,
+          10.5282
+        ]
+      },
+      "properties": {
+        "section_na": "ANDAKULAM",
+        "section_co": "116",
+        "subdivisio": "RURAL/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44612",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2118,
+        "search_string": "    andakulam"
+      },
+      "bbox": [
+        78.8936,
+        10.5282,
+        78.8936,
+        10.5282
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6893,
+          10.4649
+        ]
+      },
+      "properties": {
+        "section_na": "ANNAVASAL",
+        "section_co": "121",
+        "subdivisio": "ILUPPUR",
+        "region_id": "06",
+        "subdivis_1": "44613",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2119,
+        "search_string": "    annavasal"
+      },
+      "bbox": [
+        78.6893,
+        10.4649,
+        78.6893,
+        10.4649
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8205,
+          10.3783
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUKKOTTAI/WEST",
+        "section_co": "112",
+        "subdivisio": "TOWN/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44611",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2120,
+        "search_string": "    pudukkottai/west"
+      },
+      "bbox": [
+        78.8205,
+        10.3783,
+        78.8205,
+        10.3783
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8204,
+          10.378
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUKKOTTAI/CENTRAL",
+        "section_co": "114",
+        "subdivisio": "TOWN/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44611",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2121,
+        "search_string": "    pudukkottai/central"
+      },
+      "bbox": [
+        78.8204,
+        10.378,
+        78.8204,
+        10.378
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8204,
+          10.378
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUKKOTTAI/NORTH",
+        "section_co": "113",
+        "subdivisio": "TOWN/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44611",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2122,
+        "search_string": "    pudukkottai/north"
+      },
+      "bbox": [
+        78.8204,
+        10.378,
+        78.8204,
+        10.378
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8205,
+          10.3784
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUKKOTTAI/EAST",
+        "section_co": "111",
+        "subdivisio": "TOWN/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44611",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2123,
+        "search_string": "    pudukkottai/east"
+      },
+      "bbox": [
+        78.8205,
+        10.3784,
+        78.8205,
+        10.3784
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0374,
+          10.071
+        ]
+      },
+      "properties": {
+        "section_na": "AVUDAIYARKOIL",
+        "section_co": "139",
+        "subdivisio": "RURAL/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44622",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2124,
+        "search_string": "    avudaiyarkoil"
+      },
+      "bbox": [
+        79.0374,
+        10.071,
+        79.0374,
+        10.071
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0378,
+          10.241
+        ]
+      },
+      "properties": {
+        "section_na": "AVANATHANKOTTAI",
+        "section_co": "136",
+        "subdivisio": "KEERAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44625",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2125,
+        "search_string": "    avanathankottai"
+      },
+      "bbox": [
+        79.0378,
+        10.241,
+        79.0378,
+        10.241
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7882,
+          10.4182
+        ]
+      },
+      "properties": {
+        "section_na": "SIPCOT",
+        "section_co": "118",
+        "subdivisio": "RURAL/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44612",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2126,
+        "search_string": "    sipcot"
+      },
+      "bbox": [
+        78.7882,
+        10.4182,
+        78.7882,
+        10.4182
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1869,
+          9.9868
+        ]
+      },
+      "properties": {
+        "section_na": "KODIKULAM",
+        "section_co": "138",
+        "subdivisio": "RURAL/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44622",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2127,
+        "search_string": "    kodikulam"
+      },
+      "bbox": [
+        79.1869,
+        9.9868,
+        79.1869,
+        9.9868
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6917,
+          10.4044
+        ]
+      },
+      "properties": {
+        "section_na": "ANNAPANNAI",
+        "section_co": "122",
+        "subdivisio": "ILUPPUR",
+        "region_id": "06",
+        "subdivis_1": "44613",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2128,
+        "search_string": "    annapannai"
+      },
+      "bbox": [
+        78.6917,
+        10.4044,
+        78.6917,
+        10.4044
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1236,
+          10.1784
+        ]
+      },
+      "properties": {
+        "section_na": "SUBRAMANIAPURAM",
+        "section_co": "140",
+        "subdivisio": "RURAL/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44622",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2129,
+        "search_string": "    subramaniapuram"
+      },
+      "bbox": [
+        79.1236,
+        10.1784,
+        79.1236,
+        10.1784
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0865,
+          10.283
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/KEERAMANGALAM",
+        "section_co": "133",
+        "subdivisio": "KEERAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44625",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2130,
+        "search_string": "    north/keeramangalam"
+      },
+      "bbox": [
+        79.0865,
+        10.283,
+        79.0865,
+        10.283
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0576,
+          10.5614
+        ]
+      },
+      "properties": {
+        "section_na": "EAST/GANDARVAKOTTAI",
+        "section_co": "128",
+        "subdivisio": "GANDARVAKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44614",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2131,
+        "search_string": "    east/gandarvakottai"
+      },
+      "bbox": [
+        79.0576,
+        10.5614,
+        79.0576,
+        10.5614
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0865,
+          10.283
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/KEERAMANGALAM",
+        "section_co": "134",
+        "subdivisio": "KEERAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44625",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2132,
+        "search_string": "    south/keeramangalam"
+      },
+      "bbox": [
+        79.0865,
+        10.283,
+        79.0865,
+        10.283
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.985,
+          10.3625
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN_ALANGUDY",
+        "section_co": "142",
+        "subdivisio": "TOWN/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44651",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2133,
+        "search_string": "    town_alangudy"
+      },
+      "bbox": [
+        78.985,
+        10.3625,
+        78.985,
+        10.3625
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.985,
+          10.3626
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH_ALANGUDY",
+        "section_co": "144",
+        "subdivisio": "TOWN/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44651",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2134,
+        "search_string": "    north_alangudy"
+      },
+      "bbox": [
+        78.985,
+        10.3626,
+        78.985,
+        10.3626
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8792,
+          10.3578
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUVARANKULAM",
+        "section_co": "145",
+        "subdivisio": "TOWN/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44651",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2135,
+        "search_string": "    thiruvarankulam"
+      },
+      "bbox": [
+        78.8792,
+        10.3578,
+        78.8792,
+        10.3578
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0386,
+          10.3178
+        ]
+      },
+      "properties": {
+        "section_na": "KOTHAMANGALAM",
+        "section_co": "146",
+        "subdivisio": "VADAKADU",
+        "region_id": "06",
+        "subdivis_1": "44653",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2136,
+        "search_string": "    kothamangalam"
+      },
+      "bbox": [
+        79.0386,
+        10.3178,
+        79.0386,
+        10.3178
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9802,
+          10.3622
+        ]
+      },
+      "properties": {
+        "section_na": "WEST_ALANGUDY",
+        "section_co": "143",
+        "subdivisio": "TOWN/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44651",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2137,
+        "search_string": "    west_alangudy"
+      },
+      "bbox": [
+        78.9802,
+        10.3622,
+        78.9802,
+        10.3622
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0152,
+          10.5725
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/GANDARVAKOTTAI",
+        "section_co": "124",
+        "subdivisio": "GANDARVAKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44614",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2138,
+        "search_string": "    north/gandarvakottai"
+      },
+      "bbox": [
+        79.0152,
+        10.5725,
+        79.0152,
+        10.5725
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7957,
+          10.3845
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUVAPPUR",
+        "section_co": "117",
+        "subdivisio": "RURAL/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44612",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2139,
+        "search_string": "    thiruvappur"
+      },
+      "bbox": [
+        78.7957,
+        10.3845,
+        78.7957,
+        10.3845
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.831,
+          10.4054
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL_EAST/PUDUKKOTTAI",
+        "section_co": "115",
+        "subdivisio": "RURAL/ PUDUKKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44612",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2140,
+        "search_string": "    rural_east/pudukkottai"
+      },
+      "bbox": [
+        78.831,
+        10.4054,
+        78.831,
+        10.4054
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2301,
+          10.0435
+        ]
+      },
+      "properties": {
+        "section_na": "MANAMELKUDY",
+        "section_co": "137",
+        "subdivisio": "RURAL/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44622",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2141,
+        "search_string": "    manamelkudy"
+      },
+      "bbox": [
+        79.2301,
+        10.0435,
+        79.2301,
+        10.0435
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6109,
+          10.5215
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL_SOUTH/ILUPPUR",
+        "section_co": "119",
+        "subdivisio": "ILUPPUR",
+        "region_id": "06",
+        "subdivis_1": "44613",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2142,
+        "search_string": "    rural_south/iluppur"
+      },
+      "bbox": [
+        78.6109,
+        10.5215,
+        78.6109,
+        10.5215
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0152,
+          10.5725
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/GANDARVAKOTTAI",
+        "section_co": "123",
+        "subdivisio": "GANDARVAKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44614",
+        "division_n": "PUDUKOTTAI",
+        "division_c": "4461",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2143,
+        "search_string": "    south/gandarvakottai"
+      },
+      "bbox": [
+        79.0152,
+        10.5725,
+        79.0152,
+        10.5725
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7851,
+          10.5735
+        ]
+      },
+      "properties": {
+        "section_na": "EAST/KEERANUR",
+        "section_co": "161",
+        "subdivisio": "KEERANUR",
+        "region_id": "06",
+        "subdivis_1": "44631",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2144,
+        "search_string": "    east/keeranur"
+      },
+      "bbox": [
+        78.7851,
+        10.5735,
+        78.7851,
+        10.5735
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0193,
+          9.9685
+        ]
+      },
+      "properties": {
+        "section_na": "KARUR",
+        "section_co": "155",
+        "subdivisio": "RURAL/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44622",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2145,
+        "search_string": "    karur"
+      },
+      "bbox": [
+        79.0193,
+        9.9685,
+        79.0193,
+        9.9685
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.127,
+          10.4565
+        ]
+      },
+      "properties": {
+        "section_na": "KARAMBAKUDY",
+        "section_co": "148",
+        "subdivisio": "KARAMBAKUDY",
+        "region_id": "06",
+        "subdivis_1": "44654",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2146,
+        "search_string": "    karambakudy"
+      },
+      "bbox": [
+        79.127,
+        10.4565,
+        79.127,
+        10.4565
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9969,
+          10.3796
+        ]
+      },
+      "properties": {
+        "section_na": "PACHIKOTTAI",
+        "section_co": "151",
+        "subdivisio": "RURAL/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44652",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2147,
+        "search_string": "    pachikottai"
+      },
+      "bbox": [
+        78.9969,
+        10.3796,
+        78.9969,
+        10.3796
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0919,
+          10.4454
+        ]
+      },
+      "properties": {
+        "section_na": "PUDUPATTY",
+        "section_co": "152",
+        "subdivisio": "KARAMBAKUDY",
+        "region_id": "06",
+        "subdivis_1": "44654",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2148,
+        "search_string": "    pudupatty"
+      },
+      "bbox": [
+        79.0919,
+        10.4454,
+        79.0919,
+        10.4454
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1281,
+          10.5566
+        ]
+      },
+      "properties": {
+        "section_na": "REGUNATHAPURAM",
+        "section_co": "156",
+        "subdivisio": "KARAMBAKUDY",
+        "region_id": "06",
+        "subdivis_1": "44654",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2149,
+        "search_string": "    regunathapuram"
+      },
+      "bbox": [
+        79.1281,
+        10.5566,
+        79.1281,
+        10.5566
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0259,
+          10.4318
+        ]
+      },
+      "properties": {
+        "section_na": "MALAIYUR",
+        "section_co": "149",
+        "subdivisio": "RURAL/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44652",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2150,
+        "search_string": "    malaiyur"
+      },
+      "bbox": [
+        79.0259,
+        10.4318,
+        79.0259,
+        10.4318
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9768,
+          10.4289
+        ]
+      },
+      "properties": {
+        "section_na": "SEMPATTYVIDUTHY",
+        "section_co": "157",
+        "subdivisio": "RURAL/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44652",
+        "division_n": "ALNGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2151,
+        "search_string": "    sempattyviduthy"
+      },
+      "bbox": [
+        78.9768,
+        10.4289,
+        78.9768,
+        10.4289
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8865,
+          10.3237
+        ]
+      },
+      "properties": {
+        "section_na": "VALLATHIRAKKOTTAI",
+        "section_co": "154",
+        "subdivisio": "TOWN/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44651",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2152,
+        "search_string": "    vallathirakkottai"
+      },
+      "bbox": [
+        78.8865,
+        10.3237,
+        78.8865,
+        10.3237
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1107,
+          10.3309
+        ]
+      },
+      "properties": {
+        "section_na": "L.N PURAM",
+        "section_co": "147",
+        "subdivisio": "VADAKADU",
+        "region_id": "06",
+        "subdivis_1": "44653",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2153,
+        "search_string": "    l.n puram"
+      },
+      "bbox": [
+        79.1107,
+        10.3309,
+        79.1107,
+        10.3309
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0625,
+          10.3323
+        ]
+      },
+      "properties": {
+        "section_na": "VADAKADU",
+        "section_co": "153",
+        "subdivisio": "VADAKADU",
+        "region_id": "06",
+        "subdivis_1": "44653",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2154,
+        "search_string": "    vadakadu"
+      },
+      "bbox": [
+        79.0625,
+        10.3323,
+        79.0625,
+        10.3323
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8782,
+          10.5855
+        ]
+      },
+      "properties": {
+        "section_na": "KUNNANDARKOIL",
+        "section_co": "171",
+        "subdivisio": "KEERANUR",
+        "region_id": "06",
+        "subdivis_1": "44631",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2155,
+        "search_string": "    kunnandarkoil"
+      },
+      "bbox": [
+        78.8782,
+        10.5855,
+        78.8782,
+        10.5855
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7116,
+          10.6994
+        ]
+      },
+      "properties": {
+        "section_na": "KUMARAMANGALAM",
+        "section_co": "164",
+        "subdivisio": "MATHUR",
+        "region_id": "06",
+        "subdivis_1": "44632",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2156,
+        "search_string": "    kumaramangalam"
+      },
+      "bbox": [
+        78.7116,
+        10.6994,
+        78.7116,
+        10.6994
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7769,
+          10.5396
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/KEERANUR",
+        "section_co": "162",
+        "subdivisio": "KEERANUR",
+        "region_id": "06",
+        "subdivis_1": "44631",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2157,
+        "search_string": "    north/keeranur"
+      },
+      "bbox": [
+        78.7769,
+        10.5396,
+        78.7769,
+        10.5396
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5362,
+          10.2783
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN_PONNAMARAVATHY",
+        "section_co": "189",
+        "subdivisio": "PONNAMARAVATHY",
+        "region_id": "06",
+        "subdivis_1": "44642",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2158,
+        "search_string": "    urban_ponnamaravathy"
+      },
+      "bbox": [
+        78.5362,
+        10.2783,
+        78.5362,
+        10.2783
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6019,
+          10.6685
+        ]
+      },
+      "properties": {
+        "section_na": "MELAPATCHAKUDY",
+        "section_co": "169",
+        "subdivisio": "VIRALIMALAI",
+        "region_id": "06",
+        "subdivis_1": "44633",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2159,
+        "search_string": "    melapatchakudy"
+      },
+      "bbox": [
+        78.6019,
+        10.6685,
+        78.6019,
+        10.6685
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7483,
+          10.6267
+        ]
+      },
+      "properties": {
+        "section_na": "T.NALLUR",
+        "section_co": "166",
+        "subdivisio": "MATHUR",
+        "region_id": "06",
+        "subdivis_1": "44632",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2160,
+        "search_string": "    t.nallur"
+      },
+      "bbox": [
+        78.7483,
+        10.6267,
+        78.7483,
+        10.6267
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7116,
+          10.6994
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL_SOUTH/MATHUR",
+        "section_co": "165",
+        "subdivisio": "MATHUR",
+        "region_id": "06",
+        "subdivis_1": "44632",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2161,
+        "search_string": "    rural_south/mathur"
+      },
+      "bbox": [
+        78.7116,
+        10.6994,
+        78.7116,
+        10.6994
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5438,
+          10.6042
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/VIRALIMALAI",
+        "section_co": "167",
+        "subdivisio": "VIRALIMALAI",
+        "region_id": "06",
+        "subdivis_1": "44633",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2162,
+        "search_string": "    south/viralimalai"
+      },
+      "bbox": [
+        78.5438,
+        10.6042,
+        78.5438,
+        10.6042
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5438,
+          10.6042
+        ]
+      },
+      "properties": {
+        "section_na": "VADUGAPATTY",
+        "section_co": "172",
+        "subdivisio": "VIRALIMALAI",
+        "region_id": "06",
+        "subdivis_1": "44633",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2163,
+        "search_string": "    vadugapatty"
+      },
+      "bbox": [
+        78.5438,
+        10.6042,
+        78.5438,
+        10.6042
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.653,
+          10.3079
+        ]
+      },
+      "properties": {
+        "section_na": "KULIPIRAI",
+        "section_co": "187",
+        "subdivisio": "PONNAMARAVATHY",
+        "region_id": "06",
+        "subdivis_1": "44642",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2164,
+        "search_string": "    kulipirai"
+      },
+      "bbox": [
+        78.653,
+        10.3079,
+        78.653,
+        10.3079
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5362,
+          10.2783
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL_PONNAMARAVATHY",
+        "section_co": "188",
+        "subdivisio": "PONNAMARAVATHY",
+        "region_id": "06",
+        "subdivis_1": "44642",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2165,
+        "search_string": "    rural_ponnamaravathy"
+      },
+      "bbox": [
+        78.5362,
+        10.2783,
+        78.5362,
+        10.2783
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.8813,
+          10.2627
+        ]
+      },
+      "properties": {
+        "section_na": "ARIMALAM",
+        "section_co": "181",
+        "subdivisio": "THIRUMAYAM",
+        "region_id": "06",
+        "subdivis_1": "44641",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2166,
+        "search_string": "    arimalam"
+      },
+      "bbox": [
+        78.8813,
+        10.2627,
+        78.8813,
+        10.2627
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7229,
+          10.3239
+        ]
+      },
+      "properties": {
+        "section_na": "NACHANDUPATTY",
+        "section_co": "182",
+        "subdivisio": "THIRUMAYAM",
+        "region_id": "06",
+        "subdivis_1": "44641",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2167,
+        "search_string": "    nachandupatty"
+      },
+      "bbox": [
+        78.7229,
+        10.3239,
+        78.7229,
+        10.3239
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7826,
+          10.2348
+        ]
+      },
+      "properties": {
+        "section_na": "RC_PURAM",
+        "section_co": "183",
+        "subdivisio": "THIRUMAYAM",
+        "region_id": "06",
+        "subdivis_1": "44641",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2168,
+        "search_string": "    rc_puram"
+      },
+      "bbox": [
+        78.7826,
+        10.2348,
+        78.7826,
+        10.2348
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9057,
+          10.175
+        ]
+      },
+      "properties": {
+        "section_na": "THENIPATTY",
+        "section_co": "184",
+        "subdivisio": "THIRUMAYAM",
+        "region_id": "06",
+        "subdivis_1": "44641",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2169,
+        "search_string": "    thenipatty"
+      },
+      "bbox": [
+        78.9057,
+        10.175,
+        78.9057,
+        10.175
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7322,
+          10.2323
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUMAYAM",
+        "section_co": "185",
+        "subdivisio": "THIRUMAYAM",
+        "region_id": "06",
+        "subdivis_1": "44641",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2170,
+        "search_string": "    thirumayam"
+      },
+      "bbox": [
+        78.7322,
+        10.2323,
+        78.7322,
+        10.2323
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5995,
+          10.3671
+        ]
+      },
+      "properties": {
+        "section_na": "KARAIYUR",
+        "section_co": "186",
+        "subdivisio": "PONNAMARAVATHY",
+        "region_id": "06",
+        "subdivis_1": "44642",
+        "division_n": "THIRUMAYAM",
+        "division_c": "4464",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2171,
+        "search_string": "    karaiyur"
+      },
+      "bbox": [
+        78.5995,
+        10.3671,
+        78.5995,
+        10.3671
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5441,
+          10.6042
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/VIRALIMALAI",
+        "section_co": "168",
+        "subdivisio": "VIRALIMALAI",
+        "region_id": "06",
+        "subdivis_1": "44633",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2172,
+        "search_string": "    north/viralimalai"
+      },
+      "bbox": [
+        78.5441,
+        10.6042,
+        78.5441,
+        10.6042
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7851,
+          10.5736
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/KEERANUR",
+        "section_co": "163",
+        "subdivisio": "KEERANUR",
+        "region_id": "06",
+        "subdivis_1": "44631",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2173,
+        "search_string": "    south/keeranur"
+      },
+      "bbox": [
+        78.7851,
+        10.5736,
+        78.7851,
+        10.5736
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.5391,
+          10.6053
+        ]
+      },
+      "properties": {
+        "section_na": "SS_VIRALIMALAI",
+        "section_co": "170",
+        "subdivisio": "VIRALIMALAI",
+        "region_id": "06",
+        "subdivis_1": "44633",
+        "division_n": "KEERANUR",
+        "division_c": "4463",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2174,
+        "search_string": "    ss_viralimalai"
+      },
+      "bbox": [
+        78.5391,
+        10.6053,
+        78.5391,
+        10.6053
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9964,
+          10.1742
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN_WEST/ARANTHANGI",
+        "section_co": "132",
+        "subdivisio": "TOWN/ARANTHANGI",
+        "region_id": "06",
+        "subdivis_1": "44621",
+        "division_n": "ARANTHANGI",
+        "division_c": "4462",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2175,
+        "search_string": "    urban_west/aranthangi"
+      },
+      "bbox": [
+        78.9964,
+        10.1742,
+        78.9964,
+        10.1742
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1266,
+          10.4557
+        ]
+      },
+      "properties": {
+        "section_na": "KARUKKAKURICHY",
+        "section_co": "158",
+        "subdivisio": "KARAMBAKUDY",
+        "region_id": "06",
+        "subdivis_1": "44654",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2176,
+        "search_string": "    karukkakurichy"
+      },
+      "bbox": [
+        79.1266,
+        10.4557,
+        79.1266,
+        10.4557
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9475,
+          10.3625
+        ]
+      },
+      "properties": {
+        "section_na": "KOVILUR",
+        "section_co": "159",
+        "subdivisio": "TOWN/ALANGUDY",
+        "region_id": "06",
+        "subdivis_1": "44651",
+        "division_n": "ALANGUDY",
+        "division_c": "4465",
+        "circle_nam": "PUDUKOTTAI",
+        "circle_cod": "0446",
+        "region_nam": "TRICHY",
+        "object_id": 2177,
+        "search_string": "    kovilur"
+      },
+      "bbox": [
+        78.9475,
+        10.3625,
+        78.9475,
+        10.3625
+      ]
+    }
+  ]
+}

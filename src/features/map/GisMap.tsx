@@ -405,7 +405,9 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {activeLayer === 'PINCODE' && selectedPostalOffices && selectedPostalOffices.map((po, i) => (
+      {activeLayer === 'PINCODE' && selectedPostalOffices && selectedPostalOffices
+        .filter(po => !po.isOutlier)
+        .map((po, i) => (
         <Marker
           key={`po-${po.pincode}-${i}`}
           position={[parseFloat(po.latitude as string), parseFloat(po.longitude as string)]}

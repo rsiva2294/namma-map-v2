@@ -1,0 +1,2735 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1304,
+          10.8008
+        ]
+      },
+      "properties": {
+        "section_na": "KARANTHAI",
+        "section_co": "475",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1976,
+        "search_string": "    karanthai"
+      },
+      "bbox": [
+        79.1304,
+        10.8008,
+        79.1304,
+        10.8008
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1414,
+          10.6746
+        ]
+      },
+      "properties": {
+        "section_na": "MARUNGULAM",
+        "section_co": "416",
+        "subdivisio": "RURAL/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44412",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1977,
+        "search_string": "    marungulam"
+      },
+      "bbox": [
+        79.1414,
+        10.6746,
+        79.1414,
+        10.6746
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9753,
+          10.7645
+        ]
+      },
+      "properties": {
+        "section_na": "BHUDALUR",
+        "section_co": "404",
+        "subdivisio": "THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44411",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1978,
+        "search_string": "    bhudalur"
+      },
+      "bbox": [
+        78.9753,
+        10.7645,
+        78.9753,
+        10.7645
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9433,
+          10.7184
+        ]
+      },
+      "properties": {
+        "section_na": "SENGIPATTY",
+        "section_co": "403",
+        "subdivisio": "THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44411",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1979,
+        "search_string": "    sengipatty"
+      },
+      "bbox": [
+        78.9433,
+        10.7184,
+        78.9433,
+        10.7184
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1344,
+          10.7504
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/NORTH/THANJAVUR",
+        "section_co": "406",
+        "subdivisio": "RURAL/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44412",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1980,
+        "search_string": "    rural/north/thanjavur"
+      },
+      "bbox": [
+        79.1344,
+        10.7504,
+        79.1344,
+        10.7504
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0936,
+          10.7534
+        ]
+      },
+      "properties": {
+        "section_na": "NEELAGIRI",
+        "section_co": "401",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1981,
+        "search_string": "    neelagiri"
+      },
+      "bbox": [
+        79.0936,
+        10.7534,
+        79.0936,
+        10.7534
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1303,
+          10.7695
+        ]
+      },
+      "properties": {
+        "section_na": "ARULANANDHA NAGAR",
+        "section_co": "473",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1982,
+        "search_string": "    arulanandha nagar"
+      },
+      "bbox": [
+        79.1303,
+        10.7695,
+        79.1303,
+        10.7695
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1346,
+          10.7504
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/WEST/THANJAVUR",
+        "section_co": "405",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1983,
+        "search_string": "    rural/west/thanjavur"
+      },
+      "bbox": [
+        79.1346,
+        10.7504,
+        79.1346,
+        10.7504
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2483,
+          10.2823
+        ]
+      },
+      "properties": {
+        "section_na": "KURUVIKARAMBAI",
+        "section_co": "450",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1984,
+        "search_string": "    kuruvikarambai"
+      },
+      "bbox": [
+        79.2483,
+        10.2823,
+        79.2483,
+        10.2823
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2103,
+          10.84
+        ]
+      },
+      "properties": {
+        "section_na": "MELATTUR",
+        "section_co": "417",
+        "subdivisio": "RURAL/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44412",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1985,
+        "search_string": "    melattur"
+      },
+      "bbox": [
+        79.2103,
+        10.84,
+        79.2103,
+        10.84
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9548,
+          10.8485
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/THIRUKKATTUPALLI",
+        "section_co": "410",
+        "subdivisio": "THIRUVAIYARU",
+        "region_id": "06",
+        "subdivis_1": "44413",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1986,
+        "search_string": "    town/thirukkattupalli"
+      },
+      "bbox": [
+        78.9548,
+        10.8485,
+        78.9548,
+        10.8485
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.396,
+          10.9672
+        ]
+      },
+      "properties": {
+        "section_na": "KUMBAKONAM",
+        "section_co": "487",
+        "subdivisio": "SOUTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44462",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1987,
+        "search_string": "    kumbakonam"
+      },
+      "bbox": [
+        79.396,
+        10.9672,
+        79.396,
+        10.9672
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1358,
+          10.7802
+        ]
+      },
+      "properties": {
+        "section_na": "COURT ROAD",
+        "section_co": "471",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1988,
+        "search_string": "    court road"
+      },
+      "bbox": [
+        79.1358,
+        10.7802,
+        79.1358,
+        10.7802
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.097,
+          10.8729
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/THIRUVAIYARU",
+        "section_co": "409",
+        "subdivisio": "THIRUVAIYARU",
+        "region_id": "06",
+        "subdivis_1": "44413",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1989,
+        "search_string": "    rural/thiruvaiyaru"
+      },
+      "bbox": [
+        79.097,
+        10.8729,
+        79.097,
+        10.8729
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2723,
+          10.8722
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUKARUKAVUR",
+        "section_co": "429",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1990,
+        "search_string": "    thirukarukavur"
+      },
+      "bbox": [
+        79.2723,
+        10.8722,
+        79.2723,
+        10.8722
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0756,
+          10.6907
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUKKANURPATTI",
+        "section_co": "407",
+        "subdivisio": "RURAL/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44412",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1991,
+        "search_string": "    thirukkanurpatti"
+      },
+      "bbox": [
+        79.0756,
+        10.6907,
+        79.0756,
+        10.6907
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1358,
+          10.7801
+        ]
+      },
+      "properties": {
+        "section_na": "MANAMBUCHAVADI",
+        "section_co": "472",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1992,
+        "search_string": "    manambuchavadi"
+      },
+      "bbox": [
+        79.1358,
+        10.7801,
+        79.1358,
+        10.7801
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0982,
+          10.6576
+        ]
+      },
+      "properties": {
+        "section_na": "KURUNGULAM",
+        "section_co": "415",
+        "subdivisio": "RURAL/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44412",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1993,
+        "search_string": "    kurungulam"
+      },
+      "bbox": [
+        79.0982,
+        10.6576,
+        79.0982,
+        10.6576
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2826,
+          10.7238
+        ]
+      },
+      "properties": {
+        "section_na": "PANAIYAKOTTAI",
+        "section_co": "420",
+        "subdivisio": "SALIYAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44443",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1994,
+        "search_string": "    panaiyakottai"
+      },
+      "bbox": [
+        79.2826,
+        10.7238,
+        79.2826,
+        10.7238
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2227,
+          10.5834
+        ]
+      },
+      "properties": {
+        "section_na": "PINNAIYUR",
+        "section_co": "440",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1995,
+        "search_string": "    pinnaiyur"
+      },
+      "bbox": [
+        79.2227,
+        10.5834,
+        79.2227,
+        10.5834
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1069,
+          10.7649
+        ]
+      },
+      "properties": {
+        "section_na": "ESWARI NAGAR",
+        "section_co": "474",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1996,
+        "search_string": "    eswari nagar"
+      },
+      "bbox": [
+        79.1069,
+        10.7649,
+        79.1069,
+        10.7649
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1358,
+          10.7801
+        ]
+      },
+      "properties": {
+        "section_na": "PALACE",
+        "section_co": "476",
+        "subdivisio": "URBAN/THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44451",
+        "division_n": "URBAN/THANJAVUR",
+        "division_c": "4445",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1997,
+        "search_string": "    palace"
+      },
+      "bbox": [
+        79.1358,
+        10.7801,
+        79.1358,
+        10.7801
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3959,
+          10.9669
+        ]
+      },
+      "properties": {
+        "section_na": "EAST/KUMBAKONAM",
+        "section_co": "421",
+        "subdivisio": "TOWN/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44421",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1998,
+        "search_string": "    east/kumbakonam"
+      },
+      "bbox": [
+        79.3959,
+        10.9669,
+        79.3959,
+        10.9669
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3767,
+          10.957
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/KUMBAKONAM",
+        "section_co": "422",
+        "subdivisio": "TOWN/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44421",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 1999,
+        "search_string": "    south/kumbakonam"
+      },
+      "bbox": [
+        79.3767,
+        10.957,
+        79.3767,
+        10.957
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3962,
+          10.9667
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN/KUMBAKONAM",
+        "section_co": "423",
+        "subdivisio": "TOWN/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44421",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2000,
+        "search_string": "    urban/kumbakonam"
+      },
+      "bbox": [
+        79.3962,
+        10.9667,
+        79.3962,
+        10.9667
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1861,
+          10.7833
+        ]
+      },
+      "properties": {
+        "section_na": "MARIAMMANKOIL",
+        "section_co": "468",
+        "subdivisio": "SALIYAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44443",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2001,
+        "search_string": "    mariammankoil"
+      },
+      "bbox": [
+        79.1861,
+        10.7833,
+        79.1861,
+        10.7833
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3711,
+          10.9676
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/KUMBAKONAM",
+        "section_co": "424",
+        "subdivisio": "RURAL/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44422",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2002,
+        "search_string": "    north/kumbakonam"
+      },
+      "bbox": [
+        79.3711,
+        10.9676,
+        79.3711,
+        10.9676
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3628,
+          10.9569
+        ]
+      },
+      "properties": {
+        "section_na": "WEST/KUMBAKONAM",
+        "section_co": "425",
+        "subdivisio": "RURAL/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44422",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2003,
+        "search_string": "    west/kumbakonam"
+      },
+      "bbox": [
+        79.3628,
+        10.9569,
+        79.3628,
+        10.9569
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1949,
+          10.1854
+        ]
+      },
+      "properties": {
+        "section_na": "PERUMAGALUR",
+        "section_co": "455",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2004,
+        "search_string": "    perumagalur"
+      },
+      "bbox": [
+        79.1949,
+        10.1854,
+        79.1949,
+        10.1854
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4117,
+          10.4594
+        ]
+      },
+      "properties": {
+        "section_na": "MADUKKUR",
+        "section_co": "448",
+        "subdivisio": "MADUKKUR",
+        "region_id": "06",
+        "subdivis_1": "44433",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2005,
+        "search_string": "    madukkur"
+      },
+      "bbox": [
+        79.4117,
+        10.4594,
+        79.4117,
+        10.4594
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4867,
+          10.9872
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUNEELAKUDI",
+        "section_co": "494",
+        "subdivisio": "SOUTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44462",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2006,
+        "search_string": "    thiruneelakudi"
+      },
+      "bbox": [
+        79.4867,
+        10.9872,
+        79.4867,
+        10.9872
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1918,
+          10.7359
+        ]
+      },
+      "properties": {
+        "section_na": "SOORAKKOTTAI",
+        "section_co": "419",
+        "subdivisio": "SALIYAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44443",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2007,
+        "search_string": "    soorakkottai"
+      },
+      "bbox": [
+        79.1918,
+        10.7359,
+        79.1918,
+        10.7359
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2029,
+          10.5106
+        ]
+      },
+      "properties": {
+        "section_na": "URANIPURAM",
+        "section_co": "466",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2008,
+        "search_string": "    uranipuram"
+      },
+      "bbox": [
+        79.2029,
+        10.5106,
+        79.2029,
+        10.5106
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2374,
+          10.6176
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/ORATHANDU",
+        "section_co": "464",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2009,
+        "search_string": "    south/orathandu"
+      },
+      "bbox": [
+        79.2374,
+        10.6176,
+        79.2374,
+        10.6176
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3226,
+          10.7934
+        ]
+      },
+      "properties": {
+        "section_na": "AMMAPETTAI",
+        "section_co": "469",
+        "subdivisio": "SALIYAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44443",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2010,
+        "search_string": "    ammapettai"
+      },
+      "bbox": [
+        79.3226,
+        10.7934,
+        79.3226,
+        10.7934
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2177,
+          10.6887
+        ]
+      },
+      "properties": {
+        "section_na": "MELAULUR",
+        "section_co": "437",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2011,
+        "search_string": "    melaulur"
+      },
+      "bbox": [
+        79.2177,
+        10.6887,
+        79.2177,
+        10.6887
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2675,
+          10.5849
+        ]
+      },
+      "properties": {
+        "section_na": "URANTHARAYAN KUDIKADU",
+        "section_co": "438",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2012,
+        "search_string": "    urantharayan kudikadu"
+      },
+      "bbox": [
+        79.2675,
+        10.5849,
+        79.2675,
+        10.5849
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.345,
+          10.6275
+        ]
+      },
+      "properties": {
+        "section_na": "OKKANADU EAST",
+        "section_co": "435",
+        "subdivisio": "TOWN/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44441",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2013,
+        "search_string": "    okkanadu east"
+      },
+      "bbox": [
+        79.345,
+        10.6275,
+        79.345,
+        10.6275
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3216,
+          10.4265
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN - I /PATUKOTTAI",
+        "section_co": "441",
+        "subdivisio": "TOWN/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44431",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2014,
+        "search_string": "    town - i /patukottai"
+      },
+      "bbox": [
+        79.3216,
+        10.4265,
+        79.3216,
+        10.4265
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3216,
+          10.4267
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN - II /PATUKOTTAI",
+        "section_co": "442",
+        "subdivisio": "TOWN/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44431",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2015,
+        "search_string": "    town - ii /patukottai"
+      },
+      "bbox": [
+        79.3216,
+        10.4267,
+        79.3216,
+        10.4267
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1806,
+          10.9168
+        ]
+      },
+      "properties": {
+        "section_na": "GANAPATHY AGARHARAM",
+        "section_co": "434",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2016,
+        "search_string": "    ganapathy agarharam"
+      },
+      "bbox": [
+        79.1806,
+        10.9168,
+        79.1806,
+        10.9168
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2679,
+          10.9136
+        ]
+      },
+      "properties": {
+        "section_na": "PAPANASAM",
+        "section_co": "428",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2017,
+        "search_string": "    papanasam"
+      },
+      "bbox": [
+        79.2679,
+        10.9136,
+        79.2679,
+        10.9136
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3329,
+          11.0067
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUPURAMBIYAM",
+        "section_co": "497",
+        "subdivisio": "RURAL/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44422",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2018,
+        "search_string": "    thirupurambiyam"
+      },
+      "bbox": [
+        79.3329,
+        11.0067,
+        79.3329,
+        11.0067
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2625,
+          10.9454
+        ]
+      },
+      "properties": {
+        "section_na": "KABISTHALAM",
+        "section_co": "430",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2019,
+        "search_string": "    kabisthalam"
+      },
+      "bbox": [
+        79.2625,
+        10.9454,
+        79.2625,
+        10.9454
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4522,
+          11.0909
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUPANNANDAL",
+        "section_co": "483",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2020,
+        "search_string": "    thirupannandal"
+      },
+      "bbox": [
+        79.4522,
+        11.0909,
+        79.4522,
+        11.0909
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1993,
+          10.3633
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUCHITRAMBALAM",
+        "section_co": "452",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2021,
+        "search_string": "    thiruchitrambalam"
+      },
+      "bbox": [
+        79.1993,
+        10.3633,
+        79.1993,
+        10.3633
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4533,
+          10.9937
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUVIDAIMARUTHUR",
+        "section_co": "490",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2022,
+        "search_string": "    thiruvidaimaruthur"
+      },
+      "bbox": [
+        79.4533,
+        10.9937,
+        79.4533,
+        10.9937
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5123,
+          11.132
+        ]
+      },
+      "properties": {
+        "section_na": "PANDANALLUR",
+        "section_co": "482",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2023,
+        "search_string": "    pandanallur"
+      },
+      "bbox": [
+        79.5123,
+        11.132,
+        79.5123,
+        11.132
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5369,
+          11.0736
+        ]
+      },
+      "properties": {
+        "section_na": "KADIRAMANGALAM",
+        "section_co": "481",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2024,
+        "search_string": "    kadiramangalam"
+      },
+      "bbox": [
+        79.5369,
+        11.0736,
+        79.5369,
+        11.0736
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4808,
+          11.0198
+        ]
+      },
+      "properties": {
+        "section_na": "ADUTHURAI",
+        "section_co": "491",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2025,
+        "search_string": "    aduthurai"
+      },
+      "bbox": [
+        79.4808,
+        11.0198,
+        79.4808,
+        11.0198
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.331,
+          10.9589
+        ]
+      },
+      "properties": {
+        "section_na": "SWAMIMALAI",
+        "section_co": "488",
+        "subdivisio": "RURAL/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44422",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2026,
+        "search_string": "    swamimalai"
+      },
+      "bbox": [
+        79.331,
+        10.9589,
+        79.331,
+        10.9589
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3568,
+          10.9283
+        ]
+      },
+      "properties": {
+        "section_na": "PATTESWARAM",
+        "section_co": "489",
+        "subdivisio": "RURAL/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44422",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2027,
+        "search_string": "    patteswaram"
+      },
+      "bbox": [
+        79.3568,
+        10.9283,
+        79.3568,
+        10.9283
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4037,
+          10.9083
+        ]
+      },
+      "properties": {
+        "section_na": "THIPPIRAJAPURAM",
+        "section_co": "492",
+        "subdivisio": "SOUTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44462",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2028,
+        "search_string": "    thippirajapuram"
+      },
+      "bbox": [
+        79.4037,
+        10.9083,
+        79.4037,
+        10.9083
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4519,
+          10.889
+        ]
+      },
+      "properties": {
+        "section_na": "SEMMANGUDI",
+        "section_co": "493",
+        "subdivisio": "SOUTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44462",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2029,
+        "search_string": "    semmangudi"
+      },
+      "bbox": [
+        79.4519,
+        10.889,
+        79.4519,
+        10.889
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4418,
+          10.9202
+        ]
+      },
+      "properties": {
+        "section_na": "NATCHIYARKOIL",
+        "section_co": "486",
+        "subdivisio": "SOUTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44462",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2030,
+        "search_string": "    natchiyarkoil"
+      },
+      "bbox": [
+        79.4418,
+        10.9202,
+        79.4418,
+        10.9202
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3714,
+          10.3551
+        ]
+      },
+      "properties": {
+        "section_na": "ADHIRAMAPATTINAM",
+        "section_co": "443",
+        "subdivisio": "TOWN/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44431",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2031,
+        "search_string": "    adhiramapattinam"
+      },
+      "bbox": [
+        79.3714,
+        10.3551,
+        79.3714,
+        10.3551
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3028,
+          10.3274
+        ]
+      },
+      "properties": {
+        "section_na": "PALLATHUR",
+        "section_co": "460",
+        "subdivisio": "RURAL/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44432",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2032,
+        "search_string": "    pallathur"
+      },
+      "bbox": [
+        79.3028,
+        10.3274,
+        79.3028,
+        10.3274
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2833,
+          10.259
+        ]
+      },
+      "properties": {
+        "section_na": "NADIYUM",
+        "section_co": "453",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2033,
+        "search_string": "    nadiyum"
+      },
+      "bbox": [
+        79.2833,
+        10.259,
+        79.2833,
+        10.259
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0697,
+          10.7192
+        ]
+      },
+      "properties": {
+        "section_na": "MINNAGAR",
+        "section_co": "413",
+        "subdivisio": "THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44411",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2034,
+        "search_string": "    minnagar"
+      },
+      "bbox": [
+        79.0697,
+        10.7192,
+        79.0697,
+        10.7192
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1877,
+          10.8906
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/AYYAMPETTAI",
+        "section_co": "432",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2035,
+        "search_string": "    rural/ayyampettai"
+      },
+      "bbox": [
+        79.1877,
+        10.8906,
+        79.1877,
+        10.8906
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1044,
+          10.8744
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/THIRUVAIYARU",
+        "section_co": "408",
+        "subdivisio": "THIRUVAIYARU",
+        "region_id": "06",
+        "subdivis_1": "44413",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2036,
+        "search_string": "    town/thiruvaiyaru"
+      },
+      "bbox": [
+        79.1044,
+        10.8744,
+        79.1044,
+        10.8744
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4115,
+          11.0527
+        ]
+      },
+      "properties": {
+        "section_na": "CHOLAPURAM",
+        "section_co": "484",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2037,
+        "search_string": "    cholapuram"
+      },
+      "bbox": [
+        79.4115,
+        11.0527,
+        79.4115,
+        11.0527
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9547,
+          10.8485
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/THIRUKKATTUPALLI",
+        "section_co": "411",
+        "subdivisio": "THIRUVAIYARU",
+        "region_id": "06",
+        "subdivis_1": "44413",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2038,
+        "search_string": "    rural/thirukkattupalli"
+      },
+      "bbox": [
+        78.9547,
+        10.8485,
+        78.9547,
+        10.8485
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0701,
+          10.7173
+        ]
+      },
+      "properties": {
+        "section_na": "VALLAM",
+        "section_co": "402",
+        "subdivisio": "THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44411",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2039,
+        "search_string": "    vallam"
+      },
+      "bbox": [
+        79.0701,
+        10.7173,
+        79.0701,
+        10.7173
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0415,
+          10.8118
+        ]
+      },
+      "properties": {
+        "section_na": "KALLAPERAMBUR",
+        "section_co": "414",
+        "subdivisio": "THANJAVUR",
+        "region_id": "06",
+        "subdivis_1": "44411",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2040,
+        "search_string": "    kallaperambur"
+      },
+      "bbox": [
+        79.0415,
+        10.8118,
+        79.0415,
+        10.8118
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0452,
+          10.8598
+        ]
+      },
+      "properties": {
+        "section_na": "NADUCAUVERY",
+        "section_co": "412",
+        "subdivisio": "THIRUVAIYARU",
+        "region_id": "06",
+        "subdivis_1": "44413",
+        "division_n": "THANJAVUR",
+        "division_c": "4441",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2041,
+        "search_string": "    naducauvery"
+      },
+      "bbox": [
+        79.0452,
+        10.8598,
+        79.0452,
+        10.8598
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.412,
+          10.4594
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/MADUKKUR",
+        "section_co": "449",
+        "subdivisio": "MADUKKUR",
+        "region_id": "06",
+        "subdivis_1": "44433",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2042,
+        "search_string": "    rural/madukkur"
+      },
+      "bbox": [
+        79.412,
+        10.4594,
+        79.412,
+        10.4594
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.273,
+          10.7837
+        ]
+      },
+      "properties": {
+        "section_na": "SALIYAMANGALAM",
+        "section_co": "467",
+        "subdivisio": "SALIYAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44443",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2043,
+        "search_string": "    saliyamangalam"
+      },
+      "bbox": [
+        79.273,
+        10.7837,
+        79.273,
+        10.7837
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4708,
+          11.1145
+        ]
+      },
+      "properties": {
+        "section_na": "KURUCHI",
+        "section_co": "495",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2044,
+        "search_string": "    kuruchi"
+      },
+      "bbox": [
+        79.4708,
+        11.1145,
+        79.4708,
+        11.1145
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.322,
+          10.7809
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH/AMMAPETTAI",
+        "section_co": "470",
+        "subdivisio": "SALIYAMANGALAM",
+        "region_id": "06",
+        "subdivis_1": "44443",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2045,
+        "search_string": "    south/ammapettai"
+      },
+      "bbox": [
+        79.322,
+        10.7809,
+        79.322,
+        10.7809
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2563,
+          10.6221
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/ORATHANADU",
+        "section_co": "461",
+        "subdivisio": "TOWN/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44441",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2046,
+        "search_string": "    north/orathanadu"
+      },
+      "bbox": [
+        79.2563,
+        10.6221,
+        79.2563,
+        10.6221
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2248,
+          10.9135
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/PAPANASAM",
+        "section_co": "433",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2047,
+        "search_string": "    rural/papanasam"
+      },
+      "bbox": [
+        79.2248,
+        10.9135,
+        79.2248,
+        10.9135
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2607,
+          10.6088
+        ]
+      },
+      "properties": {
+        "section_na": "EAST/ORATHANADU",
+        "section_co": "462",
+        "subdivisio": "TOWN/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44441",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2048,
+        "search_string": "    east/orathanadu"
+      },
+      "bbox": [
+        79.2607,
+        10.6088,
+        79.2607,
+        10.6088
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3781,
+          10.4007
+        ]
+      },
+      "properties": {
+        "section_na": "THUVARANKURUCHI",
+        "section_co": "447",
+        "subdivisio": "MADUKKUR",
+        "region_id": "06",
+        "subdivis_1": "44433",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2049,
+        "search_string": "    thuvarankuruchi"
+      },
+      "bbox": [
+        79.3781,
+        10.4007,
+        79.3781,
+        10.4007
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1876,
+          10.8906
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN/AYYAMPETTAI",
+        "section_co": "431",
+        "subdivisio": "PAPANASAM",
+        "region_id": "06",
+        "subdivis_1": "44423",
+        "division_n": "KUMBAKONAM",
+        "division_c": "4442",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2050,
+        "search_string": "    town/ayyampettai"
+      },
+      "bbox": [
+        79.1876,
+        10.8906,
+        79.1876,
+        10.8906
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3283,
+          10.5459
+        ]
+      },
+      "properties": {
+        "section_na": "KANNUKUDY WEST",
+        "section_co": "436",
+        "subdivisio": "TOWN/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44441",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2051,
+        "search_string": "    kannukudy west"
+      },
+      "bbox": [
+        79.3283,
+        10.5459,
+        79.3283,
+        10.5459
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1972,
+          10.4093
+        ]
+      },
+      "properties": {
+        "section_na": "VATTATHIKOLLAIKADU",
+        "section_co": "459",
+        "subdivisio": "RURAL/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44432",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2052,
+        "search_string": "    vattathikollaikadu"
+      },
+      "bbox": [
+        79.1972,
+        10.4093,
+        79.1972,
+        10.4093
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1979,
+          10.2866
+        ]
+      },
+      "properties": {
+        "section_na": "PERAVURANI",
+        "section_co": "451",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2053,
+        "search_string": "    peravurani"
+      },
+      "bbox": [
+        79.1979,
+        10.2866,
+        79.1979,
+        10.2866
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1725,
+          10.3049
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/PERAVURANI",
+        "section_co": "454",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2054,
+        "search_string": "    rural/peravurani"
+      },
+      "bbox": [
+        79.1725,
+        10.3049,
+        79.1725,
+        10.3049
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4058,
+          10.3989
+        ]
+      },
+      "properties": {
+        "section_na": "THAMARANKOTTAI",
+        "section_co": "477",
+        "subdivisio": "MADUKKUR",
+        "region_id": "06",
+        "subdivis_1": "44433",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2055,
+        "search_string": "    thamarankottai"
+      },
+      "bbox": [
+        79.4058,
+        10.3989,
+        79.4058,
+        10.3989
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3941,
+          10.4853
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH/MADUKKUR",
+        "section_co": "478",
+        "subdivisio": "MADUKKUR",
+        "region_id": "06",
+        "subdivis_1": "44433",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2056,
+        "search_string": "    north/madukkur"
+      },
+      "bbox": [
+        79.3941,
+        10.4853,
+        79.3941,
+        10.4853
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3046,
+          10.4338
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/EAST /PATUKOTTAI",
+        "section_co": "444",
+        "subdivisio": "RURAL/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44432",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2057,
+        "search_string": "    rural/east /patukottai"
+      },
+      "bbox": [
+        79.3046,
+        10.4338,
+        79.3046,
+        10.4338
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3455,
+          10.494
+        ]
+      },
+      "properties": {
+        "section_na": "ALATHUR",
+        "section_co": "458",
+        "subdivisio": "RURAL/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44432",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2058,
+        "search_string": "    alathur"
+      },
+      "bbox": [
+        79.3455,
+        10.494,
+        79.3455,
+        10.494
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3046,
+          10.434
+        ]
+      },
+      "properties": {
+        "section_na": "PERUMALKOIL",
+        "section_co": "446",
+        "subdivisio": "RURAL/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44432",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2059,
+        "search_string": "    perumalkoil"
+      },
+      "bbox": [
+        79.3046,
+        10.434,
+        79.3046,
+        10.434
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.198,
+          10.2866
+        ]
+      },
+      "properties": {
+        "section_na": "POOKOLLAI",
+        "section_co": "456",
+        "subdivisio": "PERAVURANI",
+        "region_id": "06",
+        "subdivis_1": "44434",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2060,
+        "search_string": "    pookollai"
+      },
+      "bbox": [
+        79.198,
+        10.2866,
+        79.198,
+        10.2866
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4998,
+          11.1548
+        ]
+      },
+      "properties": {
+        "section_na": "KONNULAMPALLAM",
+        "section_co": "496",
+        "subdivisio": "NORTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44461",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2061,
+        "search_string": "    konnulampallam"
+      },
+      "bbox": [
+        79.4998,
+        11.1548,
+        79.4998,
+        11.1548
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2809,
+          10.5358
+        ]
+      },
+      "properties": {
+        "section_na": "PAPPANADU",
+        "section_co": "465",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2062,
+        "search_string": "    pappanadu"
+      },
+      "bbox": [
+        79.2809,
+        10.5358,
+        79.2809,
+        10.5358
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1682,
+          10.6228
+        ]
+      },
+      "properties": {
+        "section_na": "POYYUNDARKOTTAI",
+        "section_co": "418",
+        "subdivisio": "RURAL/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44442",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2063,
+        "search_string": "    poyyundarkottai"
+      },
+      "bbox": [
+        79.1682,
+        10.6228,
+        79.1682,
+        10.6228
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3825,
+          10.5621
+        ]
+      },
+      "properties": {
+        "section_na": "VADASERY",
+        "section_co": "463",
+        "subdivisio": "TOWN/ORATHANADU",
+        "region_id": "06",
+        "subdivis_1": "44441",
+        "division_n": "ORATHANADU",
+        "division_c": "4444",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2064,
+        "search_string": "    vadasery"
+      },
+      "bbox": [
+        79.3825,
+        10.5621,
+        79.3825,
+        10.5621
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4292,
+          10.9678
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUNAGESWARAM",
+        "section_co": "485",
+        "subdivisio": "SOUTH/KUMBAKONAM",
+        "region_id": "06",
+        "subdivis_1": "44462",
+        "division_n": "NORTH/KUMBAKONAM",
+        "division_c": "4446",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2065,
+        "search_string": "    thirunageswaram"
+      },
+      "bbox": [
+        79.4292,
+        10.9678,
+        79.4292,
+        10.9678
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3047,
+          10.434
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL/WEST /PATUKOTTAI",
+        "section_co": "445",
+        "subdivisio": "RURAL/PATTUKOTTAI",
+        "region_id": "06",
+        "subdivis_1": "44432",
+        "division_n": "PATTUKOTTAI",
+        "division_c": "4443",
+        "circle_nam": "THANJAVUR",
+        "circle_cod": "0444",
+        "region_nam": "TRICHY",
+        "object_id": 2066,
+        "search_string": "    rural/west /patukottai"
+      },
+      "bbox": [
+        79.3047,
+        10.434,
+        79.3047,
+        10.434
+      ]
+    }
+  ]
+}

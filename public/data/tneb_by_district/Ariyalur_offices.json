@@ -1,0 +1,635 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3566,
+          11.4076
+        ]
+      },
+      "properties": {
+        "section_na": "PERIYATHUKURICHI",
+        "section_co": "354",
+        "subdivisio": "ANDIMADAM",
+        "region_id": "06",
+        "subdivis_1": "44026",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1802,
+        "search_string": "    periyathukurichi"
+      },
+      "bbox": [
+        79.3566,
+        11.4076,
+        79.3566,
+        11.4076
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1,
+          10.9344
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUMANUR",
+        "section_co": "309",
+        "subdivisio": "THIRUMANUR",
+        "region_id": "06",
+        "subdivis_1": "44022",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1805,
+        "search_string": "    thirumanur"
+      },
+      "bbox": [
+        79.1,
+        10.9344,
+        79.1,
+        10.9344
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1875,
+          11.1192
+        ]
+      },
+      "properties": {
+        "section_na": "THELUR",
+        "section_co": "318",
+        "subdivisio": "ARIYALUR",
+        "region_id": "06",
+        "subdivis_1": "44023",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1810,
+        "search_string": "    thelur"
+      },
+      "bbox": [
+        79.1875,
+        11.1192,
+        79.1875,
+        11.1192
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0541,
+          10.8982
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUMALAPADI",
+        "section_co": "311",
+        "subdivisio": "THIRUMANUR",
+        "region_id": "06",
+        "subdivis_1": "44022",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1811,
+        "search_string": "    thirumalapadi"
+      },
+      "bbox": [
+        79.0541,
+        10.8982,
+        79.0541,
+        10.8982
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.211,
+          11.3207
+        ]
+      },
+      "properties": {
+        "section_na": "R.S.MATHUR",
+        "section_co": "322",
+        "subdivisio": "SENDURAI",
+        "region_id": "06",
+        "subdivis_1": "44021",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1812,
+        "search_string": "    r.s.mathur"
+      },
+      "bbox": [
+        79.211,
+        11.3207,
+        79.211,
+        11.3207
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1913,
+          11.2591
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL-1 SENDURAI",
+        "section_co": "320",
+        "subdivisio": "SENDURAI",
+        "region_id": "06",
+        "subdivis_1": "44021",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1813,
+        "search_string": "    rural-1 sendurai"
+      },
+      "bbox": [
+        79.1913,
+        11.2591,
+        79.1913,
+        11.2591
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1912,
+          11.2591
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL-2 SENDURAI",
+        "section_co": "323",
+        "subdivisio": "SENDURAI",
+        "region_id": "06",
+        "subdivis_1": "44021",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1814,
+        "search_string": "    rural-2 sendurai"
+      },
+      "bbox": [
+        79.1912,
+        11.2591,
+        79.1912,
+        11.2591
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0894,
+          11.1384
+        ]
+      },
+      "properties": {
+        "section_na": "RURAL-ARIYALUR",
+        "section_co": "316",
+        "subdivisio": "ARIYALUR",
+        "region_id": "06",
+        "subdivis_1": "44023",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1815,
+        "search_string": "    rural-ariyalur"
+      },
+      "bbox": [
+        79.0894,
+        11.1384,
+        79.0894,
+        11.1384
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3757,
+          11.3427
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH-ANDIMADAM",
+        "section_co": "326",
+        "subdivisio": "ANDIMADAM",
+        "region_id": "06",
+        "subdivis_1": "44026",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1816,
+        "search_string": "    south-andimadam"
+      },
+      "bbox": [
+        79.3757,
+        11.3427,
+        79.3757,
+        11.3427
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0892,
+          11.1385
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH-ARIYALUR",
+        "section_co": "317",
+        "subdivisio": "ARIYALUR",
+        "region_id": "06",
+        "subdivis_1": "44023",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1817,
+        "search_string": "    north-ariyalur"
+      },
+      "bbox": [
+        79.0892,
+        11.1385,
+        79.0892,
+        11.1385
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0796,
+          11.1388
+        ]
+      },
+      "properties": {
+        "section_na": "URBAN-ARIYALUR",
+        "section_co": "315",
+        "subdivisio": "ARIYALUR",
+        "region_id": "06",
+        "subdivis_1": "44023",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1818,
+        "search_string": "    urban-ariyalur"
+      },
+      "bbox": [
+        79.0796,
+        11.1388,
+        79.0796,
+        11.1388
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1607,
+          10.9543
+        ]
+      },
+      "properties": {
+        "section_na": "ELAKURICHI",
+        "section_co": "312",
+        "subdivisio": "THIRUMANUR",
+        "region_id": "06",
+        "subdivis_1": "44022",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1819,
+        "search_string": "    elakurichi"
+      },
+      "bbox": [
+        79.1607,
+        10.9543,
+        79.1607,
+        10.9543
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3555,
+          11.2128
+        ]
+      },
+      "properties": {
+        "section_na": "SOUTH-JAYANKONDAM",
+        "section_co": "324",
+        "subdivisio": "TOWN-JAYANKONDAM",
+        "region_id": "06",
+        "subdivis_1": "44025",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1820,
+        "search_string": "    south-jayankondam"
+      },
+      "bbox": [
+        79.3555,
+        11.2128,
+        79.3555,
+        11.2128
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3518,
+          11.2128
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH-JAYANKONDAM",
+        "section_co": "325",
+        "subdivisio": "TOWN-JAYANKONDAM",
+        "region_id": "06",
+        "subdivis_1": "44025",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1821,
+        "search_string": "    north-jayankondam"
+      },
+      "bbox": [
+        79.3518,
+        11.2128,
+        79.3518,
+        11.2128
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0682,
+          11.0425
+        ]
+      },
+      "properties": {
+        "section_na": "KEELAPALUR",
+        "section_co": "310",
+        "subdivisio": "THIRUMANUR",
+        "region_id": "06",
+        "subdivis_1": "44022",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1822,
+        "search_string": "    keelapalur"
+      },
+      "bbox": [
+        79.0682,
+        11.0425,
+        79.0682,
+        11.0425
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4737,
+          11.2284
+        ]
+      },
+      "properties": {
+        "section_na": "MEENSURITTY",
+        "section_co": "327",
+        "subdivisio": "RURAL-JAYANKONDAM",
+        "region_id": "06",
+        "subdivis_1": "44024",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1823,
+        "search_string": "    meensuritty"
+      },
+      "bbox": [
+        79.4737,
+        11.2284,
+        79.4737,
+        11.2284
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.287,
+          11.1012
+        ]
+      },
+      "properties": {
+        "section_na": "SUTHAMALLI",
+        "section_co": "355",
+        "subdivisio": "RURAL-JAYANKONDAM",
+        "region_id": "06",
+        "subdivis_1": "44024",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1824,
+        "search_string": "    suthamalli"
+      },
+      "bbox": [
+        79.287,
+        11.1012,
+        79.287,
+        11.1012
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3709,
+          11.0956
+        ]
+      },
+      "properties": {
+        "section_na": "T.PALUR",
+        "section_co": "329",
+        "subdivisio": "RURAL-JAYANKONDAM",
+        "region_id": "06",
+        "subdivis_1": "44024",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1825,
+        "search_string": "    t.palur"
+      },
+      "bbox": [
+        79.3709,
+        11.0956,
+        79.3709,
+        11.0956
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4889,
+          11.2807
+        ]
+      },
+      "properties": {
+        "section_na": "PAPPAKUDI",
+        "section_co": "353",
+        "subdivisio": "ANDIMADAM",
+        "region_id": "06",
+        "subdivis_1": "44026",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1826,
+        "search_string": "    pappakudi"
+      },
+      "bbox": [
+        79.4889,
+        11.2807,
+        79.4889,
+        11.2807
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3744,
+          11.3438
+        ]
+      },
+      "properties": {
+        "section_na": "NORTH-ANDIMADAM",
+        "section_co": "330",
+        "subdivisio": "ANDIMADAM",
+        "region_id": "06",
+        "subdivis_1": "44026",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1827,
+        "search_string": "    north-andimadam"
+      },
+      "bbox": [
+        79.3744,
+        11.3438,
+        79.3744,
+        11.3438
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2944,
+          11.1863
+        ]
+      },
+      "properties": {
+        "section_na": "UDAYARPALAYAM",
+        "section_co": "328",
+        "subdivisio": "TOWN-JAYANKONDAM",
+        "region_id": "06",
+        "subdivis_1": "44025",
+        "division_n": "ARIYALUR",
+        "division_c": "4402",
+        "circle_nam": "PERAMBALUR",
+        "circle_cod": "0440",
+        "region_nam": "TRICHY",
+        "object_id": 1829,
+        "search_string": "    udayarpalayam"
+      },
+      "bbox": [
+        79.2944,
+        11.1863,
+        79.2944,
+        11.1863
+      ]
+    }
+  ]
+}

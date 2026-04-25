@@ -166,6 +166,8 @@ export interface PostalOffice {
   statename: string;
   latitude: string | number;
   longitude: string | number;
+  isOutlier?: boolean;
+  outlierReason?: string;
 }
 
 export interface HealthFacilityProperties extends GisProperties {

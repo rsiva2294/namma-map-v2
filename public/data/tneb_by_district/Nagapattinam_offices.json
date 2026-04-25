@@ -1,0 +1,425 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6365,
+          10.8186
+        ]
+      },
+      "properties": {
+        "section_na": "KANGALANCHERRY",
+        "section_co": "513",
+        "subdivisio": "NORTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44511",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2067,
+        "search_string": "    kangalancherry"
+      },
+      "bbox": [
+        79.6365,
+        10.8186,
+        79.6365,
+        10.8186
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8392,
+          10.8222
+        ]
+      },
+      "properties": {
+        "section_na": "NAGORE",
+        "section_co": "503",
+        "subdivisio": "NORTH NAGAPATTNAM",
+        "region_id": "06",
+        "subdivis_1": "44511",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2068,
+        "search_string": "    nagore"
+      },
+      "bbox": [
+        79.8392,
+        10.8222,
+        79.8392,
+        10.8222
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7467,
+          10.8695
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUMARUGAL",
+        "section_co": "504",
+        "subdivisio": "NORTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44511",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2080,
+        "search_string": "    thirumarugal"
+      },
+      "bbox": [
+        79.7467,
+        10.8695,
+        79.7467,
+        10.8695
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.713,
+          10.6318
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUKUVALAI",
+        "section_co": "508",
+        "subdivisio": "SOUTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44512",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2081,
+        "search_string": "    thirukuvalai"
+      },
+      "bbox": [
+        79.713,
+        10.6318,
+        79.713,
+        10.6318
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7841,
+          10.6337
+        ]
+      },
+      "properties": {
+        "section_na": "THIRUPOONDI",
+        "section_co": "507",
+        "subdivisio": "SOUTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44512",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2082,
+        "search_string": "    thirupoondi"
+      },
+      "bbox": [
+        79.7841,
+        10.6337,
+        79.7841,
+        10.6337
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7992,
+          10.7555
+        ]
+      },
+      "properties": {
+        "section_na": "SIKKAL",
+        "section_co": "506",
+        "subdivisio": "SOUTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44512",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2101,
+        "search_string": "    sikkal"
+      },
+      "bbox": [
+        79.7992,
+        10.7555,
+        79.7992,
+        10.7555
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8326,
+          10.374
+        ]
+      },
+      "properties": {
+        "section_na": "VEDHARANYAM",
+        "section_co": "510",
+        "subdivisio": "VEDHARANYAM",
+        "region_id": "06",
+        "subdivis_1": "44513",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2103,
+        "search_string": "    vedharanyam"
+      },
+      "bbox": [
+        79.8326,
+        10.374,
+        79.8326,
+        10.374
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.653,
+          10.4129
+        ]
+      },
+      "properties": {
+        "section_na": "VOIMEDU",
+        "section_co": "511",
+        "subdivisio": "VEDHARANYAM",
+        "region_id": "06",
+        "subdivis_1": "44513",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2104,
+        "search_string": "    voimedu"
+      },
+      "bbox": [
+        79.653,
+        10.4129,
+        79.653,
+        10.4129
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8323,
+          10.6095
+        ]
+      },
+      "properties": {
+        "section_na": "VIZHUNTHAMAVADI",
+        "section_co": "514",
+        "subdivisio": "VEDHARANYAM",
+        "region_id": "06",
+        "subdivis_1": "44513",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2105,
+        "search_string": "    vizhunthamavadi"
+      },
+      "bbox": [
+        79.8323,
+        10.6095,
+        79.8323,
+        10.6095
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7474,
+          10.4708
+        ]
+      },
+      "properties": {
+        "section_na": "KARIYAPATTINAM",
+        "section_co": "512",
+        "subdivisio": "VEDHARANYAM",
+        "region_id": "06",
+        "subdivis_1": "44513",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2106,
+        "search_string": "    kariyapattinam"
+      },
+      "bbox": [
+        79.7474,
+        10.4708,
+        79.7474,
+        10.4708
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7393,
+          10.7663
+        ]
+      },
+      "properties": {
+        "section_na": "KILVELUR",
+        "section_co": "509",
+        "subdivisio": "SOUTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44512",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2107,
+        "search_string": "    kilvelur"
+      },
+      "bbox": [
+        79.7393,
+        10.7663,
+        79.7393,
+        10.7663
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8446,
+          10.7891
+        ]
+      },
+      "properties": {
+        "section_na": "VELIPALAYAM",
+        "section_co": "501",
+        "subdivisio": "NORTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44511",
+        "division_n": "NAGAPATTINA",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2108,
+        "search_string": "    velipalayam"
+      },
+      "bbox": [
+        79.8446,
+        10.7891,
+        79.8446,
+        10.7891
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8351,
+          10.7586
+        ]
+      },
+      "properties": {
+        "section_na": "TOWN NAGAPATTINAM",
+        "section_co": "502",
+        "subdivisio": "NORTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44511",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2109,
+        "search_string": "    town nagapattinam"
+      },
+      "bbox": [
+        79.8351,
+        10.7586,
+        79.8351,
+        10.7586
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8378,
+          10.6848
+        ]
+      },
+      "properties": {
+        "section_na": "VELANKANNI",
+        "section_co": "505",
+        "subdivisio": "SOUTH NAGAPATTINAM",
+        "region_id": "06",
+        "subdivis_1": "44512",
+        "division_n": "NAGAPATTINAM",
+        "division_c": "4451",
+        "circle_nam": "NAGAPATTINAM",
+        "circle_cod": "0445",
+        "region_nam": "TRICHY",
+        "object_id": 2110,
+        "search_string": "    velankanni"
+      },
+      "bbox": [
+        79.8378,
+        10.6848,
+        79.8378,
+        10.6848
+      ]
+    }
+  ]
+}

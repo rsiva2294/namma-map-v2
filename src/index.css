@@ -1255,3 +1255,82 @@ html,
   animation: spin-slow 3s linear infinite;
 }
 
+
+/* Result Cards Stack Container */
+.result-cards-stack {
+  position: absolute;
+  top: 86px;
+  right: 20px;
+  width: min(calc(100vw - 40px), 400px);
+  z-index: var(--z-panel);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  pointer-events: none; /* Let clicks pass through empty spaces */
+  scrollbar-width: none; /* Hide scrollbar for cleaner look */
+  -ms-overflow-style: none;
+  padding: 4px; /* Space for box shadows */
+}
+
+.result-cards-stack::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure cards inside stack are not absolute but relative */
+.result-cards-stack > * {
+  pointer-events: auto; /* Enable clicks on cards */
+}
+
+.result-cards-stack .result-card {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.result-card-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.result-card-group-label {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .result-cards-stack {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 85dvh;
+    padding: 0;
+    gap: 0; /* Stacked bottom sheets don't usually have gaps */
+    z-index: var(--z-bottom-sheet);
+  }
+
+  .result-cards-stack .result-card {
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+    margin-top: -20px; /* Slight overlap for "stacked cards" look on mobile */
+  }
+  
+  .result-cards-stack .result-card:first-child {
+    margin-top: 0;
+  }
+}
