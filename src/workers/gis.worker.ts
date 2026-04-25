@@ -97,6 +97,7 @@ const postalOfficesIndex: Map<string, PostalOffice[]> = new Map();
 const loadedPds: Map<string, GisFeatureCollection> = new Map();
 const loadedHealthDistricts: Map<string, GisFeatureCollection> = new Map();
 const loadedPostalDistricts: Map<string, PostalOffice[]> = new Map();
+const loadedPoliceDistricts: Map<string, { boundaries: GisFeatureCollection, stations: GisFeatureCollection }> = new Map();
 const healthDistrictIndexes: Map<string, RBush<SpatialItem>> = new Map();
 let healthManifest: HealthManifest | null = null;
 let healthPriorityGeoJson: GisFeatureCollection | null = null;
@@ -664,6 +665,50 @@ self.onmessage = async (e: MessageEvent) => {
         }
       } else if (layer === 'POLICE') {
         const { stationCode } = payload;
+        
+        // Ensure district boundaries are loaded for this area
+        if (policeBoundariesIndex.all().length === 0 || !findFeatureAt([lng, lat], policeBoundariesIndex)) {
+          const distFeature = findFeatureAt([lng, lat], districtsIndex);
+          const districtName = (distFeature?.properties.district_n || distFeature?.properties.district)?.toString();
+          
+          if (districtName && !loadedPoliceDistricts.has(districtName)) {
+            try {
+              const [dataBound, dataOff] = await Promise.all([
+                fetchWithRetry(`/data/police_by_district/${districtName}_boundaries.json`),
+                fetchWithRetry(`/data/police_by_district/${districtName}_stations.json`)
+              ]);
+              
+              const boundaries = dataBound as GisFeatureCollection;
+              const stations = dataOff as GisFeatureCollection;
+              
+              loadedPoliceDistricts.set(districtName, { boundaries, stations });
+              
+              const items: SpatialItem[] = boundaries.features
+                .filter(f => f.geometry && f.geometry.coordinates)
+                .map(f => ({ ...getBBox(f.geometry), feature: f }));
+              policeBoundariesIndex.load(items);
+              
+              // Also keep track of features for non-spatial lookups
+              if (!policeBoundariesGeoJson) {
+                policeBoundariesGeoJson = { type: 'FeatureCollection', features: [] };
+              }
+              policeBoundariesGeoJson.features.push(...boundaries.features);
+
+              if (!policeStationsGeoJson) {
+                policeStationsGeoJson = { type: 'FeatureCollection', features: [] };
+              }
+              // Merge into statewide collection if not already there
+              stations.features.forEach((f: GisFeature) => {
+                f.properties.station_location = f.geometry.coordinates as Position;
+                if (!policeStationsGeoJson!.features.some(s => s.properties.ps_code === f.properties.ps_code && s.properties.ps_name === f.properties.ps_name)) {
+                  policeStationsGeoJson!.features.push(f);
+                }
+              });
+            } catch (err) {
+              console.error('[Worker] Error lazy loading police district:', err);
+            }
+          }
+        }
         
         if (stationCode && policeBoundariesGeoJson) {
            // Find all boundaries with this code (codes are not unique statewide)
@@ -1479,9 +1524,8 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'LOAD_POLICE':
       try {
-        if (!policeBoundariesGeoJson || !policeStationsGeoJson) {
-          const [dataBound, dataOff] = await Promise.all([
-            fetchWithRetry('/data/tn_police_boundaries.topojson'),
+        if (!policeStationsGeoJson) {
+          const [dataOff] = await Promise.all([
             fetchWithRetry('/data/tn_police_stations.geojson')
           ]);
           
@@ -1504,17 +1548,9 @@ self.onmessage = async (e: MessageEvent) => {
             }
           }
 
-          const objectName = Object.keys(dataBound.objects)[0];
-          const feature = topojson.feature(dataBound, dataBound.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
-          policeBoundariesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
           policeStationsGeoJson = dataOff as GisFeatureCollection;
           
           // Indexing
-          policeBoundariesIndex.load(
-            policeBoundariesGeoJson!.features
-              .filter(f => f.geometry && f.geometry.coordinates)
-              .map(f => ({ ...getBBox(f.geometry), feature: f }))
-          );
 
           policeStationsIndex.load(
             policeStationsGeoJson.features
