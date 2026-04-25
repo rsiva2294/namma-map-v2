@@ -38,12 +38,27 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <motion.aside
-      initial={false}
-      animate={{ width: isSidebarOpen ? 280 : 0 }}
-      transition={{ duration: 0.2 }}
-      className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}
-    >
+    <>
+      {/* Backdrop for Mobile */}
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="mobile-backdrop"
+            style={{ display: window.innerWidth > 768 ? 'none' : 'block' }}
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      <motion.aside
+        initial={false}
+        animate={{ width: isSidebarOpen ? 280 : (window.innerWidth > 768 ? 0 : 0) }}
+        transition={{ duration: 0.2 }}
+        className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}
+      >
       <button
         className="sidebar-toggle"
         onClick={() => setSidebarOpen(!isSidebarOpen)}
@@ -180,11 +195,11 @@ const Sidebar: React.FC = () => {
           </button>
           <button className="sidebar-menu-item" aria-label="Help">
             <HelpCircle size={20} />
-            {isSidebarOpen && <span>Help</span>}
           </button>
         </div>
       </motion.div>
     </motion.aside>
+    </>
   );
 };
 

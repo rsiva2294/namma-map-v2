@@ -81,10 +81,10 @@ const SearchBar: React.FC = () => {
           }}
           onKeyDown={handleKeyDown}
           placeholder={
-            isLocating ? "Locating you..." :
+            isLocating ? (window.innerWidth < 768 ? "Locating..." : "Locating you...") :
             activeLayer === 'HEALTH' 
-              ? "Search Hospitals, Districts, or Pincodes..."
-              : "Search Districts, Pincodes, or Offices..."
+              ? (window.innerWidth < 768 ? "Search Health..." : "Search Hospitals, Districts, or Pincodes...")
+              : (window.innerWidth < 768 ? "Search Area..." : "Search Districts, Pincodes, or Offices...")
           }
           className="search-input"
           aria-label="Search for a location"

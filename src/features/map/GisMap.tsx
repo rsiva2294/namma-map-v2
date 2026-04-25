@@ -20,7 +20,9 @@ const MapController: React.FC<{
   useEffect(() => {
     if (!map) return;
 
-    const leftPad = isSidebarOpen ? 340 : 80;
+    const isMobile = window.innerWidth <= 768;
+    const leftPad = isMobile ? 20 : (isSidebarOpen ? 340 : 80);
+    const bottomPad = isMobile ? 320 : 80; // Space for bottom sheet
 
     if (result && result.geometry) {
       try {
@@ -28,7 +30,7 @@ const MapController: React.FC<{
         if (bounds.isValid()) {
           map.flyToBounds(bounds, { 
             paddingTopLeft: [leftPad, 120], 
-            paddingBottomRight: [80, 80],
+            paddingBottomRight: [80, bottomPad],
             maxZoom: 14,
             duration: 0.8
           });
@@ -47,7 +49,7 @@ const MapController: React.FC<{
           // Aggressive padding to force the selection into the visible 'hole'
           map.flyToBounds(bounds, { 
             paddingTopLeft: [leftPad, 150], // Extra top padding for search bar
-            paddingBottomRight: [420, 100], // Extra right padding for result card
+            paddingBottomRight: [isMobile ? 20 : 420, bottomPad], // Extra right padding for result card
             maxZoom: 14,
             duration: 0.8
           });

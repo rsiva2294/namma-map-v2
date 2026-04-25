@@ -89,11 +89,14 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
 
   const setTriggerLocateMe = useMapStore(state => state.setTriggerLocateMe);
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: 50, scale: 0.95 }}
-      animate={{ opacity: 1, x: 0, scale: 1 }}
-      exit={{ opacity: 0, x: 50, scale: 0.95 }}
+      initial={isMobile ? { opacity: 0, y: 100 } : { opacity: 0, x: 50, scale: 0.95 }}
+      animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+      exit={isMobile ? { opacity: 0, y: 100 } : { opacity: 0, x: 50, scale: 0.95 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className="glass result-card health-summary-card"
       style={{ padding: '24px' }}
     >

@@ -118,9 +118,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       marginTop: '8px',
       maxHeight: '85vh',
       overflowY: 'auto',
-      width: '340px',
       boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.2)'
-    }} className="custom-scrollbar">
+    }} className="custom-scrollbar health-filters-inner">
       
       {/* Scope Switcher */}
       <div style={{ padding: '8px 12px' }}>
@@ -170,7 +169,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                 <Icon size={isActive ? 19 : 17} strokeWidth={isActive ? 3 : 2.2} />
                 <span style={{ 
                   fontSize: '11px', 
-                  fontWeight: isActive ? 800 : 650,
+                  fontWeight: 800, 
                   lineHeight: 1.1
                 }}>
                   {scope.label}

@@ -1424,12 +1424,10 @@ self.onmessage = async (e: MessageEvent) => {
     case 'LOAD_CONSTITUENCIES':
       try {
         if (!acGeoJson || !pcGeoJson) {
-          const [resAc, resPc] = await Promise.all([
+          const [dataAc, dataPc] = await Promise.all([
             fetchWithRetry('/data/tn_assembly_constituencies.topojson'),
             fetchWithRetry('/data/tn_parliamentary_constituencies.topojson')
           ]);
-          const dataAc = await resAc.json();
-          const dataPc = await resPc.json();
           
           acGeoJson = topojson.feature(dataAc, dataAc.objects.tamilnadu_assemply_constituency) as unknown as GisFeatureCollection;
           pcGeoJson = topojson.feature(dataPc, dataPc.objects.tamilnadu_parliament_constituency) as unknown as GisFeatureCollection;
