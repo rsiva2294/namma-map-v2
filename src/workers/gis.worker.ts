@@ -93,10 +93,10 @@ let acGeoJson: GisFeatureCollection | null = null;
 let pcGeoJson: GisFeatureCollection | null = null;
 let policeBoundariesGeoJson: GisFeatureCollection | null = null;
 let policeStationsGeoJson: GisFeatureCollection | null = null;
-let postalOffices: PostalOffice[] | null = null;
 const postalOfficesIndex: Map<string, PostalOffice[]> = new Map();
 const loadedPds: Map<string, GisFeatureCollection> = new Map();
 const loadedHealthDistricts: Map<string, GisFeatureCollection> = new Map();
+const loadedPostalDistricts: Map<string, PostalOffice[]> = new Map();
 const healthDistrictIndexes: Map<string, RBush<SpatialItem>> = new Map();
 let healthManifest: HealthManifest | null = null;
 let healthPriorityGeoJson: GisFeatureCollection | null = null;
@@ -819,6 +819,24 @@ self.onmessage = async (e: MessageEvent) => {
         
         if (found) {
           const pincode = (found.properties.pin_code || found.properties.PIN_CODE || found.properties.pincode)?.toString();
+          const district = (found.properties.district || found.properties.DISTRICT || found.properties.NAME)?.toString();
+          
+          if (layer === 'PINCODE' && district && !loadedPostalDistricts.has(district)) {
+            // Lazy load the district postal data
+            const data = await fetchWithRetry(`/data/postal_by_district/${district}.json`) as PostalOffice[];
+            loadedPostalDistricts.set(district, data);
+            if (data) {
+              data.forEach(po => {
+                const pin = po.pincode.toString();
+                if (!postalOfficesIndex.has(pin)) postalOfficesIndex.set(pin, []);
+                const existing = postalOfficesIndex.get(pin)!;
+                if (!existing.some(e => e.officename === po.officename)) {
+                  existing.push(po);
+                }
+              });
+            }
+          }
+
           const offices = pincode ? postalOfficesIndex.get(pincode) || [] : [];
           
           self.postMessage({ 
@@ -869,23 +887,31 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
-    case 'LOAD_POSTAL_OFFICES':
+    case 'LOAD_POSTAL_DISTRICT':
       try {
-        if (!postalOffices) {
-          postalOffices = await fetchWithRetry('/data/tn_postal_offices.json');
+        const { district } = payload;
+        if (!district) return;
+        
+        if (!loadedPostalDistricts.has(district)) {
+          const data = await fetchWithRetry(`/data/postal_by_district/${district}.json`) as PostalOffice[];
+          loadedPostalDistricts.set(district, data);
           
-          if (postalOffices) {
-            postalOffices.forEach(po => {
+          if (data) {
+            data.forEach(po => {
               const pin = po.pincode.toString();
               if (!postalOfficesIndex.has(pin)) postalOfficesIndex.set(pin, []);
-              postalOfficesIndex.get(pin)!.push(po);
+              // Avoid duplicates if loading multiple districts that share a pincode (rare but possible)
+              const existing = postalOfficesIndex.get(pin)!;
+              if (!existing.some(e => e.officename === po.officename)) {
+                existing.push(po);
+              }
             });
           }
         }
-        self.postMessage({ type: 'POSTAL_OFFICES_LOADED' });
+        self.postMessage({ type: 'POSTAL_DISTRICT_LOADED', payload: { district } });
       } catch (err) {
-        console.error('[Worker] Error loading postal offices:', err);
-        self.postMessage({ type: 'ERROR', payload: 'Failed to load postal office data' });
+        console.error('[Worker] Error loading postal district:', err);
+        self.postMessage({ type: 'ERROR', payload: `Failed to load postal data for ${payload.district}` });
       }
       break;
 

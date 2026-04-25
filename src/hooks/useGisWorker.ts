@@ -48,7 +48,9 @@ export const useGisWorker = () => {
   const loadTneb = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB' }), []);
   const loadConstituencies = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
   const loadPoliceData = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POLICE' }), []);
-  const loadPostalOffices = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POSTAL_OFFICES' }), []);
+  const loadPostalDistrict = useCallback((district: string) => {
+    workerRef.current?.postMessage({ type: 'LOAD_POSTAL_DISTRICT', payload: { district } });
+  }, []);
   const loadHealthManifest = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_HEALTH_MANIFEST' }), []);
   const loadHealthPriority = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_HEALTH_PRIORITY' }), []);
   const loadHealthDistrict = useCallback((district: string, file_name: string) => {
@@ -365,7 +367,7 @@ export const useGisWorker = () => {
     loadPds, 
     loadConstituencies, 
     loadPoliceData, 
-    loadPostalOffices, 
+    loadPostalDistrict, 
     loadHealthManifest, 
     loadHealthPriority, 
     loadHealthDistrict, 
