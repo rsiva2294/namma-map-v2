@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => {
     <motion.aside
       initial={false}
       animate={{ width: isSidebarOpen ? 280 : 0 }}
-      transition={{ type: 'spring', damping: 20, stiffness: 200 }}
+      transition={{ duration: 0.2 }}
       className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}
     >
       <button

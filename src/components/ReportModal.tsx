@@ -43,6 +43,7 @@ const ReportModal: React.FC = () => {
           initial={{ scale: 0.9, y: 20, opacity: 0 }}
           animate={{ scale: 1, y: 0, opacity: 1 }}
           exit={{ scale: 0.9, y: 20, opacity: 0 }}
+          transition={{ duration: 0.2 }}
           className="modal-content glass-heavy"
           onClick={e => e.stopPropagation()}
         >
