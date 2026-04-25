@@ -1,0 +1,6542 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2034,
+        13.0527
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SALIGRAMAM",
+      "section_co": "278",
+      "subdivisio": "SALIGRAMAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR6",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 1,
+      "search_string": "    ae/o&m/saligramam"
+    },
+    "bbox": [
+      80.2034,
+      13.0527,
+      80.2034,
+      13.0527
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1827,
+        13.0478
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VIRUGAMBAKKAM",
+      "section_co": "227",
+      "subdivisio": "VALASARAVAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR3",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 2,
+      "search_string": "    ae/o&m/virugambakkam"
+    },
+    "bbox": [
+      80.1827,
+      13.0478,
+      80.1827,
+      13.0478
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1535,
+        13.0312
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PORUR2",
+      "section_co": "263",
+      "subdivisio": "PORUR",
+      "region_id": "09",
+      "subdivis_1": "PORU1",
+      "division_n": "PORUR",
+      "division_c": "PORU",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 7,
+      "search_string": "    ae/o&m/porur2"
+    },
+    "bbox": [
+      80.1535,
+      13.0312,
+      80.1535,
+      13.0312
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2078,
+        13.0038
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ALANDUR",
+      "section_co": "241",
+      "subdivisio": "ALANDUR",
+      "region_id": "09",
+      "subdivis_1": "GNDY5",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 11,
+      "search_string": "    ae/o&m/alandur"
+    },
+    "bbox": [
+      80.2078,
+      13.0038,
+      80.2078,
+      13.0038
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2211,
+        13.0066
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/RAJBHAVAN",
+      "section_co": "212",
+      "subdivisio": "GUINDY",
+      "region_id": "09",
+      "subdivis_1": "GNDY1",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 12,
+      "search_string": "    ae/o&m/rajbhavan"
+    },
+    "bbox": [
+      80.2211,
+      13.0066,
+      80.2211,
+      13.0066
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1948,
+        12.9919
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ADAMBAKKAM",
+      "section_co": "243",
+      "subdivisio": "ADAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY2",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 16,
+      "search_string": "    ae/o&m/adambakkam"
+    },
+    "bbox": [
+      80.1948,
+      12.9919,
+      80.1948,
+      12.9919
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2107,
+        13.0119
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/GUINDY",
+      "section_co": "211",
+      "subdivisio": "GUINDY",
+      "region_id": "09",
+      "subdivis_1": "GNDY1",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 17,
+      "search_string": "    ae/o&m/guindy"
+    },
+    "bbox": [
+      80.2107,
+      13.0119,
+      80.2107,
+      13.0119
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2003,
+        12.9814
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VANUAMPET",
+      "section_co": "279",
+      "subdivisio": "ADAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY2",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 18,
+      "search_string": "    ae/o&m/vanuampet"
+    },
+    "bbox": [
+      80.2003,
+      12.9814,
+      80.2003,
+      12.9814
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.175,
+        13.0155
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MANAPAKKAM",
+      "section_co": "322",
+      "subdivisio": "RAMAPURAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY4",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 19,
+      "search_string": "    ae/o&m/manapakkam"
+    },
+    "bbox": [
+      80.175,
+      13.0155,
+      80.175,
+      13.0155
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1987,
+        12.9628
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PUZHUTHIVAKKAM",
+      "section_co": "302",
+      "subdivisio": "ADAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY2",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 20,
+      "search_string": "    ae/o&m/puzhuthivakkam"
+    },
+    "bbox": [
+      80.1987,
+      12.9628,
+      80.1987,
+      12.9628
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2203,
+        13.0532
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/RANGARAJAPURAM",
+      "section_co": "226",
+      "subdivisio": "KODAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR2",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 21,
+      "search_string": "    ae/o&m/rangarajapuram"
+    },
+    "bbox": [
+      80.2203,
+      13.0532,
+      80.2203,
+      13.0532
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1681,
+        13.0217
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MUGALIVAKKAM",
+      "section_co": "301",
+      "subdivisio": "RAMAPURAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY4",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 22,
+      "search_string": "    ae/o&m/mugalivakkam"
+    },
+    "bbox": [
+      80.1681,
+      13.0217,
+      80.1681,
+      13.0217
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1948,
+        12.9918
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TG NAGAR",
+      "section_co": "268",
+      "subdivisio": "ADAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY2",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 23,
+      "search_string": "    ae/o&m/tg nagar"
+    },
+    "bbox": [
+      80.1948,
+      12.9918,
+      80.1948,
+      12.9918
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1743,
+        13.0147
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NANDHAMBAKKAM",
+      "section_co": "261",
+      "subdivisio": "RAMAPURAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY4",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 24,
+      "search_string": "    ae/o&m/nandhambakkam"
+    },
+    "bbox": [
+      80.1743,
+      13.0147,
+      80.1743,
+      13.0147
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2066,
+        13.0327
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KKNAGAR SOUTH",
+      "section_co": "237",
+      "subdivisio": "ASHOK NAGAR",
+      "region_id": "09",
+      "subdivis_1": "KKNR4",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 25,
+      "search_string": "    ae/o&m/kknagar south"
+    },
+    "bbox": [
+      80.2066,
+      13.0327,
+      80.2066,
+      13.0327
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1885,
+        13.0572
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHINMAYA NAGAR",
+      "section_co": "260",
+      "subdivisio": "VALASARAVAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR3",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 26,
+      "search_string": "    ae/o&m/chinmaya nagar"
+    },
+    "bbox": [
+      80.1885,
+      13.0572,
+      80.1885,
+      13.0572
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1844,
+        12.9792
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NANGANALLUR",
+      "section_co": "244",
+      "subdivisio": "NANGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "GNDY3",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 27,
+      "search_string": "    ae/o&m/nanganallur"
+    },
+    "bbox": [
+      80.1844,
+      12.9792,
+      80.1844,
+      12.9792
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2028,
+        13.0402
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KKNAGAR EAST",
+      "section_co": "229",
+      "subdivisio": "KKNAGAR",
+      "region_id": "09",
+      "subdivis_1": "KKNR1",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 28,
+      "search_string": "    ae/o&m/kknagar east"
+    },
+    "bbox": [
+      80.2028,
+      13.0402,
+      80.2028,
+      13.0402
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1827,
+        13.0477
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ALWARTHIRUNAGAR",
+      "section_co": "287",
+      "subdivisio": "VALASARAVAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR3",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 29,
+      "search_string": "    ae/o&m/alwarthirunagar"
+    },
+    "bbox": [
+      80.1827,
+      13.0477,
+      80.1827,
+      13.0477
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1536,
+        13.0311
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PORUR RURAL",
+      "section_co": "324",
+      "subdivisio": "PORUR",
+      "region_id": "09",
+      "subdivis_1": "PORU1",
+      "division_n": "PORUR",
+      "division_c": "PORU",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 30,
+      "search_string": "    ae/o&m/porur rural"
+    },
+    "bbox": [
+      80.1536,
+      13.0311,
+      80.1536,
+      13.0311
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2055,
+        13.0419
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ASHOK NAGAR EAST",
+      "section_co": "238",
+      "subdivisio": "ASHOK NAGAR",
+      "region_id": "09",
+      "subdivis_1": "KKNR4",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 32,
+      "search_string": "    ae/o&m/ashok nagar east"
+    },
+    "bbox": [
+      80.2055,
+      13.0419,
+      80.2055,
+      13.0419
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1827,
+        13.0478
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VALASARAVAKKAM",
+      "section_co": "240",
+      "subdivisio": "VALASARAVAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR3",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 34,
+      "search_string": "    ae/o&m/valasaravakkam"
+    },
+    "bbox": [
+      80.1827,
+      13.0478,
+      80.1827,
+      13.0478
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2034,
+        13.0527
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/DASARATHAPURAM",
+      "section_co": "269",
+      "subdivisio": "SALIGRAMAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR6",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 35,
+      "search_string": "    ae/o&m/dasarathapuram"
+    },
+    "bbox": [
+      80.2034,
+      13.0527,
+      80.2034,
+      13.0527
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2055,
+        13.0419
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ASHOK NAGAR WEST",
+      "section_co": "228",
+      "subdivisio": "ASHOK NAGAR",
+      "region_id": "09",
+      "subdivis_1": "KKNR4",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 36,
+      "search_string": "    ae/o&m/ashok nagar west"
+    },
+    "bbox": [
+      80.2055,
+      13.0419,
+      80.2055,
+      13.0419
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2033,
+        13.0352
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MGR NAGAR",
+      "section_co": "286",
+      "subdivisio": "KKNAGAR",
+      "region_id": "09",
+      "subdivis_1": "KKNR1",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 37,
+      "search_string": "    ae/o&m/mgr nagar"
+    },
+    "bbox": [
+      80.2033,
+      13.0352,
+      80.2033,
+      13.0352
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1904,
+        13.0003
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ST.THOMAS MOUNT",
+      "section_co": "242",
+      "subdivisio": "ALANDUR",
+      "region_id": "09",
+      "subdivis_1": "GNDY5",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 38,
+      "search_string": "    ae/o&m/st.thomas mount"
+    },
+    "bbox": [
+      80.1904,
+      13.0003,
+      80.1904,
+      13.0003
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1987,
+        12.9629
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MADIPAKKAM",
+      "section_co": "245",
+      "subdivisio": "NANGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "GNDY3",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 39,
+      "search_string": "    ae/o&m/madipakkam"
+    },
+    "bbox": [
+      80.1987,
+      12.9629,
+      80.1987,
+      12.9629
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1987,
+        12.9629
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MOOVARASAMPET",
+      "section_co": "264",
+      "subdivisio": "NANGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "GNDY3",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 40,
+      "search_string": "    ae/o&m/moovarasampet"
+    },
+    "bbox": [
+      80.1987,
+      12.9629,
+      80.1987,
+      12.9629
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1878,
+        13.0258
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/RAMAPURAM",
+      "section_co": "270",
+      "subdivisio": "RAMAPURAM",
+      "region_id": "09",
+      "subdivis_1": "GNDY4",
+      "division_n": "GUINDY",
+      "division_c": "GNDY",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 41,
+      "search_string": "    ae/o&m/ramapuram"
+    },
+    "bbox": [
+      80.1878,
+      13.0258,
+      80.1878,
+      13.0258
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2202,
+        13.0531
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KODAMBAKKAM",
+      "section_co": "225",
+      "subdivisio": "KODAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR2",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 42,
+      "search_string": "    ae/o&m/kodambakkam"
+    },
+    "bbox": [
+      80.2202,
+      13.0531,
+      80.2202,
+      13.0531
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2204,
+        13.0531
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VADAPALANI",
+      "section_co": "239",
+      "subdivisio": "KODAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR2",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 43,
+      "search_string": "    ae/o&m/vadapalani"
+    },
+    "bbox": [
+      80.2204,
+      13.0531,
+      80.2204,
+      13.0531
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2204,
+        13.0532
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHOOLAIMEDU",
+      "section_co": "236",
+      "subdivisio": "KODAMBAKKAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR2",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 44,
+      "search_string": "    ae/o&m/choolaimedu"
+    },
+    "bbox": [
+      80.2204,
+      13.0532,
+      80.2204,
+      13.0532
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2033,
+        13.0352
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KKNAGAR WEST",
+      "section_co": "230",
+      "subdivisio": "KKNAGAR",
+      "region_id": "09",
+      "subdivis_1": "KKNR1",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 45,
+      "search_string": "    ae/o&m/kknagar west"
+    },
+    "bbox": [
+      80.2033,
+      13.0352,
+      80.2033,
+      13.0352
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2123,
+        13.0546
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ALAGIRI NAGAR",
+      "section_co": "285",
+      "subdivisio": "SALIGRAMAM",
+      "region_id": "09",
+      "subdivis_1": "KKNR6",
+      "division_n": "KKNAGAR",
+      "division_c": "KKNR",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 46,
+      "search_string": "    ae/o&m/alagiri nagar"
+    },
+    "bbox": [
+      80.2123,
+      13.0546,
+      80.2123,
+      13.0546
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1533,
+        13.0309
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PORUR1",
+      "section_co": "231",
+      "subdivisio": "PORUR",
+      "region_id": "09",
+      "subdivis_1": "PORU1",
+      "division_n": "PORUR",
+      "division_c": "PORU",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 47,
+      "search_string": "    ae/o&m/porur1"
+    },
+    "bbox": [
+      80.1533,
+      13.0309,
+      80.1533,
+      13.0309
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1464,
+        13.0388
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KARAMBAKKAM",
+      "section_co": "310",
+      "subdivisio": "PORUR",
+      "region_id": "09",
+      "subdivis_1": "PORU1",
+      "division_n": "PORUR",
+      "division_c": "PORU",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 48,
+      "search_string": "    ae/o&m/karambakkam"
+    },
+    "bbox": [
+      80.1464,
+      13.0388,
+      80.1464,
+      13.0388
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1533,
+        13.031
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MADANANTHAPURAM",
+      "section_co": "320",
+      "subdivisio": "PORUR",
+      "region_id": "09",
+      "subdivis_1": "PORU1",
+      "division_n": "PORUR",
+      "division_c": "PORU",
+      "circle_nam": "CHENNAI SOUTH 1",
+      "circle_cod": "0400",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 53,
+      "search_string": "    ae/o&m/madananthapuram"
+    },
+    "bbox": [
+      80.1533,
+      13.031,
+      80.1533,
+      13.031
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2328,
+        12.9462
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PERUNGUDI SOUTH",
+      "section_co": "265",
+      "subdivisio": "SHOLLINGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "ADYR6",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 54,
+      "search_string": "    ae/o&m/perungudi south"
+    },
+    "bbox": [
+      80.2328,
+      12.9462,
+      80.2328,
+      12.9462
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2328,
+        12.9462
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MCN NAGAR",
+      "section_co": "299",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 55,
+      "search_string": "    ae/o&m/mcn nagar"
+    },
+    "bbox": [
+      80.2328,
+      12.9462,
+      80.2328,
+      12.9462
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2269,
+        12.8926
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SHOLLINGANALLUR",
+      "section_co": "280",
+      "subdivisio": "SIRUSERI",
+      "region_id": "09",
+      "subdivis_1": "ADYR7",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 56,
+      "search_string": "    ae/o&m/shollinganallur"
+    },
+    "bbox": [
+      80.2269,
+      12.8926,
+      80.2269,
+      12.8926
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2269,
+        12.8927
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SHOLINGANALLUR NORTH",
+      "section_co": "327",
+      "subdivisio": "SHOLLINGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "ADYR6",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 57,
+      "search_string": "    ae/o&m/sholinganallur north"
+    },
+    "bbox": [
+      80.2269,
+      12.8927,
+      80.2269,
+      12.8927
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2379,
+        12.9255
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/THORAIPAKKAM",
+      "section_co": "214",
+      "subdivisio": "SHOLLINGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "ADYR6",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 58,
+      "search_string": "    ae/o&m/thoraipakkam"
+    },
+    "bbox": [
+      80.2379,
+      12.9255,
+      80.2379,
+      12.9255
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2297,
+        12.9119
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KARAPAKKAM",
+      "section_co": "297",
+      "subdivisio": "SHOLINGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "ADYR6",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 59,
+      "search_string": "    ae/o&m/karapakkam"
+    },
+    "bbox": [
+      80.2297,
+      12.9119,
+      80.2297,
+      12.9119
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2206,
+        12.9802
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VELACHERY EAST",
+      "section_co": "275",
+      "subdivisio": "VELACHERY",
+      "region_id": "09",
+      "subdivis_1": "ADYR1",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 60,
+      "search_string": "    ae/o&m/velachery east"
+    },
+    "bbox": [
+      80.2206,
+      12.9802,
+      80.2206,
+      12.9802
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2209,
+        12.9803
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VELACHERY CENTRAL",
+      "section_co": "288",
+      "subdivisio": "VELACHERY",
+      "region_id": "09",
+      "subdivis_1": "ADYR1",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 61,
+      "search_string": "    ae/o&m/velachery central"
+    },
+    "bbox": [
+      80.2209,
+      12.9803,
+      80.2209,
+      12.9803
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2209,
+        12.9803
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VELACHERY WEST",
+      "section_co": "210",
+      "subdivisio": "VELACHERY",
+      "region_id": "09",
+      "subdivis_1": "ADYR1",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 62,
+      "search_string": "    ae/o&m/velachery west"
+    },
+    "bbox": [
+      80.2209,
+      12.9803,
+      80.2209,
+      12.9803
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2522,
+        12.9198
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ENJAMBAKKAM",
+      "section_co": "218",
+      "subdivisio": "INDRA NAGAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR3",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 66,
+      "search_string": "    ae/o&m/enjambakkam"
+    },
+    "bbox": [
+      80.2522,
+      12.9198,
+      80.2522,
+      12.9198
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2522,
+        12.9198
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PANAIYUR",
+      "section_co": "328",
+      "subdivisio": "INDRA NAGAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR2",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 67,
+      "search_string": "    ae/o&m/panaiyur"
+    },
+    "bbox": [
+      80.2522,
+      12.9198,
+      80.2522,
+      12.9198
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2647,
+        12.9969
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/BESANT NAGAR",
+      "section_co": "213",
+      "subdivisio": "ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR2",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 68,
+      "search_string": "    ae/o&m/besant nagar"
+    },
+    "bbox": [
+      80.2647,
+      12.9969,
+      80.2647,
+      12.9969
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2647,
+        12.9969
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SASTRI NAGAR",
+      "section_co": "202",
+      "subdivisio": "ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR2",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 69,
+      "search_string": "    ae/o&m/sastri nagar"
+    },
+    "bbox": [
+      80.2647,
+      12.9969,
+      80.2647,
+      12.9969
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1884,
+        12.9415
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KOVILAMBAKKAM",
+      "section_co": "316",
+      "subdivisio": "MEDAVAKKAM",
+      "region_id": "09",
+      "subdivis_1": "TMBM3",
+      "division_n": "TAMBARAM",
+      "division_c": "TMBM",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 76,
+      "search_string": "    ae/o&m/kovilambakkam"
+    },
+    "bbox": [
+      80.1884,
+      12.9415,
+      80.1884,
+      12.9415
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2508,
+        12.9856
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TIDEL PARK",
+      "section_co": "300",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 77,
+      "search_string": "    ae/o&m/tidel park"
+    },
+    "bbox": [
+      80.2508,
+      12.9856,
+      80.2508,
+      12.9856
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2437,
+        12.9755
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VSI ESTATE",
+      "section_co": "219",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 78,
+      "search_string": "    ae/o&m/vsi estate"
+    },
+    "bbox": [
+      80.2437,
+      12.9755,
+      80.2437,
+      12.9755
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2508,
+        12.9856
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VSI RURAL",
+      "section_co": "323",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 79,
+      "search_string": "    ae/o&m/vsi rural"
+    },
+    "bbox": [
+      80.2508,
+      12.9856,
+      80.2508,
+      12.9856
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.214,
+        12.8635
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHEMMENCHERY",
+      "section_co": "295",
+      "subdivisio": "SIRUSERI",
+      "region_id": "09",
+      "subdivis_1": "ADYR7",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 80,
+      "search_string": "    ae/o&m/chemmenchery"
+    },
+    "bbox": [
+      80.214,
+      12.8635,
+      80.214,
+      12.8635
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1807,
+        12.9543
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KILKATTALAI",
+      "section_co": "259",
+      "subdivisio": "PALLAVARAM",
+      "region_id": "09",
+      "subdivis_1": "TMBM4",
+      "division_n": "TAMBARAM",
+      "division_c": "TMBM",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 85,
+      "search_string": "    ae/o&m/kilkattalai"
+    },
+    "bbox": [
+      80.1807,
+      12.9543,
+      80.1807,
+      12.9543
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2437,
+        12.9756
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KANDHANCHAVADI",
+      "section_co": "298",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 90,
+      "search_string": "    ae/o&m/kandhanchavadi"
+    },
+    "bbox": [
+      80.2437,
+      12.9756,
+      80.2437,
+      12.9756
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2437,
+        12.9756
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VSI CENTRAL",
+      "section_co": "321",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 91,
+      "search_string": "    ae/o&m/vsi central"
+    },
+    "bbox": [
+      80.2437,
+      12.9756,
+      80.2437,
+      12.9756
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2404,
+        13.0065
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHINNAMALAI",
+      "section_co": "262",
+      "subdivisio": "THARAMANI",
+      "region_id": "09",
+      "subdivis_1": "ADYR4",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 92,
+      "search_string": "    ae/o&m/chinnamalai"
+    },
+    "bbox": [
+      80.2404,
+      13.0065,
+      80.2404,
+      13.0065
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2606,
+        13.0061
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ADYAR",
+      "section_co": "201",
+      "subdivisio": "ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR2",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 93,
+      "search_string": "    ae/o&m/adyar"
+    },
+    "bbox": [
+      80.2606,
+      13.0061,
+      80.2606,
+      13.0061
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2627,
+        12.9609
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PALAVAKKAM",
+      "section_co": "206",
+      "subdivisio": "INDRA NAGAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR3",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 94,
+      "search_string": "    ae/o&m/palavakkam"
+    },
+    "bbox": [
+      80.2627,
+      12.9609,
+      80.2627,
+      12.9609
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2473,
+        13.0102
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/THARAMANI",
+      "section_co": "220",
+      "subdivisio": "THARAMANI",
+      "region_id": "09",
+      "subdivis_1": "ADYR4",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 95,
+      "search_string": "    ae/o&m/tharamani"
+    },
+    "bbox": [
+      80.2473,
+      13.0102,
+      80.2473,
+      13.0102
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2622,
+        12.977
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KOTTIVAKKAM",
+      "section_co": "277",
+      "subdivisio": "ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR2",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 96,
+      "search_string": "    ae/o&m/kottivakkam"
+    },
+    "bbox": [
+      80.2622,
+      12.977,
+      80.2622,
+      12.977
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2582,
+        12.9504
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NEELANGARAI",
+      "section_co": "294",
+      "subdivisio": "INDRA NAGAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR3",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 97,
+      "search_string": "    ae/o&m/neelangarai"
+    },
+    "bbox": [
+      80.2582,
+      12.9504,
+      80.2582,
+      12.9504
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2454,
+        12.9557
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/I.E PERUNGUDI",
+      "section_co": "205",
+      "subdivisio": "SHOLLINGANALLUR",
+      "region_id": "09",
+      "subdivis_1": "ADYR6",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 99,
+      "search_string": "    ae/o&m/i.e perungudi"
+    },
+    "bbox": [
+      80.2454,
+      12.9557,
+      80.2454,
+      12.9557
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2453,
+        12.9557
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PERUNGUDI NORTH",
+      "section_co": "204",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 100,
+      "search_string": "    ae/o&m/perungudi north"
+    },
+    "bbox": [
+      80.2453,
+      12.9557,
+      80.2453,
+      12.9557
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.255,
+        12.9828
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/THIRUVANMIYUR",
+      "section_co": "217",
+      "subdivisio": "INDRA NAGAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR3",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 101,
+      "search_string": "    ae/o&m/thiruvanmiyur"
+    },
+    "bbox": [
+      80.255,
+      12.9828,
+      80.255,
+      12.9828
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.255,
+        12.9828
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/INDRA NAGAR",
+      "section_co": "203",
+      "subdivisio": "THARAMANI",
+      "region_id": "09",
+      "subdivis_1": "ADYR4",
+      "division_n": "ADYAR",
+      "division_c": "ADYR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 102,
+      "search_string": "    ae/o&m/indra nagar"
+    },
+    "bbox": [
+      80.255,
+      12.9828,
+      80.255,
+      12.9828
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2453,
+        12.9557
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/I.E PERUNGUDI RURAL",
+      "section_co": "325",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 103,
+      "search_string": "    ae/o&m/i.e perungudi rural"
+    },
+    "bbox": [
+      80.2453,
+      12.9557,
+      80.2453,
+      12.9557
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2453,
+        12.9557
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KURINJI NAGAR",
+      "section_co": "326",
+      "subdivisio": "CONSTRUCTION ADYAR",
+      "region_id": "09",
+      "subdivis_1": "ADYR5",
+      "division_n": "ITC",
+      "division_c": "ITCR",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 104,
+      "search_string": "    ae/o&m/kurinji nagar"
+    },
+    "bbox": [
+      80.2453,
+      12.9557,
+      80.2453,
+      12.9557
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2057,
+        12.9327
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PALLIKARANAI",
+      "section_co": "312",
+      "subdivisio": "MEDAVAKKAM",
+      "region_id": "09",
+      "subdivis_1": "TMBM3",
+      "division_n": "TAMBARAM",
+      "division_c": "TMBM",
+      "circle_nam": "CHENNAI SOUTH 2",
+      "circle_cod": "0401",
+      "region_nam": "CHENNAI SOUTH",
+      "object_id": 105,
+      "search_string": "    ae/o&m/pallikaranai"
+    },
+    "bbox": [
+      80.2057,
+      12.9327,
+      80.2057,
+      12.9327
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2619,
+        13.0814
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/PERIYAMET",
+      "section_co": "144",
+      "subdivisio": "PERIAMET",
+      "region_id": "01",
+      "subdivis_1": "EGMR6",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 111,
+      "search_string": "    aee/o&m/periyamet"
+    },
+    "bbox": [
+      80.2619,
+      13.0814,
+      80.2619,
+      13.0814
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2519,
+        13.1012
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/COOKS ROAD",
+      "section_co": "145",
+      "subdivisio": "PULIANTHOPE",
+      "region_id": "01",
+      "subdivis_1": "EGMR3",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 112,
+      "search_string": "    ae/o&m/cooks road"
+    },
+    "bbox": [
+      80.2519,
+      13.1012,
+      80.2519,
+      13.1012
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2488,
+        13.0778
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/VEPPERY",
+      "section_co": "153",
+      "subdivisio": "VEPERY",
+      "region_id": "01",
+      "subdivis_1": "EGMR7",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 113,
+      "search_string": "    aee/o&m/veppery"
+    },
+    "bbox": [
+      80.2488,
+      13.0778,
+      80.2488,
+      13.0778
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2644,
+        13.0551
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/WHITES ROAD",
+      "section_co": "134",
+      "subdivisio": "ROYAPETTAH",
+      "region_id": "01",
+      "subdivis_1": "MYLP3",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 114,
+      "search_string": "    ae/o&m/whites road"
+    },
+    "bbox": [
+      80.2644,
+      13.0551,
+      80.2644,
+      13.0551
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2642,
+        13.0552
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/BALAJI NAGAR",
+      "section_co": "137",
+      "subdivisio": "ROYAPETTAH",
+      "region_id": "01",
+      "subdivis_1": "MYLP3",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 115,
+      "search_string": "    ae/o&m/balaji nagar"
+    },
+    "bbox": [
+      80.2642,
+      13.0552,
+      80.2642,
+      13.0552
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2512,
+        13.0698
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/COLLEGE ROAD",
+      "section_co": "136",
+      "subdivisio": "COLLEGE ROAD",
+      "region_id": "01",
+      "subdivis_1": "MYLP8",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 116,
+      "search_string": "    aee/o&m/college road"
+    },
+    "bbox": [
+      80.2512,
+      13.0698,
+      80.2512,
+      13.0698
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2818,
+        13.088
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PARKTOWN",
+      "section_co": "195",
+      "subdivisio": "CHINDHATRIPET",
+      "region_id": "01",
+      "subdivis_1": "ANSL2",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 117,
+      "search_string": "    ae/o&m/parktown"
+    },
+    "bbox": [
+      80.2818,
+      13.088,
+      80.2818,
+      13.088
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2666,
+        13.0448
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MYLAPORE/EAST",
+      "section_co": "124",
+      "subdivisio": "MYLAPORE",
+      "region_id": "01",
+      "subdivis_1": "MYLP1",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 118,
+      "search_string": "    ae/o&m/mylapore/east"
+    },
+    "bbox": [
+      80.2666,
+      13.0448,
+      80.2666,
+      13.0448
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2671,
+        13.0546
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/ROYAPETTAH-II",
+      "section_co": "123",
+      "subdivisio": "ROYAPETTAH-II",
+      "region_id": "01",
+      "subdivis_1": "MYLP4",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 119,
+      "search_string": "    aee/o&m/royapettah-ii"
+    },
+    "bbox": [
+      80.2671,
+      13.0546,
+      80.2671,
+      13.0546
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2619,
+        13.0316
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ALWARPET",
+      "section_co": "132",
+      "subdivisio": "MYLAPORE",
+      "region_id": "01",
+      "subdivis_1": "MYLP1",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 120,
+      "search_string": "    ae/o&m/alwarpet"
+    },
+    "bbox": [
+      80.2619,
+      13.0316,
+      80.2619,
+      13.0316
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.274,
+        13.0665
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TV PET",
+      "section_co": "193",
+      "subdivisio": "ANNA SALAI",
+      "region_id": "01",
+      "subdivis_1": "ANSL1",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 121,
+      "search_string": "    ae/o&m/tv pet"
+    },
+    "bbox": [
+      80.274,
+      13.0665,
+      80.274,
+      13.0665
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2489,
+        13.0468
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TEYNAMPET",
+      "section_co": "208",
+      "subdivisio": "TEYNAMPET",
+      "region_id": "01",
+      "subdivis_1": "TNGR1",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 122,
+      "search_string": "    ae/o&m/teynampet"
+    },
+    "bbox": [
+      80.2489,
+      13.0468,
+      80.2489,
+      13.0468
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.25,
+        13.054
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/GOPALAPURAM",
+      "section_co": "133",
+      "subdivisio": "GOPALAPURAM",
+      "region_id": "01",
+      "subdivis_1": "MYLP7",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 123,
+      "search_string": "    aee/o&m/gopalapuram"
+    },
+    "bbox": [
+      80.25,
+      13.054,
+      80.25,
+      13.054
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2511,
+        13.0698
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/THOUSAND LIGHTS",
+      "section_co": "131",
+      "subdivisio": "THOUSAND LIGHTS",
+      "region_id": "01",
+      "subdivis_1": "MYLP6",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 124,
+      "search_string": "    aee/o&m/thousand lights"
+    },
+    "bbox": [
+      80.2511,
+      13.0698,
+      80.2511,
+      13.0698
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2817,
+        13.0879
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/FLOWER BAZAAR",
+      "section_co": "110",
+      "subdivisio": "CHINDHATRIPET",
+      "region_id": "01",
+      "subdivis_1": "ANSL2",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 125,
+      "search_string": "    ae/o&m/flower bazaar"
+    },
+    "bbox": [
+      80.2817,
+      13.0879,
+      80.2817,
+      13.0879
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2771,
+        13.0236
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/FORESHORE ESTATE",
+      "section_co": "135",
+      "subdivisio": "SANTHOME",
+      "region_id": "01",
+      "subdivis_1": "MYLP2",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 126,
+      "search_string": "    ae/o&m/foreshore estate"
+    },
+    "bbox": [
+      80.2771,
+      13.0236,
+      80.2771,
+      13.0236
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2619,
+        13.0316
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MANDAVELI",
+      "section_co": "127",
+      "subdivisio": "SANTHOME",
+      "region_id": "01",
+      "subdivis_1": "MYLP2",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 127,
+      "search_string": "    ae/o&m/mandaveli"
+    },
+    "bbox": [
+      80.2619,
+      13.0316,
+      80.2619,
+      13.0316
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2673,
+        13.0359
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/LUZ",
+      "section_co": "128",
+      "subdivisio": "MYLAPORE",
+      "region_id": "01",
+      "subdivis_1": "MYLP1",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 128,
+      "search_string": "    ae/o&m/luz"
+    },
+    "bbox": [
+      80.2673,
+      13.0359,
+      80.2673,
+      13.0359
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.268,
+        13.0666
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ANNA SALAI",
+      "section_co": "101",
+      "subdivisio": "ANNA SALAI",
+      "region_id": "01",
+      "subdivis_1": "ANSL1",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 129,
+      "search_string": "    ae/o&m/anna salai"
+    },
+    "bbox": [
+      80.268,
+      13.0666,
+      80.268,
+      13.0666
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2333,
+        13.0472
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/T.NAGAR/SOUTH",
+      "section_co": "223",
+      "subdivisio": "TNAGAR SOUTH",
+      "region_id": "01",
+      "subdivis_1": "TNGR5",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 130,
+      "search_string": "    aee/o&m/t.nagar/south"
+    },
+    "bbox": [
+      80.2333,
+      13.0472,
+      80.2333,
+      13.0472
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2724,
+        13.0767
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PUDUPET",
+      "section_co": "113",
+      "subdivisio": "CHINDHATRIPET",
+      "region_id": "01",
+      "subdivis_1": "ANSL2",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 131,
+      "search_string": "    ae/o&m/pudupet"
+    },
+    "bbox": [
+      80.2724,
+      13.0767,
+      80.2724,
+      13.0767
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2768,
+        13.094
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SOWCARPET/WEST",
+      "section_co": "107",
+      "subdivisio": "SOWCARPET",
+      "region_id": "01",
+      "subdivis_1": "EGMR1",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 132,
+      "search_string": "    ae/o&m/sowcarpet/west"
+    },
+    "bbox": [
+      80.2768,
+      13.094,
+      80.2768,
+      13.094
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2333,
+        13.0472
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/USNAM ROAD",
+      "section_co": "181",
+      "subdivisio": "USMAN ROAD",
+      "region_id": "01",
+      "subdivis_1": "TNGR6",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 133,
+      "search_string": "    aee/o&m/usnam road"
+    },
+    "bbox": [
+      80.2333,
+      13.0472,
+      80.2333,
+      13.0472
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.268,
+        13.0666
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/G.P.ROAD",
+      "section_co": "191",
+      "subdivisio": "ANNA SALAI",
+      "region_id": "01",
+      "subdivis_1": "ANSL1",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 134,
+      "search_string": "    ae/o&m/g.p.road"
+    },
+    "bbox": [
+      80.268,
+      13.0666,
+      80.268,
+      13.0666
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2768,
+        13.094
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SOWCARPET/CENTRAL",
+      "section_co": "154",
+      "subdivisio": "SOWCARPET",
+      "region_id": "01",
+      "subdivis_1": "EGMR1",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 135,
+      "search_string": "    ae/o&m/sowcarpet/central"
+    },
+    "bbox": [
+      80.2768,
+      13.094,
+      80.2768,
+      13.094
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2817,
+        13.0995
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KONDITHOPE",
+      "section_co": "108",
+      "subdivisio": "SOWCARPET",
+      "region_id": "01",
+      "subdivis_1": "EGMR1",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 136,
+      "search_string": "    ae/o&m/kondithope"
+    },
+    "bbox": [
+      80.2817,
+      13.0995,
+      80.2817,
+      13.0995
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2817,
+        13.0995
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SOWCARPET/EAST",
+      "section_co": "152",
+      "subdivisio": "SOWCARPET",
+      "region_id": "01",
+      "subdivis_1": "EGMR1",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 137,
+      "search_string": "    ae/o&m/sowcarpet/east"
+    },
+    "bbox": [
+      80.2817,
+      13.0995,
+      80.2817,
+      13.0995
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2817,
+        13.0995
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SEVENWELLS",
+      "section_co": "109",
+      "subdivisio": "SOWCARPET",
+      "region_id": "01",
+      "subdivis_1": "EGMR1",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 138,
+      "search_string": "    ae/o&m/sevenwells"
+    },
+    "bbox": [
+      80.2817,
+      13.0995,
+      80.2817,
+      13.0995
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.245,
+        13.0863
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KILPAUK",
+      "section_co": "146",
+      "subdivisio": "KILPAUK",
+      "region_id": "01",
+      "subdivis_1": "EGMR2",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 139,
+      "search_string": "    ae/o&m/kilpauk"
+    },
+    "bbox": [
+      80.245,
+      13.0863,
+      80.245,
+      13.0863
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.245,
+        13.0863
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PURASAWAKKAM",
+      "section_co": "148",
+      "subdivisio": "KILPAUK",
+      "region_id": "01",
+      "subdivis_1": "EGMR2",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 140,
+      "search_string": "    ae/o&m/purasawakkam"
+    },
+    "bbox": [
+      80.245,
+      13.0863,
+      80.245,
+      13.0863
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2451,
+        13.0863
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KELLYS",
+      "section_co": "149",
+      "subdivisio": "KILPAUK",
+      "region_id": "01",
+      "subdivis_1": "EGMR2",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 141,
+      "search_string": "    ae/o&m/kellys"
+    },
+    "bbox": [
+      80.2451,
+      13.0863,
+      80.2451,
+      13.0863
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2513,
+        13.1001
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/OTTERI",
+      "section_co": "151",
+      "subdivisio": "PULIANTHOPE",
+      "region_id": "01",
+      "subdivis_1": "EGMR3",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 142,
+      "search_string": "    ae/o&m/otteri"
+    },
+    "bbox": [
+      80.2513,
+      13.1001,
+      80.2513,
+      13.1001
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2686,
+        13.0992
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHOOLAI",
+      "section_co": "141",
+      "subdivisio": "PULIANTHOPE",
+      "region_id": "01",
+      "subdivis_1": "EGMR3",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 143,
+      "search_string": "    ae/o&m/choolai"
+    },
+    "bbox": [
+      80.2686,
+      13.0992,
+      80.2686,
+      13.0992
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2522,
+        13.0737
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/PANTHEON ROAD",
+      "section_co": "143",
+      "subdivisio": "PANTHEON ROAD",
+      "region_id": "01",
+      "subdivis_1": "EGMR5",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 144,
+      "search_string": "    aee/o&m/pantheon road"
+    },
+    "bbox": [
+      80.2522,
+      13.0737,
+      80.2522,
+      13.0737
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2522,
+        13.0737
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/EGMORE",
+      "section_co": "142",
+      "subdivisio": "EGMORE",
+      "region_id": "01",
+      "subdivis_1": "EGMR4",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 145,
+      "search_string": "    aee/o&m/egmore"
+    },
+    "bbox": [
+      80.2522,
+      13.0737,
+      80.2522,
+      13.0737
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2788,
+        13.0465
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TRIPLICANE",
+      "section_co": "121",
+      "subdivisio": "ROYAPETTAH",
+      "region_id": "01",
+      "subdivis_1": "MYLP3",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 146,
+      "search_string": "    ae/o&m/triplicane"
+    },
+    "bbox": [
+      80.2788,
+      13.0465,
+      80.2788,
+      13.0465
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2776,
+        13.0332
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SANTHOME",
+      "section_co": "126",
+      "subdivisio": "SANTHOME",
+      "region_id": "01",
+      "subdivis_1": "MYLP2",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 147,
+      "search_string": "    ae/o&m/santhome"
+    },
+    "bbox": [
+      80.2776,
+      13.0332,
+      80.2776,
+      13.0332
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2536,
+        13.0221
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NANDANAM",
+      "section_co": "215",
+      "subdivisio": "TEYNAMPET",
+      "region_id": "01",
+      "subdivis_1": "TNGR1",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 148,
+      "search_string": "    ae/o&m/nandanam"
+    },
+    "bbox": [
+      80.2536,
+      13.0221,
+      80.2536,
+      13.0221
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.272,
+        13.017
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/R.A.PURAM",
+      "section_co": "209",
+      "subdivisio": "TEYNAMPET",
+      "region_id": "01",
+      "subdivis_1": "TNGR1",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 149,
+      "search_string": "    ae/o&m/r.a.puram"
+    },
+    "bbox": [
+      80.272,
+      13.017,
+      80.272,
+      13.017
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2397,
+        13.0396
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/T.NAGAR/NORTH",
+      "section_co": "221",
+      "subdivisio": "TNAGAR NORTH",
+      "region_id": "01",
+      "subdivis_1": "TNGR3",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 150,
+      "search_string": "    ae/o&m/t.nagar/north"
+    },
+    "bbox": [
+      80.2397,
+      13.0396,
+      80.2397,
+      13.0396
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2396,
+        13.0397
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/T.NAGAR/CENTRAL",
+      "section_co": "222",
+      "subdivisio": "TNAGAR CENTRAL",
+      "region_id": "01",
+      "subdivis_1": "TNGR3",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 151,
+      "search_string": "    ae/o&m/t.nagar/central"
+    },
+    "bbox": [
+      80.2396,
+      13.0397,
+      80.2396,
+      13.0397
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2396,
+        13.0397
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/T.NAGAR/EAST",
+      "section_co": "235",
+      "subdivisio": "TNAGAR EAST",
+      "region_id": "01",
+      "subdivis_1": "TNGR3",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 152,
+      "search_string": "    ae/o&m/t.nagar/east"
+    },
+    "bbox": [
+      80.2396,
+      13.0397,
+      80.2396,
+      13.0397
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2304,
+        13.0239
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CIT NAGAR-I",
+      "section_co": "271",
+      "subdivisio": "SAIDAPET",
+      "region_id": "01",
+      "subdivis_1": "TNGR2",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 153,
+      "search_string": "    ae/o&m/cit nagar-i"
+    },
+    "bbox": [
+      80.2304,
+      13.0239,
+      80.2304,
+      13.0239
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2304,
+        13.0239
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SAIDAPET/EAST",
+      "section_co": "207",
+      "subdivisio": "SAIDAPET",
+      "region_id": "01",
+      "subdivis_1": "TNGR2",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 154,
+      "search_string": "    ae/o&m/saidapet/east"
+    },
+    "bbox": [
+      80.2304,
+      13.0239,
+      80.2304,
+      13.0239
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2257,
+        13.0342
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/WEST MAMBALAM - I",
+      "section_co": "224",
+      "subdivisio": "WEST MAMBALAM_I",
+      "region_id": "01",
+      "subdivis_1": "TNGR7",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 155,
+      "search_string": "    aee/o&m/west mambalam - i"
+    },
+    "bbox": [
+      80.2257,
+      13.0342,
+      80.2257,
+      13.0342
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2257,
+        13.0342
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/WEST MAMBALAM - II",
+      "section_co": "272",
+      "subdivisio": "WEST MAMBALAM_II",
+      "region_id": "01",
+      "subdivis_1": "TNGR8",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 156,
+      "search_string": "    aee/o&m/west mambalam - ii"
+    },
+    "bbox": [
+      80.2257,
+      13.0342,
+      80.2257,
+      13.0342
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2779,
+        13.0613
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHEPAUK",
+      "section_co": "103",
+      "subdivisio": "ANNA SALAI",
+      "region_id": "01",
+      "subdivis_1": "ANSL1",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 157,
+      "search_string": "    ae/o&m/chepauk"
+    },
+    "bbox": [
+      80.2779,
+      13.0613,
+      80.2779,
+      13.0613
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2642,
+        13.0553
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ICE HOUSE",
+      "section_co": "122",
+      "subdivisio": "ROYAPETTAH",
+      "region_id": "01",
+      "subdivis_1": "MYLP3",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 158,
+      "search_string": "    ae/o&m/ice house"
+    },
+    "bbox": [
+      80.2642,
+      13.0553,
+      80.2642,
+      13.0553
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2666,
+        13.0448
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MYLAPORE/WEST",
+      "section_co": "125",
+      "subdivisio": "MYLAPORE",
+      "region_id": "01",
+      "subdivis_1": "MYLP1",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 159,
+      "search_string": "    ae/o&m/mylapore/west"
+    },
+    "bbox": [
+      80.2666,
+      13.0448,
+      80.2666,
+      13.0448
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2502,
+        13.0542
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/O&M/NUNGAMBAKKAM",
+      "section_co": "129",
+      "subdivisio": "NUNGAMBAKKAM",
+      "region_id": "01",
+      "subdivis_1": "MYLP5",
+      "division_n": "MYLAPORE",
+      "division_c": "MYLP",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 160,
+      "search_string": "    aee/o&m/nungambakkam"
+    },
+    "bbox": [
+      80.2502,
+      13.0542,
+      80.2502,
+      13.0542
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2373,
+        13.0301
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CIT NAGAR-II",
+      "section_co": "182",
+      "subdivisio": "SAIDAPET",
+      "region_id": "01",
+      "subdivis_1": "TNGR2",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 161,
+      "search_string": "    ae/o&m/cit nagar-ii"
+    },
+    "bbox": [
+      80.2373,
+      13.0301,
+      80.2373,
+      13.0301
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2142,
+        13.0292
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SAIDAPET/WEST",
+      "section_co": "216",
+      "subdivisio": "CONS TNAGAR",
+      "region_id": "01",
+      "subdivis_1": "TNGR4",
+      "division_n": "TNAGAR",
+      "division_c": "TNGR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 162,
+      "search_string": "    ae/o&m/saidapet/west"
+    },
+    "bbox": [
+      80.2142,
+      13.0292,
+      80.2142,
+      13.0292
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2859,
+        13.0857
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ESPLANADE",
+      "section_co": "104",
+      "subdivisio": "ESPLANADE",
+      "region_id": "01",
+      "subdivis_1": "ANSL3",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 163,
+      "search_string": "    ae/o&m/esplanade"
+    },
+    "bbox": [
+      80.2859,
+      13.0857,
+      80.2859,
+      13.0857
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2859,
+        13.0857
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SK NAGAR",
+      "section_co": "105",
+      "subdivisio": "ESPLANADE",
+      "region_id": "01",
+      "subdivis_1": "ANSL3",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 164,
+      "search_string": "    ae/o&m/sk nagar"
+    },
+    "bbox": [
+      80.2859,
+      13.0857,
+      80.2859,
+      13.0857
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2886,
+        13.0919
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MUTHYALPET",
+      "section_co": "106",
+      "subdivisio": "ESPLANADE",
+      "region_id": "01",
+      "subdivis_1": "ANSL3",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 165,
+      "search_string": "    ae/o&m/muthyalpet"
+    },
+    "bbox": [
+      80.2886,
+      13.0919,
+      80.2886,
+      13.0919
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2886,
+        13.0919
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MANNADI",
+      "section_co": "194",
+      "subdivisio": "ESPLANADE",
+      "region_id": "01",
+      "subdivis_1": "ANSL3",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 166,
+      "search_string": "    ae/o&m/mannadi"
+    },
+    "bbox": [
+      80.2886,
+      13.0919,
+      80.2886,
+      13.0919
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.245,
+        13.0863
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NAMMALWARPET",
+      "section_co": "150",
+      "subdivisio": "KILPAUK",
+      "region_id": "01",
+      "subdivis_1": "EGMR2",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 167,
+      "search_string": "    ae/o&m/nammalwarpet"
+    },
+    "bbox": [
+      80.245,
+      13.0863,
+      80.245,
+      13.0863
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2741,
+        13.0664
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/GOVT. ESTATE",
+      "section_co": "192",
+      "subdivisio": "ANNA SALAI",
+      "region_id": "01",
+      "subdivis_1": "ANSL1",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 168,
+      "search_string": "    ae/o&m/govt. estate"
+    },
+    "bbox": [
+      80.2741,
+      13.0664,
+      80.2741,
+      13.0664
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2725,
+        13.0767
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/CHINTHADRIPET",
+      "section_co": "102",
+      "subdivisio": "CHINDHATRIPET",
+      "region_id": "01",
+      "subdivis_1": "ANSL2",
+      "division_n": "ANNASALAI",
+      "division_c": "ANSL",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 169,
+      "search_string": "    ae/o&m/chinthadripet"
+    },
+    "bbox": [
+      80.2725,
+      13.0767,
+      80.2725,
+      13.0767
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2686,
+        13.0992
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PULIANTHOPE",
+      "section_co": "147",
+      "subdivisio": "PULIANTHOPE",
+      "region_id": "01",
+      "subdivis_1": "EGMR3",
+      "division_n": "EGMORE",
+      "division_c": "EGMR",
+      "circle_nam": "CENTRAL",
+      "circle_cod": "0402",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 170,
+      "search_string": "    ae/o&m/pulianthope"
+    },
+    "bbox": [
+      80.2686,
+      13.0992,
+      80.2686,
+      13.0992
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2724,
+        13.2143
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NAPPALAYAM",
+      "section_co": "007",
+      "subdivisio": "MANALI",
+      "region_id": "01",
+      "subdivis_1": "TNPT3",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 171,
+      "search_string": "    ae/o&m/nappalayam"
+    },
+    "bbox": [
+      80.2724,
+      13.2143,
+      80.2724,
+      13.2143
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2002,
+        13.1317
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/LAKSHMIPURAM",
+      "section_co": "026",
+      "subdivisio": "SEMBIUM",
+      "region_id": "01",
+      "subdivis_1": "PRBM2",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 173,
+      "search_string": "    ae/o&m/lakshmipuram"
+    },
+    "bbox": [
+      80.2002,
+      13.1317,
+      80.2002,
+      13.1317
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2035,
+        13.1171
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/RAJAJI NAGAR",
+      "section_co": "072",
+      "subdivisio": "PERAMBUR",
+      "region_id": "01",
+      "subdivis_1": "PRBM1",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 174,
+      "search_string": "    ae/o&m/rajaji nagar"
+    },
+    "bbox": [
+      80.2035,
+      13.1171,
+      80.2035,
+      13.1171
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.234,
+        13.088
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/AYANAVARAM",
+      "section_co": "064",
+      "subdivisio": "VILLIVAKKAM",
+      "region_id": "01",
+      "subdivis_1": "PRBM3",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 176,
+      "search_string": "    ae/o&m/ayanavaram"
+    },
+    "bbox": [
+      80.234,
+      13.088,
+      80.234,
+      13.088
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.3003,
+        13.1806
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ERNAVOOR",
+      "section_co": "016",
+      "subdivisio": "MANALI",
+      "region_id": "01",
+      "subdivis_1": "TNPT3",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 179,
+      "search_string": "    ae/o&m/ernavoor"
+    },
+    "bbox": [
+      80.3003,
+      13.1806,
+      80.3003,
+      13.1806
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2433,
+        13.1248
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/GANDHI NAGAR",
+      "section_co": "028",
+      "subdivisio": "SEMBIUM",
+      "region_id": "01",
+      "subdivis_1": "PRBM2",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 180,
+      "search_string": "    ae/o&m/gandhi nagar"
+    },
+    "bbox": [
+      80.2433,
+      13.1248,
+      80.2433,
+      13.1248
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2251,
+        13.1239
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KOLATHUR",
+      "section_co": "075",
+      "subdivisio": "SEMBIUM",
+      "region_id": "01",
+      "subdivis_1": "PRBM2",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 181,
+      "search_string": "    ae/o&m/kolathur"
+    },
+    "bbox": [
+      80.2251,
+      13.1239,
+      80.2251,
+      13.1239
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2104,
+        13.1361
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/RETTERI",
+      "section_co": "045",
+      "subdivisio": "SEMBIUM",
+      "region_id": "01",
+      "subdivis_1": "PRBM2",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 183,
+      "search_string": "    ae/o&m/retteri"
+    },
+    "bbox": [
+      80.2104,
+      13.1361,
+      80.2104,
+      13.1361
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.3057,
+        13.1722
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/THIRUVOTRIYUR O&M",
+      "section_co": "021",
+      "subdivisio": "THIRUVOTRIYUR",
+      "region_id": "01",
+      "subdivis_1": "TNPT5",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 192,
+      "search_string": "    ae/o&m/thiruvotriyur o&m"
+    },
+    "bbox": [
+      80.3057,
+      13.1722,
+      80.3057,
+      13.1722
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2764,
+        13.2053
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MANALI NEW TOWN",
+      "section_co": "014",
+      "subdivisio": "MANALI",
+      "region_id": "01",
+      "subdivis_1": "TNPT3",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 193,
+      "search_string": "    ae/o&m/manali new town"
+    },
+    "bbox": [
+      80.2764,
+      13.2053,
+      80.2764,
+      13.2053
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2892,
+        13.1081
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ROYAPURAM",
+      "section_co": "001",
+      "subdivisio": "ROYAPURAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD2",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 194,
+      "search_string": "    ae/o&m/royapuram"
+    },
+    "bbox": [
+      80.2892,
+      13.1081,
+      80.2892,
+      13.1081
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2225,
+        13.1442
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VADAPERUMBAKKAM",
+      "section_co": "020",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 195,
+      "search_string": "    ae/o&m/vadaperumbakkam"
+    },
+    "bbox": [
+      80.2225,
+      13.1442,
+      80.2225,
+      13.1442
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2975,
+        13.1136
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KALMANDAPAM",
+      "section_co": "002",
+      "subdivisio": "ROYAPURAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD2",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 196,
+      "search_string": "    ae/o&m/kalmandapam"
+    },
+    "bbox": [
+      80.2975,
+      13.1136,
+      80.2975,
+      13.1136
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2562,
+        13.1196
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VYASARPADI",
+      "section_co": "067",
+      "subdivisio": "VYASARPADI",
+      "region_id": "01",
+      "subdivis_1": "VYPD1",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 197,
+      "search_string": "    ae/o&m/vyasarpadi"
+    },
+    "bbox": [
+      80.2562,
+      13.1196,
+      80.2562,
+      13.1196
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2226,
+        13.1442
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MADHAVARAM II",
+      "section_co": "073",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 199,
+      "search_string": "    ae/o&m/madhavaram ii"
+    },
+    "bbox": [
+      80.2226,
+      13.1442,
+      80.2226,
+      13.1442
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2486,
+        13.1704
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MATHUR",
+      "section_co": "018",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 201,
+      "search_string": "    ae/o&m/mathur"
+    },
+    "bbox": [
+      80.2486,
+      13.1704,
+      80.2486,
+      13.1704
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2583,
+        13.1322
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MR NAGAR",
+      "section_co": "019",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 202,
+      "search_string": "    ae/o&m/mr nagar"
+    },
+    "bbox": [
+      80.2583,
+      13.1322,
+      80.2583,
+      13.1322
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.316,
+        13.2106
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ENNORE",
+      "section_co": "023",
+      "subdivisio": "THIRUVOTRIYUR",
+      "region_id": "01",
+      "subdivis_1": "TNPT5",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 203,
+      "search_string": "    ae/o&m/ennore"
+    },
+    "bbox": [
+      80.316,
+      13.2106,
+      80.316,
+      13.2106
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2858,
+        13.1249
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/RK NAGAR",
+      "section_co": "006",
+      "subdivisio": "ROYAPURAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD2",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 204,
+      "search_string": "    ae/o&m/rk nagar"
+    },
+    "bbox": [
+      80.2858,
+      13.1249,
+      80.2858,
+      13.1249
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2587,
+        13.1316
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KRISHNAMOORTHY NAGAR",
+      "section_co": "079",
+      "subdivisio": "VYASARPADI",
+      "region_id": "01",
+      "subdivis_1": "VYPD1",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 207,
+      "search_string": "    ae/o&m/krishnamoorthy nagar"
+    },
+    "bbox": [
+      80.2587,
+      13.1316,
+      80.2587,
+      13.1316
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.3027,
+        13.1556
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KALADIPET SS",
+      "section_co": "024",
+      "subdivisio": "THIRUVOTRIYUR",
+      "region_id": "01",
+      "subdivis_1": "TNPT5",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 208,
+      "search_string": "    ae/o&m/kaladipet ss"
+    },
+    "bbox": [
+      80.3027,
+      13.1556,
+      80.3027,
+      13.1556
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2858,
+        13.1249
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VOC NAGAR",
+      "section_co": "004",
+      "subdivisio": "ROYAPURAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD2",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 210,
+      "search_string": "    ae/o&m/voc nagar"
+    },
+    "bbox": [
+      80.2858,
+      13.1249,
+      80.2858,
+      13.1249
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2716,
+        13.1729
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SATHANGADU",
+      "section_co": "060",
+      "subdivisio": "MANALI",
+      "region_id": "01",
+      "subdivis_1": "TNPT3",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 211,
+      "search_string": "    ae/o&m/sathangadu"
+    },
+    "bbox": [
+      80.2716,
+      13.1729,
+      80.2716,
+      13.1729
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2561,
+        13.1196
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MKB NAGAR",
+      "section_co": "070",
+      "subdivisio": "VYASARPADI",
+      "region_id": "01",
+      "subdivis_1": "VYPD1",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 212,
+      "search_string": "    ae/o&m/mkb nagar"
+    },
+    "bbox": [
+      80.2561,
+      13.1196,
+      80.2561,
+      13.1196
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2412,
+        13.1353
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MANJAMBAKKAM",
+      "section_co": "074",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 213,
+      "search_string": "    ae/o&m/manjambakkam"
+    },
+    "bbox": [
+      80.2412,
+      13.1353,
+      80.2412,
+      13.1353
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2412,
+        13.1353
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MADHAVARAM I",
+      "section_co": "066",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 214,
+      "search_string": "    ae/o&m/madhavaram i"
+    },
+    "bbox": [
+      80.2412,
+      13.1353,
+      80.2412,
+      13.1353
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.3026,
+        13.1556
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KALADIPET",
+      "section_co": "005",
+      "subdivisio": "THIRUVOTRIYUR",
+      "region_id": "01",
+      "subdivis_1": "TNPT5",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 215,
+      "search_string": "    ae/o&m/kaladipet"
+    },
+    "bbox": [
+      80.3026,
+      13.1556,
+      80.3026,
+      13.1556
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2525,
+        13.1661
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/MANALI",
+      "section_co": "015",
+      "subdivisio": "MANALI",
+      "region_id": "01",
+      "subdivis_1": "TNPT3",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 217,
+      "search_string": "    ae/o&m/manali"
+    },
+    "bbox": [
+      80.2525,
+      13.1661,
+      80.2525,
+      13.1661
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2892,
+        13.1081
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VALLALAR NAGAR",
+      "section_co": "068",
+      "subdivisio": "VYASARPADI",
+      "region_id": "01",
+      "subdivis_1": "VYPD1",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 218,
+      "search_string": "    ae/o&m/vallalar nagar"
+    },
+    "bbox": [
+      80.2892,
+      13.1081,
+      80.2892,
+      13.1081
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2007,
+        13.1048
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/VILLIVAKKAM",
+      "section_co": "063",
+      "subdivisio": "VILLIVAKKAM",
+      "region_id": "01",
+      "subdivis_1": "PRBM3",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 219,
+      "search_string": "    ae/o&m/villivakkam"
+    },
+    "bbox": [
+      80.2007,
+      13.1048,
+      80.2007,
+      13.1048
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2872,
+        13.1217
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TONDIARPET O&M",
+      "section_co": "011",
+      "subdivisio": "TONDIARPET",
+      "region_id": "01",
+      "subdivis_1": "TNPT1",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 221,
+      "search_string": "    ae/o&m/tondiarpet o&m"
+    },
+    "bbox": [
+      80.2872,
+      13.1217,
+      80.2872,
+      13.1217
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2583,
+        13.1321
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KKD NAGAR",
+      "section_co": "076",
+      "subdivisio": "MADHAVARAM",
+      "region_id": "01",
+      "subdivis_1": "VYPD3",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 222,
+      "search_string": "    ae/o&m/kkd nagar"
+    },
+    "bbox": [
+      80.2583,
+      13.1321,
+      80.2583,
+      13.1321
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.283,
+        13.1054
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/STANLY",
+      "section_co": "017",
+      "subdivisio": "VYASARPADI",
+      "region_id": "01",
+      "subdivis_1": "VYPD1",
+      "division_n": "VYSARPADI",
+      "division_c": "VYPD",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 223,
+      "search_string": "    ae/o&m/stanly"
+    },
+    "bbox": [
+      80.283,
+      13.1054,
+      80.283,
+      13.1054
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2198,
+        13.1185
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/POOMBUHAR NAGAR",
+      "section_co": "027",
+      "subdivisio": "PERAMBUR",
+      "region_id": "01",
+      "subdivis_1": "PRBM1",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 226,
+      "search_string": "    ae/o&m/poombuhar nagar"
+    },
+    "bbox": [
+      80.2198,
+      13.1185,
+      80.2198,
+      13.1185
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2198,
+        13.1184
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/THIRU VI KA NAGAR",
+      "section_co": "030",
+      "subdivisio": "PERAMBUR",
+      "region_id": "01",
+      "subdivis_1": "PRBM1",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 227,
+      "search_string": "    ae/o&m/thiru vi ka nagar"
+    },
+    "bbox": [
+      80.2198,
+      13.1184,
+      80.2198,
+      13.1184
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2387,
+        13.1115
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PERAMBUR WEST",
+      "section_co": "062",
+      "subdivisio": "PERAMBUR",
+      "region_id": "01",
+      "subdivis_1": "PRBM1",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 228,
+      "search_string": "    ae/o&m/perambur west"
+    },
+    "bbox": [
+      80.2387,
+      13.1115,
+      80.2387,
+      13.1115
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2387,
+        13.1114
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/PERUMBUR EAST",
+      "section_co": "061",
+      "subdivisio": "PERAMBUR",
+      "region_id": "01",
+      "subdivis_1": "PRBM1",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 229,
+      "search_string": "    ae/o&m/perumbur east"
+    },
+    "bbox": [
+      80.2387,
+      13.1114,
+      80.2387,
+      13.1114
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2006,
+        13.1048
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SIDCO",
+      "section_co": "077",
+      "subdivisio": "VILLIVAKKAM",
+      "region_id": "01",
+      "subdivis_1": "PRBM3",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 230,
+      "search_string": "    ae/o&m/sidco"
+    },
+    "bbox": [
+      80.2006,
+      13.1048,
+      80.2006,
+      13.1048
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2202,
+        13.1182
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/AGARAM",
+      "section_co": "071",
+      "subdivisio": "PERAMBUR",
+      "region_id": "01",
+      "subdivis_1": "PRBM1",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 231,
+      "search_string": "    ae/o&m/agaram"
+    },
+    "bbox": [
+      80.2202,
+      13.1182,
+      80.2202,
+      13.1182
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2412,
+        13.1266
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/SEMBIUM",
+      "section_co": "065",
+      "subdivisio": "SEMBIUM",
+      "region_id": "01",
+      "subdivis_1": "PRBM2",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 232,
+      "search_string": "    ae/o&m/sembium"
+    },
+    "bbox": [
+      80.2412,
+      13.1266,
+      80.2412,
+      13.1266
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2162,
+        13.1053
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TAGORE NAGAR",
+      "section_co": "029",
+      "subdivisio": "VILLIVAKKAM",
+      "region_id": "01",
+      "subdivis_1": "PRBM3",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 233,
+      "search_string": "    ae/o&m/tagore nagar"
+    },
+    "bbox": [
+      80.2162,
+      13.1053,
+      80.2162,
+      13.1053
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2161,
+        13.1053
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/ICF",
+      "section_co": "078",
+      "subdivisio": "VILLIVAKKAM",
+      "region_id": "01",
+      "subdivis_1": "PRBM3",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 234,
+      "search_string": "    ae/o&m/icf"
+    },
+    "bbox": [
+      80.2161,
+      13.1053,
+      80.2161,
+      13.1053
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2412,
+        13.1265
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KODUNGAIYUR",
+      "section_co": "069",
+      "subdivisio": "SEMBIUM",
+      "region_id": "01",
+      "subdivis_1": "PRBM2",
+      "division_n": "PERAMBUR",
+      "division_c": "PRBM",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 235,
+      "search_string": "    ae/o&m/kodungaiyur"
+    },
+    "bbox": [
+      80.2412,
+      13.1265,
+      80.2412,
+      13.1265
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2785,
+        13.1299
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/TONDIARPET SS",
+      "section_co": "012",
+      "subdivisio": "TONDIARPET",
+      "region_id": "01",
+      "subdivis_1": "TNPT1",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 237,
+      "search_string": "    ae/o&m/tondiarpet ss"
+    },
+    "bbox": [
+      80.2785,
+      13.1299,
+      80.2785,
+      13.1299
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2785,
+        13.1307
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/KORRUKUPET",
+      "section_co": "013",
+      "subdivisio": "TONDIARPET CONS",
+      "region_id": "01",
+      "subdivis_1": "TNPT2",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 238,
+      "search_string": "    ae/o&m/korrukupet"
+    },
+    "bbox": [
+      80.2785,
+      13.1307,
+      80.2785,
+      13.1307
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2949,
+        13.1443
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/NEW WASHERMENPET",
+      "section_co": "003",
+      "subdivisio": "TONDIARPET",
+      "region_id": "01",
+      "subdivis_1": "TNPT1",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 239,
+      "search_string": "    ae/o&m/new washermenpet"
+    },
+    "bbox": [
+      80.2949,
+      13.1443,
+      80.2949,
+      13.1443
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2149,
+        13.0654
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ARUMBAKKAM",
+      "section_co": "164",
+      "subdivisio": "ARUMBAKKAM",
+      "region_id": "01",
+      "subdivis_1": "ANNR3",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 242,
+      "search_string": "    ae/arumbakkam"
+    },
+    "bbox": [
+      80.2149,
+      13.0654,
+      80.2149,
+      13.0654
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2071,
+        13.0674
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KOYAMBEDU",
+      "section_co": "170",
+      "subdivisio": "ARUMBAKKAM",
+      "region_id": "01",
+      "subdivis_1": "ANNR3",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 243,
+      "search_string": "    ae/koyambedu"
+    },
+    "bbox": [
+      80.2071,
+      13.0674,
+      80.2071,
+      13.0674
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2057,
+        13.0862
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ANNANAGAR WEST",
+      "section_co": "168",
+      "subdivisio": "ANNR/CONSTRUCTION",
+      "region_id": "01",
+      "subdivis_1": "ANNR5",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 244,
+      "search_string": "    ae/annanagar west"
+    },
+    "bbox": [
+      80.2057,
+      13.0862,
+      80.2057,
+      13.0862
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2057,
+        13.0862
+      ]
+    },
+    "properties": {
+      "section_na": "AE/THIRUVALEESWARAR NAGAR",
+      "section_co": "162",
+      "subdivisio": "ANNR/CONSTRUCTION",
+      "region_id": "01",
+      "subdivis_1": "ANNR5",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 245,
+      "search_string": "    ae/thiruvaleeswarar nagar"
+    },
+    "bbox": [
+      80.2057,
+      13.0862,
+      80.2057,
+      13.0862
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2149,
+        13.0654
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MMDA",
+      "section_co": "172",
+      "subdivisio": "ARUMBAKKAM",
+      "region_id": "01",
+      "subdivis_1": "ANNR3",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 246,
+      "search_string": "    ae/mmda"
+    },
+    "bbox": [
+      80.2149,
+      13.0654,
+      80.2149,
+      13.0654
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1759,
+        13.1318
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KALLIKUPPAM",
+      "section_co": "441",
+      "subdivisio": "ORAGADAM",
+      "region_id": "01",
+      "subdivis_1": "AMBT5",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 247,
+      "search_string": "    ae/kallikuppam"
+    },
+    "bbox": [
+      80.1759,
+      13.1318,
+      80.1759,
+      13.1318
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1712,
+        13.0786
+      ]
+    },
+    "properties": {
+      "section_na": "AE/JJ NAGAR WEST",
+      "section_co": "043",
+      "subdivisio": "AMBT/CONSTRUCTION",
+      "region_id": "01",
+      "subdivis_1": "AMBT7",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 251,
+      "search_string": "    ae/jj nagar west"
+    },
+    "bbox": [
+      80.1712,
+      13.0786,
+      80.1712,
+      13.0786
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.165,
+        13.0959
+      ]
+    },
+    "properties": {
+      "section_na": "AE/IE SOUTH",
+      "section_co": "035",
+      "subdivisio": "INDUSTRIAL ESTATE / AMBATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT2",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 253,
+      "search_string": "    ae/ie south"
+    },
+    "bbox": [
+      80.165,
+      13.0959,
+      80.165,
+      13.0959
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1679,
+        13.1049
+      ]
+    },
+    "properties": {
+      "section_na": "AE/PATTARAVAKKAM",
+      "section_co": "430",
+      "subdivisio": "INDUSTRIAL ESTATE / AMBATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT2",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 255,
+      "search_string": "    ae/pattaravakkam"
+    },
+    "bbox": [
+      80.1679,
+      13.1049,
+      80.1679,
+      13.1049
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2096,
+        13.0802
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ANNANAGAR CENTRAL",
+      "section_co": "161",
+      "subdivisio": "ANNANAGAR",
+      "region_id": "01",
+      "subdivis_1": "ANNR1",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 257,
+      "search_string": "    ae/annanagar central"
+    },
+    "bbox": [
+      80.2096,
+      13.0802,
+      80.2096,
+      13.0802
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1995,
+        13.1561
+      ]
+    },
+    "properties": {
+      "section_na": "AE/PUZHAL",
+      "section_co": "051",
+      "subdivisio": "PUZHAL",
+      "region_id": "01",
+      "subdivis_1": "AVDI3",
+      "division_n": "AVADI",
+      "division_c": "AVDI",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 261,
+      "search_string": "    ae/puzhal"
+    },
+    "bbox": [
+      80.1995,
+      13.1561,
+      80.1995,
+      13.1561
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1933,
+        13.0657
+      ]
+    },
+    "properties": {
+      "section_na": "AE/NERKUNDRAM EAST",
+      "section_co": "176",
+      "subdivisio": "ARUMBAKKAM",
+      "region_id": "01",
+      "subdivis_1": "ANNR3",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 269,
+      "search_string": "    ae/nerkundram east"
+    },
+    "bbox": [
+      80.1933,
+      13.0657,
+      80.1933,
+      13.0657
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1933,
+        13.0657
+      ]
+    },
+    "properties": {
+      "section_na": "AE/NERKUNDRAM WEST",
+      "section_co": "406",
+      "subdivisio": "ARUMBAKKAM",
+      "region_id": "01",
+      "subdivis_1": "ANNR3",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 270,
+      "search_string": "    ae/nerkundram west"
+    },
+    "bbox": [
+      80.1933,
+      13.0657,
+      80.1933,
+      13.0657
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1749,
+        13.0652
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MADURAVOYAL NORTH",
+      "section_co": "166",
+      "subdivisio": "MADURAVOYAL",
+      "region_id": "01",
+      "subdivis_1": "ANNR4",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 273,
+      "search_string": "    ae/maduravoyal north"
+    },
+    "bbox": [
+      80.1749,
+      13.0652,
+      80.1749,
+      13.0652
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2103,
+        13.088
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ANNANAGAR NORTH",
+      "section_co": "169",
+      "subdivisio": "ANNANAGAR",
+      "region_id": "01",
+      "subdivis_1": "ANNR1",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 274,
+      "search_string": "    ae/annanagar north"
+    },
+    "bbox": [
+      80.2103,
+      13.088,
+      80.2103,
+      13.088
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2238,
+        13.0923
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SHENOY NAGAR",
+      "section_co": "163",
+      "subdivisio": "ANNANAGAR",
+      "region_id": "01",
+      "subdivis_1": "ANNR1",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 275,
+      "search_string": "    ae/shenoy nagar"
+    },
+    "bbox": [
+      80.2238,
+      13.0923,
+      80.2238,
+      13.0923
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1827,
+        13.0969
+      ]
+    },
+    "properties": {
+      "section_na": "AE/PADI",
+      "section_co": "039",
+      "subdivisio": "KORATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT3",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 276,
+      "search_string": "    ae/padi"
+    },
+    "bbox": [
+      80.1827,
+      13.0969,
+      80.1827,
+      13.0969
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1465,
+        13.1246
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ORAGADAM",
+      "section_co": "433",
+      "subdivisio": "ORAGADAM",
+      "region_id": "01",
+      "subdivis_1": "AMBT5",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 277,
+      "search_string": "    ae/oragadam"
+    },
+    "bbox": [
+      80.1465,
+      13.1246,
+      80.1465,
+      13.1246
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1827,
+        13.0969
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KORATTUR",
+      "section_co": "038",
+      "subdivisio": "KORATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT3",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 280,
+      "search_string": "    ae/korattur"
+    },
+    "bbox": [
+      80.1827,
+      13.0969,
+      80.1827,
+      13.0969
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.169,
+        13.1318
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MENAMBEDU",
+      "section_co": "041",
+      "subdivisio": "ORAGADAM",
+      "region_id": "01",
+      "subdivis_1": "AMBT5",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 282,
+      "search_string": "    ae/menambedu"
+    },
+    "bbox": [
+      80.169,
+      13.1318,
+      80.169,
+      13.1318
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1649,
+        13.0953
+      ]
+    },
+    "properties": {
+      "section_na": "AE/IE CENTRAL",
+      "section_co": "429",
+      "subdivisio": "INDUSTRIAL ESTATE / AMBATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT2",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 283,
+      "search_string": "    ae/ie central"
+    },
+    "bbox": [
+      80.1649,
+      13.0953,
+      80.1649,
+      13.0953
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1842,
+        13.0878
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KRISHNA NAGAR",
+      "section_co": "432",
+      "subdivisio": "JJ NAGAR",
+      "region_id": "01",
+      "subdivis_1": "AMBT4",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 284,
+      "search_string": "    ae/krishna nagar"
+    },
+    "bbox": [
+      80.1842,
+      13.0878,
+      80.1842,
+      13.0878
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.18,
+        13.1008
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MANURPET",
+      "section_co": "438",
+      "subdivisio": "KORATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT3",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 285,
+      "search_string": "    ae/manurpet"
+    },
+    "bbox": [
+      80.18,
+      13.1008,
+      80.18,
+      13.1008
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1713,
+        13.0787
+      ]
+    },
+    "properties": {
+      "section_na": "AE/NOLAMBUR",
+      "section_co": "437",
+      "subdivisio": "AMBT/CONSTRUCTION",
+      "region_id": "01",
+      "subdivis_1": "AMBT7",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 287,
+      "search_string": "    ae/nolambur"
+    },
+    "bbox": [
+      80.1713,
+      13.0787,
+      80.1713,
+      13.0787
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1455,
+        13.1142
+      ]
+    },
+    "properties": {
+      "section_na": "AE/AMBATTUR CENTRAL",
+      "section_co": "031",
+      "subdivisio": "ORAGADAM",
+      "region_id": "01",
+      "subdivis_1": "AMBT5",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 288,
+      "search_string": "    ae/ambattur central"
+    },
+    "bbox": [
+      80.1455,
+      13.1142,
+      80.1455,
+      13.1142
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1823,
+        13.0798
+      ]
+    },
+    "properties": {
+      "section_na": "AE/J.J.NAGAR/CENTRAL",
+      "section_co": "431",
+      "subdivisio": "JJ NAGAR",
+      "region_id": "01",
+      "subdivis_1": "AMBT4",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 289,
+      "search_string": "    ae/j.j.nagar/central"
+    },
+    "bbox": [
+      80.1823,
+      13.0798,
+      80.1823,
+      13.0798
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1668,
+        13.1057
+      ]
+    },
+    "properties": {
+      "section_na": "AE/IE NORTH",
+      "section_co": "036",
+      "subdivisio": "INDUSTRIAL ESTATE / AMBATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT2",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 290,
+      "search_string": "    ae/ie north"
+    },
+    "bbox": [
+      80.1668,
+      13.1057,
+      80.1668,
+      13.1057
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.237,
+        13.0588
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MAHALINGAPURAM",
+      "section_co": "171",
+      "subdivisio": "CHETPET",
+      "region_id": "01",
+      "subdivis_1": "ANNR2",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 291,
+      "search_string": "    ae/mahalingapuram"
+    },
+    "bbox": [
+      80.237,
+      13.0588,
+      80.237,
+      13.0588
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1665,
+        13.0494
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ALAPAKKAM",
+      "section_co": "403",
+      "subdivisio": "MADURAVOYAL",
+      "region_id": "01",
+      "subdivis_1": "ANNR4",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 292,
+      "search_string": "    ae/alapakkam"
+    },
+    "bbox": [
+      80.1665,
+      13.0494,
+      80.1665,
+      13.0494
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1532,
+        13.0611
+      ]
+    },
+    "properties": {
+      "section_na": "AE/VANAGARAM",
+      "section_co": "405",
+      "subdivisio": "MADURAVOYAL",
+      "region_id": "01",
+      "subdivis_1": "ANNR4",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 293,
+      "search_string": "    ae/vanagaram"
+    },
+    "bbox": [
+      80.1532,
+      13.0611,
+      80.1532,
+      13.0611
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2168,
+        13.0812
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SHANTHI COLONY",
+      "section_co": "401",
+      "subdivisio": "ANNANAGAR",
+      "region_id": "01",
+      "subdivis_1": "ANNR1",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 294,
+      "search_string": "    ae/shanthi colony"
+    },
+    "bbox": [
+      80.2168,
+      13.0812,
+      80.2168,
+      13.0812
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2278,
+        13.0869
+      ]
+    },
+    "properties": {
+      "section_na": "AE/AMINJIKARAI",
+      "section_co": "167",
+      "subdivisio": "CHETPET",
+      "region_id": "01",
+      "subdivis_1": "ANNR2",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 295,
+      "search_string": "    ae/aminjikarai"
+    },
+    "bbox": [
+      80.2278,
+      13.0869,
+      80.2278,
+      13.0869
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.2427,
+        13.0735
+      ]
+    },
+    "properties": {
+      "section_na": "AE/CHETPET",
+      "section_co": "165",
+      "subdivisio": "CHETPET",
+      "region_id": "01",
+      "subdivis_1": "ANNR2",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 296,
+      "search_string": "    ae/chetpet"
+    },
+    "bbox": [
+      80.2427,
+      13.0735,
+      80.2427,
+      13.0735
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1665,
+        13.0494
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MADURAVOYAL SOUTH",
+      "section_co": "402",
+      "subdivisio": "MADURAVOYAL",
+      "region_id": "01",
+      "subdivis_1": "ANNR4",
+      "division_n": "ANNANAGAR",
+      "division_c": "ANNR",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 298,
+      "search_string": "    ae/maduravoyal south"
+    },
+    "bbox": [
+      80.1665,
+      13.0494,
+      80.1665,
+      13.0494
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1679,
+        13.1049
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MANGALAPURAM",
+      "section_co": "037",
+      "subdivisio": "INDUSTRIAL ESTATE / AMBATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT2",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 299,
+      "search_string": "    ae/mangalapuram"
+    },
+    "bbox": [
+      80.1679,
+      13.1049,
+      80.1679,
+      13.1049
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1923,
+        13.1252
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ANNAI NAGAR",
+      "section_co": "442",
+      "subdivisio": "KORATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT3",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 300,
+      "search_string": "    ae/annai nagar"
+    },
+    "bbox": [
+      80.1923,
+      13.1252,
+      80.1923,
+      13.1252
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1839,
+        13.0878
+      ]
+    },
+    "properties": {
+      "section_na": "AE/J.J NAGAR NORTH",
+      "section_co": "040",
+      "subdivisio": "JJ NAGAR",
+      "region_id": "01",
+      "subdivis_1": "AMBT4",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 301,
+      "search_string": "    ae/j.j nagar north"
+    },
+    "bbox": [
+      80.1839,
+      13.0878,
+      80.1839,
+      13.0878
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1823,
+        13.0798
+      ]
+    },
+    "properties": {
+      "section_na": "AE/J.J.NAGAR/SOUTH",
+      "section_co": "042",
+      "subdivisio": "JJ NAGAR",
+      "region_id": "01",
+      "subdivis_1": "AMBT4",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 302,
+      "search_string": "    ae/j.j.nagar/south"
+    },
+    "bbox": [
+      80.1823,
+      13.0798,
+      80.1823,
+      13.0798
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1712,
+        13.0787
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ADAYALAMPET",
+      "section_co": "439",
+      "subdivisio": "AMBT/CONSTRUCTION",
+      "region_id": "01",
+      "subdivis_1": "AMBT7",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 303,
+      "search_string": "    ae/adayalampet"
+    },
+    "bbox": [
+      80.1712,
+      13.0787,
+      80.1712,
+      13.0787
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1605,
+        13.1316
+      ]
+    },
+    "properties": {
+      "section_na": "AE/BANU NAGAR",
+      "section_co": "434",
+      "subdivisio": "ORAGADAM",
+      "region_id": "01",
+      "subdivis_1": "AMBT5",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 307,
+      "search_string": "    ae/banu nagar"
+    },
+    "bbox": [
+      80.1605,
+      13.1316,
+      80.1605,
+      13.1316
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.1455,
+        13.1142
+      ]
+    },
+    "properties": {
+      "section_na": "AE/THIRUVENKATA NAGAR",
+      "section_co": "435",
+      "subdivisio": "AMBATTUR",
+      "region_id": "01",
+      "subdivis_1": "AMBT1",
+      "division_n": "AMBATTUR",
+      "division_c": "AMBT",
+      "circle_nam": "WEST",
+      "circle_cod": "0406",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 311,
+      "search_string": "    ae/thiruvenkata nagar"
+    },
+    "bbox": [
+      80.1455,
+      13.1142,
+      80.1455,
+      13.1142
+    ]
+  }
+]

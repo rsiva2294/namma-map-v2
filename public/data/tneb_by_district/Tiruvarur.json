@@ -1,0 +1,1082 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6387,
+        10.786
+      ]
+    },
+    "properties": {
+      "section_na": "Thiruvarur North",
+      "section_co": "573",
+      "subdivisio": "Town Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44541",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2178,
+      "search_string": "    thiruvarur north"
+    },
+    "bbox": [
+      79.6387,
+      10.786,
+      79.6387,
+      10.786
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6222,
+        10.7774
+      ]
+    },
+    "properties": {
+      "section_na": "Thiruvarur Town",
+      "section_co": "562",
+      "subdivisio": "Town Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44541",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2179,
+      "search_string": "    thiruvarur town"
+    },
+    "bbox": [
+      79.6222,
+      10.7774,
+      79.6222,
+      10.7774
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3815,
+        10.8908
+      ]
+    },
+    "properties": {
+      "section_na": "Valangaiman",
+      "section_co": "575",
+      "subdivisio": "Construction Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44544",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2180,
+      "search_string": "    valangaiman"
+    },
+    "bbox": [
+      79.3815,
+      10.8908,
+      79.3815,
+      10.8908
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6525,
+        10.9373
+      ]
+    },
+    "properties": {
+      "section_na": "Poonthottam",
+      "section_co": "571",
+      "subdivisio": "Peralam",
+      "region_id": "06",
+      "subdivis_1": "44543",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2181,
+      "search_string": "    poonthottam"
+    },
+    "bbox": [
+      79.6525,
+      10.9373,
+      79.6525,
+      10.9373
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6219,
+        10.7773
+      ]
+    },
+    "properties": {
+      "section_na": "Thiruvarur West",
+      "section_co": "565",
+      "subdivisio": "Rural Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44542",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2182,
+      "search_string": "    thiruvarur west"
+    },
+    "bbox": [
+      79.6219,
+      10.7773,
+      79.6219,
+      10.7773
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6859,
+        10.7579
+      ]
+    },
+    "properties": {
+      "section_na": "Adiyakamangalam",
+      "section_co": "564",
+      "subdivisio": "Town Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44541",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2183,
+      "search_string": "    adiyakamangalam"
+    },
+    "bbox": [
+      79.6859,
+      10.7579,
+      79.6859,
+      10.7579
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4022,
+        10.8305
+      ]
+    },
+    "properties": {
+      "section_na": "Alangudi",
+      "section_co": "576",
+      "subdivisio": "Construction Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44544",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2184,
+      "search_string": "    alangudi"
+    },
+    "bbox": [
+      79.4022,
+      10.8305,
+      79.4022,
+      10.8305
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6649,
+        10.6274
+      ]
+    },
+    "properties": {
+      "section_na": "Katchanam",
+      "section_co": "563",
+      "subdivisio": "Town Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44541",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2185,
+      "search_string": "    katchanam"
+    },
+    "bbox": [
+      79.6649,
+      10.6274,
+      79.6649,
+      10.6274
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6221,
+        10.7775
+      ]
+    },
+    "properties": {
+      "section_na": "Thiruvarur South",
+      "section_co": "561",
+      "subdivisio": "Town Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44541",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2186,
+      "search_string": "    thiruvarur south"
+    },
+    "bbox": [
+      79.6221,
+      10.7775,
+      79.6221,
+      10.7775
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4578,
+        10.6594
+      ]
+    },
+    "properties": {
+      "section_na": "East Mannargudi",
+      "section_co": "586",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2187,
+      "search_string": "    east mannargudi"
+    },
+    "bbox": [
+      79.4578,
+      10.6594,
+      79.4578,
+      10.6594
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.5215,
+        10.7051
+      ]
+    },
+    "properties": {
+      "section_na": "Koothanallur",
+      "section_co": "587",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2188,
+      "search_string": "    koothanallur"
+    },
+    "bbox": [
+      79.5215,
+      10.7051,
+      79.5215,
+      10.7051
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4145,
+        10.7729
+      ]
+    },
+    "properties": {
+      "section_na": "Needamangalam",
+      "section_co": "590",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2189,
+      "search_string": "    needamangalam"
+    },
+    "bbox": [
+      79.4145,
+      10.7729,
+      79.4145,
+      10.7729
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.5762,
+        10.9218
+      ]
+    },
+    "properties": {
+      "section_na": "Adambar",
+      "section_co": "570",
+      "subdivisio": "Peralam",
+      "region_id": "06",
+      "subdivis_1": "44543",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2190,
+      "search_string": "    adambar"
+    },
+    "bbox": [
+      79.5762,
+      10.9218,
+      79.5762,
+      10.9218
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4799,
+        10.8556
+      ]
+    },
+    "properties": {
+      "section_na": "Kodavasal",
+      "section_co": "567",
+      "subdivisio": "Rural Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44542",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2191,
+      "search_string": "    kodavasal"
+    },
+    "bbox": [
+      79.4799,
+      10.8556,
+      79.4799,
+      10.8556
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4918,
+        10.7706
+      ]
+    },
+    "properties": {
+      "section_na": "Koradachery",
+      "section_co": "566",
+      "subdivisio": "Rural Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44542",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2192,
+      "search_string": "    koradachery"
+    },
+    "bbox": [
+      79.4918,
+      10.7706,
+      79.4918,
+      10.7706
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.5739,
+        10.8701
+      ]
+    },
+    "properties": {
+      "section_na": "Srivanjiyam",
+      "section_co": "574",
+      "subdivisio": "Rural Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44542",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2193,
+      "search_string": "    srivanjiyam"
+    },
+    "bbox": [
+      79.5739,
+      10.8701,
+      79.5739,
+      10.8701
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6125,
+        10.8678
+      ]
+    },
+    "properties": {
+      "section_na": "Nannilam",
+      "section_co": "568",
+      "subdivisio": "Rural Thiruvarur",
+      "region_id": "06",
+      "subdivis_1": "44542",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2194,
+      "search_string": "    nannilam"
+    },
+    "bbox": [
+      79.6125,
+      10.8678,
+      79.6125,
+      10.8678
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.7372,
+        10.9814
+      ]
+    },
+    "properties": {
+      "section_na": "Velangudy",
+      "section_co": "572",
+      "subdivisio": "Peralam",
+      "region_id": "06",
+      "subdivis_1": "44543",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2195,
+      "search_string": "    velangudy"
+    },
+    "bbox": [
+      79.7372,
+      10.9814,
+      79.7372,
+      10.9814
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6633,
+        10.963
+      ]
+    },
+    "properties": {
+      "section_na": "Peralam",
+      "section_co": "569",
+      "subdivisio": "Peralam",
+      "region_id": "06",
+      "subdivis_1": "44543",
+      "division_n": "THIRUVARUR",
+      "division_c": "4454",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2196,
+      "search_string": "    peralam"
+    },
+    "bbox": [
+      79.6633,
+      10.963,
+      79.6633,
+      10.963
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4577,
+        10.6594
+      ]
+    },
+    "properties": {
+      "section_na": "North Mannargudi",
+      "section_co": "585",
+      "subdivisio": "Town Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44551",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2197,
+      "search_string": "    north mannargudi"
+    },
+    "bbox": [
+      79.4577,
+      10.6594,
+      79.4577,
+      10.6594
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4577,
+        10.6593
+      ]
+    },
+    "properties": {
+      "section_na": "Mannargudi Town I",
+      "section_co": "582",
+      "subdivisio": "Town Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44551",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2198,
+      "search_string": "    mannargudi town i"
+    },
+    "bbox": [
+      79.4577,
+      10.6593,
+      79.4577,
+      10.6593
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4578,
+        10.6593
+      ]
+    },
+    "properties": {
+      "section_na": "Mannargudi Town II",
+      "section_co": "583",
+      "subdivisio": "Town Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44551",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2199,
+      "search_string": "    mannargudi town ii"
+    },
+    "bbox": [
+      79.4578,
+      10.6593,
+      79.4578,
+      10.6593
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4259,
+        10.596
+      ]
+    },
+    "properties": {
+      "section_na": "Ullikottai",
+      "section_co": "584",
+      "subdivisio": "South Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44554",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2200,
+      "search_string": "    ullikottai"
+    },
+    "bbox": [
+      79.4259,
+      10.596,
+      79.4259,
+      10.596
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3235,
+        10.7031
+      ]
+    },
+    "properties": {
+      "section_na": "Vaduvoor",
+      "section_co": "589",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2201,
+      "search_string": "    vaduvoor"
+    },
+    "bbox": [
+      79.3235,
+      10.7031,
+      79.3235,
+      10.7031
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4462,
+        10.5244
+      ]
+    },
+    "properties": {
+      "section_na": "Thirumakottai",
+      "section_co": "600",
+      "subdivisio": "South Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44554",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2202,
+      "search_string": "    thirumakottai"
+    },
+    "bbox": [
+      79.4462,
+      10.5244,
+      79.4462,
+      10.5244
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.5668,
+        10.7146
+      ]
+    },
+    "properties": {
+      "section_na": "Vadapathimangalam",
+      "section_co": "588",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2203,
+      "search_string": "    vadapathimangalam"
+    },
+    "bbox": [
+      79.5668,
+      10.7146,
+      79.5668,
+      10.7146
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4375,
+        10.6568
+      ]
+    },
+    "properties": {
+      "section_na": "West Mannargudi",
+      "section_co": "581",
+      "subdivisio": "Town Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44551",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2204,
+      "search_string": "    west mannargudi"
+    },
+    "bbox": [
+      79.4375,
+      10.6568,
+      79.4375,
+      10.6568
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4972,
+        10.4056
+      ]
+    },
+    "properties": {
+      "section_na": "Muthupet",
+      "section_co": "595",
+      "subdivisio": "Thiruthuraipoondi",
+      "region_id": "06",
+      "subdivis_1": "44553",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2205,
+      "search_string": "    muthupet"
+    },
+    "bbox": [
+      79.4972,
+      10.4056,
+      79.4972,
+      10.4056
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.5612,
+        10.6131
+      ]
+    },
+    "properties": {
+      "section_na": "Kottur",
+      "section_co": "594",
+      "subdivisio": "Thiruthuraipoondi",
+      "region_id": "06",
+      "subdivis_1": "44553",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2206,
+      "search_string": "    kottur"
+    },
+    "bbox": [
+      79.5612,
+      10.6131,
+      79.5612,
+      10.6131
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3595,
+        10.7836
+      ]
+    },
+    "properties": {
+      "section_na": "Kovilveni",
+      "section_co": "591",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2207,
+      "search_string": "    kovilveni"
+    },
+    "bbox": [
+      79.3595,
+      10.7836,
+      79.3595,
+      10.7836
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4255,
+        10.5658
+      ]
+    },
+    "properties": {
+      "section_na": "Paravakottai",
+      "section_co": "599",
+      "subdivisio": "South Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44554",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2208,
+      "search_string": "    paravakottai"
+    },
+    "bbox": [
+      79.4255,
+      10.5658,
+      79.4255,
+      10.5658
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3775,
+        10.6382
+      ]
+    },
+    "properties": {
+      "section_na": "Peraiyur",
+      "section_co": "597",
+      "subdivisio": "Town Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44551",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2209,
+      "search_string": "    peraiyur"
+    },
+    "bbox": [
+      79.3775,
+      10.6382,
+      79.3775,
+      10.6382
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6306,
+        10.5206
+      ]
+    },
+    "properties": {
+      "section_na": "Rural Thiruthuraipoondi",
+      "section_co": "593",
+      "subdivisio": "Thiruthuraipoondi",
+      "region_id": "06",
+      "subdivis_1": "44553",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2210,
+      "search_string": "    rural thiruthuraipoondi"
+    },
+    "bbox": [
+      79.6306,
+      10.5206,
+      79.6306,
+      10.5206
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6281,
+        10.5209
+      ]
+    },
+    "properties": {
+      "section_na": "Thiruthuraipoondi Town",
+      "section_co": "592",
+      "subdivisio": "Thiruthuraipoondi",
+      "region_id": "06",
+      "subdivis_1": "44553",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2211,
+      "search_string": "    thiruthuraipoondi town"
+    },
+    "bbox": [
+      79.6281,
+      10.5209,
+      79.6281,
+      10.5209
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.6179,
+        10.5626
+      ]
+    },
+    "properties": {
+      "section_na": "Pallankoil",
+      "section_co": "596",
+      "subdivisio": "Thiruthuraipoondi",
+      "region_id": "06",
+      "subdivis_1": "44553",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2212,
+      "search_string": "    pallankoil"
+    },
+    "bbox": [
+      79.6179,
+      10.5626,
+      79.6179,
+      10.5626
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3742,
+        10.7009
+      ]
+    },
+    "properties": {
+      "section_na": "Edamelaiyur",
+      "section_co": "598",
+      "subdivisio": "Rural Mannargudi",
+      "region_id": "06",
+      "subdivis_1": "44552",
+      "division_n": "MANNARGUDI",
+      "division_c": "4455",
+      "circle_nam": "THIRUVARUR",
+      "circle_cod": "0447",
+      "region_nam": "TRICHY",
+      "object_id": 2213,
+      "search_string": "    edamelaiyur"
+    },
+    "bbox": [
+      79.3742,
+      10.7009,
+      79.3742,
+      10.7009
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        80.3099,
+        13.1869
+      ]
+    },
+    "properties": {
+      "section_na": "AE/O&M/THIRUVOTRIYUR SS",
+      "section_co": "022",
+      "subdivisio": "THIRUVOTRIYUR",
+      "region_id": "01",
+      "subdivis_1": "TNPT5",
+      "division_n": "TONDIARPET",
+      "division_c": "TNPT",
+      "circle_nam": "NORTH",
+      "circle_cod": "0404",
+      "region_nam": "CHENNAI NORTH",
+      "object_id": 198,
+      "search_string": "    ae/o&m/thiruvotriyur ss"
+    },
+    "bbox": [
+      80.3099,
+      13.1869,
+      80.3099,
+      13.1869
+    ]
+  }
+]

@@ -1,0 +1,5462 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0392,
+        11.2578
+      ]
+    },
+    "properties": {
+      "section_na": "AE/POGALUR",
+      "section_co": "152",
+      "subdivisio": "SOUTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43033",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1313,
+      "search_string": "    ae/pogalur"
+    },
+    "bbox": [
+      77.0392,
+      11.2578,
+      77.0392,
+      11.2578
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.006,
+        11.3172
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SIRUMUGAI",
+      "section_co": "144",
+      "subdivisio": "RURAL METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43034",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1314,
+      "search_string": "    ae/sirumugai"
+    },
+    "bbox": [
+      77.006,
+      11.3172,
+      77.006,
+      11.3172
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9976,
+        11.0883
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SARAVANAMPATTY",
+      "section_co": "120",
+      "subdivisio": "SARAVANAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43023",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1315,
+      "search_string": "    ae/saravanampatty"
+    },
+    "bbox": [
+      76.9976,
+      11.0883,
+      76.9976,
+      11.0883
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9061,
+        11.0614
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SOMAYAMPALAYAM",
+      "section_co": "113",
+      "subdivisio": "S N PALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43011",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1316,
+      "search_string": "    ae/somayampalayam"
+    },
+    "bbox": [
+      76.9061,
+      11.0614,
+      76.9061,
+      11.0614
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9169,
+        11.2656
+      ]
+    },
+    "properties": {
+      "section_na": "AE/THEKKAMPATTY",
+      "section_co": "143",
+      "subdivisio": "RURAL METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43034",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1317,
+      "search_string": "    ae/thekkampatty"
+    },
+    "bbox": [
+      76.9169,
+      11.2656,
+      76.9169,
+      11.2656
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9575,
+        11.2391
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ KARAMADAI WEST",
+      "section_co": "147",
+      "subdivisio": "KARAMADAI",
+      "region_id": "03",
+      "subdivis_1": "43032",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1318,
+      "search_string": "    ae/ karamadai west"
+    },
+    "bbox": [
+      76.9575,
+      11.2391,
+      76.9575,
+      11.2391
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.7683,
+        10.9435
+      ]
+    },
+    "properties": {
+      "section_na": "AE/ WEST ALANDURAI",
+      "section_co": "107",
+      "subdivisio": "MADHAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43013",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1319,
+      "search_string": "    ae/ west alandurai"
+    },
+    "bbox": [
+      76.7683,
+      10.9435,
+      76.7683,
+      10.9435
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9321,
+        11.1581
+      ]
+    },
+    "properties": {
+      "section_na": "AE/NAICKENPALAYAM",
+      "section_co": "139",
+      "subdivisio": "PERIYANAICKENPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43024",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1320,
+      "search_string": "    ae/naickenpalayam"
+    },
+    "bbox": [
+      76.9321,
+      11.1581,
+      76.9321,
+      11.1581
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0733,
+        11.3697
+      ]
+    },
+    "properties": {
+      "section_na": "AE/PETHIKUTTAI",
+      "section_co": "145",
+      "subdivisio": "RURAL METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43034",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1321,
+      "search_string": "    ae/pethikuttai"
+    },
+    "bbox": [
+      77.0733,
+      11.3697,
+      77.0733,
+      11.3697
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0935,
+        11.154
+      ]
+    },
+    "properties": {
+      "section_na": "AE/P G PUDUR",
+      "section_co": "124",
+      "subdivisio": "KOILPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43025",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1322,
+      "search_string": "    ae/p g pudur"
+    },
+    "bbox": [
+      77.0935,
+      11.154,
+      77.0935,
+      11.154
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9336,
+        11.119
+      ]
+    },
+    "properties": {
+      "section_na": "AE/TOWN SOUTH PERIYANAICKENPALAYAM",
+      "section_co": "134",
+      "subdivisio": "NORTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43022",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1323,
+      "search_string": "    ae/town south periyanaickenpalayam"
+    },
+    "bbox": [
+      76.9336,
+      11.119,
+      76.9336,
+      11.119
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.943,
+        11.0726
+      ]
+    },
+    "properties": {
+      "section_na": "AE/URUMANDAMPALAYAM",
+      "section_co": "131",
+      "subdivisio": "SOUTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43021",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1324,
+      "search_string": "    ae/urumandampalayam"
+    },
+    "bbox": [
+      76.943,
+      11.0726,
+      76.943,
+      11.0726
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8481,
+        10.9828
+      ]
+    },
+    "properties": {
+      "section_na": "AE/THONDAMUTHUR",
+      "section_co": "109",
+      "subdivisio": "THONDAMUTHUR",
+      "region_id": "03",
+      "subdivis_1": "43014",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1325,
+      "search_string": "    ae/thondamuthur"
+    },
+    "bbox": [
+      76.8481,
+      10.9828,
+      76.8481,
+      10.9828
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8601,
+        10.9688
+      ]
+    },
+    "properties": {
+      "section_na": "AE/MADHAMPATTY",
+      "section_co": "106",
+      "subdivisio": "MADHAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43013",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1326,
+      "search_string": "    ae/madhampatty"
+    },
+    "bbox": [
+      76.8601,
+      10.9688,
+      76.8601,
+      10.9688
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9575,
+        11.2391
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KARAMADAI EAST",
+      "section_co": "146",
+      "subdivisio": "KARAMADAI",
+      "region_id": "03",
+      "subdivis_1": "43032",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1327,
+      "search_string": "    ae/karamadai east"
+    },
+    "bbox": [
+      76.9575,
+      11.2391,
+      76.9575,
+      11.2391
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0248,
+        11.1108
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KURUMBAPALAYAM",
+      "section_co": "126",
+      "subdivisio": "KOILPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43025",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1328,
+      "search_string": "    ae/kurumbapalayam"
+    },
+    "bbox": [
+      77.0248,
+      11.1108,
+      77.0248,
+      11.1108
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9685,
+        11.1185
+      ]
+    },
+    "properties": {
+      "section_na": "AE/IDIGARAI",
+      "section_co": "122",
+      "subdivisio": "SARAVANAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43023",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1329,
+      "search_string": "    ae/idigarai"
+    },
+    "bbox": [
+      76.9685,
+      11.1185,
+      76.9685,
+      11.1185
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9939,
+        11.3111
+      ]
+    },
+    "properties": {
+      "section_na": "AE/RURAL METTUPALAYAM",
+      "section_co": "142",
+      "subdivisio": "RURAL METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43034",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1330,
+      "search_string": "    ae/rural mettupalayam"
+    },
+    "bbox": [
+      76.9939,
+      11.3111,
+      76.9939,
+      11.3111
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9854,
+        11.0667
+      ]
+    },
+    "properties": {
+      "section_na": "AE/CHINNAVEDAMPATTY",
+      "section_co": "121",
+      "subdivisio": "SARAVANAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43023",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1331,
+      "search_string": "    ae/chinnavedampatty"
+    },
+    "bbox": [
+      76.9854,
+      11.0667,
+      76.9854,
+      11.0667
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8723,
+        11.0779
+      ]
+    },
+    "properties": {
+      "section_na": "AE/CHINNATHADAGAM",
+      "section_co": "130",
+      "subdivisio": "SOUTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43021",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1332,
+      "search_string": "    ae/chinnathadagam"
+    },
+    "bbox": [
+      76.8723,
+      11.0779,
+      76.8723,
+      11.0779
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8958,
+        10.9718
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KALAMPALAYAM",
+      "section_co": "104",
+      "subdivisio": "PERUR",
+      "region_id": "03",
+      "subdivis_1": "43012",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1333,
+      "search_string": "    ae/kalampalayam"
+    },
+    "bbox": [
+      76.8958,
+      10.9718,
+      76.8958,
+      10.9718
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8949,
+        10.9986
+      ]
+    },
+    "properties": {
+      "section_na": "AE/VEDAPATTY",
+      "section_co": "105",
+      "subdivisio": "PERUR",
+      "region_id": "03",
+      "subdivis_1": "43012",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1334,
+      "search_string": "    ae/vedapatty"
+    },
+    "bbox": [
+      76.8949,
+      10.9986,
+      76.8949,
+      10.9986
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9133,
+        11.0213
+      ]
+    },
+    "properties": {
+      "section_na": "AE/P N PUDUR",
+      "section_co": "102",
+      "subdivisio": "S N PALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43011",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1335,
+      "search_string": "    ae/p n pudur"
+    },
+    "bbox": [
+      76.9133,
+      11.0213,
+      76.9133,
+      11.0213
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8722,
+        10.9989
+      ]
+    },
+    "properties": {
+      "section_na": "AE/K N PALAYAM",
+      "section_co": "111",
+      "subdivisio": "THONDAMUTHUR",
+      "region_id": "03",
+      "subdivis_1": "43012",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1336,
+      "search_string": "    ae/k n palayam"
+    },
+    "bbox": [
+      76.8722,
+      10.9989,
+      76.8722,
+      10.9989
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.943,
+        11.0726
+      ]
+    },
+    "properties": {
+      "section_na": "AE/EAST THUDIYALUR",
+      "section_co": "127",
+      "subdivisio": "SOUTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43021",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1337,
+      "search_string": "    ae/east thudiyalur"
+    },
+    "bbox": [
+      76.943,
+      11.0726,
+      76.943,
+      11.0726
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8156,
+        10.9962
+      ]
+    },
+    "properties": {
+      "section_na": "AE/DEVARAYAPURAM",
+      "section_co": "110",
+      "subdivisio": "THONDAMUTHUR",
+      "region_id": "03",
+      "subdivis_1": "43014",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1338,
+      "search_string": "    ae/devarayapuram"
+    },
+    "bbox": [
+      76.8156,
+      10.9962,
+      76.8156,
+      10.9962
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9954,
+        11.1128
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KEERANATHAM",
+      "section_co": "182",
+      "subdivisio": "SARAVANAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43023",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1339,
+      "search_string": "    ae/keeranatham"
+    },
+    "bbox": [
+      76.9954,
+      11.1128,
+      76.9954,
+      11.1128
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9244,
+        11.0466
+      ]
+    },
+    "properties": {
+      "section_na": "AE/LUNA NAGAR",
+      "section_co": "101",
+      "subdivisio": "S N PALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43011",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1340,
+      "search_string": "    ae/luna nagar"
+    },
+    "bbox": [
+      76.9244,
+      11.0466,
+      76.9244,
+      11.0466
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9958,
+        11.0584
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KRISHNAPURAM",
+      "section_co": "183",
+      "subdivisio": "SARAVANAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43023",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1341,
+      "search_string": "    ae/krishnapuram"
+    },
+    "bbox": [
+      76.9958,
+      11.0584,
+      76.9958,
+      11.0584
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.884,
+        11.0359
+      ]
+    },
+    "properties": {
+      "section_na": "AE/BHARATHIYAR UNIVERSITY",
+      "section_co": "112",
+      "subdivisio": "S N PALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43011",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1342,
+      "search_string": "    ae/bharathiyar university"
+    },
+    "bbox": [
+      76.884,
+      11.0359,
+      76.884,
+      11.0359
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.7949,
+        10.9571
+      ]
+    },
+    "properties": {
+      "section_na": "AE/EAST ALANDURAI",
+      "section_co": "108",
+      "subdivisio": "MADHAMPATTY",
+      "region_id": "03",
+      "subdivis_1": "43013",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1343,
+      "search_string": "    ae/east alandurai"
+    },
+    "bbox": [
+      76.7949,
+      10.9571,
+      76.7949,
+      10.9571
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9612,
+        11.1948
+      ]
+    },
+    "properties": {
+      "section_na": "AE/RURAL WEST PERIYANAICKENPALAYAM",
+      "section_co": "137",
+      "subdivisio": "PERIYANAICKENPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43024",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1344,
+      "search_string": "    ae/rural west periyanaickenpalayam"
+    },
+    "bbox": [
+      76.9612,
+      11.1948,
+      76.9612,
+      11.1948
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9451,
+        11.1492
+      ]
+    },
+    "properties": {
+      "section_na": "AE/TOWN PERIYANAICKENPALAYAM",
+      "section_co": "135",
+      "subdivisio": "PERIYANAICKENPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43024",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1345,
+      "search_string": "    ae/town periyanaickenpalayam"
+    },
+    "bbox": [
+      76.9451,
+      11.1492,
+      76.9451,
+      11.1492
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8801,
+        11.2159
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SOUTH DHAYANUR",
+      "section_co": "148",
+      "subdivisio": "KARAMADAI",
+      "region_id": "03",
+      "subdivis_1": "43031",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1346,
+      "search_string": "    ae/south dhayanur"
+    },
+    "bbox": [
+      76.8801,
+      11.2159,
+      76.8801,
+      11.2159
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9174,
+        11.0839
+      ]
+    },
+    "properties": {
+      "section_na": "AE/PANNIMADAI",
+      "section_co": "129",
+      "subdivisio": "SOUTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43021",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1347,
+      "search_string": "    ae/pannimadai"
+    },
+    "bbox": [
+      76.9174,
+      11.0839,
+      76.9174,
+      11.0839
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9174,
+        10.978
+      ]
+    },
+    "properties": {
+      "section_na": "AE/PERUR",
+      "section_co": "103",
+      "subdivisio": "PERUR",
+      "region_id": "03",
+      "subdivis_1": "43012",
+      "division_n": "S N PALAYAM",
+      "division_c": "4301",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1348,
+      "search_string": "    ae/perur"
+    },
+    "bbox": [
+      76.9174,
+      10.978,
+      76.9174,
+      10.978
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9485,
+        11.1691
+      ]
+    },
+    "properties": {
+      "section_na": "AE/JOTHIPURAM",
+      "section_co": "138",
+      "subdivisio": "PERIYANAICKENPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43024",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1349,
+      "search_string": "    ae/jothipuram"
+    },
+    "bbox": [
+      76.9485,
+      11.1691,
+      76.9485,
+      11.1691
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9417,
+        11.2967
+      ]
+    },
+    "properties": {
+      "section_na": "AE/URBAN METTUPALAYAM",
+      "section_co": "153",
+      "subdivisio": "TOWN METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43031",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1350,
+      "search_string": "    ae/urban mettupalayam"
+    },
+    "bbox": [
+      76.9417,
+      11.2967,
+      76.9417,
+      11.2967
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8801,
+        11.216
+      ]
+    },
+    "properties": {
+      "section_na": "AE/NORTH DHAYANUR",
+      "section_co": "149",
+      "subdivisio": "KARAMADAI",
+      "region_id": "03",
+      "subdivis_1": "43031",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1351,
+      "search_string": "    ae/north dhayanur"
+    },
+    "bbox": [
+      76.8801,
+      11.216,
+      76.8801,
+      11.216
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9359,
+        11.0992
+      ]
+    },
+    "properties": {
+      "section_na": "AE/NSN PALAYAM",
+      "section_co": "132",
+      "subdivisio": "NORTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43022",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1352,
+      "search_string": "    ae/nsn palayam"
+    },
+    "bbox": [
+      76.9359,
+      11.0992,
+      76.9359,
+      11.0992
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9418,
+        11.091
+      ]
+    },
+    "properties": {
+      "section_na": "AE/VADAMADURAI",
+      "section_co": "133",
+      "subdivisio": "NORTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43022",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1353,
+      "search_string": "    ae/vadamadurai"
+    },
+    "bbox": [
+      76.9418,
+      11.091,
+      76.9418,
+      11.091
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0533,
+        11.1694
+      ]
+    },
+    "properties": {
+      "section_na": "AE/GANESAPURAM",
+      "section_co": "125",
+      "subdivisio": "KOILPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43025",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1354,
+      "search_string": "    ae/ganesapuram"
+    },
+    "bbox": [
+      77.0533,
+      11.1694,
+      77.0533,
+      11.1694
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9417,
+        11.2967
+      ]
+    },
+    "properties": {
+      "section_na": "AE/TOWN NORTH METTUPALAYAM",
+      "section_co": "140",
+      "subdivisio": "TOWN METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43031",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1355,
+      "search_string": "    ae/town north mettupalayam"
+    },
+    "bbox": [
+      76.9417,
+      11.2967,
+      76.9417,
+      11.2967
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9417,
+        11.2967
+      ]
+    },
+    "properties": {
+      "section_na": "AE/TOWN SOUTH METTUPALAYAM",
+      "section_co": "141",
+      "subdivisio": "TOWN METTUPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43031",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1356,
+      "search_string": "    ae/town south mettupalayam"
+    },
+    "bbox": [
+      76.9417,
+      11.2967,
+      76.9417,
+      11.2967
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9683,
+        11.1818
+      ]
+    },
+    "properties": {
+      "section_na": "AE/RURAL EAST PERIYANAICKENPALAYAM",
+      "section_co": "136",
+      "subdivisio": "PERIYANAICKENPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43024",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1357,
+      "search_string": "    ae/rural east periyanaickenpalayam"
+    },
+    "bbox": [
+      76.9683,
+      11.1818,
+      76.9683,
+      11.1818
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0373,
+        11.1424
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KOILPALAYAM",
+      "section_co": "123",
+      "subdivisio": "KOILPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43025",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1358,
+      "search_string": "    ae/koilpalayam"
+    },
+    "bbox": [
+      77.0373,
+      11.1424,
+      77.0373,
+      11.1424
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9403,
+        11.0813
+      ]
+    },
+    "properties": {
+      "section_na": "AE/WEST THUDIYALUR",
+      "section_co": "128",
+      "subdivisio": "SOUTH THUDIYALUR",
+      "region_id": "03",
+      "subdivis_1": "43021",
+      "division_n": "K.VADAMADURAI",
+      "division_c": "4302",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1359,
+      "search_string": "    ae/west thudiyalur"
+    },
+    "bbox": [
+      76.9403,
+      11.0813,
+      76.9403,
+      11.0813
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0745,
+        11.1994
+      ]
+    },
+    "properties": {
+      "section_na": "AE/KARIYAMPALAYAM",
+      "section_co": "151",
+      "subdivisio": "SOUTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43033",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1360,
+      "search_string": "    ae/kariyampalayam"
+    },
+    "bbox": [
+      77.0745,
+      11.1994,
+      77.0745,
+      11.1994
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1133,
+        11.2314
+      ]
+    },
+    "properties": {
+      "section_na": "AE/SOUTH ANNUR",
+      "section_co": "150",
+      "subdivisio": "SOUTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43033",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1361,
+      "search_string": "    ae/south annur"
+    },
+    "bbox": [
+      77.1133,
+      11.2314,
+      77.1133,
+      11.2314
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1044,
+        11.2349
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH ANNUR",
+      "section_co": "174",
+      "subdivisio": "SOUTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43033",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1362,
+      "search_string": "    north annur"
+    },
+    "bbox": [
+      77.1044,
+      11.2349,
+      77.1044,
+      11.2349
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0983,
+        11.2681
+      ]
+    },
+    "properties": {
+      "section_na": "VADAKKKALUR",
+      "section_co": "176",
+      "subdivisio": "SOUTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43033",
+      "division_n": "METTUPALAYAM",
+      "division_c": "4303",
+      "circle_nam": "COIMBATORE EDC NORTH",
+      "circle_cod": "0430",
+      "region_nam": "COIMBATORE",
+      "object_id": 1363,
+      "search_string": "    vadakkkalur"
+    },
+    "bbox": [
+      77.0983,
+      11.2681,
+      77.0983,
+      11.2681
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.908,
+        10.883
+      ]
+    },
+    "properties": {
+      "section_na": "K.G.Chavadi",
+      "section_co": "263",
+      "subdivisio": "Madukkarai Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43232",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1364,
+      "search_string": "    k.g.chavadi"
+    },
+    "bbox": [
+      76.908,
+      10.883,
+      76.908,
+      10.883
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1105,
+        11.0658
+      ]
+    },
+    "properties": {
+      "section_na": "Arasur",
+      "section_co": "288",
+      "subdivisio": "Arsur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43244",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1366,
+      "search_string": "    arasur"
+    },
+    "bbox": [
+      77.1105,
+      11.0658,
+      77.1105,
+      11.0658
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9763,
+        10.9372
+      ]
+    },
+    "properties": {
+      "section_na": "Housing Unit/Kurichi",
+      "section_co": "257",
+      "subdivisio": "Kurichi-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43234",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1367,
+      "search_string": "    housing unit/kurichi"
+    },
+    "bbox": [
+      76.9763,
+      10.9372,
+      76.9763,
+      10.9372
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.024,
+        10.9795
+      ]
+    },
+    "properties": {
+      "section_na": "Vellalore",
+      "section_co": "253",
+      "subdivisio": "Podanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43233",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1368,
+      "search_string": "    vellalore"
+    },
+    "bbox": [
+      77.024,
+      10.9795,
+      77.024,
+      10.9795
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.175,
+        11.109
+      ]
+    },
+    "properties": {
+      "section_na": "Karumathampatty",
+      "section_co": "281",
+      "subdivisio": "North-Somanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43242",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1369,
+      "search_string": "    karumathampatty"
+    },
+    "bbox": [
+      77.175,
+      11.109,
+      77.175,
+      11.109
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9523,
+        10.9434
+      ]
+    },
+    "properties": {
+      "section_na": "B.K.Pudur",
+      "section_co": "269",
+      "subdivisio": "Kuniamuthur-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43231",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1370,
+      "search_string": "    b.k.pudur"
+    },
+    "bbox": [
+      76.9523,
+      10.9434,
+      76.9523,
+      10.9434
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1421,
+        11.18
+      ]
+    },
+    "properties": {
+      "section_na": "Kaduvettipalayam",
+      "section_co": "291",
+      "subdivisio": "Arsur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43244",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1371,
+      "search_string": "    kaduvettipalayam"
+    },
+    "bbox": [
+      77.1421,
+      11.18,
+      77.1421,
+      11.18
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1106,
+        11.0657
+      ]
+    },
+    "properties": {
+      "section_na": "Neelambur",
+      "section_co": "290",
+      "subdivisio": "Arsur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43244",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1372,
+      "search_string": "    neelambur"
+    },
+    "bbox": [
+      77.1106,
+      11.0657,
+      77.1106,
+      11.0657
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9473,
+        10.9082
+      ]
+    },
+    "properties": {
+      "section_na": "Madukkarai/South",
+      "section_co": "264",
+      "subdivisio": "Madukkarai Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43232",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1373,
+      "search_string": "    madukkarai/south"
+    },
+    "bbox": [
+      76.9473,
+      10.9082,
+      76.9473,
+      10.9082
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9966,
+        10.8839
+      ]
+    },
+    "properties": {
+      "section_na": "O.K.Mandapam",
+      "section_co": "255",
+      "subdivisio": "Kurichi-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43234",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1374,
+      "search_string": "    o.k.mandapam"
+    },
+    "bbox": [
+      76.9966,
+      10.8839,
+      76.9966,
+      10.8839
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1842,
+        11.0877
+      ]
+    },
+    "properties": {
+      "section_na": "Somanur/Town",
+      "section_co": "276",
+      "subdivisio": "Town-Somanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43241",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1375,
+      "search_string": "    somanur/town"
+    },
+    "bbox": [
+      77.1842,
+      11.0877,
+      77.1842,
+      11.0877
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9542,
+        10.8829
+      ]
+    },
+    "properties": {
+      "section_na": "Palathurai",
+      "section_co": "262",
+      "subdivisio": "Madukkarai Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43232",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1376,
+      "search_string": "    palathurai"
+    },
+    "bbox": [
+      76.9542,
+      10.8829,
+      76.9542,
+      10.8829
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9314,
+        10.952
+      ]
+    },
+    "properties": {
+      "section_na": "Kovaipudur",
+      "section_co": "267",
+      "subdivisio": "Kuniamuthur-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43231",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1377,
+      "search_string": "    kovaipudur"
+    },
+    "bbox": [
+      76.9314,
+      10.952,
+      76.9314,
+      10.952
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.944,
+        10.901
+      ]
+    },
+    "properties": {
+      "section_na": "Madukkarai/North",
+      "section_co": "261",
+      "subdivisio": "Madukkarai Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43232",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1378,
+      "search_string": "    madukkarai/north"
+    },
+    "bbox": [
+      76.944,
+      10.901,
+      76.944,
+      10.901
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0038,
+        10.9062
+      ]
+    },
+    "properties": {
+      "section_na": "M.M.Patty",
+      "section_co": "256",
+      "subdivisio": "Kurichi-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43234",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1379,
+      "search_string": "    m.m.patty"
+    },
+    "bbox": [
+      77.0038,
+      10.9062,
+      77.0038,
+      10.9062
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.971,
+        10.952
+      ]
+    },
+    "properties": {
+      "section_na": "Sundarapuram",
+      "section_co": "259",
+      "subdivisio": "Kuniamuthur-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43231",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1380,
+      "search_string": "    sundarapuram"
+    },
+    "bbox": [
+      76.971,
+      10.952,
+      76.971,
+      10.952
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9802,
+        10.9301
+      ]
+    },
+    "properties": {
+      "section_na": "Eachanari",
+      "section_co": "260",
+      "subdivisio": "Kurichi-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43234",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1381,
+      "search_string": "    eachanari"
+    },
+    "bbox": [
+      76.9802,
+      10.9301,
+      76.9802,
+      10.9301
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.983,
+        10.964
+      ]
+    },
+    "properties": {
+      "section_na": "North/Podanur",
+      "section_co": "252",
+      "subdivisio": "Podanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43233",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1382,
+      "search_string": "    north/podanur"
+    },
+    "bbox": [
+      76.983,
+      10.964,
+      76.983,
+      10.964
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9763,
+        10.9372
+      ]
+    },
+    "properties": {
+      "section_na": "South/Kurichi",
+      "section_co": "258",
+      "subdivisio": "Kurichi-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43234",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1383,
+      "search_string": "    south/kurichi"
+    },
+    "bbox": [
+      76.9763,
+      10.9372,
+      76.9763,
+      10.9372
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9593,
+        10.9578
+      ]
+    },
+    "properties": {
+      "section_na": "Town/Kuniamuthur",
+      "section_co": "265",
+      "subdivisio": "Kuniamuthur-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43231",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1385,
+      "search_string": "    town/kuniamuthur"
+    },
+    "bbox": [
+      76.9593,
+      10.9578,
+      76.9593,
+      10.9578
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1861,
+        11.0885
+      ]
+    },
+    "properties": {
+      "section_na": "Somanur/Rural",
+      "section_co": "277",
+      "subdivisio": "Town-Somanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43241",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1386,
+      "search_string": "    somanur/rural"
+    },
+    "bbox": [
+      77.1861,
+      11.0885,
+      77.1861,
+      11.0885
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.138,
+        11.1447
+      ]
+    },
+    "properties": {
+      "section_na": "Vagarayam palayam",
+      "section_co": "289",
+      "subdivisio": "Arsur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43244",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1388,
+      "search_string": "    vagarayam palayam"
+    },
+    "bbox": [
+      77.138,
+      11.1447,
+      77.138,
+      11.1447
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.956,
+        10.961
+      ]
+    },
+    "properties": {
+      "section_na": "Athuppalam",
+      "section_co": "266",
+      "subdivisio": "Kuniamuthur-Sub Divn",
+      "region_id": "03",
+      "subdivis_1": "43231",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1389,
+      "search_string": "    athuppalam"
+    },
+    "bbox": [
+      76.956,
+      10.961,
+      76.956,
+      10.961
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1821,
+        11.0884
+      ]
+    },
+    "properties": {
+      "section_na": "SenthilNagar",
+      "section_co": "282",
+      "subdivisio": "North-Somanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43242",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1390,
+      "search_string": "    senthilnagar"
+    },
+    "bbox": [
+      77.1821,
+      11.0884,
+      77.1821,
+      11.0884
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0136,
+        10.7793
+      ]
+    },
+    "properties": {
+      "section_na": "Thamaraikulam",
+      "section_co": "356",
+      "subdivisio": "Kinathukadavu Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43253",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1391,
+      "search_string": "    thamaraikulam"
+    },
+    "bbox": [
+      77.0136,
+      10.7793,
+      77.0136,
+      10.7793
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1433,
+        10.8077
+      ]
+    },
+    "properties": {
+      "section_na": "Kattampatti",
+      "section_co": "351",
+      "subdivisio": "Negamam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43251",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1392,
+      "search_string": "    kattampatti"
+    },
+    "bbox": [
+      77.1433,
+      10.8077,
+      77.1433,
+      10.8077
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.032,
+        10.746
+      ]
+    },
+    "properties": {
+      "section_na": "Milkoilpalayam",
+      "section_co": "348",
+      "subdivisio": "Milkoilpalayam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43252",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1393,
+      "search_string": "    milkoilpalayam"
+    },
+    "bbox": [
+      77.032,
+      10.746,
+      77.032,
+      10.746
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.103,
+        10.754
+      ]
+    },
+    "properties": {
+      "section_na": "Rural/Negamam",
+      "section_co": "352",
+      "subdivisio": "Milkoilpalayam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43252",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1394,
+      "search_string": "    rural/negamam"
+    },
+    "bbox": [
+      77.103,
+      10.754,
+      77.103,
+      10.754
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1998,
+        10.8834
+      ]
+    },
+    "properties": {
+      "section_na": "Pooradampalayam",
+      "section_co": "248",
+      "subdivisio": "Sulthanpet Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43254",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1395,
+      "search_string": "    pooradampalayam"
+    },
+    "bbox": [
+      77.1998,
+      10.8834,
+      77.1998,
+      10.8834
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0373,
+        10.9117
+      ]
+    },
+    "properties": {
+      "section_na": "Chettipalayam",
+      "section_co": "254",
+      "subdivisio": "Podanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43233",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1396,
+      "search_string": "    chettipalayam"
+    },
+    "bbox": [
+      77.0373,
+      10.9117,
+      77.0373,
+      10.9117
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0191,
+        10.8282
+      ]
+    },
+    "properties": {
+      "section_na": "West/Kinathukadavu",
+      "section_co": "353",
+      "subdivisio": "Kinathukadavu Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43253",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1397,
+      "search_string": "    west/kinathukadavu"
+    },
+    "bbox": [
+      77.0191,
+      10.8282,
+      77.0191,
+      10.8282
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.103,
+        10.754
+      ]
+    },
+    "properties": {
+      "section_na": "East/Negamam",
+      "section_co": "357",
+      "subdivisio": "Negamam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43251",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1398,
+      "search_string": "    east/negamam"
+    },
+    "bbox": [
+      77.103,
+      10.754,
+      77.103,
+      10.754
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.103,
+        10.754
+      ]
+    },
+    "properties": {
+      "section_na": "South/Negamam",
+      "section_co": "350",
+      "subdivisio": "Negamam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43251",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1399,
+      "search_string": "    south/negamam"
+    },
+    "bbox": [
+      77.103,
+      10.754,
+      77.103,
+      10.754
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0191,
+        10.8282
+      ]
+    },
+    "properties": {
+      "section_na": "East/Kinathukadavu",
+      "section_co": "354",
+      "subdivisio": "Kinathukadavu Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43253",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1401,
+      "search_string": "    east/kinathukadavu"
+    },
+    "bbox": [
+      77.0191,
+      10.8282,
+      77.0191,
+      10.8282
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9796,
+        10.9493
+      ]
+    },
+    "properties": {
+      "section_na": "South/Podanur",
+      "section_co": "251",
+      "subdivisio": "Podanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43233",
+      "division_n": "Kuniamuthur Division",
+      "division_c": "4323",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1402,
+      "search_string": "    south/podanur"
+    },
+    "bbox": [
+      76.9796,
+      10.9493,
+      76.9796,
+      10.9493
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.103,
+        10.7541
+      ]
+    },
+    "properties": {
+      "section_na": "North/Negamam",
+      "section_co": "349",
+      "subdivisio": "Negamam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43251",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1403,
+      "search_string": "    north/negamam"
+    },
+    "bbox": [
+      77.103,
+      10.7541,
+      77.103,
+      10.7541
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.14,
+        11.0873
+      ]
+    },
+    "properties": {
+      "section_na": "Kaniyur",
+      "section_co": "292",
+      "subdivisio": "Town-Somanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43241",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1405,
+      "search_string": "    kaniyur"
+    },
+    "bbox": [
+      77.14,
+      11.0873,
+      77.14,
+      11.0873
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.219,
+        10.9081
+      ]
+    },
+    "properties": {
+      "section_na": "K.N.Palayam",
+      "section_co": "236",
+      "subdivisio": "Sulthanpet Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43254",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1407,
+      "search_string": "    k.n.palayam"
+    },
+    "bbox": [
+      77.219,
+      10.9081,
+      77.219,
+      10.9081
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1999,
+        10.883
+      ]
+    },
+    "properties": {
+      "section_na": "Sultanpet",
+      "section_co": "235",
+      "subdivisio": "Sulthanpet Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43254",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1408,
+      "search_string": "    sultanpet"
+    },
+    "bbox": [
+      77.1999,
+      10.883,
+      77.1999,
+      10.883
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0838,
+        10.8363
+      ]
+    },
+    "properties": {
+      "section_na": "Vadachithur",
+      "section_co": "355",
+      "subdivisio": "Kinathukadavu Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43253",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1411,
+      "search_string": "    vadachithur"
+    },
+    "bbox": [
+      77.0838,
+      10.8363,
+      77.0838,
+      10.8363
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.985,
+        10.739
+      ]
+    },
+    "properties": {
+      "section_na": "Vadakipalayam",
+      "section_co": "345",
+      "subdivisio": "Milkoilpalayam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43252",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1412,
+      "search_string": "    vadakipalayam"
+    },
+    "bbox": [
+      76.985,
+      10.739,
+      76.985,
+      10.739
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1969,
+        11.1203
+      ]
+    },
+    "properties": {
+      "section_na": "C.A.Kovil",
+      "section_co": "293",
+      "subdivisio": "North-Somanur Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43242",
+      "division_n": "Somanur Divn Office",
+      "division_c": "4324",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1415,
+      "search_string": "    c.a.kovil"
+    },
+    "bbox": [
+      77.1969,
+      11.1203,
+      77.1969,
+      11.1203
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1934,
+        10.8328
+      ]
+    },
+    "properties": {
+      "section_na": "Malayadipalayam",
+      "section_co": "237",
+      "subdivisio": "Sulthanpet Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43254",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1416,
+      "search_string": "    malayadipalayam"
+    },
+    "bbox": [
+      77.1934,
+      10.8328,
+      77.1934,
+      10.8328
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.019,
+        10.7078
+      ]
+    },
+    "properties": {
+      "section_na": "Sangampalayam",
+      "section_co": "346",
+      "subdivisio": "Milkoilpalayam Sub-Divn",
+      "region_id": "03",
+      "subdivis_1": "43252",
+      "division_n": "Negamam Division",
+      "division_c": "4325",
+      "circle_nam": "Coimbatore south - EDC",
+      "circle_cod": "0432",
+      "region_nam": "Coimbatore",
+      "object_id": 1417,
+      "search_string": "    sangampalayam"
+    },
+    "bbox": [
+      77.019,
+      10.7078,
+      77.019,
+      10.7078
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9567,
+        10.3289
+      ]
+    },
+    "properties": {
+      "section_na": "South/Valparai",
+      "section_co": "323",
+      "subdivisio": "AEE-VALPARAI",
+      "region_id": "03",
+      "subdivis_1": "43423",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1420,
+      "search_string": "    south/valparai"
+    },
+    "bbox": [
+      76.9567,
+      10.3289,
+      76.9567,
+      10.3289
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9836,
+        10.6535
+      ]
+    },
+    "properties": {
+      "section_na": "ZaminUthukuli",
+      "section_co": "394",
+      "subdivisio": "AEE-CENTRAL-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43451",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1438,
+      "search_string": "    zaminuthukuli"
+    },
+    "bbox": [
+      76.9836,
+      10.6535,
+      76.9836,
+      10.6535
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1464,
+        10.6217
+      ]
+    },
+    "properties": {
+      "section_na": "Gomangalam",
+      "section_co": "307",
+      "subdivisio": "AEE-O&M-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43452",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1440,
+      "search_string": "    gomangalam"
+    },
+    "bbox": [
+      77.1464,
+      10.6217,
+      77.1464,
+      10.6217
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0199,
+        10.6568
+      ]
+    },
+    "properties": {
+      "section_na": "Town/Pollachi",
+      "section_co": "386",
+      "subdivisio": "AEE-CENTRAL-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43451",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1441,
+      "search_string": "    town/pollachi"
+    },
+    "bbox": [
+      77.0199,
+      10.6568,
+      77.0199,
+      10.6568
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9695,
+        10.684
+      ]
+    },
+    "properties": {
+      "section_na": "Muthur",
+      "section_co": "391",
+      "subdivisio": "AEE-WEST-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43452",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1442,
+      "search_string": "    muthur"
+    },
+    "bbox": [
+      76.9695,
+      10.684,
+      76.9695,
+      10.684
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0198,
+        10.6568
+      ]
+    },
+    "properties": {
+      "section_na": "Mahalingapuram",
+      "section_co": "387",
+      "subdivisio": "AEE-CENTRAL-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43451",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1443,
+      "search_string": "    mahalingapuram"
+    },
+    "bbox": [
+      77.0198,
+      10.6568,
+      77.0198,
+      10.6568
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0197,
+        10.6568
+      ]
+    },
+    "properties": {
+      "section_na": "Rural/Pollachi",
+      "section_co": "388",
+      "subdivisio": "AEE-O&M-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43453",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1444,
+      "search_string": "    rural/pollachi"
+    },
+    "bbox": [
+      77.0197,
+      10.6568,
+      77.0197,
+      10.6568
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0161,
+        10.6222
+      ]
+    },
+    "properties": {
+      "section_na": "Rangasamuthiram",
+      "section_co": "389",
+      "subdivisio": "AEE-O&M-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43453",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1445,
+      "search_string": "    rangasamuthiram"
+    },
+    "bbox": [
+      77.0161,
+      10.6222,
+      77.0161,
+      10.6222
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0197,
+        10.6564
+      ]
+    },
+    "properties": {
+      "section_na": "T.Kottampatty",
+      "section_co": "390",
+      "subdivisio": "AEE-CENTRAL-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43451",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1446,
+      "search_string": "    t.kottampatty"
+    },
+    "bbox": [
+      77.0197,
+      10.6564,
+      77.0197,
+      10.6564
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9048,
+        10.6914
+      ]
+    },
+    "properties": {
+      "section_na": "Mannur",
+      "section_co": "392",
+      "subdivisio": "AEE-WEST-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43452",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1447,
+      "search_string": "    mannur"
+    },
+    "bbox": [
+      76.9048,
+      10.6914,
+      76.9048,
+      10.6914
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0141,
+        10.6088
+      ]
+    },
+    "properties": {
+      "section_na": "Samathur",
+      "section_co": "331",
+      "subdivisio": "AEE-O&M-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43453",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1449,
+      "search_string": "    samathur"
+    },
+    "bbox": [
+      77.0141,
+      10.6088,
+      77.0141,
+      10.6088
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9033,
+        10.6285
+      ]
+    },
+    "properties": {
+      "section_na": "Marichanaikenpalayam",
+      "section_co": "393",
+      "subdivisio": "AEE-WEST-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43452",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1450,
+      "search_string": "    marichanaikenpalayam"
+    },
+    "bbox": [
+      76.9033,
+      10.6285,
+      76.9033,
+      10.6285
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0689,
+        10.5481
+      ]
+    },
+    "properties": {
+      "section_na": "West/Devanurpudur",
+      "section_co": "333",
+      "subdivisio": "AEE-DEVANUPUDUR",
+      "region_id": "03",
+      "subdivis_1": "43422",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1451,
+      "search_string": "    west/devanurpudur"
+    },
+    "bbox": [
+      77.0689,
+      10.5481,
+      77.0689,
+      10.5481
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9962,
+        10.5364
+      ]
+    },
+    "properties": {
+      "section_na": "Angalakurichi",
+      "section_co": "326",
+      "subdivisio": "AEE-ANGALAKURICHI",
+      "region_id": "03",
+      "subdivis_1": "43421",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1452,
+      "search_string": "    angalakurichi"
+    },
+    "bbox": [
+      76.9962,
+      10.5364,
+      76.9962,
+      10.5364
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0753,
+        10.6231
+      ]
+    },
+    "properties": {
+      "section_na": "Kanjampatty",
+      "section_co": "336",
+      "subdivisio": "AEE-DEVANURPUDUR",
+      "region_id": "03",
+      "subdivis_1": "43422",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1453,
+      "search_string": "    kanjampatty"
+    },
+    "bbox": [
+      77.0753,
+      10.6231,
+      77.0753,
+      10.6231
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8824,
+        10.5127
+      ]
+    },
+    "properties": {
+      "section_na": "Sethumadai",
+      "section_co": "329",
+      "subdivisio": "AEE-ANGALAKURICHI",
+      "region_id": "03",
+      "subdivis_1": "43421",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1455,
+      "search_string": "    sethumadai"
+    },
+    "bbox": [
+      76.8824,
+      10.5127,
+      76.8824,
+      10.5127
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1126,
+        10.6308
+      ]
+    },
+    "properties": {
+      "section_na": "Kolarpatti",
+      "section_co": "334",
+      "subdivisio": "AEE-DEVANURPUDUR",
+      "region_id": "03",
+      "subdivis_1": "43422",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1457,
+      "search_string": "    kolarpatti"
+    },
+    "bbox": [
+      77.1126,
+      10.6308,
+      77.1126,
+      10.6308
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9247,
+        10.5705
+      ]
+    },
+    "properties": {
+      "section_na": "Vettaikaranpudur",
+      "section_co": "330",
+      "subdivisio": "AEE-ANGALAKURICHI",
+      "region_id": "03",
+      "subdivis_1": "43421",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1458,
+      "search_string": "    vettaikaranpudur"
+    },
+    "bbox": [
+      76.9247,
+      10.5705,
+      76.9247,
+      10.5705
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.8752,
+        10.3038
+      ]
+    },
+    "properties": {
+      "section_na": "SholayarNagar",
+      "section_co": "325",
+      "subdivisio": "AEE-VALPARAI",
+      "region_id": "03",
+      "subdivis_1": "43423",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1459,
+      "search_string": "    sholayarnagar"
+    },
+    "bbox": [
+      76.8752,
+      10.3038,
+      76.8752,
+      10.3038
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9254,
+        10.2789
+      ]
+    },
+    "properties": {
+      "section_na": "Mudis",
+      "section_co": "324",
+      "subdivisio": "AEE-VALPARAI",
+      "region_id": "03",
+      "subdivis_1": "43423",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1460,
+      "search_string": "    mudis"
+    },
+    "bbox": [
+      76.9254,
+      10.2789,
+      76.9254,
+      10.2789
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.98,
+        10.36
+      ]
+    },
+    "properties": {
+      "section_na": "Iyerpadi",
+      "section_co": "321",
+      "subdivisio": "AEE-VALPARAI",
+      "region_id": "03",
+      "subdivis_1": "43423",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1461,
+      "search_string": "    iyerpadi"
+    },
+    "bbox": [
+      76.98,
+      10.36,
+      76.98,
+      10.36
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9334,
+        10.5814
+      ]
+    },
+    "properties": {
+      "section_na": "Town/Anamalai",
+      "section_co": "328",
+      "subdivisio": "AEE-ANGALAKURICHI",
+      "region_id": "03",
+      "subdivis_1": "43421",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1462,
+      "search_string": "    town/anamalai"
+    },
+    "bbox": [
+      76.9334,
+      10.5814,
+      76.9334,
+      10.5814
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9567,
+        10.3289
+      ]
+    },
+    "properties": {
+      "section_na": "North/Valparai",
+      "section_co": "322",
+      "subdivisio": "AEE-VALPARAI",
+      "region_id": "03",
+      "subdivis_1": "43423",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1463,
+      "search_string": "    north/valparai"
+    },
+    "bbox": [
+      76.9567,
+      10.3289,
+      76.9567,
+      10.3289
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9334,
+        10.5813
+      ]
+    },
+    "properties": {
+      "section_na": "Rural/Anamalai",
+      "section_co": "327",
+      "subdivisio": "AEE-ANGALAKURICHI",
+      "region_id": "03",
+      "subdivis_1": "43421",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1464,
+      "search_string": "    rural/anamalai"
+    },
+    "bbox": [
+      76.9334,
+      10.5813,
+      76.9334,
+      10.5813
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9861,
+        10.5512
+      ]
+    },
+    "properties": {
+      "section_na": "Thensangampalayam",
+      "section_co": "337",
+      "subdivisio": "AEE-ANGALAKURICHI",
+      "region_id": "03",
+      "subdivis_1": "43421",
+      "division_n": "Angalakurichi",
+      "division_c": "4342",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1465,
+      "search_string": "    thensangampalayam"
+    },
+    "bbox": [
+      76.9861,
+      10.5512,
+      76.9861,
+      10.5512
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0823,
+        10.6731
+      ]
+    },
+    "properties": {
+      "section_na": "Earipatty",
+      "section_co": "347",
+      "subdivisio": "AEE-O&M-POLLACHI",
+      "region_id": "03",
+      "subdivis_1": "43453",
+      "division_n": "Pollachi",
+      "division_c": "4345",
+      "circle_nam": "Udumalpet EDC",
+      "circle_cod": "0434",
+      "region_nam": "Coimbatore",
+      "object_id": 1466,
+      "search_string": "    earipatty"
+    },
+    "bbox": [
+      77.0823,
+      10.6731,
+      77.0823,
+      10.6731
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9692,
+        11.0253
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Rathinapuri",
+      "section_co": "025",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1467,
+      "search_string": "    ae/rathinapuri"
+    },
+    "bbox": [
+      76.9692,
+      11.0253,
+      76.9692,
+      11.0253
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0645,
+        11.0513
+      ]
+    },
+    "properties": {
+      "section_na": "AE/East/Chinniyampalayam",
+      "section_co": "057",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1468,
+      "search_string": "    ae/east/chinniyampalayam"
+    },
+    "bbox": [
+      77.0645,
+      11.0513,
+      77.0645,
+      11.0513
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9497,
+        11.0049
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Lawley Road",
+      "section_co": "014",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1469,
+      "search_string": "    ae/lawley road"
+    },
+    "bbox": [
+      76.9497,
+      11.0049,
+      76.9497,
+      11.0049
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.942,
+        11.0259
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Saibaba colony",
+      "section_co": "022",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1470,
+      "search_string": "    ae/saibaba colony"
+    },
+    "bbox": [
+      76.942,
+      11.0259,
+      76.942,
+      11.0259
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9448,
+        11.0513
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Kavundampalayam",
+      "section_co": "023",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1471,
+      "search_string": "    ae/kavundampalayam"
+    },
+    "bbox": [
+      76.9448,
+      11.0513,
+      76.9448,
+      11.0513
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9554,
+        11.048
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Sanganoor",
+      "section_co": "024",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1472,
+      "search_string": "    ae/sanganoor"
+    },
+    "bbox": [
+      76.9554,
+      11.048,
+      76.9554,
+      11.048
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0924,
+        10.9742
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Nadupalayam",
+      "section_co": "060",
+      "subdivisio": "AEE - Ondipudur",
+      "region_id": "03",
+      "subdivis_1": "43531",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1473,
+      "search_string": "    ae/nadupalayam"
+    },
+    "bbox": [
+      77.0924,
+      10.9742,
+      77.0924,
+      10.9742
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9629,
+        10.9855
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Townhall",
+      "section_co": "001",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1474,
+      "search_string": "    ae/townhall"
+    },
+    "bbox": [
+      76.9629,
+      10.9855,
+      76.9629,
+      10.9855
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9717,
+        11.0422
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Ganesh Nagar",
+      "section_co": "031",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1475,
+      "search_string": "    ae/ganesh nagar"
+    },
+    "bbox": [
+      76.9717,
+      11.0422,
+      76.9717,
+      11.0422
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9629,
+        10.9855
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Ukkadam",
+      "section_co": "012",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1476,
+      "search_string": "    ae/ukkadam"
+    },
+    "bbox": [
+      76.9629,
+      10.9855,
+      76.9629,
+      10.9855
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9986,
+        10.9925
+      ]
+    },
+    "properties": {
+      "section_na": "AE/K.S.Nagar",
+      "section_co": "016",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1477,
+      "search_string": "    ae/k.s.nagar"
+    },
+    "bbox": [
+      76.9986,
+      10.9925,
+      76.9986,
+      10.9925
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0441,
+        11.0581
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Nehru nagar",
+      "section_co": "061",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1478,
+      "search_string": "    ae/nehru nagar"
+    },
+    "bbox": [
+      77.0441,
+      11.0581,
+      77.0441,
+      11.0581
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.049,
+        11.0454
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Civil aero",
+      "section_co": "058",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1479,
+      "search_string": "    ae/civil aero"
+    },
+    "bbox": [
+      77.049,
+      11.0454,
+      77.049,
+      11.0454
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0741,
+        11.0089
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Gandhi Nagar",
+      "section_co": "045",
+      "subdivisio": "AEE - Ondipudur",
+      "region_id": "03",
+      "subdivis_1": "43531",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1480,
+      "search_string": "    ae/gandhi nagar"
+    },
+    "bbox": [
+      77.0741,
+      11.0089,
+      77.0741,
+      11.0089
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0114,
+        11.0188
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Town/East/Peelamedu",
+      "section_co": "029",
+      "subdivisio": "AEE - Peelamedu",
+      "region_id": "03",
+      "subdivis_1": "43522",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1481,
+      "search_string": "    ae/town/east/peelamedu"
+    },
+    "bbox": [
+      77.0114,
+      11.0188,
+      77.0114,
+      11.0188
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0033,
+        11.0413
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Gandhimaanagar",
+      "section_co": "033",
+      "subdivisio": "AEE - Peelamedu",
+      "region_id": "03",
+      "subdivis_1": "43522",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1482,
+      "search_string": "    ae/gandhimaanagar"
+    },
+    "bbox": [
+      77.0033,
+      11.0413,
+      77.0033,
+      11.0413
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.023,
+        10.9987
+      ]
+    },
+    "properties": {
+      "section_na": "AE/West/Singanallur",
+      "section_co": "046",
+      "subdivisio": "AEE - Singanallur",
+      "region_id": "03",
+      "subdivis_1": "43532",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1483,
+      "search_string": "    ae/west/singanallur"
+    },
+    "bbox": [
+      77.023,
+      10.9987,
+      77.023,
+      10.9987
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0632,
+        10.9858
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Pattanam",
+      "section_co": "042",
+      "subdivisio": "AEE - Ondipudur",
+      "region_id": "03",
+      "subdivis_1": "43531",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1484,
+      "search_string": "    ae/pattanam"
+    },
+    "bbox": [
+      77.0632,
+      10.9858,
+      77.0632,
+      10.9858
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9533,
+        10.9997
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Bazaar East",
+      "section_co": "002",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1485,
+      "search_string": "    ae/bazaar east"
+    },
+    "bbox": [
+      76.9533,
+      10.9997,
+      76.9533,
+      10.9997
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.933,
+        10.9849
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Selvapuram",
+      "section_co": "013",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1486,
+      "search_string": "    ae/selvapuram"
+    },
+    "bbox": [
+      76.933,
+      10.9849,
+      76.933,
+      10.9849
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9415,
+        10.995
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Ponnairajapuram",
+      "section_co": "015",
+      "subdivisio": "AEE - Central",
+      "region_id": "03",
+      "subdivis_1": "43511",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1487,
+      "search_string": "    ae/ponnairajapuram"
+    },
+    "bbox": [
+      76.9415,
+      10.995,
+      76.9415,
+      10.995
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9497,
+        10.9891
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/BAZAR WEST",
+      "section_co": "003",
+      "subdivisio": "BAZZAR WEST",
+      "region_id": "03",
+      "subdivis_1": "43512",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1488,
+      "search_string": "    aee/bazar west"
+    },
+    "bbox": [
+      76.9497,
+      10.9891,
+      76.9497,
+      10.9891
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9787,
+        11.0137
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/PAPPANAICKENPALAYAM",
+      "section_co": "007",
+      "subdivisio": "PAPPANAICKENPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43516",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1489,
+      "search_string": "    aee/pappanaickenpalayam"
+    },
+    "bbox": [
+      76.9787,
+      11.0137,
+      76.9787,
+      11.0137
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9839,
+        11.0051
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/PULIYAKULAM",
+      "section_co": "005",
+      "subdivisio": "PULIAKULAM",
+      "region_id": "03",
+      "subdivis_1": "43514",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1490,
+      "search_string": "    aee/puliyakulam"
+    },
+    "bbox": [
+      76.9839,
+      11.0051,
+      76.9839,
+      11.0051
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.945,
+        11.0228
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/R.S.PURAM NORTH",
+      "section_co": "009",
+      "subdivisio": "R.S.PURAM NORTH",
+      "region_id": "03",
+      "subdivis_1": "43518",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1491,
+      "search_string": "    aee/r.s.puram north"
+    },
+    "bbox": [
+      76.945,
+      11.0228,
+      76.945,
+      11.0228
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9516,
+        11.003
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/R.S.PURAM SOUTH",
+      "section_co": "008",
+      "subdivisio": "R.S.PURAM SOUTH",
+      "region_id": "03",
+      "subdivis_1": "43517",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1492,
+      "search_string": "    aee/r.s.puram south"
+    },
+    "bbox": [
+      76.9516,
+      11.003,
+      76.9516,
+      11.003
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9839,
+        11.0051
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/RACECOURSE",
+      "section_co": "004",
+      "subdivisio": "RACE COURSE",
+      "region_id": "03",
+      "subdivis_1": "43513",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1493,
+      "search_string": "    aee/racecourse"
+    },
+    "bbox": [
+      76.9839,
+      11.0051,
+      76.9839,
+      11.0051
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9669,
+        11.0051
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/RAMNAGAR",
+      "section_co": "011",
+      "subdivisio": "RAM NAGAR",
+      "region_id": "03",
+      "subdivis_1": "43519",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1494,
+      "search_string": "    aee/ramnagar"
+    },
+    "bbox": [
+      76.9669,
+      11.0051,
+      76.9669,
+      11.0051
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9892,
+        11.0492
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Ganapathy",
+      "section_co": "026",
+      "subdivisio": "AEE - Peelamedu",
+      "region_id": "03",
+      "subdivis_1": "43522",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1495,
+      "search_string": "    ae/ganapathy"
+    },
+    "bbox": [
+      76.9892,
+      11.0492,
+      76.9892,
+      11.0492
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0632,
+        11.0141
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Irugur",
+      "section_co": "049",
+      "subdivisio": "AEE - Singanallur",
+      "region_id": "03",
+      "subdivis_1": "43532",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1496,
+      "search_string": "    ae/irugur"
+    },
+    "bbox": [
+      77.0632,
+      11.0141,
+      77.0632,
+      11.0141
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0279,
+        11.0136
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Varatharajapuram",
+      "section_co": "059",
+      "subdivisio": "AEE - Singanallur",
+      "region_id": "03",
+      "subdivis_1": "43532",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1497,
+      "search_string": "    ae/varatharajapuram"
+    },
+    "bbox": [
+      77.0279,
+      11.0136,
+      77.0279,
+      11.0136
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0697,
+        11.0242
+      ]
+    },
+    "properties": {
+      "section_na": "AE/A.G.Pudur",
+      "section_co": "062",
+      "subdivisio": "AEE - Singanallur",
+      "region_id": "03",
+      "subdivis_1": "43532",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1498,
+      "search_string": "    ae/a.g.pudur"
+    },
+    "bbox": [
+      77.0697,
+      11.0242,
+      77.0697,
+      11.0242
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1129,
+        11.0254
+      ]
+    },
+    "properties": {
+      "section_na": "AE/North/Sulur",
+      "section_co": "053",
+      "subdivisio": "AEE - Sulur",
+      "region_id": "03",
+      "subdivis_1": "43533",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1499,
+      "search_string": "    ae/north/sulur"
+    },
+    "bbox": [
+      77.1129,
+      11.0254,
+      77.1129,
+      11.0254
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1522,
+        11.0276
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Kangeyampalayam",
+      "section_co": "064",
+      "subdivisio": "AEE - Sulur",
+      "region_id": "03",
+      "subdivis_1": "43533",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1500,
+      "search_string": "    ae/kangeyampalayam"
+    },
+    "bbox": [
+      77.1522,
+      11.0276,
+      77.1522,
+      11.0276
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9244,
+        11.0432
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Edayarpalayam",
+      "section_co": "032",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1501,
+      "search_string": "    ae/edayarpalayam"
+    },
+    "bbox": [
+      76.9244,
+      11.0432,
+      76.9244,
+      11.0432
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9356,
+        11.0348
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Velandipalayam",
+      "section_co": "021",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1502,
+      "search_string": "    ae/velandipalayam"
+    },
+    "bbox": [
+      76.9356,
+      11.0348,
+      76.9356,
+      11.0348
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9486,
+        11.0406
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Kavundampalayam/South",
+      "section_co": "034",
+      "subdivisio": "AEE - Urban",
+      "region_id": "03",
+      "subdivis_1": "43521",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1503,
+      "search_string": "    ae/kavundampalayam/south"
+    },
+    "bbox": [
+      76.9486,
+      11.0406,
+      76.9486,
+      11.0406
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9822,
+        11.0237
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/AVARAMPALAYAM",
+      "section_co": "027",
+      "subdivisio": "AVARAMPALAYAM",
+      "region_id": "03",
+      "subdivis_1": "43524",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1504,
+      "search_string": "    aee/avarampalayam"
+    },
+    "bbox": [
+      76.9822,
+      11.0237,
+      76.9822,
+      11.0237
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9857,
+        10.9963
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/RAMANATHAPURAM",
+      "section_co": "006",
+      "subdivisio": "RAMANATHAPURAM",
+      "region_id": "03",
+      "subdivis_1": "43515",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1505,
+      "search_string": "    aee/ramanathapuram"
+    },
+    "bbox": [
+      76.9857,
+      10.9963,
+      76.9857,
+      10.9963
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9591,
+        11.0171
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/TATABAD",
+      "section_co": "010",
+      "subdivisio": "TATABAD",
+      "region_id": "03",
+      "subdivis_1": "43519T",
+      "division_n": "EE - Central",
+      "division_c": "4351",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1506,
+      "search_string": "    aee/tatabad"
+    },
+    "bbox": [
+      76.9591,
+      11.0171,
+      76.9591,
+      11.0171
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0031,
+        11.0048
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Sowripalayam",
+      "section_co": "048",
+      "subdivisio": "AEE - Singanallur",
+      "region_id": "03",
+      "subdivis_1": "43532",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1507,
+      "search_string": "    ae/sowripalayam"
+    },
+    "bbox": [
+      77.0031,
+      11.0048,
+      77.0031,
+      11.0048
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0468,
+        11.056
+      ]
+    },
+    "properties": {
+      "section_na": "AE/west/Chinniyampalayam",
+      "section_co": "054",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1508,
+      "search_string": "    ae/west/chinniyampalayam"
+    },
+    "bbox": [
+      77.0468,
+      11.056,
+      77.0468,
+      11.056
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0303,
+        11.0635
+      ]
+    },
+    "properties": {
+      "section_na": "AE/kalapatty",
+      "section_co": "055",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1509,
+      "search_string": "    ae/kalapatty"
+    },
+    "bbox": [
+      77.0303,
+      11.0635,
+      77.0303,
+      11.0635
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0697,
+        11.0507
+      ]
+    },
+    "properties": {
+      "section_na": "AE/North/Chinniyampalayam",
+      "section_co": "056",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1510,
+      "search_string": "    ae/north/chinniyampalayam"
+    },
+    "bbox": [
+      77.0697,
+      11.0507,
+      77.0697,
+      11.0507
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0662,
+        11.094
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Vellanaipatty",
+      "section_co": "063",
+      "subdivisio": "AEE - Chinniyampalayam",
+      "region_id": "03",
+      "subdivis_1": "43534",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1511,
+      "search_string": "    ae/vellanaipatty"
+    },
+    "bbox": [
+      77.0662,
+      11.094,
+      77.0662,
+      11.094
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0721,
+        11.0057
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Pallapalayam",
+      "section_co": "043",
+      "subdivisio": "AEE - Ondipudur",
+      "region_id": "03",
+      "subdivis_1": "43531",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1512,
+      "search_string": "    ae/pallapalayam"
+    },
+    "bbox": [
+      77.0721,
+      11.0057,
+      77.0721,
+      11.0057
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0894,
+        10.9937
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Kannampalayam",
+      "section_co": "044",
+      "subdivisio": "AEE - Ondipudur",
+      "region_id": "03",
+      "subdivis_1": "43531",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1513,
+      "search_string": "    ae/kannampalayam"
+    },
+    "bbox": [
+      77.0894,
+      10.9937,
+      77.0894,
+      10.9937
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0479,
+        11.0029
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Ondipudur",
+      "section_co": "041",
+      "subdivisio": "AEE - Ondipudur",
+      "region_id": "03",
+      "subdivis_1": "43531",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1514,
+      "search_string": "    ae/ondipudur"
+    },
+    "bbox": [
+      77.0479,
+      11.0029,
+      77.0479,
+      11.0029
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1128,
+        11.0253
+      ]
+    },
+    "properties": {
+      "section_na": "AE/South/Sulur",
+      "section_co": "052",
+      "subdivisio": "AEE - Sulur",
+      "region_id": "03",
+      "subdivis_1": "43533",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1516,
+      "search_string": "    ae/south/sulur"
+    },
+    "bbox": [
+      77.1128,
+      11.0253,
+      77.1128,
+      11.0253
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9933,
+        11.0206
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Town/Peelamedu",
+      "section_co": "028",
+      "subdivisio": "AEE - Peelamedu",
+      "region_id": "03",
+      "subdivis_1": "43522",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1517,
+      "search_string": "    ae/town/peelamedu"
+    },
+    "bbox": [
+      76.9933,
+      11.0206,
+      76.9933,
+      11.0206
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1224,
+        11.022
+      ]
+    },
+    "properties": {
+      "section_na": "AE/Town/Sulur",
+      "section_co": "050",
+      "subdivisio": "AEE - Sulur",
+      "region_id": "03",
+      "subdivis_1": "43533",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1518,
+      "search_string": "    ae/town/sulur"
+    },
+    "bbox": [
+      77.1224,
+      11.022,
+      77.1224,
+      11.022
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.041,
+        11.0026
+      ]
+    },
+    "properties": {
+      "section_na": "AE/East/singanallur",
+      "section_co": "047",
+      "subdivisio": "AEE - Singanallur",
+      "region_id": "03",
+      "subdivis_1": "43532",
+      "division_n": "EE - Ondipudur",
+      "division_c": "4353",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1519,
+      "search_string": "    ae/east/singanallur"
+    },
+    "bbox": [
+      77.041,
+      11.0026,
+      77.041,
+      11.0026
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0206,
+        11.0392
+      ]
+    },
+    "properties": {
+      "section_na": "AEE/THANNEERPANDAL",
+      "section_co": "030",
+      "subdivisio": "THANEERPANDAL",
+      "region_id": "03",
+      "subdivis_1": "43523",
+      "division_n": "EE - Urban",
+      "division_c": "4352",
+      "circle_nam": "CBE/ Metro EDC",
+      "circle_cod": "0435",
+      "region_nam": "Coimbatore",
+      "object_id": 1520,
+      "search_string": "    aee/thanneerpandal"
+    },
+    "bbox": [
+      77.0206,
+      11.0392,
+      77.0206,
+      11.0392
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1237,
+        11.2781
+      ]
+    },
+    "properties": {
+      "section_na": "PASUR",
+      "section_co": "178",
+      "subdivisio": "NORTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43044",
+      "division_n": "EE/AVINASHI",
+      "division_c": "",
+      "circle_nam": "Tirupur",
+      "circle_cod": "0438",
+      "region_nam": "Coimbatore",
+      "object_id": 1710,
+      "search_string": "    pasur"
+    },
+    "bbox": [
+      77.1237,
+      11.2781,
+      77.1237,
+      11.2781
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1026,
+        10.9588
+      ]
+    },
+    "properties": {
+      "section_na": "PAPPAMPATTI",
+      "section_co": "241",
+      "subdivisio": "AEE-KARADIVAVI",
+      "region_id": "03",
+      "subdivis_1": "43224",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1728,
+      "search_string": "    pappampatti"
+    },
+    "bbox": [
+      77.1026,
+      10.9588,
+      77.1026,
+      10.9588
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.274,
+        10.8441
+      ]
+    },
+    "properties": {
+      "section_na": "JALLIPATTI",
+      "section_co": "232",
+      "subdivisio": "AEE-RURAL-PALLADAM",
+      "region_id": "03",
+      "subdivis_1": "43222",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1730,
+      "search_string": "    jallipatti"
+    },
+    "bbox": [
+      77.274,
+      10.8441,
+      77.274,
+      10.8441
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1667,
+        10.9472
+      ]
+    },
+    "properties": {
+      "section_na": "SELAKARACHAL",
+      "section_co": "240",
+      "subdivisio": "AEE-KARADIVAVI",
+      "region_id": "03",
+      "subdivis_1": "43224",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1741,
+      "search_string": "    selakarachal"
+    },
+    "bbox": [
+      77.1667,
+      10.9472,
+      77.1667,
+      10.9472
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1527,
+        10.9226
+      ]
+    },
+    "properties": {
+      "section_na": "LAKSHMINAICKEN PALAYAM",
+      "section_co": "250",
+      "subdivisio": "AEE-KARADIVAVI",
+      "region_id": "03",
+      "subdivis_1": "43224",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1752,
+      "search_string": "    lakshminaicken palayam"
+    },
+    "bbox": [
+      77.1527,
+      10.9226,
+      77.1527,
+      10.9226
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1388,
+        10.9422
+      ]
+    },
+    "properties": {
+      "section_na": "SIDDHANAICKEN PALAYAM",
+      "section_co": "249",
+      "subdivisio": "AEE-KARADIVAVI",
+      "region_id": "03",
+      "subdivis_1": "43224",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1767,
+      "search_string": "    siddhanaicken palayam"
+    },
+    "bbox": [
+      77.1388,
+      10.9422,
+      77.1388,
+      10.9422
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1726,
+        11.0133
+      ]
+    },
+    "properties": {
+      "section_na": "NARNAPURAM",
+      "section_co": "229",
+      "subdivisio": "AEE-TOWN-PALLADAM",
+      "region_id": "03",
+      "subdivis_1": "43221",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1768,
+      "search_string": "    narnapuram"
+    },
+    "bbox": [
+      77.1726,
+      11.0133,
+      77.1726,
+      11.0133
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2689,
+        10.7894
+      ]
+    },
+    "properties": {
+      "section_na": "SALAIPUDUR",
+      "section_co": "233",
+      "subdivisio": "AEE-RURAL-PALLADAM",
+      "region_id": "03",
+      "subdivis_1": "43222",
+      "division_n": "Palladam",
+      "division_c": "4383",
+      "circle_nam": "Palladam EDC",
+      "circle_cod": "0439",
+      "region_nam": "Coimbatore",
+      "object_id": 1780,
+      "search_string": "    salaipudur"
+    },
+    "bbox": [
+      77.2689,
+      10.7894,
+      77.2689,
+      10.7894
+    ]
+  }
+]

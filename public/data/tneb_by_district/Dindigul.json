@@ -1,0 +1,2462 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1071,
+        10.2626
+      ]
+    },
+    "properties": {
+      "section_na": "V kurubampatty",
+      "section_co": "225",
+      "subdivisio": "AEE Natham",
+      "region_id": "05",
+      "subdivis_1": "4502AEE4",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2214,
+      "search_string": "    v kurubampatty"
+    },
+    "bbox": [
+      78.1071,
+      10.2626,
+      78.1071,
+      10.2626
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.056,
+        10.5064
+      ]
+    },
+    "properties": {
+      "section_na": "ERIODU",
+      "section_co": "212",
+      "subdivisio": "AEE Eriodu",
+      "region_id": "05",
+      "subdivis_1": "4501AEE4",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2215,
+      "search_string": "    eriodu"
+    },
+    "bbox": [
+      78.056,
+      10.5064,
+      78.056,
+      10.5064
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0679,
+        10.753
+      ]
+    },
+    "properties": {
+      "section_na": "CHATRAPATTY",
+      "section_co": "219",
+      "subdivisio": "AEE Guziliyamparai",
+      "region_id": "05",
+      "subdivis_1": "4501AEE5",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2216,
+      "search_string": "    chatrapatty"
+    },
+    "bbox": [
+      78.0679,
+      10.753,
+      78.0679,
+      10.753
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0857,
+        10.3453
+      ]
+    },
+    "properties": {
+      "section_na": "Siluvathur",
+      "section_co": "237",
+      "subdivisio": "AEE South",
+      "region_id": "05",
+      "subdivis_1": "4502AEE1",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2217,
+      "search_string": "    siluvathur"
+    },
+    "bbox": [
+      78.0857,
+      10.3453,
+      78.0857,
+      10.3453
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.2542,
+        10.3841
+      ]
+    },
+    "properties": {
+      "section_na": "SENDURAI",
+      "section_co": "223",
+      "subdivisio": "AEE Natham",
+      "region_id": "05",
+      "subdivis_1": "4502AEE4",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2218,
+      "search_string": "    sendurai"
+    },
+    "bbox": [
+      78.2542,
+      10.3841,
+      78.2542,
+      10.3841
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9163,
+        10.1661
+      ]
+    },
+    "properties": {
+      "section_na": "Ammayanayakanur",
+      "section_co": "247",
+      "subdivisio": "AEE East Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE2",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2219,
+      "search_string": "    ammayanayakanur"
+    },
+    "bbox": [
+      77.9163,
+      10.1661,
+      77.9163,
+      10.1661
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4999,
+        10.2407
+      ]
+    },
+    "properties": {
+      "section_na": "Rural kodaikanal",
+      "section_co": "253",
+      "subdivisio": "AEE Kodaikanal",
+      "region_id": "05",
+      "subdivis_1": "4503AEE3",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2220,
+      "search_string": "    rural kodaikanal"
+    },
+    "bbox": [
+      77.4999,
+      10.2407,
+      77.4999,
+      10.2407
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1716,
+        10.4932
+      ]
+    },
+    "properties": {
+      "section_na": "AYYALUR",
+      "section_co": "229",
+      "subdivisio": "AEE Vadamadurai",
+      "region_id": "05",
+      "subdivis_1": "4502AEE2",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2221,
+      "search_string": "    ayyalur"
+    },
+    "bbox": [
+      78.1716,
+      10.4932,
+      78.1716,
+      10.4932
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0946,
+        10.4423
+      ]
+    },
+    "properties": {
+      "section_na": "Rural vadamadurai",
+      "section_co": "228",
+      "subdivisio": "AEE Vadamadurai",
+      "region_id": "05",
+      "subdivis_1": "4502AEE2",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2222,
+      "search_string": "    rural vadamadurai"
+    },
+    "bbox": [
+      78.0946,
+      10.4423,
+      78.0946,
+      10.4423
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0526,
+        10.4175
+      ]
+    },
+    "properties": {
+      "section_na": "Thamaraipady",
+      "section_co": "230",
+      "subdivisio": "AEE Vadamadurai",
+      "region_id": "05",
+      "subdivis_1": "4502AEE2",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2223,
+      "search_string": "    thamaraipady"
+    },
+    "bbox": [
+      78.0526,
+      10.4175,
+      78.0526,
+      10.4175
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9969,
+        10.3392
+      ]
+    },
+    "properties": {
+      "section_na": "Rural East /Dgl",
+      "section_co": "235",
+      "subdivisio": "AEE South",
+      "region_id": "05",
+      "subdivis_1": "4502AEE1",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2224,
+      "search_string": "    rural east /dgl"
+    },
+    "bbox": [
+      77.9969,
+      10.3392,
+      77.9969,
+      10.3392
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.3108,
+        10.2624
+      ]
+    },
+    "properties": {
+      "section_na": "Sirugudi",
+      "section_co": "222",
+      "subdivisio": "AEE Natham",
+      "region_id": "05",
+      "subdivis_1": "4502AEE4",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2225,
+      "search_string": "    sirugudi"
+    },
+    "bbox": [
+      78.3108,
+      10.2624,
+      78.3108,
+      10.2624
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1077,
+        10.2625
+      ]
+    },
+    "properties": {
+      "section_na": "Gopalpatty",
+      "section_co": "226",
+      "subdivisio": "AEE Natham",
+      "region_id": "05",
+      "subdivis_1": "4502AEE4",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2226,
+      "search_string": "    gopalpatty"
+    },
+    "bbox": [
+      78.1077,
+      10.2625,
+      78.1077,
+      10.2625
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0945,
+        10.442
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/VADAMADURAI",
+      "section_co": "227",
+      "subdivisio": "AEE Vadamadurai",
+      "region_id": "05",
+      "subdivis_1": "4502AEE2",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2227,
+      "search_string": "    town/vadamadurai"
+    },
+    "bbox": [
+      78.0945,
+      10.442,
+      78.0945,
+      10.442
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7566,
+        10.1659
+      ]
+    },
+    "properties": {
+      "section_na": "Town /Batlagundu",
+      "section_co": "241",
+      "subdivisio": "AEE West Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE1",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2228,
+      "search_string": "    town /batlagundu"
+    },
+    "bbox": [
+      77.7566,
+      10.1659,
+      77.7566,
+      10.1659
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1119,
+        10.6784
+      ]
+    },
+    "properties": {
+      "section_na": "Town Guziliyamparai",
+      "section_co": "216",
+      "subdivisio": "AEE Guziliyamparai",
+      "region_id": "05",
+      "subdivis_1": "4501AEE5",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2229,
+      "search_string": "    town guziliyamparai"
+    },
+    "bbox": [
+      78.1119,
+      10.6784,
+      78.1119,
+      10.6784
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7465,
+        10.4951
+      ]
+    },
+    "properties": {
+      "section_na": "Virupatchi",
+      "section_co": "263",
+      "subdivisio": "AEE Town Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE1",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2230,
+      "search_string": "    virupatchi"
+    },
+    "bbox": [
+      77.7465,
+      10.4951,
+      77.7465,
+      10.4951
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4629,
+        10.4469
+      ]
+    },
+    "properties": {
+      "section_na": "NEIKKARAPATTY",
+      "section_co": "293",
+      "subdivisio": "AEE West Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE2",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2231,
+      "search_string": "    neikkarapatty"
+    },
+    "bbox": [
+      77.4629,
+      10.4469,
+      77.4629,
+      10.4469
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7361,
+        10.1633
+      ]
+    },
+    "properties": {
+      "section_na": "Rural West Batlagundu",
+      "section_co": "242",
+      "subdivisio": "AEE West Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE1",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2232,
+      "search_string": "    rural west batlagundu"
+    },
+    "bbox": [
+      77.7361,
+      10.1633,
+      77.7361,
+      10.1633
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7466,
+        10.4952
+      ]
+    },
+    "properties": {
+      "section_na": "Town ODC",
+      "section_co": "261",
+      "subdivisio": "AEE Town Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE1",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2233,
+      "search_string": "    town odc"
+    },
+    "bbox": [
+      77.7466,
+      10.4952,
+      77.7466,
+      10.4952
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9969,
+        10.3394
+      ]
+    },
+    "properties": {
+      "section_na": "BALAKRISHNAPURAM",
+      "section_co": "236",
+      "subdivisio": "AEE South",
+      "region_id": "05",
+      "subdivis_1": "4502AEE1",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2234,
+      "search_string": "    balakrishnapuram"
+    },
+    "bbox": [
+      77.9969,
+      10.3394,
+      77.9969,
+      10.3394
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7518,
+        10.5538
+      ]
+    },
+    "properties": {
+      "section_na": "Amplikai",
+      "section_co": "262",
+      "subdivisio": "AEE Town Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE1",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2235,
+      "search_string": "    amplikai"
+    },
+    "bbox": [
+      77.7518,
+      10.5538,
+      77.7518,
+      10.5538
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.629,
+        10.2807
+      ]
+    },
+    "properties": {
+      "section_na": "PANNAIKADU",
+      "section_co": "255",
+      "subdivisio": "AEE Pannaikadu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE5",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2236,
+      "search_string": "    pannaikadu"
+    },
+    "bbox": [
+      77.629,
+      10.2807,
+      77.629,
+      10.2807
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4049,
+        10.4418
+      ]
+    },
+    "properties": {
+      "section_na": "PAPPAMPATTY",
+      "section_co": "284",
+      "subdivisio": "AEE Town Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE1",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2237,
+      "search_string": "    pappampatty"
+    },
+    "bbox": [
+      77.4049,
+      10.4418,
+      77.4049,
+      10.4418
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7244,
+        10.6159
+      ]
+    },
+    "properties": {
+      "section_na": "K Keeranur",
+      "section_co": "267",
+      "subdivisio": "AEE Rural Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE2",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2238,
+      "search_string": "    k keeranur"
+    },
+    "bbox": [
+      77.7244,
+      10.6159,
+      77.7244,
+      10.6159
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7362,
+        10.1633
+      ]
+    },
+    "properties": {
+      "section_na": "Rural East Batlagundu",
+      "section_co": "244",
+      "subdivisio": "AEE East Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE2",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2239,
+      "search_string": "    rural east batlagundu"
+    },
+    "bbox": [
+      77.7362,
+      10.1633,
+      77.7362,
+      10.1633
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.782,
+        10.0949
+      ]
+    },
+    "properties": {
+      "section_na": "Viruveedu",
+      "section_co": "243",
+      "subdivisio": "AEE West Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE1",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2240,
+      "search_string": "    viruveedu"
+    },
+    "bbox": [
+      77.782,
+      10.0949,
+      77.782,
+      10.0949
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8348,
+        10.2666
+      ]
+    },
+    "properties": {
+      "section_na": "SITHAYANKOTTAI",
+      "section_co": "246",
+      "subdivisio": "AEE East Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE2",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2241,
+      "search_string": "    sithayankottai"
+    },
+    "bbox": [
+      77.8348,
+      10.2666,
+      77.8348,
+      10.2666
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.854,
+        10.1632
+      ]
+    },
+    "properties": {
+      "section_na": "Town nilakottai",
+      "section_co": "248",
+      "subdivisio": "AEE Nilakottai",
+      "region_id": "05",
+      "subdivis_1": "4503AEE4",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2242,
+      "search_string": "    town nilakottai"
+    },
+    "bbox": [
+      77.854,
+      10.1632,
+      77.854,
+      10.1632
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.922,
+        10.0899
+      ]
+    },
+    "properties": {
+      "section_na": "RAMARAJAPURAM",
+      "section_co": "250",
+      "subdivisio": "AEE Nilakottai",
+      "region_id": "05",
+      "subdivis_1": "4503AEE4",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2243,
+      "search_string": "    ramarajapuram"
+    },
+    "bbox": [
+      77.922,
+      10.0899,
+      77.922,
+      10.0899
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9336,
+        10.6014
+      ]
+    },
+    "properties": {
+      "section_na": "KALWARPATTY",
+      "section_co": "277",
+      "subdivisio": "AEE Vedasandur",
+      "region_id": "05",
+      "subdivis_1": "4504AEE5",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2244,
+      "search_string": "    kalwarpatty"
+    },
+    "bbox": [
+      77.9336,
+      10.6014,
+      77.9336,
+      10.6014
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6525,
+        10.4687
+      ]
+    },
+    "properties": {
+      "section_na": "East chatrapatty",
+      "section_co": "286",
+      "subdivisio": "AEE Rural Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE3",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2245,
+      "search_string": "    east chatrapatty"
+    },
+    "bbox": [
+      77.6525,
+      10.4687,
+      77.6525,
+      10.4687
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.997,
+        10.3392
+      ]
+    },
+    "properties": {
+      "section_na": "PONNAGARAM",
+      "section_co": "238",
+      "subdivisio": "AEE South",
+      "region_id": "05",
+      "subdivis_1": "4502AEE1",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2246,
+      "search_string": "    ponnagaram"
+    },
+    "bbox": [
+      77.997,
+      10.3392,
+      77.997,
+      10.3392
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6814,
+        10.5968
+      ]
+    },
+    "properties": {
+      "section_na": "North Kallimanthayam",
+      "section_co": "270",
+      "subdivisio": "AEE Kalimanthayam",
+      "region_id": "05",
+      "subdivis_1": "4504AEE4",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2247,
+      "search_string": "    north kallimanthayam"
+    },
+    "bbox": [
+      77.6814,
+      10.5968,
+      77.6814,
+      10.5968
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8014,
+        10.6332
+      ]
+    },
+    "properties": {
+      "section_na": "MARKAMPATTY",
+      "section_co": "265",
+      "subdivisio": "AEE Rural Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE2",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2248,
+      "search_string": "    markampatty"
+    },
+    "bbox": [
+      77.8014,
+      10.6332,
+      77.8014,
+      10.6332
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9884,
+        10.3746
+      ]
+    },
+    "properties": {
+      "section_na": "NGO colony",
+      "section_co": "208",
+      "subdivisio": "AEE North",
+      "region_id": "05",
+      "subdivis_1": "4501AEE3",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2249,
+      "search_string": "    ngo colony"
+    },
+    "bbox": [
+      77.9884,
+      10.3746,
+      77.9884,
+      10.3746
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8607,
+        10.1622
+      ]
+    },
+    "properties": {
+      "section_na": "Rural Nilakottai",
+      "section_co": "249",
+      "subdivisio": "AEE Nilakottai",
+      "region_id": "05",
+      "subdivis_1": "4503AEE4",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2250,
+      "search_string": "    rural nilakottai"
+    },
+    "bbox": [
+      77.8607,
+      10.1622,
+      77.8607,
+      10.1622
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9272,
+        10.3308
+      ]
+    },
+    "properties": {
+      "section_na": "Panjampatty",
+      "section_co": "233",
+      "subdivisio": "AEE Chinnalapatty",
+      "region_id": "05",
+      "subdivis_1": "4502AEE3",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2251,
+      "search_string": "    panjampatty"
+    },
+    "bbox": [
+      77.9272,
+      10.3308,
+      77.9272,
+      10.3308
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5297,
+        10.5758
+      ]
+    },
+    "properties": {
+      "section_na": "THOPPAMPATTY",
+      "section_co": "288",
+      "subdivisio": "AEE Rural Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE3",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2252,
+      "search_string": "    thoppampatty"
+    },
+    "bbox": [
+      77.5297,
+      10.5758,
+      77.5297,
+      10.5758
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9239,
+        10.2741
+      ]
+    },
+    "properties": {
+      "section_na": "Gandhigramam",
+      "section_co": "232",
+      "subdivisio": "AEE Chinnalapatty",
+      "region_id": "05",
+      "subdivis_1": "4502AEE3",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2253,
+      "search_string": "    gandhigramam"
+    },
+    "bbox": [
+      77.9239,
+      10.2741,
+      77.9239,
+      10.2741
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7573,
+        10.2164
+      ]
+    },
+    "properties": {
+      "section_na": "AYYAMPALAYAM",
+      "section_co": "245",
+      "subdivisio": "AEE East Batlagundu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE2",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2254,
+      "search_string": "    ayyampalayam"
+    },
+    "bbox": [
+      77.7573,
+      10.2164,
+      77.7573,
+      10.2164
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8724,
+        10.2837
+      ]
+    },
+    "properties": {
+      "section_na": "Sembatty",
+      "section_co": "234",
+      "subdivisio": "AEE Chinnalapatty",
+      "region_id": "05",
+      "subdivis_1": "4502AEE3",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2255,
+      "search_string": "    sembatty"
+    },
+    "bbox": [
+      77.8724,
+      10.2837,
+      77.8724,
+      10.2837
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9158,
+        10.2886
+      ]
+    },
+    "properties": {
+      "section_na": "CHINNALAPATTY",
+      "section_co": "231",
+      "subdivisio": "AEE Chinnalapatty",
+      "region_id": "05",
+      "subdivis_1": "4502AEE3",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2256,
+      "search_string": "    chinnalapatty"
+    },
+    "bbox": [
+      77.9158,
+      10.2886,
+      77.9158,
+      10.2886
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5185,
+        10.4544
+      ]
+    },
+    "properties": {
+      "section_na": "Adivaram Palani",
+      "section_co": "282",
+      "subdivisio": "AEE Town Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE1",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2257,
+      "search_string": "    adivaram palani"
+    },
+    "bbox": [
+      77.5185,
+      10.4544,
+      77.5185,
+      10.4544
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5185,
+        10.4544
+      ]
+    },
+    "properties": {
+      "section_na": "Town Palani",
+      "section_co": "281",
+      "subdivisio": "AEE Town Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE1",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2258,
+      "search_string": "    town palani"
+    },
+    "bbox": [
+      77.5185,
+      10.4544,
+      77.5185,
+      10.4544
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.499,
+        10.2406
+      ]
+    },
+    "properties": {
+      "section_na": "West Kodaikanal",
+      "section_co": "252",
+      "subdivisio": "AEE Kodaikanal",
+      "region_id": "05",
+      "subdivis_1": "4503AEE3",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2259,
+      "search_string": "    west kodaikanal"
+    },
+    "bbox": [
+      77.499,
+      10.2406,
+      77.499,
+      10.2406
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.2382,
+        10.2241
+      ]
+    },
+    "properties": {
+      "section_na": "West Natham",
+      "section_co": "224",
+      "subdivisio": "AEE Natham",
+      "region_id": "05",
+      "subdivis_1": "4502AEE4",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2260,
+      "search_string": "    west natham"
+    },
+    "bbox": [
+      78.2382,
+      10.2241,
+      78.2382,
+      10.2241
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9883,
+        10.3496
+      ]
+    },
+    "properties": {
+      "section_na": "NAGAL NAGAR",
+      "section_co": "202",
+      "subdivisio": "AEE TOWN",
+      "region_id": "05",
+      "subdivis_1": "4501AEE1",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2261,
+      "search_string": "    nagal nagar"
+    },
+    "bbox": [
+      77.9883,
+      10.3496,
+      77.9883,
+      10.3496
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9884,
+        10.35
+      ]
+    },
+    "properties": {
+      "section_na": "Busstand",
+      "section_co": "220",
+      "subdivisio": "AEE TOWN",
+      "region_id": "05",
+      "subdivis_1": "4501AEE1",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2262,
+      "search_string": "    busstand"
+    },
+    "bbox": [
+      77.9884,
+      10.35,
+      77.9884,
+      10.35
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9842,
+        10.3716
+      ]
+    },
+    "properties": {
+      "section_na": "Nehuruji nagar",
+      "section_co": "201",
+      "subdivisio": "AEE TOWN",
+      "region_id": "05",
+      "subdivis_1": "4501AEE1",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2263,
+      "search_string": "    nehuruji nagar"
+    },
+    "bbox": [
+      77.9842,
+      10.3716,
+      77.9842,
+      10.3716
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4737,
+        10.4658
+      ]
+    },
+    "properties": {
+      "section_na": "Chinnakalayampudur",
+      "section_co": "290",
+      "subdivisio": "AEE West Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE2",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2264,
+      "search_string": "    chinnakalayampudur"
+    },
+    "bbox": [
+      77.4737,
+      10.4658,
+      77.4737,
+      10.4658
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.111,
+        10.678
+      ]
+    },
+    "properties": {
+      "section_na": "Rural/Guziliyamparai",
+      "section_co": "217",
+      "subdivisio": "AEE Guziliyamparai",
+      "region_id": "05",
+      "subdivis_1": "4501AEE5",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2265,
+      "search_string": "    rural/guziliyamparai"
+    },
+    "bbox": [
+      78.111,
+      10.678,
+      78.111,
+      10.678
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.2382,
+        10.2241
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/NATHAM",
+      "section_co": "221",
+      "subdivisio": "AEE Natham",
+      "region_id": "05",
+      "subdivis_1": "4502AEE4",
+      "division_n": "SOUTH",
+      "division_c": "4502",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2266,
+      "search_string": "    town/natham"
+    },
+    "bbox": [
+      78.2382,
+      10.2241,
+      78.2382,
+      10.2241
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9825,
+        10.6184
+      ]
+    },
+    "properties": {
+      "section_na": "VALLIPATTY",
+      "section_co": "215",
+      "subdivisio": "AEE Guziliyamparai",
+      "region_id": "05",
+      "subdivis_1": "4501AEE5",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2267,
+      "search_string": "    vallipatty"
+    },
+    "bbox": [
+      77.9825,
+      10.6184,
+      77.9825,
+      10.6184
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1295,
+        10.7181
+      ]
+    },
+    "properties": {
+      "section_na": "PALAYAM",
+      "section_co": "218",
+      "subdivisio": "AEE Guziliyamparai",
+      "region_id": "05",
+      "subdivis_1": "4501AEE5",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2268,
+      "search_string": "    palayam"
+    },
+    "bbox": [
+      78.1295,
+      10.7181,
+      78.1295,
+      10.7181
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4999,
+        10.2406
+      ]
+    },
+    "properties": {
+      "section_na": "East kodaikanal",
+      "section_co": "251",
+      "subdivisio": "AEE Kodaikanal",
+      "region_id": "05",
+      "subdivis_1": "4503AEE3",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2269,
+      "search_string": "    east kodaikanal"
+    },
+    "bbox": [
+      77.4999,
+      10.2406,
+      77.4999,
+      10.2406
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0818,
+        10.6019
+      ]
+    },
+    "properties": {
+      "section_na": "KOVILUR",
+      "section_co": "214",
+      "subdivisio": "AEE Eriodu",
+      "region_id": "05",
+      "subdivis_1": "4501AEE4",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2270,
+      "search_string": "    kovilur"
+    },
+    "bbox": [
+      78.0818,
+      10.6019,
+      78.0818,
+      10.6019
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9882,
+        10.3502
+      ]
+    },
+    "properties": {
+      "section_na": "BEGAMPUR",
+      "section_co": "203",
+      "subdivisio": "AEE TOWN",
+      "region_id": "05",
+      "subdivis_1": "4501AEE1",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2271,
+      "search_string": "    begampur"
+    },
+    "bbox": [
+      77.9882,
+      10.3502,
+      77.9882,
+      10.3502
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9716,
+        10.3724
+      ]
+    },
+    "properties": {
+      "section_na": "Pandiyan nagar",
+      "section_co": "204",
+      "subdivisio": "AEE TOWN",
+      "region_id": "05",
+      "subdivis_1": "4501AEE1",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2272,
+      "search_string": "    pandiyan nagar"
+    },
+    "bbox": [
+      77.9716,
+      10.3724,
+      77.9716,
+      10.3724
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9573,
+        10.379
+      ]
+    },
+    "properties": {
+      "section_na": "ROCKFORT",
+      "section_co": "207",
+      "subdivisio": "AEE West",
+      "region_id": "05",
+      "subdivis_1": "4501AEE2",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2273,
+      "search_string": "    rockfort"
+    },
+    "bbox": [
+      77.9573,
+      10.379,
+      77.9573,
+      10.379
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0559,
+        10.5063
+      ]
+    },
+    "properties": {
+      "section_na": "POOTHAMPATTY",
+      "section_co": "213",
+      "subdivisio": "AEE Eriodu",
+      "region_id": "05",
+      "subdivis_1": "4501AEE4",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2274,
+      "search_string": "    poothampatty"
+    },
+    "bbox": [
+      78.0559,
+      10.5063,
+      78.0559,
+      10.5063
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5185,
+        10.4539
+      ]
+    },
+    "properties": {
+      "section_na": "Rural South Palani",
+      "section_co": "283",
+      "subdivisio": "AEE Town Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE1",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2275,
+      "search_string": "    rural south palani"
+    },
+    "bbox": [
+      77.5185,
+      10.4539,
+      77.5185,
+      10.4539
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6433,
+        10.3083
+      ]
+    },
+    "properties": {
+      "section_na": "THANDIKUDY",
+      "section_co": "254",
+      "subdivisio": "AEE Pannaikadu",
+      "region_id": "05",
+      "subdivis_1": "4503AEE5",
+      "division_n": "BATLAGUNDU",
+      "division_c": "4503",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2276,
+      "search_string": "    thandikudy"
+    },
+    "bbox": [
+      77.6433,
+      10.3083,
+      77.6433,
+      10.3083
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6805,
+        10.5975
+      ]
+    },
+    "properties": {
+      "section_na": "West Kallimanthayam",
+      "section_co": "269",
+      "subdivisio": "AEE Kalimanthayam",
+      "region_id": "05",
+      "subdivis_1": "4504AEE4",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2277,
+      "search_string": "    west kallimanthayam"
+    },
+    "bbox": [
+      77.6805,
+      10.5975,
+      77.6805,
+      10.5975
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9475,
+        10.53
+      ]
+    },
+    "properties": {
+      "section_na": "Vedasandur",
+      "section_co": "274",
+      "subdivisio": "AEE Vedasandur",
+      "region_id": "05",
+      "subdivis_1": "4504AEE5",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2278,
+      "search_string": "    vedasandur"
+    },
+    "bbox": [
+      77.9475,
+      10.53,
+      77.9475,
+      10.53
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9475,
+        10.53
+      ]
+    },
+    "properties": {
+      "section_na": "VELLANAMPATTY",
+      "section_co": "275",
+      "subdivisio": "AEE Vedasandur",
+      "region_id": "05",
+      "subdivis_1": "4504AEE5",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2279,
+      "search_string": "    vellanampatty"
+    },
+    "bbox": [
+      77.9475,
+      10.53,
+      77.9475,
+      10.53
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9288,
+        10.5248
+      ]
+    },
+    "properties": {
+      "section_na": "SENANKOTTAI",
+      "section_co": "276",
+      "subdivisio": "AEE Vedasandur",
+      "region_id": "05",
+      "subdivis_1": "4504AEE5",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2280,
+      "search_string": "    senankottai"
+    },
+    "bbox": [
+      77.9288,
+      10.5248,
+      77.9288,
+      10.5248
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6192,
+        10.4744
+      ]
+    },
+    "properties": {
+      "section_na": "West chatrapatty",
+      "section_co": "287",
+      "subdivisio": "AEE Rural Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE3",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2281,
+      "search_string": "    west chatrapatty"
+    },
+    "bbox": [
+      77.6192,
+      10.4744,
+      77.6192,
+      10.4744
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5181,
+        10.4539
+      ]
+    },
+    "properties": {
+      "section_na": "North Palani",
+      "section_co": "291",
+      "subdivisio": "AEE West Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE2",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2282,
+      "search_string": "    north palani"
+    },
+    "bbox": [
+      77.5181,
+      10.4539,
+      77.5181,
+      10.4539
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5073,
+        10.5946
+      ]
+    },
+    "properties": {
+      "section_na": "MA keeranur",
+      "section_co": "289",
+      "subdivisio": "AEE Rural Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE3",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2283,
+      "search_string": "    ma keeranur"
+    },
+    "bbox": [
+      77.5073,
+      10.5946,
+      77.5073,
+      10.5946
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.931,
+        10.4655
+      ]
+    },
+    "properties": {
+      "section_na": "THADICOMBU",
+      "section_co": "211",
+      "subdivisio": "AEE North",
+      "region_id": "05",
+      "subdivis_1": "4501AEE3",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2284,
+      "search_string": "    thadicombu"
+    },
+    "bbox": [
+      77.931,
+      10.4655,
+      77.931,
+      10.4655
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8253,
+        10.506
+      ]
+    },
+    "properties": {
+      "section_na": "Kethaiyurambu",
+      "section_co": "264",
+      "subdivisio": "AEE Rural Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE2",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2285,
+      "search_string": "    kethaiyurambu"
+    },
+    "bbox": [
+      77.8253,
+      10.506,
+      77.8253,
+      10.506
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8394,
+        10.3861
+      ]
+    },
+    "properties": {
+      "section_na": "KANNIVADY",
+      "section_co": "271",
+      "subdivisio": "AEE Kannivady",
+      "region_id": "05",
+      "subdivis_1": "4504AEE3",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2286,
+      "search_string": "    kannivady"
+    },
+    "bbox": [
+      77.8394,
+      10.3861,
+      77.8394,
+      10.3861
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7957,
+        10.4724
+      ]
+    },
+    "properties": {
+      "section_na": "MOOLACHATRAM",
+      "section_co": "272",
+      "subdivisio": "AEE Kannivady",
+      "region_id": "05",
+      "subdivis_1": "4504AEE3",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2287,
+      "search_string": "    moolachatram"
+    },
+    "bbox": [
+      77.7957,
+      10.4724,
+      77.7957,
+      10.4724
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8495,
+        10.4375
+      ]
+    },
+    "properties": {
+      "section_na": "PANNAIPATTY",
+      "section_co": "273",
+      "subdivisio": "AEE Kannivady",
+      "region_id": "05",
+      "subdivis_1": "4504AEE3",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2288,
+      "search_string": "    pannaipatty"
+    },
+    "bbox": [
+      77.8495,
+      10.4375,
+      77.8495,
+      10.4375
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9574,
+        10.379
+      ]
+    },
+    "properties": {
+      "section_na": "Angu nagar",
+      "section_co": "205",
+      "subdivisio": "AEE West",
+      "region_id": "05",
+      "subdivis_1": "4501AEE2",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2289,
+      "search_string": "    angu nagar"
+    },
+    "bbox": [
+      77.9574,
+      10.379,
+      77.9574,
+      10.379
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9573,
+        10.379
+      ]
+    },
+    "properties": {
+      "section_na": "Kamatchipuram",
+      "section_co": "206",
+      "subdivisio": "AEE West",
+      "region_id": "05",
+      "subdivis_1": "4501AEE2",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2290,
+      "search_string": "    kamatchipuram"
+    },
+    "bbox": [
+      77.9573,
+      10.379,
+      77.9573,
+      10.379
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9311,
+        10.4656
+      ]
+    },
+    "properties": {
+      "section_na": "SUKKAMPATTY",
+      "section_co": "210",
+      "subdivisio": "AEE North",
+      "region_id": "05",
+      "subdivis_1": "4501AEE3",
+      "division_n": "NORTH",
+      "division_c": "4501",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2291,
+      "search_string": "    sukkampatty"
+    },
+    "bbox": [
+      77.9311,
+      10.4656,
+      77.9311,
+      10.4656
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4154,
+        10.543
+      ]
+    },
+    "properties": {
+      "section_na": "SAMINATHAPURAM",
+      "section_co": "292",
+      "subdivisio": "AEE West Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE2",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2292,
+      "search_string": "    saminathapuram"
+    },
+    "bbox": [
+      77.4154,
+      10.543,
+      77.4154,
+      10.543
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6808,
+        10.5974
+      ]
+    },
+    "properties": {
+      "section_na": "East Kallimanthayam",
+      "section_co": "268",
+      "subdivisio": "AEE Kalimanthayam",
+      "region_id": "05",
+      "subdivis_1": "4504AEE4",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2293,
+      "search_string": "    east kallimanthayam"
+    },
+    "bbox": [
+      77.6808,
+      10.5974,
+      77.6808,
+      10.5974
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5455,
+        10.4485
+      ]
+    },
+    "properties": {
+      "section_na": "AYAKUDY",
+      "section_co": "285",
+      "subdivisio": "AEE Rural Palani",
+      "region_id": "05",
+      "subdivis_1": "4505AEE3",
+      "division_n": "PALANI",
+      "division_c": "4505",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2294,
+      "search_string": "    ayakudy"
+    },
+    "bbox": [
+      77.5455,
+      10.4485,
+      77.5455,
+      10.4485
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8449,
+        10.6205
+      ]
+    },
+    "properties": {
+      "section_na": "EDAYAKOTTAI",
+      "section_co": "266",
+      "subdivisio": "AEE Rural Oddanchatram",
+      "region_id": "05",
+      "subdivis_1": "4504AEE2",
+      "division_n": "ODDANCHATRAM",
+      "division_c": "4504",
+      "circle_nam": "DINDIGUL",
+      "circle_cod": "0450",
+      "region_nam": "madurai",
+      "object_id": 2295,
+      "search_string": "    edayakottai"
+    },
+    "bbox": [
+      77.8449,
+      10.6205,
+      77.8449,
+      10.6205
+    ]
+  }
+]

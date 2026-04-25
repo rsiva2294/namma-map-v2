@@ -15,7 +15,7 @@ const MapController: React.FC<{
   policeResolution: PoliceResolutionResult | null;
 }> = ({ result, geometry, policeResolution }) => {
   const map = useMap();
-  const { isSidebarOpen } = useMapStore();
+  const { isSidebarOpen, activeDistrict, districtsData } = useMapStore();
 
   useEffect(() => {
     if (!map) return;
@@ -57,8 +57,29 @@ const MapController: React.FC<{
       } catch (e) {
         console.warn('Could not fly to bounds for geometry', e);
       }
+    } else if (activeDistrict && districtsData) {
+      // Zoom to district if no specific result is selected
+      const districtFeature = districtsData.features.find(f => {
+        const name = f.properties.district_n || f.properties.district || f.properties.DISTRICT || f.properties.NAME;
+        return name?.toString().toLowerCase() === activeDistrict.toLowerCase();
+      });
+
+      if (districtFeature) {
+        try {
+          const bounds = L.geoJSON(districtFeature).getBounds();
+          if (bounds.isValid()) {
+            map.flyToBounds(bounds, {
+              paddingTopLeft: [leftPad, 100],
+              paddingBottomRight: [80, 80],
+              duration: 0.8
+            });
+          }
+        } catch (e) {
+          console.warn('Could not fly to district bounds', e);
+        }
+      }
     }
-  }, [result, geometry, map, isSidebarOpen, policeResolution]);
+  }, [result, geometry, map, isSidebarOpen, policeResolution, activeDistrict, districtsData]);
   return null;
 };
 

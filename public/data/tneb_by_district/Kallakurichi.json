@@ -1,0 +1,1412 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8884,
+        11.6896
+      ]
+    },
+    "properties": {
+      "section_na": "THOTTIYAM",
+      "section_co": "565",
+      "subdivisio": "RURAL CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0074",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 817,
+      "search_string": "    thottiyam"
+    },
+    "bbox": [
+      78.8884,
+      11.6896,
+      78.8884,
+      11.6896
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4158,
+        11.7145
+      ]
+    },
+    "properties": {
+      "section_na": "SENDHANADU",
+      "section_co": "580",
+      "subdivisio": "ULUNDURPET",
+      "region_id": "02",
+      "subdivis_1": "0082",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 818,
+      "search_string": "    sendhanadu"
+    },
+    "bbox": [
+      79.4158,
+      11.7145,
+      79.4158,
+      11.7145
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9287,
+        11.8973
+      ]
+    },
+    "properties": {
+      "section_na": "PANDALAM",
+      "section_co": "540",
+      "subdivisio": "WEST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0093",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 819,
+      "search_string": "    pandalam"
+    },
+    "bbox": [
+      78.9287,
+      11.8973,
+      78.9287,
+      11.8973
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9275,
+        11.8696
+      ]
+    },
+    "properties": {
+      "section_na": "SANKARAPURAM",
+      "section_co": "536",
+      "subdivisio": "TOWN SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0091",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 820,
+      "search_string": "    sankarapuram"
+    },
+    "bbox": [
+      78.9275,
+      11.8696,
+      78.9275,
+      11.8696
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3083,
+        11.78
+      ]
+    },
+    "properties": {
+      "section_na": "PILLAIYARKUPPAM",
+      "section_co": "581",
+      "subdivisio": "PILLAIYARKUPPAM",
+      "region_id": "02",
+      "subdivis_1": "0084",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 822,
+      "search_string": "    pillaiyarkuppam"
+    },
+    "bbox": [
+      79.3083,
+      11.78,
+      79.3083,
+      11.78
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.2048,
+        11.9705
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN I THIRUKOILUR",
+      "section_co": "511",
+      "subdivisio": "TOWN THIRUKOILUR",
+      "region_id": "02",
+      "subdivis_1": "0061",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 823,
+      "search_string": "    town i thirukoilur"
+    },
+    "bbox": [
+      79.2048,
+      11.9705,
+      79.2048,
+      11.9705
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9522,
+        11.9986
+      ]
+    },
+    "properties": {
+      "section_na": "VADAPONPARAPPI",
+      "section_co": "542",
+      "subdivisio": "EAST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0092",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 825,
+      "search_string": "    vadaponparappi"
+    },
+    "bbox": [
+      78.9522,
+      11.9986,
+      78.9522,
+      11.9986
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8814,
+        11.9629
+      ]
+    },
+    "properties": {
+      "section_na": "PUTHUPATTU",
+      "section_co": "539",
+      "subdivisio": "WEST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0093",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 827,
+      "search_string": "    puthupattu"
+    },
+    "bbox": [
+      78.8814,
+      11.9629,
+      78.8814,
+      11.9629
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1263,
+        11.9386
+      ]
+    },
+    "properties": {
+      "section_na": "THIRUPALAPANTHAL",
+      "section_co": "520",
+      "subdivisio": "WEST THIRUKOILUR",
+      "region_id": "02",
+      "subdivis_1": "0062",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 828,
+      "search_string": "    thirupalapanthal"
+    },
+    "bbox": [
+      79.1263,
+      11.9386,
+      79.1263,
+      11.9386
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9194,
+        11.6398
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL CHINNASALEM",
+      "section_co": "564",
+      "subdivisio": "RURAL CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0074",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 829,
+      "search_string": "    rural chinnasalem"
+    },
+    "bbox": [
+      78.9194,
+      11.6398,
+      78.9194,
+      11.6398
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8105,
+        11.6168
+      ]
+    },
+    "properties": {
+      "section_na": "MELNARIYAPPANUR",
+      "section_co": "566",
+      "subdivisio": "RURAL CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0074",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 830,
+      "search_string": "    melnariyappanur"
+    },
+    "bbox": [
+      78.8105,
+      11.6168,
+      78.8105,
+      11.6168
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1886,
+        11.6271
+      ]
+    },
+    "properties": {
+      "section_na": "ASANUR",
+      "section_co": "579",
+      "subdivisio": "ULUNDURPET",
+      "region_id": "02",
+      "subdivis_1": "0082",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 831,
+      "search_string": "    asanur"
+    },
+    "bbox": [
+      79.1886,
+      11.6271,
+      79.1886,
+      11.6271
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8566,
+        11.8939
+      ]
+    },
+    "properties": {
+      "section_na": "ARASAMPATTU",
+      "section_co": "537",
+      "subdivisio": "TOWN SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0091",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 832,
+      "search_string": "    arasampattu"
+    },
+    "bbox": [
+      78.8566,
+      11.8939,
+      78.8566,
+      11.8939
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3997,
+        11.7581
+      ]
+    },
+    "properties": {
+      "section_na": "THIRUNAVALLUR",
+      "section_co": "590",
+      "subdivisio": "ARASUR",
+      "region_id": "02",
+      "subdivis_1": "0083",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 834,
+      "search_string": "    thirunavallur"
+    },
+    "bbox": [
+      79.3997,
+      11.7581,
+      79.3997,
+      11.7581
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9609,
+        11.7276
+      ]
+    },
+    "properties": {
+      "section_na": "EMAPPER",
+      "section_co": "549",
+      "subdivisio": "TOWN KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0071",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 835,
+      "search_string": "    emapper"
+    },
+    "bbox": [
+      78.9609,
+      11.7276,
+      78.9609,
+      11.7276
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1873,
+        11.9609
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN II THIRUKOILUR",
+      "section_co": "512",
+      "subdivisio": "TOWN THIRUKOILUR",
+      "region_id": "02",
+      "subdivis_1": "0061",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 837,
+      "search_string": "    town ii thirukoilur"
+    },
+    "bbox": [
+      79.1873,
+      11.9609,
+      79.1873,
+      11.9609
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1862,
+        11.961
+      ]
+    },
+    "properties": {
+      "section_na": "WEST THIRUKOILUR",
+      "section_co": "519",
+      "subdivisio": "WEST THIRUKOILUR",
+      "region_id": "02",
+      "subdivis_1": "0062",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 838,
+      "search_string": "    west thirukoilur"
+    },
+    "bbox": [
+      79.1862,
+      11.961,
+      79.1862,
+      11.961
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0722,
+        11.7506
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN THIYAGADURUGAM",
+      "section_co": "523",
+      "subdivisio": "THIYAGADURUGAM",
+      "region_id": "02",
+      "subdivis_1": "0064",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 839,
+      "search_string": "    town thiyagadurugam"
+    },
+    "bbox": [
+      79.0722,
+      11.7506,
+      79.0722,
+      11.7506
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8259,
+        11.8131
+      ]
+    },
+    "properties": {
+      "section_na": "EDUTHAVAINATHAM",
+      "section_co": "552",
+      "subdivisio": "TOWN KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0071",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 842,
+      "search_string": "    eduthavainatham"
+    },
+    "bbox": [
+      78.8259,
+      11.8131,
+      78.8259,
+      11.8131
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.4085,
+        11.7959
+      ]
+    },
+    "properties": {
+      "section_na": "MADAPATTU",
+      "section_co": "591",
+      "subdivisio": "ARASUR",
+      "region_id": "02",
+      "subdivis_1": "0083",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 843,
+      "search_string": "    madapattu"
+    },
+    "bbox": [
+      79.4085,
+      11.7959,
+      79.4085,
+      11.7959
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9124,
+        11.5772
+      ]
+    },
+    "properties": {
+      "section_na": "NAINARPALAYAM",
+      "section_co": "567",
+      "subdivisio": "RURAL CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0074",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 847,
+      "search_string": "    nainarpalayam"
+    },
+    "bbox": [
+      78.9124,
+      11.5772,
+      78.9124,
+      11.5772
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8696,
+        11.7742
+      ]
+    },
+    "properties": {
+      "section_na": "KACHIRAPALAYAM",
+      "section_co": "553",
+      "subdivisio": "TOWN KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0071",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 848,
+      "search_string": "    kachirapalayam"
+    },
+    "bbox": [
+      78.8696,
+      11.7742,
+      78.8696,
+      11.7742
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8522,
+        11.5869
+      ]
+    },
+    "properties": {
+      "section_na": "KALASAMUTHIRAM",
+      "section_co": "561",
+      "subdivisio": "TOWN CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0073",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 850,
+      "search_string": "    kalasamuthiram"
+    },
+    "bbox": [
+      78.8522,
+      11.5869,
+      78.8522,
+      11.5869
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0722,
+        11.7505
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL THIYAGADURUGAM",
+      "section_co": "524",
+      "subdivisio": "THIYAGADURUGAM",
+      "region_id": "02",
+      "subdivis_1": "0064",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 851,
+      "search_string": "    rural thiyagadurugam"
+    },
+    "bbox": [
+      79.0722,
+      11.7505,
+      79.0722,
+      11.7505
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.3342,
+        11.714
+      ]
+    },
+    "properties": {
+      "section_na": "SENGURICHI",
+      "section_co": "577",
+      "subdivisio": "ULUNDURPET",
+      "region_id": "02",
+      "subdivis_1": "0082",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 852,
+      "search_string": "    sengurichi"
+    },
+    "bbox": [
+      79.3342,
+      11.714,
+      79.3342,
+      11.714
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1691,
+        11.8737
+      ]
+    },
+    "properties": {
+      "section_na": "G.ARIYYUR",
+      "section_co": "514",
+      "subdivisio": "TOWN THIRUKOILUR",
+      "region_id": "02",
+      "subdivis_1": "0061",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 853,
+      "search_string": "    g.ariyyur"
+    },
+    "bbox": [
+      79.1691,
+      11.8737,
+      79.1691,
+      11.8737
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8608,
+        11.7939
+      ]
+    },
+    "properties": {
+      "section_na": "MATHUR",
+      "section_co": "554",
+      "subdivisio": "TOWN KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0071",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 854,
+      "search_string": "    mathur"
+    },
+    "bbox": [
+      78.8608,
+      11.7939,
+      78.8608,
+      11.7939
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1875,
+        11.7144
+      ]
+    },
+    "properties": {
+      "section_na": "ELAVANASURKOTTAI",
+      "section_co": "578",
+      "subdivisio": "PILLAIYARKUPPAM",
+      "region_id": "02",
+      "subdivis_1": "0084",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 855,
+      "search_string": "    elavanasurkottai"
+    },
+    "bbox": [
+      79.1875,
+      11.7144,
+      79.1875,
+      11.7144
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.2728,
+        11.6969
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN ULUNDURPET",
+      "section_co": "576",
+      "subdivisio": "ULUNDURPET",
+      "region_id": "02",
+      "subdivis_1": "0082",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 856,
+      "search_string": "    town ulundurpet"
+    },
+    "bbox": [
+      79.2728,
+      11.6969,
+      79.2728,
+      11.6969
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0611,
+        11.6785
+      ]
+    },
+    "properties": {
+      "section_na": "NAGALUR",
+      "section_co": "559",
+      "subdivisio": "RURAL KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0072",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 857,
+      "search_string": "    nagalur"
+    },
+    "bbox": [
+      79.0611,
+      11.6785,
+      79.0611,
+      11.6785
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8115,
+        11.5955
+      ]
+    },
+    "properties": {
+      "section_na": "RAYAPPANUR",
+      "section_co": "562",
+      "subdivisio": "TOWN CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0073",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 858,
+      "search_string": "    rayappanur"
+    },
+    "bbox": [
+      78.8115,
+      11.5955,
+      78.8115,
+      11.5955
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8904,
+        11.6496
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN CHINNASALEM",
+      "section_co": "560",
+      "subdivisio": "TOWN CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0073",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 860,
+      "search_string": "    town chinnasalem"
+    },
+    "bbox": [
+      78.8904,
+      11.6496,
+      78.8904,
+      11.6496
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.919,
+        11.7465
+      ]
+    },
+    "properties": {
+      "section_na": "SADAYAMPATTU",
+      "section_co": "557",
+      "subdivisio": "RURAL KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0072",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 861,
+      "search_string": "    sadayampattu"
+    },
+    "bbox": [
+      78.919,
+      11.7465,
+      78.919,
+      11.7465
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9432,
+        11.6327
+      ]
+    },
+    "properties": {
+      "section_na": "SIRUVATHUR",
+      "section_co": "563",
+      "subdivisio": "TOWN CHINNASALEM",
+      "region_id": "02",
+      "subdivis_1": "0073",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 862,
+      "search_string": "    siruvathur"
+    },
+    "bbox": [
+      78.9432,
+      11.6327,
+      78.9432,
+      11.6327
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7119,
+        11.7979
+      ]
+    },
+    "properties": {
+      "section_na": "VELLIMALAI",
+      "section_co": "550",
+      "subdivisio": "TOWN KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0071",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 863,
+      "search_string": "    vellimalai"
+    },
+    "bbox": [
+      78.7119,
+      11.7979,
+      78.7119,
+      11.7979
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9949,
+        11.9275
+      ]
+    },
+    "properties": {
+      "section_na": "ARIYALUR",
+      "section_co": "543",
+      "subdivisio": "EAST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0092",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 864,
+      "search_string": "    ariyalur"
+    },
+    "bbox": [
+      78.9949,
+      11.9275,
+      78.9949,
+      11.9275
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9518,
+        11.9445
+      ]
+    },
+    "properties": {
+      "section_na": "KADUVANUR",
+      "section_co": "541",
+      "subdivisio": "EAST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0092",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 865,
+      "search_string": "    kaduvanur"
+    },
+    "bbox": [
+      78.9518,
+      11.9445,
+      78.9518,
+      11.9445
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9491,
+        11.7131
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH KALLAKURICHI",
+      "section_co": "556",
+      "subdivisio": "RURAL KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0072",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 866,
+      "search_string": "    south kallakurichi"
+    },
+    "bbox": [
+      78.9491,
+      11.7131,
+      78.9491,
+      11.7131
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0856,
+        12.0121
+      ]
+    },
+    "properties": {
+      "section_na": "MANALURPET",
+      "section_co": "521",
+      "subdivisio": "WEST THIRUKOILUR",
+      "region_id": "02",
+      "subdivis_1": "0062",
+      "division_n": "THIRUKOILUR",
+      "division_c": "006",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 867,
+      "search_string": "    manalurpet"
+    },
+    "bbox": [
+      79.0856,
+      12.0121,
+      79.0856,
+      12.0121
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.2732,
+        11.6967
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL WEST ULUNDURPET",
+      "section_co": "582",
+      "subdivisio": "PILLAIYARKUPPAM",
+      "region_id": "02",
+      "subdivis_1": "0084",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 868,
+      "search_string": "    rural west ulundurpet"
+    },
+    "bbox": [
+      79.2732,
+      11.6967,
+      79.2732,
+      11.6967
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9768,
+        12.0624
+      ]
+    },
+    "properties": {
+      "section_na": "MOONGILTHURAIPATTU",
+      "section_co": "545",
+      "subdivisio": "EAST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0092",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 869,
+      "search_string": "    moongilthuraipattu"
+    },
+    "bbox": [
+      78.9768,
+      12.0624,
+      78.9768,
+      12.0624
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9573,
+        11.758
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH KALLAKURICHI",
+      "section_co": "555",
+      "subdivisio": "RURAL KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0072",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 870,
+      "search_string": "    north kallakurichi"
+    },
+    "bbox": [
+      78.9573,
+      11.758,
+      78.9573,
+      11.758
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1971,
+        11.7938
+      ]
+    },
+    "properties": {
+      "section_na": "EARIYUR",
+      "section_co": "583",
+      "subdivisio": "PILLAIYARKUPPAM",
+      "region_id": "02",
+      "subdivis_1": "0084",
+      "division_n": "ULUNDURPET",
+      "division_c": "008",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 871,
+      "search_string": "    eariyur"
+    },
+    "bbox": [
+      79.1971,
+      11.7938,
+      79.1971,
+      11.7938
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7753,
+        11.9748
+      ]
+    },
+    "properties": {
+      "section_na": "SERAPATTU",
+      "section_co": "544",
+      "subdivisio": "WEST SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0093",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 872,
+      "search_string": "    serapattu"
+    },
+    "bbox": [
+      78.7753,
+      11.9748,
+      78.7753,
+      11.9748
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0612,
+        11.6785
+      ]
+    },
+    "properties": {
+      "section_na": "VIRUGAVOOR",
+      "section_co": "558",
+      "subdivisio": "RURAL KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0072",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 873,
+      "search_string": "    virugavoor"
+    },
+    "bbox": [
+      79.0612,
+      11.6785,
+      79.0612,
+      11.6785
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9602,
+        11.729
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN KALLAKURICHI",
+      "section_co": "551",
+      "subdivisio": "TOWN KALLAKURICHI",
+      "region_id": "02",
+      "subdivis_1": "0071",
+      "division_n": "KALLAKURICHI",
+      "division_c": "007",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 874,
+      "search_string": "    town kallakurichi"
+    },
+    "bbox": [
+      78.9602,
+      11.729,
+      78.9602,
+      11.729
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9474,
+        11.8002
+      ]
+    },
+    "properties": {
+      "section_na": "ALATHUR",
+      "section_co": "538",
+      "subdivisio": "TOWN SANKARAPURAM",
+      "region_id": "02",
+      "subdivis_1": "0091",
+      "division_n": "SANKARAPURAM",
+      "division_c": "009",
+      "circle_nam": "KALLAKURICHI",
+      "circle_cod": "0417",
+      "region_nam": "VILLUPURAM",
+      "object_id": 875,
+      "search_string": "    alathur"
+    },
+    "bbox": [
+      78.9474,
+      11.8002,
+      78.9474,
+      11.8002
+    ]
+  }
+]

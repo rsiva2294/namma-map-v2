@@ -1,0 +1,3482 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5787,
+        11.2887
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH/PERUNDURAI",
+      "section_co": "053",
+      "subdivisio": "EAST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42631",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1250,
+      "search_string": "    north/perundurai"
+    },
+    "bbox": [
+      77.5787,
+      11.2887,
+      77.5787,
+      11.2887
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6594,
+        11.3931
+      ]
+    },
+    "properties": {
+      "section_na": "WEST/CHITHODE",
+      "section_co": "015",
+      "subdivisio": "CHITHODE",
+      "region_id": "04",
+      "subdivis_1": "42614",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1251,
+      "search_string": "    west/chithode"
+    },
+    "bbox": [
+      77.6594,
+      11.3931,
+      77.6594,
+      11.3931
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7173,
+        11.3357
+      ]
+    },
+    "properties": {
+      "section_na": "E.K.VALASU",
+      "section_co": "005",
+      "subdivisio": "TOWN/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42611",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1252,
+      "search_string": "    e.k.valasu"
+    },
+    "bbox": [
+      77.7173,
+      11.3357,
+      77.7173,
+      11.3357
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7174,
+        11.3357
+      ]
+    },
+    "properties": {
+      "section_na": "EAST/ERODE",
+      "section_co": "004",
+      "subdivisio": "CENTRAL/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42616",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1253,
+      "search_string": "    east/erode"
+    },
+    "bbox": [
+      77.7174,
+      11.3357,
+      77.7174,
+      11.3357
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5331,
+        11.2749
+      ]
+    },
+    "properties": {
+      "section_na": "KULLAMPALAYAM",
+      "section_co": "072",
+      "subdivisio": "WEST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42632",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1254,
+      "search_string": "    kullampalayam"
+    },
+    "bbox": [
+      77.5331,
+      11.2749,
+      77.5331,
+      11.2749
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5944,
+        11.196
+      ]
+    },
+    "properties": {
+      "section_na": "MUGASI PIDARIYUR",
+      "section_co": "074",
+      "subdivisio": "CHENNIMALAI",
+      "region_id": "04",
+      "subdivis_1": "42634",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1255,
+      "search_string": "    mugasi pidariyur"
+    },
+    "bbox": [
+      77.5944,
+      11.196,
+      77.5944,
+      11.196
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.715,
+        11.3617
+      ]
+    },
+    "properties": {
+      "section_na": "ASHOKAPURAM",
+      "section_co": "023",
+      "subdivisio": "V.P.CHATRAM",
+      "region_id": "04",
+      "subdivis_1": "42613",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1256,
+      "search_string": "    ashokapuram"
+    },
+    "bbox": [
+      77.715,
+      11.3617,
+      77.715,
+      11.3617
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5353,
+        11.3411
+      ]
+    },
+    "properties": {
+      "section_na": "NALLAMPATTY",
+      "section_co": "056",
+      "subdivisio": "WEST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42632",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1257,
+      "search_string": "    nallampatty"
+    },
+    "bbox": [
+      77.5353,
+      11.3411,
+      77.5353,
+      11.3411
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7036,
+        11.2316
+      ]
+    },
+    "properties": {
+      "section_na": "AVALPOONDURAI",
+      "section_co": "034",
+      "subdivisio": "ELUMATHUR",
+      "region_id": "04",
+      "subdivis_1": "42622",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1259,
+      "search_string": "    avalpoondurai"
+    },
+    "bbox": [
+      77.7036,
+      11.2316,
+      77.7036,
+      11.2316
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7733,
+        11.1592
+      ]
+    },
+    "properties": {
+      "section_na": "ELLAKADAI",
+      "section_co": "033",
+      "subdivisio": "ELUMATHUR",
+      "region_id": "04",
+      "subdivis_1": "42622",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1260,
+      "search_string": "    ellakadai"
+    },
+    "bbox": [
+      77.7733,
+      11.1592,
+      77.7733,
+      11.1592
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6593,
+        11.3931
+      ]
+    },
+    "properties": {
+      "section_na": "EAST/CHITHODE",
+      "section_co": "013",
+      "subdivisio": "CHITHODE",
+      "region_id": "04",
+      "subdivis_1": "42614",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1261,
+      "search_string": "    east/chithode"
+    },
+    "bbox": [
+      77.6593,
+      11.3931,
+      77.6593,
+      11.3931
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7101,
+        11.1155
+      ]
+    },
+    "properties": {
+      "section_na": "K.B.GRAMAM",
+      "section_co": "039",
+      "subdivisio": "ARACHALUR",
+      "region_id": "04",
+      "subdivis_1": "42623",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1262,
+      "search_string": "    k.b.gramam"
+    },
+    "bbox": [
+      77.7101,
+      11.1155,
+      77.7101,
+      11.1155
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.73,
+        11.3529
+      ]
+    },
+    "properties": {
+      "section_na": "KARUNGALPALAYAM",
+      "section_co": "011",
+      "subdivisio": "CENTRAL/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42616",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1263,
+      "search_string": "    karungalpalayam"
+    },
+    "bbox": [
+      77.73,
+      11.3529,
+      77.73,
+      11.3529
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8862,
+        11.051
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH/KODUMUDI",
+      "section_co": "044",
+      "subdivisio": "KODUMUDI",
+      "region_id": "04",
+      "subdivis_1": "42625",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1264,
+      "search_string": "    south/kodumudi"
+    },
+    "bbox": [
+      77.8862,
+      11.051,
+      77.8862,
+      11.051
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.579,
+        11.2428
+      ]
+    },
+    "properties": {
+      "section_na": "INGUR",
+      "section_co": "054",
+      "subdivisio": "SOUTH/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42636",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1265,
+      "search_string": "    ingur"
+    },
+    "bbox": [
+      77.579,
+      11.2428,
+      77.579,
+      11.2428
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.569,
+        11.2833
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/PERUNDURAI",
+      "section_co": "051",
+      "subdivisio": "EAST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42631",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1266,
+      "search_string": "    town/perundurai"
+    },
+    "bbox": [
+      77.569,
+      11.2833,
+      77.569,
+      11.2833
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6986,
+        11.3663
+      ]
+    },
+    "properties": {
+      "section_na": "B.P.AGRAHARAM",
+      "section_co": "012",
+      "subdivisio": "V.P.CHATRAM",
+      "region_id": "04",
+      "subdivis_1": "42613",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1267,
+      "search_string": "    b.p.agraharam"
+    },
+    "bbox": [
+      77.6986,
+      11.3663,
+      77.6986,
+      11.3663
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6062,
+        11.1657
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/CHENNIMALAI",
+      "section_co": "065",
+      "subdivisio": "CHENNIMALAI",
+      "region_id": "04",
+      "subdivis_1": "42634",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1269,
+      "search_string": "    rural/chennimalai"
+    },
+    "bbox": [
+      77.6062,
+      11.1657,
+      77.6062,
+      11.1657
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7573,
+        11.1995
+      ]
+    },
+    "properties": {
+      "section_na": "ELUMATHUR",
+      "section_co": "031",
+      "subdivisio": "ELUMATHUR",
+      "region_id": "04",
+      "subdivis_1": "42622",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1271,
+      "search_string": "    elumathur"
+    },
+    "bbox": [
+      77.7573,
+      11.1995,
+      77.7573,
+      11.1995
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6062,
+        11.1655
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/CHENNIMALAI",
+      "section_co": "063",
+      "subdivisio": "CHENNIMALAI",
+      "region_id": "04",
+      "subdivis_1": "42634",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1272,
+      "search_string": "    town/chennimalai"
+    },
+    "bbox": [
+      77.6062,
+      11.1655,
+      77.6062,
+      11.1655
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6534,
+        11.2427
+      ]
+    },
+    "properties": {
+      "section_na": "VELLODE",
+      "section_co": "066",
+      "subdivisio": "SOUTH/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42636",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1274,
+      "search_string": "    vellode"
+    },
+    "bbox": [
+      77.6534,
+      11.2427,
+      77.6534,
+      11.2427
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.557,
+        11.1412
+      ]
+    },
+    "properties": {
+      "section_na": "WEST/CHENNIMALAI",
+      "section_co": "064",
+      "subdivisio": "CHENNIMALAI",
+      "region_id": "04",
+      "subdivis_1": "42634",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1275,
+      "search_string": "    west/chennimalai"
+    },
+    "bbox": [
+      77.557,
+      11.1412,
+      77.557,
+      11.1412
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8274,
+        11.2393
+      ]
+    },
+    "properties": {
+      "section_na": "GANAPATHYPALAYAM",
+      "section_co": "030",
+      "subdivisio": "C&I/SOUTH/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42626",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1276,
+      "search_string": "    ganapathypalayam"
+    },
+    "bbox": [
+      77.8274,
+      11.2393,
+      77.8274,
+      11.2393
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7398,
+        11.1055
+      ]
+    },
+    "properties": {
+      "section_na": "KANDASAMYPALAYAM",
+      "section_co": "038",
+      "subdivisio": "ARACHALUR",
+      "region_id": "04",
+      "subdivis_1": "42623",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1277,
+      "search_string": "    kandasamypalayam"
+    },
+    "bbox": [
+      77.7398,
+      11.1055,
+      77.7398,
+      11.1055
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5945,
+        11.3672
+      ]
+    },
+    "properties": {
+      "section_na": "KANJIKOVIL",
+      "section_co": "014",
+      "subdivisio": "CHITHODE",
+      "region_id": "04",
+      "subdivis_1": "42614",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1278,
+      "search_string": "    kanjikovil"
+    },
+    "bbox": [
+      77.5945,
+      11.3672,
+      77.5945,
+      11.3672
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7278,
+        11.264
+      ]
+    },
+    "properties": {
+      "section_na": "KASPAPETTAI",
+      "section_co": "029",
+      "subdivisio": "SOUTH/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42621",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1279,
+      "search_string": "    kaspapettai"
+    },
+    "bbox": [
+      77.7278,
+      11.264,
+      77.7278,
+      11.264
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7574,
+        11.3058
+      ]
+    },
+    "properties": {
+      "section_na": "LAKKAPURAM",
+      "section_co": "028",
+      "subdivisio": "C&I/SOUTH/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42626",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1280,
+      "search_string": "    lakkapuram"
+    },
+    "bbox": [
+      77.7574,
+      11.3058,
+      77.7574,
+      11.3058
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.677,
+        11.2064
+      ]
+    },
+    "properties": {
+      "section_na": "M.H.PALLY",
+      "section_co": "036",
+      "subdivisio": "ARACHALUR",
+      "region_id": "04",
+      "subdivis_1": "42623",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1281,
+      "search_string": "    m.h.pally"
+    },
+    "bbox": [
+      77.677,
+      11.2064,
+      77.677,
+      11.2064
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6476,
+        11.3168
+      ]
+    },
+    "properties": {
+      "section_na": "METTUKADAI",
+      "section_co": "022",
+      "subdivisio": "WEST/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42612",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1282,
+      "search_string": "    mettukadai"
+    },
+    "bbox": [
+      77.6476,
+      11.3168,
+      77.6476,
+      11.3168
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7771,
+        11.2391
+      ]
+    },
+    "properties": {
+      "section_na": "MODAKURICHI",
+      "section_co": "032",
+      "subdivisio": "ELUMATHUR",
+      "region_id": "04",
+      "subdivis_1": "42622",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1283,
+      "search_string": "    modakurichi"
+    },
+    "bbox": [
+      77.7771,
+      11.2391,
+      77.7771,
+      11.2391
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7262,
+        11.285
+      ]
+    },
+    "properties": {
+      "section_na": "MULLAMPARAPPU",
+      "section_co": "027",
+      "subdivisio": "SOUTH/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42621",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1284,
+      "search_string": "    mullamparappu"
+    },
+    "bbox": [
+      77.7262,
+      11.285,
+      77.7262,
+      11.285
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7114,
+        11.3166
+      ]
+    },
+    "properties": {
+      "section_na": "MUTHAMPALAYAM",
+      "section_co": "021",
+      "subdivisio": "TOWN/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42611",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1285,
+      "search_string": "    muthampalayam"
+    },
+    "bbox": [
+      77.7114,
+      11.3166,
+      77.7114,
+      11.3166
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6999,
+        11.3453
+      ]
+    },
+    "properties": {
+      "section_na": "NARAYANAVALASU",
+      "section_co": "008",
+      "subdivisio": "WEST/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42612",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1286,
+      "search_string": "    narayanavalasu"
+    },
+    "bbox": [
+      77.6999,
+      11.3453,
+      77.6999,
+      11.3453
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.637,
+        11.3393
+      ]
+    },
+    "properties": {
+      "section_na": "NASIYANUR",
+      "section_co": "007",
+      "subdivisio": "WEST/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42612",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1287,
+      "search_string": "    nasiyanur"
+    },
+    "bbox": [
+      77.637,
+      11.3393,
+      77.637,
+      11.3393
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5623,
+        11.4635
+      ]
+    },
+    "properties": {
+      "section_na": "PERUNDALAIYUR",
+      "section_co": "019",
+      "subdivisio": "KAVUNDAPADY",
+      "region_id": "04",
+      "subdivis_1": "42615",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1288,
+      "search_string": "    perundalaiyur"
+    },
+    "bbox": [
+      77.5623,
+      11.4635,
+      77.5623,
+      11.4635
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7261,
+        11.3168
+      ]
+    },
+    "properties": {
+      "section_na": "MOOLAPALAYAM",
+      "section_co": "026",
+      "subdivisio": "SOUTH/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42621",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1289,
+      "search_string": "    moolapalayam"
+    },
+    "bbox": [
+      77.7261,
+      11.3168,
+      77.7261,
+      11.3168
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5548,
+        11.4249
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/KAVUNDAPADY",
+      "section_co": "017",
+      "subdivisio": "KAVUNDAPADY",
+      "region_id": "04",
+      "subdivis_1": "42615",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1290,
+      "search_string": "    rural/kavundapady"
+    },
+    "bbox": [
+      77.5548,
+      11.4249,
+      77.5548,
+      11.4249
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6991,
+        11.358
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/V.P.CHATRAM",
+      "section_co": "010",
+      "subdivisio": "V.P.CHATRAM",
+      "region_id": "04",
+      "subdivis_1": "42613",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1291,
+      "search_string": "    rural/v.p.chatram"
+    },
+    "bbox": [
+      77.6991,
+      11.358,
+      77.6991,
+      11.358
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5726,
+        11.4281
+      ]
+    },
+    "properties": {
+      "section_na": "SALANGAPALAYAM",
+      "section_co": "018",
+      "subdivisio": "KAVUNDAPADY",
+      "region_id": "04",
+      "subdivis_1": "42615",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1292,
+      "search_string": "    salangapalayam"
+    },
+    "bbox": [
+      77.5726,
+      11.4281,
+      77.5726,
+      11.4281
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.807,
+        11.1319
+      ]
+    },
+    "properties": {
+      "section_na": "EAST/SIVAGIRI",
+      "section_co": "040",
+      "subdivisio": "SIVAGIRI",
+      "region_id": "04",
+      "subdivis_1": "42624",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1293,
+      "search_string": "    east/sivagiri"
+    },
+    "bbox": [
+      77.807,
+      11.1319,
+      77.807,
+      11.1319
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7863,
+        11.1196
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/SIVAGIRI",
+      "section_co": "041",
+      "subdivisio": "SIVAGIRI",
+      "region_id": "04",
+      "subdivis_1": "42624",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1294,
+      "search_string": "    town/sivagiri"
+    },
+    "bbox": [
+      77.7863,
+      11.1196,
+      77.7863,
+      11.1196
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8085,
+        11.0985
+      ]
+    },
+    "properties": {
+      "section_na": "WEST/SIVAGIRI",
+      "section_co": "042",
+      "subdivisio": "SIVAGIRI",
+      "region_id": "04",
+      "subdivis_1": "42624",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1295,
+      "search_string": "    west/sivagiri"
+    },
+    "bbox": [
+      77.8085,
+      11.0985,
+      77.8085,
+      11.0985
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7511,
+        11.3214
+      ]
+    },
+    "properties": {
+      "section_na": "SOLAR",
+      "section_co": "046",
+      "subdivisio": "C&I/SOUTH/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42626",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1296,
+      "search_string": "    solar"
+    },
+    "bbox": [
+      77.7511,
+      11.3214,
+      77.7511,
+      11.3214
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6623,
+        11.3904
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH/CHITHODE",
+      "section_co": "016",
+      "subdivisio": "CHITHODE",
+      "region_id": "04",
+      "subdivis_1": "42614",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1297,
+      "search_string": "    south/chithode"
+    },
+    "bbox": [
+      77.6623,
+      11.3904,
+      77.6623,
+      11.3904
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7176,
+        11.3361
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH/ERODE",
+      "section_co": "002",
+      "subdivisio": "TOWN/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42611",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1298,
+      "search_string": "    south/erode"
+    },
+    "bbox": [
+      77.7176,
+      11.3361,
+      77.7176,
+      11.3361
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8491,
+        11.1547
+      ]
+    },
+    "properties": {
+      "section_na": "THAMARAIPALAYAM",
+      "section_co": "045",
+      "subdivisio": "KODUMUDI",
+      "region_id": "04",
+      "subdivis_1": "42625",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1299,
+      "search_string": "    thamaraipalayam"
+    },
+    "bbox": [
+      77.8491,
+      11.1547,
+      77.8491,
+      11.1547
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6723,
+        11.3173
+      ]
+    },
+    "properties": {
+      "section_na": "THINDAL",
+      "section_co": "006",
+      "subdivisio": "WEST/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42612",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1300,
+      "search_string": "    thindal"
+    },
+    "bbox": [
+      77.6723,
+      11.3173,
+      77.6723,
+      11.3173
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7016,
+        11.1658
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/ARACHALUR",
+      "section_co": "035",
+      "subdivisio": "ARACHALUR",
+      "region_id": "04",
+      "subdivis_1": "42623",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1301,
+      "search_string": "    town/arachalur"
+    },
+    "bbox": [
+      77.7016,
+      11.1658,
+      77.7016,
+      11.1658
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7176,
+        11.3363
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/ERODE",
+      "section_co": "001",
+      "subdivisio": "CENTRAL/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42616",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1302,
+      "search_string": "    town/erode"
+    },
+    "bbox": [
+      77.7176,
+      11.3363,
+      77.7176,
+      11.3363
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5634,
+        11.4179
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/KAVUNDAPADY",
+      "section_co": "020",
+      "subdivisio": "KAVUNDAPADY",
+      "region_id": "04",
+      "subdivis_1": "42615",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1303,
+      "search_string": "    town/kavundapady"
+    },
+    "bbox": [
+      77.5634,
+      11.4179,
+      77.5634,
+      11.4179
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8833,
+        11.0777
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/KODUMUDI",
+      "section_co": "043",
+      "subdivisio": "KODUMUDI",
+      "region_id": "04",
+      "subdivis_1": "42625",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1304,
+      "search_string": "    town/kodumudi"
+    },
+    "bbox": [
+      77.8833,
+      11.0777,
+      77.8833,
+      11.0777
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.725,
+        11.3543
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/V.P.CHATRAM",
+      "section_co": "009",
+      "subdivisio": "V.P.CHATRAM",
+      "region_id": "04",
+      "subdivis_1": "42613",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1305,
+      "search_string": "    town/v.p.chatram"
+    },
+    "bbox": [
+      77.725,
+      11.3543,
+      77.725,
+      11.3543
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7377,
+        11.1521
+      ]
+    },
+    "properties": {
+      "section_na": "VADUGAPATTY",
+      "section_co": "037",
+      "subdivisio": "ARACHALUR",
+      "region_id": "04",
+      "subdivis_1": "42623",
+      "division_n": "SOUTH/ERODE",
+      "division_c": "4262",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1306,
+      "search_string": "    vadugapatty"
+    },
+    "bbox": [
+      77.7377,
+      11.1521,
+      77.7377,
+      11.1521
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5903,
+        11.2832
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH/PERUNDURAI",
+      "section_co": "052",
+      "subdivisio": "SOUTH/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42636",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1307,
+      "search_string": "    south/perundurai"
+    },
+    "bbox": [
+      77.5903,
+      11.2832,
+      77.5903,
+      11.2832
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5696,
+        11.2832
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/PERUNDURAI",
+      "section_co": "055",
+      "subdivisio": "WEST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42632",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1308,
+      "search_string": "    rural/perundurai"
+    },
+    "bbox": [
+      77.5696,
+      11.2832,
+      77.5696,
+      11.2832
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7177,
+        11.336
+      ]
+    },
+    "properties": {
+      "section_na": "WEST/ERODE",
+      "section_co": "003",
+      "subdivisio": "TOWN/ERODE",
+      "region_id": "04",
+      "subdivis_1": "42611",
+      "division_n": "URBAN/ERODE",
+      "division_c": "4261",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1309,
+      "search_string": "    west/erode"
+    },
+    "bbox": [
+      77.7177,
+      11.336,
+      77.7177,
+      11.336
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5538,
+        11.2558
+      ]
+    },
+    "properties": {
+      "section_na": "SIPCOT",
+      "section_co": "071",
+      "subdivisio": "EAST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42631",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1310,
+      "search_string": "    sipcot"
+    },
+    "bbox": [
+      77.5538,
+      11.2558,
+      77.5538,
+      11.2558
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4949,
+        11.3145
+      ]
+    },
+    "properties": {
+      "section_na": "THINGALORE",
+      "section_co": "058",
+      "subdivisio": "WEST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42632",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1311,
+      "search_string": "    thingalore"
+    },
+    "bbox": [
+      77.4949,
+      11.3145,
+      77.4949,
+      11.3145
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5009,
+        11.2421
+      ]
+    },
+    "properties": {
+      "section_na": "VIJAYAMANGALAM",
+      "section_co": "057",
+      "subdivisio": "WEST/PERUNDURAI",
+      "region_id": "04",
+      "subdivis_1": "42632",
+      "division_n": "PERUNDURAI",
+      "division_c": "4263",
+      "circle_nam": "ERODE",
+      "circle_cod": "0426",
+      "region_nam": "ERODE",
+      "object_id": 1312,
+      "search_string": "    vijayamangalam"
+    },
+    "bbox": [
+      77.5009,
+      11.2421,
+      77.5009,
+      11.2421
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5595,
+        11.7673
+      ]
+    },
+    "properties": {
+      "section_na": "BURGUR O&M SECTION OFFICE",
+      "section_co": "343",
+      "subdivisio": "ANTHIYUR",
+      "region_id": "04",
+      "subdivis_1": "43623",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1535,
+      "search_string": "    burgur o&m section office"
+    },
+    "bbox": [
+      77.5595,
+      11.7673,
+      77.5595,
+      11.7673
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6896,
+        11.4588
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH BHAVANI O&M SECTION",
+      "section_co": "327",
+      "subdivisio": "NORTH BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43621",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1536,
+      "search_string": "    north bhavani o&m section"
+    },
+    "bbox": [
+      77.6896,
+      11.4588,
+      77.6896,
+      11.4588
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6643,
+        11.5916
+      ]
+    },
+    "properties": {
+      "section_na": "POONACHI O&M SECTION OFFICE",
+      "section_co": "342",
+      "subdivisio": "WEST BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43622",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1521,
+      "search_string": "    poonachi o&m section office"
+    },
+    "bbox": [
+      77.6643,
+      11.5916,
+      77.6643,
+      11.5916
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.46,
+        11.3668
+      ]
+    },
+    "properties": {
+      "section_na": "SIRUVALUR O&M SECTION OFFICE",
+      "section_co": "305",
+      "subdivisio": "SOUTH GOBI",
+      "region_id": "04",
+      "subdivis_1": "43613",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1522,
+      "search_string": "    siruvalur o&m section office"
+    },
+    "bbox": [
+      77.46,
+      11.3668,
+      77.46,
+      11.3668
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4144,
+        11.3398
+      ]
+    },
+    "properties": {
+      "section_na": "GETTICHEVIYUR O&M SECTION OFFICE",
+      "section_co": "304",
+      "subdivisio": "SOUTH GOBI",
+      "region_id": "04",
+      "subdivis_1": "43613",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1523,
+      "search_string": "    getticheviyur o&m section office"
+    },
+    "bbox": [
+      77.4144,
+      11.3398,
+      77.4144,
+      11.3398
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4317,
+        11.4574
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH GOBI O&M SECTION OFFICE",
+      "section_co": "301",
+      "subdivisio": "SOUTH GOBI",
+      "region_id": "04",
+      "subdivis_1": "43613",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1524,
+      "search_string": "    south gobi o&m section office"
+    },
+    "bbox": [
+      77.4317,
+      11.4574,
+      77.4317,
+      11.4574
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3156,
+        11.3577
+      ]
+    },
+    "properties": {
+      "section_na": "EAST NAMBIYUR O&M SECTION OFFICE",
+      "section_co": "316",
+      "subdivisio": "NAMBIYUR",
+      "region_id": "04",
+      "subdivis_1": "43614",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1525,
+      "search_string": "    east nambiyur o&m section office"
+    },
+    "bbox": [
+      77.3156,
+      11.3577,
+      77.3156,
+      11.3577
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.645,
+        11.4667
+      ]
+    },
+    "properties": {
+      "section_na": "JAMBAI O&M SECTION OFFICE",
+      "section_co": "331",
+      "subdivisio": "WEST BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43622",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1526,
+      "search_string": "    jambai o&m section office"
+    },
+    "bbox": [
+      77.645,
+      11.4667,
+      77.645,
+      11.4667
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5863,
+        11.6181
+      ]
+    },
+    "properties": {
+      "section_na": "ANTHIYUR NORTH O&M SECTION OFFICE",
+      "section_co": "338",
+      "subdivisio": "ANTHIYUR",
+      "region_id": "04",
+      "subdivis_1": "43623",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1527,
+      "search_string": "    anthiyur north o&m section office"
+    },
+    "bbox": [
+      77.5863,
+      11.6181,
+      77.5863,
+      11.6181
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6426,
+        11.5665
+      ]
+    },
+    "properties": {
+      "section_na": "OLAGADAM O&M SECTION OFFICE",
+      "section_co": "332",
+      "subdivisio": "WEST BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43622",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1528,
+      "search_string": "    olagadam o&m section office"
+    },
+    "bbox": [
+      77.6426,
+      11.5665,
+      77.6426,
+      11.5665
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3209,
+        11.3578
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH NAMBIYUR O&M SECTION OFFICE",
+      "section_co": "315",
+      "subdivisio": "NAMBIYUR",
+      "region_id": "04",
+      "subdivis_1": "43614",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1529,
+      "search_string": "    north nambiyur o&m section office"
+    },
+    "bbox": [
+      77.3209,
+      11.3578,
+      77.3209,
+      11.3578
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3156,
+        11.3576
+      ]
+    },
+    "properties": {
+      "section_na": "WEST NAMBIYUR O&M SECTION OFFICE",
+      "section_co": "317",
+      "subdivisio": "NAMBIYUR",
+      "region_id": "04",
+      "subdivis_1": "43614",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1530,
+      "search_string": "    west nambiyur o&m section office"
+    },
+    "bbox": [
+      77.3156,
+      11.3576,
+      77.3156,
+      11.3576
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6849,
+        11.4507
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN BHAVANI O&M SECTION OFFICE",
+      "section_co": "326",
+      "subdivisio": "NORTH BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43621",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1531,
+      "search_string": "    town bhavani o&m section office"
+    },
+    "bbox": [
+      77.6849,
+      11.4507,
+      77.6849,
+      11.4507
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6849,
+        11.453
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL BHAVANI O&M SECTION OFFICE",
+      "section_co": "330",
+      "subdivisio": "WEST BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43622",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1532,
+      "search_string": "    rural bhavani o&m section office"
+    },
+    "bbox": [
+      77.6849,
+      11.453,
+      77.6849,
+      11.453
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6849,
+        11.453
+      ]
+    },
+    "properties": {
+      "section_na": "WEST BHAVANI O&M SECTION OFFICE",
+      "section_co": "329",
+      "subdivisio": "WEST BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43622",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1533,
+      "search_string": "    west bhavani o&m section office"
+    },
+    "bbox": [
+      77.6849,
+      11.453,
+      77.6849,
+      11.453
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7423,
+        11.6215
+      ]
+    },
+    "properties": {
+      "section_na": "AMMAPETTAI O&M SECTION OFFICE",
+      "section_co": "333",
+      "subdivisio": "AMMAPETTAI",
+      "region_id": "04",
+      "subdivis_1": "43624",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1534,
+      "search_string": "    ammapettai o&m section office"
+    },
+    "bbox": [
+      77.7423,
+      11.6215,
+      77.7423,
+      11.6215
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7165,
+        11.5482
+      ]
+    },
+    "properties": {
+      "section_na": "CHITTAR O&M SECTION OFFICE",
+      "section_co": "328",
+      "subdivisio": "NORTH BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43621",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1537,
+      "search_string": "    chittar o&m section office"
+    },
+    "bbox": [
+      77.7165,
+      11.5482,
+      77.7165,
+      11.5482
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6006,
+        11.5666
+      ]
+    },
+    "properties": {
+      "section_na": "ANTHIYUR TOWN O&M OFFICE",
+      "section_co": "337",
+      "subdivisio": "ANTHIYUR",
+      "region_id": "04",
+      "subdivis_1": "43623",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1538,
+      "search_string": "    anthiyur town o&m office"
+    },
+    "bbox": [
+      77.6006,
+      11.5666,
+      77.6006,
+      11.5666
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6779,
+        11.7004
+      ]
+    },
+    "properties": {
+      "section_na": "CHENNAMPATTI O&M SECTION OFFICE",
+      "section_co": "335",
+      "subdivisio": "AMMAPETTAI",
+      "region_id": "04",
+      "subdivis_1": "43624",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1539,
+      "search_string": "    chennampatti o&m section office"
+    },
+    "bbox": [
+      77.6779,
+      11.7004,
+      77.6779,
+      11.7004
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6809,
+        11.6425
+      ]
+    },
+    "properties": {
+      "section_na": "GURUVAREDDIYUR O&M SECTION OFFICE",
+      "section_co": "334",
+      "subdivisio": "AMMAPETTAI",
+      "region_id": "04",
+      "subdivis_1": "43624",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1540,
+      "search_string": "    guruvareddiyur o&m section office"
+    },
+    "bbox": [
+      77.6809,
+      11.6425,
+      77.6809,
+      11.6425
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6704,
+        11.4327
+      ]
+    },
+    "properties": {
+      "section_na": "K.R.PALAYAM O&M SECTION OFFICE",
+      "section_co": "341",
+      "subdivisio": "NORTH BHAVANI",
+      "region_id": "04",
+      "subdivis_1": "43621",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1541,
+      "search_string": "    k.r.palayam o&m section office"
+    },
+    "bbox": [
+      77.6704,
+      11.4327,
+      77.6704,
+      11.4327
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6004,
+        11.5666
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH ANTHIYUR O&M OFFICE",
+      "section_co": "339",
+      "subdivisio": "ANTHIYUR",
+      "region_id": "04",
+      "subdivis_1": "43623",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1542,
+      "search_string": "    south anthiyur o&m office"
+    },
+    "bbox": [
+      77.6004,
+      11.5666,
+      77.6004,
+      11.5666
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5831,
+        11.5743
+      ]
+    },
+    "properties": {
+      "section_na": "THAVITTUPALAYAM O&M OFFICE",
+      "section_co": "340",
+      "subdivisio": "ANTHIYUR",
+      "region_id": "04",
+      "subdivis_1": "43623",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1543,
+      "search_string": "    thavittupalayam o&m office"
+    },
+    "bbox": [
+      77.5831,
+      11.5743,
+      77.5831,
+      11.5743
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6335,
+        11.6243
+      ]
+    },
+    "properties": {
+      "section_na": "VELLITHIRUPUR O&M SECTION OFFICE",
+      "section_co": "336",
+      "subdivisio": "AMMAPETTAI",
+      "region_id": "04",
+      "subdivis_1": "43624",
+      "division_n": "BHAVANI",
+      "division_c": "4362",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1544,
+      "search_string": "    vellithirupur o&m section office"
+    },
+    "bbox": [
+      77.6335,
+      11.6243,
+      77.6335,
+      11.6243
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4317,
+        11.4574
+      ]
+    },
+    "properties": {
+      "section_na": "PUDUPALAYAM O&M SECTION OFFICE",
+      "section_co": "307",
+      "subdivisio": "WEST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43611",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1545,
+      "search_string": "    pudupalayam o&m section office"
+    },
+    "bbox": [
+      77.4317,
+      11.4574,
+      77.4317,
+      11.4574
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3122,
+        11.4968
+      ]
+    },
+    "properties": {
+      "section_na": "D.G.PUDUR O&M SECTION OFFICE",
+      "section_co": "353",
+      "subdivisio": "EAST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43631",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1546,
+      "search_string": "    d.g.pudur o&m section office"
+    },
+    "bbox": [
+      77.3122,
+      11.4968,
+      77.3122,
+      11.4968
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3283,
+        11.6233
+      ]
+    },
+    "properties": {
+      "section_na": "KADAMBUR O&M SECTION OFFICE",
+      "section_co": "368",
+      "subdivisio": "EAST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43631",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1547,
+      "search_string": "    kadambur o&m section office"
+    },
+    "bbox": [
+      77.3283,
+      11.6233,
+      77.3283,
+      11.6233
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2265,
+        11.3824
+      ]
+    },
+    "properties": {
+      "section_na": "KAVILIPALAYAM O&M SECTION OFFICE",
+      "section_co": "359",
+      "subdivisio": "PULIAMPATTI",
+      "region_id": "04",
+      "subdivis_1": "43633",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1548,
+      "search_string": "    kavilipalayam o&m section office"
+    },
+    "bbox": [
+      77.2265,
+      11.3824,
+      77.2265,
+      11.3824
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5123,
+        11.5236
+      ]
+    },
+    "properties": {
+      "section_na": "WEST ATHANI O&M SECTION OFFICE",
+      "section_co": "312",
+      "subdivisio": "EAST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43612",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1549,
+      "search_string": "    west athani o&m section office"
+    },
+    "bbox": [
+      77.5123,
+      11.5236,
+      77.5123,
+      11.5236
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3101,
+        11.5404
+      ]
+    },
+    "properties": {
+      "section_na": "KEMBANAICKENPALAYAM O&M SECTION OFFICE",
+      "section_co": "352",
+      "subdivisio": "EAST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43631",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1550,
+      "search_string": "    kembanaickenpalayam o&m section office"
+    },
+    "bbox": [
+      77.3101,
+      11.5404,
+      77.3101,
+      11.5404
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4944,
+        11.4874
+      ]
+    },
+    "properties": {
+      "section_na": "KUGALAUR O&M SECTION OFFICE",
+      "section_co": "313",
+      "subdivisio": "EAST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43612",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1551,
+      "search_string": "    kugalaur o&m section office"
+    },
+    "bbox": [
+      77.4944,
+      11.4874,
+      77.4944,
+      11.4874
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3477,
+        11.4208
+      ]
+    },
+    "properties": {
+      "section_na": "KURUMANDUR O&M SECTION OFFICE",
+      "section_co": "318",
+      "subdivisio": "NAMBIYUR",
+      "region_id": "04",
+      "subdivis_1": "43614",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1552,
+      "search_string": "    kurumandur o&m section office"
+    },
+    "bbox": [
+      77.3477,
+      11.4208,
+      77.3477,
+      11.4208
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3843,
+        11.5058
+      ]
+    },
+    "properties": {
+      "section_na": "THUCKANAICKANPALAYAM O&M SECTION OFFICE",
+      "section_co": "310",
+      "subdivisio": "WEST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43611",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1553,
+      "search_string": "    thuckanaickanpalayam o&m section office"
+    },
+    "bbox": [
+      77.3843,
+      11.5058,
+      77.3843,
+      11.5058
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4317,
+        11.4573
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN GOBI O&M SECTION OFFICE",
+      "section_co": "306",
+      "subdivisio": "WEST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43611",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1554,
+      "search_string": "    town gobi o&m section office"
+    },
+    "bbox": [
+      77.4317,
+      11.4573,
+      77.4317,
+      11.4573
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0038,
+        11.7645
+      ]
+    },
+    "properties": {
+      "section_na": "EAST THALAVADY O&M SECTION OFFICE",
+      "section_co": "365",
+      "subdivisio": "THALAVADY",
+      "region_id": "04",
+      "subdivis_1": "43635",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1555,
+      "search_string": "    east thalavady o&m section office"
+    },
+    "bbox": [
+      77.0038,
+      11.7645,
+      77.0038,
+      11.7645
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5123,
+        11.5236
+      ]
+    },
+    "properties": {
+      "section_na": "EAST ATHANI O&M SECTION OFFICE",
+      "section_co": "311",
+      "subdivisio": "EAST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43612",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1556,
+      "search_string": "    east athani o&m section office"
+    },
+    "bbox": [
+      77.5123,
+      11.5236,
+      77.5123,
+      11.5236
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4577,
+        11.4516
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH GOBI O&M SECTION OFFICE",
+      "section_co": "314",
+      "subdivisio": "CONSTRUCTION GOBI",
+      "region_id": "04",
+      "subdivis_1": "43615",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1557,
+      "search_string": "    north gobi o&m section office"
+    },
+    "bbox": [
+      77.4577,
+      11.4516,
+      77.4577,
+      11.4516
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4286,
+        11.38
+      ]
+    },
+    "properties": {
+      "section_na": "KOLAPPALUR O&M SECTION OFFICE",
+      "section_co": "303",
+      "subdivisio": "SOUTH GOBI",
+      "region_id": "04",
+      "subdivis_1": "43613",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1558,
+      "search_string": "    kolappalur o&m section office"
+    },
+    "bbox": [
+      77.4286,
+      11.38,
+      77.4286,
+      11.38
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        76.9151,
+        11.6917
+      ]
+    },
+    "properties": {
+      "section_na": "CHIMITAHALLI O&M SECTION OFFICE",
+      "section_co": "369",
+      "subdivisio": "THALAVADY",
+      "region_id": "04",
+      "subdivis_1": "43635",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1559,
+      "search_string": "    chimitahalli o&m section office"
+    },
+    "bbox": [
+      76.9151,
+      11.6917,
+      76.9151,
+      11.6917
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.275,
+        11.4485
+      ]
+    },
+    "properties": {
+      "section_na": "ARASUR O&M SECTION OFFICE",
+      "section_co": "356",
+      "subdivisio": "WEST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43632",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1560,
+      "search_string": "    arasur o&m section office"
+    },
+    "bbox": [
+      77.275,
+      11.4485,
+      77.275,
+      11.4485
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1297,
+        11.4742
+      ]
+    },
+    "properties": {
+      "section_na": "BHAVANI SAGAR O&M SECTION OFFICE",
+      "section_co": "361",
+      "subdivisio": "BHAVANISAGAR",
+      "region_id": "04",
+      "subdivis_1": "43634",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1561,
+      "search_string": "    bhavani sagar o&m section office"
+    },
+    "bbox": [
+      77.1297,
+      11.4742,
+      77.1297,
+      11.4742
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2001,
+        11.5311
+      ]
+    },
+    "properties": {
+      "section_na": "C.K.PALAYAM O&M SECTION OFFICE",
+      "section_co": "363",
+      "subdivisio": "BHAVANISAGAR",
+      "region_id": "04",
+      "subdivis_1": "43634",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1562,
+      "search_string": "    c.k.palayam o&m section office"
+    },
+    "bbox": [
+      77.2001,
+      11.5311,
+      77.2001,
+      11.5311
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4115,
+        11.4566
+      ]
+    },
+    "properties": {
+      "section_na": "KARATTADIPALAYAM O&M SECTION OFFICE",
+      "section_co": "302",
+      "subdivisio": "CONSTRUCTION GOBI",
+      "region_id": "04",
+      "subdivis_1": "43615",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1563,
+      "search_string": "    karattadipalayam o&m section office"
+    },
+    "bbox": [
+      77.4115,
+      11.4566,
+      77.4115,
+      11.4566
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.4515,
+        11.5157
+      ]
+    },
+    "properties": {
+      "section_na": "KALLIPPATTI O&M SECTION OFFICE",
+      "section_co": "308",
+      "subdivisio": "WEST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43611",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1564,
+      "search_string": "    kallippatti o&m section office"
+    },
+    "bbox": [
+      77.4515,
+      11.5157,
+      77.4515,
+      11.5157
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2158,
+        11.503
+      ]
+    },
+    "properties": {
+      "section_na": "KENJANUR O&M SECTION OFFICE",
+      "section_co": "367",
+      "subdivisio": "BHAVANISAGAR",
+      "region_id": "04",
+      "subdivis_1": "43634",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1565,
+      "search_string": "    kenjanur o&m section office"
+    },
+    "bbox": [
+      77.2158,
+      11.503,
+      77.2158,
+      11.503
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.3318,
+        11.4592
+      ]
+    },
+    "properties": {
+      "section_na": "KASIPALAYAM O&M SECTION OFFICE",
+      "section_co": "309",
+      "subdivisio": "CONSTRUCTION GOBI",
+      "region_id": "04",
+      "subdivis_1": "43615",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1566,
+      "search_string": "    kasipalayam o&m section office"
+    },
+    "bbox": [
+      77.3318,
+      11.4592,
+      77.3318,
+      11.4592
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.5027,
+        11.4436
+      ]
+    },
+    "properties": {
+      "section_na": "OTHAKUTHIRAI O&M SECTION OFFICE",
+      "section_co": "319",
+      "subdivisio": "EAST GOBI",
+      "region_id": "04",
+      "subdivis_1": "43612",
+      "division_n": "GOBI",
+      "division_c": "4361",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1567,
+      "search_string": "    othakuthirai o&m section office"
+    },
+    "bbox": [
+      77.5027,
+      11.4436,
+      77.5027,
+      11.4436
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1617,
+        11.3657
+      ]
+    },
+    "properties": {
+      "section_na": "PONNAMPALAYAM O&M SECTION OFFICE",
+      "section_co": "360",
+      "subdivisio": "PULIAMPATTI",
+      "region_id": "04",
+      "subdivis_1": "43633",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1568,
+      "search_string": "    ponnampalayam o&m section office"
+    },
+    "bbox": [
+      77.1617,
+      11.3657,
+      77.1617,
+      11.3657
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.0038,
+        11.7645
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH THALAVADY O&M SECTION OFFICE",
+      "section_co": "364",
+      "subdivisio": "THALAVADY",
+      "region_id": "04",
+      "subdivis_1": "43635",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1569,
+      "search_string": "    south thalavady o&m section office"
+    },
+    "bbox": [
+      77.0038,
+      11.7645,
+      77.0038,
+      11.7645
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1907,
+        11.4039
+      ]
+    },
+    "properties": {
+      "section_na": "PUNGAMPALLY O&M SECTION OFFICE",
+      "section_co": "366",
+      "subdivisio": "PULIAMPATTI",
+      "region_id": "04",
+      "subdivis_1": "43633",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1570,
+      "search_string": "    pungampally o&m section office"
+    },
+    "bbox": [
+      77.1907,
+      11.4039,
+      77.1907,
+      11.4039
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1401,
+        11.5319
+      ]
+    },
+    "properties": {
+      "section_na": "RAJAN NAGAR O&M SECTION OFFICE",
+      "section_co": "362",
+      "subdivisio": "BHAVANISAGAR",
+      "region_id": "04",
+      "subdivis_1": "43634",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1571,
+      "search_string": "    rajan nagar o&m section office"
+    },
+    "bbox": [
+      77.1401,
+      11.5319,
+      77.1401,
+      11.5319
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2447,
+        11.4972
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL NORTH SATHY O&M OFFICE",
+      "section_co": "351",
+      "subdivisio": "EAST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43631",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1572,
+      "search_string": "    rural north sathy o&m office"
+    },
+    "bbox": [
+      77.2447,
+      11.4972,
+      77.2447,
+      11.4972
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2463,
+        11.4993
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL SOUTH SATHY O&M OFFICE",
+      "section_co": "355",
+      "subdivisio": "WEST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43632",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1573,
+      "search_string": "    rural south sathy o&m office"
+    },
+    "bbox": [
+      77.2463,
+      11.4993,
+      77.2463,
+      11.4993
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2325,
+        11.4185
+      ]
+    },
+    "properties": {
+      "section_na": "UKKARAM O&M SECTION OFFICE",
+      "section_co": "357",
+      "subdivisio": "WEST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43632",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1574,
+      "search_string": "    ukkaram o&m section office"
+    },
+    "bbox": [
+      77.2325,
+      11.4185,
+      77.2325,
+      11.4185
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.2933,
+        11.4768
+      ]
+    },
+    "properties": {
+      "section_na": "KODIVERY O&M SECTION OFFICE",
+      "section_co": "354",
+      "subdivisio": "EAST SATHY",
+      "region_id": "04",
+      "subdivis_1": "43631",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1575,
+      "search_string": "    kodivery o&m section office"
+    },
+    "bbox": [
+      77.2933,
+      11.4768,
+      77.2933,
+      11.4768
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1617,
+        11.3402
+      ]
+    },
+    "properties": {
+      "section_na": "PULIAMPATTY O&M SECTION OFFICE",
+      "section_co": "358",
+      "subdivisio": "PULIAMPATTI",
+      "region_id": "04",
+      "subdivis_1": "43633",
+      "division_n": "SATHY",
+      "division_c": "4363",
+      "circle_nam": "GOBI",
+      "circle_cod": "0436",
+      "region_nam": "ERODE",
+      "object_id": 1576,
+      "search_string": "    puliampatty o&m section office"
+    },
+    "bbox": [
+      77.1617,
+      11.3402,
+      77.1617,
+      11.3402
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1603,
+        11.3409
+      ]
+    },
+    "properties": {
+      "section_na": "SELLAPAMPALAYAM",
+      "section_co": "175",
+      "subdivisio": "NORTH ANNUR",
+      "region_id": "03",
+      "subdivis_1": "43044",
+      "division_n": "EE/AVINASHI",
+      "division_c": "",
+      "circle_nam": "Tirupur",
+      "circle_cod": "0438",
+      "region_nam": "Coimbatore",
+      "object_id": 1682,
+      "search_string": "    sellapampalayam"
+    },
+    "bbox": [
+      77.1603,
+      11.3409,
+      77.1603,
+      11.3409
+    ]
+  }
+]

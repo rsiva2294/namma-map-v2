@@ -1,0 +1,752 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9188,
+        11.3156
+      ]
+    },
+    "properties": {
+      "section_na": "VALIKANDAPURAM",
+      "section_co": "333",
+      "subdivisio": "TOWN-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44034",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1784,
+      "search_string": "    valikandapuram"
+    },
+    "bbox": [
+      78.9188,
+      11.3156,
+      78.9188,
+      11.3156
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8911,
+        11.2401
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH-PERAMBALUR",
+      "section_co": "332",
+      "subdivisio": "TOWN-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44034",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1785,
+      "search_string": "    south-perambalur"
+    },
+    "bbox": [
+      78.8911,
+      11.2401,
+      78.8911,
+      11.2401
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8283,
+        11.0905
+      ]
+    },
+    "properties": {
+      "section_na": "PADALUR",
+      "section_co": "340",
+      "subdivisio": "SIRUVACHUR",
+      "region_id": "06",
+      "subdivis_1": "44035",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1786,
+      "search_string": "    padalur"
+    },
+    "bbox": [
+      78.8283,
+      11.0905,
+      78.8283,
+      11.0905
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9516,
+        11.1182
+      ]
+    },
+    "properties": {
+      "section_na": "KOLAKKANATHAM",
+      "section_co": "352",
+      "subdivisio": "SIRUVACHUR",
+      "region_id": "06",
+      "subdivis_1": "44035",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1787,
+      "search_string": "    kolakkanatham"
+    },
+    "bbox": [
+      78.9516,
+      11.1182,
+      78.9516,
+      11.1182
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8617,
+        11.1734
+      ]
+    },
+    "properties": {
+      "section_na": "SIRUVACHUR",
+      "section_co": "339",
+      "subdivisio": "SIRUVACHUR",
+      "region_id": "06",
+      "subdivis_1": "44035",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1788,
+      "search_string": "    siruvachur"
+    },
+    "bbox": [
+      78.8617,
+      11.1734,
+      78.8617,
+      11.1734
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8912,
+        11.24
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN-PERAMBALUR",
+      "section_co": "331",
+      "subdivisio": "TOWN-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44034",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1789,
+      "search_string": "    town-perambalur"
+    },
+    "bbox": [
+      78.8912,
+      11.24,
+      78.8912,
+      11.24
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8911,
+        11.2401
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH-PERAMBALUR",
+      "section_co": "335",
+      "subdivisio": "TOWN-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44034",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1790,
+      "search_string": "    north-perambalur"
+    },
+    "bbox": [
+      78.8911,
+      11.2401,
+      78.8911,
+      11.2401
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8573,
+        11.4771
+      ]
+    },
+    "properties": {
+      "section_na": "KAIKALATHUR",
+      "section_co": "345",
+      "subdivisio": "KRISHNAPURAM",
+      "region_id": "06",
+      "subdivis_1": "44031",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1791,
+      "search_string": "    kaikalathur"
+    },
+    "bbox": [
+      78.8573,
+      11.4771,
+      78.8573,
+      11.4771
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8199,
+        11.338
+      ]
+    },
+    "properties": {
+      "section_na": "VEPPANTHATTAI",
+      "section_co": "348",
+      "subdivisio": "RURAL-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44032",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1792,
+      "search_string": "    veppanthattai"
+    },
+    "bbox": [
+      78.8199,
+      11.338,
+      78.8199,
+      11.338
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8016,
+        11.2342
+      ]
+    },
+    "properties": {
+      "section_na": "KURUMBALUR",
+      "section_co": "337",
+      "subdivisio": "RURAL-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44032",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1793,
+      "search_string": "    kurumbalur"
+    },
+    "bbox": [
+      78.8016,
+      11.2342,
+      78.8016,
+      11.2342
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.776,
+        11.137
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH-CHETTIKULAM",
+      "section_co": "341",
+      "subdivisio": "SIRUVACHUR",
+      "region_id": "06",
+      "subdivis_1": "44035",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1794,
+      "search_string": "    north-chettikulam"
+    },
+    "bbox": [
+      78.776,
+      11.137,
+      78.776,
+      11.137
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7796,
+        11.1351
+      ]
+    },
+    "properties": {
+      "section_na": "SOUTH-CHETTIKULAM",
+      "section_co": "342",
+      "subdivisio": "SIRUVACHUR",
+      "region_id": "06",
+      "subdivis_1": "44035",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1795,
+      "search_string": "    south-chettikulam"
+    },
+    "bbox": [
+      78.7796,
+      11.1351,
+      78.7796,
+      11.1351
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.8326,
+        11.3026
+      ]
+    },
+    "properties": {
+      "section_na": "ESANAI",
+      "section_co": "338",
+      "subdivisio": "RURAL-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44032",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1796,
+      "search_string": "    esanai"
+    },
+    "bbox": [
+      78.8326,
+      11.3026,
+      78.8326,
+      11.3026
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7883,
+        11.3774
+      ]
+    },
+    "properties": {
+      "section_na": "NORTH-KRISHNAPURAM",
+      "section_co": "343",
+      "subdivisio": "KRISHNAPURAM",
+      "region_id": "06",
+      "subdivis_1": "44031",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1797,
+      "search_string": "    north-krishnapuram"
+    },
+    "bbox": [
+      78.7883,
+      11.3774,
+      78.7883,
+      11.3774
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0661,
+        11.3182
+      ]
+    },
+    "properties": {
+      "section_na": "VEPPUR",
+      "section_co": "350",
+      "subdivisio": "KUNNAM",
+      "region_id": "06",
+      "subdivis_1": "44036",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1798,
+      "search_string": "    veppur"
+    },
+    "bbox": [
+      79.0661,
+      11.3182,
+      79.0661,
+      11.3182
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7446,
+        11.2151
+      ]
+    },
+    "properties": {
+      "section_na": "AMMAPALAYAM",
+      "section_co": "336",
+      "subdivisio": "RURAL-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44032",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1799,
+      "search_string": "    ammapalayam"
+    },
+    "bbox": [
+      78.7446,
+      11.2151,
+      78.7446,
+      11.2151
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7209,
+        11.1612
+      ]
+    },
+    "properties": {
+      "section_na": "NAKKASELAM",
+      "section_co": "383",
+      "subdivisio": "RURAL-PERAMBALUR",
+      "region_id": "06",
+      "subdivis_1": "44032",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1800,
+      "search_string": "    nakkaselam"
+    },
+    "bbox": [
+      78.7209,
+      11.1612,
+      78.7209,
+      11.1612
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7279,
+        11.3816
+      ]
+    },
+    "properties": {
+      "section_na": "ARUMBAVUR",
+      "section_co": "346",
+      "subdivisio": "KRISHNAPURAM",
+      "region_id": "06",
+      "subdivis_1": "44031",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1801,
+      "search_string": "    arumbavur"
+    },
+    "bbox": [
+      78.7279,
+      11.3816,
+      78.7279,
+      11.3816
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7111,
+        11.4154
+      ]
+    },
+    "properties": {
+      "section_na": "POOLAMBADI",
+      "section_co": "347",
+      "subdivisio": "KRISHNAPURAM",
+      "region_id": "06",
+      "subdivis_1": "44031",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1803,
+      "search_string": "    poolambadi"
+    },
+    "bbox": [
+      78.7111,
+      11.4154,
+      78.7111,
+      11.4154
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.7883,
+        11.3774
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL-KRISHNAPURAM",
+      "section_co": "344",
+      "subdivisio": "KRISHNAPURAM",
+      "region_id": "06",
+      "subdivis_1": "44031",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1804,
+      "search_string": "    rural-krishnapuram"
+    },
+    "bbox": [
+      78.7883,
+      11.3774,
+      78.7883,
+      11.3774
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.9286,
+        11.4005
+      ]
+    },
+    "properties": {
+      "section_na": "V.KALATHUR",
+      "section_co": "351",
+      "subdivisio": "LABBAIKUDIKADU",
+      "region_id": "06",
+      "subdivis_1": "44033",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1806,
+      "search_string": "    v.kalathur"
+    },
+    "bbox": [
+      78.9286,
+      11.4005,
+      78.9286,
+      11.4005
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0246,
+        11.3916
+      ]
+    },
+    "properties": {
+      "section_na": "LABBAIKUDIKADU",
+      "section_co": "349",
+      "subdivisio": "LABBAIKUDIKADU",
+      "region_id": "06",
+      "subdivis_1": "44033",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1807,
+      "search_string": "    labbaikudikadu"
+    },
+    "bbox": [
+      79.0246,
+      11.3916,
+      79.0246,
+      11.3916
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.1077,
+        11.291
+      ]
+    },
+    "properties": {
+      "section_na": "THUNGAPURAM",
+      "section_co": "321",
+      "subdivisio": "KUNNAM",
+      "region_id": "06",
+      "subdivis_1": "44036",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1808,
+      "search_string": "    thungapuram"
+    },
+    "bbox": [
+      79.1077,
+      11.291,
+      79.1077,
+      11.291
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0519,
+        11.1849
+      ]
+    },
+    "properties": {
+      "section_na": "MARUTHAIYANKOVIL",
+      "section_co": "319",
+      "subdivisio": "KUNNAM",
+      "region_id": "06",
+      "subdivis_1": "44036",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1809,
+      "search_string": "    maruthaiyankovil"
+    },
+    "bbox": [
+      79.0519,
+      11.1849,
+      79.0519,
+      11.1849
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        79.0246,
+        11.3916
+      ]
+    },
+    "properties": {
+      "section_na": "CHINNARDAM",
+      "section_co": "334",
+      "subdivisio": "LABBAIKUDIKADU",
+      "region_id": "06",
+      "subdivis_1": "44033",
+      "division_n": "PERAMBALUR",
+      "division_c": "4403",
+      "circle_nam": "PERAMBALUR",
+      "circle_cod": "0440",
+      "region_nam": "TRICHY",
+      "object_id": 1828,
+      "search_string": "    chinnardam"
+    },
+    "bbox": [
+      79.0246,
+      11.3916,
+      79.0246,
+      11.3916
+    ]
+  }
+]

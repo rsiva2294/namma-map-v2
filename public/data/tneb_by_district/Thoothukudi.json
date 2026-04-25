@@ -1,0 +1,1682 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9036,
+        8.4405
+      ]
+    },
+    "properties": {
+      "section_na": "URBAN/SATTANKULAM",
+      "section_co": "367",
+      "subdivisio": "SATHANKULAM",
+      "region_id": "07",
+      "subdivis_1": "47043",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2495,
+      "search_string": "    urban/sattankulam"
+    },
+    "bbox": [
+      77.9036,
+      8.4405,
+      77.9036,
+      8.4405
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.157,
+        8.7986
+      ]
+    },
+    "properties": {
+      "section_na": "BEACH ROAD",
+      "section_co": "343",
+      "subdivisio": "URBAN/NORTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2496,
+      "search_string": "    beach road"
+    },
+    "bbox": [
+      78.157,
+      8.7986,
+      78.157,
+      8.7986
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1196,
+        8.5038
+      ]
+    },
+    "properties": {
+      "section_na": "TIRUCHENDUR",
+      "section_co": "361",
+      "subdivisio": "TIRUCHENDUR",
+      "region_id": "07",
+      "subdivis_1": "47041",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2497,
+      "search_string": "    tiruchendur"
+    },
+    "bbox": [
+      78.1196,
+      8.5038,
+      78.1196,
+      8.5038
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0453,
+        8.5083
+      ]
+    },
+    "properties": {
+      "section_na": "KAYAMOZHI",
+      "section_co": "362",
+      "subdivisio": "TIRUCHENDUR",
+      "region_id": "07",
+      "subdivis_1": "47041",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2498,
+      "search_string": "    kayamozhi"
+    },
+    "bbox": [
+      78.0453,
+      8.5083,
+      78.0453,
+      8.5083
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0393,
+        8.5882
+      ]
+    },
+    "properties": {
+      "section_na": "KURUMBUR",
+      "section_co": "366",
+      "subdivisio": "ARUMUGANERI",
+      "region_id": "07",
+      "subdivis_1": "47042",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2499,
+      "search_string": "    kurumbur"
+    },
+    "bbox": [
+      78.0393,
+      8.5882,
+      78.0393,
+      8.5882
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0511,
+        8.7488
+      ]
+    },
+    "properties": {
+      "section_na": "PUDUKOTTAI",
+      "section_co": "381",
+      "subdivisio": "RURAL/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47031",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2500,
+      "search_string": "    pudukottai"
+    },
+    "bbox": [
+      78.0511,
+      8.7488,
+      78.0511,
+      8.7488
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8504,
+        8.7218
+      ]
+    },
+    "properties": {
+      "section_na": "VALLANADU",
+      "section_co": "382",
+      "subdivisio": "RURAL/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47031",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2501,
+      "search_string": "    vallanadu"
+    },
+    "bbox": [
+      77.8504,
+      8.7218,
+      77.8504,
+      8.7218
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0928,
+        8.6712
+      ]
+    },
+    "properties": {
+      "section_na": "PAZHAYAKAYAL",
+      "section_co": "385",
+      "subdivisio": "RURAL/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47031",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2502,
+      "search_string": "    pazhayakayal"
+    },
+    "bbox": [
+      78.0928,
+      8.6712,
+      78.0928,
+      8.6712
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1528,
+        9.1257
+      ]
+    },
+    "properties": {
+      "section_na": "VILATHIKULAM",
+      "section_co": "386",
+      "subdivisio": "VILATHIKULAM",
+      "region_id": "07",
+      "subdivis_1": "47033",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2503,
+      "search_string": "    vilathikulam"
+    },
+    "bbox": [
+      78.1528,
+      9.1257,
+      78.1528,
+      9.1257
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1469,
+        8.8204
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/NORTH/TUTICORIN",
+      "section_co": "347",
+      "subdivisio": "URBAN/NORTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2504,
+      "search_string": "    rural/north/tuticorin"
+    },
+    "bbox": [
+      78.1469,
+      8.8204,
+      78.1469,
+      8.8204
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1378,
+        9.2254
+      ]
+    },
+    "properties": {
+      "section_na": "NAGALAPURAM",
+      "section_co": "388",
+      "subdivisio": "VILATHIKULAM",
+      "region_id": "07",
+      "subdivis_1": "47033",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2505,
+      "search_string": "    nagalapuram"
+    },
+    "bbox": [
+      78.1378,
+      9.2254,
+      78.1378,
+      9.2254
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9033,
+        8.6312
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/SRIVAIKUNDAM",
+      "section_co": "391",
+      "subdivisio": "SRIVAIKUNDAM",
+      "region_id": "07",
+      "subdivis_1": "47032",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2506,
+      "search_string": "    rural/srivaikundam"
+    },
+    "bbox": [
+      77.9033,
+      8.6312,
+      77.9033,
+      8.6312
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8281,
+        8.6617
+      ]
+    },
+    "properties": {
+      "section_na": "SEYDUNGANALLUR",
+      "section_co": "393",
+      "subdivisio": "SRIVAIKUNDAM",
+      "region_id": "07",
+      "subdivis_1": "47032",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2507,
+      "search_string": "    seydunganallur"
+    },
+    "bbox": [
+      77.8281,
+      8.6617,
+      77.8281,
+      8.6617
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1565,
+        8.8085
+      ]
+    },
+    "properties": {
+      "section_na": "MATTAKADAI",
+      "section_co": "341",
+      "subdivisio": "URBAN/NORTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2508,
+      "search_string": "    mattakadai"
+    },
+    "bbox": [
+      78.1565,
+      8.8085,
+      78.1565,
+      8.8085
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1383,
+        8.817
+      ]
+    },
+    "properties": {
+      "section_na": "STATE BANK COLONY",
+      "section_co": "346",
+      "subdivisio": "URBAN/NORTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2509,
+      "search_string": "    state bank colony"
+    },
+    "bbox": [
+      78.1383,
+      8.817,
+      78.1383,
+      8.817
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1537,
+        8.8041
+      ]
+    },
+    "properties": {
+      "section_na": "SHANMUGAPURAM",
+      "section_co": "345",
+      "subdivisio": "URBAN/NORTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2510,
+      "search_string": "    shanmugapuram"
+    },
+    "bbox": [
+      78.1537,
+      8.8041,
+      78.1537,
+      8.8041
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1251,
+        8.8012
+      ]
+    },
+    "properties": {
+      "section_na": "CHIDAMBARANAGAR",
+      "section_co": "342",
+      "subdivisio": "URBAN/SOUTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2511,
+      "search_string": "    chidambaranagar"
+    },
+    "bbox": [
+      78.1251,
+      8.8012,
+      78.1251,
+      8.8012
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1338,
+        9.2939
+      ]
+    },
+    "properties": {
+      "section_na": "PUDUR",
+      "section_co": "389",
+      "subdivisio": "VILATHIKULAM",
+      "region_id": "07",
+      "subdivis_1": "47033",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2512,
+      "search_string": "    pudur"
+    },
+    "bbox": [
+      78.1338,
+      9.2939,
+      78.1338,
+      9.2939
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8633,
+        9.1795
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/WEST/KOVILPATTI",
+      "section_co": "312",
+      "subdivisio": "URBAN/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47021",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2513,
+      "search_string": "    town/west/kovilpatti"
+    },
+    "bbox": [
+      77.8633,
+      9.1795,
+      77.8633,
+      9.1795
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8633,
+        9.1792
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/SOUTH/KOVILPATTI",
+      "section_co": "314",
+      "subdivisio": "URBAN/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47021",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2514,
+      "search_string": "    town/south/kovilpatti"
+    },
+    "bbox": [
+      77.8633,
+      9.1792,
+      77.8633,
+      9.1792
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0447,
+        8.4818
+      ]
+    },
+    "properties": {
+      "section_na": "PARAMANKURICHI",
+      "section_co": "363",
+      "subdivisio": "TIRUCHENDUR",
+      "region_id": "07",
+      "subdivis_1": "47041",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2515,
+      "search_string": "    paramankurichi"
+    },
+    "bbox": [
+      78.0447,
+      8.4818,
+      78.0447,
+      8.4818
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8587,
+        8.5335
+      ]
+    },
+    "properties": {
+      "section_na": "PALANIAPPAPURAM",
+      "section_co": "369",
+      "subdivisio": "SATHANKULAM",
+      "region_id": "07",
+      "subdivis_1": "47043",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2516,
+      "search_string": "    palaniappapuram"
+    },
+    "bbox": [
+      77.8587,
+      8.5335,
+      77.8587,
+      8.5335
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0153,
+        8.4264
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/UDANGUDY",
+      "section_co": "374",
+      "subdivisio": "UDANGUDY",
+      "region_id": "07",
+      "subdivis_1": "47045",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2517,
+      "search_string": "    rural/udangudy"
+    },
+    "bbox": [
+      78.0153,
+      8.4264,
+      78.0153,
+      8.4264
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9232,
+        8.3743
+      ]
+    },
+    "properties": {
+      "section_na": "NADUVAKURICHI",
+      "section_co": "376",
+      "subdivisio": "UDANGUDY",
+      "region_id": "07",
+      "subdivis_1": "47045",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2518,
+      "search_string": "    naduvakurichi"
+    },
+    "bbox": [
+      77.9232,
+      8.3743,
+      77.9232,
+      8.3743
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8488,
+        8.8212
+      ]
+    },
+    "properties": {
+      "section_na": "PULIAMPATTY",
+      "section_co": "354",
+      "subdivisio": "OTTAPIDARAM",
+      "region_id": "07",
+      "subdivis_1": "47013",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2519,
+      "search_string": "    puliampatty"
+    },
+    "bbox": [
+      77.8488,
+      8.8212,
+      77.8488,
+      8.8212
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0197,
+        8.6252
+      ]
+    },
+    "properties": {
+      "section_na": "ERAL",
+      "section_co": "392",
+      "subdivisio": "SRIVAIKUNDAM",
+      "region_id": "07",
+      "subdivis_1": "47032",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2520,
+      "search_string": "    eral"
+    },
+    "bbox": [
+      78.0197,
+      8.6252,
+      78.0197,
+      8.6252
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1421,
+        8.8086
+      ]
+    },
+    "properties": {
+      "section_na": "TOOVIPURAM",
+      "section_co": "344",
+      "subdivisio": "URBAN/SOUTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47011",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2521,
+      "search_string": "    toovipuram"
+    },
+    "bbox": [
+      78.1421,
+      8.8086,
+      78.1421,
+      8.8086
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9832,
+        8.3644
+      ]
+    },
+    "properties": {
+      "section_na": "PADUKAPATHU",
+      "section_co": "375",
+      "subdivisio": "UDANGUDY",
+      "region_id": "07",
+      "subdivis_1": "47045",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2522,
+      "search_string": "    padukapathu"
+    },
+    "bbox": [
+      77.9832,
+      8.3644,
+      77.9832,
+      8.3644
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0205,
+        8.9048
+      ]
+    },
+    "properties": {
+      "section_na": "OTTAPIDARAM",
+      "section_co": "351",
+      "subdivisio": "OTTAPIDARAM",
+      "region_id": "07",
+      "subdivis_1": "47013",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2523,
+      "search_string": "    ottapidaram"
+    },
+    "bbox": [
+      78.0205,
+      8.9048,
+      78.0205,
+      8.9048
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8929,
+        8.8975
+      ]
+    },
+    "properties": {
+      "section_na": "OTTANATHAM",
+      "section_co": "353",
+      "subdivisio": "OTTAPIDARAM",
+      "region_id": "07",
+      "subdivis_1": "47013",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2524,
+      "search_string": "    ottanatham"
+    },
+    "bbox": [
+      77.8929,
+      8.8975,
+      77.8929,
+      8.8975
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0261,
+        8.8761
+      ]
+    },
+    "properties": {
+      "section_na": "PUTHIAMPUTHUR",
+      "section_co": "352",
+      "subdivisio": "OTTAPIDARAM",
+      "region_id": "07",
+      "subdivis_1": "47013",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2525,
+      "search_string": "    puthiamputhur"
+    },
+    "bbox": [
+      78.0261,
+      8.8761,
+      78.0261,
+      8.8761
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.863,
+        9.1796
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/EAST/KOVILPATTI",
+      "section_co": "311",
+      "subdivisio": "URBAN/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47021",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2526,
+      "search_string": "    town/east/kovilpatti"
+    },
+    "bbox": [
+      77.863,
+      9.1796,
+      77.863,
+      9.1796
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8637,
+        9.1791
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/KOVILPATTI",
+      "section_co": "321",
+      "subdivisio": "RURAL/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47022",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2527,
+      "search_string": "    rural/kovilpatti"
+    },
+    "bbox": [
+      77.8637,
+      9.1791,
+      77.8637,
+      9.1791
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0041,
+        9.158
+      ]
+    },
+    "properties": {
+      "section_na": "ETTAYAPURAM",
+      "section_co": "302",
+      "subdivisio": "RURAL/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47022",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2528,
+      "search_string": "    ettayapuram"
+    },
+    "bbox": [
+      78.0041,
+      9.158,
+      78.0041,
+      9.158
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9399,
+        9.2006
+      ]
+    },
+    "properties": {
+      "section_na": "KADALAIYUR",
+      "section_co": "303",
+      "subdivisio": "RURAL/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47022",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2529,
+      "search_string": "    kadalaiyur"
+    },
+    "bbox": [
+      77.9399,
+      9.2006,
+      77.9399,
+      9.2006
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8225,
+        9.1377
+      ]
+    },
+    "properties": {
+      "section_na": "NALATINPUDUR",
+      "section_co": "304",
+      "subdivisio": "RURAL/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47022",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2530,
+      "search_string": "    nalatinpudur"
+    },
+    "bbox": [
+      77.8225,
+      9.1377,
+      77.8225,
+      9.1377
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.6943,
+        9.1491
+      ]
+    },
+    "properties": {
+      "section_na": "KALUGUMALAI",
+      "section_co": "301",
+      "subdivisio": "RURAL/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47022",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2531,
+      "search_string": "    kalugumalai"
+    },
+    "bbox": [
+      77.6943,
+      9.1491,
+      77.6943,
+      9.1491
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.7735,
+        8.9494
+      ]
+    },
+    "properties": {
+      "section_na": "KAYATHAR",
+      "section_co": "305",
+      "subdivisio": "KAYATHAR",
+      "region_id": "07",
+      "subdivis_1": "47023",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2532,
+      "search_string": "    kayathar"
+    },
+    "bbox": [
+      77.7735,
+      8.9494,
+      77.7735,
+      8.9494
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8594,
+        8.9946
+      ]
+    },
+    "properties": {
+      "section_na": "KADAMBUR",
+      "section_co": "306",
+      "subdivisio": "KAYATHAR",
+      "region_id": "07",
+      "subdivis_1": "47023",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2533,
+      "search_string": "    kadambur"
+    },
+    "bbox": [
+      77.8594,
+      8.9946,
+      77.8594,
+      8.9946
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.964,
+        9.0002
+      ]
+    },
+    "properties": {
+      "section_na": "PASUVANTHANAI",
+      "section_co": "308",
+      "subdivisio": "KAYATHAR",
+      "region_id": "07",
+      "subdivis_1": "47023",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2534,
+      "search_string": "    pasuvanthanai"
+    },
+    "bbox": [
+      77.964,
+      9.0002,
+      77.964,
+      9.0002
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0479,
+        9.013
+      ]
+    },
+    "properties": {
+      "section_na": "EPPODUMVENDRAN",
+      "section_co": "307",
+      "subdivisio": "KAYATHAR",
+      "region_id": "07",
+      "subdivis_1": "47023",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2535,
+      "search_string": "    eppodumvendran"
+    },
+    "bbox": [
+      78.0479,
+      9.013,
+      78.0479,
+      9.013
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0996,
+        8.5689
+      ]
+    },
+    "properties": {
+      "section_na": "ARUMUGANERI",
+      "section_co": "365",
+      "subdivisio": "ARUMUGANERI",
+      "region_id": "07",
+      "subdivis_1": "47042",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2536,
+      "search_string": "    arumuganeri"
+    },
+    "bbox": [
+      78.0996,
+      8.5689,
+      78.0996,
+      8.5689
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1196,
+        8.5668
+      ]
+    },
+    "properties": {
+      "section_na": "KAYALPATINAM",
+      "section_co": "364",
+      "subdivisio": "ARUMUGANERI",
+      "region_id": "07",
+      "subdivis_1": "47042",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2537,
+      "search_string": "    kayalpatinam"
+    },
+    "bbox": [
+      78.1196,
+      8.5668,
+      78.1196,
+      8.5668
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9045,
+        8.4412
+      ]
+    },
+    "properties": {
+      "section_na": "RURAL/SATTANKULAM",
+      "section_co": "368",
+      "subdivisio": "SATHANKULAM",
+      "region_id": "07",
+      "subdivis_1": "47043",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2538,
+      "search_string": "    rural/sattankulam"
+    },
+    "bbox": [
+      77.9045,
+      8.4412,
+      77.9045,
+      8.4412
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9786,
+        8.5631
+      ]
+    },
+    "properties": {
+      "section_na": "NAZARETH",
+      "section_co": "370",
+      "subdivisio": "NAZARETH",
+      "region_id": "07",
+      "subdivis_1": "47044",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2539,
+      "search_string": "    nazareth"
+    },
+    "bbox": [
+      77.9786,
+      8.5631,
+      77.9786,
+      8.5631
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9468,
+        8.6042
+      ]
+    },
+    "properties": {
+      "section_na": "ALWARTHIRUNAGARI",
+      "section_co": "371",
+      "subdivisio": "NAZARETH",
+      "region_id": "07",
+      "subdivis_1": "47044",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2540,
+      "search_string": "    alwarthirunagari"
+    },
+    "bbox": [
+      77.9468,
+      8.6042,
+      77.9468,
+      8.6042
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.0155,
+        8.4267
+      ]
+    },
+    "properties": {
+      "section_na": "URBAN/UDANGUDY",
+      "section_co": "373",
+      "subdivisio": "UDANGUDY",
+      "region_id": "07",
+      "subdivis_1": "47045",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2541,
+      "search_string": "    urban/udangudy"
+    },
+    "bbox": [
+      78.0155,
+      8.4267,
+      78.0155,
+      8.4267
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.2007,
+        9.0141
+      ]
+    },
+    "properties": {
+      "section_na": "KULATHUR",
+      "section_co": "383",
+      "subdivisio": "RURAL/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47031",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2542,
+      "search_string": "    kulathur"
+    },
+    "bbox": [
+      78.2007,
+      9.0141,
+      78.2007,
+      9.0141
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.031,
+        8.6828
+      ]
+    },
+    "properties": {
+      "section_na": "SAWYERPURAM",
+      "section_co": "384",
+      "subdivisio": "RURAL/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47031",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2543,
+      "search_string": "    sawyerpuram"
+    },
+    "bbox": [
+      78.031,
+      8.6828,
+      78.031,
+      8.6828
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.315,
+        9.0969
+      ]
+    },
+    "properties": {
+      "section_na": "SOORANGUDY",
+      "section_co": "387",
+      "subdivisio": "VILATHIKULAM",
+      "region_id": "07",
+      "subdivis_1": "47033",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2544,
+      "search_string": "    soorangudy"
+    },
+    "bbox": [
+      78.315,
+      9.0969,
+      78.315,
+      9.0969
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.9035,
+        8.6316
+      ]
+    },
+    "properties": {
+      "section_na": "TOWN/SRIVAIKUNDAM",
+      "section_co": "390",
+      "subdivisio": "SRIVAIKUNDAM",
+      "region_id": "07",
+      "subdivis_1": "47032",
+      "division_n": "RURAL/TUTICORIN",
+      "division_c": "4703",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2545,
+      "search_string": "    town/srivaikundam"
+    },
+    "bbox": [
+      77.9035,
+      8.6316,
+      77.9035,
+      8.6316
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.996,
+        8.473
+      ]
+    },
+    "properties": {
+      "section_na": "MEIGNANAPURAM",
+      "section_co": "372",
+      "subdivisio": "NAZARETH",
+      "region_id": "07",
+      "subdivis_1": "47044",
+      "division_n": "TIRUCHENDUR",
+      "division_c": "4704",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2546,
+      "search_string": "    meignanapuram"
+    },
+    "bbox": [
+      77.996,
+      8.473,
+      77.996,
+      8.473
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1343,
+        8.7837
+      ]
+    },
+    "properties": {
+      "section_na": "SIPCOT",
+      "section_co": "350",
+      "subdivisio": "URBAN/SOUTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47012",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2547,
+      "search_string": "    sipcot"
+    },
+    "bbox": [
+      78.1343,
+      8.7837,
+      78.1343,
+      8.7837
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.1196,
+        8.7436
+      ]
+    },
+    "properties": {
+      "section_na": "MUTHIAHPURAM",
+      "section_co": "348",
+      "subdivisio": "URBAN/SOUTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47012",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2548,
+      "search_string": "    muthiahpuram"
+    },
+    "bbox": [
+      78.1196,
+      8.7436,
+      78.1196,
+      8.7436
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        78.116,
+        8.7235
+      ]
+    },
+    "properties": {
+      "section_na": "MULLAKADU",
+      "section_co": "349",
+      "subdivisio": "URBAN/SOUTH/TUTICORIN",
+      "region_id": "07",
+      "subdivis_1": "47012",
+      "division_n": "URBAN/TUTICORIN",
+      "division_c": "4701",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2549,
+      "search_string": "    mullakadu"
+    },
+    "bbox": [
+      78.116,
+      8.7235,
+      78.116,
+      8.7235
+    ]
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.8634,
+        9.1791
+      ]
+    },
+    "properties": {
+      "section_na": "VELAYUTHAPURAM",
+      "section_co": "313",
+      "subdivisio": "URBAN/KOVILPATTI",
+      "region_id": "07",
+      "subdivis_1": "47021",
+      "division_n": "KOVILPATTI",
+      "division_c": "4702",
+      "circle_nam": "TUTICORIN",
+      "circle_cod": "0470",
+      "region_nam": "TIRUNELVELI",
+      "object_id": 2550,
+      "search_string": "    velayuthapuram"
+    },
+    "bbox": [
+      77.8634,
+      9.1791,
+      77.8634,
+      9.1791
+    ]
+  }
+]

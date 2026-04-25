@@ -15,6 +15,7 @@ import {
   type LucideIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useMapStore } from '../../store/useMapStore';
 import type { ServiceLayer } from '../../types/gis';
 
@@ -22,7 +23,7 @@ const Sidebar: React.FC = () => {
   const isSidebarOpen = useMapStore(state => state.isSidebarOpen);
   const setSidebarOpen = useMapStore(state => state.setSidebarOpen);
   const activeLayer = useMapStore(state => state.activeLayer);
-  const setActiveLayer = useMapStore(state => state.setActiveLayer);
+  const activeDistrict = useMapStore(state => state.activeDistrict);
   const theme = useMapStore(state => state.theme);
   const toggleTheme = useMapStore(state => state.toggleTheme);
   const constituencyType = useMapStore(state => state.constituencyType);
@@ -96,9 +97,9 @@ const Sidebar: React.FC = () => {
         <div className="sidebar-section-label">Main Services</div>
         {menuItems.map((item) => (
           <React.Fragment key={item.id}>
-            <button
+            <Link
+              to={`/${item.id.toLowerCase()}${activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : ''}`}
               className={`sidebar-menu-item ${activeLayer === item.id ? 'active' : ''}`}
-              onClick={() => setActiveLayer(item.id)}
               aria-pressed={activeLayer === item.id}
             >
               <item.icon size={20} />
@@ -113,7 +114,7 @@ const Sidebar: React.FC = () => {
                   </motion.span>
                 )}
               </AnimatePresence>
-            </button>
+            </Link>
 
             {/* Sub-tabs for Constituencies - Inline after the menu item */}
             {item.id === 'CONSTITUENCY' && (
