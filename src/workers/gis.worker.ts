@@ -102,6 +102,8 @@ const healthDistrictIndexes: Map<string, RBush<SpatialItem>> = new Map();
 let healthManifest: HealthManifest | null = null;
 let healthPriorityGeoJson: GisFeatureCollection | null = null;
 let healthSearchIndex: any[][] | null = null;
+let tnebSearchIndex: any[][] | null = null;
+let policeSearchIndex: any[][] | null = null;
 
 async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<any> {
   // 1. Try Cache First
@@ -613,12 +615,13 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'LOAD_TNEB_STATEWIDE':
       try {
-        if (!tnebOffices) {
-          tnebOffices = await fetchWithRetry('/data/tneb_offices.geojson');
+        if (!tnebSearchIndex) {
+          tnebSearchIndex = await fetchWithRetry('/data/tneb_index.json');
         }
         self.postMessage({ type: 'TNEB_STATEWIDE_LOADED' });
       } catch (err) {
         console.error('[Worker] Error loading TNEB search index:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load TNEB search index' });
       }
       break;
 
@@ -1432,21 +1435,31 @@ self.onmessage = async (e: MessageEvent) => {
         }
       } else {
         // Search other layer-specific items
-        // 3. Search TNEB Offices
-      if (tnebOffices) {
-        tnebOffices.features.forEach((f: GisFeature) => {
-          const name = (f.properties.section_na as string || f.properties.section_office as string || '');
-          const circle = (f.properties.circle_nam as string || '');
-          const code = (f.properties.section_co as string || '');
-          const nameScore = getScore(name, q);
-          const circleScore = getScore(circle, q) * 0.7; // Lower priority for circle matches
-          const codeScore = code.includes(q) ? 60 : 0;
-          const finalScore = Math.max(nameScore, circleScore, codeScore);
-          if (finalScore > 0) {
-            allScored.push({ ...f, score: finalScore + 5, suggestionType: 'TNEB_SECTION' as const });
-          }
-        });
-      }
+        // 3. Search TNEB Offices from Index
+        if (tnebSearchIndex) {
+          tnebSearchIndex.forEach(section => {
+            const [name, sectionCode, circleCode, lat, lng, district] = section;
+            const nameScore = getScore(name, q);
+            const codeScore = sectionCode.toString().includes(q) ? 70 : 0;
+            const finalScore = Math.max(nameScore, codeScore);
+
+            if (finalScore > 0) {
+              allScored.push({
+                type: 'Feature' as const,
+                geometry: { type: 'Point' as const, coordinates: [lng, lat] },
+                properties: { 
+                  section_na: name, 
+                  section_co: sectionCode, 
+                  circle_cod: circleCode, 
+                  district,
+                  office_location: [lng, lat] as [number, number]
+                },
+                score: finalScore + 5,
+                suggestionType: 'TNEB_SECTION' as const
+              } as ScoredSuggestion);
+            }
+          });
+        }
 
       // 4. Search PDS Shops from Index
       if (pdsIndex) {
@@ -1496,16 +1509,28 @@ self.onmessage = async (e: MessageEvent) => {
         });
       }
 
-      // 6. Search Police Stations
-      if (policeStationsGeoJson) {
-        policeStationsGeoJson.features.forEach((f: GisFeature) => {
-          const name = (f.properties.ps_name as string || '');
-          const code = (f.properties.ps_code as string || '');
+      // 6. Search Police Stations from Index
+      if (policeSearchIndex) {
+        policeSearchIndex.forEach(station => {
+          const [name, psCode, lat, lng, district] = station;
           const nameScore = getScore(name, q);
-          const codeScore = code.includes(q) ? 90 : 0;
+          const codeScore = psCode.toString().includes(q) ? 90 : 0;
           const finalScore = Math.max(nameScore, codeScore);
+
           if (finalScore > 0) {
-            allScored.push({ ...f, score: finalScore + 8, suggestionType: 'POLICE_STATION' as const });
+            allScored.push({
+              type: 'Feature' as const,
+              geometry: { type: 'Point' as const, coordinates: [lng, lat] },
+              properties: { 
+                name, 
+                ps_name: name,
+                ps_code: psCode, 
+                district,
+                station_location: [lng, lat] as [number, number]
+              },
+              score: finalScore + 8,
+              suggestionType: 'POLICE_STATION' as const
+            } as ScoredSuggestion);
           }
         });
       }
@@ -1627,22 +1652,13 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'LOAD_POLICE':
       try {
-        if (!policeStationsGeoJson) {
-          const [dataOff] = await Promise.all([
-            fetchWithRetry('/data/tn_police_stations.geojson')
-          ]);
-          
-          const [resCross, resVal] = await Promise.all([
-            fetch('/data/police_crosswalk.json').catch(() => null),
+        if (!policeSearchIndex) {
+          const [indexData, resVal] = await Promise.all([
+            fetchWithRetry('/data/police_index.json'),
             fetch('/data/police_validation.json').catch(() => null)
           ]);
           
-          if (resCross && resCross.ok) {
-            const contentType = resCross.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-              policeCrosswalk = await resCross.json();
-            }
-          }
+          policeSearchIndex = indexData;
 
           if (resVal && resVal.ok) {
             const contentType = resVal.headers.get('content-type');
@@ -1651,24 +1667,25 @@ self.onmessage = async (e: MessageEvent) => {
             }
           }
 
-          policeStationsGeoJson = dataOff as GisFeatureCollection;
-          
-          // Indexing
+          if (!policeStationsGeoJson) {
+            policeStationsGeoJson = { type: 'FeatureCollection', features: [] };
+          }
 
+          // Build RBush from index for statewide proximity search
           policeStationsIndex.load(
-            policeStationsGeoJson.features
-              .filter(f => f.geometry && f.geometry.coordinates)
-              .map(f => ({ ...getBBox(f.geometry), feature: f }))
+            policeSearchIndex!.map(s => ({
+              minX: s[3], minY: s[2], maxX: s[3], maxY: s[2],
+              feature: {
+                type: 'Feature',
+                geometry: { type: 'Point', coordinates: [s[3], s[2]] },
+                properties: { ps_name: s[0], ps_code: s[1], district: s[4], station_location: [s[3], s[2]] }
+              } as GisFeature
+            }))
           );
-
-          // Preprocess stations to handle metadata anomalies
-          policeStationsGeoJson.features.forEach((f: GisFeature) => {
-            f.properties.station_location = f.geometry.coordinates as Position;
-          });
         }
         self.postMessage({ type: 'POLICE_LOADED', payload: { boundaries: policeBoundariesGeoJson, stations: policeStationsGeoJson } });
       } catch (err) {
-        console.error('[Worker] Error loading Police data:', err);
+        console.error('[Worker] Error loading Police index:', err);
         self.postMessage({ type: 'ERROR', payload: 'Failed to load police data' });
       }
       break;
