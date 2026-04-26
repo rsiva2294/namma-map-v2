@@ -39,7 +39,8 @@ export const useGisWorker = () => {
     setSelectedHealthFacility,
     setIsHealthLoading,
     setLocalBodiesData,
-    setSelectedLocalBody
+    setSelectedLocalBody,
+    setSelectedLocalBodyV2
   } = useMapStore();
 
   const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString() || null;
@@ -116,12 +117,16 @@ export const useGisWorker = () => {
               setPoliceResolution(payload);
               const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
               setSearchQuery(stationName);
-            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT') {
+            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT' || payload.layer === 'LOCAL_BODIES_V2') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
-              if (payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT') {
+              if (payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT' || payload.layer === 'LOCAL_BODIES_V2') {
                 if (payload.layer === 'LOCAL_BODIES') {
                   setSelectedLocalBody({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+                }
+                
+                if (payload.layer === 'LOCAL_BODIES_V2') {
+                  setSelectedLocalBodyV2({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
                 }
                 
                 const district = payload.properties.District || payload.properties.district || payload.properties.dist_name || payload.properties.district_n || payload.properties.NAME || payload.properties.DISTRICT;

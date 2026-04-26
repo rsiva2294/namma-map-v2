@@ -20,7 +20,7 @@ export const RouteManager = () => {
     isSyncingRef.current = true;
     if (layer) {
       const upperLayer = layer.toUpperCase() as ServiceLayer;
-      const validLayers: ServiceLayer[] = ['PINCODE', 'PDS', 'TNEB', 'CONSTITUENCY', 'POLICE', 'HEALTH', 'LOCAL_BODIES'];
+      const validLayers: ServiceLayer[] = ['PINCODE', 'PDS', 'TNEB', 'CONSTITUENCY', 'POLICE', 'HEALTH', 'LOCAL_BODIES', 'LOCAL_BODIES_V2'];
       if (validLayers.includes(upperLayer) && upperLayer !== activeLayer) {
         setActiveLayer(upperLayer);
       }

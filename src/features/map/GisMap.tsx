@@ -15,7 +15,8 @@ const MapController: React.FC<{
   result: GisFeature | null; 
   geometry: Geometry | null;
   policeResolution: PoliceResolutionResult | null;
-}> = ({ result, geometry, policeResolution }) => {
+  selectedLocalBodyV2?: GisFeature | null;
+}> = ({ result, geometry, policeResolution, selectedLocalBodyV2 }) => {
   const map = useMap();
   const { isSidebarOpen, activeDistrict, districtsData } = useMapStore();
 
@@ -26,7 +27,21 @@ const MapController: React.FC<{
     const leftPad = isMobile ? 20 : (isSidebarOpen ? 340 : 80);
     const bottomPad = isMobile ? 320 : 80; // Space for bottom sheet
 
-    if (result && result.geometry) {
+    if (selectedLocalBodyV2 && selectedLocalBodyV2.geometry) {
+      try {
+        const bounds = L.geoJSON(selectedLocalBodyV2).getBounds();
+        if (bounds.isValid()) {
+          map.flyToBounds(bounds, { 
+            paddingTopLeft: [leftPad, 120], 
+            paddingBottomRight: [80, bottomPad],
+            maxZoom: 14,
+            duration: 0.8
+          });
+        }
+      } catch (e) {
+        console.warn('Could not fly to V2 bounds', e);
+      }
+    } else if (result && result.geometry) {
       try {
         const bounds = L.geoJSON(result).getBounds();
         if (bounds.isValid()) {
@@ -106,7 +121,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility, loadLocalBodies } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, localBodyType, localBodiesData, selectedLocalBody } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, localBodyType, localBodiesData, selectedLocalBody, selectedLocalBodyV2 } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -552,6 +567,20 @@ const GisMap: React.FC = () => {
           }}
         />
       )}
+
+      {/* Local Bodies V2 Highlight */}
+      {activeLayer === 'LOCAL_BODIES_V2' && selectedLocalBodyV2 && selectedLocalBodyV2.geometry && (
+        <GeoJSON
+          key={`selected-lb-v2-${selectedLocalBodyV2.properties.id}`}
+          data={selectedLocalBodyV2}
+          style={{
+            color: '#6366f1',
+            weight: 4,
+            fillColor: '#6366f1',
+            fillOpacity: 0.25,
+          }}
+        />
+      )}
  
       {activeLayer === 'POLICE' && jurisdictionGeometry && policeResolution?.isBoundaryValid && (
         <GeoJSON
@@ -714,7 +743,12 @@ const GisMap: React.FC = () => {
         </Marker>
       )}
 
-      <MapController result={searchResult} geometry={jurisdictionGeometry} policeResolution={policeResolution} />
+      <MapController 
+        result={searchResult} 
+        geometry={jurisdictionGeometry} 
+        policeResolution={policeResolution}
+        selectedLocalBodyV2={selectedLocalBodyV2}
+      />
 
       {/* Safety check for district data */}
       {activeLayer === 'HEALTH' && isHealthLoading && (

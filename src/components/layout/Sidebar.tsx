@@ -40,6 +40,7 @@ const Sidebar: React.FC = () => {
     { id: 'POLICE', label: 'Police Jurisdictions', icon: Shield },
     { id: 'HEALTH', label: 'Health Facilities', icon: Activity },
     { id: 'LOCAL_BODIES', label: 'Local Bodies', icon: Building2 },
+    { id: 'LOCAL_BODIES_V2', label: 'Local Bodies V2 (Unified)', icon: Building2 },
   ];
 
   return (

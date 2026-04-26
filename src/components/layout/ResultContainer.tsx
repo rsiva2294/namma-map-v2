@@ -8,6 +8,7 @@ import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { getOfficeTypeLabel, getOfficeExplanation } from '../../utils/postal';
 import type { Position, TnebSection, HealthFilters } from '../../types/gis';
+import LocalBodyV2Card from '../../features/local_bodies_v2/components/LocalBodyV2Card';
 
 const ResultContainer: React.FC = () => {
   const activeLayer = useMapStore(state => state.activeLayer);
@@ -22,6 +23,9 @@ const ResultContainer: React.FC = () => {
   const noDataFound = useMapStore(state => state.noDataFound);
   const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
   const setNoDataFound = useMapStore(state => state.setNoDataFound);
+
+  const selectedLocalBodyV2 = useMapStore(state => state.selectedLocalBodyV2);
+  const setSelectedLocalBodyV2 = useMapStore(state => state.setSelectedLocalBodyV2);
 
   const clearSearch = useMapStore(state => state.clearSearch);
   const selectedPostalOffices = useMapStore(state => state.selectedPostalOffices);
@@ -522,6 +526,28 @@ const ResultContainer: React.FC = () => {
           );
         })()}
 
+        {/* Local Bodies V2 - Unified Discovery (Zero-Toggle) */}
+        {activeLayer === 'LOCAL_BODIES_V2' && selectedLocalBodyV2 && (
+          <LocalBodyV2Card 
+            data={selectedLocalBodyV2.properties} 
+            onClose={() => setSelectedLocalBodyV2(null)}
+          />
+        )}
+
+        {activeLayer === 'LOCAL_BODIES_V2' && !selectedLocalBodyV2 && !noDataFound && (
+          <ResultCard
+            key="v2-unified-welcome"
+            themeColor="indigo"
+            title="Simplified Local Body Search"
+            icon={<Building2 size={24} />}
+            data={[
+              { label: 'How it works', value: 'Auto-Identify', isPill: true },
+              { label: 'Instruction', value: 'Just click anywhere on the map. We will automatically tell you if it is a Corporation, Municipality, or Village Panchayat.' }
+            ]}
+            onClose={() => {}}
+          />
+        )}
+
         {/* Health Facility Detail */}
         {activeLayer === 'HEALTH' && selectedHealthFacility && (
           <ResultCard
@@ -621,7 +647,20 @@ const ResultContainer: React.FC = () => {
         )}
 
         {/* No Data Found Card */}
-        {noDataFound && (
+        {noDataFound && activeLayer === 'LOCAL_BODIES_V2' && (
+          <LocalBodyV2Card 
+            data={{
+              id: 'not-found',
+              name: 'Unknown Location',
+              type: 'OUTSIDE_BOUNDARY' as any,
+              district: 'N/A',
+              raw: { lat: lastClickedPoint?.lat, lng: lastClickedPoint?.lng }
+            }}
+            onClose={() => setNoDataFound(false)}
+          />
+        )}
+
+        {noDataFound && activeLayer !== 'LOCAL_BODIES_V2' && (
           <ResultCard
             key="no-data"
             themeColor="blue"

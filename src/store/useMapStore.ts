@@ -21,6 +21,7 @@ import type {
   HealthSummary,
   LocalBodyProperties
 } from '../types/gis';
+import type { LocalBodyV2Feature } from '../types/gis_v2';
 
 interface MapState {
   view: {
@@ -77,6 +78,10 @@ interface MapState {
   localBodiesData: GisFeatureCollection<Geometry, LocalBodyProperties> | null;
   selectedLocalBody: GisFeature<Geometry, LocalBodyProperties> | null;
 
+  // Local Bodies V2
+  selectedLocalBodyV2: LocalBodyV2Feature | null;
+  isV2Loading: boolean;
+
   // Actions
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
@@ -123,6 +128,8 @@ interface MapState {
   setLocalBodyType: (type: MapState['localBodyType']) => void;
   setLocalBodiesData: (data: GisFeatureCollection<Geometry, LocalBodyProperties> | null) => void;
   setSelectedLocalBody: (feature: GisFeature<Geometry, LocalBodyProperties> | null) => void;
+  setSelectedLocalBodyV2: (feature: LocalBodyV2Feature | null) => void;
+  setIsV2Loading: (loading: boolean) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -192,6 +199,8 @@ export const useMapStore = create<MapState>((set) => ({
   localBodyType: 'AUTO',
   localBodiesData: null,
   selectedLocalBody: null,
+  selectedLocalBodyV2: null,
+  isV2Loading: false,
   isHealthLoading: false,
   isLegalModalOpen: false,
   legalTab: 'disclaimer',
@@ -213,6 +222,7 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffice: null,
       selectedHealthFacility: null,
       selectedLocalBody: null,
+      selectedLocalBodyV2: null,
       localBodiesData: null,
       healthDistrictData: state.healthDistrictData,
       healthScope: state.healthScope,
@@ -239,6 +249,7 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null,
       selectedHealthFacility: keepSelection ? state.selectedHealthFacility : null,
       selectedLocalBody: (keepSelection ? state.selectedLocalBody : null) || (result?.properties?.localBodyType ? result as any : null),
+      selectedLocalBodyV2: (keepSelection ? state.selectedLocalBodyV2 : null) || (state.activeLayer === 'LOCAL_BODIES_V2' ? result as any : null),
       healthSummary: keepSelection ? state.healthSummary : null,
       noDataFound: false
     };
@@ -274,19 +285,20 @@ export const useMapStore = create<MapState>((set) => ({
     isReportModalOpen: isOpen, 
     reportContext: context 
   }),
-  setNoDataFound: (val, point = null) => set({ 
+  setNoDataFound: (val, point = null) => set((state) => ({ 
     noDataFound: val, 
     lastClickedPoint: point,
-    // Clear other data to show only the "No Data" card
-    searchResult: val ? null : undefined,
-    jurisdictionDetails: val ? null : undefined,
-    selectedPoliceStation: val ? null : undefined,
-    policeResolution: val ? null : undefined,
-    selectedPostalOffices: val ? null : undefined,
-    selectedPostalOffice: val ? null : undefined,
-    selectedHealthFacility: val ? null : undefined,
-    selectedLocalBody: val ? null : undefined
-  }),
+    // Clear other data only if setting to true
+    searchResult: val ? null : state.searchResult,
+    jurisdictionDetails: val ? null : state.jurisdictionDetails,
+    selectedPoliceStation: val ? null : state.selectedPoliceStation,
+    policeResolution: val ? null : state.policeResolution,
+    selectedPostalOffices: val ? null : state.selectedPostalOffices,
+    selectedPostalOffice: val ? null : state.selectedPostalOffice,
+    selectedHealthFacility: val ? null : state.selectedHealthFacility,
+    selectedLocalBody: val ? null : state.selectedLocalBody,
+    selectedLocalBodyV2: val ? null : state.selectedLocalBodyV2
+  })),
   clearSearch: () => set((state) => ({ 
     searchQuery: '', 
     searchSuggestions: [],
@@ -304,6 +316,7 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPostalOffice: null,
     selectedHealthFacility: null,
     selectedLocalBody: null,
+    selectedLocalBodyV2: null,
     healthDistrictData: state.activeLayer === 'HEALTH' ? state.healthDistrictData : null,
     noDataFound: false,
     lastClickedPoint: null
@@ -355,4 +368,6 @@ export const useMapStore = create<MapState>((set) => ({
   }),
   setLocalBodiesData: (data) => set({ localBodiesData: data }),
   setSelectedLocalBody: (feature) => set({ selectedLocalBody: feature }),
+  setSelectedLocalBodyV2: (feature) => set({ selectedLocalBodyV2: feature }),
+  setIsV2Loading: (loading) => set({ isV2Loading: loading }),
 }));

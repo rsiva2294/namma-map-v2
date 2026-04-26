@@ -44,10 +44,12 @@ function App() {
                      activeLayer === 'TNEB' ? 'Electricity Board (TNEB)' :
                      activeLayer === 'HEALTH' ? 'Health Facilities' :
                      activeLayer === 'POLICE' ? 'Police Stations' : 
-                     activeLayer === 'LOCAL_BODIES' ? 'Local Bodies' : 'Constituencies';
+                     activeLayer === 'LOCAL_BODIES' ? 'Local Bodies' :
+                     activeLayer === 'LOCAL_BODIES_V2' ? 'Unified Local Bodies' : 'Constituencies';
     
     if (searchResult) {
       const locationName = searchResult.properties.office_name || 
+                          searchResult.properties.name || 
                           searchResult.properties.district || 
                           searchResult.properties.District || 
                           searchResult.properties.NAME || 
