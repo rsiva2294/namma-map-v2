@@ -288,6 +288,18 @@ html,
   margin-left: auto;
 }
 
+.badge-experimental {
+  font-size: 8px;
+  padding: 2px 5px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 4px;
+  margin-left: auto;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
 .sidebar-footer {
   margin-top: auto;
   padding-top: 24px;

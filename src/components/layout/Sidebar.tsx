@@ -110,8 +110,19 @@ const Sidebar: React.FC = () => {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
+                    style={{ flex: 1 }}
                   >
                     {item.label}
+                  </motion.span>
+                )}
+                {isSidebarOpen && item.id === 'HEALTH' && (
+                  <motion.span 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="badge-experimental"
+                    title="We are still experimenting with how to show all the health details in a clear manner."
+                  >
+                    EXPERIMENTAL
                   </motion.span>
                 )}
               </AnimatePresence>
