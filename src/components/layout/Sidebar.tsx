@@ -204,6 +204,18 @@ const Sidebar: React.FC = () => {
                   gap: '4px'
                 }}>
                   <button 
+                    onClick={(e) => { e.preventDefault(); setLocalBodyType('AUTO'); }}
+                    style={{
+                      padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, borderRadius: '6px', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'block', width: '100%',
+                      background: localBodyType === 'AUTO' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                      color: localBodyType === 'AUTO' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                      boxShadow: localBodyType === 'AUTO' ? '0 1px 2px rgba(0,0,0,0.05)' : 'none',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    ✨ Auto-Detect (Unified)
+                  </button>
+                  <button 
                     onClick={(e) => { e.preventDefault(); setLocalBodyType('CORPORATION'); }}
                     style={{
                       padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, borderRadius: '6px', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'block', width: '100%',

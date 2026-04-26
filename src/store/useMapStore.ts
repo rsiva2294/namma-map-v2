@@ -73,7 +73,7 @@ interface MapState {
     type: 'All' | 'HO' | 'SO' | 'BO';
   };
 
-  localBodyType: 'CORPORATION' | 'MUNICIPALITY' | 'TOWN_PANCHAYAT' | 'VILLAGE_PANCHAYAT';
+  localBodyType: 'CORPORATION' | 'MUNICIPALITY' | 'TOWN_PANCHAYAT' | 'VILLAGE_PANCHAYAT' | 'AUTO';
   localBodiesData: GisFeatureCollection<Geometry, LocalBodyProperties> | null;
   selectedLocalBody: GisFeature<Geometry, LocalBodyProperties> | null;
 
@@ -189,7 +189,7 @@ export const useMapStore = create<MapState>((set) => ({
     hasCathLab: null
   },
   healthSummary: null,
-  localBodyType: 'CORPORATION',
+  localBodyType: 'AUTO',
   localBodiesData: null,
   selectedLocalBody: null,
   isHealthLoading: false,

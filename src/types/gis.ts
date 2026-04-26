@@ -89,7 +89,7 @@ export interface LocalBodyProperties extends GisProperties {
   Village?: string;
   Block?: string;
   type1?: string;
-  localBodyType?: 'CORPORATION' | 'MUNICIPALITY' | 'TOWN_PANCHAYAT' | 'VILLAGE_PANCHAYAT';
+  localBodyType?: 'CORPORATION' | 'MUNICIPALITY' | 'TOWN_PANCHAYAT' | 'VILLAGE_PANCHAYAT' | 'AUTO';
 }
 
 export type PdsShop = GisFeature<Point, PdsProperties>;

@@ -461,6 +461,21 @@ const ResultContainer: React.FC = () => {
 
         {/* Local Bodies Instruction */}
         {activeLayer === 'LOCAL_BODIES' && !selectedLocalBody && !noDataFound && (() => {
+          if (localBodyType === 'AUTO') {
+            return (
+              <ResultCard
+                key="auto-local-body-prompt"
+                themeColor="slate"
+                title="Unified Discovery"
+                icon={<Building2 size={20} />}
+                data={[
+                  { label: 'Mode', value: 'Auto-Detect', isPill: true },
+                  { label: 'Instruction', value: 'Click anywhere in Tamil Nadu to instantly identify the Corporation, Municipality, Town Panchayat, or Village Panchayat for that location.' }
+                ]}
+                onClose={() => {}}
+              />
+            );
+          }
           const hasVpData = localBodyType === 'VILLAGE_PANCHAYAT' && (localBodiesData?.features?.length ?? 0) > 0;
           if (localBodyType === 'VILLAGE_PANCHAYAT' && !hasVpData) {
             return (
