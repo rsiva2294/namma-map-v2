@@ -499,8 +499,7 @@ const normalizeLocalBodyV2 = (
 
   // Extract District
   const district = (
-    p.District || p.district || p.dist_name || p.DISTRICT || 
-    inferredDistrict || 'Tamil Nadu'
+    inferredDistrict || p.District || p.district || p.dist_name || p.DISTRICT || 'Tamil Nadu'
   ).toString().trim();
 
   return {
@@ -587,6 +586,109 @@ function findFeatureAt(point: [number, number], index: RBush<SpatialItem>, buffe
   });
 
   return foundItem ? foundItem.feature : null;
+}
+
+async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelection?: boolean) {
+  let resolvedLocal: GisFeature | null = null;
+  let resolvedType: LocalBodyV2Type | '' = '';
+
+  // 1. Check Statewide Indices (Corp -> Muni -> TP)
+  if (localBodyIndexes.CORPORATION.all().length === 0) {
+    try {
+      const data = await fetchWithRetry('/data/local_bodies/corporation.json');
+      const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as any;
+      localBodyIndexes.CORPORATION.load(fc.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
+    } catch (e) { console.error('[Worker V2] Corp load failed', e); }
+  }
+
+  resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.CORPORATION);
+  if (resolvedLocal) {
+    resolvedType = 'CORPORATION';
+  }
+
+  if (!resolvedLocal) {
+    if (localBodyIndexes.MUNICIPALITY.all().length === 0) {
+      try {
+        const data = await fetchWithRetry('/data/local_bodies/municipality.json');
+        const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as any;
+        localBodyIndexes.MUNICIPALITY.load(fc.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
+      } catch (e) { console.error('[Worker V2] Muni load failed', e); }
+    }
+    resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.MUNICIPALITY);
+    if (resolvedLocal) {
+      resolvedType = 'MUNICIPALITY';
+    }
+  }
+
+  if (!resolvedLocal) {
+    if (localBodyIndexes.TOWN_PANCHAYAT.all().length === 0) {
+      try {
+        const data = await fetchWithRetry('/data/local_bodies/town_panchayat.json');
+        const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as any;
+        localBodyIndexes.TOWN_PANCHAYAT.load(fc.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
+      } catch (e) { console.error('[Worker V2] TP load failed', e); }
+    }
+    resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.TOWN_PANCHAYAT);
+    if (resolvedLocal) {
+      resolvedType = 'TOWN_PANCHAYAT';
+    }
+  }
+
+  // 2. Check Village Panchayats (District Lazy-Load)
+  if (!resolvedLocal) {
+    const distFeature = findFeatureAt([lng, lat], districtsIndex);
+    if (distFeature) {
+      const districtName = (distFeature.properties.district_n || distFeature.properties.district || distFeature.properties.NAME)?.toString();
+      if (districtName) {
+        const districtClean = (DISTRICT_NAME_MAP[districtName.trim()] || 
+                              DISTRICT_NAME_MAP[districtName.trim().replace(/_/g, ' ')] || 
+                              districtName.split(/[\s_]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('_'));
+
+        if (!loadedVillagePanchayats.has(districtClean)) {
+          try {
+            const data = await fetchWithRetry(`/data/local_bodies/village_panchayat/${districtClean}.json`);
+            let vpFC = data.type === 'Topology' 
+              ? topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) 
+              : data;
+            loadedVillagePanchayats.set(districtClean, vpFC);
+          } catch (err) { console.warn(`[Worker V2] Auto-load VP failed: ${districtClean}`, err); }
+        }
+
+        const vpData = loadedVillagePanchayats.get(districtClean);
+        if (vpData) {
+          const scratchIndex = new RBush<SpatialItem>();
+          scratchIndex.load(vpData.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
+          resolvedLocal = findFeatureAt([lng, lat], scratchIndex);
+          if (resolvedLocal) {
+            resolvedType = 'VILLAGE_PANCHAYAT';
+          }
+        }
+      }
+    }
+  }
+
+  if (resolvedLocal && resolvedType) {
+    const distFeature = findFeatureAt([lng, lat], districtsIndex);
+    const inferredDistrict = (distFeature?.properties.district_n || distFeature?.properties.district || distFeature?.properties.NAME)?.toString();
+    
+    const normalized = normalizeLocalBodyV2(resolvedLocal, resolvedType, inferredDistrict);
+    self.postMessage({
+      type: 'RESOLUTION_RESULT',
+      payload: { 
+        found: true, 
+        properties: normalized, 
+        geometry: resolvedLocal.geometry, 
+        layer: 'LOCAL_BODIES_V2', 
+        keepSelection 
+      }
+    });
+  } else {
+    const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
+    self.postMessage({ 
+      type: 'RESOLUTION_RESULT', 
+      payload: { found: false, lat, lng, layer: 'LOCAL_BODIES_V2', isInsideState: !!isInsideState } 
+    });
+  }
 }
 
 self.onmessage = async (e: MessageEvent) => {
@@ -729,6 +831,52 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
+    case 'SELECT_SUGGESTION': {
+      const { suggestion, layer } = payload;
+      if (!suggestion) break;
+
+      if (layer === 'LOCAL_BODIES_V2') {
+        const suggType = suggestion.suggestionType;
+        
+        // If it's already a local body from suggestions, just return it
+        if (['CORPORATION', 'MUNICIPALITY', 'TOWN_PANCHAYAT', 'VILLAGE_PANCHAYAT'].includes(suggType)) {
+          const normalized = normalizeLocalBodyV2(suggestion, suggType);
+          self.postMessage({
+            type: 'RESOLUTION_RESULT',
+            payload: { found: true, properties: normalized, geometry: suggestion.geometry, layer: 'LOCAL_BODIES_V2' }
+          });
+        } 
+        // If it's a District or Pincode, we should resolve the local body at its center!
+        else if (suggType === 'DISTRICT' || suggType === 'PINCODE') {
+          const centroid = getCentroid(suggestion.geometry);
+          if (centroid) {
+            console.log(`[Worker V2] Suggestion is ${suggType}, resolving Local Body at centroid...`);
+            const [clng, clat] = centroid as [number, number];
+            await handleLocalBodyV2Resolution(clat, clng, true);
+            return;
+          }
+        } else {
+          // Fallback
+          const normalized = normalizeLocalBodyV2(suggestion, (suggType || 'OTHER') as any);
+          self.postMessage({
+            type: 'RESOLUTION_RESULT',
+            payload: { found: true, properties: normalized, geometry: suggestion.geometry, layer: 'LOCAL_BODIES_V2' }
+          });
+        }
+      } else {
+        self.postMessage({ 
+          type: 'RESOLUTION_RESULT', 
+          payload: { 
+            found: true, 
+            properties: suggestion.properties, 
+            geometry: suggestion.geometry, 
+            layer 
+          } 
+        });
+      }
+      break;
+    }
+
     case 'RESOLVE_LOCATION': {
       const { lat, lng, layer, keepSelection, pincode: pincodeOverride } = payload;
       
@@ -848,6 +996,7 @@ self.onmessage = async (e: MessageEvent) => {
                 type: 'RESOLUTION_RESULT',
                 payload: { found: true, properties: { localBodyType: 'VILLAGE_PANCHAYAT', pincode, District: districtName }, geometry: null, layer: 'LOCAL_BODIES', keepSelection }
               });
+              return;
             }
           }
         } else {
@@ -943,121 +1092,8 @@ self.onmessage = async (e: MessageEvent) => {
           }
         }
       } else if (layer === 'LOCAL_BODIES_V2') {
-        let resolvedLocal: GisFeature | null = null;
-        let resolvedType: LocalBodyV2Type | '' = '';
-
-        // 1. Check Statewide Indices (Corp -> Muni -> TP)
-        // Ensure they are loaded
-        if (localBodyIndexes.CORPORATION.all().length === 0) {
-          console.log('[Worker V2] Loading Corporations...');
-          try {
-            const data = await fetchWithRetry('/data/local_bodies/corporation.json');
-            const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as any;
-            localBodyIndexes.CORPORATION.load(fc.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
-            console.log(`[Worker V2] Loaded ${fc.features.length} Corporations`);
-          } catch (e) { console.error('[Worker V2] Corp load failed', e); }
-        }
-
-        resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.CORPORATION);
-        if (resolvedLocal) {
-          resolvedType = 'CORPORATION';
-        }
-
-        if (!resolvedLocal) {
-          if (localBodyIndexes.MUNICIPALITY.all().length === 0) {
-            console.log('[Worker V2] Loading Municipalities...');
-            try {
-              const data = await fetchWithRetry('/data/local_bodies/municipality.json');
-              const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as any;
-              localBodyIndexes.MUNICIPALITY.load(fc.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
-              console.log(`[Worker V2] Loaded ${fc.features.length} Municipalities`);
-            } catch (e) { console.error('[Worker V2] Muni load failed', e); }
-          }
-          resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.MUNICIPALITY);
-          if (resolvedLocal) {
-            resolvedType = 'MUNICIPALITY';
-            console.log(`[Worker V2] Match found: ${resolvedLocal.properties.Municipali || resolvedLocal.properties.name} (MUNICIPALITY)`);
-          }
-        }
-
-        if (!resolvedLocal) {
-          if (localBodyIndexes.TOWN_PANCHAYAT.all().length === 0) {
-            console.log('[Worker V2] Loading Town Panchayats...');
-            try {
-              const data = await fetchWithRetry('/data/local_bodies/town_panchayat.json');
-              const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as any;
-              localBodyIndexes.TOWN_PANCHAYAT.load(fc.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
-              console.log(`[Worker V2] Loaded ${fc.features.length} Town Panchayats`);
-            } catch (e) { console.error('[Worker V2] TP load failed', e); }
-          }
-          resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.TOWN_PANCHAYAT);
-          if (resolvedLocal) {
-            resolvedType = 'TOWN_PANCHAYAT';
-            console.log(`[Worker V2] Match found: ${resolvedLocal.properties.tp_name || resolvedLocal.properties.name} (TOWN_PANCHAYAT)`);
-          }
-        }
-
-        // 2. Check Village Panchayats (District Lazy-Load)
-        if (!resolvedLocal) {
-          console.log('[Worker V2] No statewide match. Checking Districts for VP resolution...');
-          const distFeature = findFeatureAt([lng, lat], districtsIndex);
-          if (distFeature) {
-            const districtName = (distFeature.properties.district_n || distFeature.properties.district || distFeature.properties.NAME)?.toString();
-            console.log(`[Worker V2] Point is in district: ${districtName}`);
-            if (districtName) {
-              const districtClean = (DISTRICT_NAME_MAP[districtName.trim()] || 
-                                    DISTRICT_NAME_MAP[districtName.trim().replace(/_/g, ' ')] || 
-                                    districtName.split(/[\s_]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('_'));
-
-              if (!loadedVillagePanchayats.has(districtClean)) {
-                console.log(`[Worker V2] Loading Village Panchayats for ${districtClean}...`);
-                try {
-                  const data = await fetchWithRetry(`/data/local_bodies/village_panchayat/${districtClean}.json`);
-                  let vpFC = data.type === 'Topology' 
-                    ? topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) 
-                    : data;
-                  loadedVillagePanchayats.set(districtClean, vpFC);
-                  console.log(`[Worker V2] Loaded ${vpFC.features.length} VPs for ${districtClean}`);
-                } catch (err) {
-                  console.warn(`[Worker V2] Auto-load VP failed: ${districtClean}`, err);
-                }
-              }
-
-              const vpData = loadedVillagePanchayats.get(districtClean);
-              if (vpData) {
-                const scratchIndex = new RBush<SpatialItem>();
-                scratchIndex.load(vpData.features.map((f: any) => ({ ...getBBox(f.geometry), feature: f })));
-                resolvedLocal = findFeatureAt([lng, lat], scratchIndex);
-                if (resolvedLocal) {
-                  resolvedType = 'VILLAGE_PANCHAYAT';
-                  console.log(`[Worker V2] Match found: ${resolvedLocal.properties.panchayat_n || resolvedLocal.properties.name} (VILLAGE_PANCHAYAT)`);
-                }
-              }
-            }
-          } else {
-            console.warn('[Worker V2] Point is NOT in any district boundary!');
-          }
-        }
-
-        if (resolvedLocal && resolvedType) {
-          const normalized = normalizeLocalBodyV2(resolvedLocal, resolvedType);
-          console.log('[Worker V2] Returning resolution result:', normalized.name);
-          self.postMessage({
-            type: 'RESOLUTION_RESULT',
-            payload: { 
-              found: true, 
-              properties: normalized, 
-              geometry: resolvedLocal.geometry, 
-              layer: 'LOCAL_BODIES_V2', 
-              keepSelection 
-            }
-          });
-          return;
-        } else {
-          const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
-          self.postMessage({ type: 'RESOLUTION_RESULT', payload: { found: false, lat, lng, layer, isInsideState: !!isInsideState } });
-          return;
-        }
+        await handleLocalBodyV2Resolution(lat, lng, keepSelection);
+        return;
       } else if (layer === 'CONSTITUENCY') {
         const { constituencyType, pincode: pincodeOverride } = payload;
         

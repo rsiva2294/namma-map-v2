@@ -405,7 +405,7 @@ const GisMap: React.FC = () => {
           eventHandlers={{
             click: (e) => {
               L.DomEvent.stopPropagation(e);
-              resolveLocation(lat, lng, 'POLICE', false, undefined, f.properties.ps_code);
+              resolveLocation(lat, lng, 'POLICE', undefined, false, f.properties.ps_code);
             }
           }}
         >
@@ -475,7 +475,8 @@ const GisMap: React.FC = () => {
       )}
       
       {searchResult && !jurisdictionGeometry && searchResult.geometry &&
-        !(activeLayer === 'LOCAL_BODIES' && localBodyType === 'VILLAGE_PANCHAYAT') && (
+        !(activeLayer === 'LOCAL_BODIES' && localBodyType === 'VILLAGE_PANCHAYAT') && 
+        activeLayer !== 'LOCAL_BODIES_V2' && (
         <GeoJSON 
           key={`search-res-${searchResult.properties.PIN_CODE || searchResult.properties.pincode || searchResult.properties.office_name || searchResult.properties.NAME || searchResult.properties.ps_code || 'res'}-${searchResult.geometry.type}`}
           data={searchResult} 

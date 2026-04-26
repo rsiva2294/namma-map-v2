@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useMapStore } from '../store/useMapStore';
-import type { GisFeature, Geometry, HealthFilters, HealthScope, Position } from '../types/gis';
+import type { Geometry, HealthFilters, HealthScope } from '../types/gis';
 import { APP_VERSION } from '../constants';
 
 // Singleton worker instance to avoid multiple threads and memory bloat
@@ -75,8 +75,8 @@ const initializeWorkerListener = () => {
               const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME || payload.properties.district_n;
               if (district) {
                 const districtName = district.toString();
-                if (state.discoveryScope === 'STATE') {
-                   useMapStore.setState({ discoveryScope: 'DISTRICT', activeDistrict: districtName });
+                if (state.healthScope === 'STATE') {
+                   useMapStore.setState({ healthScope: 'DISTRICT', activeDistrict: districtName });
                 }
               }
             }
@@ -170,9 +170,9 @@ export const useGisWorker = () => {
   }, []);
   const loadConstituencies = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
   const loadPoliceData = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_POLICE' }), []);
-  const loadPostalDistrict = useCallback((district: string) => {
-    sharedWorker?.postMessage({ type: 'LOAD_POSTAL_DISTRICT', payload: { district } });
-  }, []);
+  // const loadPostalDistrict = useCallback((district: string) => {
+  //   sharedWorker?.postMessage({ type: 'LOAD_POSTAL_DISTRICT', payload: { district } });
+  // }, []);
   const loadHealthManifest = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_HEALTH_MANIFEST' }), []);
   const loadHealthPriority = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_HEALTH_PRIORITY' }), []);
   const loadHealthDistrict = useCallback((district: string, file_name: string) => {
@@ -195,11 +195,11 @@ export const useGisWorker = () => {
     sharedWorker?.postMessage({ type: 'LOAD_LOCAL_BODIES', payload: { localBodyType, district } });
   }, []);
 
-  const resolveLocation = useCallback((lat: number, lng: number, layer: string, pincode?: string, keepSelection: boolean = false) => {
+  const resolveLocation = useCallback((lat: number, lng: number, layer: string, pincode?: string, keepSelection: boolean = false, stationCode?: string) => {
     useMapStore.getState().setIsResolving(true);
     sharedWorker?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { lat, lng, layer, pincode, keepSelection }
+      payload: { lat, lng, layer, pincode, keepSelection, stationCode }
     });
   }, []);
 

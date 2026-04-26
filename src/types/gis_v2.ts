@@ -1,4 +1,4 @@
-import type { Geometry, GisProperties, GisFeature } from './gis';
+import type { Geometry, GisFeature } from './gis';
 
 export type LocalBodyV2Type = 
   | 'CORPORATION' 
@@ -10,7 +10,8 @@ export type LocalBodyV2Type =
  * Strict schema for Local Bodies V2.
  * All messy raw properties are normalized into this format in the worker.
  */
-export interface LocalBodyV2Properties extends GisProperties {
+export interface LocalBodyV2Properties {
+  [key: string]: any; // Relaxed index signature for normalization
   // Common normalized fields
   id: string;
   name: string;

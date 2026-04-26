@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building2, X, Navigation, AlertCircle, Info } from 'lucide-react';
+import { Building2, X, AlertCircle } from 'lucide-react';
 import type { LocalBodyV2Properties } from '../../../types/gis_v2';
-import { useMapStore } from '../../../store/useMapStore';
 
 interface LocalBodyV2CardProps {
   data: LocalBodyV2Properties;
@@ -16,6 +15,8 @@ const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ data, onClose }) => {
       case 'MUNICIPALITY': return 'Municipality';
       case 'TOWN_PANCHAYAT': return 'Town Panchayat';
       case 'VILLAGE_PANCHAYAT': return 'Village Panchayat';
+      case 'DISTRICT': return 'District Boundary';
+      case 'PINCODE': return 'Pincode Area';
       case 'OUTSIDE_BOUNDARY' as any: return 'Unknown Area';
       default: return 'Local Body';
     }
@@ -88,27 +89,8 @@ const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ data, onClose }) => {
               )}
             </div>
 
-            <div className="v2-instruction-box">
-              <Info size={16} />
-              <p>This information is resolved automatically based on your location. No manual layer switching is required in V2.</p>
-            </div>
           </>
         )}
-      </div>
-
-      <div className="card-footer">
-        <button className="v2-action-btn primary" onClick={() => {
-           window.open(`https://www.google.com/maps/search/${encodeURIComponent(`${data.name} ${data.type} ${data.district}`)}`, '_blank');
-        }}>
-          <Navigation size={18} />
-          FIND OFFICE
-        </button>
-        <button className="v2-action-btn secondary" onClick={() => {
-           useMapStore.getState().setReportModal(true, { type: 'Local Body V2', data: data as any });
-        }}>
-          <AlertCircle size={18} />
-          REPORT ISSUE
-        </button>
       </div>
     </motion.div>
   );
