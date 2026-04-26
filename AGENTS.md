@@ -15,6 +15,10 @@ The app relies on:
 
 This file defines the default engineering rules an AI tool must follow for every change.
 
+## AI Interaction Rules
+
+- **MANDATORY APPROVAL:** You are NOT allowed to perform `git commit`, `git push`, `npm run build`, `firebase deploy`, or any browser-based automated testing without taking explicit approval from the USER first. Always ask before execution.
+
 ## Source Of Truth
 
 - Treat the running code as the primary source of truth.
