@@ -6,7 +6,7 @@ import { useMapStore } from '../../store/useMapStore';
 import ResultCard from '../ResultCard';
 import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
-import { getOfficeTypeLabel, getDeliveryLabel, getOfficeExplanation } from '../../utils/postal';
+import { getOfficeTypeLabel, getOfficeExplanation } from '../../utils/postal';
 import type { Position, TnebSection, HealthFilters } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
@@ -236,15 +236,13 @@ const ResultContainer: React.FC = () => {
                 ...(validOffices.length > 0 ? [
                   { 
                     label: 'Local Offices', 
-                    value: `${validOffices.length} found`,
-                    subValue: validOffices.map(o => o.officename).join(', ')
+                    value: `${validOffices.length} found`
                   }
                 ] : []),
                 ...(outlierOffices.length > 0 ? [
                   {
                     label: 'Potential Data Errors',
-                    value: `${outlierOffices.length} offices misplaced`,
-                    subValue: outlierOffices.map(o => o.officename).join(', ')
+                    value: `${outlierOffices.length} offices misplaced`
                   }
                 ] : [])
               ]}
@@ -268,7 +266,6 @@ const ResultContainer: React.FC = () => {
             badges={selectedPostalOffice.isOutlier ? [{ label: 'Location Accuracy Warning', color: '#f97316', icon: <AlertCircle size={12} /> }] : []}
             data={[
               { label: '📍 PIN Code', value: selectedPostalOffice.pincode, isPill: true },
-              { label: '📬 Delivery Status', value: getDeliveryLabel(selectedPostalOffice.delivery) },
               { label: '🏢 Office Type', value: getOfficeTypeLabel(selectedPostalOffice.officetype) },
               { label: '💡 About this office', value: getOfficeExplanation(selectedPostalOffice.officetype, selectedPostalOffice.delivery) },
               { label: '🗺️ District', value: selectedPostalOffice.district },

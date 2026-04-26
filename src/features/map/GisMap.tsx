@@ -8,7 +8,7 @@ import type { GisFeature, PdsShop, Geometry, Point, PoliceStationProperties, Hea
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import { getOfficeTypeLabel, getDeliveryLabel } from '../../utils/postal';
+import { getOfficeTypeLabel } from '../../utils/postal';
 import { PostalLegendPanel } from '../postal/PostalFiltersPanel';
 
 const MapController: React.FC<{ 
@@ -477,7 +477,7 @@ const GisMap: React.FC = () => {
           <Tooltip direction="top" offset={[0, -10]} opacity={1}>
             <div style={{ padding: '4px 8px' }}>
               <div style={{ fontWeight: 'bold', fontSize: '14px' }}>{po.officename}</div>
-              <div style={{ fontSize: '12px', opacity: 0.8 }}>{getOfficeTypeLabel(po.officetype)} • {getDeliveryLabel(po.delivery)}</div>
+              <div style={{ fontSize: '12px', opacity: 0.8 }}>{getOfficeTypeLabel(po.officetype)}</div>
             </div>
           </Tooltip>
         </Marker>
