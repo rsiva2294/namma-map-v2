@@ -116,11 +116,18 @@ export const useGisWorker = () => {
               setPoliceResolution(payload);
               const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
               setSearchQuery(stationName);
-            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES') {
+            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
-              if (payload.layer === 'LOCAL_BODIES') {
-                setSelectedLocalBody({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+              if (payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT') {
+                if (payload.layer === 'LOCAL_BODIES') {
+                  setSelectedLocalBody({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+                }
+                
+                const district = payload.properties.District || payload.properties.district || payload.properties.dist_name || payload.properties.district_n || payload.properties.NAME || payload.properties.DISTRICT;
+                if (district) {
+                  setActiveDistrict(district.toString());
+                }
               }
               
               if (payload.layer === 'PINCODE' && payload.postalOffices) {
@@ -230,7 +237,10 @@ export const useGisWorker = () => {
           break;
         }
         case 'LOCAL_BODIES_DATA': {
-          setLocalBodiesData(payload.features);
+          setLocalBodiesData({
+            type: 'FeatureCollection',
+            features: payload.features
+          });
           break;
         }
         case 'HEALTH_SEARCH_INDEX_LOADED':

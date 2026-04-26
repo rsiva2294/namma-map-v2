@@ -101,6 +101,15 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
     };
   }, [map, onResolve, activeLayer]);
 
+  // Handle Local Bodies auto-resolution for Village Panchayats
+  const { localBodyType, activeDistrict } = useMapStore();
+  useEffect(() => {
+    if (activeLayer === 'LOCAL_BODIES' && localBodyType === 'VILLAGE_PANCHAYAT' && !activeDistrict) {
+      const center = map.getCenter();
+      onResolve(center.lat, center.lng, 'DISTRICT');
+    }
+  }, [activeLayer, localBodyType, activeDistrict, map, onResolve]);
+
   return null;
 };
 
@@ -519,14 +528,14 @@ const GisMap: React.FC = () => {
       {/* Local Bodies Layers */}
       {activeLayer === 'LOCAL_BODIES' && localBodiesData && (
         <GeoJSON
-          key={`local-bodies-${localBodyType}`}
+          key={`local-bodies-${localBodyType}-${activeDistrict || 'statewide'}-${localBodiesData.features.length}`}
           data={localBodiesData}
           style={{
-            color: theme === 'dark' ? '#94a3b8' : '#64748b',
-            weight: 1.5,
+            color: theme === 'dark' ? '#94a3b8' : '#475569',
+            weight: 2,
             fillColor: theme === 'dark' ? '#475569' : '#94a3b8',
-            fillOpacity: 0.1,
-            dashArray: '3'
+            fillOpacity: 0.15,
+            dashArray: localBodyType === 'VILLAGE_PANCHAYAT' ? '0' : '3'
           }}
           onEachFeature={(_, layer) => {
             layer.on('click', (e) => {

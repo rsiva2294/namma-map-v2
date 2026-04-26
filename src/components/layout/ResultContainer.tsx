@@ -22,6 +22,7 @@ const ResultContainer: React.FC = () => {
   const noDataFound = useMapStore(state => state.noDataFound);
   const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
   const setNoDataFound = useMapStore(state => state.setNoDataFound);
+  const setSearchResult = useMapStore(state => state.setSearchResult);
   const clearSearch = useMapStore(state => state.clearSearch);
   const selectedPostalOffices = useMapStore(state => state.selectedPostalOffices);
   const selectedPostalOffice = useMapStore(state => state.selectedPostalOffice);
