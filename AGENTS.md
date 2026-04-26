@@ -18,6 +18,7 @@ This file defines the default engineering rules an AI tool must follow for every
 ## AI Interaction Rules
 
 - **MANDATORY APPROVAL:** You are NOT allowed to perform `git commit`, `git push`, `npm run build`, `firebase deploy`, or any browser-based automated testing without taking explicit approval from the USER first. Always ask before execution.
+- **PLANNING FIRST:** If a request requires a significant amount of work or affects multiple files, you MUST prepare a detailed implementation plan and wait for explicit approval before starting any execution.
 
 ## Source Of Truth
 
