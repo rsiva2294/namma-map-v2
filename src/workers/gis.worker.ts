@@ -531,7 +531,7 @@ function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
   return inside;
 }
 
-function findFeatureAt(point: [number, number], index: RBush<SpatialItem>, buffer = 0.00001) {
+function findFeatureAt(point: [number, number], index: RBush<SpatialItem>, buffer = 0.0001) {
   const [lng, lat] = point;
   const candidates = index.search({ 
     minX: lng - buffer, 
@@ -822,11 +822,19 @@ self.onmessage = async (e: MessageEvent) => {
           }
 
           // --- Click resolution path: find VP at clicked point in the spatial index ---
-          const vpHit = findFeatureAt([lng, lat], localBodyIndexes.VILLAGE_PANCHAYAT);
+          let vpHit = findFeatureAt([lng, lat], localBodyIndexes.VILLAGE_PANCHAYAT);
+          
+          // If no VP found, try to check other local bodies in case they are visible or it's a cross-click
+          if (!vpHit) {
+            vpHit = findFeatureAt([lng, lat], localBodyIndexes.CORPORATION) || 
+                    findFeatureAt([lng, lat], localBodyIndexes.MUNICIPALITY) || 
+                    findFeatureAt([lng, lat], localBodyIndexes.TOWN_PANCHAYAT);
+          }
+
           if (vpHit) {
             self.postMessage({
               type: 'RESOLUTION_RESULT',
-              payload: { found: true, properties: { ...vpHit.properties, localBodyType: 'VILLAGE_PANCHAYAT' }, geometry: vpHit.geometry, layer: 'LOCAL_BODIES', keepSelection }
+              payload: { found: true, properties: { ...vpHit.properties }, geometry: vpHit.geometry, layer: 'LOCAL_BODIES', keepSelection }
             });
           } else {
             const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
@@ -1820,22 +1828,53 @@ self.onmessage = async (e: MessageEvent) => {
         if (localBodyType === 'CORPORATION') {
           if (localBodyIndexes.CORPORATION.all().length === 0) {
             const data = await fetchWithRetry('/data/local_bodies/corporation.json');
-            const fc = topojson.feature(data, data.objects.Corporation) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
-            localBodyIndexes.CORPORATION.load(fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: { ...f, properties: { ...f.properties, localBodyType: 'CORPORATION' as const } } })));
+            const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
+            localBodyIndexes.CORPORATION.load(fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ 
+              ...getBBox(f.geometry), 
+              feature: { 
+                ...f, 
+                properties: { 
+                  ...f.properties, 
+                  localBodyType: 'CORPORATION' as const,
+                  // Ensure name is always accessible despite truncation
+                  name: f.properties.name || f.properties.Corporatio || f.properties.Corporation
+                } 
+              } 
+            })));
           }
           features = localBodyIndexes.CORPORATION.all().map(i => i.feature);
         } else if (localBodyType === 'MUNICIPALITY') {
           if (localBodyIndexes.MUNICIPALITY.all().length === 0) {
             const data = await fetchWithRetry('/data/local_bodies/municipality.json');
-            const fc = topojson.feature(data, data.objects.Municipality) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
-            localBodyIndexes.MUNICIPALITY.load(fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: { ...f, properties: { ...f.properties, localBodyType: 'MUNICIPALITY' as const } } })));
+            const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
+            localBodyIndexes.MUNICIPALITY.load(fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ 
+              ...getBBox(f.geometry), 
+              feature: { 
+                ...f, 
+                properties: { 
+                  ...f.properties, 
+                  localBodyType: 'MUNICIPALITY' as const,
+                  name: f.properties.name || f.properties.Municipali || f.properties.Municipality
+                } 
+              } 
+            })));
           }
           features = localBodyIndexes.MUNICIPALITY.all().map(i => i.feature);
         } else if (localBodyType === 'TOWN_PANCHAYAT') {
           if (localBodyIndexes.TOWN_PANCHAYAT.all().length === 0) {
             const data = await fetchWithRetry('/data/local_bodies/town_panchayat.json');
-            const fc = topojson.feature(data, data.objects.Town_Panchayat) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
-            localBodyIndexes.TOWN_PANCHAYAT.load(fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: { ...f, properties: { ...f.properties, localBodyType: 'TOWN_PANCHAYAT' as const } } })));
+            const fc = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
+            localBodyIndexes.TOWN_PANCHAYAT.load(fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ 
+              ...getBBox(f.geometry), 
+              feature: { 
+                ...f, 
+                properties: { 
+                  ...f.properties, 
+                  localBodyType: 'TOWN_PANCHAYAT' as const,
+                  name: f.properties.name || f.properties.tp_name || f.properties.TP_Name
+                } 
+              } 
+            })));
           }
           features = localBodyIndexes.TOWN_PANCHAYAT.all().map(i => i.feature);
         } else if (localBodyType === 'VILLAGE_PANCHAYAT' && district) {

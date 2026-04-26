@@ -263,6 +263,7 @@ const ResultContainer: React.FC = () => {
                  window.open(`https://www.google.com/maps/dir/?api=1&destination=${mainOffice.latitude},${mainOffice.longitude}`, '_blank');
               } : undefined}
               onReport={() => handleReport('Pincode Area', searchResult.properties)}
+              showAccuracy={true}
             />
           );
         })()}
@@ -288,6 +289,7 @@ const ResultContainer: React.FC = () => {
               window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedPostalOffice.latitude},${selectedPostalOffice.longitude}`, '_blank');
             } : undefined}
             onReport={() => handleReport('Post Office', selectedPostalOffice as unknown as Record<string, unknown>)}
+            showAccuracy={true}
           />
         )}
 
@@ -315,6 +317,7 @@ const ResultContainer: React.FC = () => {
                   actionLabel="VIEW DETAILS"
                   onAction={() => setSelectedPostalOffice(off)}
                   onClose={() => {}} 
+                  showAccuracy={true}
                 />
               ))}
             </div>
@@ -426,8 +429,10 @@ const ResultContainer: React.FC = () => {
         {/* Local Body Detail */}
         {activeLayer === 'LOCAL_BODIES' && selectedLocalBody && (() => {
           const p = selectedLocalBody.properties;
-          // VP name: cover common TN GIS property names
-          const vpName = p.panchayat_n || p.panchayat || p.Panchayat || p.vp_name || p.name || p.Village || p.Corporatio || p.Municipali;
+          // VP name: cover common TN GIS property names and handle truncation from various datasets
+          const vpName = p.panchayat_n || p.panchayat || p.Panchayat || p.vp_name || p.name || p.Village || 
+                         p.Corporatio || p.Corporation || p.Municipali || p.Municipality || p.tp_name || p.TP_Name;
+          const districtName = p.District || p.district || p.dist_name || p.DISTRICT || 'N/A';
           return (
             <ResultCard
               key="local-body-detail"
@@ -442,7 +447,7 @@ const ResultContainer: React.FC = () => {
                 },
                 { 
                   label: 'District', 
-                  value: (p.District || p.district || p.dist_name || 'N/A').toString() 
+                  value: districtName.toString() 
                 },
                 ...(p.Block ? [{ label: 'Block', value: p.Block.toString() }] : []),
                 ...(p.taluk || p.Taluk ? [{ label: 'Taluk', value: (p.taluk || p.Taluk)!.toString() }] : []),

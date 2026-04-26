@@ -49,8 +49,9 @@ function App() {
     if (searchResult) {
       const locationName = searchResult.properties.office_name || 
                           searchResult.properties.district || 
+                          searchResult.properties.District || 
                           searchResult.properties.NAME || 
-                          (searchResult.properties.pin_code || searchResult.properties.PIN_CODE);
+                          (searchResult.properties.pin_code || searchResult.properties.PIN_CODE || searchResult.properties.pincode);
       return `${layerName} in ${locationName} | NammaMap`;
     }
 

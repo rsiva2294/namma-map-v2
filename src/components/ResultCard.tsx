@@ -13,6 +13,7 @@ export interface ResultCardProps {
   onReport?: () => void;
   actionLabel?: string;
   onAction?: () => void;
+  showAccuracy?: boolean;
 }
 
 const colorMap = {
@@ -55,7 +56,8 @@ const colorMap = {
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ 
-  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction 
+  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction,
+  showAccuracy = false 
 }) => {
   const colors = colorMap[themeColor];
 
@@ -127,21 +129,23 @@ const ResultCard: React.FC<ResultCardProps> = ({
       )}
 
       {/* Accuracy Disclaimer */}
-      <div style={{ 
-        padding: '8px 12px', 
-        margin: '0 16px 12px 16px', 
-        borderRadius: '8px', 
-        background: 'rgba(0,0,0,0.03)', 
-        border: '1px dashed rgba(0,0,0,0.1)',
-        fontSize: '10px',
-        color: 'var(--text-secondary)',
-        lineHeight: '1.4',
-        display: 'flex',
-        gap: '6px'
-      }}>
-        <span style={{ fontSize: '12px', marginTop: '-1px' }}>📍</span>
-        <span><strong>Accuracy:</strong> Vicinity only. The office is located within 200m of this point.</span>
-      </div>
+      {showAccuracy && (
+        <div style={{ 
+          padding: '8px 12px', 
+          margin: '0 16px 12px 16px', 
+          borderRadius: '8px', 
+          background: 'rgba(0,0,0,0.03)', 
+          border: '1px dashed rgba(0,0,0,0.1)',
+          fontSize: '10px',
+          color: 'var(--text-secondary)',
+          lineHeight: '1.4',
+          display: 'flex',
+          gap: '6px'
+        }}>
+          <span style={{ fontSize: '12px', marginTop: '-1px' }}>📍</span>
+          <span><strong>Accuracy:</strong> Vicinity only. The office is located within 200m of this point.</span>
+        </div>
+      )}
 
       {/* Body */}
       <div className="result-card-body">
