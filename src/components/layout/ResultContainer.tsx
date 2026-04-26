@@ -7,10 +7,12 @@ import ResultCard from '../ResultCard';
 import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { getOfficeTypeLabel, getOfficeExplanation } from '../../utils/postal';
+import { LocalBodyV2Card } from '../../features/local_bodies_v2/components/LocalBodyV2Card';
 import type { Position, TnebSection, HealthFilters } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
   const activeLayer = useMapStore(state => state.activeLayer);
+  const theme = useMapStore(state => state.theme);
   const selectedPdsShop = useMapStore(state => state.selectedPdsShop);
   const setSelectedPdsShop = useMapStore(state => state.setSelectedPdsShop);
   const searchResult = useMapStore(state => state.searchResult);
@@ -31,6 +33,8 @@ const ResultContainer: React.FC = () => {
   const healthSummary = useMapStore(state => state.healthSummary);
   const healthScope = useMapStore(state => state.healthScope);
   const activeDistrict = useMapStore(state => state.activeDistrict);
+  const selectedLocalBodyV2 = useMapStore(state => state.selectedLocalBodyV2);
+  const isV2Loading = useMapStore(state => state.isV2Loading);
   const { filterHealth } = useGisWorker();
 
   const handleReport = (type: string, rawData: Record<string, unknown>) => {
@@ -380,6 +384,35 @@ const ResultContainer: React.FC = () => {
               method: policeResolution.debug.method
             })}
           />
+        )}
+
+        {/* Local Body V2 Info */}
+        {activeLayer === 'LOCAL_BODIES_V2' && (isV2Loading || selectedLocalBodyV2) && (
+          <div className="v2-card-wrapper" style={{ padding: '0 8px' }}>
+            {isV2Loading ? (
+              <div style={{
+                background: theme === 'dark' ? '#1e293b' : '#ffffff',
+                padding: '24px',
+                borderRadius: '16px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              }}>
+                <Activity className="animate-pulse" size={32} color="#6366f1" />
+                <span style={{ 
+                  fontWeight: 600, 
+                  fontSize: '0.9rem',
+                  color: theme === 'dark' ? '#94a3b8' : '#64748b' 
+                }}>
+                  Resolving Local Body...
+                </span>
+              </div>
+            ) : selectedLocalBodyV2 && (
+              <LocalBodyV2Card feature={selectedLocalBodyV2} />
+            )}
+          </div>
         )}
 
         {/* Police Layer Instruction */}

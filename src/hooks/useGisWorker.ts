@@ -37,7 +37,9 @@ export const useGisWorker = () => {
     setHealthSummary,
     setHealthScope,
     setSelectedHealthFacility,
-    setIsHealthLoading
+    setIsHealthLoading,
+    setSelectedLocalBodyV2,
+    setIsV2Loading
   } = useMapStore();
 
   const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString() || null;
@@ -110,6 +112,13 @@ export const useGisWorker = () => {
               setPoliceResolution(payload);
               const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
               setSearchQuery(stationName);
+            } else if (payload.layer === 'LOCAL_BODIES_V2') {
+              setSearchResult(null, keepSelection);
+              setSelectedLocalBodyV2({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+              setSearchQuery(payload.properties.name);
+              if (payload.properties.district) {
+                setActiveDistrict(payload.properties.district);
+              }
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
               
@@ -166,6 +175,7 @@ export const useGisWorker = () => {
             }
           }
           setIsResolving(false);
+          setIsV2Loading(false);
           break;
         case 'TNEB_STATEWIDE_LOADED':
           // statewide search index ready
@@ -292,18 +302,25 @@ export const useGisWorker = () => {
 
   const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false, pincode?: string, stationCode?: string) => {
     setIsResolving(true);
+    if (layer === 'LOCAL_BODIES_V2') setIsV2Loading(true);
     setSearchResult(null, keepSelection);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
       payload: { lat, lng, layer, keepSelection, pincode, stationCode, constituencyType: useMapStore.getState().constituencyType }
     });
-  }, [setSearchResult, setIsResolving]);
+  }, [setSearchResult, setIsResolving, setIsV2Loading]);
 
   const getSuggestions = useCallback((query: string, activeLayer: string) => {
     workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, activeLayer } });
   }, []);
 
   const selectSuggestion = useCallback((item: GisFeature, currentLayer: string) => {
+    if (currentLayer === 'LOCAL_BODIES_V2') {
+      setIsV2Loading(true);
+      workerRef.current?.postMessage({ type: 'SELECT_SUGGESTION', payload: { suggestion: item, layer: currentLayer } });
+      return;
+    }
+
     if (item.suggestionType === 'TNEB_SECTION') {
       if (currentLayer !== 'TNEB') setActiveLayer('TNEB');
       const [lng, lat] = item.geometry.type === 'Point' 

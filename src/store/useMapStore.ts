@@ -20,6 +20,7 @@ import type {
   HealthFilters,
   HealthSummary
 } from '../types/gis';
+import type { LocalBodyV2Feature } from '../types/gis_v2';
 
 interface MapState {
   view: {
@@ -71,8 +72,12 @@ interface MapState {
     delivery: 'All' | 'Delivery' | 'Non Delivery';
     type: 'All' | 'HO' | 'SO' | 'BO';
   };
+  selectedLocalBodyV2: LocalBodyV2Feature | null;
+  isV2Loading: boolean;
 
   // Actions
+  setSelectedLocalBodyV2: (feature: LocalBodyV2Feature | null) => void;
+  setIsV2Loading: (val: boolean) => void;
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
   setSearchQuery: (query: string) => void;
@@ -184,6 +189,8 @@ export const useMapStore = create<MapState>((set) => ({
   isHealthLoading: false,
   isLegalModalOpen: false,
   legalTab: 'disclaimer',
+  selectedLocalBodyV2: null,
+  isV2Loading: false,
   postalFilters: {
     delivery: 'All',
     type: 'All'
@@ -288,6 +295,7 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPostalOffices: null,
     selectedPostalOffice: null,
     selectedHealthFacility: null,
+    selectedLocalBodyV2: null,
     healthDistrictData: state.activeLayer === 'HEALTH' ? state.healthDistrictData : null,
     noDataFound: false,
     lastClickedPoint: null
@@ -331,4 +339,6 @@ export const useMapStore = create<MapState>((set) => ({
   setPostalFilters: (filters) => set((state) => ({
     postalFilters: { ...state.postalFilters, ...filters }
   })),
+  setSelectedLocalBodyV2: (feature) => set({ selectedLocalBodyV2: feature, isResolving: false, isV2Loading: false }),
+  setIsV2Loading: (val) => set({ isV2Loading: val })
 }));

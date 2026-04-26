@@ -15,7 +15,8 @@ const MapController: React.FC<{
   result: GisFeature | null; 
   geometry: Geometry | null;
   policeResolution: PoliceResolutionResult | null;
-}> = ({ result, geometry, policeResolution }) => {
+  selectedLocalBodyV2: any | null;
+}> = ({ result, geometry, policeResolution, selectedLocalBodyV2 }) => {
   const map = useMap();
   const { isSidebarOpen, activeDistrict, districtsData } = useMapStore();
 
@@ -39,6 +40,20 @@ const MapController: React.FC<{
         }
       } catch (e) {
         console.warn('Could not fly to bounds for result', e);
+      }
+    } else if (selectedLocalBodyV2 && selectedLocalBodyV2.geometry) {
+      try {
+        const bounds = L.geoJSON(selectedLocalBodyV2).getBounds();
+        if (bounds.isValid()) {
+          map.flyToBounds(bounds, { 
+            paddingTopLeft: [leftPad, 120], 
+            paddingBottomRight: [80, bottomPad],
+            maxZoom: 14,
+            duration: 0.8
+          });
+        }
+      } catch (e) {
+        console.warn('Could not fly to bounds for V2 result', e);
       }
     } else if (policeResolution && !policeResolution.isBoundaryValid && policeResolution.station) {
       // Fly to station point if boundary is invalid
@@ -106,7 +121,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2 } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -231,6 +246,15 @@ const GisMap: React.FC = () => {
     color: '#1e293b',
     fillOpacity: 0.1,
     dashArray: '5, 5',
+    interactive: false
+  };
+
+  const localBodyV2Style = {
+    fillColor: '#6366f1',
+    weight: 3,
+    opacity: 1,
+    color: '#4f46e5',
+    fillOpacity: 0.1,
     interactive: false
   };
 
@@ -563,6 +587,15 @@ const GisMap: React.FC = () => {
         />
       )}
 
+      {activeLayer === 'LOCAL_BODIES_V2' && selectedLocalBodyV2 && selectedLocalBodyV2.geometry && (
+        <GeoJSON
+          key={`v2-boundary-${selectedLocalBodyV2.properties.id}`}
+          data={selectedLocalBodyV2}
+          style={localBodyV2Style}
+          interactive={false}
+        />
+      )}
+
       {activeLayer === 'PDS' && pdsData && pdsData.features.map((f: GisFeature, i: number) => {
         const [lng, lat] = f.geometry.coordinates as [number, number];
         return (
@@ -671,7 +704,7 @@ const GisMap: React.FC = () => {
         </Marker>
       )}
 
-      <MapController result={searchResult} geometry={jurisdictionGeometry} policeResolution={policeResolution} />
+      <MapController result={searchResult} geometry={jurisdictionGeometry} policeResolution={policeResolution} selectedLocalBodyV2={selectedLocalBodyV2} />
 
       {/* Safety check for district data */}
       {activeLayer === 'HEALTH' && isHealthLoading && (

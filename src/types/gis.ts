@@ -1,4 +1,4 @@
-export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE' | 'HEALTH';
+export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE' | 'HEALTH' | 'LOCAL_BODIES_V2';
 
 export type Position = [number, number];
 export type BBox = [number, number, number, number];

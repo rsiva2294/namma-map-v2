@@ -17,6 +17,7 @@ import type {
   HealthManifest,
   HealthFacilityProperties
 } from '../types/gis';
+import type { LocalBodyV2Properties } from '../types/gis_v2';
 
 import { openDB } from 'idb';
 
@@ -463,6 +464,15 @@ const policeBoundariesIndex = new RBush<SpatialItem>();
 const policeStationsIndex = new RBush<SpatialItem>();
 const pdsIndexes = new Map<string, RBush<SpatialItem>>();
 
+const localBodyIndexes = {
+  CORPORATION: new RBush<SpatialItem>(),
+  MUNICIPALITY: new RBush<SpatialItem>(),
+  TOWN_PANCHAYAT: new RBush<SpatialItem>(),
+  VILLAGE_PANCHAYAT: new RBush<SpatialItem>()
+};
+
+const loadedVillagePanchayats: Map<string, GisFeatureCollection> = new Map();
+
 function getBBox(geometry: Geometry) {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   
@@ -525,6 +535,107 @@ function findFeatureAt(point: [number, number], index: RBush<SpatialItem>, buffe
 
   return foundItem ? foundItem.feature : null;
 }
+
+/**
+ * Priority-based Local Body Resolution (Unified Discovery)
+ */
+async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelection: boolean = false) {
+  let resolvedLocal: GisFeature | null = null;
+  let resolvedType: string = '';
+
+  // 1. Corporation
+  resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.CORPORATION);
+  if (resolvedLocal) resolvedType = 'CORPORATION';
+
+  // 2. Municipality
+  if (!resolvedLocal) {
+    resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.MUNICIPALITY);
+    if (resolvedLocal) resolvedType = 'MUNICIPALITY';
+  }
+
+  // 3. Town Panchayat
+  if (!resolvedLocal) {
+    resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.TOWN_PANCHAYAT);
+    if (resolvedLocal) resolvedType = 'TOWN_PANCHAYAT';
+  }
+
+  // 4. Village Panchayat (Lazy load if needed)
+  if (!resolvedLocal) {
+    // Check current index first
+    resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.VILLAGE_PANCHAYAT);
+    if (resolvedLocal) {
+      resolvedType = 'VILLAGE_PANCHAYAT';
+    } else {
+      // Determine district and load
+      const distFeature = findFeatureAt([lng, lat], districtsIndex);
+      if (distFeature) {
+        const districtName = (distFeature.properties.district_n || distFeature.properties.district || distFeature.properties.NAME || distFeature.properties.dist_name)?.toString();
+        if (districtName) {
+          const districtClean = districtName.toUpperCase().replace(/\s+/g, '_');
+          
+          if (!loadedVillagePanchayats.has(districtClean)) {
+            try {
+              const data = await fetchWithRetry(`/data/local_bodies/village_panchayat/${districtClean}.json`);
+              let vpFC: GisFeatureCollection;
+              if (data.type === 'Topology') {
+                vpFC = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as unknown as GisFeatureCollection;
+              } else {
+                vpFC = data;
+              }
+              loadedVillagePanchayats.set(districtClean, vpFC);
+            } catch (err) {
+              console.warn(`[Worker] Auto-load VP failed: ${districtClean}`, err);
+            }
+          }
+
+          const vpData = loadedVillagePanchayats.get(districtClean);
+          if (vpData) {
+            const scratchIndex = new RBush<SpatialItem>();
+            scratchIndex.load(vpData.features.map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f })));
+            resolvedLocal = findFeatureAt([lng, lat], scratchIndex);
+            if (resolvedLocal) {
+              resolvedType = 'VILLAGE_PANCHAYAT';
+              // Swap current index for this district's VPs to optimize future clicks in same area
+              localBodyIndexes.VILLAGE_PANCHAYAT.clear();
+              localBodyIndexes.VILLAGE_PANCHAYAT.load(vpData.features.map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f })));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if (resolvedLocal) {
+    const normalized: LocalBodyV2Properties = {
+      id: (resolvedLocal.properties.id || resolvedLocal.id || Date.now()).toString(),
+      name: (resolvedLocal.properties.panchayat_n || resolvedLocal.properties.panchayat || resolvedLocal.properties.name || resolvedLocal.properties.Village || resolvedLocal.properties.Corporatio || resolvedLocal.properties.Municipali || resolvedLocal.properties.tp_name || 'Unknown').toString(),
+      type: resolvedType as any,
+      district: (resolvedLocal.properties.District || resolvedLocal.properties.district || resolvedLocal.properties.dist_name || 'Unknown').toString(),
+      block: resolvedLocal.properties.Block?.toString(),
+      taluk: resolvedLocal.properties.taluk?.toString() || resolvedLocal.properties.Taluk?.toString(),
+      category: resolvedLocal.properties.type1?.toString(),
+      raw: resolvedLocal.properties
+    };
+
+    self.postMessage({
+      type: 'RESOLUTION_RESULT',
+      payload: { 
+        found: true, 
+        properties: normalized, 
+        geometry: resolvedLocal.geometry, 
+        layer: 'LOCAL_BODIES_V2', 
+        keepSelection 
+      }
+    });
+  } else {
+    const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
+    self.postMessage({ 
+      type: 'RESOLUTION_RESULT', 
+      payload: { found: false, lat, lng, layer: 'LOCAL_BODIES_V2', isInsideState: !!isInsideState } 
+    });
+  }
+}
+
 
 self.onmessage = async (e: MessageEvent) => {
   const { type, payload } = e.data;
@@ -1001,6 +1112,9 @@ self.onmessage = async (e: MessageEvent) => {
             } 
           });
         }
+      } else if (layer === 'LOCAL_BODIES_V2') {
+        await handleLocalBodyV2Resolution(lat, lng, keepSelection);
+        return;
       }
 
       if (!found) {
@@ -1545,6 +1659,15 @@ self.onmessage = async (e: MessageEvent) => {
         .slice(0, 15); // Show more results now that we have categories
 
       self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: finalSuggestions });
+      break;
+    }
+
+    case 'SELECT_SUGGESTION': {
+      const { suggestion, layer } = payload;
+      if (layer === 'LOCAL_BODIES_V2' && suggestion.suggestionType === 'PINCODE') {
+        const centroid = getCentroid(suggestion.geometry);
+        await handleLocalBodyV2Resolution(centroid[1], centroid[0], false);
+      }
       break;
     }
 
