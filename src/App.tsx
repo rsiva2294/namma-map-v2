@@ -43,7 +43,8 @@ function App() {
                      activeLayer === 'PDS' ? 'Ration Shops' :
                      activeLayer === 'TNEB' ? 'Electricity Board (TNEB)' :
                      activeLayer === 'HEALTH' ? 'Health Facilities' :
-                     activeLayer === 'POLICE' ? 'Police Stations' : 'Constituencies';
+                     activeLayer === 'POLICE' ? 'Police Stations' : 
+                     activeLayer === 'LOCAL_BODIES' ? 'Local Bodies' : 'Constituencies';
     
     if (searchResult) {
       const locationName = searchResult.properties.office_name || 

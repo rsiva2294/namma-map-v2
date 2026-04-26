@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield, Activity } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield, Activity, Building2 } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useMapStore } from '../../store/useMapStore';
@@ -31,6 +31,8 @@ const ResultContainer: React.FC = () => {
   const healthSummary = useMapStore(state => state.healthSummary);
   const healthScope = useMapStore(state => state.healthScope);
   const activeDistrict = useMapStore(state => state.activeDistrict);
+  const selectedLocalBody = useMapStore(state => state.selectedLocalBody);
+  const setSelectedLocalBody = useMapStore(state => state.setSelectedLocalBody);
   const { filterHealth } = useGisWorker();
 
   const handleReport = (type: string, rawData: Record<string, unknown>) => {
@@ -79,6 +81,12 @@ const ResultContainer: React.FC = () => {
         'Type': (rawData.facility_t as string) || 'N/A',
         'District': (rawData.district_n || rawData.district) as string || 'N/A',
         'Block': (rawData.block_name as string) || 'N/A',
+      };
+    } else if (type === 'Local Body') {
+      importantData = {
+        'Name': (rawData.Corporatio || rawData.Municipali || rawData.Village || rawData.name || 'N/A') as string,
+        'Type': (rawData.localBodyType as string || 'N/A').replace('_', ' '),
+        'District': (rawData.District || rawData.dist_name || 'N/A') as string,
       };
     }
 
@@ -407,6 +415,53 @@ const ResultContainer: React.FC = () => {
             data={[
               { label: 'Status', value: 'Station-First Discovery', isPill: true },
               { label: 'Instruction', value: 'Click any police station marker to view its jurisdictional boundary and details.' }
+            ]}
+            onClose={() => {}}
+          />
+        )}
+
+        {/* Local Body Detail */}
+        {activeLayer === 'LOCAL_BODIES' && (selectedLocalBody || (searchResult?.properties?.localBodyType ? searchResult : null)) && (() => {
+          const feature = selectedLocalBody || (searchResult as any);
+          const p = feature.properties;
+          return (
+            <ResultCard
+              key="local-body-detail"
+              themeColor="slate"
+              title={(p.Corporatio || p.Municipali || p.name || p.Village || 'Local Body').toString()}
+              icon={<Building2 size={20} />}
+              data={[
+                { 
+                  label: 'Type', 
+                  value: (p.localBodyType || 'Local Body').replace('_', ' '), 
+                  isPill: true 
+                },
+                { 
+                  label: 'District', 
+                  value: (p.District || p.dist_name || 'N/A').toString() 
+                },
+                ...(p.Block ? [{ label: 'Block', value: p.Block.toString() }] : []),
+                ...(p.type1 ? [{ label: 'Category', value: p.type1.toString() }] : [])
+              ]}
+              onClose={() => {
+                setSelectedLocalBody(null);
+                if (searchResult?.properties?.localBodyType) setSearchResult(null);
+              }}
+              onReport={() => handleReport('Local Body', p)}
+            />
+          );
+        })()}
+
+        {/* Local Bodies Instruction */}
+        {activeLayer === 'LOCAL_BODIES' && !selectedLocalBody && !noDataFound && (
+          <ResultCard
+            key="local-bodies-instruction"
+            themeColor="slate"
+            title="Local Bodies"
+            icon={<Building2 size={20} />}
+            data={[
+              { label: 'Status', value: 'Boundary Discovery', isPill: true },
+              { label: 'Instruction', value: 'Click anywhere on the map to resolve the administrative local body for that location.' }
             ]}
             onClose={() => {}}
           />

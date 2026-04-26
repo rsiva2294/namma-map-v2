@@ -1,4 +1,4 @@
-export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE' | 'HEALTH';
+export type ServiceLayer = 'PINCODE' | 'PDS' | 'TNEB' | 'CONSTITUENCY' | 'POLICE' | 'HEALTH' | 'LOCAL_BODIES';
 
 export type Position = [number, number];
 export type BBox = [number, number, number, number];
@@ -55,7 +55,7 @@ export interface GisFeature<G extends Geometry = Geometry, P = GisProperties> {
   properties: P;
   bbox?: BBox;
   id?: string | number;
-  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION' | 'HEALTH_FACILITY';
+  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION' | 'HEALTH_FACILITY' | 'LOCAL_BODY';
 }
 
 export interface ConstituencyProperties extends GisProperties {
@@ -77,6 +77,19 @@ export interface PdsProperties extends GisProperties {
   taluk: string;
   district: string;
   coords: Position;
+}
+
+export interface LocalBodyProperties extends GisProperties {
+  District?: string;
+  dist_name?: string;
+  Corporatio?: string;
+  Municipali?: string;
+  p_name_rd?: string;
+  name?: string;
+  Village?: string;
+  Block?: string;
+  type1?: string;
+  localBodyType?: 'CORPORATION' | 'MUNICIPALITY' | 'TOWN_PANCHAYAT' | 'VILLAGE_PANCHAYAT';
 }
 
 export type PdsShop = GisFeature<Point, PdsProperties>;

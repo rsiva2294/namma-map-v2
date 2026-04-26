@@ -18,7 +18,8 @@ import type {
   HealthFacility,
   HealthScope,
   HealthFilters,
-  HealthSummary
+  HealthSummary,
+  LocalBodyProperties
 } from '../types/gis';
 
 interface MapState {
@@ -72,6 +73,10 @@ interface MapState {
     type: 'All' | 'HO' | 'SO' | 'BO';
   };
 
+  localBodyType: 'CORPORATION' | 'MUNICIPALITY' | 'TOWN_PANCHAYAT' | 'VILLAGE_PANCHAYAT';
+  localBodiesData: GisFeatureCollection<Geometry, LocalBodyProperties> | null;
+  selectedLocalBody: GisFeature<Geometry, LocalBodyProperties> | null;
+
   // Actions
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
@@ -115,6 +120,9 @@ interface MapState {
   setHealthSummary: (summary: HealthSummary | null) => void;
   setIsHealthLoading: (loading: boolean) => void;
   setPostalFilters: (filters: Partial<MapState['postalFilters']>) => void;
+  setLocalBodyType: (type: MapState['localBodyType']) => void;
+  setLocalBodiesData: (data: GisFeatureCollection<Geometry, LocalBodyProperties> | null) => void;
+  setSelectedLocalBody: (feature: GisFeature<Geometry, LocalBodyProperties> | null) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -181,6 +189,9 @@ export const useMapStore = create<MapState>((set) => ({
     hasCathLab: null
   },
   healthSummary: null,
+  localBodyType: 'CORPORATION',
+  localBodiesData: null,
+  selectedLocalBody: null,
   isHealthLoading: false,
   isLegalModalOpen: false,
   legalTab: 'disclaimer',
@@ -201,6 +212,8 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffices: null,
       selectedPostalOffice: null,
       selectedHealthFacility: null,
+      selectedLocalBody: null,
+      localBodiesData: null,
       healthDistrictData: state.healthDistrictData,
       healthScope: state.healthScope,
       healthSummary: state.healthSummary,
@@ -225,6 +238,7 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffices: keepSelection ? state.selectedPostalOffices : null,
       selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null,
       selectedHealthFacility: keepSelection ? state.selectedHealthFacility : null,
+      selectedLocalBody: (keepSelection ? state.selectedLocalBody : null) || (result?.properties?.localBodyType ? result as any : null),
       healthSummary: keepSelection ? state.healthSummary : null,
       noDataFound: false
     };
@@ -232,7 +246,7 @@ export const useMapStore = create<MapState>((set) => ({
     if (updateQuery && result) {
       const p = result.properties;
       const num = (p.assembly_1 || p.parliament || p.ps_code || '').toString();
-      const baseName = (p.facility_n || p.ps_name || p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || '').toString();
+      const baseName = (p.facility_n || p.ps_name || p.assembly_c || p.parliame_1 || p.office_name || p.district || p.NAME || p.Corporatio || p.Municipali || p.Village || p.name || '').toString();
       const typePrefix = p.ps_name ? 'Station' : p.assembly_c ? 'AC' : p.parliame_1 ? 'PC' : '';
       const name = num ? `${typePrefix} #${num} - ${baseName}` : baseName;
       const pin = (p.PIN_CODE || p.pincode)?.toString();
@@ -270,7 +284,8 @@ export const useMapStore = create<MapState>((set) => ({
     policeResolution: val ? null : undefined,
     selectedPostalOffices: val ? null : undefined,
     selectedPostalOffice: val ? null : undefined,
-    selectedHealthFacility: val ? null : undefined
+    selectedHealthFacility: val ? null : undefined,
+    selectedLocalBody: val ? null : undefined
   }),
   clearSearch: () => set((state) => ({ 
     searchQuery: '', 
@@ -288,6 +303,7 @@ export const useMapStore = create<MapState>((set) => ({
     selectedPostalOffices: null,
     selectedPostalOffice: null,
     selectedHealthFacility: null,
+    selectedLocalBody: null,
     healthDistrictData: state.activeLayer === 'HEALTH' ? state.healthDistrictData : null,
     noDataFound: false,
     lastClickedPoint: null
@@ -331,4 +347,12 @@ export const useMapStore = create<MapState>((set) => ({
   setPostalFilters: (filters) => set((state) => ({
     postalFilters: { ...state.postalFilters, ...filters }
   })),
+  setLocalBodyType: (type) => set({ 
+    localBodyType: type, 
+    selectedLocalBody: null, 
+    searchResult: null,
+    localBodiesData: null 
+  }),
+  setLocalBodiesData: (data) => set({ localBodiesData: data }),
+  setSelectedLocalBody: (feature) => set({ selectedLocalBody: feature }),
 }));

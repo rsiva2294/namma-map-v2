@@ -29,6 +29,8 @@ const Sidebar: React.FC = () => {
   const constituencyType = useMapStore(state => state.constituencyType);
   const setConstituencyType = useMapStore(state => state.setConstituencyType);
   const setLegalModal = useMapStore(state => state.setLegalModal);
+  const localBodyType = useMapStore(state => state.localBodyType);
+  const setLocalBodyType = useMapStore(state => state.setLocalBodyType);
 
   const menuItems: { id: ServiceLayer; label: string; icon: LucideIcon }[] = [
     { id: 'PINCODE', label: 'Post Offices', icon: MapPin },
@@ -37,6 +39,7 @@ const Sidebar: React.FC = () => {
     { id: 'CONSTITUENCY', label: 'Constituencies', icon: Landmark },
     { id: 'POLICE', label: 'Police Jurisdictions', icon: Shield },
     { id: 'HEALTH', label: 'Health Facilities', icon: Activity },
+    { id: 'LOCAL_BODIES', label: 'Local Bodies', icon: Building2 },
   ];
 
   return (
@@ -107,6 +110,7 @@ const Sidebar: React.FC = () => {
               <AnimatePresence>
                 {isSidebarOpen && (
                   <motion.span
+                    key="label"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
@@ -117,6 +121,7 @@ const Sidebar: React.FC = () => {
                 )}
                 {isSidebarOpen && item.id === 'HEALTH' && (
                   <motion.span 
+                    key="health-badge"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="badge-experimental"
@@ -187,13 +192,75 @@ const Sidebar: React.FC = () => {
                 )}
               </AnimatePresence>
             )}
+
+            {item.id === 'LOCAL_BODIES' && activeLayer === 'LOCAL_BODIES' && isSidebarOpen && (
+              <div className="sidebar-sub-tabs" style={{ padding: '4px 12px 12px 12px' }}>
+                <div className="tab-group" style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  background: theme === 'dark' ? '#1e293b' : '#f1f5f9',
+                  borderRadius: '8px',
+                  padding: '4px',
+                  gap: '4px'
+                }}>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); setLocalBodyType('CORPORATION'); }}
+                    style={{
+                      padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, borderRadius: '6px', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'block', width: '100%',
+                      background: localBodyType === 'CORPORATION' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                      color: localBodyType === 'CORPORATION' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                      boxShadow: localBodyType === 'CORPORATION' ? '0 1px 2px rgba(0,0,0,0.05)' : 'none',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    Corporations
+                  </button>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); setLocalBodyType('MUNICIPALITY'); }}
+                    style={{
+                      padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, borderRadius: '6px', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'block', width: '100%',
+                      background: localBodyType === 'MUNICIPALITY' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                      color: localBodyType === 'MUNICIPALITY' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                      boxShadow: localBodyType === 'MUNICIPALITY' ? '0 1px 2px rgba(0,0,0,0.05)' : 'none',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    Municipalities
+                  </button>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); setLocalBodyType('TOWN_PANCHAYAT'); }}
+                    style={{
+                      padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, borderRadius: '6px', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'block', width: '100%',
+                      background: localBodyType === 'TOWN_PANCHAYAT' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                      color: localBodyType === 'TOWN_PANCHAYAT' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                      boxShadow: localBodyType === 'TOWN_PANCHAYAT' ? '0 1px 2px rgba(0,0,0,0.05)' : 'none',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    Town Panchayats
+                  </button>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); setLocalBodyType('VILLAGE_PANCHAYAT'); }}
+                    style={{
+                      padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, borderRadius: '6px', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'block', width: '100%',
+                      background: localBodyType === 'VILLAGE_PANCHAYAT' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
+                      color: localBodyType === 'VILLAGE_PANCHAYAT' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
+                      boxShadow: localBodyType === 'VILLAGE_PANCHAYAT' ? '0 1px 2px rgba(0,0,0,0.05)' : 'none',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    Village Panchayats
+                  </button>
+                </div>
+              </div>
+            )}
           </React.Fragment>
         ))}
 
         <div className="sidebar-section-label">Future Modules</div>
-        <div className="sidebar-menu-item disabled">
+        <div key="future-health" className="sidebar-menu-item disabled">
           <Building2 size={20} />
-          {isSidebarOpen && <span>Civic Bodies</span>}
+          {isSidebarOpen && <span>Health Dashboard</span>}
           {isSidebarOpen && <span className="badge-soon">SOON</span>}
         </div>
 

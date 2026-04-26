@@ -105,8 +105,8 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading } = useMapStore();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility, loadLocalBodies } = useGisWorker();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, localBodyType, localBodiesData, selectedLocalBody } = useMapStore();
 
   useEffect(() => {
     if (isReady) {
@@ -129,6 +129,12 @@ const GisMap: React.FC = () => {
       loadTnebDistrict(activeDistrict);
     }
   }, [activeLayer, activeDistrict, loadTnebDistrict]);
+
+  useEffect(() => {
+    if (activeLayer === 'LOCAL_BODIES') {
+      loadLocalBodies(localBodyType, activeDistrict);
+    }
+  }, [activeLayer, localBodyType, activeDistrict, loadLocalBodies]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
@@ -333,7 +339,7 @@ const GisMap: React.FC = () => {
 
       return (
         <Marker
-          key={`health-p-${f.id || i}`}
+          key={`health-marker-${f.id || `idx-${i}`}`}
           position={[lat, lng]}
           icon={healthPriorityIcon(f.properties.facility_t)}
           eventHandlers={{
@@ -432,7 +438,7 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE' || activeLayer === 'HEALTH') && stateBoundaryData && (
+      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE' || activeLayer === 'HEALTH' || activeLayer === 'LOCAL_BODIES') && stateBoundaryData && (
         <GeoJSON 
           key={`state-${theme}-${isAreaSelected}`}
           data={stateBoundaryData}
@@ -454,7 +460,7 @@ const GisMap: React.FC = () => {
       
       {searchResult && !jurisdictionGeometry && searchResult.geometry && (
         <GeoJSON 
-          key={`search-result-${searchResult.properties.PIN_CODE || searchResult.properties.pincode || searchResult.properties.office_name || searchResult.properties.NAME || searchResult.properties.ps_code}-${searchResult.geometry.type}`}
+          key={`search-res-${searchResult.properties.PIN_CODE || searchResult.properties.pincode || searchResult.properties.office_name || searchResult.properties.NAME || searchResult.properties.ps_code || 'res'}-${searchResult.geometry.type}`}
           data={searchResult} 
           style={activeLayer === 'CONSTITUENCY' ? constituencySelectedStyle : activeLayer === 'POLICE' ? policeSelectedStyle : pincodeStyle} 
           interactive={false}
@@ -508,6 +514,41 @@ const GisMap: React.FC = () => {
             </Tooltip>
           </Marker>
         </>
+      )}
+
+      {/* Local Bodies Layers */}
+      {activeLayer === 'LOCAL_BODIES' && localBodiesData && (
+        <GeoJSON
+          key={`local-bodies-${localBodyType}`}
+          data={localBodiesData}
+          style={{
+            color: theme === 'dark' ? '#94a3b8' : '#64748b',
+            weight: 1.5,
+            fillColor: theme === 'dark' ? '#475569' : '#94a3b8',
+            fillOpacity: 0.1,
+            dashArray: '3'
+          }}
+          onEachFeature={(_, layer) => {
+            layer.on('click', (e) => {
+              L.DomEvent.stopPropagation(e);
+              resolveLocation(e.latlng.lat, e.latlng.lng, 'LOCAL_BODIES');
+            });
+          }}
+        />
+      )}
+
+      {/* Selected Local Body Highlight */}
+      {activeLayer === 'LOCAL_BODIES' && selectedLocalBody && selectedLocalBody.geometry && (
+        <GeoJSON
+          key={`selected-lb-${selectedLocalBody.id || selectedLocalBody.properties?.id || 'current'}`}
+          data={selectedLocalBody}
+          style={{
+            color: '#334155',
+            weight: 3,
+            fillColor: '#475569',
+            fillOpacity: 0.3,
+          }}
+        />
       )}
  
       {activeLayer === 'POLICE' && jurisdictionGeometry && policeResolution?.isBoundaryValid && (

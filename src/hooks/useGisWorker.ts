@@ -37,7 +37,9 @@ export const useGisWorker = () => {
     setHealthSummary,
     setHealthScope,
     setSelectedHealthFacility,
-    setIsHealthLoading
+    setIsHealthLoading,
+    setLocalBodiesData,
+    setSelectedLocalBody
   } = useMapStore();
 
   const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString() || null;
@@ -71,6 +73,10 @@ export const useGisWorker = () => {
   
   const resolveHealthFacility = useCallback((id: string | number, nin: string | number | undefined, district: string | null) => {
     workerRef.current?.postMessage({ type: 'RESOLVE_HEALTH_FACILITY', payload: { id, nin, district } });
+  }, []);
+  
+  const loadLocalBodies = useCallback((localBodyType: string, district?: string | null) => {
+    workerRef.current?.postMessage({ type: 'LOAD_LOCAL_BODIES', payload: { localBodyType, district } });
   }, []);
 
   useEffect(() => {
@@ -110,8 +116,12 @@ export const useGisWorker = () => {
               setPoliceResolution(payload);
               const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
               setSearchQuery(stationName);
-            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH') {
+            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES') {
               setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
+              
+              if (payload.layer === 'LOCAL_BODIES') {
+                setSelectedLocalBody({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+              }
               
               if (payload.layer === 'PINCODE' && payload.postalOffices) {
                 setSelectedPostalOffices(payload.postalOffices);
@@ -188,6 +198,9 @@ export const useGisWorker = () => {
         case 'AUTO_TRIGGER_PDS':
           workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
           break;
+        case 'AUTO_TRIGGER_LOCAL_BODIES':
+          workerRef.current?.postMessage({ type: 'LOAD_LOCAL_BODIES', payload });
+          break;
         case 'POSTAL_OFFICES_LOADED':
           // Optional: handle if UI needs to know
           break;
@@ -199,7 +212,7 @@ export const useGisWorker = () => {
           console.log('[Worker] Health Priority Loaded', payload);
           setHealthPriorityData(payload);
           break;
-        case 'HEALTH_DISTRICT_LOADED':
+        case 'HEALTH_DISTRICT_LOADED': {
           console.log('[Worker] Health District Loaded', payload.district);
           setActiveDistrict(payload.district);
           // Trigger filter now that data is ready
@@ -207,6 +220,19 @@ export const useGisWorker = () => {
           const pc = (s.searchResult?.properties?.PIN_CODE || s.searchResult?.properties?.pincode || s.searchResult?.properties?.pin_code)?.toString() || null;
           filterHealth(s.healthScope, s.healthFilters, payload.district, pc);
           break;
+        }
+        case 'LOCAL_BODIES_LOADED': {
+          const { localBodyType: loadedType } = payload;
+          const state = useMapStore.getState();
+          if (state.activeLayer === 'LOCAL_BODIES' && state.localBodyType === loadedType) {
+             // Data will follow
+          }
+          break;
+        }
+        case 'LOCAL_BODIES_DATA': {
+          setLocalBodiesData(payload.features);
+          break;
+        }
         case 'HEALTH_SEARCH_INDEX_LOADED':
           console.log('[Worker] Health Search Index Loaded');
           break;
@@ -295,7 +321,16 @@ export const useGisWorker = () => {
     setSearchResult(null, keepSelection);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { lat, lng, layer, keepSelection, pincode, stationCode, constituencyType: useMapStore.getState().constituencyType }
+      payload: { 
+        lat, 
+        lng, 
+        layer, 
+        keepSelection, 
+        pincode, 
+        stationCode, 
+        constituencyType: useMapStore.getState().constituencyType,
+        localBodyType: useMapStore.getState().localBodyType
+      }
     });
   }, [setSearchResult, setIsResolving]);
 
@@ -401,6 +436,7 @@ export const useGisWorker = () => {
     resolveHealthFacility,
     resolveLocation, 
     getSuggestions, 
-    selectSuggestion 
+    selectSuggestion,
+    loadLocalBodies
   };
 };
