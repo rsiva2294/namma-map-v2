@@ -345,7 +345,7 @@ export const useGisWorker = () => {
   }, [setSearchResult, setIsResolving]);
 
   const getSuggestions = useCallback((query: string, activeLayer: string) => {
-    workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, activeLayer } });
+    workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, activeLayer, localBodyType: useMapStore.getState().localBodyType } });
   }, []);
 
   const selectSuggestion = useCallback((item: GisFeature, currentLayer: string) => {
@@ -382,6 +382,11 @@ export const useGisWorker = () => {
       const isPc = !!item.properties.parliame_1 && !item.properties.assembly_c;
       setConstituencyType(isPc ? 'PC' : 'AC');
       setSearchResult(item, false, true);
+    } else if (item.suggestionType === 'VP_PINCODE') {
+      // Village Panchayat pincode selection: resolve with pincode override in LOCAL_BODIES mode
+      if (currentLayer !== 'LOCAL_BODIES') setActiveLayer('LOCAL_BODIES');
+      const pin = (item.properties.pin_code || item.properties.PIN_CODE || item.properties.pincode)?.toString();
+      if (pin) resolveLocation(0, 0, 'LOCAL_BODIES', false, pin);
     } else if (item.suggestionType === 'POLICE_STATION') {
       if (currentLayer !== 'POLICE') setActiveLayer('POLICE');
       const [lng, lat] = item.geometry.type === 'Point' 

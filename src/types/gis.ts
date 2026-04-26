@@ -55,7 +55,7 @@ export interface GisFeature<G extends Geometry = Geometry, P = GisProperties> {
   properties: P;
   bbox?: BBox;
   id?: string | number;
-  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION' | 'HEALTH_FACILITY' | 'LOCAL_BODY';
+  suggestionType?: 'PINCODE' | 'PDS_SHOP' | 'TNEB_SECTION' | 'DISTRICT' | 'CONSTITUENCY' | 'POLICE_STATION' | 'HEALTH_FACILITY' | 'LOCAL_BODY' | 'VP_PINCODE';
 }
 
 export interface ConstituencyProperties extends GisProperties {

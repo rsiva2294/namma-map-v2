@@ -752,7 +752,90 @@ self.onmessage = async (e: MessageEvent) => {
           });
         }
       } else if (layer === 'LOCAL_BODIES') {
-        // 1. Hierarchical Check: Corporation -> Municipality -> Town Panchayat -> Village Panchayat
+        const { localBodyType: lbType } = payload;
+
+        // VILLAGE_PANCHAYAT — two sub-paths:
+        // 1. pincodeOverride → load district VP file, filter, populate spatial index, push to map (no pincode boundary)
+        // 2. click (no override) → look up clicked point in spatial index, return VP's own properties/geometry
+        if (lbType === 'VILLAGE_PANCHAYAT') {
+          if (pincodeOverride) {
+            // --- Pincode loading path ---
+            const pinFeature = pincodesGeoJson?.features.find(f =>
+              (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()
+            ) || null;
+
+            if (pinFeature) {
+              const pincode = (pinFeature.properties.pin_code || pinFeature.properties.PIN_CODE || pinFeature.properties.pincode)?.toString();
+              const districtName = (pinFeature.properties.district || pinFeature.properties.DISTRICT || pinFeature.properties.NAME)?.toString();
+
+              if (districtName) {
+                let districtClean = districtName
+                  .split(/[\s_]+/)
+                  .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                  .join('_');
+                const rawDist = districtName.trim();
+                if (DISTRICT_NAME_MAP[rawDist]) districtClean = DISTRICT_NAME_MAP[rawDist];
+                else if (DISTRICT_NAME_MAP[rawDist.replace(/_/g, ' ')]) districtClean = DISTRICT_NAME_MAP[rawDist.replace(/_/g, ' ')];
+
+                if (!loadedVillagePanchayats.has(districtClean)) {
+                  try {
+                    const data = await fetchWithRetry(`/data/local_bodies/village_panchayat/${districtClean}.json`);
+                    let vpFC: GisFeatureCollection<Geometry, LocalBodyProperties>;
+                    if (data.type === 'Topology') {
+                      vpFC = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
+                    } else {
+                      vpFC = data;
+                    }
+                    const featuresWithProps = vpFC.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({
+                      ...f, properties: { ...f.properties, localBodyType: 'VILLAGE_PANCHAYAT' as const, District: districtName }
+                    }));
+                    loadedVillagePanchayats.set(districtClean, { type: 'FeatureCollection', features: featuresWithProps });
+                  } catch (err) {
+                    console.warn(`[Worker] Village Panchayat data not found: ${districtClean}`, err);
+                  }
+                }
+
+                const vpData = loadedVillagePanchayats.get(districtClean);
+                if (vpData) {
+                  const pinBBox = getBBox(pinFeature.geometry);
+                  const filteredVPs = vpData.features.filter((f: GisFeature<Geometry, LocalBodyProperties>) => {
+                    const fb = getBBox(f.geometry);
+                    return fb.maxX >= pinBBox.minX && fb.minX <= pinBBox.maxX &&
+                           fb.maxY >= pinBBox.minY && fb.minY <= pinBBox.maxY;
+                  });
+
+                  // Populate spatial index so subsequent clicks resolve correctly
+                  localBodyIndexes.VILLAGE_PANCHAYAT.clear();
+                  localBodyIndexes.VILLAGE_PANCHAYAT.load(filteredVPs.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: f })));
+
+                  self.postMessage({ type: 'LOCAL_BODIES_DATA', payload: { features: filteredVPs, localBodyType: 'VILLAGE_PANCHAYAT' } });
+                }
+
+                // geometry: null — no pincode boundary rendered; VPs are the visual output
+                self.postMessage({
+                  type: 'RESOLUTION_RESULT',
+                  payload: { found: true, properties: { localBodyType: 'VILLAGE_PANCHAYAT', pincode, District: districtName }, geometry: null, layer: 'LOCAL_BODIES', keepSelection }
+                });
+              }
+            }
+            break;
+          }
+
+          // --- Click resolution path: find VP at clicked point in the spatial index ---
+          const vpHit = findFeatureAt([lng, lat], localBodyIndexes.VILLAGE_PANCHAYAT);
+          if (vpHit) {
+            self.postMessage({
+              type: 'RESOLUTION_RESULT',
+              payload: { found: true, properties: { ...vpHit.properties, localBodyType: 'VILLAGE_PANCHAYAT' }, geometry: vpHit.geometry, layer: 'LOCAL_BODIES', keepSelection }
+            });
+          } else {
+            const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
+            self.postMessage({ type: 'RESOLUTION_RESULT', payload: { found: false, lat, lng, layer, isInsideState: !!isInsideState } });
+          }
+          break;
+        }
+
+        // Other types: Hierarchical Check: Corporation -> Municipality -> Town Panchayat
         let resolvedLocal: GisFeature | null = null;
         let resolvedType: string = '';
 
@@ -770,44 +853,6 @@ self.onmessage = async (e: MessageEvent) => {
         if (!resolvedLocal) {
           resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.TOWN_PANCHAYAT);
           if (resolvedLocal) resolvedType = 'TOWN_PANCHAYAT';
-        }
-
-        // Check Village Panchayat (with lazy loading)
-        if (!resolvedLocal) {
-          const distFeature = findFeatureAt([lng, lat], districtsIndex);
-          const districtName = (distFeature?.properties.district_n || distFeature?.properties.district || distFeature?.properties.NAME || distFeature?.properties.District)?.toString();
-          
-          if (districtName) {
-            // Normalize to match file system: Title Case with Underscores (e.g. "The_Nilgiris")
-            let normalizedDist = districtName
-              .split(/[\s_]+/)
-              .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-              .join('_');
-            
-            // Check manual mapping
-            const rawDist = districtName.trim();
-            if (DISTRICT_NAME_MAP[rawDist]) normalizedDist = DISTRICT_NAME_MAP[rawDist];
-            else if (DISTRICT_NAME_MAP[rawDist.replace(/_/g, ' ')]) normalizedDist = DISTRICT_NAME_MAP[rawDist.replace(/_/g, ' ')];
-            if (!loadedVillagePanchayats.has(normalizedDist)) {
-              try {
-                const data = await fetchWithRetry(`/data/local_bodies/village_panchayat/${normalizedDist}.json`);
-                let vpFC: GisFeatureCollection<Geometry, LocalBodyProperties>;
-                if (data.type === 'Topology') {
-                   vpFC = topojson.feature(data, data.objects[Object.keys(data.objects)[0]]) as unknown as GisFeatureCollection<Geometry, LocalBodyProperties>;
-                } else {
-                   vpFC = data;
-                }
-                const featuresWithProps = vpFC.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...f, properties: { ...f.properties, localBodyType: 'VILLAGE_PANCHAYAT' as const, District: districtName } }));
-                loadedVillagePanchayats.set(normalizedDist, { type: 'FeatureCollection', features: featuresWithProps });
-                const items: SpatialItem[] = featuresWithProps.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: f }));
-                localBodyIndexes.VILLAGE_PANCHAYAT.load(items);
-              } catch (err) {
-                console.warn(`[Worker] Village Panchayat data not found for district: ${normalizedDist}`, err);
-              }
-            }
-            resolvedLocal = findFeatureAt([lng, lat], localBodyIndexes.VILLAGE_PANCHAYAT);
-            if (resolvedLocal) resolvedType = 'VILLAGE_PANCHAYAT';
-          }
         }
 
         if (resolvedLocal) {
@@ -1433,7 +1478,7 @@ self.onmessage = async (e: MessageEvent) => {
 
 
     case 'GET_SUGGESTIONS': {
-      const { query, activeLayer } = payload;
+      const { query, activeLayer, localBodyType: suggLocalBodyType } = payload;
       const q = (query || '').toLowerCase().trim();
       if (!q) {
         self.postMessage({ type: 'SUGGESTIONS_RESULT', payload: [] });
@@ -1640,26 +1685,47 @@ self.onmessage = async (e: MessageEvent) => {
 
       // 7. Search Local Bodies
       if (activeLayer === 'LOCAL_BODIES') {
-        const bodies = [
-          { type: 'CORPORATION', index: localBodyIndexes.CORPORATION },
-          { type: 'MUNICIPALITY', index: localBodyIndexes.MUNICIPALITY },
-          { type: 'TOWN_PANCHAYAT', index: localBodyIndexes.TOWN_PANCHAYAT }
-        ];
-        bodies.forEach(({ type, index }) => {
-          index.all().forEach(item => {
-            const f = item.feature;
-            const name = (f.properties.Corporatio || f.properties.Municipali || f.properties.name || '').toString();
-            const score = getScore(name, q);
-            if (score > 0) {
-              allScored.push({ 
-                ...f, 
-                score, 
-                suggestionType: 'LOCAL_BODY' as const,
-                properties: { ...f.properties, localBodyType: type as any }
-              });
+        if (suggLocalBodyType === 'VILLAGE_PANCHAYAT') {
+          // VP mode: offer pincode suggestions so the user can drill into a specific area
+          pincodesGeoJson?.features.forEach((f: GisFeature) => {
+            const pin = (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() || '';
+            const officeName = (f.properties.office_name || '').toString();
+            const district = (f.properties.district || f.properties.DISTRICT || '').toString();
+            const pinScore = pin.startsWith(q) ? (pin === q ? 100 : 80) : 0;
+            const nameScore = getScore(officeName, q);
+            const distScore = getScore(district, q) * 0.5;
+            const finalScore = Math.max(pinScore, nameScore, distScore);
+            if (finalScore > 0) {
+              allScored.push({
+                ...f,
+                score: finalScore,
+                suggestionType: 'VP_PINCODE' as const,
+                properties: { ...f.properties }
+              } as ScoredSuggestion);
             }
           });
-        });
+        } else {
+          const bodies = [
+            { type: 'CORPORATION', index: localBodyIndexes.CORPORATION },
+            { type: 'MUNICIPALITY', index: localBodyIndexes.MUNICIPALITY },
+            { type: 'TOWN_PANCHAYAT', index: localBodyIndexes.TOWN_PANCHAYAT }
+          ];
+          bodies.forEach(({ type, index }) => {
+            index.all().forEach(item => {
+              const f = item.feature;
+              const name = (f.properties.Corporatio || f.properties.Municipali || f.properties.name || '').toString();
+              const score = getScore(name, q);
+              if (score > 0) {
+                allScored.push({ 
+                  ...f, 
+                  score, 
+                  suggestionType: 'LOCAL_BODY' as const,
+                  properties: { ...f.properties, localBodyType: type as any }
+                });
+              }
+            });
+          });
+        }
       }
     }
 
@@ -1792,12 +1858,17 @@ self.onmessage = async (e: MessageEvent) => {
               }
               const featuresWithProps = fc.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...f, properties: { ...f.properties, localBodyType: 'VILLAGE_PANCHAYAT' as const, District: district } }));
               loadedVillagePanchayats.set(districtClean, { type: 'FeatureCollection', features: featuresWithProps });
-              
-              // Load into spatial index too
-              localBodyIndexes.VILLAGE_PANCHAYAT.load(featuresWithProps.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: f })));
             } catch (err) {
               console.warn(`[Worker] Village Panchayat data not found for district: ${districtClean}`, err);
             }
+          }
+
+          // Always rebuild the spatial index from the cached data for this district
+          // to avoid stale cross-district boundary accumulation from previous loads.
+          const vpFC = loadedVillagePanchayats.get(districtClean);
+          if (vpFC) {
+            localBodyIndexes.VILLAGE_PANCHAYAT.clear();
+            localBodyIndexes.VILLAGE_PANCHAYAT.load(vpFC.features.map((f: GisFeature<Geometry, LocalBodyProperties>) => ({ ...getBBox(f.geometry), feature: f })));
           }
           features = loadedVillagePanchayats.get(districtClean)?.features || [];
         }

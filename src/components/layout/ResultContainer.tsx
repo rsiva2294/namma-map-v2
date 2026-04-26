@@ -22,7 +22,7 @@ const ResultContainer: React.FC = () => {
   const noDataFound = useMapStore(state => state.noDataFound);
   const lastClickedPoint = useMapStore(state => state.lastClickedPoint);
   const setNoDataFound = useMapStore(state => state.setNoDataFound);
-  const setSearchResult = useMapStore(state => state.setSearchResult);
+
   const clearSearch = useMapStore(state => state.clearSearch);
   const selectedPostalOffices = useMapStore(state => state.selectedPostalOffices);
   const selectedPostalOffice = useMapStore(state => state.selectedPostalOffice);
@@ -34,6 +34,8 @@ const ResultContainer: React.FC = () => {
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const selectedLocalBody = useMapStore(state => state.selectedLocalBody);
   const setSelectedLocalBody = useMapStore(state => state.setSelectedLocalBody);
+  const localBodyType = useMapStore(state => state.localBodyType);
+  const localBodiesData = useMapStore(state => state.localBodiesData);
   const { filterHealth } = useGisWorker();
 
   const handleReport = (type: string, rawData: Record<string, unknown>) => {
@@ -422,51 +424,83 @@ const ResultContainer: React.FC = () => {
         )}
 
         {/* Local Body Detail */}
-        {activeLayer === 'LOCAL_BODIES' && (selectedLocalBody || (searchResult?.properties?.localBodyType ? searchResult : null)) && (() => {
-          const feature = selectedLocalBody || (searchResult as any);
-          const p = feature.properties;
+        {activeLayer === 'LOCAL_BODIES' && selectedLocalBody && (() => {
+          const p = selectedLocalBody.properties;
+          // VP name: cover common TN GIS property names
+          const vpName = p.panchayat_n || p.panchayat || p.Panchayat || p.vp_name || p.name || p.Village || p.Corporatio || p.Municipali;
           return (
             <ResultCard
               key="local-body-detail"
               themeColor="slate"
-              title={(p.Corporatio || p.Municipali || p.name || p.Village || 'Local Body').toString()}
+              title={(vpName || 'Local Body').toString()}
               icon={<Building2 size={20} />}
               data={[
                 { 
                   label: 'Type', 
-                  value: (p.localBodyType || 'Local Body').replace('_', ' '), 
+                  value: (p.localBodyType || 'Local Body').replace(/_/g, ' '), 
                   isPill: true 
                 },
                 { 
                   label: 'District', 
-                  value: (p.District || p.dist_name || 'N/A').toString() 
+                  value: (p.District || p.district || p.dist_name || 'N/A').toString() 
                 },
                 ...(p.Block ? [{ label: 'Block', value: p.Block.toString() }] : []),
+                ...(p.taluk || p.Taluk ? [{ label: 'Taluk', value: (p.taluk || p.Taluk)!.toString() }] : []),
                 ...(p.type1 ? [{ label: 'Category', value: p.type1.toString() }] : [])
               ]}
-              onClose={() => {
-                setSelectedLocalBody(null);
-                if (searchResult?.properties?.localBodyType) setSearchResult(null);
-              }}
+              onClose={() => setSelectedLocalBody(null)}
               onReport={() => handleReport('Local Body', p)}
             />
           );
         })()}
 
         {/* Local Bodies Instruction */}
-        {activeLayer === 'LOCAL_BODIES' && !selectedLocalBody && !noDataFound && (
-          <ResultCard
-            key="local-bodies-instruction"
-            themeColor="slate"
-            title="Local Bodies"
-            icon={<Building2 size={20} />}
-            data={[
-              { label: 'Status', value: 'Boundary Discovery', isPill: true },
-              { label: 'Instruction', value: 'Click anywhere on the map to resolve the administrative local body for that location.' }
-            ]}
-            onClose={() => {}}
-          />
-        )}
+        {activeLayer === 'LOCAL_BODIES' && !selectedLocalBody && !noDataFound && (() => {
+          const hasVpData = localBodyType === 'VILLAGE_PANCHAYAT' && (localBodiesData?.features?.length ?? 0) > 0;
+          if (localBodyType === 'VILLAGE_PANCHAYAT' && !hasVpData) {
+            return (
+              <ResultCard
+                key="vp-pincode-prompt"
+                themeColor="slate"
+                title="Village Panchayats"
+                icon={<Building2 size={20} />}
+                data={[
+                  { label: 'How to explore', value: 'Search by pincode', isPill: true },
+                  { label: 'Instruction', value: 'Type a pincode in the search bar to view Village Panchayat boundaries for that area.' }
+                ]}
+                onClose={() => {}}
+              />
+            );
+          }
+          if (localBodyType === 'VILLAGE_PANCHAYAT' && hasVpData) {
+            return (
+              <ResultCard
+                key="vp-click-prompt"
+                themeColor="slate"
+                title="Village Panchayats"
+                icon={<Building2 size={20} />}
+                data={[
+                  { label: 'Status', value: 'Boundaries Loaded', isPill: true },
+                  { label: 'Instruction', value: 'Click any highlighted area on the map to view Village Panchayat details.' }
+                ]}
+                onClose={() => {}}
+              />
+            );
+          }
+          return (
+            <ResultCard
+              key="local-bodies-instruction"
+              themeColor="slate"
+              title="Local Bodies"
+              icon={<Building2 size={20} />}
+              data={[
+                { label: 'Status', value: 'Boundary Discovery', isPill: true },
+                { label: 'Instruction', value: 'Click anywhere on the map to resolve the administrative local body for that location.' }
+              ]}
+              onClose={() => {}}
+            />
+          );
+        })()}
 
         {/* Health Facility Detail */}
         {activeLayer === 'HEALTH' && selectedHealthFacility && (

@@ -101,15 +101,6 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
     };
   }, [map, onResolve, activeLayer]);
 
-  // Handle Local Bodies auto-resolution for Village Panchayats
-  const { localBodyType, activeDistrict } = useMapStore();
-  useEffect(() => {
-    if (activeLayer === 'LOCAL_BODIES' && localBodyType === 'VILLAGE_PANCHAYAT' && !activeDistrict) {
-      const center = map.getCenter();
-      onResolve(center.lat, center.lng, 'DISTRICT');
-    }
-  }, [activeLayer, localBodyType, activeDistrict, map, onResolve]);
-
   return null;
 };
 
@@ -140,10 +131,11 @@ const GisMap: React.FC = () => {
   }, [activeLayer, activeDistrict, loadTnebDistrict]);
 
   useEffect(() => {
-    if (activeLayer === 'LOCAL_BODIES') {
-      loadLocalBodies(localBodyType, activeDistrict);
+    // VILLAGE_PANCHAYAT is pincode-driven; data loads via RESOLVE_LOCATION on pincode search.
+    if (activeLayer === 'LOCAL_BODIES' && localBodyType !== 'VILLAGE_PANCHAYAT') {
+      loadLocalBodies(localBodyType);
     }
-  }, [activeLayer, localBodyType, activeDistrict, loadLocalBodies]);
+  }, [activeLayer, localBodyType, loadLocalBodies]);
 
   // Handle Search Trigger (Pincode or Text) - only if user is actively typing
   useEffect(() => {
@@ -467,7 +459,8 @@ const GisMap: React.FC = () => {
         />
       )}
       
-      {searchResult && !jurisdictionGeometry && searchResult.geometry && (
+      {searchResult && !jurisdictionGeometry && searchResult.geometry &&
+        !(activeLayer === 'LOCAL_BODIES' && localBodyType === 'VILLAGE_PANCHAYAT') && (
         <GeoJSON 
           key={`search-res-${searchResult.properties.PIN_CODE || searchResult.properties.pincode || searchResult.properties.office_name || searchResult.properties.NAME || searchResult.properties.ps_code || 'res'}-${searchResult.geometry.type}`}
           data={searchResult} 
