@@ -1,462 +1,240 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useMapStore } from '../store/useMapStore';
-import type { GisFeature, Geometry, HealthFilters, HealthScope } from '../types/gis';
+import type { GisFeature, Geometry, HealthFilters, HealthScope, Position } from '../types/gis';
 import { APP_VERSION } from '../constants';
 
+// Singleton worker instance to avoid multiple threads and memory bloat
+let sharedWorker: Worker | null = null;
+let isWorkerInitialized = false;
+
+/**
+ * Initializes the global message listener for the shared worker.
+ * This updates the Zustand store directly based on worker messages.
+ */
+const initializeWorkerListener = () => {
+  if (!sharedWorker || isWorkerInitialized) return;
+
+  sharedWorker.onmessage = (e) => {
+    const { type, payload } = e.data;
+    const state = useMapStore.getState();
+    
+    switch (type) {
+      case 'READY':
+        sharedWorker?.postMessage({ type: 'SET_VERSION', payload: { version: APP_VERSION } });
+        break;
+      case 'DISTRICTS_LOADED':
+        state.setDistrictsData(payload);
+        break;
+      case 'STATE_BOUNDARY_LOADED':
+        state.setStateBoundaryData(payload);
+        break;
+      case 'SUGGESTIONS_RESULT':
+        state.setSearchSuggestions(payload);
+        break;
+      case 'RESOLUTION_RESULT':
+        if (payload.layer !== state.activeLayer) return;
+        console.log('[Worker -> Store] RESOLUTION_RESULT received:', payload.layer, 'Found:', payload.found);
+        
+        if (payload && payload.found !== false) {
+          const { keepSelection } = payload;
+          state.setNoDataFound(false);
+          
+          if (payload.layer === 'TNEB') {
+            state.setSearchResult(null, keepSelection);
+            state.setJurisdictionDetails(payload.properties, payload.geometry);
+            const sectionName = payload.properties.section_na || payload.properties.section_office || '';
+            state.setSearchQuery(sectionName);
+          } else if (payload.layer === 'POLICE') {
+            state.setSearchResult(null, keepSelection);
+            state.setPoliceResolution(payload);
+            const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
+            state.setSearchQuery(stationName);
+          } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT' || payload.layer === 'LOCAL_BODIES_V2') {
+            state.setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
+            
+            if (payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT' || payload.layer === 'LOCAL_BODIES_V2') {
+              if (payload.layer === 'LOCAL_BODIES') {
+                state.setSelectedLocalBody({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+              }
+              
+              if (payload.layer === 'LOCAL_BODIES_V2') {
+                state.setSelectedLocalBodyV2({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
+              }
+              
+              const district = payload.properties.District || payload.properties.district || payload.properties.dist_name || payload.properties.district_n || payload.properties.NAME || payload.properties.DISTRICT;
+              if (district) {
+                state.setActiveDistrict(district.toString());
+              }
+            }
+            
+            if (payload.layer === 'PINCODE' && payload.postalOffices) {
+              state.setSelectedPostalOffices(payload.postalOffices);
+            }
+
+            if (payload.layer === 'HEALTH' || (state.activeLayer === 'HEALTH' && (payload.layer === 'PINCODE' || payload.layer === 'DISTRICT'))) {
+              const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME || payload.properties.district_n;
+              if (district) {
+                const districtName = district.toString();
+                if (state.discoveryScope === 'STATE') {
+                   useMapStore.setState({ discoveryScope: 'DISTRICT', activeDistrict: districtName });
+                }
+              }
+            }
+          }
+
+          if (payload.layer === 'PDS') {
+            const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME;
+            if (district) {
+              sharedWorker?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: payload.geometry } });
+            }
+          }
+        } else {
+          console.log('[Worker -> Store] Resolution failed for layer:', payload.layer);
+          const { lat, lng, isInsideState } = payload || {};
+          if (isInsideState) {
+            state.setNoDataFound(true, lat && lng ? { lat, lng } : null);
+          } else {
+            state.setNoDataFound(false);
+          }
+        }
+        state.setIsResolving(false);
+        break;
+      case 'TNEB_STATEWIDE_LOADED':
+        break;
+      case 'TNEB_DISTRICT_LOADED':
+        state.setActiveDistrict(payload.district);
+        break;
+      case 'PDS_LOADED':
+        state.setPdsData(payload.data);
+        state.setActiveDistrict(payload.district);
+        break;
+      case 'CONSTITUENCIES_LOADED':
+        state.setAcData(payload.ac);
+        state.setPcData(payload.pc);
+        break;
+      case 'POLICE_LOADED':
+        state.setPoliceBoundariesData(payload.boundaries);
+        state.setPoliceStationsData(payload.stations);
+        break;
+      case 'HEALTH_MANIFEST_LOADED':
+        state.setHealthManifest(payload);
+        break;
+      case 'HEALTH_PRIORITY_LOADED':
+        state.setHealthPriorityData(payload);
+        break;
+      case 'HEALTH_DISTRICT_LOADED':
+        state.setHealthDistrictData(payload.data);
+        state.setHealthSummary(payload.summary);
+        state.setIsHealthLoading(false);
+        break;
+      case 'HEALTH_FACILITY_RESOLVED':
+        state.setSelectedHealthFacility(payload);
+        break;
+      case 'LOCAL_BODIES_DATA':
+        state.setLocalBodiesData(payload);
+        break;
+      case 'ERROR':
+        console.error('[Worker Error]', payload);
+        break;
+    }
+  };
+
+  isWorkerInitialized = true;
+};
+
 export const useGisWorker = () => {
-  const workerRef = useRef<Worker | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const { 
-    activeLayer,
-    activeDistrict,
-    healthScope,
-    healthFilters,
-    searchResult,
-    setPdsData, 
-    setActiveDistrict, 
-    setJurisdictionDetails, 
-    setIsResolving, 
-    setSearchSuggestions, 
-    setSearchResult, 
-    setSearchQuery, 
-    setDistrictsData, 
-    setStateBoundaryData,
-    setNoDataFound,
-    setActiveLayer,
-    setAcData,
-    setPcData,
-    setConstituencyType,
-    setPoliceBoundariesData,
-    setPoliceStationsData,
-    setSelectedPoliceStation,
-    setPoliceResolution,
-    setSelectedPostalOffices,
-    setHealthManifest,
-    setHealthPriorityData,
-    setHealthDistrictData,
-    setHealthSummary,
-    setHealthScope,
-    setSelectedHealthFacility,
-    setIsHealthLoading,
-    setLocalBodiesData,
-    setSelectedLocalBody,
-    setSelectedLocalBodyV2
-  } = useMapStore();
+  
+  useEffect(() => {
+    if (!sharedWorker) {
+      sharedWorker = new Worker(
+        new URL('../workers/gis.worker.ts', import.meta.url),
+        { type: 'module' }
+      );
+    }
+    
+    if (!isWorkerInitialized) {
+      initializeWorkerListener();
+    }
+    
+    setIsReady(true);
+  }, []);
 
-  const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString() || null;
-
-  const loadDistricts = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
-  const loadStateBoundary = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_STATE_BOUNDARY' }), []);
-  const loadPdsIndex = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PDS_INDEX' }), []);
-  const loadPincodes = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_PINCODES' }), []);
-  const loadTnebStatewide = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_TNEB_STATEWIDE' }), []);
+  const loadDistricts = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_DISTRICTS' }), []);
+  const loadStateBoundary = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_STATE_BOUNDARY' }), []);
+  const loadPdsIndex = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_PDS_INDEX' }), []);
+  const loadPincodes = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_PINCODES' }), []);
+  const loadTnebStatewide = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_TNEB_STATEWIDE' }), []);
   const loadTnebDistrict = useCallback((district: string) => {
-    workerRef.current?.postMessage({ type: 'LOAD_TNEB_DISTRICT', payload: { district } });
+    sharedWorker?.postMessage({ type: 'LOAD_TNEB_DISTRICT', payload: { district } });
   }, []);
-  const loadConstituencies = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
-  const loadPoliceData = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_POLICE' }), []);
+  const loadConstituencies = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_CONSTITUENCIES' }), []);
+  const loadPoliceData = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_POLICE' }), []);
   const loadPostalDistrict = useCallback((district: string) => {
-    workerRef.current?.postMessage({ type: 'LOAD_POSTAL_DISTRICT', payload: { district } });
+    sharedWorker?.postMessage({ type: 'LOAD_POSTAL_DISTRICT', payload: { district } });
   }, []);
-  const loadHealthManifest = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_HEALTH_MANIFEST' }), []);
-  const loadHealthPriority = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_HEALTH_PRIORITY' }), []);
+  const loadHealthManifest = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_HEALTH_MANIFEST' }), []);
+  const loadHealthPriority = useCallback(() => sharedWorker?.postMessage({ type: 'LOAD_HEALTH_PRIORITY' }), []);
   const loadHealthDistrict = useCallback((district: string, file_name: string) => {
-    setIsHealthLoading(true);
-    workerRef.current?.postMessage({ type: 'LOAD_HEALTH_DISTRICT', payload: { district, file_name } });
-  }, [setIsHealthLoading]);
+    useMapStore.getState().setIsHealthLoading(true);
+    sharedWorker?.postMessage({ type: 'LOAD_HEALTH_DISTRICT', payload: { district, file_name } });
+  }, []);
 
   const loadHealthSearchIndex = useCallback(() => 
-    workerRef.current?.postMessage({ type: 'LOAD_HEALTH_SEARCH_INDEX' }), []);
+    sharedWorker?.postMessage({ type: 'LOAD_HEALTH_SEARCH_INDEX' }), []);
     
   const filterHealth = useCallback((scope: HealthScope, filters: HealthFilters, district: string | null, pincode: string | null) => {
-    workerRef.current?.postMessage({ type: 'FILTER_HEALTH', payload: { scope, filters, district, pincode } });
+    sharedWorker?.postMessage({ type: 'FILTER_HEALTH', payload: { scope, filters, district, pincode } });
   }, []);
   
   const resolveHealthFacility = useCallback((id: string | number, nin: string | number | undefined, district: string | null) => {
-    workerRef.current?.postMessage({ type: 'RESOLVE_HEALTH_FACILITY', payload: { id, nin, district } });
+    sharedWorker?.postMessage({ type: 'RESOLVE_HEALTH_FACILITY', payload: { id, nin, district } });
   }, []);
   
   const loadLocalBodies = useCallback((localBodyType: string, district?: string | null) => {
-    workerRef.current?.postMessage({ type: 'LOAD_LOCAL_BODIES', payload: { localBodyType, district } });
+    sharedWorker?.postMessage({ type: 'LOAD_LOCAL_BODIES', payload: { localBodyType, district } });
   }, []);
 
-  useEffect(() => {
-    workerRef.current = new Worker(
-      new URL('../workers/gis.worker.ts', import.meta.url),
-      { type: 'module' }
-    );
-
-    workerRef.current.onmessage = (e) => {
-      const { type, payload } = e.data;
-      
-      switch (type) {
-        case 'READY':
-          setIsReady(true);
-          workerRef.current?.postMessage({ type: 'SET_VERSION', payload: { version: APP_VERSION } });
-          break;
-        case 'DISTRICTS_LOADED':
-          setDistrictsData(payload);
-          break;
-        case 'STATE_BOUNDARY_LOADED':
-          setStateBoundaryData(payload);
-          break;
-        case 'SUGGESTIONS_RESULT':
-          setSearchSuggestions(payload);
-          break;
-        case 'RESOLUTION_RESULT':
-          if (payload && payload.found !== false) {
-            const { keepSelection } = payload;
-            setNoDataFound(false);
-            if (payload.layer === 'TNEB') {
-              setSearchResult(null, keepSelection);
-              setJurisdictionDetails(payload.properties, payload.geometry);
-              const sectionName = payload.properties.section_na || payload.properties.section_office || '';
-              setSearchQuery(sectionName);
-            } else if (payload.layer === 'POLICE') {
-              setSearchResult(null, keepSelection);
-              setPoliceResolution(payload);
-              const stationName = payload.station?.properties.ps_name || payload.boundary?.properties.police_sta || '';
-              setSearchQuery(stationName);
-            } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH' || payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT' || payload.layer === 'LOCAL_BODIES_V2') {
-              setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
-              
-              if (payload.layer === 'LOCAL_BODIES' || payload.layer === 'DISTRICT' || payload.layer === 'LOCAL_BODIES_V2') {
-                if (payload.layer === 'LOCAL_BODIES') {
-                  setSelectedLocalBody({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
-                }
-                
-                if (payload.layer === 'LOCAL_BODIES_V2') {
-                  setSelectedLocalBodyV2({ type: 'Feature', properties: payload.properties, geometry: payload.geometry });
-                }
-                
-                const district = payload.properties.District || payload.properties.district || payload.properties.dist_name || payload.properties.district_n || payload.properties.NAME || payload.properties.DISTRICT;
-                if (district) {
-                  setActiveDistrict(district.toString());
-                }
-              }
-              
-              if (payload.layer === 'PINCODE' && payload.postalOffices) {
-                setSelectedPostalOffices(payload.postalOffices);
-              }
-
-              const isHealthModule = useMapStore.getState().activeLayer === 'HEALTH';
-              if (payload.layer === 'HEALTH' || (isHealthModule && (payload.layer === 'PINCODE' || payload.layer === 'DISTRICT'))) {
-                const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME || payload.properties.district_n;
-                const pincode = payload.properties.PIN_CODE || payload.properties.pincode || payload.properties.pin_code;
-                
-                const currentState = useMapStore.getState();
-                
-                if (district) {
-                  const districtName = district.toString();
-                  console.log('[useGisWorker] Synchronizing Health context for district:', districtName);
-                  setActiveDistrict(districtName);
-                  
-                  // Auto-switch scope based on what was found
-                  const newScope = (payload.layer === 'PINCODE' || pincode) ? 'PINCODE' : 'DISTRICT';
-                  setHealthScope(newScope);
-
-                  // Load district shard if manifest is available
-                  const distManifest = currentState.healthManifest?.districts.find(d => 
-                    d.district.toLowerCase().replace(/\s+/g, '') === districtName.toLowerCase().replace(/\s+/g, '')
-                  );
-                  
-                  if (distManifest) {
-                    setActiveDistrict(distManifest.district);
-                    loadHealthDistrict(distManifest.district, distManifest.file_name);
-                  } else {
-                    console.warn('[useGisWorker] District manifest not found for:', districtName);
-                    setIsHealthLoading(false);
-                  }
-                } else {
-                  if (isHealthModule) setIsHealthLoading(false);
-                }
-              }
-
-              if (payload.layer === 'PDS') {
-                const district = payload.properties.district || payload.properties.DISTRICT || payload.properties.DISTRICT_NAME || payload.properties.NAME;
-                if (district) {
-                  workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: payload.geometry } });
-                }
-              }
-            }
-          } else {
-            const { lat, lng, isInsideState } = payload || {};
-            if (isInsideState) {
-              setNoDataFound(true, lat && lng ? { lat, lng } : null);
-            } else {
-              setNoDataFound(false);
-            }
-          }
-          setIsResolving(false);
-          break;
-        case 'TNEB_STATEWIDE_LOADED':
-          // statewide search index ready
-          break;
-        case 'TNEB_DISTRICT_LOADED':
-          setActiveDistrict(payload.district);
-          break;
-        case 'PDS_LOADED':
-          setPdsData(payload.data);
-          setActiveDistrict(payload.district);
-          break;
-        case 'CONSTITUENCIES_LOADED':
-          setAcData(payload.ac);
-          setPcData(payload.pc);
-          break;
-        case 'POLICE_LOADED':
-          setPoliceBoundariesData(payload.boundaries);
-          setPoliceStationsData(payload.stations);
-          break;
-        case 'AUTO_TRIGGER_PDS':
-          workerRef.current?.postMessage({ type: 'LOAD_PDS', payload });
-          break;
-        case 'AUTO_TRIGGER_LOCAL_BODIES':
-          workerRef.current?.postMessage({ type: 'LOAD_LOCAL_BODIES', payload });
-          break;
-        case 'POSTAL_OFFICES_LOADED':
-          // Optional: handle if UI needs to know
-          break;
-        case 'HEALTH_MANIFEST_LOADED':
-          console.log('[Worker] Health Manifest Loaded', payload);
-          setHealthManifest(payload);
-          break;
-        case 'HEALTH_PRIORITY_LOADED':
-          console.log('[Worker] Health Priority Loaded', payload);
-          setHealthPriorityData(payload);
-          break;
-        case 'HEALTH_DISTRICT_LOADED': {
-          console.log('[Worker] Health District Loaded', payload.district);
-          setActiveDistrict(payload.district);
-          // Trigger filter now that data is ready
-          const s = useMapStore.getState();
-          const pc = (s.searchResult?.properties?.PIN_CODE || s.searchResult?.properties?.pincode || s.searchResult?.properties?.pin_code)?.toString() || null;
-          filterHealth(s.healthScope, s.healthFilters, payload.district, pc);
-          break;
-        }
-        case 'LOCAL_BODIES_LOADED': {
-          const { localBodyType: loadedType } = payload;
-          const state = useMapStore.getState();
-          if (state.activeLayer === 'LOCAL_BODIES' && state.localBodyType === loadedType) {
-             // Data will follow
-          }
-          break;
-        }
-        case 'LOCAL_BODIES_DATA': {
-          setLocalBodiesData({
-            type: 'FeatureCollection',
-            features: payload.features
-          });
-          break;
-        }
-        case 'HEALTH_SEARCH_INDEX_LOADED':
-          console.log('[Worker] Health Search Index Loaded');
-          break;
-        case 'HEALTH_FILTERED':
-          console.log('[Worker] Health Filtered', payload.summary);
-          if (payload.scope === 'STATE') {
-            setHealthPriorityData({ type: 'FeatureCollection', features: payload.features });
-          } else {
-            setHealthDistrictData({ type: 'FeatureCollection', features: payload.features });
-          }
-          setHealthSummary(payload.summary);
-          setHealthScope(payload.scope);
-          setIsHealthLoading(false);
-          break;
-        case 'HEALTH_FACILITY_RESOLVED':
-          if (payload) {
-            setSelectedHealthFacility(payload);
-          }
-          break;
-        case 'ERROR':
-          console.error('[Worker Error]', payload);
-          setIsResolving(false);
-          break;
-      }
-    };
-
-    workerRef.current.postMessage({ type: 'INIT_DB' });
-
-    return () => {
-      workerRef.current?.terminate();
-    };
-  }, [
-    setActiveDistrict, 
-    setDistrictsData, 
-    setIsResolving, 
-    setJurisdictionDetails, 
-    setPdsData, 
-    setSearchQuery, 
-    setSearchResult, 
-    setSearchSuggestions, 
-    setStateBoundaryData,
-    setNoDataFound,
-    loadPdsIndex,
-    setAcData,
-    setPcData,
-    setPoliceBoundariesData,
-    setPoliceStationsData,
-    setSelectedPoliceStation,
-    setPoliceResolution,
-    setSelectedPostalOffices,
-    setHealthManifest,
-    setHealthPriorityData,
-    setHealthDistrictData,
-    setHealthSummary,
-    setHealthScope
-  ]);
-
-
-  // Reactive filtering for Health Module with Debounce
-  const filterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    if (activeLayer === 'HEALTH' && isReady) {
-      if (filterTimeoutRef.current) clearTimeout(filterTimeoutRef.current);
-      
-      filterTimeoutRef.current = setTimeout(() => {
-        const state = useMapStore.getState();
-        const currentPincode = (state.searchResult?.properties?.PIN_CODE || state.searchResult?.properties?.pincode || state.searchResult?.properties?.pin_code)?.toString() || null;
-        
-        console.log('[useGisWorker] Triggering filterHealth with latest state:', { 
-          scope: state.healthScope, 
-          district: state.activeDistrict, 
-          pincode: currentPincode 
-        });
-        
-        filterHealth(state.healthScope, state.healthFilters, state.activeDistrict, currentPincode);
-      }, 150); // 150ms debounce for stability
-    }
-    return () => {
-      if (filterTimeoutRef.current) clearTimeout(filterTimeoutRef.current);
-    };
-  }, [activeLayer, isReady, healthScope, healthFilters, activeDistrict, pincode, filterHealth]);
-
-  const resolveLocation = useCallback((lat: number, lng: number, layer: string, keepSelection: boolean = false, pincode?: string, stationCode?: string) => {
-    setIsResolving(true);
-    setSearchResult(null, keepSelection);
-    workerRef.current?.postMessage({
+  const resolveLocation = useCallback((lat: number, lng: number, layer: string, pincode?: string, keepSelection: boolean = false) => {
+    useMapStore.getState().setIsResolving(true);
+    sharedWorker?.postMessage({
       type: 'RESOLVE_LOCATION',
-      payload: { 
-        lat, 
-        lng, 
-        layer, 
-        keepSelection, 
-        pincode, 
-        stationCode, 
-        constituencyType: useMapStore.getState().constituencyType,
-        localBodyType: useMapStore.getState().localBodyType
-      }
+      payload: { lat, lng, layer, pincode, keepSelection }
     });
-  }, [setSearchResult, setIsResolving]);
-
-  const getSuggestions = useCallback((query: string, activeLayer: string) => {
-    workerRef.current?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, activeLayer, localBodyType: useMapStore.getState().localBodyType } });
   }, []);
 
-  const selectSuggestion = useCallback((item: GisFeature, currentLayer: string) => {
-    if (item.suggestionType === 'TNEB_SECTION') {
-      if (currentLayer !== 'TNEB') setActiveLayer('TNEB');
-      const [lng, lat] = item.geometry.type === 'Point' 
-        ? (item.geometry.coordinates as [number, number])
-        : (item.properties.office_location as [number, number] || [78.6569, 11.1271]); // Fallback
-      resolveLocation(lat, lng, 'TNEB');
-    } else if (item.suggestionType === 'PDS_SHOP') {
-      if (currentLayer !== 'PDS') setActiveLayer('PDS');
-      const [lng, lat] = item.geometry.type === 'Point' 
-        ? (item.geometry.coordinates as [number, number])
-        : (item.properties.office_location as [number, number] || [78.6569, 11.1271]); // Fallback
-      const district = item.properties.district as string;
-      if (district) {
-        workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
-      }
-      // Trigger resolution for the shop itself to show the card
-      setSearchResult(item, false, true);
-      resolveLocation(lat, lng, 'PDS', true);
-    } else if (item.suggestionType === 'DISTRICT') {
-      // Switch to PINCODE if we want to show the district boundary in that layer context
-      // or PDS if that was the intent. For now, stay in current layer but focus district.
-      setSearchResult(item, false, true);
-      const district = (item.properties.district || item.properties.DISTRICT || item.properties.NAME || item.properties.district_n || item.properties.DISTRICT_NAME || '').toString();
-      const targetLayer = currentLayer;
-      if (district && targetLayer === 'PDS') {
-        workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
-      }
-    } else if (item.suggestionType === 'CONSTITUENCY') {
-      if (currentLayer !== 'CONSTITUENCY') setActiveLayer('CONSTITUENCY');
-      // Detect if it's AC or PC based on properties
-      const isPc = !!item.properties.parliame_1 && !item.properties.assembly_c;
-      setConstituencyType(isPc ? 'PC' : 'AC');
-      setSearchResult(item, false, true);
-    } else if (item.suggestionType === 'VP_PINCODE') {
-      // Village Panchayat pincode selection: resolve with pincode override in LOCAL_BODIES mode
-      if (currentLayer !== 'LOCAL_BODIES') setActiveLayer('LOCAL_BODIES');
-      const pin = (item.properties.pin_code || item.properties.PIN_CODE || item.properties.pincode)?.toString();
-      if (pin) resolveLocation(0, 0, 'LOCAL_BODIES', false, pin);
-    } else if (item.suggestionType === 'POLICE_STATION') {
-      if (currentLayer !== 'POLICE') setActiveLayer('POLICE');
-      const [lng, lat] = item.geometry.type === 'Point' 
-        ? (item.geometry.coordinates as [number, number])
-        : (item.properties.station_location as [number, number] || [78.6569, 11.1271]); // Fallback
-      resolveLocation(lat, lng, 'POLICE', false, undefined, item.properties.ps_code as string);
-    } else if (item.suggestionType === 'HEALTH_FACILITY') {
-      if (currentLayer !== 'HEALTH') setActiveLayer('HEALTH');
-      setSearchResult(item, false, true);
-      setSelectedHealthFacility(item as any);
-      setHealthScope('DISTRICT');
-      
-      const district = (item.properties.district || item.properties.district_n)?.toString();
-      if (district) setActiveDistrict(district);
-
-      // Find shard from manifest
-      const distManifest = useMapStore.getState().healthManifest?.districts.find(d => 
-        d.district.toLowerCase().replace(/\s+/g, '') === district?.toLowerCase().replace(/\s+/g, '')
-      );
-      if (distManifest && district) {
-        setActiveDistrict(distManifest.district);
-        loadHealthDistrict(distManifest.district, distManifest.file_name);
-      }
-    } else {
-      // PINCODE or Area
-      const pin = (item.properties.pin_code || item.properties.PIN_CODE || item.properties.pincode)?.toString();
-      
-      if (pin && (currentLayer === 'PINCODE' || currentLayer === 'CONSTITUENCY' || currentLayer === 'HEALTH')) {
-        resolveLocation(0, 0, currentLayer, false, pin);
-      } else {
-        setSearchResult(item, false, true);
-      }
-
-      const district = item.properties.district || item.properties.DISTRICT || item.properties.DISTRICT_NAME || item.properties.NAME;
-      if (district && currentLayer === 'PDS') {
-        workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
-      }
-    }
-  }, [resolveLocation, setSearchResult, setActiveLayer, setConstituencyType, loadHealthDistrict]);
-
-  const loadPds = useCallback((district: string, boundary: Geometry) => {
-    workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
+  const getSuggestions = useCallback((query: string, layer: string) => {
+    sharedWorker?.postMessage({ type: 'GET_SUGGESTIONS', payload: { query, layer } });
   }, []);
 
-  return { 
-    isReady, 
-    loadDistricts, 
-    loadStateBoundary, 
-    loadPdsIndex, 
-    loadPincodes, 
+  const selectSuggestion = useCallback((suggestion: any, layer: string) => {
+    sharedWorker?.postMessage({ type: 'SELECT_SUGGESTION', payload: { suggestion, layer } });
+  }, []);
+
+  return {
+    isReady,
+    loadDistricts,
+    loadStateBoundary,
+    loadPincodes,
     loadTnebStatewide,
-    loadTnebDistrict, 
-    loadPds, 
-    loadConstituencies, 
-    loadPoliceData, 
-    loadPostalDistrict, 
-    loadHealthManifest, 
-    loadHealthPriority, 
-    loadHealthDistrict, 
+    loadTnebDistrict,
+    loadPdsIndex,
+    loadPds,
+    loadConstituencies,
+    loadPoliceData,
+    loadHealthManifest,
+    loadHealthPriority,
+    loadHealthDistrict,
     loadHealthSearchIndex,
     filterHealth,
     resolveHealthFacility,
-    resolveLocation, 
-    getSuggestions, 
+    resolveLocation,
+    getSuggestions,
     selectSuggestion,
     loadLocalBodies
   };
 };
+
+function loadPds(district: string, boundary: Geometry) {
+  sharedWorker?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
+}
