@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
 import type { GisFeature, PdsShop, Geometry, Point, PoliceStationProperties, HealthFacility, PoliceResolutionResult } from '../../types/gis';
+import type { LocalBodyV2Feature } from '../../types/gis_v2';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
@@ -15,7 +16,7 @@ const MapController: React.FC<{
   result: GisFeature | null; 
   geometry: Geometry | null;
   policeResolution: PoliceResolutionResult | null;
-  selectedLocalBodyV2: any | null;
+  selectedLocalBodyV2: LocalBodyV2Feature | null;
 }> = ({ result, geometry, policeResolution, selectedLocalBodyV2 }) => {
   const map = useMap();
   const { isSidebarOpen, activeDistrict, districtsData } = useMapStore();

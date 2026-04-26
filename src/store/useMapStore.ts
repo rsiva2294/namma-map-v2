@@ -208,6 +208,7 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffices: null,
       selectedPostalOffice: null,
       selectedHealthFacility: null,
+      selectedLocalBodyV2: null,
       healthDistrictData: state.healthDistrictData,
       healthScope: state.healthScope,
       healthSummary: state.healthSummary,

@@ -73,6 +73,8 @@ const SearchBar: React.FC = () => {
         <Search size={20} color="var(--text-secondary)" aria-hidden="true" />
         <input 
           type="text" 
+          id="main-search-input"
+          name="search"
           value={searchQuery}
           onChange={(e) => {
             setUserTyping(true);
