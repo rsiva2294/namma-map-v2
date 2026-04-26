@@ -188,6 +188,26 @@ const extractPoliceCode = (str: string | undefined | null): string => {
 };
 
 /**
+ * Normalizes a district name to match case-sensitive JSON filenames.
+ * Handles special cases like "The Nilgiris" and spelling variations.
+ */
+const normalizeDistrictForFetch = (name: string): string => {
+  if (!name) return '';
+  const upper = name.toUpperCase().trim().replace(/\s+/g, ' ');
+  
+  // Special cases for filenames
+  if (upper === 'THE NILGIRIS' || upper === 'NILGIRIS' || upper === 'THE_NILGIRIS') return 'The_Nilgiris';
+  if (upper.includes('TIRUCHIRAP')) return 'Tiruchirapalli';
+  if (upper === 'THOOTHUKUDI' || upper === 'TUTICORIN') return 'Thoothukudi';
+  if (upper === 'KANYAKUMARI') return 'Kanniyakumari';
+  
+  // Default: TitleCase with no spaces (e.g. "CHENGALPATTU" -> "Chengalpattu")
+  return upper.toLowerCase().split(' ').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join('');
+};
+
+/**
  * Calculates string overlap/similarity score (0 to 1)
  */
 const getAliasStrength = (a: string, b: string): number => {
@@ -571,7 +591,7 @@ async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelecti
       if (distFeature) {
         const districtName = (distFeature.properties.district_n || distFeature.properties.district || distFeature.properties.NAME || distFeature.properties.dist_name)?.toString();
         if (districtName) {
-          const districtClean = districtName.toUpperCase().replace(/\s+/g, '_');
+          const districtClean = normalizeDistrictForFetch(districtName);
           
           if (!loadedVillagePanchayats.has(districtClean)) {
             try {
@@ -606,12 +626,36 @@ async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelecti
   }
 
   if (resolvedLocal) {
+    // Resolve name based on type — property keys differ between layers
+    let resolvedName = 'Unknown';
+    if (resolvedType === 'CORPORATION') {
+      resolvedName = (resolvedLocal.properties.Corporatio || resolvedLocal.properties.name || 'Unknown').toString();
+    } else if (resolvedType === 'MUNICIPALITY') {
+      resolvedName = (resolvedLocal.properties.Municipali || resolvedLocal.properties.name || 'Unknown').toString();
+    } else if (resolvedType === 'TOWN_PANCHAYAT') {
+      resolvedName = (resolvedLocal.properties.name || resolvedLocal.properties.p_name_rd || resolvedLocal.properties.tp_name || 'Unknown').toString();
+    } else {
+      // VILLAGE_PANCHAYAT
+      resolvedName = (resolvedLocal.properties.panchayat_n || resolvedLocal.properties.panchayat || resolvedLocal.properties.name || resolvedLocal.properties.Village || 'Unknown').toString();
+    }
+
+    // Correct known source data errors in GIS TN corporation/municipality district fields
+    const DISTRICT_CORRECTIONS: Record<string, string> = {
+      'Trichy': 'Tiruchirappalli',
+      'Erode': 'Erode', // Erode corp is in Namakkal district in source — override to Erode
+    };
+
+    const rawDistrict = (resolvedLocal.properties.District || resolvedLocal.properties.district || resolvedLocal.properties.dist_name || 'Unknown').toString();
+    const correctedDistrict = (resolvedType === 'CORPORATION' || resolvedType === 'MUNICIPALITY')
+      ? (DISTRICT_CORRECTIONS[resolvedName] || rawDistrict)
+      : rawDistrict;
+
     const normalized: LocalBodyV2Properties = {
       id: (resolvedLocal.properties.id || resolvedLocal.id || Date.now()).toString(),
-      name: (resolvedLocal.properties.panchayat_n || resolvedLocal.properties.panchayat || resolvedLocal.properties.name || resolvedLocal.properties.Village || resolvedLocal.properties.Corporatio || resolvedLocal.properties.Municipali || resolvedLocal.properties.tp_name || 'Unknown').toString(),
+      name: resolvedName,
       type: resolvedType as any,
-      district: (resolvedLocal.properties.District || resolvedLocal.properties.district || resolvedLocal.properties.dist_name || 'Unknown').toString(),
-      block: resolvedLocal.properties.Block?.toString(),
+      district: correctedDistrict,
+      block: resolvedLocal.properties.Block?.toString() || resolvedLocal.properties.b_name?.toString(),
       taluk: resolvedLocal.properties.taluk?.toString() || resolvedLocal.properties.Taluk?.toString(),
       category: resolvedLocal.properties.type1?.toString(),
       raw: resolvedLocal.properties
@@ -1664,7 +1708,8 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'SELECT_SUGGESTION': {
       const { suggestion, layer } = payload;
-      if (layer === 'LOCAL_BODIES_V2' && suggestion.suggestionType === 'PINCODE') {
+      if (layer === 'LOCAL_BODIES_V2' && suggestion.geometry) {
+        // Resolve via centroid for any suggestion type (PINCODE, DISTRICT, etc.)
         const centroid = getCentroid(suggestion.geometry);
         await handleLocalBodyV2Resolution(centroid[1], centroid[0], false);
       }
@@ -1860,6 +1905,44 @@ self.onmessage = async (e: MessageEvent) => {
       self.postMessage({ type: 'HEALTH_FACILITY_RESOLVED', payload: found });
       break;
     }
+
+    case 'LOAD_LOCAL_BODIES_V2':
+      try {
+        console.log('[Worker] Loading Local Bodies V2 base layers...');
+        const [corpRaw, muniRaw, tpRaw] = await Promise.all([
+          fetchWithRetry('/data/local_bodies/corporation.json'),
+          fetchWithRetry('/data/local_bodies/municipality.json'),
+          fetchWithRetry('/data/local_bodies/town_panchayat.json')
+        ]);
+
+        // All three files are TopoJSON — convert to GeoJSON before indexing
+        const corpGeoJson = topojson.feature(corpRaw, corpRaw.objects.Corporation) as unknown as GisFeatureCollection;
+        const muniGeoJson = topojson.feature(muniRaw, muniRaw.objects.Municipality) as unknown as GisFeatureCollection;
+        const tpGeoJson = topojson.feature(tpRaw, tpRaw.objects.Town_Panchayat) as unknown as GisFeatureCollection;
+
+        const loadToLayer = (data: GisFeatureCollection, index: RBush<SpatialItem>) => {
+          const items: SpatialItem[] = data.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map((f: GisFeature) => ({
+              ...getBBox(f.geometry),
+              feature: f
+            }));
+          index.clear();
+          index.load(items);
+        };
+
+        loadToLayer(corpGeoJson, localBodyIndexes.CORPORATION);
+        loadToLayer(muniGeoJson, localBodyIndexes.MUNICIPALITY);
+        loadToLayer(tpGeoJson, localBodyIndexes.TOWN_PANCHAYAT);
+
+        console.log(`[Worker] Corp: ${localBodyIndexes.CORPORATION.all().length}, Muni: ${localBodyIndexes.MUNICIPALITY.all().length}, TP: ${localBodyIndexes.TOWN_PANCHAYAT.all().length}`);
+        self.postMessage({ type: 'LOCAL_BODIES_V2_LOADED' });
+        console.log('[Worker] Local Bodies V2 base layers indexed.');
+      } catch (err) {
+        console.error('[Worker] Error loading Local Bodies V2:', err);
+        self.postMessage({ type: 'ERROR', payload: 'Failed to load local body data' });
+      }
+      break;
 
     default:
       console.warn('[Worker] Unknown message type:', type);

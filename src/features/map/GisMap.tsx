@@ -121,7 +121,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 };
 
 const GisMap: React.FC = () => {
-  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
+  const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, loadLocalBodiesV2, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
   const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2 } = useMapStore();
 
   useEffect(() => {
@@ -198,6 +198,13 @@ const GisMap: React.FC = () => {
       }
     }
   }, [activeLayer, searchResult, loadPds]);
+
+  // Auto-trigger Local Bodies V2 base load
+  useEffect(() => {
+    if (isReady && activeLayer === 'LOCAL_BODIES_V2') {
+      loadLocalBodiesV2();
+    }
+  }, [isReady, activeLayer, loadLocalBodiesV2]);
 
    const isAreaSelected = !!searchResult || !!jurisdictionGeometry;
 
@@ -358,7 +365,7 @@ const GisMap: React.FC = () => {
 
       return (
         <Marker
-          key={`health-p-${f.id || i}`}
+          key={`health-marker-${f.id || i}`}
           position={[lat, lng]}
           icon={healthPriorityIcon(f.properties.facility_t)}
           eventHandlers={{
@@ -402,7 +409,7 @@ const GisMap: React.FC = () => {
       
       return (
         <Marker
-          key={`ps-marker-${f.properties.ps_code}-${i}`}
+          key={`police-marker-${f.properties.ps_code || i}`}
           position={[lat, lng]}
           icon={policeDotIcon}
           eventHandlers={{
@@ -442,7 +449,7 @@ const GisMap: React.FC = () => {
       style={{ width: '100%', height: '100%' }}
     >
       <TileLayer
-        key={theme}
+        key={`tile-layer-${theme}`}
         attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
         url={theme === 'dark' ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"}
       />

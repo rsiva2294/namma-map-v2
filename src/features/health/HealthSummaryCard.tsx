@@ -147,7 +147,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '16px' }}>
           {facilityTypes.map(([type, count]) => (
-            <div key={type} style={{ 
+            <div key={type || 'unknown'} style={{ 
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'space-between', 
@@ -182,7 +182,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                 .filter(([_, count]) => count > 0)
                 .sort((a, b) => b[1] - a[1])
                 .slice(0, 6)
-                .map(([key, count]) => {
+                .map(([key, count], index) => {
                   const labelMap: Record<string, string> = {
                     hwc: 'Wellness Centres',
                     delivery: 'Delivery Points',
@@ -203,7 +203,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                     cath_lab: 'Cath Labs'
                   };
                   return (
-                    <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <div key={key || index} style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                       <span style={{ fontSize: '10px', color: 'var(--text-secondary)', fontWeight: 600 }}>{labelMap[key] || key}</span>
                       <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>{count}</span>
                     </div>
@@ -230,8 +230,8 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
               )}
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-              {summary.activeFilters.map(filter => (
-                <div key={filter} style={{ 
+              {summary.activeFilters.map((filter, i) => (
+                <div key={filter || i} style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
                   gap: '4px', 

@@ -388,7 +388,7 @@ const ResultContainer: React.FC = () => {
 
         {/* Local Body V2 Info */}
         {activeLayer === 'LOCAL_BODIES_V2' && (isV2Loading || selectedLocalBodyV2) && (
-          <div className="v2-card-wrapper" style={{ padding: '0 8px' }}>
+          <div key="v2-card-wrapper" className="v2-card-wrapper" style={{ padding: '0 8px' }}>
             {isV2Loading ? (
               <div style={{
                 background: theme === 'dark' ? '#1e293b' : '#ffffff',

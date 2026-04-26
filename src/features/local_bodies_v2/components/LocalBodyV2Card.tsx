@@ -1,5 +1,5 @@
 import React from 'react';
-import { Landmark, MapPin, Building2, LayoutGrid, Info, ChevronRight, Phone, Globe } from 'lucide-react';
+import { Landmark, MapPin, Building2, LayoutGrid, Info } from 'lucide-react';
 import { useMapStore } from '../../../store/useMapStore';
 import type { LocalBodyV2Feature } from '../../../types/gis_v2';
 
@@ -116,74 +116,6 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div style={{
-          marginTop: '24px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px'
-        }}>
-          <button style={{
-            width: '100%',
-            padding: '12px',
-            borderRadius: '10px',
-            background: typeColors[type],
-            color: '#ffffff',
-            border: 'none',
-            fontWeight: 700,
-            fontSize: '0.875rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-            cursor: 'pointer',
-            transition: 'opacity 0.2s'
-          }}>
-            Explore Services
-            <ChevronRight size={16} />
-          </button>
-          
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '10px'
-          }}>
-            <button style={{
-              padding: '10px',
-              borderRadius: '10px',
-              background: theme === 'dark' ? '#334155' : '#f1f5f9',
-              color: theme === 'dark' ? '#f8fafc' : '#1e293b',
-              border: 'none',
-              fontWeight: 600,
-              fontSize: '0.75rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '6px',
-              cursor: 'pointer'
-            }}>
-              <Globe size={14} />
-              Website
-            </button>
-            <button style={{
-              padding: '10px',
-              borderRadius: '10px',
-              background: theme === 'dark' ? '#334155' : '#f1f5f9',
-              color: theme === 'dark' ? '#f8fafc' : '#1e293b',
-              border: 'none',
-              fontWeight: 600,
-              fontSize: '0.75rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '6px',
-              cursor: 'pointer'
-            }}>
-              <Phone size={14} />
-              Contact
-            </button>
-          </div>
-        </div>
       </div>
       
       {/* Footer Branding */}

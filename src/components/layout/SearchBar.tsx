@@ -50,9 +50,10 @@ const SearchBar: React.FC = () => {
 
   const activeLayer = useMapStore(state => state.activeLayer);
   const groupedSuggestions = searchSuggestions.reduce((acc, curr) => {
-    const type = curr.suggestionType || 'OTHER';
-    if (!acc[type]) acc[type] = [];
-    acc[type].push(curr);
+    const type = (curr.suggestionType || 'OTHER').toString();
+    const safeType = type.trim() || 'OTHER';
+    if (!acc[safeType]) acc[safeType] = [];
+    acc[safeType].push(curr);
     return acc;
   }, {} as Record<string, typeof searchSuggestions>);
 
@@ -133,8 +134,8 @@ const SearchBar: React.FC = () => {
             className="glass search-suggestions"
             role="listbox"
           >
-            {Object.entries(groupedSuggestions).map(([type, items]) => (
-              <React.Fragment key={type}>
+            {Object.entries(groupedSuggestions).map(([type, items], groupIdx) => (
+              <React.Fragment key={`suggestion-group-${type || groupIdx}`}>
                 <div className="suggestion-category-header">
                   {categoryLabels[type] || type}
                 </div>

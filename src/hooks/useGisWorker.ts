@@ -75,6 +75,10 @@ export const useGisWorker = () => {
     workerRef.current?.postMessage({ type: 'RESOLVE_HEALTH_FACILITY', payload: { id, nin, district } });
   }, []);
 
+  const loadLocalBodiesV2 = useCallback(() => {
+    workerRef.current?.postMessage({ type: 'LOAD_LOCAL_BODIES_V2' });
+  }, []);
+
   useEffect(() => {
     workerRef.current = new Worker(
       new URL('../workers/gis.worker.ts', import.meta.url),
@@ -191,6 +195,10 @@ export const useGisWorker = () => {
           setAcData(payload.ac);
           setPcData(payload.pc);
           break;
+
+        case 'LOCAL_BODIES_V2_LOADED':
+          setIsV2Loading(false);
+          break;
         case 'POLICE_LOADED':
           setPoliceBoundariesData(payload.boundaries);
           setPoliceStationsData(payload.stations);
@@ -271,7 +279,11 @@ export const useGisWorker = () => {
     setHealthPriorityData,
     setHealthDistrictData,
     setHealthSummary,
-    setHealthScope
+    setHealthScope,
+    setIsV2Loading,
+    setIsHealthLoading,
+    loadHealthDistrict,
+    filterHealth
   ]);
 
 
@@ -392,7 +404,7 @@ export const useGisWorker = () => {
         workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary: item.geometry } });
       }
     }
-  }, [resolveLocation, setSearchResult, setActiveLayer, setConstituencyType, loadHealthDistrict]);
+  }, [resolveLocation, setSearchResult, setActiveLayer, setConstituencyType, loadHealthDistrict, setSelectedHealthFacility, setHealthScope, setActiveDistrict]);
 
   const loadPds = useCallback((district: string, boundary: Geometry) => {
     workerRef.current?.postMessage({ type: 'LOAD_PDS', payload: { district, boundary } });
@@ -414,6 +426,7 @@ export const useGisWorker = () => {
     loadHealthPriority, 
     loadHealthDistrict, 
     loadHealthSearchIndex,
+    loadLocalBodiesV2,
     filterHealth,
     resolveHealthFacility,
     resolveLocation, 
