@@ -2,6 +2,7 @@ import React from 'react';
 import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, Landmark, Shield, Activity } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
+import { trackEvent } from '../../lib/firebase';
 
 const SearchBar: React.FC = () => {
   const searchQuery = useMapStore(state => state.searchQuery);
@@ -30,6 +31,10 @@ const SearchBar: React.FC = () => {
       if (focusedSuggestionIndex >= 0) {
         const suggestion = searchSuggestions[focusedSuggestionIndex];
         setUserTyping(false);
+        trackEvent('search_suggestion_select', { 
+          suggestion_type: suggestion.suggestionType,
+          query: searchQuery 
+        });
         setSelectedSuggestion(suggestion);
         setSearchSuggestions([]);
       }
@@ -108,7 +113,10 @@ const SearchBar: React.FC = () => {
         )}
         <button 
           className="suggestion-action-btn"
-          onClick={() => setTriggerLocateMe(true)}
+          onClick={() => {
+            trackEvent('locate_me_click');
+            setTriggerLocateMe(true);
+          }}
           aria-label="Locate me"
           disabled={isLocating}
         >
@@ -207,6 +215,10 @@ const SearchBar: React.FC = () => {
                       onMouseEnter={() => setFocusedSuggestionIndex(globalIdx)}
                       onClick={() => {
                         setUserTyping(false);
+                        trackEvent('search_suggestion_select', { 
+                          suggestion_type: suggestion.suggestionType,
+                          query: searchQuery 
+                        });
                         setSelectedSuggestion(suggestion);
                         setSearchSuggestions([]);
                       }}

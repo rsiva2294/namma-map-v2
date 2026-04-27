@@ -18,6 +18,8 @@ import UpdateNotification from './components/UpdateNotification';
 import { RouteManager } from './components/routing/RouteManager';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import MapSkeleton from './components/layout/MapSkeleton';
+import { useLocation } from 'react-router-dom';
+import { trackEvent } from './lib/firebase';
 
 import { APP_VERSION } from './constants';
 
@@ -32,6 +34,16 @@ function App() {
   const searchResult = useMapStore(state => state.searchResult);
   const { filterHealth } = useGisWorker();
   const [updateAvailable, setUpdateAvailable] = React.useState(false);
+  const location = useLocation();
+
+  // Track Page Views
+  useEffect(() => {
+    trackEvent('page_view', {
+      page_path: location.pathname + location.search,
+      active_layer: activeLayer,
+      active_district: activeDistrict || 'statewide'
+    });
+  }, [location, activeLayer, activeDistrict]);
 
   const {
     needRefresh: [needRefresh, setNeedRefresh],

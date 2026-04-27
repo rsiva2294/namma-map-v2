@@ -21,6 +21,7 @@ import type {
   HealthSummary
 } from '../types/gis';
 import type { LocalBodyV2Feature } from '../types/gis_v2';
+import { trackEvent } from '../lib/firebase';
 
 interface MapState {
   view: {
@@ -198,6 +199,7 @@ export const useMapStore = create<MapState>((set) => ({
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setActiveLayer: (layer) => set((state) => {
+    trackEvent('layer_switch', { layer });
     return { 
       activeLayer: layer,
       jurisdictionDetails: null,
@@ -301,7 +303,11 @@ export const useMapStore = create<MapState>((set) => ({
     noDataFound: false,
     lastClickedPoint: null
   })),
-  toggleTheme: () => set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
+  toggleTheme: () => set((state) => {
+    const newTheme = state.theme === 'dark' ? 'light' : 'dark';
+    trackEvent('theme_toggle', { theme: newTheme });
+    return { theme: newTheme };
+  }),
   setConstituencyType: (type) => set({ constituencyType: type, searchResult: null }),
   setAcData: (data) => set({ acData: data }),
   setPcData: (data) => set({ pcData: data }),

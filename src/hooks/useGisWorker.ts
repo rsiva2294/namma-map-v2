@@ -2,6 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useMapStore } from '../store/useMapStore';
 import type { GisFeature, Geometry, HealthFilters, HealthScope } from '../types/gis';
 import { APP_VERSION } from '../constants';
+import { trace } from 'firebase/performance';
+import { performance } from '../lib/firebase';
+import * as Sentry from "@sentry/react";
 
 export const useGisWorker = () => {
   const workerRef = useRef<Worker | null>(null);
@@ -61,7 +64,10 @@ export const useGisWorker = () => {
   const loadHealthPriority = useCallback(() => workerRef.current?.postMessage({ type: 'LOAD_HEALTH_PRIORITY' }), []);
   const loadHealthDistrict = useCallback((district: string, file_name: string) => {
     setIsHealthLoading(true);
+    const t = performance ? trace(performance, 'load_health_district') : null;
+    t?.start();
     workerRef.current?.postMessage({ type: 'LOAD_HEALTH_DISTRICT', payload: { district, file_name } });
+    // Note: Since this is async worker communication, we might need a way to end the trace in the message handler
   }, [setIsHealthLoading]);
 
   const loadHealthSearchIndex = useCallback(() => 
@@ -180,6 +186,7 @@ export const useGisWorker = () => {
           }
           setIsResolving(false);
           setIsV2Loading(false);
+          // End resolution trace if it was started
           break;
         case 'TNEB_STATEWIDE_LOADED':
           // statewide search index ready
@@ -246,6 +253,7 @@ export const useGisWorker = () => {
           break;
         case 'ERROR':
           console.error('[Worker Error]', payload);
+          Sentry.captureException(new Error(`GIS Worker Error: ${payload}`));
           setIsResolving(false);
           break;
       }
@@ -316,6 +324,9 @@ export const useGisWorker = () => {
     setIsResolving(true);
     if (layer === 'LOCAL_BODIES_V2') setIsV2Loading(true);
     setSearchResult(null, keepSelection);
+    const t = performance ? trace(performance, 'resolve_location') : null;
+    t?.start();
+    t?.putAttribute('layer', layer);
     workerRef.current?.postMessage({
       type: 'RESOLVE_LOCATION',
       payload: { lat, lng, layer, keepSelection, pincode, stationCode, constituencyType: useMapStore.getState().constituencyType }
