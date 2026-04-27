@@ -22,6 +22,9 @@ The search bar at the top automatically adapts to your active layer:
 ### 3. "Locate Me"
 Click the navigation icon (🧭) in the search bar to automatically zoom to your current geographic location. The map will highlight the relevant boundary for your active service layer.
 
+### 4. Language Settings
+NammaMap is fully bilingual. You can switch between **English** and **Tamil** at any time by clicking the **Languages** icon (🌐) in the sidebar footer. The interface and map labels will update instantly.
+
 ---
 
 ## 🗺️ How to Use

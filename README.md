@@ -30,6 +30,7 @@ This repository adheres to high-quality software engineering practices:
 *   **Persistent Caching**: Integrated IndexedDB caching for all GIS datasets, ensuring near-instant subsequent loads.
 *   **Mobile-Native UX**: Advanced responsive design with glassmorphism, dynamic viewport units (`dvh`), and bottom-sheet interactions.
 *   **Automated Updates**: Integrated version tracking prompts users to refresh when new updates are deployed.
+*   **Full Bilingual Support (EN/TA)**: Instant, high-quality translation between English and Tamil with dynamic font scaling for visual parity.
 
 ## 🛠️ Tech Stack
 *   **React 18 + Vite**

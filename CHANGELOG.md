@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-04-28
+### Added
+- **Full Internationalization (EN/TA)**: Completed Phase 2 of localization, refactoring all hardcoded text across components, utilities, and maps into a centralized translation system.
+- **Visual Language Parity**: Implemented a dynamic font-scaling system that automatically adjusts Tamil text sizes to maintain visual alignment and premium aesthetics with English.
+- **Enhanced Language Toggle**: Added a dedicated 'Languages' icon and an 'EXPERIMENTAL' badge to the sidebar to signify the ongoing development of the translation system.
+- **Localized Health Assistant**: Fully translated the health summary guidance, facility capability filters, and expert filter panel.
+- **Bilingual Map Engine**: Localized all marker tooltips, popups, and legends across PDS, TNEB, Police, and Health layers.
+- **Bilingual Utilities**: Refactored postal and district utilities to support native language labels and descriptive service explanations.
+
+### Fixed
+- **Code Hygiene**: Removed dozens of unused variables and redundant language-check ternaries across the codebase.
+- **Build Integrity**: Consolidated and deduplicated translation keys to ensure consistent production build performance.
+
 ## [1.2.4] - 2026-04-27
 ### Added
 - **Bilingual Support (Tamil)**: Implemented Phase 1 of native Tamil support, allowing users to toggle the entire application interface between English and Tamil.
