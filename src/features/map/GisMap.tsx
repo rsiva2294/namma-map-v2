@@ -12,6 +12,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { getOfficeTypeLabelKey } from '../../utils/postal';
 import { PostalLegendPanel } from '../postal/PostalFiltersPanel';
 import { useTranslation } from '../../i18n/translations';
+import UserLocationMarker from './UserLocationMarker';
+import { isWithinTamilNadu } from '../../utils/urlParser';
 
 const MapController: React.FC<{ 
   result: GisFeature | null; 
@@ -123,7 +125,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, loadLocalBodiesV2, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2 } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2, globalLocation, setView, setUserLocation } = useMapStore();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -156,40 +158,62 @@ const GisMap: React.FC = () => {
       setSearchSuggestions([]);
     }
   }, [searchQuery, activeLayer, isUserTyping, getSuggestions, setSearchSuggestions]);
+  
+  // Handle Global Location Resolver
+  useEffect(() => {
+    if (globalLocation && globalLocation.lat !== null && globalLocation.lng !== null) {
+      console.log('[GisMap] Global Location Resolved:', globalLocation);
+      resolveLocation(globalLocation.lat, globalLocation.lng, activeLayer);
+      
+      // Update map view and user marker
+      setView([globalLocation.lat, globalLocation.lng], 15);
+      setUserLocation({ lat: globalLocation.lat, lng: globalLocation.lng });
+    }
+  }, [globalLocation, activeLayer, resolveLocation, setView, setUserLocation]);
 
   // Handle Suggestion Selection
   useEffect(() => {
     if (selectedSuggestion) {
+      const suggestion = selectedSuggestion;
+      setSelectedSuggestion(null); // Clear it immediately after capturing
       setUserTyping(false);
-      selectSuggestion(selectedSuggestion, activeLayer);
-      setSelectedSuggestion(null); // Clear it after processing
+      selectSuggestion(suggestion, activeLayer);
     }
   }, [selectedSuggestion, activeLayer, selectSuggestion, setSelectedSuggestion, setUserTyping]);
 
   // Handle Geolocation
   useEffect(() => {
     if (triggerLocateMe) {
+      setTriggerLocateMe(false); // Clear trigger immediately to prevent infinite loops
+      
       if (navigator.geolocation) {
         setIsLocating(true);
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            resolveLocation(position.coords.latitude, position.coords.longitude, activeLayer);
-            setTriggerLocateMe(false);
+            const { latitude, longitude } = position.coords;
+            
+            if (!isWithinTamilNadu(latitude, longitude)) {
+              alert(t('OUTSIDE_TN'));
+              setIsLocating(false);
+              return;
+            }
+
+            resolveLocation(latitude, longitude, activeLayer);
+            setUserLocation({ lat: latitude, lng: longitude });
+            setView([latitude, longitude], 15);
             setIsLocating(false);
           },
           (error) => {
             console.error("Error getting location:", error);
-            setTriggerLocateMe(false);
             setIsLocating(false);
             alert(t('LOC_RETRIEVE_ERROR'));
           }
         );
       } else {
         alert(t('LOC_NOT_SUPPORTED'));
-        setTriggerLocateMe(false);
       }
     }
-  }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe, setIsLocating]);
+  }, [triggerLocateMe, activeLayer, resolveLocation, setTriggerLocateMe, setIsLocating, t, setUserLocation, setView]);
 
   // Auto-trigger PDS load on layer switch
   useEffect(() => {
@@ -465,6 +489,9 @@ const GisMap: React.FC = () => {
           interactive={false}
         />
       )}
+
+      {/* User Location Marker */}
+      <UserLocationMarker />
 
       {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE' || activeLayer === 'HEALTH' || activeLayer === 'LOCAL_BODIES_V2') && stateBoundaryData && (
         <GeoJSON 

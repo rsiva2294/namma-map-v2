@@ -76,11 +76,20 @@ interface MapState {
   selectedLocalBodyV2: LocalBodyV2Feature | null;
   isV2Loading: boolean;
   language: 'en' | 'ta';
+  globalLocation: {
+    lat: number | null;
+    lng: number | null;
+    source: 'manual' | 'link' | 'pincode' | 'gps' | null;
+    rawInput: string;
+  } | null;
+  userLocation: { lat: number; lng: number } | null;
 
   // Actions
   setSelectedLocalBodyV2: (feature: LocalBodyV2Feature | null) => void;
   setIsV2Loading: (val: boolean) => void;
   setLanguage: (lang: 'en' | 'ta') => void;
+  setGlobalLocation: (location: { lat: number | null; lng: number | null; source: 'manual' | 'link' | 'pincode' | 'gps' | null; rawInput: string; } | null) => void;
+  setUserLocation: (location: { lat: number; lng: number } | null) => void;
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
   setSearchQuery: (query: string) => void;
@@ -195,6 +204,8 @@ export const useMapStore = create<MapState>((set) => ({
   selectedLocalBodyV2: null,
   isV2Loading: false,
   language: 'en',
+  globalLocation: null,
+  userLocation: null,
   postalFilters: {
     delivery: 'All',
     type: 'All'
@@ -304,7 +315,9 @@ export const useMapStore = create<MapState>((set) => ({
     selectedLocalBodyV2: null,
     healthDistrictData: state.activeLayer === 'HEALTH' ? state.healthDistrictData : null,
     noDataFound: false,
-    lastClickedPoint: null
+    lastClickedPoint: null,
+    globalLocation: null,
+    userLocation: null
   })),
   toggleTheme: () => set((state) => {
     const newTheme = state.theme === 'dark' ? 'light' : 'dark';
@@ -354,5 +367,7 @@ export const useMapStore = create<MapState>((set) => ({
   setLanguage: (lang) => {
     trackEvent('language_switch', { language: lang });
     set({ language: lang });
-  }
+  },
+  setGlobalLocation: (location) => set({ globalLocation: location }),
+  setUserLocation: (location) => set({ userLocation: location })
 }));

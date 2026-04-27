@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import { trackEvent } from '../../lib/firebase';
 import { useTranslation } from '../../i18n/translations';
+import LocationResolver from './LocationResolver';
 
 const SearchBar: React.FC = () => {
   const searchQuery = useMapStore(state => state.searchQuery);
@@ -18,6 +19,7 @@ const SearchBar: React.FC = () => {
   const focusedSuggestionIndex = useMapStore(state => state.focusedSuggestionIndex);
   const setFocusedSuggestionIndex = useMapStore(state => state.setFocusedSuggestionIndex);
   const setUserTyping = useMapStore(state => state.setUserTyping);
+  const [isResolverOpen, setIsResolverOpen] = React.useState(false);
   const { t } = useTranslation();
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -131,8 +133,25 @@ const SearchBar: React.FC = () => {
             />
           )}
         </button>
+        <button 
+          className={`suggestion-action-btn ${isResolverOpen ? 'active' : ''}`}
+          onClick={() => setIsResolverOpen(!isResolverOpen)}
+          aria-label={t('LOCATION_RESOLVER')}
+          title={t('LOCATION_RESOLVER')}
+        >
+          <MapPin 
+            size={18} 
+            color={isResolverOpen ? "var(--accent)" : "var(--text-secondary)"} 
+          />
+        </button>
       </div>
       
+      <AnimatePresence>
+        {isResolverOpen && (
+          <LocationResolver onClose={() => setIsResolverOpen(false)} />
+        )}
+      </AnimatePresence>
+
       {/* Dropdown Suggestions */}
       <AnimatePresence>
         {searchSuggestions.length > 0 && (

@@ -24,6 +24,7 @@ To prevent UI jank, all heavy lifting happens in `gis.worker.ts`.
 We use **Zustand** for lightweight, performant state.
 *   **Context Isolation**: The `activeLayer` dictates how the Search Bar and Click Handlers behave.
 *   **Selection Persistence**: The map remembers your area highlight even when switching service tabs.
+*   **Global Resolver**: A platform-wide coordinate input system (`globalLocation`) that supports manual Lat/Lng and Google Maps URL extraction, allowing users to jump to any location across all modules.
 
 ### 3. Data Strategy (Efficiency)
 *   **TopoJSON Compression**: We use TopoJSON instead of raw GeoJSON, reducing file sizes by up to 80% through shared topology and quantization.

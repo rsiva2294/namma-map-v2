@@ -22,7 +22,13 @@ The search bar at the top automatically adapts to your active layer:
 ### 3. "Locate Me"
 Click the navigation icon (🧭) in the search bar to automatically zoom to your current geographic location. The map will highlight the relevant boundary for your active service layer.
 
-### 4. Language Settings
+### 4. Location Resolver (NEW)
+Click the location icon (📍) in the search bar to open the **Location Resolver**. This allows you to:
+- **Manual Entry**: Enter Latitude and Longitude coordinates directly.
+- **Maps Link**: Paste a shared Google Maps link, and NammaMap will automatically extract the location.
+This is perfect for finding services at a specific remote location without being physically present.
+
+### 5. Language Settings
 NammaMap is fully bilingual. You can switch between **English** and **Tamil** at any time by clicking the **Languages** icon (🌐) in the sidebar footer. The interface and map labels will update instantly.
 
 ---
