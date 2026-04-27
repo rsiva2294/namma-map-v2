@@ -23,7 +23,7 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
   currentVersion,
   availableVersion
 }) => {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <AnimatePresence>
@@ -40,12 +40,10 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
             </div>
             <div className="update-text-group">
               <p className="update-title">
-                {isUpdating ? t('UPDATING') : (language === 'ta' ? 'புதிய பதிப்பு கிடைக்கிறது' : 'Update Available')}
+                {isUpdating ? t('UPDATING') : t('UPDATE_AVAILABLE')}
               </p>
               <p className="update-desc">
-                {isUpdating 
-                  ? (language === 'ta' ? 'தயவுசெய்து காத்திருக்கவும்.' : 'Please wait while we prepare the new version.')
-                  : (language === 'ta' ? 'மேம்படுத்தப்பட்ட புதிய பதிப்பு தயாராக உள்ளது.' : 'A newer version is ready with improvements.')}
+                {isUpdating ? t('UPDATE_PREPARING') : t('UPDATE_READY')}
               </p>
               {(currentVersion || availableVersion) && (
                 <div className="update-version-tag">
@@ -61,7 +59,7 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
             {!isUpdating ? (
               <>
                 <button onClick={onRefresh} className="update-btn-refresh">
-                  {language === 'ta' ? 'புதுப்பிக்கவும்' : 'REFRESH NOW'}
+                  {t('REFRESH_NOW')}
                 </button>
                 <button onClick={onClose} className="update-btn-close">
                   <X size={16} />

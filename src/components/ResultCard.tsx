@@ -59,7 +59,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
   title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction 
 }) => {
   const colors = colorMap[themeColor];
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -142,7 +142,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
         gap: '6px'
       }}>
         <span style={{ fontSize: '12px', marginTop: '-1px' }}>📍</span>
-        <span><strong>Accuracy:</strong> {language === 'ta' ? 'தோராயமான இடம். 200 மீட்டருக்குள் அலுவலகம் அமைந்துள்ளது.' : 'Vicinity only. The office is located within 200m of this point.'}</span>
+        <span><strong>{t('ACCURACY')}:</strong> {t('VICINITY_DISCLAIMER')}</span>
       </div>
 
       {/* Body */}
@@ -166,7 +166,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
                   <button
                     onClick={() => handleCopy(row.value)}
                     className="copy-button"
-                    aria-label={`Copy ${row.label}`}
+                    aria-label={t('COPY_LABEL').replace('{{label}}', row.label)}
                   >
                     <Copy size={14} color="var(--text-secondary)" />
                   </button>

@@ -55,6 +55,32 @@ body.light-mode {
   color-scheme: light;
 }
 
+/* Language Specific Adjustments */
+.lang-ta {
+  /* Subtle global reduction for Tamil text which is naturally larger/taller */
+  font-size: 0.96em;
+}
+
+.lang-ta .logo-text {
+  font-size: 18px;
+}
+
+.lang-ta .sidebar-menu-item {
+  font-size: 13px;
+}
+
+.lang-ta .result-card-title {
+  font-size: 15px;
+}
+
+.lang-ta .search-input {
+  font-size: 15px;
+}
+
+.lang-ta .sidebar-section-label {
+  font-size: 10px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

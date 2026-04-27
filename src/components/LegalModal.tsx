@@ -10,7 +10,7 @@ const LegalModal: React.FC = () => {
   const isOpen = useMapStore(state => state.isLegalModalOpen);
   const activeTab = useMapStore(state => state.legalTab);
   const setLegalModal = useMapStore(state => state.setLegalModal);
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
   // Accessibility: Handle Escape key
   React.useEffect(() => {
@@ -67,20 +67,20 @@ const LegalModal: React.FC = () => {
                 <div className="dev-links">
                   <a href="https://in.linkedin.com/in/sivakaminathan-muthusamy" target="_blank" rel="noopener noreferrer" className="dev-link">
                     <Share2 size={18} />
-                    LinkedIn
+                    {t('LINKEDIN')}
                   </a>
                   <a href="mailto:sivakaminathan.muthusamy@gmail.com" className="dev-link">
                     <Mail size={18} />
-                    Contact
+                    {t('CONTACT')}
                   </a>
                 </div>
               </div>
             </section>
 
             <section>
-              <h4>Accuracy of Data</h4>
+              <h4>{t('ACCURACY_DATA')}</h4>
               <p>
-                Users are advised to verify jurisdictional data with official government records before making any legal or administrative decisions. The developer assumes no responsibility for any inaccuracies or decisions made based on the data provided here.
+                {t('VERIFY_OFFICIAL')}
               </p>
             </section>
           </div>
@@ -94,15 +94,15 @@ const LegalModal: React.FC = () => {
                 {t('ZERO_DATA_DESC')}
               </p>
               <ul className="legal-list">
-                <li><strong>{language === 'ta' ? 'இருப்பிடம்' : 'Location Access'}</strong>: {t('LOCATION_PRIVACY')}</li>
-                <li><strong>Caching</strong>: GIS data is cached locally in your browser's IndexedDB to improve performance. This data stays on your device.</li>
-                <li><strong>Cookies</strong>: We use minimal local storage to remember your theme preference (Dark/Light mode).</li>
+                <li><strong>{t('LOCATION_ACCESS')}</strong>: {t('LOCATION_PRIVACY')}</li>
+                <li><strong>{t('CACHING')}</strong>: {t('CACHING_DESC')}</li>
+                <li><strong>{t('COOKIES')}</strong>: {t('COOKIES_DESC')}</li>
               </ul>
             </section>
             <section>
-              <h4>Third-Party Services</h4>
+              <h4>{t('THIRD_PARTY_SERVICES')}</h4>
               <p>
-                We use Firebase Hosting for deployment and Leaflet/CartoDB for map tiles. These services may collect standard server logs as part of their operations.
+                {t('THIRD_PARTY_DESC')}
               </p>
             </section>
           </div>
@@ -117,15 +117,15 @@ const LegalModal: React.FC = () => {
               </p>
             </section>
             <section>
-              <h4>Intellectual Property</h4>
+              <h4>{t('INTELLECTUAL_PROPERTY')}</h4>
               <p>
-                The application source code is the property of the developer. The GIS datasets remain the property of their respective departments and sources.
+                {t('IP_DESC')}
               </p>
             </section>
             <section>
-              <h4>Limitation of Liability</h4>
+              <h4>{t('LIMITATION_LIABILITY')}</h4>
               <p>
-                The service is provided "AS IS" without any warranties. The developer shall not be liable for any damages arising from the use or inability to use this portal.
+                {t('LIABILITY_DESC')}
               </p>
             </section>
           </div>
@@ -180,7 +180,7 @@ const LegalModal: React.FC = () => {
 
           <div className="modal-footer">
             <div className="modal-footer-version">
-              Build Version: <span>v{formatVersion(APP_VERSION)}</span>
+              {t('BUILD_VERSION')}: <span>v{formatVersion(APP_VERSION)}</span>
             </div>
             <button className="btn-primary" onClick={() => setLegalModal(false)}>
               {t('UNDERSTAND')}

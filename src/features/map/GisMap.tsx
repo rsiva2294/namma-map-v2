@@ -9,8 +9,9 @@ import type { LocalBodyV2Feature } from '../../types/gis_v2';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import { getOfficeTypeLabel } from '../../utils/postal';
+import { getOfficeTypeLabelKey } from '../../utils/postal';
 import { PostalLegendPanel } from '../postal/PostalFiltersPanel';
+import { useTranslation } from '../../i18n/translations';
 
 const MapController: React.FC<{ 
   result: GisFeature | null; 
@@ -123,6 +124,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, loadLocalBodiesV2, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
   const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2 } = useMapStore();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isReady) {
@@ -179,11 +181,11 @@ const GisMap: React.FC = () => {
             console.error("Error getting location:", error);
             setTriggerLocateMe(false);
             setIsLocating(false);
-            alert("Could not retrieve your location. Please check your browser permissions.");
+            alert(t('LOC_RETRIEVE_ERROR'));
           }
         );
       } else {
-        alert("Geolocation is not supported by your browser.");
+        alert(t('LOC_NOT_SUPPORTED'));
         setTriggerLocateMe(false);
       }
     }
@@ -390,7 +392,7 @@ const GisMap: React.FC = () => {
           <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent={false}>
             <div style={{ padding: '4px 8px' }}>
               <div style={{ fontWeight: 'bold' }}>{f.properties.facility_n}</div>
-              <div style={{ fontSize: '11px', opacity: 0.8 }}>{f.properties.facility_t}</div>
+              <div style={{ fontSize: '11px', opacity: 0.8 }}>{t(f.properties.facility_t as any)}</div>
             </div>
           </Tooltip>
         </Marker>
@@ -421,9 +423,9 @@ const GisMap: React.FC = () => {
         >
           <Tooltip direction="top" offset={[0, -5]} opacity={1}>
             <div style={{ padding: '5px' }}>
-              <strong>{f.properties.ps_name || 'Police Station'}</strong>
+              <strong>{f.properties.ps_name || t('POLICE')}</strong>
               <br />
-              <small>Click to view jurisdiction</small>
+              <small>{t('CLICK_TO_VIEW_JURISDICTION')}</small>
             </div>
           </Tooltip>
         </Marker>
@@ -509,7 +511,7 @@ const GisMap: React.FC = () => {
           <Tooltip direction="top" offset={[0, -10]} opacity={1}>
             <div style={{ padding: '4px 8px' }}>
               <div style={{ fontWeight: 'bold', fontSize: '14px' }}>{po.officename}</div>
-              <div style={{ fontSize: '12px', opacity: 0.8 }}>{getOfficeTypeLabel(po.officetype)}</div>
+              <div style={{ fontSize: '12px', opacity: 0.8 }}>{t(getOfficeTypeLabelKey(po.officetype) as any)}</div>
             </div>
           </Tooltip>
         </Marker>
@@ -535,7 +537,7 @@ const GisMap: React.FC = () => {
           >
             <Tooltip direction="top" offset={[0, -20]} opacity={1}>
               <div style={{ padding: '2px 5px', fontWeight: 'bold' }}>
-                Section Office
+                {t('SECTION_OFFICE')}
               </div>
             </Tooltip>
           </Marker>
@@ -626,9 +628,9 @@ const GisMap: React.FC = () => {
           >
             <Tooltip direction="top" offset={[0, -5]} opacity={1}>
               <div style={{ padding: '5px' }}>
-                <strong>{f.properties.name || 'PDS Shop'}</strong>
+                <strong>{f.properties.name || t('PDS')}</strong>
                 <br />
-                <small>{f.properties.village || 'Tamil Nadu'}</small>
+                <small>{f.properties.village || t('STATE')}</small>
               </div>
             </Tooltip>
           </CircleMarker>
@@ -706,7 +708,7 @@ const GisMap: React.FC = () => {
           <Tooltip direction="top" offset={[0, -14]} opacity={1} permanent>
             <div style={{ padding: '4px 8px' }}>
               <div style={{ fontWeight: 'bold' }}>{selectedHealthFacility.properties.facility_n || selectedHealthFacility.properties.NAME}</div>
-              <div style={{ fontSize: '11px', opacity: 0.8 }}>{selectedHealthFacility.properties.facility_t}</div>
+              <div style={{ fontSize: '11px', opacity: 0.8 }}>{t(selectedHealthFacility.properties.facility_t as any)}</div>
             </div>
           </Tooltip>
         </Marker>
@@ -717,7 +719,7 @@ const GisMap: React.FC = () => {
       {/* Safety check for district data */}
       {activeLayer === 'HEALTH' && isHealthLoading && (
         <div className="map-loading-overlay">
-          Loading health facilities...
+          {t('LOADING_HEALTH')}
         </div>
       )}
 
@@ -743,20 +745,20 @@ const GisMap: React.FC = () => {
           gap: '8px'
         }}>
           <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', display: 'block' }}>
-            Map Hierarchy
+            {t('MAP_HIERARCHY')}
           </span>
           <div style={{ display: 'flex', gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#9d174d', border: '1.5px solid white', boxShadow: '0 0 0 1px rgba(0,0,0,0.1)' }} />
-              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>Major</span>
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>{t('MAJOR')}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f43f5e', border: '1.5px solid white', boxShadow: '0 0 0 1px rgba(0,0,0,0.1)' }} />
-              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>Local</span>
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>{t('LOCAL')}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#94a3b8', border: '1px solid white', boxShadow: '0 0 0 1px rgba(0,0,0,0.1)' }} />
-              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>Sub-Centre</span>
+              <span style={{ fontSize: '10px', color: 'var(--text-primary)', fontWeight: 700 }}>{t('SUB_CENTRE')}</span>
             </div>
           </div>
         </div>

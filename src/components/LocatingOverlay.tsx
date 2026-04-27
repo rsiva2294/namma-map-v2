@@ -2,9 +2,11 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navigation, Loader2 } from 'lucide-react';
 import { useMapStore } from '../store/useMapStore';
+import { useTranslation } from '../i18n/translations';
 
 const LocatingOverlay: React.FC = () => {
   const isLocating = useMapStore(state => state.isLocating);
+  const { t } = useTranslation();
 
   return (
     <AnimatePresence>
@@ -21,9 +23,9 @@ const LocatingOverlay: React.FC = () => {
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <h2 className="locating-text">Locating You...</h2>
+            <h2 className="locating-text">{t('LOCATE_ME')}</h2>
             <p className="locating-subtext">
-              Finding your exact area to provide local service details.
+              {t('LOCATING_SUBTEXT')}
             </p>
           </div>
 
@@ -38,7 +40,7 @@ const LocatingOverlay: React.FC = () => {
           }}>
             <Loader2 className="animate-spin" size={16} color="var(--accent)" />
             <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              GPS Active
+              {t('GPS_ACTIVE')}
             </span>
           </div>
         </motion.div>

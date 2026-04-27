@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Search, Navigation } from 'lucide-react';
 import { useMapStore } from '../../store/useMapStore';
+import { useTranslation } from '../../i18n/translations';
 
 export const HealthAreaPrompt: React.FC = () => {
   const setTriggerLocateMe = useMapStore(state => state.setTriggerLocateMe);
@@ -9,6 +10,7 @@ export const HealthAreaPrompt: React.FC = () => {
   const healthScope = useMapStore(state => state.healthScope);
   const activeLayer = useMapStore(state => state.activeLayer);
   const theme = useMapStore(state => state.theme);
+  const { t } = useTranslation();
 
   // Show only if in Health module, statewide scope, and Local Centres are selected
   const needsArea = activeLayer === 'HEALTH' && 
@@ -60,7 +62,7 @@ export const HealthAreaPrompt: React.FC = () => {
           color: theme === 'dark' ? '#f8fafc' : '#0f172a',
           letterSpacing: '-0.5px'
         }}>
-          Focus Area Required
+          {t('FOCUS_AREA_REQUIRED')}
         </h3>
         <p style={{ 
           fontSize: '14px', 
@@ -68,7 +70,7 @@ export const HealthAreaPrompt: React.FC = () => {
           lineHeight: 1.6, 
           marginBottom: '24px' 
         }}>
-          To show local health centres (PHC/HSC), please select a specific area or district.
+          {t('FOCUS_AREA_DESC')}
         </p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -85,7 +87,7 @@ export const HealthAreaPrompt: React.FC = () => {
             }}
           >
             <Navigation size={18} />
-            Use My Current Location
+            {t('USE_MY_LOCATION')}
           </button>
           
           <div style={{ position: 'relative', margin: '10px 0' }}>
@@ -105,7 +107,7 @@ export const HealthAreaPrompt: React.FC = () => {
               position: 'relative',
               textTransform: 'uppercase',
               letterSpacing: '1px'
-            }}>or</span>
+            }}>{t('OR')}</span>
           </div>
           
           <div style={{
@@ -120,14 +122,14 @@ export const HealthAreaPrompt: React.FC = () => {
               color: theme === 'dark' ? '#38bdf8' : 'var(--accent)', 
               marginBottom: '8px' 
             }}>
-              USE THE SEARCH BAR ABOVE
+              {t('USE_SEARCH_BAR')}
             </p>
             <p style={{ 
               fontSize: '11px', 
               color: theme === 'dark' ? '#64748b' : '#94a3b8',
               lineHeight: 1.4
             }}>
-              Enter a Pincode, Block name, or District to unlock local facility discovery.
+              {t('SEARCH_UNLOCK_DESC')}
             </p>
             
             <motion.div 

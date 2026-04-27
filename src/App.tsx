@@ -8,6 +8,7 @@ import SearchBar from './components/layout/SearchBar';
 import ResultContainer from './components/layout/ResultContainer';
 import ReportModal from './components/ReportModal';
 import LegalModal from './components/LegalModal';
+import { useTranslation } from './i18n/translations';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
 import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
@@ -28,12 +29,14 @@ import { useState } from 'react';
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
 function App() {
+  const { t } = useTranslation();
   const theme = useMapStore(state => state.theme);
   const activeLayer = useMapStore(state => state.activeLayer);
   const setHealthScope = useMapStore(state => state.setHealthScope);
   const setHealthFilters = useMapStore(state => state.setHealthFilters);
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const searchResult = useMapStore(state => state.searchResult);
+  const language = useMapStore(state => state.language);
   const { filterHealth } = useGisWorker();
   const location = useLocation();
   const [isUpdating, setIsUpdating] = useState(false);
@@ -141,8 +144,8 @@ function App() {
   }, [theme]);
 
   return (
-    <div className={`app-container ${theme}`}>
-      <a href="#main-content" className="skip-link">Skip to results</a>
+    <div className={`app-container ${theme} lang-${language}`}>
+      <a href="#main-content" className="skip-link">{t('SKIP_TO_RESULTS')}</a>
       <SchemaData />
       <Helmet>
         <title>{getPageTitle()}</title>

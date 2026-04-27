@@ -19,7 +19,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
     setTriggerLocateMe,
     theme
   } = useMapStore();
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set(['care']));
   const [revealStage, setRevealStage] = useState(0); // 0: Basic, 1: Services, 2: Expert
@@ -62,7 +62,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
   const quickServices = [
     { id: 'emergency', label: t('EMERGENCY'), icon: '🚑', keys: ['isFru', 'hasStemiHub', 'hasStemiSpoke'] },
     { id: 'delivery', label: t('DELIVERY_SERVICE'), icon: '👶', keys: ['hasDelivery'] },
-    { id: 'childcare', label: language === 'ta' ? 'குழந்தை நலன்' : 'Child Care', icon: '🧸', keys: ['hasSncu', 'hasNbsu', 'hasDeic'] },
+    { id: 'childcare', label: t('CHILD_CARE'), icon: '🧸', keys: ['hasSncu', 'hasNbsu', 'hasDeic'] },
     { id: 'diagnostics', label: t('DIAGNOSTICS'), icon: '🔬', keys: ['hasCt', 'hasMri', 'hasDialysis'] },
   ];
 
@@ -149,7 +149,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           {[
             { id: 'STATE', label: t('STATEWIDE'), icon: Globe },
             { id: 'DISTRICT', label: t('DISTRICT'), icon: Search },
-            { id: 'PINCODE', label: language === 'ta' ? 'என் பகுதி' : 'My Area', icon: Navigation }
+            { id: 'PINCODE', label: t('MY_AREA'), icon: Navigation }
           ].map(scope => {
             const isActive = healthScope === scope.id || (scope.id === 'PINCODE' && healthScope === 'PINCODE');
             const Icon = scope.icon;
@@ -198,13 +198,13 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           <label style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-            {language === 'ta' ? 'சுகாதார உதவியாளர்' : 'Health Assistant'}
+            {t('HEALTH_ASSISTANT')}
           </label>
           <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 700 }}>
-            {healthScope === 'STATE' ? (language === 'ta' ? 'தமிழ்நாடு சுகாதார சேவைகள்' : 'Tamil Nadu Health Services') : (activeDistrict ? `${language === 'ta' ? 'சுகாதாரம்' : 'Health'} in ${activeDistrict}` : (language === 'ta' ? 'உள்ளூர் சுகாதாரத்தை ஆராயுங்கள்' : 'Explore Local Health'))}
+            {healthScope === 'STATE' ? t('TN_HEALTH_SERVICES') : (activeDistrict ? `${t('HEALTH_IN')} ${activeDistrict}` : t('EXPLORE_LOCAL_HEALTH'))}
           </span>
           <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 500 }}>
-            {language === 'ta' ? 'தொடங்குவதற்கு ஒரு தேவையைத் தேர்ந்தெடுக்கவும் அல்லது மாவட்டம் / பின்கோட்டைத் தேடவும்.' : 'Choose a need or search your district / pincode to begin.'}
+            {t('CHOOSE_NEED_SEARCH')}
           </span>
         </div>
         
@@ -245,14 +245,14 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
           <Stethoscope size={14} color="var(--accent)" />
           <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-secondary)', letterSpacing: '1px' }}>
-            Facility Groups
+            {t('FACILITY_GROUPS')}
           </span>
         </div>
 
         {[
-          { id: 'major', label: 'Major Hospitals', types: ['MCH', 'DH'], icon: '🏢' },
-          { id: 'secondary', label: 'Secondary Care', types: ['SDH', 'CHC'], icon: '🏥' },
-          { id: 'local', label: 'Local Centres', types: ['PHC', 'HSC'], icon: '📍' }
+          { id: 'major', label: t('MAJOR_HOSPITALS'), types: ['MCH', 'DH'], icon: '🏢' },
+          { id: 'secondary', label: t('SECONDARY_CARE'), types: ['SDH', 'CHC'], icon: '🏥' },
+          { id: 'local', label: t('LOCAL_CENTRES'), types: ['PHC', 'HSC'], icon: '📍' }
         ].map(group => {
           const isActive = group.types.every(t => healthFilters.facilityTypes.includes(t));
           return (
@@ -298,7 +298,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               marginTop: '8px'
             }}
           >
-            Show More Filters
+            {t('SHOW_MORE_FILTERS')}
           </button>
         )}
       </div>
@@ -309,14 +309,14 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           
           {/* Group: Services */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <FilterHeader id="services" label="Common Services" icon={Activity} />
+            <FilterHeader id="services" label={t('COMMON_SERVICES')} icon={Activity} />
             {expandedGroups.has('services') && (
               <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {[
-                  { key: 'hasDelivery', label: 'Delivery Services', color: '#ec4899' },
-                  { key: 'is24x7', label: '24x7 Availability', color: '#f59e0b' },
-                  { key: 'hasSncu', label: 'Newborn care', color: '#0ea5e9', tech: 'SNCU' },
-                  { key: 'hasDialysis', label: 'Dialysis Center', color: '#c4b5fd' }
+                  { key: 'hasDelivery', label: t('DELIVERY_SERVICES'), color: '#ec4899' },
+                  { key: 'is24x7', label: t('AVAILABILITY_24X7'), color: '#f59e0b' },
+                  { key: 'hasSncu', label: t('NEWBORN_CARE'), color: '#0ea5e9', tech: 'SNCU' },
+                  { key: 'hasDialysis', label: t('DIALYSIS_CENTER'), color: '#c4b5fd' }
                 ].map(cap => {
                   const isActive = healthFilters[cap.key as keyof HealthFilters];
                   return (
@@ -359,7 +359,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   cursor: 'pointer'
                 }}
               >
-                Advanced Medical Filters
+                {t('ADVANCED_MEDICAL_FILTERS')}
               </button>
               <button
                 onClick={() => setRevealStage(0)}
@@ -373,7 +373,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   cursor: 'pointer'
                 }}
               >
-                Hide
+                {t('HIDE')}
               </button>
             </div>
           )}
@@ -384,19 +384,19 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
         <>
           {/* Group: Advanced */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <FilterHeader id="advanced" label="Specialist Medical" icon={Beaker} />
+            <FilterHeader id="advanced" label={t('SPECIALIST_MEDICAL')} icon={Beaker} />
             {expandedGroups.has('advanced') && (
               <div style={{ padding: '0 16px 16px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {[
-                  { key: 'isHwc', label: 'Wellness Centre', color: '#10b981' },
-                  { key: 'isFru', label: 'Emergency Referral', color: '#be123c', tech: 'FRU' },
-                  { key: 'hasBloodBank', label: 'Blood Bank', color: '#ef4444' },
-                  { key: 'hasCt', label: 'CT Scan', color: '#8b5cf6' },
-                  { key: 'hasMri', label: 'MRI', color: '#a78bfa' },
-                  { key: 'hasTeleConsultation', label: 'Tele-Consultation', color: '#6366f1' },
-                  { key: 'hasStemiHub', label: 'STEMI Hub', color: '#f43f5e' },
-                  { key: 'hasCathLab', label: 'Cath Lab', color: '#fda4af' },
-                  { key: 'hasDeic', label: 'Child support services', color: '#f59e0b', tech: 'DEIC' }
+                  { key: 'isHwc', label: t('WELLNESS_CENTRE'), color: '#10b981' },
+                  { key: 'isFru', label: t('EMERGENCY_REFERRAL'), color: '#be123c', tech: 'FRU' },
+                  { key: 'hasBloodBank', label: t('BLOOD_BANK'), color: '#ef4444' },
+                  { key: 'hasCt', label: t('CT_SCAN'), color: '#8b5cf6' },
+                  { key: 'hasMri', label: t('MRI'), color: '#a78bfa' },
+                  { key: 'hasTeleConsultation', label: t('TELE_CONSULTATION'), color: '#6366f1' },
+                  { key: 'hasStemiHub', label: t('STEMI_HUB'), color: '#f43f5e' },
+                  { key: 'hasCathLab', label: t('CATH_LAB'), color: '#fda4af' },
+                  { key: 'hasDeic', label: t('CHILD_SUPPORT_SERVICES'), color: '#f59e0b', tech: 'DEIC' }
                 ].map(cap => {
                   const isActive = healthFilters[cap.key as keyof HealthFilters];
                   return (
@@ -427,7 +427,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           <div style={{ display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--border-glass)' }}>
             <div style={{ padding: '16px 16px 8px 16px' }}>
               <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-secondary)', letterSpacing: '1px' }}>
-                Specific Facility Types
+                {t('SPECIFIC_FACILITY_TYPES')}
               </span>
             </div>
             <div style={{ padding: '0 16px 16px 16px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
@@ -448,7 +448,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                       cursor: 'pointer'
                     }}
                   >
-                    {type}
+                  {t(type as any)}
                   </button>
                 );
               })}
@@ -468,7 +468,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               textDecoration: 'underline'
             }}
           >
-            Hide Expert Filters
+            {t('HIDE_EXPERT_FILTERS')}
           </button>
         </>
       )}

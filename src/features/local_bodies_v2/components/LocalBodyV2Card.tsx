@@ -123,7 +123,7 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
         gap: '4px'
       }}>
         <Landmark size={10} />
-        NammaMap Unified Discovery &bull; Data Source: GIS TN
+        {t('NAMMAMAP_UNIFIED')} &bull; {t('DATA_SOURCE_GIS_TN')}
       </div>
     </div>
   );

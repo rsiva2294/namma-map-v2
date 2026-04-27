@@ -83,7 +83,7 @@ const Sidebar: React.FC = () => {
 
       <motion.aside
         role="navigation"
-        aria-label="Service Layers"
+        aria-label={t('SERVICE_LAYERS_ARIA') || "Service Layers"}
         initial={false}
         animate={{ width: isSidebarOpen ? 280 : (window.innerWidth > 768 ? 0 : 0) }}
         transition={{ duration: 0.2 }}
@@ -92,7 +92,7 @@ const Sidebar: React.FC = () => {
         <button
           className="sidebar-toggle"
           onClick={() => setSidebarOpen(!isSidebarOpen)}
-          aria-label={isSidebarOpen ? "Close Sidebar" : "Open Sidebar"}
+          aria-label={isSidebarOpen ? t('CLOSE_SIDEBAR') : t('OPEN_SIDEBAR')}
         >
           {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
         </button>
@@ -120,7 +120,7 @@ const Sidebar: React.FC = () => {
                 NammaMap
               </motion.span>
             </div>
-            {isSidebarOpen && <div className="sub-logo-text">Independent Tamil Nadu GIS Portal</div>}
+            {isSidebarOpen && <div className="sub-logo-text">{t('INDEPENDENT_PORTAL')}</div>}
           </div>
 
         {categories.map((category) => (
@@ -150,9 +150,9 @@ const Sidebar: React.FC = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="badge-experimental"
-                        title="We are still experimenting with how to show all the health details in a clear manner."
+                        title={t('HEALTH_EXPERIMENTAL_DESC')}
                       >
-                        EXPERIMENTAL
+                        {t('EXPERIMENTAL')}
                       </motion.span>
                     )}
                   </AnimatePresence>
@@ -192,7 +192,7 @@ const Sidebar: React.FC = () => {
                               transition: 'all 0.2s'
                             }}
                           >
-                            ASSEMBLY
+                            {t('ASSEMBLY')}
                           </button>
                           <button 
                             onClick={() => setConstituencyType('PC')}
@@ -210,7 +210,7 @@ const Sidebar: React.FC = () => {
                               transition: 'all 0.2s'
                             }}
                           >
-                            PARLIAMENT
+                            {t('PARLIAMENT')}
                           </button>
                         </div>
                       </motion.div>
@@ -229,12 +229,17 @@ const Sidebar: React.FC = () => {
           <button 
             className="sidebar-menu-item" 
             onClick={() => setLanguage(language === 'en' ? 'ta' : 'en')} 
-            aria-label={`Switch to ${language === 'en' ? 'Tamil' : 'English'}`}
+            aria-label={language === 'en' ? t('SWITCH_TO_TAMIL') : t('SWITCH_TO_ENGLISH')}
           >
-            <Languages size={20} color="var(--accent)" />
+            <Languages size={20} />
             {isSidebarOpen && <span>{language === 'en' ? 'தமிழ்' : 'English'}</span>}
+            {isSidebarOpen && (
+              <span className="badge-experimental">
+                {t('EXPERIMENTAL')}
+              </span>
+            )}
           </button>
-          <button className="sidebar-menu-item" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
+          <button className="sidebar-menu-item" onClick={toggleTheme} aria-label={theme === 'dark' ? t('SWITCH_TO_LIGHT_MODE') : t('SWITCH_TO_DARK_MODE')}>
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             {isSidebarOpen && <span>{theme === 'dark' ? t('LIGHT_MODE') : t('DARK_MODE')}</span>}
           </button>

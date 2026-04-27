@@ -65,14 +65,14 @@ const SearchBar: React.FC = () => {
   }, {} as Record<string, typeof searchSuggestions>);
 
   const categoryLabels: Record<string, string> = {
-    'POLICE_STATION': 'Police Stations',
-    'TNEB_SECTION': 'TNEB Sections',
-    'PINCODE': 'Areas & Pincodes',
-    'DISTRICT': 'Districts',
-    'PDS_SHOP': 'PDS Shops',
-    'CONSTITUENCY': 'Constituencies',
-    'HEALTH_FACILITY': 'Hospitals & Health Centres',
-    'OTHER': 'Other'
+    'POLICE_STATION': t('CAT_POLICE'),
+    'TNEB_SECTION': t('CAT_TNEB'),
+    'PINCODE': t('CAT_PINCODE'),
+    'DISTRICT': t('CAT_DISTRICT'),
+    'PDS_SHOP': t('CAT_PDS'),
+    'CONSTITUENCY': t('CAT_CONSTITUENCY'),
+    'HEALTH_FACILITY': t('CAT_HEALTH'),
+    'OTHER': t('CAT_OTHER')
   };
 
   return (
@@ -100,7 +100,7 @@ const SearchBar: React.FC = () => {
             t('SEARCH_PLACEHOLDER')
           }
           className="search-input"
-          aria-label="Search for a location"
+          aria-label={t('SEARCH_FOR_LOCATION')}
           aria-autocomplete="list"
         />
         {isResolving && <Loader2 className="animate-spin" size={18} color="var(--accent)" style={{ marginRight: '10px' }} />}
@@ -108,7 +108,7 @@ const SearchBar: React.FC = () => {
           <button 
             className="suggestion-action-btn"
             onClick={clearSearch}
-            aria-label="Clear search"
+            aria-label={t('CLEAR_SEARCH')}
           >
             <X size={18} color="var(--text-secondary)" />
           </button>
@@ -119,7 +119,7 @@ const SearchBar: React.FC = () => {
             trackEvent('locate_me_click');
             setTriggerLocateMe(true);
           }}
-          aria-label="Locate me"
+          aria-label={t('LOCATE_ME_ARIA')}
           disabled={isLocating}
         >
           {isLocating ? (
@@ -170,40 +170,33 @@ const SearchBar: React.FC = () => {
                     iconColor = '#f59e0b';
                   } else if (suggestion.suggestionType === 'DISTRICT') {
                     title = (suggestion.properties.district || suggestion.properties.DISTRICT || suggestion.properties.NAME || '') as string;
-                    subtitle = 'District Boundary';
+                    subtitle = t('SUB_DISTRICT_BOUNDARY');
                     Icon = Building2;
                     iconColor = '#64748b';
                   } else if (suggestion.suggestionType === 'CONSTITUENCY') {
                     const isPc = !!suggestion.properties.parliame_1 && !suggestion.properties.assembly_c;
                     const num = suggestion.properties.assembly_1 || suggestion.properties.parliament;
                     title = (suggestion.properties.assembly_c || suggestion.properties.parliame_1 || 'Constituency') as string;
-                    subtitle = isPc ? `PC #${num} - Parliamentary Constituency` : `AC #${num} - Assembly Constituency (${suggestion.properties.parliame_1})`;
+                    subtitle = isPc ? `PC #${num} - ${t('SUB_PC')}` : `AC #${num} - ${t('SUB_AC')} (${suggestion.properties.parliame_1})`;
                     Icon = Landmark;
                     iconColor = '#4f46e5';
                   } else if (suggestion.suggestionType === 'POLICE_STATION') {
                     title = (suggestion.properties.ps_name || '') as string;
-                    subtitle = 'Police Station';
+                    subtitle = t('SUB_POLICE');
                     Icon = Shield;
                     iconColor = '#334155';
                   } else if (suggestion.suggestionType === 'HEALTH_FACILITY') {
-                    const typeLabel = (({
-                      'MCH': 'Medical College Hospital',
-                      'DH': 'District Hospital',
-                      'SDH': 'Sub-District Hospital',
-                      'CHC': 'Community Health Centre',
-                      'PHC': 'Primary Health Centre',
-                      'HSC': 'Health Sub Centre'
-                    } as Record<string, string>)[String(suggestion.properties.facility_t)]) || String(suggestion.properties.facility_t || 'Health Facility');
+                    const typeLabel = (suggestion.properties.facility_t && t(suggestion.properties.facility_t as any)) || String(suggestion.properties.facility_t || t('HEALTH'));
                     
                     title = (suggestion.properties.facility_n || '') as string;
-                    subtitle = `${typeLabel} • ${suggestion.properties.district_n || suggestion.properties.district || ''} • ${suggestion.properties.block_name || 'Local Area'}`;
+                    subtitle = `${typeLabel} • ${suggestion.properties.district_n || suggestion.properties.district || ''} • ${suggestion.properties.block_name || t('SUB_LOCAL_AREA')}`;
                     Icon = Activity;
                     iconColor = '#f43f5e';
                   } else {
                     const name = (suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '').toString();
                     const pin = (suggestion.properties.PIN_CODE || suggestion.properties.pincode)?.toString();
                     title = pin ? `${pin} - ${name}` : name;
-                    subtitle = suggestion.properties.district ? `${suggestion.properties.district} District` : 'Area Boundary';
+                    subtitle = suggestion.properties.district ? `${suggestion.properties.district} ${t('DISTRICT')}` : t('SUB_AREA_BOUNDARY');
                     Icon = MapPin;
                     iconColor = '#3b82f6';
                   }
