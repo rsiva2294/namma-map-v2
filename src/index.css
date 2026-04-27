@@ -984,10 +984,23 @@ html,
 .modal-footer {
   padding: 16px 24px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   gap: 12px;
   border-top: 1px solid var(--border-glass);
   background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-footer-version {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-family: monospace;
+  opacity: 0.8;
+}
+
+.modal-footer-version span {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .btn-primary,
@@ -1189,6 +1202,23 @@ html,
   z-index: 9999;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.update-notification.updating {
+  min-width: 380px;
+  background: #0f172a; /* Solid dark blue for better contrast */
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.update-notification.updating .update-title {
+  color: white;
+}
+
+.update-notification.updating .update-desc {
+  color: #94a3b8; /* Brighter slate */
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -1235,6 +1265,35 @@ html,
   font-weight: 500;
 }
 
+.update-version-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-family: monospace;
+}
+
+.v-label {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  color: var(--text-secondary);
+}
+
+.v-label.highlight {
+  color: #fff;
+  background: var(--accent);
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
+}
+
+.v-arrow {
+  font-size: 10px;
+  color: white;
+  opacity: 0.8;
+}
+
 .update-actions {
   display: flex;
   align-items: center;
@@ -1252,6 +1311,27 @@ html,
   cursor: pointer;
   transition: all 0.2s;
   letter-spacing: 0.5px;
+}
+
+.update-loading-dots {
+  display: flex;
+  gap: 4px;
+  padding-right: 8px;
+}
+
+.update-loading-dots span {
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.update-loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.update-loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  to { transform: translateY(-4px); opacity: 0.5; }
 }
 
 .update-btn-refresh:hover {

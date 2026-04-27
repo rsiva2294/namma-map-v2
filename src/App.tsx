@@ -20,6 +20,8 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 import MapSkeleton from './components/layout/MapSkeleton';
 import { useLocation } from 'react-router-dom';
 import { trackEvent } from './lib/firebase';
+import { APP_VERSION } from './constants';
+import { useState } from 'react';
 
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -33,6 +35,9 @@ function App() {
   const searchResult = useMapStore(state => state.searchResult);
   const { filterHealth } = useGisWorker();
   const location = useLocation();
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [availableVersion, setAvailableVersion] = useState<string | undefined>(undefined);
+  const [dismissedVersion, setDismissedVersion] = useState<string | null>(null);
 
   // Track Page Views
   useEffect(() => {
@@ -46,7 +51,60 @@ function App() {
   const {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
-  } = useRegisterSW();
+  } = useRegisterSW({
+    onRegistered(r) {
+      // Check for updates every 15 minutes
+      if (r) {
+        setInterval(() => {
+          r.update();
+        }, 15 * 60 * 1000);
+      }
+    },
+    onNeedRefresh() {
+      // When PWA detects update, try to get the version from version.json
+      fetch('/version.json', { cache: 'no-cache' })
+        .then(res => res.json())
+        .then(data => setAvailableVersion(data.version))
+        .catch(() => setAvailableVersion(undefined));
+    }
+  });
+
+  const handleUpdate = async () => {
+    setIsUpdating(true);
+    // Give the UI time to show the "Updating" state
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // In dev mode or if SW is not ready, updateServiceWorker(true) might not reload.
+    // We force a reload here to ensure the user sees the 'updated' state.
+    updateServiceWorker(true);
+    
+    // Fallback reload if SW doesn't trigger it
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
+
+  // Proactive version polling
+  useEffect(() => {
+    const checkVersion = async () => {
+      try {
+        const res = await fetch('/version.json', { cache: 'no-cache' });
+        const data = await res.json();
+        if (data.version && data.version !== APP_VERSION && data.version !== dismissedVersion) {
+          console.log('[VersionControl] New version detected:', data.version);
+          setAvailableVersion(data.version);
+          setNeedRefresh(true);
+        }
+      } catch (err) {
+        console.error('[VersionControl] Failed to poll version:', err);
+      }
+    };
+
+    const interval = setInterval(checkVersion, 5 * 60 * 1000); // Check every 5 mins
+    checkVersion(); // Initial check
+
+    return () => clearInterval(interval);
+  }, [setNeedRefresh]);
 
   // Dynamic SEO Meta Tags
   const getPageTitle = () => {
@@ -143,10 +201,14 @@ function App() {
 
         <UpdateNotification 
           show={needRefresh} 
-          onRefresh={() => {
-            updateServiceWorker(true);
-          }} 
+          isUpdating={isUpdating}
+          currentVersion={APP_VERSION}
+          availableVersion={availableVersion}
+          onRefresh={handleUpdate} 
           onClose={() => {
+            if (availableVersion) {
+              setDismissedVersion(availableVersion);
+            }
             setNeedRefresh(false);
           }}
         />

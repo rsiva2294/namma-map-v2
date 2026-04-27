@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Scale, Shield, FileText, Share2, Mail, MapPin, User } from 'lucide-react';
 import { useMapStore } from '../store/useMapStore';
+import { APP_VERSION } from '../constants';
+import { formatVersion } from '../utils/version';
 
 const LegalModal: React.FC = () => {
   const isOpen = useMapStore(state => state.isLegalModalOpen);
@@ -159,6 +161,9 @@ const LegalModal: React.FC = () => {
           </div>
 
           <div className="modal-footer">
+            <div className="modal-footer-version">
+              Build Version: <span>v{formatVersion(APP_VERSION)}</span>
+            </div>
             <button className="btn-primary" onClick={() => setLegalModal(false)}>
               I Understand
             </button>

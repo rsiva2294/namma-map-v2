@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.2] - 2026-04-27
+### Added
+- **Robust Update System**: Implemented a proactive version check against `version.json` that works alongside the PWA, ensuring users jump directly to the latest deployment.
+- **Version Transparency**: Added build version displays to the Update Notification and the **About & Legal** dialog for better support and transparency.
+
+### Changed
+- **Update UX**: Introduced a non-dismissible "Updating..." state with a loading animation to prevent race conditions and redundant notifications during the refresh cycle.
+- **Visual Contrast**: Redesigned the update notification with a solid dark theme and high-contrast text for significantly improved readability in all lighting conditions.
+
+### Fixed
+- **Notification Persistence**: Added session-based dismissal logic, allowing users to hide update notifications for the current version while still alerting them to future updates.
+
 ## [1.2.1] - 2026-04-27
 ### Changed
 - **Sidebar UX**: Reorganized service modules into semantic categories (ESSENTIALS, CIVIC, SAFETY, UTILITIES) for faster discovery and better information hierarchy.
