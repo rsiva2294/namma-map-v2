@@ -452,7 +452,6 @@ const GisMap: React.FC = () => {
         key={`tile-layer-${theme}`}
         attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
         url={theme === 'dark' ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"}
-        crossOrigin={true}
       />
       
       {/* Background Boundaries based on Active Layer */}

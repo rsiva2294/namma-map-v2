@@ -42,23 +42,7 @@ export default defineConfig(({ mode }) => {
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
           // The GIS worker is quite large, ensure it can be cached
-          maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
-          runtimeCaching: [
-            {
-              urlPattern: /^https:\/\/.*\.basemaps\.cartocdn\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'map-tiles-cache',
-                expiration: {
-                  maxEntries: 2000,
-                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
-                },
-                cacheableResponse: {
-                  statuses: [0, 200]
-                }
-              }
-            }
-          ]
+          maximumFileSizeToCacheInBytes: 3 * 1024 * 1024
         }
       }),
       sentryVitePlugin({

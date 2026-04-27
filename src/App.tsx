@@ -21,7 +21,6 @@ import MapSkeleton from './components/layout/MapSkeleton';
 import { useLocation } from 'react-router-dom';
 import { trackEvent } from './lib/firebase';
 
-import { APP_VERSION } from './constants';
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
@@ -33,7 +32,6 @@ function App() {
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const searchResult = useMapStore(state => state.searchResult);
   const { filterHealth } = useGisWorker();
-  const [updateAvailable, setUpdateAvailable] = React.useState(false);
   const location = useLocation();
 
   // Track Page Views
@@ -73,24 +71,7 @@ function App() {
     return `NammaMap | Tamil Nadu ${layerName} Locator`;
   };
 
-  useEffect(() => {
-    const checkUpdate = async () => {
-      try {
-        const response = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
-        if (!response.ok) return;
-        const data = await response.json();
-        if (data.version && data.version !== APP_VERSION) {
-          setUpdateAvailable(true);
-        }
-      } catch {
-        // Silently ignore update check failures
-      }
-    };
 
-    checkUpdate();
-    const interval = setInterval(checkUpdate, 5 * 60 * 1000); // Check every 5 minutes
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     if (theme === 'light') {
@@ -161,13 +142,11 @@ function App() {
         )}
 
         <UpdateNotification 
-          show={updateAvailable || needRefresh} 
+          show={needRefresh} 
           onRefresh={() => {
-            if (needRefresh) updateServiceWorker(true);
-            else window.location.reload();
+            updateServiceWorker(true);
           }} 
           onClose={() => {
-            setUpdateAvailable(false);
             setNeedRefresh(false);
           }}
         />
