@@ -33,11 +33,16 @@ The app uses a single source of truth for all map states:
 5.  **Update**: The hook updates the Zustand store, which triggers UI re-renders in `App.tsx`.
 
 ## 📂 Data Structure
-The app relies on highly optimized TopoJSON files in `public/data/`:
+The app relies on highly optimized TopoJSON and JSON files in `public/data/`:
 *   `tn_districts.topojson`: Basic state administrative boundaries.
 *   `tn_pincodes.topojson`: Pincode boundaries with searchable office names.
-*   `pds/[District].json`: Point data for ration shops, loaded only when needed.
+*   `pds/[District].json`: Point data for ration shops, lazy-loaded.
 *   `tneb/tn_tneb_boundaries.topojson`: Multi-polygon section boundaries.
+*   `health/manifest.json`: Statewide health facility metadata.
+*   `health/districts/[District].json`: Point data for health facilities.
+*   `police/boundaries/[District]_boundaries.json`: Police station jurisdictional polygons.
+*   `police/stations/[District]_stations.json`: Police station point markers.
+*   `local_bodies/village_panchayat/[District].json`: Village panchayat boundaries (Lazy-loaded).
 
 ## 🚀 Development
 ```bash

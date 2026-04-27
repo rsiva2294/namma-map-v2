@@ -300,9 +300,16 @@ html,
   letter-spacing: 0.5px;
 }
 
-.sidebar-footer {
+.sidebar-divider {
+  height: 1px;
+  background: var(--border-glass);
+  margin: 16px 0 8px 0;
+  width: 100%;
   margin-top: auto;
-  padding-top: 24px;
+}
+
+.sidebar-footer {
+  padding-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;

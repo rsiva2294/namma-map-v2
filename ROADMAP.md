@@ -17,6 +17,7 @@ Features that improve retention and ease of use.
 - [x] **Saved Locations ("My Places")**: LocalStorage-based saving of favorite pincodes or offices for quick access.
 - [x] **Global Universal Search**: A single search bar that resolves Districts, Pincodes, and Offices without requiring layer switching.
 - [x] **Assembly & Parliamentary Constituency Layers (AC/PC)**: Complete boundary mapping and toggle controls.
+- [x] **Local Bodies V2**: Unified discovery for Corporations, Municipalities, Town Panchayats, and Village Panchayats.
 - [x] **Crowdsourced Feedback**: "Report an Issue" button for data corrections (location shifts, name changes).
 - [x] **Mobile Responsiveness & Performance**: Premium bottom sheet interactions and IndexedDB data caching.
 - [ ] **Interactive Legend**: A visual guide to map markers, colors, and boundary types.

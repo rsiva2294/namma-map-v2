@@ -36,7 +36,11 @@ We use **Zustand** for lightweight, performant state.
 | **Districts** | TN State GIS | TopoJSON | Pre-loaded on init |
 | **Pincodes** | India Post | TopoJSON | Pre-loaded on init |
 | **PDS** | Civil Supplies | JSON | Lazy-loaded by District |
-| **TNEB** | TANGEDCO | TopoJSON | Loaded on TNEB layer activation |
+| **TNEB** | TANGEDCO | TopoJSON | Lazy-loaded by District |
+| **Health** | Health Dept | JSON | On-demand (Manifest driven) |
+| **Police** | Home Dept | TopoJSON | Lazy-loaded by District |
+| **Constituency** | Election Comm | TopoJSON | Pre-loaded on activation |
+| **Local Bodies** | RDMA | TopoJSON | Lazy-loaded by District (VPs) |
 
 ## 🔒 Performance Rules
 1.  **No Main-Thread Loops**: Any iteration over >1000 features must happen in the worker.

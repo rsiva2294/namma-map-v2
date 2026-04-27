@@ -464,7 +464,7 @@ const GisMap: React.FC = () => {
         />
       )}
 
-      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE' || activeLayer === 'HEALTH') && stateBoundaryData && (
+      {(activeLayer === 'PDS' || activeLayer === 'TNEB' || activeLayer === 'POLICE' || activeLayer === 'HEALTH' || activeLayer === 'LOCAL_BODIES_V2') && stateBoundaryData && (
         <GeoJSON 
           key={`state-${theme}-${isAreaSelected}`}
           data={stateBoundaryData}

@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-04-27
+### Changed
+- **Sidebar UX**: Reorganized service modules into semantic categories (ESSENTIALS, CIVIC, SAFETY, UTILITIES) for faster discovery and better information hierarchy.
+- **Visual Semantics**: Color-coded sidebar icons to match their respective map marker themes (e.g., Red for Ration Shops, Amber for TNEB, Crimson for Health), creating a stronger visual link between the navigation and data.
+- **Map Context**: Added the Tamil Nadu statewide boundary to the **Local Bodies** layer, providing consistent geographic orientation.
+
+### Fixed
+- **UI Structure**: Improved spacing and visual separation between service discovery modules and application settings (Theme, Legal) in the sidebar.
+
+## [1.2.0] - 2026-04-27
+### Added
+- **Local Bodies V2**: Unified administrative area discovery for Corporations, Municipalities, Town Panchayats, and Village Panchayats with prioritized resolution.
+- **Police Stations & Jurisdictions**: Integrated statewide station points with their respective jurisdictional boundaries.
+- **Constituency Layers**: Added interactive layers for Assembly (AC) and Parliamentary (PC) Constituencies.
+- **Health Facilities UX**: Comprehensive filtering by facility type (PHC, CHC, etc.) and specific capabilities (24x7, Emergency, Neonatal).
+
+### Changed
+- **Panchayat Discovery**: Transitioned Village Panchayat loading to a pincode-driven model, optimizing performance by loading only local-area boundaries.
+- **Health Filtering**: Refactored logic to use inclusive OR for capability filters while maintaining strict AND for facility types.
+
+### Fixed
+- **GIS Worker Stability**: Improved memory management during large GeoJSON parsing and spatial indexing.
+
 ## [1.1.0] - 2026-04-25
 ### Added
 - **Mobile Bottom Sheets**: Converted result cards, health summaries, and filters into native-feeling responsive bottom sheets.

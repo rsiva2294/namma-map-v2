@@ -122,6 +122,7 @@ If a validation step cannot be run, say so explicitly in the final summary.
 - The application uses an automated versioning system triggered by `npm run build`.
 - Do not manually edit `public/version.json` or the `APP_VERSION` constant in `src/App.tsx`; they are synchronized during the build process.
 - When adding a new feature that requires a specific data schema, ensure the build version is updated to force user-side cache invalidation.
+- **DOCS SYNC:** All relevant documentation (README, ARCHITECTURE, CHANGELOG, and Guides) MUST be updated to reflect current behavior before any `firebase deploy`.
 
 ## Editing Rules
 

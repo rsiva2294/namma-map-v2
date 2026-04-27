@@ -5,15 +5,19 @@ Welcome to **NammaMap**, your high-performance GIS portal for accessing essentia
 ## 🌟 Key Features
 
 ### 1. Service Layers
-NammaMap provides three specialized views:
+NammaMap provides specialized views for essential services:
 *   **PINCODE**: Explore administrative boundaries and regional info.
 *   **PDS (Ration Shops)**: Find all Public Distribution System shops in your area.
 *   **TNEB (Electricity)**: Identify your specific TNEB Section, Sub-division, and Division offices.
+*   **HEALTH**: Locate medical facilities with advanced capability filters.
+*   **POLICE**: Find your jurisdictional police station and station boundaries.
+*   **CONSTITUENCY**: View Assembly (AC) and Parliamentary (PC) boundaries.
+*   **LOCAL BODIES**: Discover Corporations, Municipalities, and Panchayats.
 
 ### 2. Context-Aware Search
 The search bar at the top automatically adapts to your active layer:
 *   **Locality Search**: Type any area name (e.g., "Thirunagar", "Pasumalai") or a 6-digit pincode.
-*   **Section Search (TNEB)**: Search directly for TNEB section names.
+*   **Service Specific**: Search for TNEB section names, Health facility names, or Police station codes.
 
 ### 3. "Locate Me"
 Click the navigation icon (🧭) in the search bar to automatically zoom to your current geographic location. The map will highlight the relevant boundary for your active service layer.
@@ -33,6 +37,16 @@ Click the navigation icon (🧭) in the search bar to automatically zoom to your
 2.  Search for your general locality.
 3.  **Click your exact house or street on the map.**
 4.  An info card will appear showing your exact TNEB Section, Sub-division, and Division details.
+
+### Health Facilities & Filters
+1.  Switch to the **HEALTH** layer.
+2.  Use the **Filters** button to narrow down facilities by type (e.g., PHC, Medical College) or capabilities (e.g., 24x7 service, Emergency care).
+3.  The results will show counts and facility markers based on your search area or selected pincode.
+
+### Police Jurisdictions
+1.  Switch to the **POLICE** layer.
+2.  Click any point on the map to resolve the jurisdictional boundary.
+3.  The map will highlight the station boundary and show the nearest Station point with a confidence level.
 
 ---
 
