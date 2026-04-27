@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { AlertTriangle, RefreshCcw } from 'lucide-react';
+import { useMapStore } from '../store/useMapStore';
 
 interface Props {
   children: ReactNode;
@@ -32,22 +33,23 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
+      const language = useMapStore.getState().language;
       return (
         this.props.fallback || (
           <div className="error-boundary-container glass">
             <AlertTriangle size={48} color="var(--danger)" />
-            <h2>Something went wrong</h2>
-            <p>The map engine encountered an unexpected error.</p>
+            <h2>{language === 'ta' ? 'ஏதோ தவறு நடந்துவிட்டது' : 'Something went wrong'}</h2>
+            <p>{language === 'ta' ? 'வரைபட இயந்திரத்தில் எதிர்பாராத பிழை ஏற்பட்டது.' : 'The map engine encountered an unexpected error.'}</p>
             <button
               onClick={this.handleReset}
               className="error-reset-btn"
             >
               <RefreshCcw size={18} />
-              Reload Application
+              {language === 'ta' ? 'மீண்டும் ஏற்றவும்' : 'Reload Application'}
             </button>
             {this.state.error && (
               <details className="error-details">
-                <summary>Technical Details</summary>
+                <summary>{language === 'ta' ? 'தொழில்நுட்ப விவரங்கள்' : 'Technical Details'}</summary>
                 <pre>{this.state.error.message}</pre>
               </details>
             )}

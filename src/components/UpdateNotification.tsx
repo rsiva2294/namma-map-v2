@@ -13,6 +13,8 @@ interface UpdateNotificationProps {
   availableVersion?: string;
 }
 
+import { useTranslation } from '../i18n/translations';
+
 const UpdateNotification: React.FC<UpdateNotificationProps> = ({ 
   show, 
   onRefresh, 
@@ -21,6 +23,8 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
   currentVersion,
   availableVersion
 }) => {
+  const { t, language } = useTranslation();
+
   return (
     <AnimatePresence>
       {show && (
@@ -36,12 +40,12 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
             </div>
             <div className="update-text-group">
               <p className="update-title">
-                {isUpdating ? 'Updating System...' : 'Update Available'}
+                {isUpdating ? t('UPDATING') : (language === 'ta' ? 'புதிய பதிப்பு கிடைக்கிறது' : 'Update Available')}
               </p>
               <p className="update-desc">
                 {isUpdating 
-                  ? 'Please wait while we prepare the new version.' 
-                  : 'A newer version is ready with improvements.'}
+                  ? (language === 'ta' ? 'தயவுசெய்து காத்திருக்கவும்.' : 'Please wait while we prepare the new version.')
+                  : (language === 'ta' ? 'மேம்படுத்தப்பட்ட புதிய பதிப்பு தயாராக உள்ளது.' : 'A newer version is ready with improvements.')}
               </p>
               {(currentVersion || availableVersion) && (
                 <div className="update-version-tag">
@@ -57,7 +61,7 @@ const UpdateNotification: React.FC<UpdateNotificationProps> = ({
             {!isUpdating ? (
               <>
                 <button onClick={onRefresh} className="update-btn-refresh">
-                  REFRESH NOW
+                  {language === 'ta' ? 'புதுப்பிக்கவும்' : 'REFRESH NOW'}
                 </button>
                 <button onClick={onClose} className="update-btn-close">
                   <X size={16} />

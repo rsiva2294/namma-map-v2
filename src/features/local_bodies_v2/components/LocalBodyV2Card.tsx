@@ -1,6 +1,7 @@
 import React from 'react';
 import { Landmark, MapPin, Building2, LayoutGrid, Info } from 'lucide-react';
 import { useMapStore } from '../../../store/useMapStore';
+import { useTranslation } from '../../../i18n/translations';
 import type { LocalBodyV2Feature } from '../../../types/gis_v2';
 
 interface LocalBodyV2CardProps {
@@ -9,15 +10,8 @@ interface LocalBodyV2CardProps {
 
 export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => {
   const { theme } = useMapStore();
+  const { t } = useTranslation();
   const { name, type, district, block, taluk, category, pincode } = feature.properties;
-
-  const typeLabels: Record<string, string> = {
-    CORPORATION: 'Municipal Corporation',
-    MUNICIPALITY: 'Municipality',
-    TOWN_PANCHAYAT: 'Town Panchayat',
-    VILLAGE_PANCHAYAT: 'Village Panchayat',
-    UNKNOWN_LOCAL_BODY: 'Local Body'
-  };
 
   const typeColors: Record<string, string> = {
     CORPORATION: '#6366f1', // Indigo
@@ -28,11 +22,11 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
   };
 
   const details = [
-    { label: 'District', value: district, icon: MapPin },
-    { label: 'Taluk', value: taluk, icon: Building2 },
-    { label: 'Block', value: block, icon: LayoutGrid },
-    { label: 'Category', value: category, icon: Info },
-    { label: 'Pincode', value: pincode, icon: MapPin },
+    { label: t('DISTRICT'), value: district, icon: MapPin },
+    { label: t('TALUK'), value: taluk, icon: Building2 },
+    { label: t('BLOCK'), value: block, icon: LayoutGrid },
+    { label: t('CATEGORY'), value: category, icon: Info },
+    { label: t('PINCODE'), value: pincode, icon: MapPin },
   ].filter(d => d.value);
 
   return (
@@ -65,7 +59,7 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
           marginBottom: '10px'
         }}>
           <Landmark size={12} style={{ marginRight: '6px' }} />
-          {typeLabels[type]}
+          {t(type as any)}
         </div>
         
         <h2 style={{

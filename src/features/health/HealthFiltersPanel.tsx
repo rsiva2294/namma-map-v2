@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMapStore } from '../../store/useMapStore';
 import type { HealthFilters, HealthScope } from '../../types/gis';
+import { useTranslation } from '../../i18n/translations';
 import { ChevronDown, ChevronRight, Activity, Stethoscope, Beaker, Globe, Navigation, Search } from 'lucide-react';
 
 interface HealthFiltersPanelProps {
@@ -18,6 +19,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
     setTriggerLocateMe,
     theme
   } = useMapStore();
+  const { t, language } = useTranslation();
 
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set(['care']));
   const [revealStage, setRevealStage] = useState(0); // 0: Basic, 1: Services, 2: Expert
@@ -58,10 +60,10 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
   const isDark = theme === 'dark';
 
   const quickServices = [
-    { id: 'emergency', label: 'Emergency', icon: '🚑', keys: ['isFru', 'hasStemiHub', 'hasStemiSpoke'] },
-    { id: 'delivery', label: 'Delivery', icon: '👶', keys: ['hasDelivery'] },
-    { id: 'childcare', label: 'Child Care', icon: '🧸', keys: ['hasSncu', 'hasNbsu', 'hasDeic'] },
-    { id: 'diagnostics', label: 'Diagnostics', icon: '🔬', keys: ['hasCt', 'hasMri', 'hasDialysis'] },
+    { id: 'emergency', label: t('EMERGENCY'), icon: '🚑', keys: ['isFru', 'hasStemiHub', 'hasStemiSpoke'] },
+    { id: 'delivery', label: t('DELIVERY_SERVICE'), icon: '👶', keys: ['hasDelivery'] },
+    { id: 'childcare', label: language === 'ta' ? 'குழந்தை நலன்' : 'Child Care', icon: '🧸', keys: ['hasSncu', 'hasNbsu', 'hasDeic'] },
+    { id: 'diagnostics', label: t('DIAGNOSTICS'), icon: '🔬', keys: ['hasCt', 'hasMri', 'hasDialysis'] },
   ];
 
   const handleQuickService = (keys: string[]) => {
@@ -145,9 +147,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           border: `1px solid ${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(2, 132, 199, 0.12)'}`
         }}>
           {[
-            { id: 'STATE', label: 'Statewide', icon: Globe },
-            { id: 'DISTRICT', label: 'District', icon: Search },
-            { id: 'PINCODE', label: 'My Area', icon: Navigation }
+            { id: 'STATE', label: t('STATEWIDE'), icon: Globe },
+            { id: 'DISTRICT', label: t('DISTRICT'), icon: Search },
+            { id: 'PINCODE', label: language === 'ta' ? 'என் பகுதி' : 'My Area', icon: Navigation }
           ].map(scope => {
             const isActive = healthScope === scope.id || (scope.id === 'PINCODE' && healthScope === 'PINCODE');
             const Icon = scope.icon;
@@ -196,13 +198,13 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           <label style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-            Health Assistant
+            {language === 'ta' ? 'சுகாதார உதவியாளர்' : 'Health Assistant'}
           </label>
           <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 700 }}>
-            {healthScope === 'STATE' ? 'Tamil Nadu Health Services' : (activeDistrict ? `Health in ${activeDistrict}` : 'Explore Local Health')}
+            {healthScope === 'STATE' ? (language === 'ta' ? 'தமிழ்நாடு சுகாதார சேவைகள்' : 'Tamil Nadu Health Services') : (activeDistrict ? `${language === 'ta' ? 'சுகாதாரம்' : 'Health'} in ${activeDistrict}` : (language === 'ta' ? 'உள்ளூர் சுகாதாரத்தை ஆராயுங்கள்' : 'Explore Local Health'))}
           </span>
           <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 500 }}>
-            Choose a need or search your district / pincode to begin.
+            {language === 'ta' ? 'தொடங்குவதற்கு ஒரு தேவையைத் தேர்ந்தெடுக்கவும் அல்லது மாவட்டம் / பின்கோட்டைத் தேடவும்.' : 'Choose a need or search your district / pincode to begin.'}
           </span>
         </div>
         

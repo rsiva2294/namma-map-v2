@@ -16,7 +16,11 @@ interface HealthSummaryCardProps {
   onClearFilters?: () => void;
 }
 
+import { useTranslation } from '../../i18n/translations';
+
 export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, onClearFilters }) => {
+  const { t, language } = useTranslation();
+  
   const getGuidance = () => {
     const activeFilters = summary.activeFilters;
     const hasEmergency = activeFilters.some(f => ['isFru', 'hasStemiHub', 'hasStemiSpoke'].includes(f));
@@ -26,56 +30,56 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
     const isStatewide = summary.scope === 'STATE';
 
     let specificCopy = '';
-    if (hasEmergency) specificCopy = 'Showing emergency hubs and referral units.';
-    else if (hasDelivery) specificCopy = 'Showing facilities for maternal delivery services.';
-    else if (hasChildCare) specificCopy = 'Showing specialized newborn and child care centres.';
-    else if (hasDiagnostics) specificCopy = 'Showing diagnostic centres (CT/MRI/Dialysis).';
+    if (hasEmergency) specificCopy = language === 'ta' ? 'அவசர சிகிச்சை மையங்கள் காட்டப்படுகின்றன.' : 'Showing emergency hubs and referral units.';
+    else if (hasDelivery) specificCopy = language === 'ta' ? 'மகப்பேறு சிகிச்சை மையங்கள் காட்டப்படுகின்றன.' : 'Showing facilities for maternal delivery services.';
+    else if (hasChildCare) specificCopy = language === 'ta' ? 'குழந்தை நல சிகிச்சை மையங்கள் காட்டப்படுகின்றன.' : 'Showing specialized newborn and child care centres.';
+    else if (hasDiagnostics) specificCopy = language === 'ta' ? 'கண்டறியும் மையங்கள் (CT/MRI) காட்டப்படுகின்றன.' : 'Showing diagnostic centres (CT/MRI/Dialysis).';
 
     if (isStatewide && (activeFilters.includes('PHC') || activeFilters.includes('HSC'))) {
       return {
-        title: 'Local Centres Focused',
-        label: 'Action Required',
-        copy: 'Local Centres (PHC/HSC) are visible when viewing a specific District or Pincode.',
-        nextStep: 'Search a district or use My Area to see local results.'
+        title: language === 'ta' ? 'உள்ளூர் மையங்கள்' : 'Local Centres Focused',
+        label: language === 'ta' ? 'நடவடிக்கை தேவை' : 'Action Required',
+        copy: language === 'ta' ? 'குறிப்பிட்ட மாவட்டம் அல்லது பின்கோட்டைத் தேடும்போது மட்டுமே உள்ளூர் மையங்கள் (PHC) தெரியும்.' : 'Local Centres (PHC/HSC) are visible when viewing a specific District or Pincode.',
+        nextStep: language === 'ta' ? 'உள்ளூர் முடிவுகளைக் காண மாவட்டத்தைத் தேடுங்கள்.' : 'Search a district or use My Area to see local results.'
       };
     }
 
     switch (summary.scope) {
       case 'STATE':
         return {
-          title: 'Tamil Nadu Major Hospitals',
-          label: 'Statewide View',
-          copy: specificCopy || 'Showing major hospitals across the state.',
-          nextStep: 'Search a district or area to find local centres.'
+          title: language === 'ta' ? 'தமிழ்நாடு முக்கிய மருத்துவமனைகள்' : 'Tamil Nadu Major Hospitals',
+          label: language === 'ta' ? 'மாநிலம் தழுவிய பார்வை' : 'Statewide View',
+          copy: specificCopy || (language === 'ta' ? 'மாநிலம் முழுவதும் உள்ள முக்கிய மருத்துவமனைகள் காட்டப்படுகின்றன.' : 'Showing major hospitals across the state.'),
+          nextStep: language === 'ta' ? 'உள்ளூர் மையங்களைக் கண்டறிய மாவட்டம் அல்லது பகுதியைத் தேடுங்கள்.' : 'Search a district or area to find local centres.'
         };
       case 'DISTRICT':
         return {
-          title: `Health Facilities in ${summary.name}`,
-          label: 'District View',
-          copy: specificCopy || 'Exploring healthcare infrastructure in this district.',
-          nextStep: 'Tap a marker to view details or filter by service.'
+          title: language === 'ta' ? `${summary.name} சுகாதார மையங்கள்` : `Health Facilities in ${summary.name}`,
+          label: language === 'ta' ? 'மாவட்ட பார்வை' : 'District View',
+          copy: specificCopy || (language === 'ta' ? 'இந்த மாவட்டத்தில் உள்ள சுகாதார கட்டமைப்புகள்.' : 'Exploring healthcare infrastructure in this district.'),
+          nextStep: language === 'ta' ? 'விவரங்களைக் காண வரைபடத்தில் கிளிக் செய்யவும்.' : 'Tap a marker to view details or filter by service.'
         };
       case 'PINCODE':
         return {
-          title: 'Local Health Services',
-          label: 'Local View',
-          copy: specificCopy || 'Viewing facilities near your selected area.',
-          nextStep: 'Tap a marker to view timing and get directions.'
+          title: language === 'ta' ? 'உள்ளூர் சுகாதார சேவைகள்' : 'Local Health Services',
+          label: language === 'ta' ? 'உள்ளூர் பார்வை' : 'Local View',
+          copy: specificCopy || (language === 'ta' ? 'உங்கள் பகுதிக்கு அருகில் உள்ள மையங்கள்.' : 'Viewing facilities near your selected area.'),
+          nextStep: language === 'ta' ? 'வழிசெலுத்தல் மற்றும் நேரத்தை அறிய கிளிக் செய்யவும்.' : 'Tap a marker to view timing and get directions.'
         };
       default:
-        return { title: summary.name, label: 'Summary', copy: '', nextStep: '' };
+        return { title: summary.name, label: t('STATUS'), copy: '', nextStep: '' };
     }
   };
 
   const guidance = getGuidance();
 
   const filterLabelMap: Record<string, string> = {
-    isFru: 'Emergency Referral',
-    hasDelivery: 'Delivery Services',
+    isFru: language === 'ta' ? 'அவசர பரிந்துரை' : 'Emergency Referral',
+    hasDelivery: language === 'ta' ? 'மகப்பேறு சேவைகள்' : 'Delivery Services',
     is24x7: '24x7 Emergency',
-    hasSncu: 'Newborn Care',
-    hasDialysis: 'Dialysis Center',
-    hasBloodBank: 'Blood Bank',
+    hasSncu: language === 'ta' ? 'குழந்தை பராமரிப்பு' : 'Newborn Care',
+    hasDialysis: language === 'ta' ? 'டயாலிசிஸ் மையம்' : 'Dialysis Center',
+    hasBloodBank: language === 'ta' ? 'இரத்த வங்கி' : 'Blood Bank',
     hasCt: 'CT Scan',
     hasMri: 'MRI',
     hasStemiHub: 'STEMI Hub',
@@ -141,7 +145,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontSize: '32px', fontWeight: 900, color: 'var(--accent)', lineHeight: 1 }}>{summary.total}</div>
-            <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Facilities</div>
+            <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{language === 'ta' ? 'மையங்கள்' : 'Facilities'}</div>
           </div>
         </div>
 
@@ -175,7 +179,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent)', marginBottom: '12px' }}>
               <CheckCircle2 size={14} />
-              <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>Service Highlights</span>
+              <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('HIGHLIGHTS')}</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               {Object.entries(summary.countsByCapability)
@@ -185,17 +189,17 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                 .map(([key, count], index) => {
                   const labelMap: Record<string, string> = {
                     hwc: 'Wellness Centres',
-                    delivery: 'Delivery Points',
-                    fru: 'Emergency Referral',
+                    delivery: language === 'ta' ? 'மகப்பேறு மையங்கள்' : 'Delivery Points',
+                    fru: language === 'ta' ? 'அவசர பரிந்துரை' : 'Emergency Referral',
                     t24x7: '24x7 Emergency',
-                    blood_bank: 'Blood Banks',
+                    blood_bank: language === 'ta' ? 'இரத்த வங்கிகள்' : 'Blood Banks',
                     blood_stor: 'Blood Storage',
                     sncu: 'Newborn Care',
                     nbsu: 'Newborn Stability',
                     deic: 'Child Support',
                     ct: 'CT Scans',
                     mri: 'MRIs',
-                    dialysis: 'Dialysis Units',
+                    dialysis: language === 'ta' ? 'டயாலிசிஸ்' : 'Dialysis Units',
                     cbnaat: 'CBNAAT Sites',
                     tele: 'Tele-Consultation',
                     stemi_hub: 'STEMI Hubs',
@@ -218,14 +222,14 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
                 <Filter size={12} />
-                <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' }}>Active Filters</span>
+                <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' }}>{t('ACTIVE_FILTERS')}</span>
               </div>
               {onClearFilters && (
                 <button 
                   onClick={onClearFilters}
                   style={{ background: 'none', border: 'none', color: 'var(--accent)', fontSize: '10px', fontWeight: 700, cursor: 'pointer' }}
                 >
-                  Clear All
+                  {language === 'ta' ? 'அனைத்தையும் நீக்கு' : 'Clear All'}
                 </button>
               )}
             </div>

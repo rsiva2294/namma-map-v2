@@ -4,11 +4,13 @@ import { X, Scale, Shield, FileText, Share2, Mail, MapPin, User } from 'lucide-r
 import { useMapStore } from '../store/useMapStore';
 import { APP_VERSION } from '../constants';
 import { formatVersion } from '../utils/version';
+import { useTranslation } from '../i18n/translations';
 
 const LegalModal: React.FC = () => {
   const isOpen = useMapStore(state => state.isLegalModalOpen);
   const activeTab = useMapStore(state => state.legalTab);
   const setLegalModal = useMapStore(state => state.setLegalModal);
+  const { t, language } = useTranslation();
 
   // Accessibility: Handle Escape key
   React.useEffect(() => {
@@ -29,9 +31,9 @@ const LegalModal: React.FC = () => {
   if (!isOpen) return null;
 
   const tabs = [
-    { id: 'disclaimer', label: 'About & Disclaimer', icon: Scale },
-    { id: 'privacy', label: 'Privacy', icon: Shield },
-    { id: 'terms', label: 'Terms', icon: FileText }
+    { id: 'disclaimer', label: t('DISCLAIMER'), icon: Scale },
+    { id: 'privacy', label: t('PRIVACY'), icon: Shield },
+    { id: 'terms', label: t('TERMS'), icon: FileText }
   ];
 
   const renderContent = () => {
@@ -40,17 +42,17 @@ const LegalModal: React.FC = () => {
         return (
           <div className="legal-content-body">
             <section>
-              <h4>Non-Government Association</h4>
+              <h4>{t('NON_GOVT_TITLE')}</h4>
               <p>
-                <strong>NammaMap</strong> is an independent, non-commercial research project. It is <strong>NOT</strong> affiliated with, endorsed by, or in any way officially connected to the Government of Tamil Nadu, the Government of India, or any of their agencies (TNEB, TANGEDCO, PDS, etc.).
+                <strong>NammaMap</strong> {t('NON_GOVT_DESC')}
               </p>
               <p>
-                All data displayed on this portal is aggregated from publicly available government datasets, open data initiatives, and public records. While we strive for precision, the boundaries and locations should be used for informational purposes only.
+                {t('DATA_SOURCE_DESC')}
               </p>
             </section>
 
             <section>
-              <h4>Developer Information</h4>
+              <h4>{t('DEVELOPER_INFO')}</h4>
               <div className="dev-card">
                 <div className="dev-info">
                   <div className="dev-name">
@@ -87,12 +89,12 @@ const LegalModal: React.FC = () => {
         return (
           <div className="legal-content-body">
             <section>
-              <h4>Zero-Data Policy</h4>
+              <h4>{t('ZERO_DATA_TITLE')}</h4>
               <p>
-                NammaMap respects your privacy. We do not collect, store, or sell any Personal Identifiable Information (PII).
+                {t('ZERO_DATA_DESC')}
               </p>
               <ul className="legal-list">
-                <li><strong>Location Access</strong>: When you use "Locate Me", your coordinates are processed locally in your browser to find your jurisdiction. We never store your GPS history.</li>
+                <li><strong>{language === 'ta' ? 'இருப்பிடம்' : 'Location Access'}</strong>: {t('LOCATION_PRIVACY')}</li>
                 <li><strong>Caching</strong>: GIS data is cached locally in your browser's IndexedDB to improve performance. This data stays on your device.</li>
                 <li><strong>Cookies</strong>: We use minimal local storage to remember your theme preference (Dark/Light mode).</li>
               </ul>
@@ -109,9 +111,9 @@ const LegalModal: React.FC = () => {
         return (
           <div className="legal-content-body">
             <section>
-              <h4>Acceptable Use</h4>
+              <h4>{t('ACCEPTABLE_USE_TITLE')}</h4>
               <p>
-                By using NammaMap, you agree to use the service for lawful purposes. You may not attempt to scrape, reverse-engineer, or disrupt the application's infrastructure.
+                {t('ACCEPTABLE_USE_DESC')}
               </p>
             </section>
             <section>
@@ -152,7 +154,7 @@ const LegalModal: React.FC = () => {
           <div className="modal-header">
             <div className="modal-title-group">
               <Scale size={20} className="text-accent" />
-              <h3>About & Legal Information</h3>
+              <h3>{t('ABOUT_LEGAL')}</h3>
             </div>
             <button className="modal-close" onClick={() => setLegalModal(false)}>
               <X size={20} />
@@ -181,7 +183,7 @@ const LegalModal: React.FC = () => {
               Build Version: <span>v{formatVersion(APP_VERSION)}</span>
             </div>
             <button className="btn-primary" onClick={() => setLegalModal(false)}>
-              I Understand
+              {t('UNDERSTAND')}
             </button>
           </div>
         </motion.div>

@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, AlertCircle } from 'lucide-react';
 import { useMapStore } from '../store/useMapStore';
+import { useTranslation } from '../i18n/translations';
 
 const ReportModal: React.FC = () => {
   const isOpen = useMapStore(state => state.isReportModalOpen);
   const context = useMapStore(state => state.reportContext);
   const setReportModal = useMapStore(state => state.setReportModal);
+  const { t, language } = useTranslation();
   const [correction, setCorrection] = useState('');
 
   // Accessibility: Handle Escape key
@@ -65,7 +67,7 @@ const ReportModal: React.FC = () => {
           <div className="modal-header">
             <div className="modal-title-group">
               <AlertCircle size={20} className="text-accent" />
-              <h3>Report an Issue</h3>
+              <h3>{t('REPORT_ISSUE')}</h3>
             </div>
             <button className="modal-close" onClick={() => setReportModal(false)}>
               <X size={20} />
@@ -74,23 +76,25 @@ const ReportModal: React.FC = () => {
 
           <div className="modal-body">
             <p className="modal-description">
-              Help us improve NammaMap. Please describe the data correction for <strong>{context.type}</strong>.
+              {language === 'ta' 
+                ? `நம்ம மேப்பை மேம்படுத்த எங்களுக்கு உதவுங்கள். ${context.type}-க்கான தரவுத் திருத்தத்தை விவரிக்கவும்.`
+                : `Help us improve NammaMap. Please describe the data correction for ${context.type}.`}
             </p>
 
             <div className="modal-data-summary">
               {Object.entries(context.data).map(([key, value]) => (
                 <div key={key} className="modal-data-row">
                   <span className="modal-data-label">{key}</span>
-                  <span className="modal-data-value">{value}</span>
+                  <span className="modal-data-value">{String(value)}</span>
                 </div>
               ))}
             </div>
 
             <div className="modal-form-group">
-              <label htmlFor="correction">Correction Details</label>
+              <label htmlFor="correction">{t('CORRECTION_DETAILS')}</label>
               <textarea
                 id="correction"
-                placeholder="Describe what's wrong (e.g., location shift, name change, office moved...)"
+                placeholder={language === 'ta' ? 'என்ன தவறு என்பதை விளக்கவும் (உதாரணமாக: இருப்பிட மாற்றம், பெயர் மாற்றம்...)' : "Describe what's wrong (e.g., location shift, name change, office moved...)"}
                 value={correction}
                 onChange={e => setCorrection(e.target.value)}
                 autoFocus
@@ -100,7 +104,7 @@ const ReportModal: React.FC = () => {
 
           <div className="modal-footer">
             <button className="btn-secondary" onClick={() => setReportModal(false)}>
-              Cancel
+              {t('CANCEL')}
             </button>
             <button 
               className="btn-primary" 
@@ -108,7 +112,7 @@ const ReportModal: React.FC = () => {
               disabled={!correction.trim()}
             >
               <Send size={16} />
-              Open Email Client
+              {language === 'ta' ? 'மின்னஞ்சல் அனுப்பு' : 'Open Email Client'}
             </button>
           </div>
         </motion.div>
