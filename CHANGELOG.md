@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Bilingual Utilities**: Refactored postal and district utilities to support native language labels and descriptive service explanations.
 
 ### Fixed
+- **Content Security Policy**: Updated the production CSP to explicitly allow Web Workers to be created from blob URLs (`worker-src 'self' blob:`), resolving initialization blocks in Chrome.
 - **Code Hygiene**: Removed dozens of unused variables and redundant language-check ternaries across the codebase.
 - **Build Integrity**: Consolidated and deduplicated translation keys to ensure consistent production build performance.
 
