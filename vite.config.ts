@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       VitePWA({
-        registerType: 'prompt',
+        registerType: 'autoUpdate',
         includeAssets: ['branding/icon.png', 'branding/logo.png'],
         manifest: {
           name: 'NammaMap: Tamil Nadu Civic GIS',
