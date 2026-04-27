@@ -143,6 +143,21 @@ export interface PoliceResolutionResult {
   debug: PoliceMatchDebug;
   isBoundaryValid?: boolean;
   validationError?: string;
+  // Chennai specific fields
+  chennaiResult?: ChennaiPoliceResolutionResult;
+}
+
+export interface ChennaiPoliceResolutionResult {
+  stationCode: string | null;
+  stationName: string | null;
+  matchedBoundary: GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties> | null;
+  confidence: number;
+  matchType: string;
+  insidePolygon: boolean;
+  distanceKm: number;
+  warnings: string[];
+  primaryStation: GisFeature<Point, PoliceStationProperties> | null;
+  relatedStations: GisFeature<Point, PoliceStationProperties>[];
 }
 
 export interface PoliceStationProperties extends GisProperties {

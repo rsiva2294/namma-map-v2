@@ -1,0 +1,1034 @@
+{
+  "mapping": [
+    {
+      "station_name": "T 11 THIRUNINDRAVUR",
+      "station_code": "T11",
+      "matched_boundary_name": "T3 korattur PS",
+      "match_type": "Spatial Only",
+      "confidence_score": 60,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "E4. ABIRAMAPURAM",
+      "station_code": "E4",
+      "matched_boundary_name": "E4 Abiramapuram PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "M3 PUZHAL",
+      "station_code": "M3",
+      "matched_boundary_name": "M3 Puzhal PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "E5. FORESHORE ESTATE",
+      "station_code": "E5",
+      "matched_boundary_name": "E5 Pattinapakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D3 ICE HOUSE",
+      "station_code": "D3",
+      "matched_boundary_name": "D3 Ice House PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J4 KOTTURPURAM",
+      "station_code": "J4",
+      "matched_boundary_name": "J4 Kotturpuram PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "E1. MYLAPORE",
+      "station_code": "E1",
+      "matched_boundary_name": "E1 Mylapore PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D5. MARINA",
+      "station_code": "D5",
+      "matched_boundary_name": "D5 Marina PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "E2 ROYAPETTAH",
+      "station_code": "E2",
+      "matched_boundary_name": "E2 Royapettah PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "B 4",
+      "station_code": "B4",
+      "matched_boundary_name": "B2 Esplanade PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "E6",
+      "station_code": "E6",
+      "matched_boundary_name": "E6 Royapettah hospital PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "C3",
+      "station_code": "C3",
+      "matched_boundary_name": "C3 Sevenwells PS",
+      "match_type": "Code Only",
+      "confidence_score": 75,
+      "distance": "2.023",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "T15 SRMC",
+      "station_code": "T15",
+      "matched_boundary_name": "R11 Royala Nagar PS",
+      "match_type": "Nearest Fallback",
+      "confidence_score": 50,
+      "distance": "2.577",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "B3. FORT",
+      "station_code": "B3",
+      "matched_boundary_name": "B3 Fort  L&O I",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J2.ADYAR",
+      "station_code": "J2",
+      "matched_boundary_name": "J2 Adyar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J5. SASTRI NAGAR",
+      "station_code": "J5",
+      "matched_boundary_name": "J5 Shasthri Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J1. SAIDAPET",
+      "station_code": "J1",
+      "matched_boundary_name": "J1 Saidapet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J3. GUINDY",
+      "station_code": "J3",
+      "matched_boundary_name": "J3 Guindy PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J7. VELACHERY",
+      "station_code": "J7",
+      "matched_boundary_name": "J7 Velachery PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J10 CHEMMANCHERY",
+      "station_code": "J10",
+      "matched_boundary_name": "J10 Chemanchery PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J11 KANNAGI NAGAR",
+      "station_code": "J11",
+      "matched_boundary_name": "J11 Kannagi Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J6. THIRUVANMIYUR",
+      "station_code": "J6",
+      "matched_boundary_name": "J6 Thiruvanmiyur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J 8 NEELANGARAI",
+      "station_code": "J8",
+      "matched_boundary_name": "J8 Neelankarai PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J9 THURAIPAKKAM",
+      "station_code": "J9",
+      "matched_boundary_name": "J9 Thuraipakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R6 KUMARAN NAGAR",
+      "station_code": "R6",
+      "matched_boundary_name": "R6 Kumaran Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "J13 KANATHUR",
+      "station_code": "J13",
+      "matched_boundary_name": "J13 Tharamani PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "S1 ST. THOMAS MOUNT",
+      "station_code": "S1",
+      "matched_boundary_name": "S8 Adambakkam PS",
+      "match_type": "Nearest Fallback",
+      "confidence_score": 50,
+      "distance": "1.275",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "S4 NANDAMPAKKAM",
+      "station_code": "S4",
+      "matched_boundary_name": "S4 Nandambakkam PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "S9 PALAVANTHANGAL",
+      "station_code": "S9",
+      "matched_boundary_name": "S9 Pazhavanthangal PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "S7 MADIPAKKAM",
+      "station_code": "S7",
+      "matched_boundary_name": "S7 Madipakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "S 8 ADAMBAKKAM",
+      "station_code": "S8",
+      "matched_boundary_name": "S8 Adambakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "S3 MEENAMBAKKAM",
+      "station_code": "S3",
+      "matched_boundary_name": "S3 Meenambakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "M1 MADHAVARAM",
+      "station_code": "M1",
+      "matched_boundary_name": "M1 Madhavaram PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "M2 MILK COLONY",
+      "station_code": "M2",
+      "matched_boundary_name": "M2 M.M.Colony PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "M5 ENNORE",
+      "station_code": "M5",
+      "matched_boundary_name": "M5 Ennore PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "M6 MANALI",
+      "station_code": "M6",
+      "matched_boundary_name": "M6 Manali PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "M7 MANALI NEW TOWN",
+      "station_code": "M7",
+      "matched_boundary_name": "M8 Sathangadu PS",
+      "match_type": "Nearest Fallback",
+      "confidence_score": 50,
+      "distance": "3.543",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "M8 SATHANGADU",
+      "station_code": "M8",
+      "matched_boundary_name": "M8 Sathangadu PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "3.965",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "R1. MAMBALAM",
+      "station_code": "R1",
+      "matched_boundary_name": "R1 Mambalam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R8 VADAPALANI",
+      "station_code": "R8",
+      "matched_boundary_name": "R8 Vadapalani PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R5 VIRUGAMBAKKAM",
+      "station_code": "R5",
+      "matched_boundary_name": "R5 Virugambakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R3. ASHOK NAGAR",
+      "station_code": "R3",
+      "matched_boundary_name": "R3 Ashok Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R7 K.K. NAGAR",
+      "station_code": "R7",
+      "matched_boundary_name": "R7 K K Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R10 MGR NAGAR",
+      "station_code": "R10",
+      "matched_boundary_name": "R10 MGR Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "E3 TEYNAMPET",
+      "station_code": "E3",
+      "matched_boundary_name": "E3 Teynampet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R4 SOUNDARAPANDIYANAR ANGADI (PONDI BAZAAR)",
+      "station_code": "R4",
+      "matched_boundary_name": "R4 Pondy Bazaar PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R9 VALASARAVAKKAM",
+      "station_code": "R9",
+      "matched_boundary_name": "R9 Valasaravakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R2 KODAMBAKKAM",
+      "station_code": "R2",
+      "matched_boundary_name": "R2 Kodambakkam PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "1.064",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "R11 ROYALA NAGAR",
+      "station_code": "R11",
+      "matched_boundary_name": "R11 Royala Nagar PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "0.241",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "W 25 T.NAGAR AW.P.S",
+      "station_code": "W25",
+      "matched_boundary_name": "R1 Mambalam PS",
+      "match_type": "Spatial Only",
+      "confidence_score": 60,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "H 1. WASHERMENPET",
+      "station_code": "H1",
+      "matched_boundary_name": "H1 Washermenpet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "H 3. TONDIARPET",
+      "station_code": "H3",
+      "matched_boundary_name": "H3 Tondiarpet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "H6 R.K. NAGAR",
+      "station_code": "H6",
+      "matched_boundary_name": "H6 RK Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "H8. THIRUVOTTIYUR",
+      "station_code": "H8",
+      "matched_boundary_name": "H8 Thiruvottiyur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "N1. ROYAPURAM",
+      "station_code": "N1",
+      "matched_boundary_name": "N1 Royapuram PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "N2. KASIMEDU",
+      "station_code": "N2",
+      "matched_boundary_name": "N2 Kasimedu PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "H 4. KORUKKUPET",
+      "station_code": "H4",
+      "matched_boundary_name": "H4 Korukkupet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "H5. NEW WASHERMENPET",
+      "station_code": "H5",
+      "matched_boundary_name": "H5 New Washermenpet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "N4. FISHING HARBOUR",
+      "station_code": "N4",
+      "matched_boundary_name": "N4 Fishing Harbour PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "0.323",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "C1. FLOWER BAZAAR",
+      "station_code": "C1",
+      "matched_boundary_name": "C1 Flower Bazaar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "C2. ELEPHANT GATE",
+      "station_code": "C2",
+      "matched_boundary_name": "C2 Elephantgate PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "C3. SEVEN WELLS",
+      "station_code": "C3",
+      "matched_boundary_name": "C3 Sevenwells PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "N3. MUTHIALPET",
+      "station_code": "N3",
+      "matched_boundary_name": "N3 Muthiyalpet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "C4 GOVT.HOSPITAL",
+      "station_code": "C4",
+      "matched_boundary_name": "C4 General Hospital PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "0.944",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "B1. NORTH BEACH",
+      "station_code": "B1",
+      "matched_boundary_name": "B1 North Beach PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "B 6 PORT MARINE",
+      "station_code": "B6",
+      "matched_boundary_name": "B6 Port Marine PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "1.537",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "B2 ESPLANADE",
+      "station_code": "B2",
+      "matched_boundary_name": "C5 Kothavalchavadi PS",
+      "match_type": "Code Only",
+      "confidence_score": 75,
+      "distance": "0.555",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "B5. HARBOUR",
+      "station_code": "B5",
+      "matched_boundary_name": "B5 Harbour PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "F1. CHINTADARIPET",
+      "station_code": "F1",
+      "matched_boundary_name": "F1 Chindadiripet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "R5 CHOOLAIMEDU",
+      "station_code": "R5",
+      "matched_boundary_name": "R5 Virugambakkam PS",
+      "match_type": "Code Only",
+      "confidence_score": 75,
+      "distance": "3.470",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "F2. EGMORE",
+      "station_code": "F2",
+      "matched_boundary_name": "F2 Egmore PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "F3 NUNGAMBAKKAM",
+      "station_code": "F3",
+      "matched_boundary_name": "F3 Nungambakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D4. ZAM BAZAAR",
+      "station_code": "D4",
+      "matched_boundary_name": "D4 Zam Bazzar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D2. ANNASALAI",
+      "station_code": "D2",
+      "matched_boundary_name": "D2 Annasalai PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D8. K.G. HOSPITAL",
+      "station_code": "D8",
+      "matched_boundary_name": "D8 Ghosha Hospital PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "F4 THOUSAND LIGHTS",
+      "station_code": "F4",
+      "matched_boundary_name": "F4 Thousand Light PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "T1 AMBATTUR",
+      "station_code": "T1",
+      "matched_boundary_name": "T1 Ambattur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "T2 AMBATTUR ESTATE",
+      "station_code": "T2",
+      "matched_boundary_name": "T2 Ambattur Estate PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "T3 KORATTUR",
+      "station_code": "T3",
+      "matched_boundary_name": "T3 korattur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K5.PERAVALLUR",
+      "station_code": "K5",
+      "matched_boundary_name": "K5 Peravallur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K1.SEMBIUM",
+      "station_code": "K1",
+      "matched_boundary_name": "K1 Sembium PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K9.THIRU .VI.KA. NAGAR",
+      "station_code": "K9",
+      "matched_boundary_name": "K9 Thiru Vi Ka Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "P1. PULIANTHOPE",
+      "station_code": "P1",
+      "matched_boundary_name": "P1 Pulianthope PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "P2. OTTERI",
+      "station_code": "P2",
+      "matched_boundary_name": "P2 Otteri PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "P3 VYASARPADI",
+      "station_code": "P3",
+      "matched_boundary_name": "P3 Vysarpadi PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "P4. BASIN BRIDGE",
+      "station_code": "P4",
+      "matched_boundary_name": "P4 Basin Bridge PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "P5 MKB NAGAR",
+      "station_code": "P5",
+      "matched_boundary_name": "P5 M.K.B Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "P6. KODUNGAIYUR",
+      "station_code": "P6",
+      "matched_boundary_name": "P6 Kodungaiyur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "W16 PULIANTHOPE AW.P.S",
+      "station_code": "W16",
+      "matched_boundary_name": "P1 Pulianthope PS",
+      "match_type": "Name+Spatial",
+      "confidence_score": 70,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K4. ANNA NAGAR",
+      "station_code": "K4",
+      "matched_boundary_name": "K4 Anna Nagar PS",
+      "match_type": "Code+Name",
+      "confidence_score": 95,
+      "distance": "0.934",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "K8. ARUMBAKKAM",
+      "station_code": "K8",
+      "matched_boundary_name": "K8 Arumbakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "V5. THIRUMANGALAM",
+      "station_code": "V5",
+      "matched_boundary_name": "V5 Thirumangalam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "V4. RAJAMANGALAM",
+      "station_code": "V4",
+      "matched_boundary_name": "V4 Rajamangalam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "V6. KOLATHUR",
+      "station_code": "V6",
+      "matched_boundary_name": "V6 Kolathur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K3. AMINJIKARAI",
+      "station_code": "K3",
+      "matched_boundary_name": "K3 Aminjikarai PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K10. KOYAMBEDU",
+      "station_code": "K10",
+      "matched_boundary_name": "K10 Koyambedu PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "T4 MADURAVOYAL",
+      "station_code": "T4",
+      "matched_boundary_name": "V7 Nolambur PS",
+      "match_type": "Nearest Fallback",
+      "confidence_score": 50,
+      "distance": "1.204",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "V1. VILLIVAKKAM",
+      "station_code": "V1",
+      "matched_boundary_name": "V1 Villivakkam PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "V3. J.J. NAGAR",
+      "station_code": "V3",
+      "matched_boundary_name": "V3 Jj Nagar PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "V7 NOLAMBUR",
+      "station_code": "V7",
+      "matched_boundary_name": "V7 Nolambur PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K11 CMBT",
+      "station_code": "K11",
+      "matched_boundary_name": "K10 Koyambedu PS",
+      "match_type": "Code Only",
+      "confidence_score": 75,
+      "distance": "0.918",
+      "inside_polygon": false
+    },
+    {
+      "station_name": "K7 ICF",
+      "station_code": "K7",
+      "matched_boundary_name": "K4 Anna Nagar PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "G3 KILPAUK",
+      "station_code": "G3",
+      "matched_boundary_name": "G3 Kilpauk PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K 6 TP CHATHIRAM",
+      "station_code": "K6",
+      "matched_boundary_name": "K6 T P Chatiram PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "G1 VEPERY",
+      "station_code": "G1",
+      "matched_boundary_name": "G1 Vepery PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "G7 CHETPET",
+      "station_code": "G7",
+      "matched_boundary_name": "G7 Chetpet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "K2 AYANAVARAM",
+      "station_code": "K2",
+      "matched_boundary_name": "K2 Ayanavaram PS",
+      "match_type": "Code+Spatial",
+      "confidence_score": 90,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "G5 SECRETARIAT COLONY",
+      "station_code": "G5",
+      "matched_boundary_name": "G5 Secretariat Colony PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "G2 PERIAMET",
+      "station_code": "G2",
+      "matched_boundary_name": "G2 Periyamet PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "F6. MUSEUM",
+      "station_code": "F6",
+      "matched_boundary_name": "F2 Egmore PS",
+      "match_type": "Spatial Only",
+      "confidence_score": 60,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D6. ANNA SQUARE",
+      "station_code": "D6",
+      "matched_boundary_name": "D6 Anna Square PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    },
+    {
+      "station_name": "D1.TRIPLICANE",
+      "station_code": "D1",
+      "matched_boundary_name": "D1 Triplicane PS",
+      "match_type": "Code+Name+Spatial",
+      "confidence_score": 100,
+      "distance": 0,
+      "inside_polygon": true
+    }
+  ],
+  "unmatchedBoundaries": [
+    "K11 Cmbt PS",
+    "S2 Airport PS",
+    "H7 Peripheral Hospital PS",
+    "D7 MGR Memorial PS",
+    "F5 Choolaimedu PS",
+    "S10 Pallikaranai PS",
+    "F1 Chindadiripet PS",
+    "D2 Annasalai PS",
+    "C5 Kothavalchavadi PS"
+  ],
+  "stats": {
+    "total_stations": 112,
+    "total_boundaries": 111,
+    "auto_matched": 100,
+    "needs_review": 12,
+    "unmatched_stations": 0,
+    "unmatched_boundaries": 9,
+    "data_errors": {
+      "swapped_codes": 6
+    }
+  }
+}

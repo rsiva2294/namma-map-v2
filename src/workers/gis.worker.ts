@@ -20,6 +20,7 @@ import type {
 import type { LocalBodyV2Properties } from '../types/gis_v2';
 
 import { openDB } from 'idb';
+import { resolveChennaiPolice } from '../utils/resolvers/chennaiPoliceResolver';
 
 interface SpatialItem {
   minX: number;
@@ -968,7 +969,9 @@ self.onmessage = async (e: MessageEvent) => {
           }
         };
 
-        if (districtName === 'Chennai') {
+        const isChennai = districtName?.toUpperCase().includes('CHENNAI');
+
+        if (isChennai) {
           // Special case: Chennai City Police covers parts of Tiruvallur and Chengalpattu
           await Promise.all([
             loadPoliceDistrict('Chennai'),
@@ -1041,11 +1044,54 @@ self.onmessage = async (e: MessageEvent) => {
              return stations[0] || null;
            })();
            
-           const result = resolvePoliceStation(
-            found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
-            policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
-            [lng, lat]
-          );
+           let result: PoliceResolutionResult;
+
+           if (isChennai) {
+             const chennaiRes = resolveChennaiPolice(
+               [lng, lat],
+               policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>,
+               policeBoundariesGeoJson as GisFeatureCollection<Polygon | MultiPolygon, PoliceBoundaryProperties>,
+               true
+             );
+
+             if (chennaiRes) {
+               result = {
+                 boundary: JSON.parse(JSON.stringify(chennaiRes.matchedBoundary!)),
+                 station: chennaiRes.primaryStation,
+                 isBoundaryValid: true,
+                 confidence: (chennaiRes.confidence >= 90 ? 'high' : chennaiRes.confidence >= 70 ? 'medium' : 'low') as any,
+                 reason: chennaiRes.matchType,
+                 debug: {
+                   boundaryId: chennaiRes.matchedBoundary?.id?.toString() || 'chennai',
+                   boundaryCode: (chennaiRes.matchedBoundary?.properties.police_s_1 || '').toString(),
+                   boundaryAliases: [chennaiRes.matchedBoundary?.properties.police_sta || ''],
+                   stationCode: chennaiRes.stationCode || undefined,
+                   codeMatch: chennaiRes.confidence >= 75,
+                   aliasMatchStrength: chennaiRes.confidence / 100,
+                   isInsideBoundary: chennaiRes.insidePolygon,
+                   distanceToClick: 0,
+                   distanceToCentroid: chennaiRes.distanceKm,
+                   overrideUsed: false,
+                   confidence: (chennaiRes.confidence >= 90 ? 'high' : 'medium') as any,
+                   reason: chennaiRes.matchType,
+                   method: 'chennai-resolver'
+                 },
+                 chennaiResult: chennaiRes
+               };
+             } else {
+               result = resolvePoliceStation(
+                 found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
+                 policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
+                 [lng, lat]
+               );
+             }
+           } else {
+             result = resolvePoliceStation(
+               found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
+               policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
+               [lng, lat]
+             );
+           }
 
           if (targetStation) {
             result.station = targetStation as GisFeature<Point, PoliceStationProperties>;
