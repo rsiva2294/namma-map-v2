@@ -18,6 +18,7 @@ import UpdateNotification from './components/UpdateNotification';
 import { RouteManager } from './components/routing/RouteManager';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import MapSkeleton from './components/layout/MapSkeleton';
+import SchemaData from './components/SchemaData';
 import { useLocation } from 'react-router-dom';
 import { trackEvent } from './lib/firebase';
 import { APP_VERSION } from './constants';
@@ -141,6 +142,8 @@ function App() {
 
   return (
     <div className={`app-container ${theme}`}>
+      <a href="#main-content" className="skip-link">Skip to results</a>
+      <SchemaData />
       <Helmet>
         <title>{getPageTitle()}</title>
         <meta name="description" content={`Find ${activeLayer.toLowerCase()} services across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping.`} />
@@ -168,7 +171,7 @@ function App() {
 
       <Sidebar />
       
-      <main className="main-content">
+      <main className="main-content" role="main" id="main-content" tabIndex={-1}>
         <ErrorBoundary>
           <Suspense fallback={<MapSkeleton />}>
             <GisMap />

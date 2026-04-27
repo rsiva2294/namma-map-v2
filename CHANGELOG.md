@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.3] - 2026-04-27
+### Added
+- **Schema.org Structured Data**: Integrated JSON-LD metadata to identify NammaMap as a "GovernmentService" and "Dataset" for better visibility in Google Search and Google Dataset Search.
+- **Accessibility: Skip Link**: Added "Skip to results" functionality for keyboard users to bypass navigation.
+- **Accessibility: Screen Reader Support**: Implemented `aria-live` regions for result cards and added semantic ARIA landmarks across the app.
+- **Sitemap Expansion**: Updated sitemap generator to include the "Local Bodies" layer for all districts.
+
+### Fixed
+- **Modal Accessibility**: Added `Escape` key support to close all modals and implemented background scroll locking.
+- **Visual Focus**: Added global high-contrast focus rings (`:focus-visible`) for all interactive elements.
+
 ## [1.2.2] - 2026-04-27
 ### Added
 - **Robust Update System**: Implemented a proactive version check against `version.json` that works alongside the PWA, ensuring users jump directly to the latest deployment.

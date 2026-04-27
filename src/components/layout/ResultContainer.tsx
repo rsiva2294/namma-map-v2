@@ -128,7 +128,11 @@ const ResultContainer: React.FC = () => {
   };
 
   return (
-    <div className="result-cards-stack">
+    <div 
+      className="result-cards-stack" 
+      aria-live="polite" 
+      aria-atomic="true"
+    >
       <Helmet>
         {renderStructuredData()}
       </Helmet>

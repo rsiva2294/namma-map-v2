@@ -37,6 +37,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Ariyalur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -63,6 +68,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Ariyalur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Ariyalur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -97,6 +107,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Chengalpattu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Chennai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -123,6 +138,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Chennai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Chennai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -157,6 +177,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Coimbatore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Cuddalore</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -183,6 +208,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Cuddalore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Cuddalore</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -217,6 +247,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Dharmapuri</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Dindigul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -243,6 +278,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Dindigul</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Dindigul</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -277,6 +317,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Erode</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Kallakurichi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -303,6 +348,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Kallakurichi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Kallakurichi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -337,6 +387,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Kanchipuram</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Kanniyakumari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -363,6 +418,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Kanniyakumari</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Kanniyakumari</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -397,6 +457,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Karur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Krishnagiri</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -423,6 +488,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Krishnagiri</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Krishnagiri</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -457,6 +527,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Madurai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Mayiladuthurai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -483,6 +558,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Mayiladuthurai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Mayiladuthurai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -517,6 +597,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Nagapattinam</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Namakkal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -543,6 +628,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Namakkal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Namakkal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -577,6 +667,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Perambalur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Pudukkottai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -603,6 +698,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Pudukkottai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Pudukkottai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -637,6 +737,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Ramanathapuram</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Ranipet</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -663,6 +768,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Ranipet</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Ranipet</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -697,6 +807,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Salem</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Sivaganga</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -723,6 +838,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Sivaganga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Sivaganga</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -757,6 +877,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Tenkasi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Thanjavur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -783,6 +908,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Thanjavur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Thanjavur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -817,6 +947,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/The%20Nilgiris</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Theni</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -843,6 +978,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Theni</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Theni</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -877,6 +1017,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Thiruvallur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Thiruvarur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -903,6 +1048,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Thiruvarur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Thiruvarur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -937,6 +1087,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Tiruchirappalli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Tirunelveli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -963,6 +1118,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Tirunelveli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Tirunelveli</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -997,6 +1157,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Tirupathur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Tiruppur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1023,6 +1188,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Tiruppur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Tiruppur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1057,6 +1227,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Tiruvannamalai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Tuticorin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1083,6 +1258,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Tuticorin</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Tuticorin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1117,6 +1297,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Vellore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Villupuram</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1147,6 +1332,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://namma-map.web.app/local-bodies/Villupuram</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://namma-map.web.app/pincode/Virudhunagar</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1173,6 +1363,11 @@
   </url>
   <url>
     <loc>https://namma-map.web.app/health/Virudhunagar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://namma-map.web.app/local-bodies/Virudhunagar</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

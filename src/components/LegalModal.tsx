@@ -10,6 +10,22 @@ const LegalModal: React.FC = () => {
   const activeTab = useMapStore(state => state.legalTab);
   const setLegalModal = useMapStore(state => state.setLegalModal);
 
+  // Accessibility: Handle Escape key
+  React.useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLegalModal(false);
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleEsc);
+      // Optional: Prevent scrolling background
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, setLegalModal]);
+
   if (!isOpen) return null;
 
   const tabs = [

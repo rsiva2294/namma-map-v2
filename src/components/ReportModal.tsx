@@ -9,6 +9,21 @@ const ReportModal: React.FC = () => {
   const setReportModal = useMapStore(state => state.setReportModal);
   const [correction, setCorrection] = useState('');
 
+  // Accessibility: Handle Escape key
+  React.useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setReportModal(false);
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, setReportModal]);
+
   if (!isOpen || !context) return null;
 
   const handleSend = () => {

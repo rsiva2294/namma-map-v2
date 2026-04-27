@@ -76,6 +76,8 @@ const Sidebar: React.FC = () => {
       </AnimatePresence>
 
       <motion.aside
+        role="navigation"
+        aria-label="Service Layers"
         initial={false}
         animate={{ width: isSidebarOpen ? 280 : (window.innerWidth > 768 ? 0 : 0) }}
         transition={{ duration: 0.2 }}
