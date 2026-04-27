@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "update-version": "node -e \"const fs = require('fs'); const v = new Date().toISOString(); fs.writeFileSync('public/version.json', JSON.stringify({version: v})); const constants = fs.readFileSync('src/constants.ts', 'utf8'); fs.writeFileSync('src/constants.ts', constants.replace(/const APP_VERSION = '.*';/, 'const APP_VERSION = \\'' + v + '\\';'));\"",
-    "build": "npm run update-version && tsc -b && vite build",
+    "build": "npm run update-version && tsc -b && vite build && node scripts/generate-sitemap.cjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

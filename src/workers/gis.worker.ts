@@ -1967,6 +1967,14 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
 
+    case 'PREFETCH':
+      if (payload && Array.isArray(payload.urls)) {
+        payload.urls.forEach((url: string) => {
+          fetchWithRetry(url).catch(err => console.warn(`[Worker] Prefetch failed for ${url}:`, err));
+        });
+      }
+      break;
+
     default:
       console.warn('[Worker] Unknown message type:', type);
   }
