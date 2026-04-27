@@ -11,11 +11,13 @@ import {
   Landmark,
   Shield,
   Scale,
-  Building2
+  Building2,
+  Languages
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useMapStore } from '../../store/useMapStore';
+import { useTranslation } from '../../i18n/translations';
 import type { ServiceLayer } from '../../types/gis';
 
 const Sidebar: React.FC = () => {
@@ -25,36 +27,40 @@ const Sidebar: React.FC = () => {
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const theme = useMapStore(state => state.theme);
   const toggleTheme = useMapStore(state => state.toggleTheme);
+  const language = useMapStore(state => state.language);
+  const setLanguage = useMapStore(state => state.setLanguage);
   const constituencyType = useMapStore(state => state.constituencyType);
   const setConstituencyType = useMapStore(state => state.setConstituencyType);
   const setLegalModal = useMapStore(state => state.setLegalModal);
 
+  const { t } = useTranslation();
+
   const categories = [
     {
-      label: 'ESSENTIALS',
+      label: t('ESSENTIALS'),
       items: [
-        { id: 'PINCODE' as ServiceLayer, label: 'Post Offices', icon: MapPin, color: '#3b82f6' },
-        { id: 'PDS' as ServiceLayer, label: 'Ration Shops', icon: ShoppingCart, color: '#ef4444' },
-        { id: 'HEALTH' as ServiceLayer, label: 'Health Facilities', icon: Activity, color: '#be123c' },
+        { id: 'PINCODE' as ServiceLayer, label: t('PINCODE'), icon: MapPin, color: '#3b82f6' },
+        { id: 'PDS' as ServiceLayer, label: t('PDS'), icon: ShoppingCart, color: '#ef4444' },
+        { id: 'HEALTH' as ServiceLayer, label: t('HEALTH'), icon: Activity, color: '#be123c' },
       ]
     },
     {
-      label: 'CIVIC',
+      label: t('CIVIC'),
       items: [
-        { id: 'LOCAL_BODIES_V2' as ServiceLayer, label: 'Local Bodies', icon: Building2, color: '#6366f1' },
-        { id: 'CONSTITUENCY' as ServiceLayer, label: 'Constituencies', icon: Landmark, color: '#6366f1' },
+        { id: 'LOCAL_BODIES_V2' as ServiceLayer, label: t('LOCAL_BODIES_V2'), icon: Building2, color: '#6366f1' },
+        { id: 'CONSTITUENCY' as ServiceLayer, label: t('CONSTITUENCY'), icon: Landmark, color: '#6366f1' },
       ]
     },
     {
-      label: 'SAFETY',
+      label: t('SAFETY'),
       items: [
-        { id: 'POLICE' as ServiceLayer, label: 'Police Jurisdictions', icon: Shield, color: '#475569' },
+        { id: 'POLICE' as ServiceLayer, label: t('POLICE'), icon: Shield, color: '#475569' },
       ]
     },
     {
-      label: 'UTILITIES',
+      label: t('UTILITIES'),
       items: [
-        { id: 'TNEB' as ServiceLayer, label: 'TNEB', icon: Zap, color: '#f59e0b' },
+        { id: 'TNEB' as ServiceLayer, label: t('TNEB'), icon: Zap, color: '#f59e0b' },
       ]
     }
   ];
@@ -217,16 +223,24 @@ const Sidebar: React.FC = () => {
         ))}
 
         <div className="sidebar-divider" />
-        <div className="sidebar-section-label">Settings</div>
+        <div className="sidebar-section-label">{t('SETTINGS')}</div>
         
         <div className="sidebar-footer">
+          <button 
+            className="sidebar-menu-item" 
+            onClick={() => setLanguage(language === 'en' ? 'ta' : 'en')} 
+            aria-label={`Switch to ${language === 'en' ? 'Tamil' : 'English'}`}
+          >
+            <Languages size={20} color="var(--accent)" />
+            {isSidebarOpen && <span>{language === 'en' ? 'தமிழ்' : 'English'}</span>}
+          </button>
           <button className="sidebar-menu-item" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            {isSidebarOpen && <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>}
+            {isSidebarOpen && <span>{theme === 'dark' ? t('LIGHT_MODE') : t('DARK_MODE')}</span>}
           </button>
-          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label="About & Legal">
+          <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label={t('ABOUT_LEGAL')}>
             <Scale size={20} />
-            {isSidebarOpen && <span>About & Legal</span>}
+            {isSidebarOpen && <span>{t('ABOUT_LEGAL')}</span>}
           </button>
         </div>
       </motion.div>

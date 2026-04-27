@@ -75,10 +75,12 @@ interface MapState {
   };
   selectedLocalBodyV2: LocalBodyV2Feature | null;
   isV2Loading: boolean;
+  language: 'en' | 'ta';
 
   // Actions
   setSelectedLocalBodyV2: (feature: LocalBodyV2Feature | null) => void;
   setIsV2Loading: (val: boolean) => void;
+  setLanguage: (lang: 'en' | 'ta') => void;
   setView: (center: [number, number], zoom: number) => void;
   setActiveLayer: (layer: ServiceLayer) => void;
   setSearchQuery: (query: string) => void;
@@ -192,6 +194,7 @@ export const useMapStore = create<MapState>((set) => ({
   legalTab: 'disclaimer',
   selectedLocalBodyV2: null,
   isV2Loading: false,
+  language: 'en',
   postalFilters: {
     delivery: 'All',
     type: 'All'
@@ -347,5 +350,9 @@ export const useMapStore = create<MapState>((set) => ({
     postalFilters: { ...state.postalFilters, ...filters }
   })),
   setSelectedLocalBodyV2: (feature) => set({ selectedLocalBodyV2: feature, isResolving: false, isV2Loading: false }),
-  setIsV2Loading: (val) => set({ isV2Loading: val })
+  setIsV2Loading: (val) => set({ isV2Loading: val }),
+  setLanguage: (lang) => {
+    trackEvent('language_switch', { language: lang });
+    set({ language: lang });
+  }
 }));

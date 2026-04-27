@@ -8,6 +8,8 @@ import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { getOfficeTypeLabel, getOfficeExplanation } from '../../utils/postal';
 import { LocalBodyV2Card } from '../../features/local_bodies_v2/components/LocalBodyV2Card';
+
+import { translateDistrict } from '../../i18n/districts';
 import type { Position, TnebSection, HealthFilters } from '../../types/gis';
 
 const ResultContainer: React.FC = () => {
@@ -35,7 +37,9 @@ const ResultContainer: React.FC = () => {
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const selectedLocalBodyV2 = useMapStore(state => state.selectedLocalBodyV2);
   const isV2Loading = useMapStore(state => state.isV2Loading);
+  const language = useMapStore(state => state.language);
   const { filterHealth } = useGisWorker();
+
 
   const handleReport = (type: string, rawData: Record<string, unknown>) => {
     let importantData: Record<string, string | number> = {};
@@ -146,9 +150,9 @@ const ResultContainer: React.FC = () => {
             icon={<ShoppingCart size={20} />}
             data={[
               { label: 'Shop Code', value: selectedPdsShop.properties.shop_code || 'N/A', isPill: true },
-              { label: 'Village', value: selectedPdsShop.properties.village || 'N/A' },
-              { label: 'Taluk', value: selectedPdsShop.properties.taluk || 'N/A' },
-              { label: 'District', value: selectedPdsShop.properties.district || 'N/A' }
+              { label: language === 'ta' ? 'கிராமம்' : 'Village', value: selectedPdsShop.properties.village || 'N/A' },
+              { label: language === 'ta' ? 'தாலுகா' : 'Taluk', value: selectedPdsShop.properties.taluk || 'N/A' },
+              { label: language === 'ta' ? 'மாவட்டம்' : 'District', value: translateDistrict(selectedPdsShop.properties.district, language) || 'N/A' }
             ]}
             onClose={() => setSelectedPdsShop(null)}
             onDirections={() => {
@@ -220,8 +224,8 @@ const ResultContainer: React.FC = () => {
              title="Find TNEB Section"
              icon={<Zap size={20} />}
              data={[
-               { label: 'Area', value: searchResult.properties.office_name || searchResult.properties.district || 'N/A' },
-               { label: 'Next Step', value: 'Click your exact location on the map to resolve the section.' }
+               { label: language === 'ta' ? 'பகுதி' : 'Area', value: translateDistrict(searchResult.properties.office_name || searchResult.properties.district || 'N/A', language) },
+               { label: language === 'ta' ? 'அடுத்த கட்டம்' : 'Next Step', value: language === 'ta' ? 'மின்சார வாரிய அலுவலகத்தைக் கண்டறிய வரைபடத்தில் உங்கள் சரியான இடத்தை கிளிக் செய்யவும்.' : 'Click your exact location on the map to resolve the section.' }
              ]}
              onClose={clearSearch}
            />
@@ -238,8 +242,8 @@ const ResultContainer: React.FC = () => {
               title={searchResult.properties.office_name || searchResult.properties.district || searchResult.properties.NAME || 'Post Office Area'}
               icon={<MapPin size={20} />}
               data={[
-                { label: 'Pincode', value: (searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A').toString(), isPill: true },
-                { label: 'District', value: searchResult.properties.district || 'N/A' },
+                { label: language === 'ta' ? 'பின்கோடு' : 'Pincode', value: (searchResult.properties.PIN_CODE || searchResult.properties.pincode || 'N/A').toString(), isPill: true },
+                { label: language === 'ta' ? 'மாவட்டம்' : 'District', value: translateDistrict(searchResult.properties.district, language) || 'N/A' },
                 { label: 'Region', value: (searchResult.properties.region_nam as string) || 'N/A' },
                 ...(validOffices.length > 0 ? [
                   { 
@@ -276,7 +280,7 @@ const ResultContainer: React.FC = () => {
               { label: '📍 PIN Code', value: selectedPostalOffice.pincode, isPill: true },
               { label: '🏢 Office Type', value: getOfficeTypeLabel(selectedPostalOffice.officetype) },
               { label: '💡 About this office', value: getOfficeExplanation(selectedPostalOffice.officetype, selectedPostalOffice.delivery) },
-              { label: '🗺️ District', value: selectedPostalOffice.district },
+              { label: '🗺️ District', value: translateDistrict(selectedPostalOffice.district, language) },
               { label: 'ℹ️ More Info', value: selectedPostalOffice.divisionname, subValue: `Division: ${selectedPostalOffice.divisionname} • Region: ${selectedPostalOffice.regionname}` },
               ...(selectedPostalOffice.isOutlier ? [{ label: 'Note', value: 'This office coordinates in the official registry appear to be incorrect and have been hidden from the map for clarity.' }] : [])
             ]}
@@ -327,8 +331,8 @@ const ResultContainer: React.FC = () => {
             icon={<Landmark size={20} />}
             data={searchResult.properties.assembly_c ? [
               { label: 'AC Number', value: searchResult.properties.assembly_1?.toString() || 'N/A', isPill: true },
-              { label: 'District', value: searchResult.properties.district_n as string || 'N/A' },
-              { label: 'Parliamentary', value: searchResult.properties.parliame_1 as string || 'N/A' },
+              { label: language === 'ta' ? 'மாவட்டம்' : 'District', value: translateDistrict(searchResult.properties.district_n as string, language) || 'N/A' },
+              { label: language === 'ta' ? 'நாடாளுமன்றத் தொகுதி' : 'Parliamentary', value: searchResult.properties.parliame_1 as string || 'N/A' },
             ] : [
               { label: 'PC Number', value: searchResult.properties.parliament?.toString() || 'N/A', isPill: true },
               { label: 'State', value: 'Tamil Nadu' }
@@ -361,9 +365,9 @@ const ResultContainer: React.FC = () => {
               },
               ...(policeResolution.isBoundaryValid ? [
                  {
-                   label: 'Jurisdiction',
+                   label: language === 'ta' ? 'எல்லை' : 'Jurisdiction',
                    value: policeResolution.boundary.properties.police_sta || 'N/A',
-                   subValue: `${policeResolution.boundary.properties.district_n || ''} District`
+                   subValue: `${translateDistrict(policeResolution.boundary.properties.district_n, language) || ''} ${language === 'ta' ? 'மாவட்டம்' : 'District'}`
                  }
               ] : []),
               ...(import.meta.env.DEV ? [
@@ -478,9 +482,9 @@ const ResultContainer: React.FC = () => {
                 isPill: true 
               },
               { 
-                label: 'Location', 
-                value: `${selectedHealthFacility.properties.block_name || 'Local Area'}, ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`,
-                subValue: `District: ${selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district || 'N/A'}`
+                label: language === 'ta' ? 'இடம்' : 'Location', 
+                value: `${selectedHealthFacility.properties.block_name || 'Local Area'}, ${translateDistrict(selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district, language) || 'N/A'}`,
+                subValue: `${language === 'ta' ? 'மாவட்டம்' : 'District'}: ${translateDistrict(selectedHealthFacility.properties.district_n || selectedHealthFacility.properties.district, language) || 'N/A'}`
               },
               { 
                 label: 'Services Timing', 
@@ -555,9 +559,9 @@ const ResultContainer: React.FC = () => {
             title="No Information Found"
             icon={<AlertCircle size={20} />}
             data={[
-              { label: 'Status', value: 'Data Unavailable', isPill: true },
-              { label: 'Message', value: 'We don\'t have specific jurisdictional data for this exact coordinate yet.' },
-              { label: 'Location', value: lastClickedPoint ? `${lastClickedPoint.lat.toFixed(4)}, ${lastClickedPoint.lng.toFixed(4)}` : 'Unknown' }
+              { label: language === 'ta' ? 'நிலை' : 'Status', value: language === 'ta' ? 'தகவல் இல்லை' : 'Data Unavailable', isPill: true },
+              { label: language === 'ta' ? 'செய்தி' : 'Message', value: language === 'ta' ? 'இந்த இடத்திற்கான குறிப்பிட்ட எல்லைத் தரவு இன்னும் எங்களிடம் இல்லை.' : 'We don\'t have specific jurisdictional data for this exact coordinate yet.' },
+              { label: language === 'ta' ? 'இடம்' : 'Location', value: lastClickedPoint ? `${lastClickedPoint.lat.toFixed(4)}, ${lastClickedPoint.lng.toFixed(4)}` : 'Unknown' }
             ]}
             onClose={() => setNoDataFound(false)}
             actionLabel="CONTRIBUTE DATA"

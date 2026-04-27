@@ -3,6 +3,7 @@ import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, L
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import { trackEvent } from '../../lib/firebase';
+import { useTranslation } from '../../i18n/translations';
 
 const SearchBar: React.FC = () => {
   const searchQuery = useMapStore(state => state.searchQuery);
@@ -17,6 +18,7 @@ const SearchBar: React.FC = () => {
   const focusedSuggestionIndex = useMapStore(state => state.focusedSuggestionIndex);
   const setFocusedSuggestionIndex = useMapStore(state => state.setFocusedSuggestionIndex);
   const setUserTyping = useMapStore(state => state.setUserTyping);
+  const { t } = useTranslation();
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (searchSuggestions.length === 0) return;
@@ -89,13 +91,13 @@ const SearchBar: React.FC = () => {
           }}
           onKeyDown={handleKeyDown}
           placeholder={
-            isLocating ? (window.innerWidth < 768 ? "Locating..." : "Locating you...") :
-            activeLayer === 'HEALTH' ? "Search Hospitals, Districts, or Pincodes..." :
-            activeLayer === 'PDS' ? "Search Ration Shops, Districts, or Pincodes..." :
-            activeLayer === 'TNEB' ? "Search TNEB Offices, Districts, or Pincodes..." :
-            activeLayer === 'POLICE' ? "Search Police Stations, Districts, or Pincodes..." :
-            activeLayer === 'CONSTITUENCY' ? "Search Constituencies, Districts, or Pincodes..." :
-            "Search Districts, Pincodes, or Offices..."
+            isLocating ? t('LOCATING') :
+            activeLayer === 'HEALTH' ? t('SEARCH_HEALTH') :
+            activeLayer === 'PDS' ? t('SEARCH_PDS') :
+            activeLayer === 'TNEB' ? t('SEARCH_TNEB') :
+            activeLayer === 'POLICE' ? t('SEARCH_POLICE') :
+            activeLayer === 'CONSTITUENCY' ? t('SEARCH_CONSTITUENCY') :
+            t('SEARCH_PLACEHOLDER')
           }
           className="search-input"
           aria-label="Search for a location"

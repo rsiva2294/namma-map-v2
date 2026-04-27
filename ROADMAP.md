@@ -7,7 +7,7 @@ Features that provide immediate value with minimal architectural changes.
 
 - [ ] **Deep Linking & Shareable URLs**: State-reflective URLs (e.g., `/tneb/section-code`) to allow users to share specific jurisdictions.
 - [x] **Navigation Integration**: "Get Directions" button in Result Cards that opens Google Maps/Apple Maps.
-- [ ] **Bilingual Support (Tamil/English)**: Full localization of the UI and primary dataset labels.
+- [/] **Bilingual Support (Tamil/English)**: Phase 1 (UI Shell & District Localization) complete.
 - [ ] **Enhanced Result Metadata**: Include phone numbers, operating hours, and official contact emails for offices.
 - [x] **Police Stations & Jurisdictions**: Complete boundary mapping and station point integration.
 
@@ -38,4 +38,4 @@ Internal and research-oriented features.
 - [ ] **Automated Data Pipeline**: Scripts to automatically fetch and convert raw government CSV/JSON into optimized TopoJSON.
 
 ---
-*Last Updated: April 25, 2026 (Performance & Mobile Release)*
+*Last Updated: April 27, 2026 (Tamil Support & SEO Release)*

@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Copy, MapPin, AlertCircle, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../i18n/translations';
 
 export interface ResultCardProps {
   title: string;
@@ -58,6 +59,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
   title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction 
 }) => {
   const colors = colorMap[themeColor];
+  const { t, language } = useTranslation();
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -84,8 +86,8 @@ const ResultCard: React.FC<ResultCardProps> = ({
             <button
               onClick={onReport}
               className="result-card-header-btn"
-              aria-label="Report an issue"
-              title="Report an issue"
+              aria-label={t('REPORT_ISSUE')}
+              title={t('REPORT_ISSUE')}
             >
               <AlertCircle size={18} />
             </button>
@@ -93,7 +95,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
           <button
             onClick={onClose}
             className="result-card-header-btn close"
-            aria-label="Close panel"
+            aria-label={t('CLOSE')}
           >
             <X size={18} />
           </button>
@@ -140,7 +142,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
         gap: '6px'
       }}>
         <span style={{ fontSize: '12px', marginTop: '-1px' }}>📍</span>
-        <span><strong>Accuracy:</strong> Vicinity only. The office is located within 200m of this point.</span>
+        <span><strong>Accuracy:</strong> {language === 'ta' ? 'தோராயமான இடம். 200 மீட்டருக்குள் அலுவலகம் அமைந்துள்ளது.' : 'Vicinity only. The office is located within 200m of this point.'}</span>
       </div>
 
       {/* Body */}
@@ -186,10 +188,10 @@ const ResultCard: React.FC<ResultCardProps> = ({
           style={{ backgroundColor: colors.button }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = colors.hover)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = colors.button)}
-          aria-label={actionLabel || "Get directions to this location"}
+          aria-label={actionLabel || t('DIRECTIONS')}
         >
           {onAction ? <Send size={16} /> : <MapPin size={16} />}
-          {actionLabel || "GET DIRECTIONS"}
+          {actionLabel || t('DIRECTIONS')}
         </button>
       )}
     </motion.div>

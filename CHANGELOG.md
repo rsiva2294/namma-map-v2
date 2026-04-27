@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.4] - 2026-04-27
+### Added
+- **Bilingual Support (Tamil)**: Implemented Phase 1 of native Tamil support, allowing users to toggle the entire application interface between English and Tamil.
+- **Language Toggle**: Integrated a premium language switcher in the sidebar settings with instant state synchronization.
+- **District Name Translation**: Created a comprehensive lookup system for all 38 Tamil Nadu districts to display their native Tamil names in result cards and search suggestions.
+- **Localized Search Experience**: Updated the floating search bar to provide localized placeholders and category headers based on the active language.
+- **Localized Action UI**: Translated core action buttons (Directions, Report, Close) and geographic disclaimers for a seamless local experience.
+
+### Fixed
+- **Type Safety**: Resolved several TypeScript compilation errors related to translation key indexing and hook usage.
+
 ## [1.2.3] - 2026-04-27
 ### Added
 - **Schema.org Structured Data**: Integrated JSON-LD metadata to identify NammaMap as a "GovernmentService" and "Dataset" for better visibility in Google Search and Google Dataset Search.
