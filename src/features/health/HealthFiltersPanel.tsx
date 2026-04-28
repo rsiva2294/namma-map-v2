@@ -261,7 +261,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           { id: 'local', label: t('LOCAL_CENTRES'), types: ['PHC', 'HSC'], icon: '📍', disabledIfState: true }
         ].map(group => {
           const isDisabled = group.disabledIfState && healthScope === 'STATE';
-          const isActive = group.types.every(t => healthFilters.facilityTypes.includes(t));
+          const isActive = group.types.every(t => healthFilters.facilityTypes.includes(t)) && !isDisabled;
           
           return (
             <div key={group.id} style={{ position: 'relative' }}>

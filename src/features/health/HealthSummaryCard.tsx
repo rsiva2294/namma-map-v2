@@ -21,13 +21,16 @@ import { useTranslation } from '../../i18n/translations';
 export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, onClearFilters }) => {
   const { t } = useTranslation();
   
+  const displayActiveFilters = summary.scope === 'STATE' 
+    ? summary.activeFilters.filter(f => f !== 'PHC' && f !== 'HSC')
+    : summary.activeFilters;
+
   const getGuidance = () => {
-    const activeFilters = summary.activeFilters;
+    const activeFilters = displayActiveFilters;
     const hasEmergency = activeFilters.some(f => ['isFru', 'hasStemiHub', 'hasStemiSpoke'].includes(f));
     const hasDelivery = activeFilters.includes('hasDelivery');
     const hasChildCare = activeFilters.some(f => ['hasSncu', 'hasNbsu', 'hasDeic'].includes(f));
     const hasDiagnostics = activeFilters.some(f => ['hasCt', 'hasMri', 'hasDialysis'].includes(f));
-    const isStatewide = summary.scope === 'STATE';
 
     let specificCopy = '';
     if (hasEmergency) specificCopy = t('EMERGENCY_HUBS_SHOWING');
@@ -35,14 +38,9 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
     else if (hasChildCare) specificCopy = t('NEWBORN_CHILD_CARE_SHOWING');
     else if (hasDiagnostics) specificCopy = t('DIAGNOSTIC_CENTRES_SHOWING');
 
-    if (isStatewide && (activeFilters.includes('PHC') || activeFilters.includes('HSC'))) {
-      return {
-        title: t('LOCAL_CENTRES_FOCUSED'),
-        label: t('ACTION_REQUIRED'),
-        copy: t('LOCAL_CENTRES_VISIBILITY'),
-        nextStep: t('SEARCH_DISTRICT_LOCAL')
-      };
-    }
+    // In STATEWIDE scope, Local Centres are inherently hidden.
+    // If they explicitly unchecked Major and Secondary, leaving only Local,
+    // they'll get 0 results, and the HealthAreaPrompt overlay will guide them.
 
     switch (summary.scope) {
       case 'STATE':
@@ -235,7 +233,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
           </div>
         )}
 
-        {summary.activeFilters.length > 0 && (
+        {displayActiveFilters.length > 0 && (
           <div style={{ padding: '12px 0', borderTop: '1px solid var(--border-glass)', marginBottom: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
@@ -252,7 +250,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
               )}
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-              {summary.activeFilters.map((filter, i) => (
+              {displayActiveFilters.map((filter, i) => (
                 <div key={filter || i} style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
