@@ -18,11 +18,12 @@ NammaMap provides specialized views for essential services:
 The search bar at the top automatically adapts to your active layer:
 *   **Locality Search**: Type any area name (e.g., "Thirunagar", "Pasumalai") or a 6-digit pincode.
 *   **Service Specific**: Search for TNEB section names, Health facility names, or Police station codes.
+*   **Global Fallback (NEW)**: If your address is very specific (e.g., a street name or building), NammaMap will securely fall back to the Google Maps Geocoding API to pinpoint your exact coordinates across Tamil Nadu.
 
 ### 3. "Locate Me"
 Click the navigation icon (🧭) in the search bar to automatically zoom to your current geographic location. The map will highlight the relevant boundary for your active service layer.
 
-### 4. Location Resolver (NEW)
+### 4. Location Resolver
 Click the location icon (📍) in the search bar to open the **Location Resolver**. This allows you to:
 - **Manual Entry**: Enter Latitude and Longitude coordinates directly.
 - **Maps Link**: Paste a shared Google Maps link, and NammaMap will automatically extract the location.
@@ -49,8 +50,9 @@ NammaMap is fully bilingual. You can switch between **English** and **Tamil** at
 
 ### Health Facilities & Filters
 1.  Switch to the **HEALTH** layer.
-2.  Use the **Filters** button to narrow down facilities by type (e.g., PHC, Medical College) or capabilities (e.g., 24x7 service, Emergency care).
-3.  The results will show counts and facility markers based on your search area or selected pincode.
+2.  Use the **Filters** panel to seamlessly combine facility groups (e.g., Major Hospitals AND Secondary Care).
+3.  Zoom into a District or use 'My Area' to automatically reveal Local Centres (PHCs).
+4.  Further refine your results using specific medical capability filters (e.g., 24x7 service, Emergency care).
 
 ### Police Jurisdictions
 1.  Switch to the **POLICE** layer.

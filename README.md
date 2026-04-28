@@ -27,10 +27,12 @@ This repository adheres to high-quality software engineering practices:
     - **Constituencies**: Assembly (AC) and Parliamentary (PC) mapping.
     - **Local Bodies**: Unified discovery for Corporations, Municipalities, and Panchayats.
 *   **Off-Thread Processing**: All spatial queries run in Web Workers with `RBush` indexing to ensure 60fps UI performance.
+*   **Global Geocoding Fallback**: Integrates Google Maps Geocoding API via Firebase Functions to seamlessly resolve street addresses and landmarks when local indexes yield no results.
 *   **Persistent Caching**: Integrated IndexedDB caching for all GIS datasets, ensuring near-instant subsequent loads.
 *   **Mobile-Native UX**: Advanced responsive design with glassmorphism, dynamic viewport units (`dvh`), and bottom-sheet interactions.
 *   **Automated Updates**: Integrated version tracking prompts users to refresh when new updates are deployed.
 *   **Full Bilingual Support (EN/TA)**: Instant, high-quality translation between English and Tamil with dynamic font scaling for visual parity.
+*   **SEO Optimized**: Fully integrated Schema.org JSON-LD and dynamic OpenGraph/Twitter meta tags for maximum discoverability on search engines.
 
 ## 🛠️ Tech Stack
 *   **React 18 + Vite**

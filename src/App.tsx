@@ -158,21 +158,21 @@ function App() {
       <SchemaData />
       <Helmet>
         <title>{getPageTitle()}</title>
-        <meta name="description" content={`Find ${activeLayer.toLowerCase()} services across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping.`} />
+        <meta name="description" content={`Find ${activeLayer.toLowerCase()} services, police jurisdictions, and civic infrastructure across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping and global search.`} />
         <link rel="canonical" href={`https://namma-map.web.app/${activeLayer.toLowerCase()}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
         
         {/* OpenGraph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://namma-map.web.app/" />
         <meta property="og:title" content={getPageTitle()} />
-        <meta property="og:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${activeLayer.toLowerCase()} services with ease.`} />
+        <meta property="og:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${activeLayer.toLowerCase()}, police stations, constituencies, and local bodies instantly.`} />
         <meta property="og:image" content="https://namma-map.web.app/branding/og-image.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://namma-map.web.app/" />
         <meta property="twitter:title" content={getPageTitle()} />
-        <meta property="twitter:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${activeLayer.toLowerCase()} services with ease.`} />
+        <meta property="twitter:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${activeLayer.toLowerCase()}, police stations, constituencies, and local bodies instantly.`} />
         <meta property="twitter:image" content="https://namma-map.web.app/branding/og-image.png" />
       </Helmet>
 

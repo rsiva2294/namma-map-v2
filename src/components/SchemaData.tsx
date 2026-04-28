@@ -9,7 +9,7 @@ const SchemaData: React.FC = () => {
         "@id": "https://namma-map.web.app/#website",
         "url": "https://namma-map.web.app/",
         "name": "NammaMap",
-        "description": "Independent Tamil Nadu Civic GIS Portal for finding Jurisdictions, PDS Shops, and TNEB Offices.",
+        "description": "Independent Tamil Nadu Civic GIS Portal. Find Police Stations, TNEB Offices, Health Facilities, Ration Shops, and Local Bodies using pinpoint local or global search.",
         "publisher": {
           "@type": "Person",
           "name": "Sivakaminathan Muthusamy"
@@ -28,7 +28,7 @@ const SchemaData: React.FC = () => {
             "addressCountry": "IN"
           }
         },
-        "description": "Spatial tool to locate Pincodes, Ration Shops, TNEB Section Offices, and Health Facilities across Tamil Nadu.",
+        "description": "Spatial tool to locate Pincodes, Ration Shops, TNEB Section Offices, Health Facilities, Police Jurisdictions, and Constituencies across Tamil Nadu with Global Geocoding fallback.",
         "areaServed": {
           "@type": "AdministrativeArea",
           "name": "Tamil Nadu"
@@ -56,7 +56,9 @@ const SchemaData: React.FC = () => {
           "TNEB Section Jurisdictions",
           "Ration Shop Locations",
           "Health Facility Locations",
-          "Panchayat Boundaries"
+          "Police Station Jurisdictions",
+          "Local Body Boundaries (Corporations, Municipalities, Panchayats)",
+          "Assembly & Parliamentary Constituencies"
         ]
       }
     ]

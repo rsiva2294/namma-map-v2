@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-04-28
+### Added
+- **Global Search Engine**: Integrated Google Maps Geocoding API as a fallback to resolve full street addresses, landmarks, and unstructured locations across Tamil Nadu when civic data indexes yield no local matches.
+- **Enhanced SEO & Metadata**: Expanded JSON-LD Schema.org configurations and dynamic meta tags to properly index Police, Constituencies, Local Bodies, and global search capabilities for search engines.
+
+### Changed
+- **Health Filtering Re-engineering**: Transitioned from mutually exclusive radio buttons to an additive checkbox system for facility groups (Major, Secondary, Local).
+- **Intelligent Scope Filtering**: Default health filter state now considers the active map scope, visually disabling Local Centres at the statewide level to prevent empty result sets while maintaining accurate UI feedback.
+
+### Fixed
+- **Local Bodies Data Anomaly**: Added a deterministic override in the GIS Web Worker to correct an upstream data anomaly where the Chennai Municipal Corporation was improperly assigned to the Chengalpattu district.
+
 ## [1.3.0] - 2026-04-28
 ### Added
 - **Full Internationalization (EN/TA)**: Completed Phase 2 of localization, refactoring all hardcoded text across components, utilities, and maps into a centralized translation system.

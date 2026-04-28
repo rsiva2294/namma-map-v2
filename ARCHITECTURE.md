@@ -11,6 +11,8 @@ graph TD
     Hook <--> Worker[Web Worker - gis.worker.ts]
     Worker <--> Cache[IndexedDB - Cache Service]
     Cache <--> Data[Remote TopoJSON Datasets]
+    Worker -.-> Cloud[Firebase Cloud Function]
+    Cloud -.-> Google[Google Geocoding API]
     UI <--> Version[version.json Polling]
 ```
 
@@ -19,12 +21,13 @@ To prevent UI jank, all heavy lifting happens in `gis.worker.ts`.
 *   **Spatial Indexing**: Uses `RBush` for high-speed spatial searches (O(log n)) instead of linear scans.
 *   **Caching Layer**: Implements a 24-hour IndexedDB cache via `cacheService.ts`. All remote data fetches are persisted locally to ensure sub-second loads on subsequent visits.
 *   **Property Thinning**: Automatically strips unnecessary metadata from GeoJSON features before sending them to the main thread, reducing message serialization overhead.
+*   **Global Geocoding Fallback**: If local civic data indexes fail to match a search query, the worker triggers an external fetch to a Firebase Cloud Function proxy, securely resolving coordinates via the Google Maps Geocoding API.
 
 ### 2. State Management (The Source of Truth)
 We use **Zustand** for lightweight, performant state.
 *   **Context Isolation**: The `activeLayer` dictates how the Search Bar and Click Handlers behave.
 *   **Selection Persistence**: The map remembers your area highlight even when switching service tabs.
-*   **Global Resolver**: A platform-wide coordinate input system (`globalLocation`) that supports manual Lat/Lng and Google Maps URL extraction, allowing users to jump to any location across all modules.
+*   **Global Resolver**: A platform-wide coordinate input system (`globalLocation`) that supports manual Lat/Lng, Google Maps URL extraction, and address string geocoding, allowing users to jump to any location across all modules.
 
 ### 3. Data Strategy (Efficiency)
 *   **TopoJSON Compression**: We use TopoJSON instead of raw GeoJSON, reducing file sizes by up to 80% through shared topology and quantization.
