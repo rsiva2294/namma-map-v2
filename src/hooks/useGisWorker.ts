@@ -135,7 +135,14 @@ export const useGisWorker = () => {
                 setActiveDistrict(payload.properties.district);
               }
             } else if (payload.layer === 'PINCODE' || payload.layer === 'PDS' || payload.layer === 'CONSTITUENCY' || payload.layer === 'HEALTH') {
-              setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
+              const currentState = useMapStore.getState();
+              const isHealthDistrictRequest = payload.layer === 'HEALTH' && currentState.targetHealthScope === 'DISTRICT';
+              
+              if (isHealthDistrictRequest) {
+                setSearchResult(null, keepSelection);
+              } else {
+                setSearchResult({ type: 'Feature', properties: payload.properties, geometry: payload.geometry }, keepSelection, true);
+              }
               
               if (payload.layer === 'PINCODE' && payload.postalOffices) {
                 setSelectedPostalOffices(payload.postalOffices);
@@ -153,9 +160,16 @@ export const useGisWorker = () => {
                   console.log('[useGisWorker] Synchronizing Health context for district:', districtName);
                   setActiveDistrict(districtName);
                   
-                  // Auto-switch scope based on what was found
-                  const newScope = (payload.layer === 'PINCODE' || pincode) ? 'PINCODE' : 'DISTRICT';
+                  // Auto-switch scope based on what was found, but respect user preference if set
+                  const targetScope = currentState.targetHealthScope;
+                  const autoScope = (payload.layer === 'PINCODE' || pincode) ? 'PINCODE' : 'DISTRICT';
+                  const newScope = targetScope || autoScope;
+                  
                   setHealthScope(newScope);
+                  // Reset target scope preference after it's been used
+                  if (targetScope) {
+                    currentState.setTargetHealthScope(null);
+                  }
 
                   // Load district shard if manifest is available
                   const distManifest = currentState.healthManifest?.districts.find(d => 

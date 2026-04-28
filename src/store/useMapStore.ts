@@ -67,6 +67,7 @@ interface MapState {
   healthFilters: HealthFilters;
   healthSummary: HealthSummary | null;
   isHealthLoading: boolean;
+  targetHealthScope: HealthScope | null;
   isLegalModalOpen: boolean;
   legalTab: 'disclaimer' | 'privacy' | 'terms';
   postalFilters: {
@@ -129,6 +130,7 @@ interface MapState {
   setSelectedHealthFacility: (facility: HealthFacility | null) => void;
   setHealthScope: (scope: HealthScope) => void;
   setHealthFilters: (filters: HealthFilters) => void;
+  setTargetHealthScope: (scope: HealthScope | null) => void;
   setHealthSummary: (summary: HealthSummary | null) => void;
   setIsHealthLoading: (loading: boolean) => void;
   setPostalFilters: (filters: Partial<MapState['postalFilters']>) => void;
@@ -177,7 +179,7 @@ export const useMapStore = create<MapState>((set) => ({
   selectedHealthFacility: null,
   healthScope: 'STATE',
   healthFilters: {
-    facilityTypes: [],
+    facilityTypes: ['MCH', 'DH'],
     locationType: 'All',
     isHwc: null,
     hasDelivery: null,
@@ -199,6 +201,7 @@ export const useMapStore = create<MapState>((set) => ({
   },
   healthSummary: null,
   isHealthLoading: false,
+  targetHealthScope: null,
   isLegalModalOpen: false,
   legalTab: 'disclaimer',
   selectedLocalBodyV2: null,
@@ -358,6 +361,7 @@ export const useMapStore = create<MapState>((set) => ({
   setSelectedHealthFacility: (facility) => set({ selectedHealthFacility: facility }),
   setHealthScope: (scope) => set({ healthScope: scope }),
   setHealthFilters: (filters) => set({ healthFilters: filters }),
+  setTargetHealthScope: (scope) => set({ targetHealthScope: scope }),
   setHealthSummary: (summary) => set({ healthSummary: summary }),
   setPostalFilters: (filters) => set((state) => ({
     postalFilters: { ...state.postalFilters, ...filters }

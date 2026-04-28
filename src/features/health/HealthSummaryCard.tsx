@@ -46,10 +46,21 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
 
     switch (summary.scope) {
       case 'STATE':
+        let title = t('TN_MAJOR_HOSPITALS');
+        let copy = specificCopy || t('MAJOR_HOSPITALS_STATEWIDE');
+        
+        if (summary.activeFilters.includes('PHC') || summary.activeFilters.includes('HSC')) {
+          title = t('LOCAL_HEALTH_SERVICES');
+          copy = t('LOCAL_CENTRES_VISIBILITY');
+        } else if (summary.activeFilters.includes('CHC') || summary.activeFilters.includes('SDH')) {
+          title = t('SECONDARY_CARE_FACILITIES');
+          copy = t('SECONDARY_CARE_STATEWIDE');
+        }
+
         return {
-          title: t('TN_MAJOR_HOSPITALS'),
+          title,
           label: t('STATEWIDE_VIEW_LABEL'),
-          copy: specificCopy || t('MAJOR_HOSPITALS_STATEWIDE'),
+          copy,
           nextStep: t('SEARCH_DISTRICT_AREA_LOCAL')
         };
       case 'DISTRICT':

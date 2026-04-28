@@ -1527,7 +1527,10 @@ self.onmessage = async (e: MessageEvent) => {
           countsByCapability,
           activeFilters: Object.entries(filters)
             .filter(([, v]) => v !== null && (Array.isArray(v) ? v.length > 0 : (v !== 'All' && v !== false)))
-            .map(([k]) => k),
+            .flatMap(([k, v]) => {
+              if (k === 'facilityTypes' && Array.isArray(v)) return v;
+              return [k];
+            }),
           district,
           pincode
         };
