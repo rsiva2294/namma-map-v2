@@ -44,17 +44,20 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
   };
 
   const handleToggleGroup = (groupTypes: string[]) => {
-    const allActive = groupTypes.every(t => healthFilters.facilityTypes.includes(t));
-    let newTypes = [...healthFilters.facilityTypes];
+    const current = healthFilters.facilityTypes;
+    const allActive = groupTypes.every(t => current.includes(t));
     
+    let next: string[];
     if (allActive) {
-      newTypes = newTypes.filter(t => !groupTypes.includes(t));
+      // Remove all
+      next = current.filter(t => !groupTypes.includes(t));
     } else {
-      groupTypes.forEach(t => {
-        if (!newTypes.includes(t)) newTypes.push(t);
-      });
+      // Add missing
+      const toAdd = groupTypes.filter(t => !current.includes(t));
+      next = [...current, ...toAdd];
     }
-    onFilterChange({ ...healthFilters, facilityTypes: newTypes });
+    
+    onFilterChange({ ...healthFilters, facilityTypes: next });
   };
 
   const isDark = theme === 'dark';
@@ -76,6 +79,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
   };
 
   const handleScopeChange = (scope: HealthScope) => {
+    // Explicitly set target scope to avoid auto-switching to PINCODE when resolving location
+    useMapStore.getState().setTargetHealthScope(scope);
+
     if (scope === 'PINCODE') {
       setTriggerLocateMe(true);
     } else if (scope === 'DISTRICT') {
@@ -83,7 +89,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
         setSearchResult(null); // Clear pincode highlight/zoom
         setHealthScope('DISTRICT');
       } else {
-        // If no district, we can't really go to district scope
+        // Find current location to determine district
         setTriggerLocateMe(true);
       }
     } else {
@@ -252,34 +258,61 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
         {[
           { id: 'major', label: t('MAJOR_HOSPITALS'), types: ['MCH', 'DH'], icon: '🏢' },
           { id: 'secondary', label: t('SECONDARY_CARE'), types: ['SDH', 'CHC'], icon: '🏥' },
-          { id: 'local', label: t('LOCAL_CENTRES'), types: ['PHC', 'HSC'], icon: '📍' }
+          { id: 'local', label: t('LOCAL_CENTRES'), types: ['PHC', 'HSC'], icon: '📍', disabledIfState: true }
         ].map(group => {
-          const isActive = group.types.every(t => healthFilters.facilityTypes.includes(t));
+          const isDisabled = group.disabledIfState && healthScope === 'STATE';
+          const isActive = group.types.every(t => healthFilters.facilityTypes.includes(t)) && !isDisabled;
+          
           return (
-            <button
-              key={group.id}
-              onClick={() => handleToggleGroup(group.types)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '10px 12px',
-                fontSize: '12px',
-                fontWeight: 600,
-                borderRadius: '10px',
-                background: isActive ? 'rgba(14, 165, 233, 0.05)' : 'transparent',
-                border: `1px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
-                color: isActive ? 'var(--accent)' : 'var(--text-primary)',
-                cursor: 'pointer',
-                transition: 'all 0.2s'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span>{group.icon}</span>
-                <span>{group.label}</span>
-              </div>
-              {isActive && <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />}
-            </button>
+            <div key={group.id} style={{ position: 'relative' }}>
+              <button
+                onClick={() => {
+                  if (isDisabled) return;
+                  handleToggleGroup(group.types);
+                }}
+                disabled={isDisabled}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '10px 12px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  borderRadius: '10px',
+                  background: isActive ? 'rgba(14, 165, 233, 0.1)' : 'transparent',
+                  border: `2px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
+                  color: isActive ? 'var(--accent)' : 'var(--text-primary)',
+                  cursor: isDisabled ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: isActive ? '0 4px 12px rgba(14, 165, 233, 0.15)' : 'none',
+                  opacity: isDisabled ? 0.5 : 1
+                }}
+                title={isDisabled ? t('ZOOM_IN_FOR_LOCAL') : ''}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '16px', filter: isActive ? 'none' : 'grayscale(1)' }}>{group.icon}</span>
+                  <span style={{ fontWeight: isActive ? 800 : 600 }}>{group.label}</span>
+                </div>
+                <div style={{ 
+                  width: '14px', 
+                  height: '14px', 
+                  borderRadius: '4px', // Square for checkbox
+                  border: `2px solid ${isActive ? 'var(--accent)' : 'var(--text-secondary)'}`,
+                  background: isActive ? 'var(--accent)' : 'transparent',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: isActive ? 1 : 0.4
+                }}>
+                  {isActive && (
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  )}
+                </div>
+              </button>
+            </div>
           );
         })}
 

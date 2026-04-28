@@ -12,10 +12,14 @@ export const HealthAreaPrompt: React.FC = () => {
   const theme = useMapStore(state => state.theme);
   const { t } = useTranslation();
 
-  // Show only if in Health module, statewide scope, and Local Centres are selected
+  const hasLocal = healthFilters.facilityTypes.includes('PHC') || healthFilters.facilityTypes.includes('HSC');
+  const hasOther = healthFilters.facilityTypes.some(t => t !== 'PHC' && t !== 'HSC');
+
+  // Show only if in Health module, statewide scope, and ONLY Local Centres are selected
+  // (If other facilities are selected, the map will still show useful statewide data)
   const needsArea = activeLayer === 'HEALTH' && 
                     healthScope === 'STATE' && 
-                    (healthFilters.facilityTypes.includes('PHC') || healthFilters.facilityTypes.includes('HSC'));
+                    hasLocal && !hasOther;
 
   if (!needsArea) return null;
 

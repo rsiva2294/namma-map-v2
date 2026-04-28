@@ -14,7 +14,6 @@ import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
 import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
 import LocatingOverlay from './components/LocatingOverlay';
 import { useGisWorker } from './hooks/useGisWorker';
-import type { HealthScope } from './types/gis';
 import UpdateNotification from './components/UpdateNotification';
 import { RouteManager } from './components/routing/RouteManager';
 import { useRegisterSW } from 'virtual:pwa-register/react';
@@ -32,7 +31,6 @@ function App() {
   const { t } = useTranslation();
   const theme = useMapStore(state => state.theme);
   const activeLayer = useMapStore(state => state.activeLayer);
-  const setHealthScope = useMapStore(state => state.setHealthScope);
   const setHealthFilters = useMapStore(state => state.setHealthFilters);
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const searchResult = useMapStore(state => state.searchResult);
@@ -143,6 +141,17 @@ function App() {
     }
   }, [theme]);
 
+  const healthScope = useMapStore(state => state.healthScope);
+  const healthFilters = useMapStore(state => state.healthFilters);
+
+  useEffect(() => {
+    if (activeLayer === 'HEALTH') {
+      const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString();
+      console.log('[App] Refreshing health filters:', { healthScope, activeDistrict, pincode });
+      filterHealth(healthScope, healthFilters, activeDistrict, pincode || null);
+    }
+  }, [activeLayer, healthScope, healthFilters, activeDistrict, searchResult, filterHealth]);
+
   return (
     <div className={`app-container ${theme} lang-${language}`}>
       <a href="#main-content" className="skip-link">{t('SKIP_TO_RESULTS')}</a>
@@ -192,14 +201,7 @@ function App() {
           <div className="health-filters-floating">
             <HealthFiltersPanel 
               onFilterChange={(filters) => {
-                const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode)?.toString();
-                let scope: HealthScope = 'STATE';
-                if (pincode) scope = 'PINCODE';
-                else if (activeDistrict) scope = 'DISTRICT';
-                
-                setHealthScope(scope);
                 setHealthFilters(filters);
-                filterHealth(scope, filters, activeDistrict, pincode || null);
               }}
             />
           </div>

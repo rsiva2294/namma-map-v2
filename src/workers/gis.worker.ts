@@ -1,8 +1,8 @@
 import * as topojson from 'topojson-client';
 import RBush from 'rbush';
-import type { 
-  GisFeature, 
-  GisFeatureCollection, 
+import type {
+  GisFeature,
+  GisFeatureCollection,
   Geometry,
   Position,
   Point,
@@ -21,6 +21,7 @@ import type { LocalBodyV2Properties } from '../types/gis_v2';
 
 import { openDB } from 'idb';
 import { resolveChennaiPolice } from '../utils/resolvers/chennaiPoliceResolver';
+import { extractCoordinatesFromUrl } from '../utils/urlParser';
 
 interface SpatialItem {
   minX: number;
@@ -49,6 +50,7 @@ interface ProcessedStationProperties extends PoliceStationProperties {
 
 let policeCrosswalk: Record<string, string> | null = null;
 let policeValidation: Record<string, { status: string; error: string }> | null = null;
+let googleMapsApiKey: string | null = null;
 
 interface DistrictIdentity {
   id: string;
@@ -72,14 +74,14 @@ const resolveDistrictIdentity = (rawName: string): DistrictIdentity | null => {
     .replace(/\s+/g, '');
 
   // 1. Try exact alias match
-  const match = pdsManifest.find(d => 
+  const match = pdsManifest.find(d =>
     d.aliases.some(alias => alias.toUpperCase().replace(/[^A-Z0-9]/g, '') === normalized)
   );
 
   if (match) return match;
 
   // 2. Try partial match if no exact match found
-  return pdsManifest.find(d => 
+  return pdsManifest.find(d =>
     d.id.toUpperCase().replace(/[^A-Z0-9]/g, '') === normalized ||
     d.display_name.toUpperCase().replace(/[^A-Z0-9]/g, '') === normalized
   ) || null;
@@ -196,15 +198,15 @@ const extractPoliceCode = (str: string | undefined | null): string => {
 const normalizeDistrictForFetch = (name: string): string => {
   if (!name) return '';
   const upper = name.toUpperCase().trim().replace(/\s+/g, ' ');
-  
+
   // Special cases for filenames
   if (upper === 'THE NILGIRIS' || upper === 'NILGIRIS' || upper === 'THE_NILGIRIS') return 'The_Nilgiris';
   if (upper.includes('TIRUCHIRAP')) return 'Tiruchirapalli';
   if (upper === 'THOOTHUKUDI' || upper === 'TUTICORIN') return 'Thoothukudi';
   if (upper === 'KANYAKUMARI') return 'Kanniyakumari';
-  
+
   // Default: TitleCase with no spaces (e.g. "CHENGALPATTU" -> "Chengalpattu")
-  return upper.toLowerCase().split(' ').map(word => 
+  return upper.toLowerCase().split(' ').map(word =>
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join('');
 };
@@ -215,20 +217,20 @@ const normalizeDistrictForFetch = (name: string): string => {
 const getAliasStrength = (a: string, b: string): number => {
   const normA = normalizePoliceName(a);
   const normB = normalizePoliceName(b);
-  
+
   if (!normA || !normB) return 0;
   if (normA === normB) return 1.0;
-  
+
   const cleanA = normA.replace(/\s/g, '');
   const cleanB = normB.replace(/\s/g, '');
   if (cleanA === cleanB) return 0.95;
   if (cleanA.includes(cleanB) || cleanB.includes(cleanA)) return 0.8;
-  
+
   // Word-based overlap
   const wordsA = normA.split(' ').filter(w => w.length > 2);
   const wordsB = normB.split(' ').filter(w => w.length > 2);
   if (wordsA.length === 0 || wordsB.length === 0) return 0;
-  
+
   let intersection = 0;
   const setB = new Set(wordsB);
   wordsA.forEach(w => { if (setB.has(w)) intersection++; });
@@ -251,20 +253,20 @@ const getCentroid = (geometry: Geometry): Position => {
  */
 const flagPostalOutliers = (offices: PostalOffice[], boundary: Geometry): PostalOffice[] => {
   if (!boundary || !offices.length) return offices;
-  
+
   const centroid = getCentroid(boundary);
   if (!centroid) return offices;
 
   return offices.map(off => {
     const lat = parseFloat(off.latitude as string);
     const lng = parseFloat(off.longitude as string);
-    
+
     if (isNaN(lat) || isNaN(lng)) {
       return { ...off, isOutlier: true, outlierReason: 'Invalid coordinates' };
     }
 
     const dist = getDistance([centroid[0], centroid[1]], [lng, lat]);
-    
+
     // Threshold in degrees. 0.15 degrees is approximately 16-17km.
     if (dist > 0.15) {
       return { ...off, isOutlier: true, outlierReason: 'Coordinates far from pincode area' };
@@ -278,8 +280,8 @@ const flagPostalOutliers = (offices: PostalOffice[], boundary: Geometry): Postal
  * Resolves the best matching police station for a given boundary using a layered confidence pipeline
  */
 function resolvePoliceStation(
-  boundary: GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
-  stations: GisFeatureCollection<Point, PoliceStationProperties>, 
+  boundary: GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>,
+  stations: GisFeatureCollection<Point, PoliceStationProperties>,
   clickPoint?: Position
 ): PoliceResolutionResult {
   const bProps = boundary.properties;
@@ -330,26 +332,26 @@ function resolvePoliceStation(
     const sCode = (sProps.ps_code || inferredCode).toString().trim().toUpperCase();
     const sAliases = [sProps.ps_name, sProps.name].filter(Boolean).map(a => a!.toString());
     const sCoords = s.geometry.coordinates as Position;
-    
+
     // Normalize aliases for comparison
     const cleanSAliases = sAliases.map(stripCodePrefix);
     const cleanBAliases = bAliases.map(stripCodePrefix);
 
     // Scoring components
     const codeMatch = !!(bCode && sCode && bCode === sCode);
-    
+
     let maxAliasMatch = 0;
     let bothAliasesMatch = false;
     if (cleanBAliases.length > 1) {
-       const m1 = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[0], sa)));
-       const m2 = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[1], sa)));
-       maxAliasMatch = Math.max(m1, m2);
-       bothAliasesMatch = m1 > 0.8 && m2 > 0.8;
+      const m1 = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[0], sa)));
+      const m2 = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[1], sa)));
+      maxAliasMatch = Math.max(m1, m2);
+      bothAliasesMatch = m1 > 0.8 && m2 > 0.8;
     } else if (cleanBAliases.length > 0) {
-       maxAliasMatch = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[0], sa)));
+      maxAliasMatch = Math.max(...cleanSAliases.map(sa => getAliasStrength(cleanBAliases[0], sa)));
     }
 
-    const isInside = (boundary.geometry.type === 'Polygon') 
+    const isInside = (boundary.geometry.type === 'Polygon')
       ? isPointInPolygon(sCoords, (boundary.geometry as Polygon).coordinates)
       : (boundary.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(sCoords, poly));
 
@@ -427,20 +429,20 @@ function resolvePoliceStation(
 
   // Handle final unresolved or low-confidence fallback
   if (!bestStation || bestScore < 30) {
-     // Check if we can find nearest as last resort
-     let nearest = null;
-     let minD = Infinity;
-     for (const s of stations.features) {
-       const d = getDistance(s.geometry.coordinates as Position, bCentroid);
-       if (d < minD) { minD = d; nearest = s; }
-     }
-     if (nearest && minD < 0.15) {
-        return {
-          boundary, station: nearest, confidence: 'low',
-          reason: 'Nearest station fallback (no strong metadata match)',
-          debug: { ...debug, confidence: 'low', reason: 'Nearest spatial fallback', method: 'spatial-fallback', stationCode: nearest.properties.ps_code, distanceToCentroid: minD }
-        };
-     }
+    // Check if we can find nearest as last resort
+    let nearest = null;
+    let minD = Infinity;
+    for (const s of stations.features) {
+      const d = getDistance(s.geometry.coordinates as Position, bCentroid);
+      if (d < minD) { minD = d; nearest = s; }
+    }
+    if (nearest && minD < 0.15) {
+      return {
+        boundary, station: nearest, confidence: 'low',
+        reason: 'Nearest station fallback (no strong metadata match)',
+        debug: { ...debug, confidence: 'low', reason: 'Nearest spatial fallback', method: 'spatial-fallback', stationCode: nearest.properties.ps_code, distanceToCentroid: minD }
+      };
+    }
   }
 
   if (!bestStation) return {
@@ -456,7 +458,7 @@ function resolvePoliceStation(
   const stationKey = `${bestStation.properties.ps_code || ''}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
   const validation = policeValidation ? policeValidation[stationKey] : null;
   const isBoundaryValid = !validation || validation.status === 'valid';
-  
+
   // Clone boundary to avoid mutating the original indexed feature
   const boundaryClone = JSON.parse(JSON.stringify(boundary));
   if (!isBoundaryValid && boundaryClone) {
@@ -497,7 +499,7 @@ const loadedVillagePanchayats: Map<string, GisFeatureCollection> = new Map();
 
 function getBBox(geometry: Geometry) {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-  
+
   if (!geometry || !geometry.coordinates) {
     return { minX: 0, minY: 0, maxX: 0, maxY: 0 };
   }
@@ -515,10 +517,10 @@ function getBBox(geometry: Geometry) {
   };
 
   processCoords(geometry.coordinates);
-  
+
   // If no valid coordinates found, return a zero bbox instead of Inifinity
   if (minX === Infinity) return { minX: 0, minY: 0, maxX: 0, maxY: 0 };
-  
+
   return { minX, minY, maxX, maxY };
 }
 
@@ -540,13 +542,13 @@ function isPointInPolygon(point: [number, number], vs: [number, number][][]) {
 
 function findFeatureAt(point: [number, number], index: RBush<SpatialItem>, buffer = 0.00001) {
   const [lng, lat] = point;
-  const candidates = index.search({ 
-    minX: lng - buffer, 
-    minY: lat - buffer, 
-    maxX: lng + buffer, 
-    maxY: lat + buffer 
+  const candidates = index.search({
+    minX: lng - buffer,
+    minY: lat - buffer,
+    maxX: lng + buffer,
+    maxY: lat + buffer
   });
-  
+
   const foundItem = candidates.find(item => {
     const geometry = item.feature.geometry;
     if (!geometry) return false;
@@ -594,7 +596,7 @@ async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelecti
         const districtName = (distFeature.properties.district_n || distFeature.properties.district || distFeature.properties.NAME || distFeature.properties.dist_name)?.toString();
         if (districtName) {
           const districtClean = normalizeDistrictForFetch(districtName);
-          
+
           if (!loadedVillagePanchayats.has(districtClean)) {
             try {
               const data = await fetchWithRetry(`/data/local_bodies/village_panchayat/${districtClean}.json`);
@@ -645,6 +647,7 @@ async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelecti
     const DISTRICT_CORRECTIONS: Record<string, string> = {
       'Trichy': 'Tiruchirappalli',
       'Erode': 'Erode', // Erode corp is in Namakkal district in source — override to Erode
+      'Chennai': 'Chennai', // Chennai corp is listed as Chengalpattu in source
     };
 
     const rawDistrict = (resolvedLocal.properties.District || resolvedLocal.properties.district || resolvedLocal.properties.dist_name || 'Unknown').toString();
@@ -665,19 +668,19 @@ async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelecti
 
     self.postMessage({
       type: 'RESOLUTION_RESULT',
-      payload: { 
-        found: true, 
-        properties: normalized, 
-        geometry: resolvedLocal.geometry, 
-        layer: 'LOCAL_BODIES_V2', 
-        keepSelection 
+      payload: {
+        found: true,
+        properties: normalized,
+        geometry: resolvedLocal.geometry,
+        layer: 'LOCAL_BODIES_V2',
+        keepSelection
       }
     });
   } else {
     const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
-    self.postMessage({ 
-      type: 'RESOLUTION_RESULT', 
-      payload: { found: false, lat, lng, layer: 'LOCAL_BODIES_V2', isInsideState: !!isInsideState } 
+    self.postMessage({
+      type: 'RESOLUTION_RESULT',
+      payload: { found: false, lat, lng, layer: 'LOCAL_BODIES_V2', isInsideState: !!isInsideState }
     });
   }
 }
@@ -701,11 +704,18 @@ self.onmessage = async (e: MessageEvent) => {
         console.warn('[Worker] Version sync failed', e);
       }
       break;
+    
+    case 'SET_CONFIG':
+      if (payload.googleMapsApiKey) {
+        googleMapsApiKey = payload.googleMapsApiKey;
+        console.log('[Worker] Google Maps API Key configured');
+      }
+      break;
 
     case 'INIT_DB':
       self.postMessage({ type: 'READY' });
       break;
-    
+
     case 'LOAD_DISTRICTS':
       try {
         if (!districtsGeoJson) {
@@ -713,7 +723,7 @@ self.onmessage = async (e: MessageEvent) => {
           const objectName = Object.keys(data.objects)[0];
           const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           districtsGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
-          
+
           // Indexing with safety filters
           const items: SpatialItem[] = districtsGeoJson!.features
             .filter(f => f.geometry && f.geometry.coordinates)
@@ -741,7 +751,7 @@ self.onmessage = async (e: MessageEvent) => {
           } else {
             stateBoundaryGeoJson = { type: 'FeatureCollection', features: [feature as GisFeature] };
           }
-          
+
           // Indexing with safety filters
           const items: SpatialItem[] = stateBoundaryGeoJson!.features
             .filter(f => f.geometry && f.geometry.coordinates)
@@ -762,7 +772,7 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         if (!pdsIndex) pdsIndex = await fetchWithRetry('/data/pds_index.json');
         if (!pdsManifest) pdsManifest = await fetchWithRetry('/data/pds_manifest.json');
-        
+
         self.postMessage({ type: 'PDS_INDEX_LOADED' });
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : 'Unknown error';
@@ -786,24 +796,24 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         const { district } = payload;
         if (!district) return;
-        
+
         if (!loadedTnebDistricts.has(district)) {
           const [dataBound, dataOff] = await Promise.all([
             fetchWithRetry(`/data/tneb_by_district/${district}_boundaries.json`),
             fetchWithRetry(`/data/tneb_by_district/${district}_offices.json`)
           ]);
-          
+
           const boundaries = dataBound as GisFeatureCollection;
           const offices = dataOff as GisFeatureCollection;
-          
+
           loadedTnebDistricts.set(district, { boundaries, offices });
-          
+
           // Index boundaries for spatial resolution
           const items: SpatialItem[] = boundaries.features
             .filter(f => f.geometry && f.geometry.coordinates)
             .map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f }));
           tnebIndex.load(items);
-          
+
           // Merge offices into the statewide collection if not already there (for metadata fallbacks)
           if (!tnebOffices) {
             tnebOffices = { type: 'FeatureCollection', features: [] };
@@ -814,7 +824,7 @@ self.onmessage = async (e: MessageEvent) => {
             }
           });
         }
-        
+
         const { boundaries, offices } = loadedTnebDistricts.get(district)!;
         self.postMessage({ type: 'TNEB_DISTRICT_LOADED', payload: { district, boundaries, offices } });
       } catch (err) {
@@ -825,30 +835,30 @@ self.onmessage = async (e: MessageEvent) => {
 
     case 'RESOLVE_LOCATION': {
       const { lat, lng, layer, keepSelection, pincode: pincodeOverride } = payload;
-      
+
       let found: GisFeature | null = null;
       if (layer === 'TNEB') {
         if (tnebIndex.all().length === 0 || !findFeatureAt([lng, lat], tnebIndex)) {
           const distFeature = findFeatureAt([lng, lat], districtsIndex);
           const districtName = (distFeature?.properties.district_n || distFeature?.properties.district)?.toString();
-          
+
           if (districtName && !loadedTnebDistricts.has(districtName)) {
             try {
               const [dataBound, dataOff] = await Promise.all([
                 fetchWithRetry(`/data/tneb_by_district/${districtName}_boundaries.json`),
                 fetchWithRetry(`/data/tneb_by_district/${districtName}_offices.json`)
               ]);
-              
+
               const boundaries = dataBound as GisFeatureCollection;
               const offices = dataOff as GisFeatureCollection;
-              
+
               loadedTnebDistricts.set(districtName, { boundaries, offices });
-              
+
               const items: SpatialItem[] = boundaries.features
                 .filter(f => f.geometry && f.geometry.coordinates)
                 .map((f: GisFeature) => ({ ...getBBox(f.geometry), feature: f }));
               tnebIndex.load(items);
-              
+
               if (!tnebOffices) {
                 tnebOffices = { type: 'FeatureCollection', features: [] };
               }
@@ -864,7 +874,7 @@ self.onmessage = async (e: MessageEvent) => {
         }
 
         found = findFeatureAt([lng, lat], tnebIndex);
-        
+
         if (found) {
           const office = tnebOffices?.features.find((o: GisFeature) => {
             const sCoMatch = o.properties.section_co === found?.properties.section_co;
@@ -873,35 +883,35 @@ self.onmessage = async (e: MessageEvent) => {
             return sCoMatch && cCodMatch && rIdMatch;
           });
 
-          self.postMessage({ 
-            type: 'RESOLUTION_RESULT', 
-            payload: { 
-              properties: { ...found.properties, office_location: office?.geometry.coordinates }, 
+          self.postMessage({
+            type: 'RESOLUTION_RESULT',
+            payload: {
+              properties: { ...found.properties, office_location: office?.geometry.coordinates },
               geometry: found.geometry,
               layer: 'TNEB',
               keepSelection
-            } 
+            }
           });
         }
       } else if (layer === 'CONSTITUENCY') {
         const { constituencyType, pincode: pincodeOverride } = payload;
-        
+
         if (pincodeOverride) {
           const pinFeature = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString());
           if (pinFeature) {
             const centroid = getCentroid(pinFeature.geometry);
             const resolvedConst = findFeatureAt(centroid as [number, number], constituencyType === 'PC' ? pcIndex : acIndex);
-            
+
             if (resolvedConst) {
-              self.postMessage({ 
-                type: 'RESOLUTION_RESULT', 
-                payload: { 
-                  properties: { ...resolvedConst.properties, ...pinFeature.properties }, 
+              self.postMessage({
+                type: 'RESOLUTION_RESULT',
+                payload: {
+                  properties: { ...resolvedConst.properties, ...pinFeature.properties },
                   geometry: pinFeature.geometry,
                   layer: 'CONSTITUENCY',
                   constituencyType,
                   keepSelection
-                } 
+                }
               });
               return;
             } else {
@@ -914,20 +924,20 @@ self.onmessage = async (e: MessageEvent) => {
         }
 
         if (found) {
-          self.postMessage({ 
-            type: 'RESOLUTION_RESULT', 
-            payload: { 
-              properties: found.properties, 
+          self.postMessage({
+            type: 'RESOLUTION_RESULT',
+            payload: {
+              properties: found.properties,
               geometry: found.geometry,
               layer: 'CONSTITUENCY',
               constituencyType,
               keepSelection
-            } 
+            }
           });
         }
       } else if (layer === 'POLICE') {
         const { stationCode } = payload;
-        
+
         // Ensure district boundaries are loaded for this area
         const distFeature = findFeatureAt([lng, lat], districtsIndex);
         const districtName = (distFeature?.properties.district_n || distFeature?.properties.district)?.toString();
@@ -939,17 +949,17 @@ self.onmessage = async (e: MessageEvent) => {
               fetchWithRetry(`/data/police_by_district/${name}_boundaries.json`),
               fetchWithRetry(`/data/police_by_district/${name}_stations.json`)
             ]);
-            
+
             const boundaries = dataBound as GisFeatureCollection;
             const stations = dataOff as GisFeatureCollection;
-            
+
             loadedPoliceDistricts.set(name, { boundaries, stations });
-            
+
             const items: SpatialItem[] = boundaries.features
               .filter(f => f.geometry && f.geometry.coordinates)
               .map(f => ({ ...getBBox(f.geometry), feature: f }));
             policeBoundariesIndex.load(items);
-            
+
             if (!policeBoundariesGeoJson) {
               policeBoundariesGeoJson = { type: 'FeatureCollection', features: [] };
             }
@@ -981,29 +991,29 @@ self.onmessage = async (e: MessageEvent) => {
         } else if (districtName) {
           await loadPoliceDistrict(districtName);
         }
-        
+
         if (stationCode && policeBoundariesGeoJson) {
-           // Find all boundaries with this code (codes are not unique statewide)
-           // Search across ALL loaded boundaries
-           const candidates = policeBoundariesGeoJson.features.filter(f => {
-             const code = (f.properties.police_s_1 || '').toString().trim().toUpperCase();
-             return code === stationCode && f.geometry;
-           });
-           
-           if (candidates.length > 0) {
-             // Pick the one closest to the clicked coordinates or centroid
-             found = candidates.sort((a, b) => {
-               const da = getDistance([lng, lat], getCentroid(a.geometry));
-               const db = getDistance([lng, lat], getCentroid(b.geometry));
-               return da - db;
-             })[0];
-           }
+          // Find all boundaries with this code (codes are not unique statewide)
+          // Search across ALL loaded boundaries
+          const candidates = policeBoundariesGeoJson.features.filter(f => {
+            const code = (f.properties.police_s_1 || '').toString().trim().toUpperCase();
+            return code === stationCode && f.geometry;
+          });
+
+          if (candidates.length > 0) {
+            // Pick the one closest to the clicked coordinates or centroid
+            found = candidates.sort((a, b) => {
+              const da = getDistance([lng, lat], getCentroid(a.geometry));
+              const db = getDistance([lng, lat], getCentroid(b.geometry));
+              return da - db;
+            })[0];
+          }
         }
 
         if (!found) {
           found = findFeatureAt([lng, lat], policeBoundariesIndex);
         }
-        
+
         // Proximity Fallback: If no exact containment, try a radial search (approx 200m)
         if (!found && !stationCode) {
           const proximityBuffer = 0.002;
@@ -1013,7 +1023,7 @@ self.onmessage = async (e: MessageEvent) => {
             maxX: lng + proximityBuffer,
             maxY: lat + proximityBuffer
           });
-          
+
           if (candidates.length > 0) {
             candidates.sort((a, b) => {
               const da = getDistance([lng, lat], getCentroid(a.feature.geometry));
@@ -1025,73 +1035,73 @@ self.onmessage = async (e: MessageEvent) => {
         }
 
         if (found && policeStationsGeoJson) {
-           // If we have a stationCode, we want to make sure we resolve to THAT station specifically
-           // even if the resolver thinks another station is better. 
-           // Since codes are not unique, we filter and pick the closest one.
-           const targetStation = (() => {
-             if (!stationCode || !policeStationsGeoJson) return null;
-             const stations = policeStationsGeoJson.features.filter(s => {
-               const code = (s.properties.ps_code || extractPoliceCode((s.properties.ps_name || s.properties.name || '').toString())).toString().trim().toUpperCase();
-               return code === stationCode && s.geometry;
-             });
-             if (stations.length > 1) {
-               return [...stations].sort((a, b) => {
-                 const da = getDistance([lng, lat], a.geometry.coordinates as [number, number]);
-                 const db = getDistance([lng, lat], b.geometry.coordinates as [number, number]);
-                 return da - db;
-               })[0];
-             }
-             return stations[0] || null;
-           })();
-           
-           let result: PoliceResolutionResult;
+          // If we have a stationCode, we want to make sure we resolve to THAT station specifically
+          // even if the resolver thinks another station is better. 
+          // Since codes are not unique, we filter and pick the closest one.
+          const targetStation = (() => {
+            if (!stationCode || !policeStationsGeoJson) return null;
+            const stations = policeStationsGeoJson.features.filter(s => {
+              const code = (s.properties.ps_code || extractPoliceCode((s.properties.ps_name || s.properties.name || '').toString())).toString().trim().toUpperCase();
+              return code === stationCode && s.geometry;
+            });
+            if (stations.length > 1) {
+              return [...stations].sort((a, b) => {
+                const da = getDistance([lng, lat], a.geometry.coordinates as [number, number]);
+                const db = getDistance([lng, lat], b.geometry.coordinates as [number, number]);
+                return da - db;
+              })[0];
+            }
+            return stations[0] || null;
+          })();
 
-           if (isChennai) {
-             const chennaiRes = resolveChennaiPolice(
-               [lng, lat],
-               policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>,
-               policeBoundariesGeoJson as GisFeatureCollection<Polygon | MultiPolygon, PoliceBoundaryProperties>,
-               true
-             );
+          let result: PoliceResolutionResult;
 
-             if (chennaiRes) {
-               result = {
-                 boundary: JSON.parse(JSON.stringify(chennaiRes.matchedBoundary!)),
-                 station: chennaiRes.primaryStation,
-                 isBoundaryValid: true,
-                 confidence: (chennaiRes.confidence >= 90 ? 'high' : chennaiRes.confidence >= 70 ? 'medium' : 'low') as any,
-                 reason: chennaiRes.matchType,
-                 debug: {
-                   boundaryId: chennaiRes.matchedBoundary?.id?.toString() || 'chennai',
-                   boundaryCode: (chennaiRes.matchedBoundary?.properties.police_s_1 || '').toString(),
-                   boundaryAliases: [chennaiRes.matchedBoundary?.properties.police_sta || ''],
-                   stationCode: chennaiRes.stationCode || undefined,
-                   codeMatch: chennaiRes.confidence >= 75,
-                   aliasMatchStrength: chennaiRes.confidence / 100,
-                   isInsideBoundary: chennaiRes.insidePolygon,
-                   distanceToClick: 0,
-                   distanceToCentroid: chennaiRes.distanceKm,
-                   overrideUsed: false,
-                   confidence: (chennaiRes.confidence >= 90 ? 'high' : 'medium') as any,
-                   reason: chennaiRes.matchType,
-                   method: 'chennai-resolver'
-                 },
-                 chennaiResult: chennaiRes
-               };
-             } else {
-               result = resolvePoliceStation(
-                 found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
-                 policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
-                 [lng, lat]
-               );
-             }
-           } else {
-             result = resolvePoliceStation(
-               found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
-               policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>, 
-               [lng, lat]
-             );
-           }
+          if (isChennai) {
+            const chennaiRes = resolveChennaiPolice(
+              [lng, lat],
+              policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>,
+              policeBoundariesGeoJson as GisFeatureCollection<Polygon | MultiPolygon, PoliceBoundaryProperties>,
+              true
+            );
+
+            if (chennaiRes) {
+              result = {
+                boundary: JSON.parse(JSON.stringify(chennaiRes.matchedBoundary!)),
+                station: chennaiRes.primaryStation,
+                isBoundaryValid: true,
+                confidence: (chennaiRes.confidence >= 90 ? 'high' : chennaiRes.confidence >= 70 ? 'medium' : 'low') as any,
+                reason: chennaiRes.matchType,
+                debug: {
+                  boundaryId: chennaiRes.matchedBoundary?.id?.toString() || 'chennai',
+                  boundaryCode: (chennaiRes.matchedBoundary?.properties.police_s_1 || '').toString(),
+                  boundaryAliases: [chennaiRes.matchedBoundary?.properties.police_sta || ''],
+                  stationCode: chennaiRes.stationCode || undefined,
+                  codeMatch: chennaiRes.confidence >= 75,
+                  aliasMatchStrength: chennaiRes.confidence / 100,
+                  isInsideBoundary: chennaiRes.insidePolygon,
+                  distanceToClick: 0,
+                  distanceToCentroid: chennaiRes.distanceKm,
+                  overrideUsed: false,
+                  confidence: (chennaiRes.confidence >= 90 ? 'high' : 'medium') as any,
+                  reason: chennaiRes.matchType,
+                  method: 'chennai-resolver'
+                },
+                chennaiResult: chennaiRes
+              };
+            } else {
+              result = resolvePoliceStation(
+                found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>,
+                policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>,
+                [lng, lat]
+              );
+            }
+          } else {
+            result = resolvePoliceStation(
+              found as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>,
+              policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>,
+              [lng, lat]
+            );
+          }
 
           if (targetStation) {
             result.station = targetStation as GisFeature<Point, PoliceStationProperties>;
@@ -1102,7 +1112,7 @@ self.onmessage = async (e: MessageEvent) => {
             const validation = policeValidation ? policeValidation[stationKey] : null;
             result.isBoundaryValid = !validation || validation.status === 'valid';
             result.validationError = validation?.error;
-            
+
             // CRITICAL: If boundary is flagged as wrong or missing, nullify the geometry 
             // so the MapController doesn't "fly" to a wrong location.
             if (!result.isBoundaryValid && result.boundary) {
@@ -1110,88 +1120,88 @@ self.onmessage = async (e: MessageEvent) => {
             }
           }
 
-          self.postMessage({ 
-            type: 'RESOLUTION_RESULT', 
-            payload: { 
+          self.postMessage({
+            type: 'RESOLUTION_RESULT',
+            payload: {
               ...result,
               layer: 'POLICE',
               keepSelection
-            } 
+            }
           });
         } else if (stationCode && policeStationsGeoJson) {
-           // Case where boundary is missing but we have the station
-           const targetStation = (() => {
-             const stations = policeStationsGeoJson.features.filter(s => {
+          // Case where boundary is missing but we have the station
+          const targetStation = (() => {
+            const stations = policeStationsGeoJson.features.filter(s => {
               const code = (s.properties.ps_code || extractPoliceCode((s.properties.ps_name || s.properties.name || '').toString())).toString().trim().toUpperCase();
               return code === stationCode && s.geometry;
             });
-             if (stations.length > 1) {
-               return [...stations].sort((a, b) => {
-                 const da = getDistance([lng, lat], a.geometry.coordinates as [number, number]);
-                 const db = getDistance([lng, lat], b.geometry.coordinates as [number, number]);
-                 return da - db;
-               })[0];
-             }
-             return stations[0] || null;
-           })();
+            if (stations.length > 1) {
+              return [...stations].sort((a, b) => {
+                const da = getDistance([lng, lat], a.geometry.coordinates as [number, number]);
+                const db = getDistance([lng, lat], b.geometry.coordinates as [number, number]);
+                return da - db;
+              })[0];
+            }
+            return stations[0] || null;
+          })();
 
-           if (targetStation) {
-             const [stLng, stLat] = targetStation.geometry.coordinates as [number, number];
-             const stCode = (targetStation.properties.ps_code || extractPoliceCode((targetStation.properties.ps_name || targetStation.properties.name || '').toString())).toString().trim().toUpperCase();
-             const stationKey = `${stCode}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
-             const validation = policeValidation ? policeValidation[stationKey] : null;
-             
-             self.postMessage({
-               type: 'RESOLUTION_RESULT',
-               payload: {
-                 station: targetStation,
-                 boundary: { type: 'Feature', geometry: null, properties: {} },
-                 confidence: 'exact',
-                 reason: 'Direct station selection',
-                 isBoundaryValid: false,
-                 validationError: validation?.error || 'No boundary found for this station',
-                 layer: 'POLICE',
-                 keepSelection
-               }
-             });
-           }
+          if (targetStation) {
+            const [stLng, stLat] = targetStation.geometry.coordinates as [number, number];
+            const stCode = (targetStation.properties.ps_code || extractPoliceCode((targetStation.properties.ps_name || targetStation.properties.name || '').toString())).toString().trim().toUpperCase();
+            const stationKey = `${stCode}|${stLat.toFixed(5)}|${stLng.toFixed(5)}`;
+            const validation = policeValidation ? policeValidation[stationKey] : null;
+
+            self.postMessage({
+              type: 'RESOLUTION_RESULT',
+              payload: {
+                station: targetStation,
+                boundary: { type: 'Feature', geometry: null, properties: {} },
+                confidence: 'exact',
+                reason: 'Direct station selection',
+                isBoundaryValid: false,
+                validationError: validation?.error || 'No boundary found for this station',
+                layer: 'POLICE',
+                keepSelection
+              }
+            });
+          }
         }
       } else if (layer === 'HEALTH') {
-         let pinFeature: GisFeature | null = null;
-         if (pincodeOverride) {
-           pinFeature = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
-         } else {
-           pinFeature = findFeatureAt([lng, lat], pincodesIndex);
-         }
-         
-         const distFeature = pinFeature 
-           ? findFeatureAt(getCentroid(pinFeature.geometry) as [number, number], districtsIndex)
-           : findFeatureAt([lng, lat], districtsIndex);
-         
-         self.postMessage({ 
-           type: 'RESOLUTION_RESULT', 
-           payload: { 
-             properties: { 
-               ...(distFeature?.properties || {}),
-               ...(pinFeature?.properties || {})
-             },
-             geometry: pinFeature?.geometry || distFeature?.geometry,
-             layer: 'HEALTH',
-             keepSelection
-           } 
-         });
-         return;
-       } else if (layer === 'PINCODE' || layer === 'PDS') {
+        let pinFeature: GisFeature | null = null;
         if (pincodeOverride) {
-           found = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
+          pinFeature = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
         } else {
-           found = findFeatureAt([lng, lat], pincodesIndex);
+          pinFeature = findFeatureAt([lng, lat], pincodesIndex);
         }
-        
+
+        const distFeature = pinFeature
+          ? findFeatureAt(getCentroid(pinFeature.geometry) as [number, number], districtsIndex)
+          : findFeatureAt([lng, lat], districtsIndex);
+
+        self.postMessage({
+          type: 'RESOLUTION_RESULT',
+          payload: {
+            properties: {
+              ...(distFeature?.properties || {}),
+              ...(pinFeature?.properties || {})
+            },
+            geometry: pinFeature?.geometry || distFeature?.geometry,
+            layer: 'HEALTH',
+            keepSelection
+          }
+        });
+        return;
+      } else if (layer === 'PINCODE' || layer === 'PDS') {
+        if (pincodeOverride) {
+          found = pincodesGeoJson?.features.find(f => (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincodeOverride.toString()) || null;
+        } else {
+          found = findFeatureAt([lng, lat], pincodesIndex);
+        }
+
         if (found) {
           const pincode = (found.properties.pin_code || found.properties.PIN_CODE || found.properties.pincode)?.toString();
           const district = (found.properties.district || found.properties.DISTRICT || found.properties.NAME)?.toString();
-          
+
           if (layer === 'PINCODE' && district && !loadedPostalDistricts.has(district)) {
             // Lazy load the district postal data
             const data = await fetchWithRetry(`/data/postal_by_district/${district}.json`) as PostalOffice[];
@@ -1210,16 +1220,16 @@ self.onmessage = async (e: MessageEvent) => {
 
           const offices = pincode ? postalOfficesIndex.get(pincode) || [] : [];
           const flaggedOffices = flagPostalOutliers(offices, found.geometry);
-          
-          self.postMessage({ 
-            type: 'RESOLUTION_RESULT', 
-            payload: { 
-              properties: found.properties, 
+
+          self.postMessage({
+            type: 'RESOLUTION_RESULT',
+            payload: {
+              properties: found.properties,
               geometry: found.geometry,
               layer: 'PINCODE',
               postalOffices: flaggedOffices,
               keepSelection
-            } 
+            }
           });
         }
       } else if (layer === 'LOCAL_BODIES_V2') {
@@ -1228,11 +1238,11 @@ self.onmessage = async (e: MessageEvent) => {
       }
 
       if (!found) {
-        const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false; 
+        const isInsideState = stateBoundaryGeoJson ? findFeatureAt([lng, lat], stateBoundaryIndex) : false;
 
-        self.postMessage({ 
-          type: 'RESOLUTION_RESULT', 
-          payload: { found: false, lat, lng, layer, isInsideState: !!isInsideState } 
+        self.postMessage({
+          type: 'RESOLUTION_RESULT',
+          payload: { found: false, lat, lng, layer, isInsideState: !!isInsideState }
         });
       }
       break;
@@ -1245,7 +1255,7 @@ self.onmessage = async (e: MessageEvent) => {
           const objectName = Object.keys(data.objects)[0];
           const feature = topojson.feature(data, data.objects[objectName]) as unknown as GisFeature | GisFeatureCollection;
           pincodesGeoJson = feature.type === 'FeatureCollection' ? (feature as GisFeatureCollection) : { type: 'FeatureCollection', features: [feature as GisFeature] };
-          
+
           // Indexing with safety filters
           const items: SpatialItem[] = pincodesGeoJson!.features
             .filter(f => f.geometry && f.geometry.coordinates)
@@ -1266,11 +1276,11 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         const { district } = payload;
         if (!district) return;
-        
+
         if (!loadedPostalDistricts.has(district)) {
           const data = await fetchWithRetry(`/data/postal_by_district/${district}.json`) as PostalOffice[];
           loadedPostalDistricts.set(district, data);
-          
+
           if (data) {
             data.forEach(po => {
               const pin = po.pincode.toString();
@@ -1332,7 +1342,7 @@ self.onmessage = async (e: MessageEvent) => {
         if (!loadedHealthDistricts.has(district)) {
           const data = await fetchWithRetry(`/data/health_by_district/${file_name}`) as GisFeatureCollection;
           loadedHealthDistricts.set(district, data);
-          
+
           const index = new RBush<SpatialItem>();
           const items: SpatialItem[] = data.features
             .filter(f => f.geometry && f.geometry.coordinates)
@@ -1343,9 +1353,9 @@ self.onmessage = async (e: MessageEvent) => {
           index.load(items);
           healthDistrictIndexes.set(district, index);
         }
-        self.postMessage({ 
-          type: 'HEALTH_DISTRICT_LOADED', 
-          payload: { district, data: loadedHealthDistricts.get(district) } 
+        self.postMessage({
+          type: 'HEALTH_DISTRICT_LOADED',
+          payload: { district, data: loadedHealthDistricts.get(district) }
         });
       } catch (err) {
         console.error('[Worker] Error loading health district:', err);
@@ -1366,8 +1376,8 @@ self.onmessage = async (e: MessageEvent) => {
             self.postMessage({ type: 'ERROR', payload: 'District name required for drill-down' });
             return;
           }
-          
-          const distManifest = healthManifest?.districts.find(d => 
+
+          const distManifest = healthManifest?.districts.find(d =>
             d.district.toLowerCase().replace(/\s+/g, '') === district.toLowerCase().replace(/\s+/g, '')
           );
           if (!distManifest) {
@@ -1379,7 +1389,7 @@ self.onmessage = async (e: MessageEvent) => {
             activeDistrictData = await fetchWithRetry(`/data/health_by_district/${distManifest.file_name}`);
             if (activeDistrictData) {
               loadedHealthDistricts.set(district, activeDistrictData);
-              
+
               // Also index it for spatial lookups
               const index = new RBush<SpatialItem>();
               const items: SpatialItem[] = activeDistrictData.features
@@ -1403,25 +1413,25 @@ self.onmessage = async (e: MessageEvent) => {
           features = activeDistrictData.features;
 
           if (scope === 'PINCODE' && pincode) {
-            const pinFeature = pincodesGeoJson?.features.find(f => 
+            const pinFeature = pincodesGeoJson?.features.find(f =>
               (f.properties.pin_code || f.properties.PIN_CODE || f.properties.pincode)?.toString() === pincode.toString()
             );
             if (pinFeature) {
-            const distIndex = healthDistrictIndexes.get(district);
-            if (distIndex) {
-              const bbox = getBBox(pinFeature.geometry);
-              const candidates = distIndex.search(bbox);
-              
-              features = candidates.filter(item => {
-                const pt = item.feature.geometry.coordinates as [number, number];
-                if (pinFeature!.geometry.type === 'Polygon') {
-                  return isPointInPolygon(pt, (pinFeature!.geometry as Polygon).coordinates);
-                } else if (pinFeature!.geometry.type === 'MultiPolygon') {
-                  return (pinFeature!.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
-                }
-                return false;
-              }).map(item => item.feature);
-            }
+              const distIndex = healthDistrictIndexes.get(district);
+              if (distIndex) {
+                const bbox = getBBox(pinFeature.geometry);
+                const candidates = distIndex.search(bbox);
+
+                features = candidates.filter(item => {
+                  const pt = item.feature.geometry.coordinates as [number, number];
+                  if (pinFeature!.geometry.type === 'Polygon') {
+                    return isPointInPolygon(pt, (pinFeature!.geometry as Polygon).coordinates);
+                  } else if (pinFeature!.geometry.type === 'MultiPolygon') {
+                    return (pinFeature!.geometry as MultiPolygon).coordinates.some(poly => isPointInPolygon(pt, poly));
+                  }
+                  return false;
+                }).map(item => item.feature);
+              }
             }
           }
         }
@@ -1432,12 +1442,12 @@ self.onmessage = async (e: MessageEvent) => {
         // Apply Filters
         const filtered = features.filter(f => {
           const p = f.properties;
-          
+
           // 1. Mandatory Filters (AND)
-          
+
           // Facility Type
           if (filters.facilityTypes.length > 0 && !filters.facilityTypes.includes(p.facility_t)) return false;
-          
+
           // Location Type
           if (filters.locationType === 'Urban' && p.location_t !== 'Urban') return false;
           if (filters.locationType === 'Rural' && p.location_t !== 'Rural') return false;
@@ -1445,7 +1455,7 @@ self.onmessage = async (e: MessageEvent) => {
           // 2. Capability Filters (OR)
           // If no capability filters are active, we don't filter by them (passes through)
           // If any are active, the facility must match AT LEAST ONE of the active filters
-          
+
           const capabilityCriteria: { key: string; check: (p: HealthFacilityProperties) => boolean }[] = [
             { key: 'isHwc', check: (p) => isTrue(p.hwc) },
             { key: 'hasDelivery', check: (p) => isTrue(p.delivery_p) },
@@ -1518,7 +1528,10 @@ self.onmessage = async (e: MessageEvent) => {
           countsByCapability,
           activeFilters: Object.entries(filters)
             .filter(([, v]) => v !== null && (Array.isArray(v) ? v.length > 0 : (v !== 'All' && v !== false)))
-            .map(([k]) => k),
+            .flatMap(([k, v]) => {
+              if (k === 'facilityTypes' && Array.isArray(v)) return v;
+              return [k];
+            }),
           district,
           pincode
         };
@@ -1539,13 +1552,13 @@ self.onmessage = async (e: MessageEvent) => {
           }
         }));
 
-        self.postMessage({ 
-          type: 'HEALTH_FILTERED', 
-          payload: { 
-            features: thinnedFeatures, 
-            summary, 
-            scope 
-          } 
+        self.postMessage({
+          type: 'HEALTH_FILTERED',
+          payload: {
+            features: thinnedFeatures,
+            summary,
+            scope
+          }
         });
       } catch (err) {
         console.error('[Worker] Error filtering health:', err);
@@ -1553,6 +1566,50 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
     }
+
+/**
+ * Global search via Google Geocoding API
+ */
+async function fetchGoogleGeocode(query: string): Promise<any[]> {
+  if (!googleMapsApiKey || query.length < 4) return [];
+
+  try {
+    // Add bias towards Tamil Nadu
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(query)}&key=${googleMapsApiKey}&components=administrative_area:TN|country:IN`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.status === 'OK') {
+      return data.results.map((res: any) => {
+        const mainText = res.address_components[0]?.long_name || res.formatted_address;
+        const secondaryText = res.formatted_address.replace(mainText + ', ', '').replace(mainText, '');
+
+        return {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [res.geometry.location.lng, res.geometry.location.lat]
+          },
+          properties: {
+            name: res.formatted_address,
+            main_text: mainText,
+            secondary_text: secondaryText || 'Tamil Nadu, India',
+            place_id: res.place_id,
+            lat: res.geometry.location.lat,
+            lng: res.geometry.location.lng,
+            viewport: res.geometry.viewport,
+            bounds: res.geometry.bounds
+          },
+          score: 40, // Base score for global matches, lower than exact local matches
+          suggestionType: 'GLOBAL_PLACE'
+        };
+      });
+    }
+  } catch (e) {
+    console.warn('[Worker] Google Geocode failed', e);
+  }
+  return [];
+}
 
 
     case 'GET_SUGGESTIONS': {
@@ -1563,8 +1620,13 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       }
 
+      interface ScoredSuggestion extends GisFeature {
+        score: number;
+      }
+
+      const allScored: ScoredSuggestion[] = [];
+
       // Helper to calculate a simple match score
-      // Higher is better
       const getScore = (text: string, query: string): number => {
         const t = text.toLowerCase();
         if (t === query) return 100;
@@ -1573,11 +1635,31 @@ self.onmessage = async (e: MessageEvent) => {
         return 0;
       };
 
-      interface ScoredSuggestion extends GisFeature {
-        score: number;
+      // 0. Coordinate Detection
+      // Check for raw coordinates: "lat, lng"
+      const coordMatch = q.match(/^([-+]?\d+\.?\d*),\s*([-+]?\d+\.?\d*)$/);
+      let detectedCoords: { lat: number; lng: number } | null = null;
+
+      if (coordMatch) {
+        detectedCoords = { lat: parseFloat(coordMatch[1]), lng: parseFloat(coordMatch[2]) };
+      } else {
+        // Check for Google Maps URL
+        detectedCoords = extractCoordinatesFromUrl(query); // Use raw query for URL parsing
       }
 
-      const allScored: ScoredSuggestion[] = [];
+      if (detectedCoords && !isNaN(detectedCoords.lat) && !isNaN(detectedCoords.lng)) {
+        allScored.push({
+          type: 'Feature' as const,
+          geometry: { type: 'Point' as const, coordinates: [detectedCoords.lng, detectedCoords.lat] },
+          properties: {
+            name: `${detectedCoords.lat.toFixed(6)}, ${detectedCoords.lng.toFixed(6)}`,
+            lat: detectedCoords.lat,
+            lng: detectedCoords.lng
+          },
+          score: 2000, // Top priority
+          suggestionType: 'COORDINATES'
+        } as ScoredSuggestion);
+      }
 
       // 1. Search Districts
       if (districtsGeoJson) {
@@ -1620,7 +1702,7 @@ self.onmessage = async (e: MessageEvent) => {
             const name = facility[0].toString();
             const type = facility[3].toString();
             const nin = (facility[8] || '').toString();
-            
+
             let finalScore = getScore(name, q);
             const ninScore = nin === q ? 100 : (nin.includes(q) ? 70 : 0);
             finalScore = Math.max(finalScore, ninScore);
@@ -1671,10 +1753,10 @@ self.onmessage = async (e: MessageEvent) => {
               allScored.push({
                 type: 'Feature' as const,
                 geometry: { type: 'Point' as const, coordinates: [lng, lat] },
-                properties: { 
-                  section_na: name, 
-                  section_co: sectionCode, 
-                  circle_cod: circleCode, 
+                properties: {
+                  section_na: name,
+                  section_co: sectionCode,
+                  circle_cod: circleCode,
                   district,
                   office_location: [lng, lat] as [number, number]
                 },
@@ -1685,85 +1767,90 @@ self.onmessage = async (e: MessageEvent) => {
           });
         }
 
-      // 4. Search PDS Shops from Index
-      if (activeLayer === 'PDS' && pdsIndex) {
-        pdsIndex.forEach(shop => {
-          const shopCode = shop[0].toString();
-          const name = shop[1].toString();
-          const taluk = shop[2].toString();
-          const nameScore = getScore(name, q);
-          const codeScore = shopCode.includes(q) ? 85 : 0;
-          const talukScore = getScore(taluk, q) * 0.6;
-          const finalScore = Math.max(nameScore, codeScore, talukScore);
-          if (finalScore > 0) {
-            allScored.push({
-              type: 'Feature' as const,
-              geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
-              properties: { 
-                shop_code: shop[0], 
-                name: shop[1], 
-                taluk: shop[2], 
-                district: shop[3],
-                office_location: [shop[5], shop[4]] as [number, number]
-              },
-              score: finalScore,
-              suggestionType: 'PDS_SHOP' as const
-            } as ScoredSuggestion);
-          }
-        });
-      }
-
-      // 5. Search Constituencies
-      if (activeLayer === 'CONSTITUENCY') {
-        if (acGeoJson) {
-          acGeoJson.features.forEach((f: GisFeature) => {
-            const name = (f.properties.assembly_c as string || '');
-            const score = getScore(name, q);
-            if (score > 0) {
-              allScored.push({ ...f, score: score + 2, suggestionType: 'CONSTITUENCY' as const });
+        // 4. Search PDS Shops from Index
+        if (activeLayer === 'PDS' && pdsIndex) {
+          pdsIndex.forEach(shop => {
+            const shopCode = shop[0].toString();
+            const name = shop[1].toString();
+            const taluk = shop[2].toString();
+            const nameScore = getScore(name, q);
+            const codeScore = shopCode.includes(q) ? 85 : 0;
+            const talukScore = getScore(taluk, q) * 0.6;
+            const finalScore = Math.max(nameScore, codeScore, talukScore);
+            if (finalScore > 0) {
+              allScored.push({
+                type: 'Feature' as const,
+                geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
+                properties: {
+                  shop_code: shop[0],
+                  name: shop[1],
+                  taluk: shop[2],
+                  district: shop[3],
+                  office_location: [shop[5], shop[4]] as [number, number]
+                },
+                score: finalScore,
+                suggestionType: 'PDS_SHOP' as const
+              } as ScoredSuggestion);
             }
           });
         }
-        if (pcGeoJson) {
-          pcGeoJson.features.forEach((f: GisFeature) => {
-            const name = (f.properties.parliame_1 as string || '');
-            const score = getScore(name, q);
-            if (score > 0) {
-              allScored.push({ ...f, score: score + 1, suggestionType: 'CONSTITUENCY' as const });
+
+        // 5. Search Constituencies
+        if (activeLayer === 'CONSTITUENCY') {
+          if (acGeoJson) {
+            acGeoJson.features.forEach((f: GisFeature) => {
+              const name = (f.properties.assembly_c as string || '');
+              const score = getScore(name, q);
+              if (score > 0) {
+                allScored.push({ ...f, score: score + 2, suggestionType: 'CONSTITUENCY' as const });
+              }
+            });
+          }
+          if (pcGeoJson) {
+            pcGeoJson.features.forEach((f: GisFeature) => {
+              const name = (f.properties.parliame_1 as string || '');
+              const score = getScore(name, q);
+              if (score > 0) {
+                allScored.push({ ...f, score: score + 1, suggestionType: 'CONSTITUENCY' as const });
+              }
+            });
+          }
+        }
+
+        // 6. Search Police Stations from Index
+        if (activeLayer === 'POLICE' && policeSearchIndex) {
+          policeSearchIndex.forEach(station => {
+            const [name, psCode, lat, lng, district] = station;
+            const nameScore = getScore(name, q);
+            const codeScore = psCode.toString().includes(q) ? 90 : 0;
+            const finalScore = Math.max(nameScore, codeScore);
+
+            if (finalScore > 0) {
+              // Infer code if empty (common in Chennai data)
+              const finalCode = psCode || extractPoliceCode(name);
+
+              allScored.push({
+                type: 'Feature' as const,
+                geometry: { type: 'Point' as const, coordinates: [lng, lat] },
+                properties: {
+                  name,
+                  ps_name: name,
+                  ps_code: finalCode,
+                  district,
+                  station_location: [lng, lat] as [number, number]
+                },
+                score: finalScore + 8,
+                suggestionType: 'POLICE_STATION' as const
+              } as ScoredSuggestion);
             }
           });
         }
       }
 
-      // 6. Search Police Stations from Index
-      if (activeLayer === 'POLICE' && policeSearchIndex) {
-        policeSearchIndex.forEach(station => {
-          const [name, psCode, lat, lng, district] = station;
-          const nameScore = getScore(name, q);
-          const codeScore = psCode.toString().includes(q) ? 90 : 0;
-          const finalScore = Math.max(nameScore, codeScore);
-
-          if (finalScore > 0) {
-            // Infer code if empty (common in Chennai data)
-            const finalCode = psCode || extractPoliceCode(name);
-            
-            allScored.push({
-              type: 'Feature' as const,
-              geometry: { type: 'Point' as const, coordinates: [lng, lat] },
-              properties: { 
-                name, 
-                ps_name: name,
-                ps_code: finalCode, 
-                district,
-                station_location: [lng, lat] as [number, number]
-              },
-              score: finalScore + 8,
-              suggestionType: 'POLICE_STATION' as const
-            } as ScoredSuggestion);
-          }
-        });
-      }
-
+      // 7. Global Fallback (only if local results are low or query is complex)
+      if (googleMapsApiKey && q.length > 3 && allScored.length < 10) {
+        const globalResults = await fetchGoogleGeocode(query);
+        globalResults.forEach(res => allScored.push(res as any));
       }
 
       // Final sort and limit
@@ -1791,9 +1878,9 @@ self.onmessage = async (e: MessageEvent) => {
 
       if (!identity) {
         console.warn(`[Worker] Unresolved district identity for: "${rawDistrictName}"`);
-        self.postMessage({ 
-          type: 'ERROR', 
-          payload: `Could not resolve district: ${rawDistrictName}. Please verify the manifest aliases.` 
+        self.postMessage({
+          type: 'ERROR',
+          payload: `Could not resolve district: ${rawDistrictName}. Please verify the manifest aliases.`
         });
         return;
       }
@@ -1809,7 +1896,7 @@ self.onmessage = async (e: MessageEvent) => {
           if (districtIndex) {
             const bbox = getBBox(boundary);
             const candidates = districtIndex.search(bbox);
-            
+
             filteredFeatures = candidates.filter(item => {
               const point = item.feature.geometry.coordinates as Position;
               if (boundary.type === 'Polygon') {
@@ -1821,13 +1908,13 @@ self.onmessage = async (e: MessageEvent) => {
             }).map(item => item.feature);
           }
         }
-        self.postMessage({ 
-          type: 'PDS_LOADED', 
-          payload: { 
-            district: identity.display_name, 
+        self.postMessage({
+          type: 'PDS_LOADED',
+          payload: {
+            district: identity.display_name,
             district_id: districtId,
-            data: { ...data, features: filteredFeatures } 
-          } 
+            data: { ...data, features: filteredFeatures }
+          }
         });
       };
 
@@ -1837,7 +1924,7 @@ self.onmessage = async (e: MessageEvent) => {
       }
       try {
         const data = await fetchWithRetry(`/data/pds_by_district/${pdsFileName}.json`) as GisFeatureCollection;
-        
+
         // Build R-tree for this district
         const districtIndex = new RBush<SpatialItem>();
         const items: SpatialItem[] = data.features.map((f: GisFeature) => {
@@ -1849,7 +1936,7 @@ self.onmessage = async (e: MessageEvent) => {
         });
         districtIndex.load(items);
         pdsIndexes.set(districtId, districtIndex);
-        
+
         loadedPds.set(districtId, data);
         processAndSendPds(data);
       } catch (err) {
@@ -1866,10 +1953,10 @@ self.onmessage = async (e: MessageEvent) => {
             fetchWithRetry('/data/tn_assembly_constituencies.topojson'),
             fetchWithRetry('/data/tn_parliamentary_constituencies.topojson')
           ]);
-          
+
           acGeoJson = topojson.feature(dataAc, dataAc.objects.tamilnadu_assemply_constituency) as unknown as GisFeatureCollection;
           pcGeoJson = topojson.feature(dataPc, dataPc.objects.tamilnadu_parliament_constituency) as unknown as GisFeatureCollection;
-          
+
           // Indexing with safety filters
           acIndex.load(
             acGeoJson.features
@@ -1896,7 +1983,7 @@ self.onmessage = async (e: MessageEvent) => {
             fetchWithRetry('/data/police_index.json'),
             fetch('/data/police_validation.json').catch(() => null)
           ]);
-          
+
           policeSearchIndex = indexData;
 
           if (resVal && resVal.ok) {
@@ -1932,13 +2019,13 @@ self.onmessage = async (e: MessageEvent) => {
     case 'AUDIT_POLICE':
       if (policeBoundariesGeoJson && policeStationsGeoJson) {
         console.log('[Audit] Starting Police Resolution Audit...');
-        const results = policeBoundariesGeoJson.features.map(f => 
+        const results = policeBoundariesGeoJson.features.map(f =>
           resolvePoliceStation(
-            f as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>, 
+            f as GisFeature<Polygon | MultiPolygon, PoliceBoundaryProperties>,
             policeStationsGeoJson as GisFeatureCollection<Point, PoliceStationProperties>
           )
         );
-        
+
         const summary = {
           total: results.length,
           exact: results.filter(r => r.confidence === 'exact').length,
@@ -1949,7 +2036,7 @@ self.onmessage = async (e: MessageEvent) => {
           mismatchedCodes: results.filter(r => r.station && r.station.properties.ps_code && r.station.properties.ps_code !== r.boundary.properties.police_s_1).length,
           outsidePolygon: results.filter(r => r.station && !r.debug.isInsideBoundary).length
         };
-        
+
         console.table(summary);
         self.postMessage({ type: 'AUDIT_RESULT', payload: { summary, details: results } });
       }
@@ -1958,19 +2045,19 @@ self.onmessage = async (e: MessageEvent) => {
     case 'RESOLVE_HEALTH_FACILITY': {
       const { id, nin, district } = payload;
       let found: GisFeature | null = null;
-      
+
       if (district && loadedHealthDistricts.has(district)) {
-        found = loadedHealthDistricts.get(district)!.features.find(f => 
+        found = loadedHealthDistricts.get(district)!.features.find(f =>
           (f.id === id) || (f.properties.nin_number === nin) || (f.properties.ogc_fid === id)
         ) || null;
       }
-      
+
       if (!found && healthPriorityGeoJson) {
-        found = healthPriorityGeoJson.features.find(f => 
+        found = healthPriorityGeoJson.features.find(f =>
           (f.id === id) || (f.properties.nin_number === nin) || (f.properties.ogc_fid === id)
         ) || null;
       }
-      
+
       self.postMessage({ type: 'HEALTH_FACILITY_RESOLVED', payload: found });
       break;
     }
@@ -2026,4 +2113,4 @@ self.onmessage = async (e: MessageEvent) => {
   }
 };
 
-export {};
+export { };
