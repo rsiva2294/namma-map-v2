@@ -50,7 +50,6 @@ interface ProcessedStationProperties extends PoliceStationProperties {
 
 let policeCrosswalk: Record<string, string> | null = null;
 let policeValidation: Record<string, { status: string; error: string }> | null = null;
-let googleMapsApiKey: string | null = null;
 
 interface DistrictIdentity {
   id: string;
@@ -705,13 +704,6 @@ self.onmessage = async (e: MessageEvent) => {
       }
       break;
     
-    case 'SET_CONFIG':
-      if (payload.googleMapsApiKey) {
-        googleMapsApiKey = payload.googleMapsApiKey;
-        console.log('[Worker] Google Maps API Key configured');
-      }
-      break;
-
     case 'INIT_DB':
       self.postMessage({ type: 'READY' });
       break;
@@ -1571,11 +1563,21 @@ self.onmessage = async (e: MessageEvent) => {
  * Global search via Google Geocoding API
  */
 async function fetchGoogleGeocode(query: string): Promise<any[]> {
-  if (!googleMapsApiKey || query.length < 4) return [];
+  if (query.length < 4) return [];
 
   try {
-    // Add bias towards Tamil Nadu
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(query)}&key=${googleMapsApiKey}&components=administrative_area:TN|country:IN`;
+    // We now route the request through our secure Firebase Cloud Function proxy
+    // to prevent the API key from being exposed to the client.
+    // In production, this resolves to the same domain via Firebase rewrites.
+    // In dev, you'll need the Firebase Emulators running, or it defaults to production URL if not available locally.
+    
+    // We determine the origin to handle dev vs prod environments correctly
+    const origin = self.location.origin.includes('localhost') 
+      ? 'http://127.0.0.1:5001/namma-map-407ca/asia-south1/geocodeAddress' 
+      : '/api/geocode';
+
+    const url = `${origin}?address=${encodeURIComponent(query)}`;
+    
     const response = await fetch(url);
     const data = await response.json();
 
@@ -1848,7 +1850,7 @@ async function fetchGoogleGeocode(query: string): Promise<any[]> {
       }
 
       // 7. Global Fallback (only if local results are low or query is complex)
-      if (googleMapsApiKey && q.length > 3 && allScored.length < 10) {
+      if (q.length > 3 && allScored.length < 10) {
         const globalResults = await fetchGoogleGeocode(query);
         globalResults.forEach(res => allScored.push(res as any));
       }

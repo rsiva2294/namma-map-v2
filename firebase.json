@@ -71,9 +71,19 @@
     ],
     "rewrites": [
       {
+        "source": "/api/geocode",
+        "function": "geocodeAddress"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run build"
     ]
   }
 }

@@ -99,10 +99,6 @@ export const useGisWorker = () => {
         case 'READY':
           setIsReady(true);
           workerRef.current?.postMessage({ type: 'SET_VERSION', payload: { version: APP_VERSION } });
-          workerRef.current?.postMessage({ 
-            type: 'SET_CONFIG', 
-            payload: { googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || import.meta.env.VITE_FIREBASE_API_KEY } 
-          });
           break;
         case 'DISTRICTS_LOADED':
           setDistrictsData(payload);

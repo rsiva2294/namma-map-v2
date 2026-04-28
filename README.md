@@ -44,7 +44,13 @@ This repository adheres to high-quality software engineering practices:
 1. `git clone https://github.com/rsiva2294/namma-map-v2.git`
 2. `cp .env.example .env`
 3. `npm install`
-4. `npm run dev`
+4. **Configure Secrets**: For Global Search to work, you must provision your Google Maps API key in Firebase:
+   - `firebase functions:secrets:set GOOGLE_MAPS_API_KEY` (Paste key when prompted)
+   - For local dev, create `functions/.env` and add `GOOGLE_MAPS_API_KEY=your_key`
+5. **Run Locally**:
+   - Terminal 1: `npm run dev` (Frontend)
+   - Terminal 2: `firebase emulators:start` (Backend Proxy)
+6. Open `http://localhost:5173`
 
 ---
 *Built for the people of Tamil Nadu.*

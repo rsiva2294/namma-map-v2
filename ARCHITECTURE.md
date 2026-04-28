@@ -52,7 +52,14 @@ We use a custom, lightweight translation system built for speed and low bundle s
 | **Constituency** | Election Comm | TopoJSON | Pre-loaded on activation |
 | **Local Bodies** | RDMA | TopoJSON | Lazy-loaded by District (VPs) |
 
-## 🔒 Performance Rules
+## 🔒 Performance & Security Rules
 1.  **No Main-Thread Loops**: Any iteration over >1000 features must happen in the worker.
 2.  **No Redundant Renders**: Map styles are memoized to prevent re-drawing the entire world on state changes.
 3.  **Asset Quantization**: All coordinates are quantized to 5 decimal places to balance precision and file size.
+4.  **Backend Proxy for Secrets**: Sensitive API keys (like Google Maps) MUST NOT be exposed in the frontend bundle. They are proxied through Firebase Cloud Functions and managed via Firebase Secret Manager.
+
+## 🧪 Local Development (Emulator)
+To test Global Search locally, you must run the Firebase Functions emulator:
+1. Ensure `GOOGLE_MAPS_API_KEY` is present in `functions/.env`.
+2. Run `firebase emulators:start`.
+3. The map worker automatically detects `localhost` and routes requests to the local emulator port (5001).
