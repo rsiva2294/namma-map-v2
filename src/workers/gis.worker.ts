@@ -1592,7 +1592,9 @@ async function fetchGoogleGeocode(query: string): Promise<any[]> {
             secondary_text: secondaryText || 'Tamil Nadu, India',
             place_id: res.place_id,
             lat: res.geometry.location.lat,
-            lng: res.geometry.location.lng
+            lng: res.geometry.location.lng,
+            viewport: res.geometry.viewport,
+            bounds: res.geometry.bounds
           },
           score: 40, // Base score for global matches, lower than exact local matches
           suggestionType: 'GLOBAL_PLACE'

@@ -42,7 +42,8 @@ export const useGisWorker = () => {
     setSelectedHealthFacility,
     setIsHealthLoading,
     setSelectedLocalBodyV2,
-    setIsV2Loading
+    setIsV2Loading,
+    setView
   } = useMapStore();
 
   const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString() || null;
@@ -349,9 +350,17 @@ export const useGisWorker = () => {
     }
 
     if (item.suggestionType === 'COORDINATES' || item.suggestionType === 'GLOBAL_PLACE') {
-      const { lat, lng } = item.properties as { lat: number; lng: number };
+      const { lat, lng, viewport, bounds } = item.properties as any;
       if (lat !== undefined && lng !== undefined) {
+        setSearchResult(item, false, true);
         resolveLocation(lat, lng, currentLayer);
+        
+        // Use viewport or bounds for better framing if available
+        if (viewport || bounds) {
+          // This will be handled by MapController if we pass the feature to setSearchResult
+        } else {
+          setView([lat, lng], 15);
+        }
       }
       return;
     }

@@ -33,9 +33,25 @@ const MapController: React.FC<{
 
     if (result && result.geometry) {
       try {
-        const bounds = L.geoJSON(result).getBounds();
-        if (bounds.isValid()) {
-          map.flyToBounds(bounds, { 
+        let resultBounds: L.LatLngBounds;
+        const props = result.properties as any;
+        
+        if (props.bounds) {
+          resultBounds = L.latLngBounds(
+            [props.bounds.southwest.lat, props.bounds.southwest.lng],
+            [props.bounds.northeast.lat, props.bounds.northeast.lng]
+          );
+        } else if (props.viewport) {
+          resultBounds = L.latLngBounds(
+            [props.viewport.southwest.lat, props.viewport.southwest.lng],
+            [props.viewport.northeast.lat, props.viewport.northeast.lng]
+          );
+        } else {
+          resultBounds = L.geoJSON(result).getBounds();
+        }
+
+        if (resultBounds.isValid()) {
+          map.flyToBounds(resultBounds, { 
             paddingTopLeft: [leftPad, 120], 
             paddingBottomRight: [80, bottomPad],
             maxZoom: 14,
@@ -458,8 +474,8 @@ const GisMap: React.FC = () => {
   }, [policeStationsData, selectedPoliceStation, policeDotIcon, resolveLocation]);
 
   const tnBounds: L.LatLngBoundsLiteral = [
-    [8.0775, 76.2307], // Southwest
-    [13.5670, 80.3444] // Northeast
+    [6.0, 74.0], // Southwest - Expanded for breathing room
+    [15.5, 83.0] // Northeast - Expanded for breathing room
   ];
 
   return (
@@ -468,7 +484,7 @@ const GisMap: React.FC = () => {
       zoom={7}
       minZoom={6}
       maxBounds={tnBounds}
-      maxBoundsViscosity={1.0}
+      maxBoundsViscosity={0.6}
       scrollWheelZoom={true}
       zoomControl={false}
       preferCanvas={true}
@@ -736,6 +752,34 @@ const GisMap: React.FC = () => {
             <div style={{ padding: '4px 8px' }}>
               <div style={{ fontWeight: 'bold' }}>{selectedHealthFacility.properties.facility_n || selectedHealthFacility.properties.NAME}</div>
               <div style={{ fontSize: '11px', opacity: 0.8 }}>{t(selectedHealthFacility.properties.facility_t as any)}</div>
+            </div>
+          </Tooltip>
+        </Marker>
+      )}
+
+      {searchResult && (searchResult.suggestionType === 'GLOBAL_PLACE' || searchResult.suggestionType === 'COORDINATES') && (
+        <Marker
+          position={[
+            (searchResult.geometry as Point).coordinates[1],
+            (searchResult.geometry as Point).coordinates[0]
+          ]}
+          icon={L.divIcon({
+            html: `
+              <div class="pulse-search"></div>
+              <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #10b981; border-radius: 50%; border: 2px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.4); position: relative; z-index: 10;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>`,
+            className: 'selected-search-icon',
+            iconSize: [36, 36],
+            iconAnchor: [18, 18]
+          })}
+        >
+          <Tooltip direction="top" offset={[0, -18]} opacity={1}>
+            <div style={{ padding: '4px 8px' }}>
+              <div style={{ fontWeight: 'bold' }}>{(searchResult.properties as any).main_text || (searchResult.properties as any).name}</div>
+              <div style={{ fontSize: '11px', opacity: 0.8 }}>{t(searchResult.suggestionType === 'COORDINATES' ? 'CAT_COORDINATES' : 'CAT_GLOBAL')}</div>
             </div>
           </Tooltip>
         </Marker>
