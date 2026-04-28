@@ -2,6 +2,9 @@
   "hosting": {
     "site": "namma-map",
     "public": "dist",
+    "predeploy": [
+      "npm run build"
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

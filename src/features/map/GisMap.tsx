@@ -166,13 +166,23 @@ const GisMap: React.FC = () => {
     }
   }, [activeLayer, activeDistrict, loadTnebDistrict]);
 
-  // Handle Search Trigger (Pincode or Text) - only if user is actively typing
+  // Handle Search Trigger (Pincode or Text) - only if user is actively typing with 300ms debounce
+  const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
     if (isUserTyping && searchQuery && searchQuery.length >= 3) {
-      getSuggestions(searchQuery, activeLayer);
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+      
+      searchTimeoutRef.current = setTimeout(() => {
+        getSuggestions(searchQuery, activeLayer);
+      }, 300);
     } else if (!isUserTyping || !searchQuery) {
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
       setSearchSuggestions([]);
     }
+
+    return () => {
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    };
   }, [searchQuery, activeLayer, isUserTyping, getSuggestions, setSearchSuggestions]);
   
   // Handle Global Location Resolver

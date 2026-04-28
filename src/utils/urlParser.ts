@@ -22,15 +22,17 @@ export const extractCoordinatesFromUrl = (url: string): { lat: number; lng: numb
     }
 
     // 2. Check for query parameters q=lat,lng or ll=lat,lng
-    const urlObj = new URL(url);
-    const q = urlObj.searchParams.get('q') || urlObj.searchParams.get('ll') || urlObj.searchParams.get('query');
-    if (q) {
-      const qMatch = q.match(/(-?\d+\.\d+),(-?\d+\.\d+)/);
-      if (qMatch) {
-        return {
-          lat: parseFloat(qMatch[1]),
-          lng: parseFloat(qMatch[2])
-        };
+    if (url.startsWith('http')) {
+      const urlObj = new URL(url);
+      const q = urlObj.searchParams.get('q') || urlObj.searchParams.get('ll') || urlObj.searchParams.get('query');
+      if (q) {
+        const qMatch = q.match(/(-?\d+\.\d+),(-?\d+\.\d+)/);
+        if (qMatch) {
+          return {
+            lat: parseFloat(qMatch[1]),
+            lng: parseFloat(qMatch[2])
+          };
+        }
       }
     }
 

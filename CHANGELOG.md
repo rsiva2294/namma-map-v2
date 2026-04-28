@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2026-04-28
+### Added
+- **Secure Backend Proxy**: Migrated Google Maps Geocoding API to a Firebase Cloud Function proxy, utilizing Secret Manager to prevent API key exposure in the client bundle.
+- **Hosting Pre-deploy Automation**: Added automated `npm run build` trigger to `firebase.json` to ensure deployments always use the latest build and versioning.
+
+### Changed
+- **Search Performance**: Implemented 300ms debouncing for the global search to optimize worker message frequency and reduce Google Maps API quota usage.
+
+### Fixed
+- **URL Parser Stability**: Fixed a `TypeError` in the worker-side URL parser by adding a protocol guard before attempting to parse search strings as URLs.
+
 ## [1.4.0] - 2026-04-28
 ### Added
 - **Global Search Engine**: Integrated Google Maps Geocoding API as a fallback to resolve full street addresses, landmarks, and unstructured locations across Tamil Nadu when civic data indexes yield no local matches.
