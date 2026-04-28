@@ -647,6 +647,7 @@ async function handleLocalBodyV2Resolution(lat: number, lng: number, keepSelecti
     const DISTRICT_CORRECTIONS: Record<string, string> = {
       'Trichy': 'Tiruchirappalli',
       'Erode': 'Erode', // Erode corp is in Namakkal district in source — override to Erode
+      'Chennai': 'Chennai', // Chennai corp is listed as Chengalpattu in source
     };
 
     const rawDistrict = (resolvedLocal.properties.District || resolvedLocal.properties.district || resolvedLocal.properties.dist_name || 'Unknown').toString();
