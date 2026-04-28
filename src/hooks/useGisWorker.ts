@@ -98,6 +98,10 @@ export const useGisWorker = () => {
         case 'READY':
           setIsReady(true);
           workerRef.current?.postMessage({ type: 'SET_VERSION', payload: { version: APP_VERSION } });
+          workerRef.current?.postMessage({ 
+            type: 'SET_CONFIG', 
+            payload: { googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || import.meta.env.VITE_FIREBASE_API_KEY } 
+          });
           break;
         case 'DISTRICTS_LOADED':
           setDistrictsData(payload);
@@ -341,6 +345,14 @@ export const useGisWorker = () => {
     if (currentLayer === 'LOCAL_BODIES_V2') {
       setIsV2Loading(true);
       workerRef.current?.postMessage({ type: 'SELECT_SUGGESTION', payload: { suggestion: item, layer: currentLayer } });
+      return;
+    }
+
+    if (item.suggestionType === 'COORDINATES' || item.suggestionType === 'GLOBAL_PLACE') {
+      const { lat, lng } = item.properties as { lat: number; lng: number };
+      if (lat !== undefined && lng !== undefined) {
+        resolveLocation(lat, lng, currentLayer);
+      }
       return;
     }
 

@@ -8,7 +8,7 @@ export const translations = {
     SAFETY: 'SAFETY',
     UTILITIES: 'UTILITIES',
     SETTINGS: 'SETTINGS',
-    
+
     // Layers
     PINCODE: 'Post Offices',
     PDS: 'Ration Shops',
@@ -22,7 +22,7 @@ export const translations = {
     TOWN_PANCHAYAT: 'Town Panchayat',
     VILLAGE_PANCHAYAT: 'Village Panchayat',
     UNKNOWN_LOCAL_BODY: 'Local Body',
-    
+
     // UI Elements
     ABOUT_LEGAL: 'About & Legal',
     DARK_MODE: 'Dark Mode',
@@ -33,14 +33,14 @@ export const translations = {
     GPS_ACTIVE: 'GPS Active',
     SEARCH_PLACEHOLDER: 'Search Districts, Pincodes, or Offices...',
     EXPERIMENTAL: 'EXPERIMENTAL',
-    
+
     // Search Specifics
     SEARCH_HEALTH: 'Search Hospitals, Districts, or Pincodes...',
     SEARCH_PDS: 'Search Ration Shops, Districts, or Pincodes...',
     SEARCH_TNEB: 'Search TNEB Offices, Districts, or Pincodes...',
     SEARCH_POLICE: 'Search Police Stations, Districts, or Pincodes...',
     SEARCH_CONSTITUENCY: 'Search Constituencies, Districts, or Pincodes...',
-    
+
     // Actions
     DIRECTIONS: 'GET DIRECTIONS',
     REPORT_ISSUE: 'Report an Issue',
@@ -70,19 +70,8 @@ export const translations = {
     CARE_LEVEL: 'Care Level',
     LOCAL_OFFICES: 'Local Offices',
     LOCATION: 'Location',
-    LATITUDE: 'Latitude',
-    LONGITUDE: 'Longitude',
-    PASTE_LINK: 'Paste Google Maps Link',
-    EXTRACT: 'Extract',
     COORDINATES: 'Coordinates',
-    RESOLVE: 'Resolve Location',
-    INVALID_COORDINATES: 'Invalid Coordinates. Please enter valid Lat/Lng.',
-    INVALID_URL: 'Invalid URL. Please paste a valid Google Maps link.',
     OUTSIDE_TN: 'Location is outside Tamil Nadu. Please provide a location within the state.',
-    LOCATION_RESOLVER: 'Location Resolver',
-    GLOBAL_LOCATION_DESC: 'Provide coordinates manually or via a Google Maps link to resolve services in that area.',
-    MANUAL_ENTRY: 'Manual Entry',
-    MAPS_LINK: 'Maps Link',
 
     // Postal Specific Values
     HO: 'Head Post Office',
@@ -333,6 +322,9 @@ export const translations = {
     SUB_LOCAL_AREA: 'Local Area',
     HO_EXPLANATION: 'This is a main post office with full postal and banking services.',
     NON_DELIVERY_EXPLANATION: 'This post office does not deliver to homes. Visit here for counter services.',
+    GO_TO_COORDINATES: 'Go to coordinates',
+    CAT_COORDINATES: 'Coordinates',
+    CAT_GLOBAL: 'Global Places',
   },
   ta: {
     // Sidebar Labels
@@ -341,7 +333,7 @@ export const translations = {
     SAFETY: 'பாதுகாப்பு',
     UTILITIES: 'பயன்பாடுகள்',
     SETTINGS: 'அமைப்புகள்',
-    
+
     // Layers
     PINCODE: 'அஞ்சல் நிலையங்கள்',
     PDS: 'நியாயவிலைக் கடைகள்',
@@ -355,7 +347,7 @@ export const translations = {
     TOWN_PANCHAYAT: 'பேரூராட்சி',
     VILLAGE_PANCHAYAT: 'கிராம ஊராட்சி',
     UNKNOWN_LOCAL_BODY: 'உள்ளாட்சி அமைப்பு',
-    
+
     // UI Elements
     ABOUT_LEGAL: 'விவரங்கள் & சட்டவிதிகள்',
     DARK_MODE: 'இருண்ட பயன்முறை',
@@ -366,14 +358,14 @@ export const translations = {
     GPS_ACTIVE: 'GPS செயலில் உள்ளது',
     SEARCH_PLACEHOLDER: 'மாவட்டங்கள், பின்கோட்கள் அல்லது அலுவலகங்களைத் தேடுங்கள்...',
     EXPERIMENTAL: 'சோதனை முயற்சி',
-    
+
     // Search Specifics
     SEARCH_HEALTH: 'மருத்துவமனைகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
     SEARCH_PDS: 'ரேஷன் கடைகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
     SEARCH_TNEB: 'மின்சார வாரிய அலுவலகங்கள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
     SEARCH_POLICE: 'காவல் நிலையங்கள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
     SEARCH_CONSTITUENCY: 'தொகுதிகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
-    
+
     // Actions
     DIRECTIONS: 'வழிசெலுத்தல்',
     REPORT_ISSUE: 'பிழையைத் தெரிவி',
@@ -403,19 +395,8 @@ export const translations = {
     CARE_LEVEL: 'பராமரிப்பு நிலை',
     LOCAL_OFFICES: 'உள்ளூர் அலுவலகங்கள்',
     LOCATION: 'இடம்',
-    LATITUDE: 'அட்சரேகை (Latitude)',
-    LONGITUDE: 'தீர்க்கரேகை (Longitude)',
-    PASTE_LINK: 'கூகுள் மேப் லிங்க்கை ஒட்டவும்',
-    EXTRACT: 'கண்டறி',
     COORDINATES: 'ஆயத்தொலைவுகள் (Coordinates)',
-    RESOLVE: 'இடத்தைக் கண்டறி',
-    INVALID_COORDINATES: 'தவறான ஆயத்தொலைவுகள். சரியான Lat/Lng-ஐ உள்ளிடவும்.',
-    INVALID_URL: 'தவறான லிங்க். சரியான கூகுள் மேப் லிங்க்கை ஒட்டவும்.',
     OUTSIDE_TN: 'இந்த இடம் தமிழ்நாட்டிற்கு வெளியே உள்ளது. தயவுசெய்து மாநிலத்திற்குள் உள்ள இடத்தைத் தேர்ந்தெடுக்கவும்.',
-    LOCATION_RESOLVER: 'இருப்பிடக் கருவி',
-    GLOBAL_LOCATION_DESC: 'அந்தப் பகுதியில் உள்ள சேவைகளைக் கண்டறிய ஆயத்தொலைவுகளை அல்லது கூகுள் மேப் லிங்க்கை வழங்கவும்.',
-    MANUAL_ENTRY: 'கைமுறை உள்ளீடு',
-    MAPS_LINK: 'மேப் லிங்க்',
 
     // Postal Specific Values
     HO: 'தலைமை அஞ்சலகம்',
@@ -666,6 +647,9 @@ export const translations = {
     SUB_LOCAL_AREA: 'உள்ளூர் பகுதி',
     HO_EXPLANATION: 'இது முழுமையான அஞ்சல் and வங்கிச் சேவைகளைக் கொண்ட தலைமை அஞ்சல் அலுவலகமாகும்.',
     NON_DELIVERY_EXPLANATION: 'இந்த அஞ்சல் அலுவலகம் வீடுகளுக்கு விநியோகம் செய்யாது. கவுண்டர் சேவைகளுக்கு இங்கே வரவும்.',
+    GO_TO_COORDINATES: 'ஆயத்தொலைவுகளுக்குச் செல்லவும்',
+    CAT_COORDINATES: 'ஆயத்தொலைவுகள்',
+    CAT_GLOBAL: 'உலகளாவிய இடங்கள்',
   }
 };
 
@@ -673,10 +657,10 @@ export type TranslationKey = keyof typeof translations.en;
 
 export const useTranslation = () => {
   const language = useMapStore(state => state.language);
-  
+
   const t = (key: TranslationKey): string => {
     return (translations[language] as any)[key] || (translations.en as any)[key] || key;
   };
-  
+
   return { t, language };
 };

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, Landmark, Shield, Activity } from 'lucide-react';
+import { Search, X, Loader2, Navigation, MapPin, ShoppingCart, Zap, Building2, Landmark, Shield, Activity, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import { trackEvent } from '../../lib/firebase';
 import { useTranslation } from '../../i18n/translations';
-import LocationResolver from './LocationResolver';
 
 const SearchBar: React.FC = () => {
   const searchQuery = useMapStore(state => state.searchQuery);
@@ -19,7 +18,6 @@ const SearchBar: React.FC = () => {
   const focusedSuggestionIndex = useMapStore(state => state.focusedSuggestionIndex);
   const setFocusedSuggestionIndex = useMapStore(state => state.setFocusedSuggestionIndex);
   const setUserTyping = useMapStore(state => state.setUserTyping);
-  const [isResolverOpen, setIsResolverOpen] = React.useState(false);
   const { t } = useTranslation();
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -74,6 +72,8 @@ const SearchBar: React.FC = () => {
     'PDS_SHOP': t('CAT_PDS'),
     'CONSTITUENCY': t('CAT_CONSTITUENCY'),
     'HEALTH_FACILITY': t('CAT_HEALTH'),
+    'COORDINATES': t('CAT_COORDINATES'),
+    'GLOBAL_PLACE': t('CAT_GLOBAL'),
     'OTHER': t('CAT_OTHER')
   };
 
@@ -133,24 +133,8 @@ const SearchBar: React.FC = () => {
             />
           )}
         </button>
-        <button 
-          className={`suggestion-action-btn ${isResolverOpen ? 'active' : ''}`}
-          onClick={() => setIsResolverOpen(!isResolverOpen)}
-          aria-label={t('LOCATION_RESOLVER')}
-          title={t('LOCATION_RESOLVER')}
-        >
-          <MapPin 
-            size={18} 
-            color={isResolverOpen ? "var(--accent)" : "var(--text-secondary)"} 
-          />
-        </button>
       </div>
       
-      <AnimatePresence>
-        {isResolverOpen && (
-          <LocationResolver onClose={() => setIsResolverOpen(false)} />
-        )}
-      </AnimatePresence>
 
       {/* Dropdown Suggestions */}
       <AnimatePresence>
@@ -211,6 +195,16 @@ const SearchBar: React.FC = () => {
                     subtitle = `${typeLabel} • ${suggestion.properties.district_n || suggestion.properties.district || ''} • ${suggestion.properties.block_name || t('SUB_LOCAL_AREA')}`;
                     Icon = Activity;
                     iconColor = '#f43f5e';
+                  } else if (suggestion.suggestionType === 'COORDINATES') {
+                    title = t('GO_TO_COORDINATES');
+                    subtitle = (suggestion.properties.name || '') as string;
+                    Icon = Navigation;
+                    iconColor = 'var(--accent)';
+                  } else if (suggestion.suggestionType === 'GLOBAL_PLACE') {
+                    title = (suggestion.properties.main_text || suggestion.properties.name || '') as string;
+                    subtitle = (suggestion.properties.secondary_text || t('CAT_GLOBAL')) as string;
+                    Icon = Globe;
+                    iconColor = '#10b981';
                   } else {
                     const name = (suggestion.properties.office_name || suggestion.properties.district || suggestion.properties.NAME || '').toString();
                     const pin = (suggestion.properties.PIN_CODE || suggestion.properties.pincode)?.toString();
