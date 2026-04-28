@@ -179,7 +179,7 @@ export const useMapStore = create<MapState>((set) => ({
   selectedHealthFacility: null,
   healthScope: 'STATE',
   healthFilters: {
-    facilityTypes: ['MCH', 'DH'],
+    facilityTypes: [],
     locationType: 'All',
     isHwc: null,
     hasDelivery: null,
