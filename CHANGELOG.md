@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-04-28
+### Added
+- **Interactive Onboarding Tutorial**: Implemented a step-by-step guided tour using `driver.js` to help new users discover core features (Service Layers, Smart Search, GPS Location).
+- **Persistent Tutorial State**: Onboarding status is persisted in `localStorage` to ensure the tour only auto-plays once per user.
+- **Help Center Integration**: Added a "Help" button in the sidebar footer to allow users to replay the tutorial at any time.
+
+### Changed
+- **Localized Guidance**: The entire tutorial experience is fully localized in both English and Tamil, including UI buttons and tooltips.
+
 ## [1.4.1] - 2026-04-28
 ### Added
 - **Secure Backend Proxy**: Migrated Google Maps Geocoding API to a Firebase Cloud Function proxy, utilizing Secret Manager to prevent API key exposure in the client bundle.

@@ -12,7 +12,8 @@ import {
   Shield,
   Scale,
   Building2,
-  Languages
+  Languages,
+  HelpCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -32,6 +33,7 @@ const Sidebar: React.FC = () => {
   const constituencyType = useMapStore(state => state.constituencyType);
   const setConstituencyType = useMapStore(state => state.setConstituencyType);
   const setLegalModal = useMapStore(state => state.setLegalModal);
+  const setIsTutorialOpen = useMapStore(state => state.setIsTutorialOpen);
 
   const { t } = useTranslation();
 
@@ -246,6 +248,14 @@ const Sidebar: React.FC = () => {
           <button className="sidebar-menu-item" onClick={() => setLegalModal(true, 'disclaimer')} aria-label={t('ABOUT_LEGAL')}>
             <Scale size={20} />
             {isSidebarOpen && <span>{t('ABOUT_LEGAL')}</span>}
+          </button>
+          <button 
+            className="sidebar-menu-item" 
+            onClick={() => setIsTutorialOpen(true)} 
+            aria-label={t('HELP')}
+          >
+            <HelpCircle size={20} color="var(--accent)" />
+            {isSidebarOpen && <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{t('HELP')}</span>}
           </button>
         </div>
       </motion.div>

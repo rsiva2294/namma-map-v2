@@ -84,8 +84,12 @@ interface MapState {
     rawInput: string;
   } | null;
   userLocation: { lat: number; lng: number } | null;
+  hasSeenTutorial: boolean;
+  isTutorialOpen: boolean;
 
   // Actions
+  setHasSeenTutorial: (val: boolean) => void;
+  setIsTutorialOpen: (val: boolean) => void;
   setSelectedLocalBodyV2: (feature: LocalBodyV2Feature | null) => void;
   setIsV2Loading: (val: boolean) => void;
   setLanguage: (lang: 'en' | 'ta') => void;
@@ -213,8 +217,15 @@ export const useMapStore = create<MapState>((set) => ({
     delivery: 'All',
     type: 'All'
   },
+  hasSeenTutorial: localStorage.getItem('nm_has_seen_tutorial') === 'true',
+  isTutorialOpen: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
+  setHasSeenTutorial: (val) => {
+    localStorage.setItem('nm_has_seen_tutorial', val.toString());
+    set({ hasSeenTutorial: val });
+  },
+  setIsTutorialOpen: (val) => set({ isTutorialOpen: val }),
   setActiveLayer: (layer) => set((state) => {
     trackEvent('layer_switch', { layer });
     return { 

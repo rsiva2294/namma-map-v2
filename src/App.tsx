@@ -23,6 +23,7 @@ import { useLocation } from 'react-router-dom';
 import { trackEvent } from './lib/firebase';
 import { APP_VERSION } from './constants';
 import { useState } from 'react';
+import TutorialGuide from './features/tutorial/TutorialGuide';
 
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -154,6 +155,7 @@ function App() {
 
   return (
     <div className={`app-container ${theme} lang-${language}`}>
+      <TutorialGuide />
       <a href="#main-content" className="skip-link">{t('SKIP_TO_RESULTS')}</a>
       <SchemaData />
       <Helmet>

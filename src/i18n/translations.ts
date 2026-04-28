@@ -330,6 +330,21 @@ export const translations = {
     GO_TO_COORDINATES: 'Go to coordinates',
     CAT_COORDINATES: 'Coordinates',
     CAT_GLOBAL: 'Global Places',
+
+    // Tutorial
+    TUTORIAL_WELCOME_TITLE: 'Welcome to NammaMap V2',
+    TUTORIAL_WELCOME_DESC: 'Your unified portal for discovering civic services in Tamil Nadu. Let\'s take a quick tour!',
+    TUTORIAL_LAYERS_TITLE: 'Service Layers',
+    TUTORIAL_LAYERS_DESC: 'Switch between different services like Post Offices, Ration Shops, Electricity Board, and Health Facilities.',
+    TUTORIAL_SEARCH_TITLE: 'Smart Search',
+    TUTORIAL_SEARCH_DESC: 'Search for anything—from a specific District to a street address or landmark.',
+    TUTORIAL_LOCATE_TITLE: 'Locate Me',
+    TUTORIAL_LOCATE_DESC: 'Instantly find services for your current location using GPS.',
+    TUTORIAL_MAP_TITLE: 'Interactive Map',
+    TUTORIAL_MAP_DESC: 'Tap anywhere on the map to discover which service office is responsible for that exact spot.',
+    TUTORIAL_LANG_TITLE: 'Language',
+    TUTORIAL_LANG_DESC: 'Switch between English and Tamil at any time.',
+    HELP: 'Help',
   },
   ta: {
     // Sidebar Labels
@@ -660,6 +675,21 @@ export const translations = {
     GO_TO_COORDINATES: 'ஆயத்தொலைவுகளுக்குச் செல்லவும்',
     CAT_COORDINATES: 'ஆயத்தொலைவுகள்',
     CAT_GLOBAL: 'உலகளாவிய இடங்கள்',
+
+    // Tutorial
+    TUTORIAL_WELCOME_TITLE: 'நம்ம மேப் V2-விற்கு வரவேற்கிறோம்',
+    TUTORIAL_WELCOME_DESC: 'தமிழகத்தின் குடிமைச் சேவைகளைக் கண்டறிய உங்கள் ஒருங்கிணைந்த தளம். ஒரு சிறிய வழிகாட்டலைப் பார்ப்போம்!',
+    TUTORIAL_LAYERS_TITLE: 'சேவை அடுக்குகள்',
+    TUTORIAL_LAYERS_DESC: 'அஞ்சல் நிலையங்கள், ரேஷன் கடைகள், மின்சார வாரியம் மற்றும் சுகாதார மையங்கள் போன்ற பல்வேறு சேவைகளுக்கு இடையே மாறவும்.',
+    TUTORIAL_SEARCH_TITLE: 'புத்திசாலித்தனமான தேடல்',
+    TUTORIAL_SEARCH_DESC: 'ஒரு குறிப்பிட்ட மாவட்டம் முதல் தெரு முகவரி அல்லது அடையாளம் வரை எதையும் தேடுங்கள்.',
+    TUTORIAL_LOCATE_TITLE: 'என்னைத் தேடு',
+    TUTORIAL_LOCATE_DESC: 'GPS-ஐப் பயன்படுத்தி உங்கள் தற்போதைய இருப்பிடத்திற்கான சேவைகளை உடனடியாகக் கண்டறியவும்.',
+    TUTORIAL_MAP_TITLE: 'ஊடாடும் வரைபடம்',
+    TUTORIAL_MAP_DESC: 'வரைபடத்தில் எங்காவது கிளிக் செய்து, அந்த இடத்திற்கு எந்தச் சேவை அலுவலகம் பொறுப்பு என்பதைக் கண்டறியவும்.',
+    TUTORIAL_LANG_TITLE: 'மொழி',
+    TUTORIAL_LANG_DESC: 'எந்த நேரத்திலும் ஆங்கிலம் மற்றும் தமிழுக்கு இடையே மாறவும்.',
+    HELP: 'உதவி',
   }
 };
 
