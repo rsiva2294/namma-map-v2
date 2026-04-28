@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { driver } from 'driver.js';
 import 'driver.js/dist/driver.css';
+import './tutorial.css';
 import { useMapStore } from '../../store/useMapStore';
 import { useTranslation } from '../../i18n/translations';
 
@@ -16,7 +17,8 @@ const TutorialGuide = () => {
       showProgress: true,
       animate: true,
       allowClose: true,
-      overlayColor: 'rgba(0, 0, 0, 0.75)',
+      popoverClass: 'driverjs-theme',
+      overlayColor: 'rgba(0, 0, 0, 0.4)',
       nextBtnText: language === 'ta' ? 'அடுத்து' : 'Next',
       prevBtnText: language === 'ta' ? 'முந்தையது' : 'Previous',
       doneBtnText: language === 'ta' ? 'முடிந்தது' : 'Done',

@@ -1,0 +1,116 @@
+/* Custom Driver.js Styling to match NammaMap V2 Aesthetic */
+
+.driver-popover.driverjs-theme {
+  background-color: var(--bg-card) !important;
+  backdrop-filter: blur(var(--blur-heavy)) !important;
+  -webkit-backdrop-filter: blur(var(--blur-heavy)) !important;
+  border: 1px solid var(--border-glass) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: var(--shadow-std) !important;
+  color: var(--text-primary) !important;
+  max-width: 320px !important;
+}
+
+/* Arrow styling */
+.driver-popover.driverjs-theme .driver-popover-arrow {
+  border-color: var(--bg-card) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: var(--text-secondary) !important;
+  margin-bottom: 20px !important;
+}
+
+/* Progress indicator */
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+/* Navigation Buttons */
+.driver-popover.driverjs-theme .driver-popover-navigation-btns {
+  margin-top: 20px !important;
+  gap: 8px !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn,
+.driver-popover.driverjs-theme .driver-popover-prev-btn,
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  text-shadow: none !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn {
+  background-color: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-prev-btn {
+  background-color: transparent !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-glass) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-prev-btn:hover {
+  background-color: var(--border-glass) !important;
+}
+
+/* Close button */
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: var(--text-secondary) !important;
+  padding: 4px !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Overlay Styling */
+.driver-overlay {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Highlighted Element Styling */
+.driver-highlighted-element {
+  box-shadow: 0 0 0 4px var(--accent), 0 0 20px rgba(14, 165, 233, 0.4) !important;
+  transition: all 0.3s ease !important;
+  animation: driver-pulse 2s infinite !important;
+}
+
+@keyframes driver-pulse {
+  0% {
+    box-shadow: 0 0 0 0px var(--accent), 0 0 0px rgba(14, 165, 233, 0);
+  }
+  70% {
+    box-shadow: 0 0 0 6px var(--accent), 0 0 20px rgba(14, 165, 233, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0px var(--accent), 0 0 0px rgba(14, 165, 233, 0);
+  }
+}
