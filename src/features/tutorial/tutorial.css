@@ -10,6 +10,7 @@
   box-shadow: var(--shadow-std) !important;
   color: var(--text-primary) !important;
   max-width: 320px !important;
+  z-index: 1000000002 !important;
 }
 
 /* Arrow styling */
@@ -92,15 +93,18 @@
 
 /* Overlay Styling */
 .driver-overlay {
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  backdrop-filter: blur(4px) !important;
+  background-color: rgba(0, 0, 0, 0.65) !important;
+  opacity: 1 !important;
 }
 
 /* Highlighted Element Styling */
-.driver-highlighted-element {
+.driver-active-element {
   box-shadow: 0 0 0 4px var(--accent), 0 0 20px rgba(14, 165, 233, 0.4) !important;
   transition: all 0.3s ease !important;
   animation: driver-pulse 2s infinite !important;
+  z-index: 1000000001 !important;
+  position: relative !important;
+  isolation: isolate !important;
 }
 
 @keyframes driver-pulse {
