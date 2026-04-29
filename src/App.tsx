@@ -20,11 +20,12 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 import MapSkeleton from './components/layout/MapSkeleton';
 import SchemaData from './components/SchemaData';
 import { useLocation } from 'react-router-dom';
+import NetworkErrorOverlay from './components/NetworkErrorOverlay';
 import { trackEvent } from './lib/firebase';
 import { APP_VERSION } from './constants';
 import { useState } from 'react';
 import TutorialGuide from './features/tutorial/TutorialGuide';
-import { getLayerSlug } from './utils/routeUtils';
+import { getLayerSlug, getLayerName, getLayerDescription } from './utils/routeUtils';
 
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -112,11 +113,7 @@ function App() {
 
   // Dynamic SEO Meta Tags
   const getPageTitle = () => {
-    const layerName = activeLayer === 'PINCODE' ? 'Post Offices' : 
-                     activeLayer === 'PDS' ? 'Ration Shops' :
-                     activeLayer === 'TNEB' ? 'Electricity Board (TNEB)' :
-                     activeLayer === 'HEALTH' ? 'Health Facilities' :
-                     activeLayer === 'POLICE' ? 'Police Stations' : 'Constituencies';
+    const layerName = getLayerName(activeLayer);
     
     if (searchResult) {
       const locationName = searchResult.properties.office_name || 
@@ -133,7 +130,11 @@ function App() {
     return `NammaMap | Tamil Nadu ${layerName} Locator`;
   };
 
-
+  const getPageUrl = () => {
+    const layerSlug = getLayerSlug(activeLayer);
+    const districtPart = activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : '';
+    return `https://namma-map.web.app/${layerSlug}${districtPart}`;
+  };
 
   useEffect(() => {
     if (theme === 'light') {
@@ -154,30 +155,36 @@ function App() {
     }
   }, [activeLayer, healthScope, healthFilters, activeDistrict, searchResult, filterHealth]);
 
+  const pageTitle = getPageTitle();
+  const pageUrl = getPageUrl();
+  const layerName = getLayerName(activeLayer);
+  const layerDesc = getLayerDescription(activeLayer);
+
   return (
     <div className={`app-container ${theme} lang-${language}`}>
       <TutorialGuide />
       <a href="#main-content" className="skip-link">{t('SKIP_TO_RESULTS')}</a>
       <SchemaData />
       <Helmet>
-        <title>{getPageTitle()}</title>
-        <meta name="description" content={`Find ${getLayerSlug(activeLayer)} services, police jurisdictions, and civic infrastructure across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping and global search.`} />
-        <link rel="canonical" href={`https://namma-map.web.app/${getLayerSlug(activeLayer)}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={`Find ${layerDesc} across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping and global search.`} />
+        <link rel="canonical" href={pageUrl} />
         
         {/* OpenGraph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://namma-map.web.app/" />
-        <meta property="og:title" content={getPageTitle()} />
-        <meta property="og:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${activeLayer.toLowerCase()}, police stations, constituencies, and local bodies instantly.`} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${layerName}, police stations, constituencies, and local bodies instantly.`} />
         <meta property="og:image" content="https://namma-map.web.app/branding/og-image.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://namma-map.web.app/" />
-        <meta property="twitter:title" content={getPageTitle()} />
-        <meta property="twitter:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${activeLayer.toLowerCase()}, police stations, constituencies, and local bodies instantly.`} />
+        <meta property="twitter:url" content={pageUrl} />
+        <meta property="twitter:title" content={pageTitle} />
+        <meta property="twitter:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${layerName}, police stations, constituencies, and local bodies instantly.`} />
         <meta property="twitter:image" content="https://namma-map.web.app/branding/og-image.png" />
       </Helmet>
+
 
       <Routes>
         <Route path="/:layer/:district?" element={<RouteManager />} />
@@ -194,6 +201,7 @@ function App() {
         </ErrorBoundary>
 
         <SearchBar />
+        <NetworkErrorOverlay />
         <LocatingOverlay />
         <HealthAreaPrompt />
         <ResultContainer />

@@ -417,7 +417,7 @@ const GisMap: React.FC = () => {
 
       return (
         <Marker
-          key={`health-marker-${f.id || i}`}
+          key={`health-marker-${f.properties.nin_number || f.id || i}`}
           position={[lat, lng]}
           icon={healthPriorityIcon(f.properties.facility_t)}
           eventHandlers={{
@@ -461,7 +461,7 @@ const GisMap: React.FC = () => {
       
       return (
         <Marker
-          key={`police-marker-${f.properties.ps_code || i}`}
+          key={`police-marker-${f.properties.ps_code || f.id || i}`}
           position={[lat, lng]}
           icon={policeDotIcon}
           eventHandlers={{
@@ -552,7 +552,7 @@ const GisMap: React.FC = () => {
         .filter(po => !po.isOutlier)
         .map((po, i) => (
         <Marker
-          key={`po-${po.pincode}-${i}`}
+          key={`po-${po.pincode}-${po.officename}-${i}`}
           position={[parseFloat(po.latitude as string), parseFloat(po.longitude as string)]}
           icon={getPostOfficeIcon(po.officetype, po.delivery)}
           eventHandlers={{

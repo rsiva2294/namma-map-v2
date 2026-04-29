@@ -221,7 +221,7 @@ const SearchBar: React.FC = () => {
                   
                   return (
                     <li
-                      key={globalIdx}
+                      key={`suggestion-${suggestion.properties.place_id || suggestion.properties.ps_code || suggestion.properties.shop_code || suggestion.properties.nin_number || globalIdx}`}
                       className={`suggestion-item ${isFocused ? 'focused' : ''}`}
                       role="option"
                       aria-selected={isFocused}

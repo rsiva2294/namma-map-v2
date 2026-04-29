@@ -253,6 +253,9 @@ export const translations = {
     FIND_FACILITIES_NEAR_ME: 'Find Facilities Near Me',
     DELIVERY_POINTS: 'Delivery Points',
     DIALYSIS_UNITS: 'Dialysis Units',
+    NETWORK_ERROR_TITLE: 'Network Connection Lost',
+    NETWORK_ERROR_DESC: 'We are having trouble connecting to our data servers. Please check your internet connection.',
+    RETRY: 'RETRY',
 
     // Health Assistant & Filters
     HEALTH_ASSISTANT: 'Health Assistant',
@@ -598,6 +601,9 @@ export const translations = {
     FIND_FACILITIES_NEAR_ME: 'எனக்கு அருகிலுள்ள வசதிகளைக் கண்டறியவும்',
     DELIVERY_POINTS: 'மகப்பேறு மையங்கள்',
     DIALYSIS_UNITS: 'டயாலிசிஸ் அலகுகள்',
+    NETWORK_ERROR_TITLE: 'இணைய இணைப்பு துண்டிக்கப்பட்டது',
+    NETWORK_ERROR_DESC: 'எங்கள் தரவு சேவையகங்களுடன் இணைப்பதில் சிக்கல் உள்ளது. உங்கள் இணைய இணைப்பைச் சரிபார்க்கவும்.',
+    RETRY: 'மீண்டும் முயற்சி செய்',
     HIDE: 'மறை',
 
     // Health Assistant & Filters

@@ -306,7 +306,7 @@ const ResultContainer: React.FC = () => {
               </div>
               {outlierOffices.map((off, idx) => (
                 <ResultCard
-                  key={`outlier-${idx}`}
+                  key={`outlier-${off.officename}-${idx}`}
                   themeColor="slate"
                   title={off.officename}
                   icon={<MapPin size={18} />}

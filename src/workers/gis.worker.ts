@@ -124,7 +124,13 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<a
   for (let i = 0; i < retries; i++) {
     try {
       const response = await fetch(url);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      if (!response.ok) {
+        // If it's a 404, don't retry, it's likely a missing district file
+        if (response.status === 404) {
+          throw new Error(`FILE_NOT_FOUND: ${url}`);
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
 
       // 3. Update Cache
@@ -142,12 +148,12 @@ async function fetchWithRetry(url: string, retries = 3, delay = 1000): Promise<a
 
       return data;
     } catch (e) {
-      if (i === retries - 1) throw e;
+      if (i === retries - 1 || (e instanceof Error && e.message.startsWith('FILE_NOT_FOUND'))) throw e;
       console.warn(`[Worker] Fetch failed for ${url}, retrying (${i + 1}/${retries})...`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
-  throw new Error('Fetch failed after retries');
+  throw new Error('NETWORK_FAILURE');
 }
 
 /**
@@ -486,6 +492,7 @@ const pcIndex = new RBush<SpatialItem>();
 const policeBoundariesIndex = new RBush<SpatialItem>();
 const policeStationsIndex = new RBush<SpatialItem>();
 const pdsIndexes = new Map<string, RBush<SpatialItem>>();
+const pdsStatewideIndex = new RBush<SpatialItem>();
 
 const localBodyIndexes = {
   CORPORATION: new RBush<SpatialItem>(),
@@ -764,6 +771,24 @@ self.onmessage = async (e: MessageEvent) => {
       try {
         if (!pdsIndex) pdsIndex = await fetchWithRetry('/data/pds_index.json');
         if (!pdsManifest) pdsManifest = await fetchWithRetry('/data/pds_manifest.json');
+
+        // Build statewide spatial index for PDS shops
+        if (pdsIndex && pdsStatewideIndex.all().length === 0) {
+          const items: SpatialItem[] = pdsIndex.map(shop => ({
+            minX: shop[5], minY: shop[4], maxX: shop[5], maxY: shop[4],
+            feature: {
+              type: 'Feature',
+              geometry: { type: 'Point', coordinates: [shop[5], shop[4]] },
+              properties: {
+                shop_code: shop[0],
+                name: shop[1],
+                taluk: shop[2],
+                district: shop[3]
+              }
+            } as GisFeature
+          }));
+          pdsStatewideIndex.load(items);
+        }
 
         self.postMessage({ type: 'PDS_INDEX_LOADED' });
       } catch (err: unknown) {
@@ -1771,30 +1796,40 @@ async function fetchGoogleGeocode(query: string): Promise<any[]> {
 
         // 4. Search PDS Shops from Index
         if (activeLayer === 'PDS' && pdsIndex) {
-          pdsIndex.forEach(shop => {
-            const shopCode = shop[0].toString();
-            const name = shop[1].toString();
-            const taluk = shop[2].toString();
-            const nameScore = getScore(name, q);
-            const codeScore = shopCode.includes(q) ? 85 : 0;
-            const talukScore = getScore(taluk, q) * 0.6;
-            const finalScore = Math.max(nameScore, codeScore, talukScore);
-            if (finalScore > 0) {
-              allScored.push({
-                type: 'Feature' as const,
-                geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
-                properties: {
-                  shop_code: shop[0],
-                  name: shop[1],
-                  taluk: shop[2],
-                  district: shop[3],
-                  office_location: [shop[5], shop[4]] as [number, number]
-                },
-                score: finalScore,
-                suggestionType: 'PDS_SHOP' as const
-              } as ScoredSuggestion);
-            }
-          });
+          // Optimization: If query is short, don't scan all 30k shops
+          // Unless it's a numeric shop code
+          const isNumeric = /^\d+$/.test(q);
+          const minLen = isNumeric ? 3 : 4;
+          
+          if (q.length >= minLen) {
+            pdsIndex.forEach(shop => {
+              const shopCode = shop[0].toString();
+              const name = shop[1].toString();
+              
+              // Shop codes are high priority
+              if (isNumeric && shopCode.startsWith(q)) {
+                allScored.push({
+                  type: 'Feature' as const,
+                  geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
+                  properties: { shop_code: shop[0], name: shop[1], taluk: shop[2], district: shop[3], office_location: [shop[5], shop[4]] as [number, number] },
+                  score: 95,
+                  suggestionType: 'PDS_SHOP' as const
+                } as ScoredSuggestion);
+                return;
+              }
+
+              const nameScore = getScore(name, q);
+              if (nameScore > 0) {
+                allScored.push({
+                  type: 'Feature' as const,
+                  geometry: { type: 'Point' as const, coordinates: [shop[5], shop[4]] },
+                  properties: { shop_code: shop[0], name: shop[1], taluk: shop[2], district: shop[3], office_location: [shop[5], shop[4]] as [number, number] },
+                  score: nameScore,
+                  suggestionType: 'PDS_SHOP' as const
+                } as ScoredSuggestion);
+              }
+            });
+          }
         }
 
         // 5. Search Constituencies

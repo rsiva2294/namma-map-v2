@@ -86,6 +86,7 @@ interface MapState {
   userLocation: { lat: number; lng: number } | null;
   hasSeenTutorial: boolean;
   isTutorialOpen: boolean;
+  hasNetworkError: boolean;
 
   // Actions
   setHasSeenTutorial: (val: boolean) => void;
@@ -138,6 +139,7 @@ interface MapState {
   setHealthSummary: (summary: HealthSummary | null) => void;
   setIsHealthLoading: (loading: boolean) => void;
   setPostalFilters: (filters: Partial<MapState['postalFilters']>) => void;
+  setHasNetworkError: (val: boolean) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -219,6 +221,7 @@ export const useMapStore = create<MapState>((set) => ({
   },
   hasSeenTutorial: localStorage.getItem('nm_has_seen_tutorial') === 'true',
   isTutorialOpen: false,
+  hasNetworkError: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setHasSeenTutorial: (val) => {
@@ -384,5 +387,6 @@ export const useMapStore = create<MapState>((set) => ({
     set({ language: lang });
   },
   setGlobalLocation: (location) => set({ globalLocation: location }),
-  setUserLocation: (location) => set({ userLocation: location })
+  setUserLocation: (location) => set({ userLocation: location }),
+  setHasNetworkError: (val) => set({ hasNetworkError: val })
 }));

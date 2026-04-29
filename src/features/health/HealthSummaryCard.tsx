@@ -251,7 +251,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {displayActiveFilters.map((filter, i) => (
-                <div key={filter || i} style={{ 
+                <div key={`health-filter-${filter || i}`} style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
                   gap: '4px', 

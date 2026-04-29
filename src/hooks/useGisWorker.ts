@@ -268,8 +268,14 @@ export const useGisWorker = () => {
           break;
         case 'ERROR':
           console.error('[Worker Error]', payload);
-          Sentry.captureException(new Error(`GIS Worker Error: ${payload}`));
+          if (payload === 'NETWORK_FAILURE') {
+            useMapStore.getState().setHasNetworkError(true);
+          } else {
+            Sentry.captureException(new Error(`GIS Worker Error: ${payload}`));
+          }
           setIsResolving(false);
+          setIsHealthLoading(false);
+          setIsV2Loading(false);
           break;
       }
     };
