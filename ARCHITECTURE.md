@@ -8,18 +8,34 @@ NammaMap V2 is designed for high-performance GIS rendering in the browser, focus
 graph TD
     UI[React UI - App.tsx] <--> Store[Zustand Store]
     UI <--> Hook[useGisWorker Hook]
-    Hook <--> Worker[Web Worker - gis.worker.ts]
-    Worker <--> Cache[IndexedDB - Cache Service]
+    Hook <--> Dispatcher[Worker Dispatcher - gis.worker.ts]
+    
+    subgraph GIS Worker [src/workers/gis/]
+        Dispatcher <--> State[state.ts - GeoJSON Indices]
+        Dispatcher <--> Resolvers[resolvers.ts - Point-in-Polygon]
+        Dispatcher <--> Search[search.ts - Suggestion Engine]
+        Dispatcher <--> Utils[utils.ts - Spatial Helpers]
+        Dispatcher <--> DB[db.ts - IndexedDB Cache]
+    end
+
+    DB <--> Cache[IndexedDB - gis-data]
     Cache <--> Data[Remote TopoJSON Datasets]
-    Worker -.-> Cloud[Firebase Cloud Function]
+    Search -.-> Cloud[Firebase Cloud Function]
     Cloud -.-> Google[Google Geocoding API]
     UI <--> Version[version.json Polling]
 ```
 
 ### 1. The GIS Worker (Background Engine)
-To prevent UI jank, all heavy lifting happens in `gis.worker.ts`.
+To prevent UI jank, all heavy lifting happens in the background. The worker was recently modularized for better maintainability:
+
+*   **Modular Architecture**: Located in `src/workers/gis/`, the engine is decoupled into specialized modules:
+    *   `state.ts`: Centralizes shared GeoJSON data and `RBush` spatial indices.
+    *   `resolvers.ts`: Handles coordinate-to-boundary resolution (Pincodes, Local Bodies, Constituencies).
+    *   `search.ts`: Orchestrates the recommendation engine for the global search bar.
+    *   `db.ts`: Manages the low-level IndexedDB transactions and retry logic.
+    *   `utils.ts`: Contains pure spatial helpers and normalization logic.
 *   **Spatial Indexing**: Uses `RBush` for high-speed spatial searches (O(log n)) instead of linear scans.
-*   **Caching Layer**: Implements a 24-hour IndexedDB cache via `cacheService.ts`. All remote data fetches are persisted locally to ensure sub-second loads on subsequent visits.
+*   **Caching Layer**: Implements a 24-hour IndexedDB cache (store name: `gis-data`). All remote data fetches are persisted locally to ensure sub-second loads on subsequent visits.
 *   **Property Thinning**: Automatically strips unnecessary metadata from GeoJSON features before sending them to the main thread, reducing message serialization overhead.
 *   **Global Geocoding Fallback**: If local civic data indexes fail to match a search query, the worker triggers an external fetch to a Firebase Cloud Function proxy, securely resolving coordinates via the Google Maps Geocoding API.
 
