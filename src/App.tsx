@@ -1,6 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import './index.css';
 import { useMapStore } from './store/useMapStore';
 import Sidebar from './components/layout/Sidebar';
@@ -14,18 +13,15 @@ import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
 import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
 import LocatingOverlay from './components/LocatingOverlay';
 import { useGisWorker } from './hooks/useGisWorker';
-import UpdateNotification from './components/UpdateNotification';
+import TutorialGuide from './features/tutorial/TutorialGuide';
+import SEO from './components/layout/SEO';
+import PWAUpdater from './components/PWAUpdater';
 import { RouteManager } from './components/routing/RouteManager';
-import { useRegisterSW } from 'virtual:pwa-register/react';
 import MapSkeleton from './components/layout/MapSkeleton';
 import SchemaData from './components/SchemaData';
 import { useLocation } from 'react-router-dom';
 import NetworkErrorOverlay from './components/NetworkErrorOverlay';
 import { trackEvent } from './lib/firebase';
-import { APP_VERSION } from './constants';
-import { useState } from 'react';
-import TutorialGuide from './features/tutorial/TutorialGuide';
-import { getLayerSlug, getLayerName, getLayerDescription } from './utils/routeUtils';
 
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -40,9 +36,6 @@ function App() {
   const language = useMapStore(state => state.language);
   const { filterHealth } = useGisWorker();
   const location = useLocation();
-  const [isUpdating, setIsUpdating] = useState(false);
-  const [availableVersion, setAvailableVersion] = useState<string | undefined>(undefined);
-  const [dismissedVersion, setDismissedVersion] = useState<string | null>(null);
 
   // Track Page Views
   useEffect(() => {
@@ -53,97 +46,7 @@ function App() {
     });
   }, [location, activeLayer, activeDistrict]);
 
-  const {
-    needRefresh: [needRefresh, setNeedRefresh],
-    updateServiceWorker,
-  } = useRegisterSW({
-    onRegistered(r) {
-      // Check for updates every 15 minutes
-      if (r) {
-        setInterval(() => {
-          r.update();
-        }, 15 * 60 * 1000);
-      }
-    },
-    onNeedRefresh() {
-      // When PWA detects update, try to get the version from version.json
-      fetch('/version.json', { cache: 'no-cache' })
-        .then(res => res.json())
-        .then(data => setAvailableVersion(data.version))
-        .catch(() => setAvailableVersion(undefined));
-    }
-  });
-
-  const handleUpdate = async () => {
-    setIsUpdating(true);
-    // Give the UI time to show the "Updating" state
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // In dev mode or if SW is not ready, updateServiceWorker(true) might not reload.
-    // We force a reload here to ensure the user sees the 'updated' state.
-    updateServiceWorker(true);
-    
-    // Fallback reload if SW doesn't trigger it
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
-  };
-
-  // Proactive version polling
-  useEffect(() => {
-    const checkVersion = async () => {
-      try {
-        const res = await fetch('/version.json', { cache: 'no-cache' });
-        const data = await res.json();
-        if (data.version && data.version !== APP_VERSION && data.version !== dismissedVersion) {
-          console.log('[VersionControl] New version detected:', data.version);
-          setAvailableVersion(data.version);
-          setNeedRefresh(true);
-        }
-      } catch (err) {
-        console.error('[VersionControl] Failed to poll version:', err);
-      }
-    };
-
-    const interval = setInterval(checkVersion, 5 * 60 * 1000); // Check every 5 mins
-    checkVersion(); // Initial check
-
-    return () => clearInterval(interval);
-  }, [setNeedRefresh]);
-
   // Dynamic SEO Meta Tags
-  const getPageTitle = () => {
-    const layerName = getLayerName(activeLayer);
-    
-    if (searchResult) {
-      const locationName = searchResult.properties.office_name || 
-                          searchResult.properties.district || 
-                          searchResult.properties.NAME || 
-                          (searchResult.properties.pin_code || searchResult.properties.PIN_CODE);
-      return `${layerName} in ${locationName} | NammaMap`;
-    }
-
-    if (activeDistrict) {
-      return `${layerName} in ${activeDistrict} District | NammaMap`;
-    }
-    
-    return `NammaMap | Tamil Nadu ${layerName} Locator`;
-  };
-
-  const getPageUrl = () => {
-    const layerSlug = getLayerSlug(activeLayer);
-    const districtPart = activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : '';
-    return `https://namma-map.web.app/${layerSlug}${districtPart}`;
-  };
-
-  useEffect(() => {
-    if (theme === 'light') {
-      document.body.classList.add('light-mode');
-    } else {
-      document.body.classList.remove('light-mode');
-    }
-  }, [theme]);
-
   const healthScope = useMapStore(state => state.healthScope);
   const healthFilters = useMapStore(state => state.healthFilters);
 
@@ -155,35 +58,17 @@ function App() {
     }
   }, [activeLayer, healthScope, healthFilters, activeDistrict, searchResult, filterHealth]);
 
-  const pageTitle = getPageTitle();
-  const pageUrl = getPageUrl();
-  const layerName = getLayerName(activeLayer);
-  const layerDesc = getLayerDescription(activeLayer);
+  // Sync theme with body class
+  useEffect(() => {
+    document.body.className = `${theme}-mode`;
+  }, [theme]);
 
   return (
-    <div className={`app-container ${theme} lang-${language}`}>
+    <div className={`app-container ${theme}-mode lang-${language}`}>
       <TutorialGuide />
       <a href="#main-content" className="skip-link">{t('SKIP_TO_RESULTS')}</a>
       <SchemaData />
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={`Find ${layerDesc} across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping and global search.`} />
-        <link rel="canonical" href={pageUrl} />
-        
-        {/* OpenGraph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${layerName}, police stations, constituencies, and local bodies instantly.`} />
-        <meta property="og:image" content="https://namma-map.web.app/branding/og-image.png" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={pageUrl} />
-        <meta property="twitter:title" content={pageTitle} />
-        <meta property="twitter:description" content={`Explore Tamil Nadu's civic infrastructure with NammaMap. Find ${layerName}, police stations, constituencies, and local bodies instantly.`} />
-        <meta property="twitter:image" content="https://namma-map.web.app/branding/og-image.png" />
-      </Helmet>
+      <SEO />
 
 
       <Routes>
@@ -218,19 +103,7 @@ function App() {
           </div>
         )}
 
-        <UpdateNotification 
-          show={needRefresh} 
-          isUpdating={isUpdating}
-          currentVersion={APP_VERSION}
-          availableVersion={availableVersion}
-          onRefresh={handleUpdate} 
-          onClose={() => {
-            if (availableVersion) {
-              setDismissedVersion(availableVersion);
-            }
-            setNeedRefresh(false);
-          }}
-        />
+        <PWAUpdater />
       </main>
     </div>
   );

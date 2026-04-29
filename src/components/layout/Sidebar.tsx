@@ -130,7 +130,7 @@ const Sidebar: React.FC = () => {
           <React.Fragment key={category.label}>
             <div className="sidebar-section-label">{category.label}</div>
             {category.items.map((item) => (
-              <React.Fragment key={item.id}>
+              <React.Fragment key={`sidebar-item-${item.id}`}>
                 <Link
                   to={`/${getLayerSlug(item.id)}${activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : ''}`}
                   className={`sidebar-menu-item ${activeLayer === item.id ? 'active' : ''}`}
@@ -166,26 +166,33 @@ const Sidebar: React.FC = () => {
                   <AnimatePresence>
                     {activeLayer === 'CONSTITUENCY' && isSidebarOpen && (
                       <motion.div 
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
+                        key="constituency-sub-tabs"
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
                         className="sidebar-sub-tabs"
-                        style={{ overflow: 'hidden', padding: '0 12px 12px 12px' }}
+                        style={{ 
+                          padding: '0 12px 12px 12px',
+                          position: 'relative',
+                          zIndex: 10
+                        }}
                       >
                         <div className="tab-group" style={{ 
                           display: 'flex', 
                           background: theme === 'dark' ? '#1e293b' : '#f1f5f9',
                           borderRadius: '8px',
                           padding: '4px',
-                          gap: '4px'
+                          gap: '4px',
+                          boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.05)'
                         }}>
                           <button 
+                            key="ac-btn"
                             onClick={() => setConstituencyType('AC')}
                             style={{
                               flex: 1,
-                              padding: '6px 0',
+                              padding: '8px 0',
                               fontSize: '0.75rem',
-                              fontWeight: 600,
+                              fontWeight: 700,
                               borderRadius: '6px',
                               border: 'none',
                               cursor: 'pointer',
@@ -198,12 +205,13 @@ const Sidebar: React.FC = () => {
                             {t('ASSEMBLY')}
                           </button>
                           <button 
+                            key="pc-btn"
                             onClick={() => setConstituencyType('PC')}
                             style={{
                               flex: 1,
-                              padding: '6px 0',
+                              padding: '8px 0',
                               fontSize: '0.75rem',
-                              fontWeight: 600,
+                              fontWeight: 700,
                               borderRadius: '6px',
                               border: 'none',
                               cursor: 'pointer',
