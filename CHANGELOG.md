@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.2] - 2026-04-30
+### Added
+- **Quick Navigation**: Added a dedicated directions shortcut icon to the header of marker cards on mobile, allowing users to start navigation with a single tap.
+
+### Changed
+- **Header Layout Optimization**: Rearranged mobile header icons by priority (Directions > Info > Minimize > Close) and increased spacing to 12px for better readability and touch-friendliness.
+- **Visual Semantics**: Replaced the "Report Issue" icon with a descriptive "Info" (ⓘ) icon to more accurately reflect user expectations for discovering facility details.
+
 ## [1.6.1] - 2026-04-30
 ### Fixed
 - **Mobile Result Card Layout**: Resolved a critical visibility issue where the "GET DIRECTIONS" button was clipped on mobile screens by implementing a fixed-footer layout and refined flexbox shrinking.

@@ -7,6 +7,7 @@
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --accent: #0ea5e9;
+  --accent-rgb: 14, 165, 233;
   --accent-hover: #38bdf8;
   --danger: #ef4444;
 
@@ -50,6 +51,7 @@ body.light-mode {
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --accent: #0284c7;
+  --accent-rgb: 2, 132, 199;
   --accent-hover: #0369a1;
   --shadow-std: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   color-scheme: light;
@@ -769,6 +771,12 @@ html,
   gap: 8px;
 }
 
+@media (max-width: 768px) {
+  .result-card-header-actions {
+    gap: 12px;
+  }
+}
+
 .result-card-header-btn {
   background: none;
   border: none;
@@ -788,6 +796,16 @@ html,
 .result-card-header-btn.close:hover {
   color: var(--danger);
   background: rgba(239, 68, 68, 0.1);
+}
+
+.result-card-header-btn.directions-quick-btn {
+  background: rgba(var(--accent-rgb, 14, 165, 233), 0.1);
+  border: 1px solid rgba(var(--accent-rgb, 14, 165, 233), 0.2);
+}
+
+.result-card-header-btn.directions-quick-btn:hover {
+  background: rgba(var(--accent-rgb, 14, 165, 233), 0.2);
+  transform: scale(1.05);
 }
 
 .result-card-body {

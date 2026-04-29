@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Copy, MapPin, AlertCircle, Send, ChevronDown } from 'lucide-react';
+import { X, Copy, MapPin, Send, ChevronDown, Navigation, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n/translations';
 
@@ -94,6 +94,17 @@ const ResultCard: React.FC<ResultCardProps> = ({
           <h3 className="result-card-title">{title}</h3>
         </div>
         <div className="result-card-header-actions">
+          {isMobile && (onDirections || onAction) && (
+            <button
+              onClick={handleDirections}
+              className="result-card-header-btn directions-quick-btn"
+              aria-label={t('DIRECTIONS')}
+              style={{ color: colors.button }}
+              title={t('DIRECTIONS')}
+            >
+              <Navigation size={18} />
+            </button>
+          )}
           {onReport && (
             <button
               onClick={onReport}
@@ -101,7 +112,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
               aria-label={t('REPORT_ISSUE')}
               title={t('REPORT_ISSUE')}
             >
-              <AlertCircle size={18} />
+              <Info size={18} />
             </button>
           )}
           {onMinimize && isMobile && (
