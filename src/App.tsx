@@ -12,8 +12,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
 import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
 import LocatingOverlay from './components/LocatingOverlay';
-import { useGisWorker } from './hooks/useGisWorker';
-import TutorialGuide from './features/tutorial/TutorialGuide';
+import TutorialGuide from './features/tutorial/TutorialGuide';
 import SEO from './components/layout/SEO';
 import PWAUpdater from './components/PWAUpdater';
 import { RouteManager } from './components/routing/RouteManager';
@@ -33,10 +32,8 @@ function App() {
   const activeLayer = useMapStore(state => state.activeLayer);
   const setHealthFilters = useMapStore(state => state.setHealthFilters);
   const activeDistrict = useMapStore(state => state.activeDistrict);
-  const searchResult = useMapStore(state => state.searchResult);
-  const language = useMapStore(state => state.language);
-  const { filterHealth } = useGisWorker();
-  const location = useLocation();
+  const language = useMapStore(state => state.language);
+  const location = useLocation();
 
   // Track Page Views
   useEffect(() => {
@@ -47,17 +44,10 @@ function App() {
     });
   }, [location, activeLayer, activeDistrict]);
 
-  // Dynamic SEO Meta Tags
-  const healthScope = useMapStore(state => state.healthScope);
-  const healthFilters = useMapStore(state => state.healthFilters);
 
-  useEffect(() => {
-    if (activeLayer === 'HEALTH') {
-      const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode || searchResult?.properties?.pin_code)?.toString();
-      console.log('[App] Refreshing health filters:', { healthScope, activeDistrict, pincode });
-      filterHealth(healthScope, healthFilters, activeDistrict, pincode || null);
-    }
-  }, [activeLayer, healthScope, healthFilters, activeDistrict, searchResult, filterHealth]);
+
+
+
 
   // Sync theme with body class
   useEffect(() => {

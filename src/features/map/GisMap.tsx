@@ -19,7 +19,8 @@ const MapController: React.FC<{
   geometry: Geometry | null;
   policeResolution: PoliceResolutionResult | null;
   selectedLocalBodyV2: LocalBodyV2Feature | null;
-}> = ({ result, geometry, policeResolution, selectedLocalBodyV2 }) => {
+  selectedHealthFacility: HealthFacility | null;
+}> = ({ result, geometry, policeResolution, selectedLocalBodyV2, selectedHealthFacility }) => {
   const map = useMap();
   const { isSidebarOpen, activeDistrict, districtsData } = useMapStore();
 
@@ -93,6 +94,18 @@ const MapController: React.FC<{
       } catch (e) {
         console.warn('Could not fly to bounds for geometry', e);
       }
+    } else if (selectedHealthFacility && selectedHealthFacility.geometry) {
+      try {
+        const [lng, lat] = selectedHealthFacility.geometry.coordinates;
+        // Only fly to if we aren't already centered on it (approx)
+        const center = map.getCenter();
+        const dist = Math.sqrt(Math.pow(center.lat - lat, 2) + Math.pow(center.lng - lng, 2));
+        if (dist > 0.001 || map.getZoom() < 14) {
+          map.flyTo([lat, lng], 15, { duration: 0.8 });
+        }
+      } catch (e) {
+        console.warn('Could not fly to health facility', e);
+      }
     } else if (activeDistrict && districtsData) {
       // Zoom to district if no specific result is selected
       const districtFeature = districtsData.features.find(f => {
@@ -115,7 +128,7 @@ const MapController: React.FC<{
         }
       }
     }
-  }, [result, geometry, map, isSidebarOpen, policeResolution, activeDistrict, districtsData]);
+  }, [result, geometry, map, isSidebarOpen, policeResolution, activeDistrict, districtsData, selectedHealthFacility, selectedLocalBodyV2]);
   return null;
 };
 
@@ -793,7 +806,13 @@ const GisMap: React.FC = () => {
         </Marker>
       )}
 
-      <MapController result={searchResult} geometry={jurisdictionGeometry} policeResolution={policeResolution} selectedLocalBodyV2={selectedLocalBodyV2} />
+      <MapController 
+        result={searchResult} 
+        geometry={jurisdictionGeometry} 
+        policeResolution={policeResolution} 
+        selectedLocalBodyV2={selectedLocalBodyV2} 
+        selectedHealthFacility={selectedHealthFacility}
+      />
 
       {/* Safety check for district data */}
       {activeLayer === 'HEALTH' && isHealthLoading && (

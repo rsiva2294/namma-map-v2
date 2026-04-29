@@ -880,7 +880,7 @@ self.onmessage = async (e: MessageEvent) => {
           // 1. Mandatory Filters (AND)
 
           // Facility Type
-          if (filters.facilityTypes.length > 0 && !filters.facilityTypes.includes(p.facility_t)) return false;
+          if (!filters.facilityTypes.includes(p.facility_t)) return false;
 
           // Location Type
           if (filters.locationType === 'Urban' && p.location_t !== 'Urban') return false;

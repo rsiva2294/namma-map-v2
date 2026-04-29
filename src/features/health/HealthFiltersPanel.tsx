@@ -123,7 +123,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           {label}
         </span>
       </div>
-      {expandedGroups.has(id) ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+      {expandedGroups.has(id) ? <ChevronDown size={16} style={{ color: '#f59e0b' }} /> : <ChevronRight size={14} />}
     </button>
   );
 
@@ -167,7 +167,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               color: '#f59e0b'
             }}
           >
-            {isMinimized ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
+            {isMinimized ? <ChevronDown size={18} style={{ color: '#f59e0b' }} /> : <ChevronUp size={18} style={{ color: '#f59e0b' }} />}
             <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
               {isMinimized ? t('EXPAND_FILTERS') || 'Expand Filters' : t('MINIMIZE_FILTERS') || 'Minimize Filters'}
             </span>

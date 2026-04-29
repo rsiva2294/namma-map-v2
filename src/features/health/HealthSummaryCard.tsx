@@ -178,7 +178,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                   color: '#f59e0b'
                 }}
               >
-                <ChevronDown size={16} />
+                <ChevronDown size={18} style={{ color: '#f59e0b' }} />
               </button>
             )}
             <div style={{ textAlign: 'right' }}>

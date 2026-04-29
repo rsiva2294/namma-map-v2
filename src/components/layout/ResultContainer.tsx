@@ -44,6 +44,7 @@ const ResultContainer: React.FC = () => {
   const selectedLocalBodyV2 = useMapStore(state => state.selectedLocalBodyV2);
   const isV2Loading = useMapStore(state => state.isV2Loading);
   const { filterHealth } = useGisWorker();
+  const setHealthFilters = useMapStore(state => state.setHealthFilters);
 
   const handleReport = (type: string, data: Record<string, any>) => {
     setReportModal(true, { type, data });
@@ -517,6 +518,7 @@ const ResultContainer: React.FC = () => {
                     hasStemiSpoke: null,
                     hasCathLab: null
                   };
+                  setHealthFilters(emptyFilters);
                   const pincode = (searchResult?.properties?.PIN_CODE || searchResult?.properties?.pincode)?.toString();
                   filterHealth(healthScope, emptyFilters, activeDistrict, pincode || null);
                 }}

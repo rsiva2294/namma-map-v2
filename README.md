@@ -40,6 +40,7 @@ See [docs/SETUP.md](docs/SETUP.md) for the full setup guide and variable table.
 ## Documentation
 
 - [Project Overview](docs/PROJECT_OVERVIEW.md)
+- [Style Guide](docs/STYLE_GUIDE.md)
 - [Setup Guide](docs/SETUP.md)
 - [Codebase Guide](docs/CODEBASE.md)
 - [API Reference](docs/API.md)
