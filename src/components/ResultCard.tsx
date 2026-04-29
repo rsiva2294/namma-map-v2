@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Copy, MapPin, AlertCircle, Send } from 'lucide-react';
+import { X, Copy, MapPin, AlertCircle, Send, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n/translations';
 
@@ -14,6 +14,7 @@ export interface ResultCardProps {
   onReport?: () => void;
   actionLabel?: string;
   onAction?: () => void;
+  onMinimize?: () => void;
 }
 
 const colorMap = {
@@ -56,7 +57,7 @@ const colorMap = {
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ 
-  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction 
+  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction, onMinimize 
 }) => {
   const colors = colorMap[themeColor];
   const { t } = useTranslation();
@@ -75,6 +76,9 @@ const ResultCard: React.FC<ResultCardProps> = ({
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="glass result-card"
     >
+      {isMobile && onMinimize && (
+        <div className="result-card-drag-handle" onClick={onMinimize} />
+      )}
       {/* Header */}
       <div className="result-card-header">
         <div className="result-card-title-group">
@@ -90,6 +94,16 @@ const ResultCard: React.FC<ResultCardProps> = ({
               title={t('REPORT_ISSUE')}
             >
               <AlertCircle size={18} />
+            </button>
+          )}
+          {onMinimize && isMobile && (
+            <button
+              onClick={onMinimize}
+              className="result-card-header-btn"
+              aria-label={t('MINIMIZE') || 'Minimize'}
+              style={{ color: '#f59e0b' }}
+            >
+              <ChevronDown size={18} />
             </button>
           )}
           <button

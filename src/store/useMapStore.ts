@@ -87,6 +87,7 @@ interface MapState {
   hasSeenTutorial: boolean;
   isTutorialOpen: boolean;
   hasNetworkError: boolean;
+  isResultMinimized: boolean;
 
   // Actions
   setHasSeenTutorial: (val: boolean) => void;
@@ -140,6 +141,7 @@ interface MapState {
   setIsHealthLoading: (loading: boolean) => void;
   setPostalFilters: (filters: Partial<MapState['postalFilters']>) => void;
   setHasNetworkError: (val: boolean) => void;
+  setIsResultMinimized: (val: boolean) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -222,6 +224,7 @@ export const useMapStore = create<MapState>((set) => ({
   hasSeenTutorial: localStorage.getItem('nm_has_seen_tutorial') === 'true',
   isTutorialOpen: false,
   hasNetworkError: false,
+  isResultMinimized: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setHasSeenTutorial: (val) => {
@@ -248,7 +251,8 @@ export const useMapStore = create<MapState>((set) => ({
       activeDistrict: state.activeDistrict,
       healthFilters: state.healthFilters,
       // Reset result if switching from/to layers
-      searchResult: null
+      searchResult: null,
+      isResultMinimized: false
     };
   }),
   setSearchQuery: (query) => set({ searchQuery: query }),
@@ -267,6 +271,7 @@ export const useMapStore = create<MapState>((set) => ({
       selectedPostalOffice: keepSelection ? state.selectedPostalOffice : null,
       selectedHealthFacility: keepSelection ? state.selectedHealthFacility : null,
       healthSummary: keepSelection ? state.healthSummary : null,
+      isResultMinimized: false,
       noDataFound: false
     };
 
@@ -286,11 +291,12 @@ export const useMapStore = create<MapState>((set) => ({
   setDistrictsData: (data) => set({ districtsData: data }),
   setStateBoundaryData: (data) => set({ stateBoundaryData: data }),
   setPdsData: (data: GisFeatureCollection<Geometry, PdsProperties> | null) => set({ pdsData: data }),
-  setSelectedPdsShop: (shop) => set({ selectedPdsShop: shop }),
+  setSelectedPdsShop: (shop) => set({ selectedPdsShop: shop, isResultMinimized: false }),
   setActiveDistrict: (district) => set({ activeDistrict: district }),
   setJurisdictionDetails: (details, geometry = null) => set({ 
     jurisdictionDetails: details, 
-    jurisdictionGeometry: geometry 
+    jurisdictionGeometry: geometry,
+    isResultMinimized: false
   }),
   setIsResolving: (val) => set({ isResolving: val }),
   setIsLocating: (val) => set({ isLocating: val }),
@@ -311,7 +317,8 @@ export const useMapStore = create<MapState>((set) => ({
     policeResolution: val ? null : undefined,
     selectedPostalOffices: val ? null : undefined,
     selectedPostalOffice: val ? null : undefined,
-    selectedHealthFacility: val ? null : undefined
+    selectedHealthFacility: val ? null : undefined,
+    isResultMinimized: false
   }),
   clearSearch: () => set((state) => ({ 
     searchQuery: '', 
@@ -334,7 +341,8 @@ export const useMapStore = create<MapState>((set) => ({
     noDataFound: false,
     lastClickedPoint: null,
     globalLocation: null,
-    userLocation: null
+    userLocation: null,
+    isResultMinimized: false
   })),
   toggleTheme: () => set((state) => {
     const newTheme = state.theme === 'dark' ? 'light' : 'dark';
@@ -355,15 +363,17 @@ export const useMapStore = create<MapState>((set) => ({
         coordinates: (station as PoliceStationProperties).station_location || [78.6569, 11.1271] 
       } as Point 
     } : null,
-    jurisdictionGeometry: geometry || null 
+    jurisdictionGeometry: geometry || null,
+    isResultMinimized: false
   }),
   setPoliceResolution: (result) => set({ 
     policeResolution: result,
     selectedPoliceStation: result?.station || null,
-    jurisdictionGeometry: result?.boundary.geometry || null
+    jurisdictionGeometry: result?.boundary.geometry || null,
+    isResultMinimized: false
   }),
   setSelectedPostalOffices: (offices) => set({ selectedPostalOffices: offices }),
-  setSelectedPostalOffice: (office) => set({ selectedPostalOffice: office }),
+  setSelectedPostalOffice: (office) => set({ selectedPostalOffice: office, isResultMinimized: false }),
   setLegalModal: (open, tab) => set((state) => ({ 
     isLegalModalOpen: open, 
     legalTab: tab || state.legalTab 
@@ -372,7 +382,7 @@ export const useMapStore = create<MapState>((set) => ({
   setHealthPriorityData: (data) => set({ healthPriorityData: data }),
   setHealthDistrictData: (data) => set({ healthDistrictData: data }),
   setIsHealthLoading: (loading: boolean) => set({ isHealthLoading: loading }),
-  setSelectedHealthFacility: (facility) => set({ selectedHealthFacility: facility }),
+  setSelectedHealthFacility: (facility) => set({ selectedHealthFacility: facility, isResultMinimized: false }),
   setHealthScope: (scope) => set({ healthScope: scope }),
   setHealthFilters: (filters) => set({ healthFilters: filters }),
   setTargetHealthScope: (scope) => set({ targetHealthScope: scope }),
@@ -380,7 +390,7 @@ export const useMapStore = create<MapState>((set) => ({
   setPostalFilters: (filters) => set((state) => ({
     postalFilters: { ...state.postalFilters, ...filters }
   })),
-  setSelectedLocalBodyV2: (feature) => set({ selectedLocalBodyV2: feature, isResolving: false, isV2Loading: false }),
+  setSelectedLocalBodyV2: (feature) => set({ selectedLocalBodyV2: feature, isResolving: false, isV2Loading: false, isResultMinimized: false }),
   setIsV2Loading: (val) => set({ isV2Loading: val }),
   setLanguage: (lang) => {
     trackEvent('language_switch', { language: lang });
@@ -388,5 +398,6 @@ export const useMapStore = create<MapState>((set) => ({
   },
   setGlobalLocation: (location) => set({ globalLocation: location }),
   setUserLocation: (location) => set({ userLocation: location }),
-  setHasNetworkError: (val) => set({ hasNetworkError: val })
+  setHasNetworkError: (val) => set({ hasNetworkError: val }),
+  setIsResultMinimized: (val) => set({ isResultMinimized: val })
 }));

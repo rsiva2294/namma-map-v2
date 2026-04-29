@@ -32,7 +32,7 @@ export const translations = {
     LOCATING_SUBTEXT: 'Finding your exact area to provide local service details.',
     GPS_ACTIVE: 'GPS Active',
     SEARCH_PLACEHOLDER: 'Search Districts, Pincodes, or Offices...',
-    EXPERIMENTAL: 'EXPERIMENTAL',
+    EXPERIMENTAL: 'BETA',
 
     // Search Specifics
     SEARCH_HEALTH: 'Search Hospitals, Districts, or Pincodes...',
@@ -143,7 +143,7 @@ export const translations = {
     INDEPENDENT_PORTAL: 'Independent Tamil Nadu GIS Portal',
     ASSEMBLY: 'ASSEMBLY',
     PARLIAMENT: 'PARLIAMENT',
-    HEALTH_EXPERIMENTAL_DESC: 'We are still experimenting with how to show all the health details in a clear manner.',
+    HEALTH_EXPERIMENTAL_DESC: 'We are still refining the health facility discovery experience.',
     OR: 'or',
     SERVICE_LAYERS_ARIA: 'Service Layers',
     CLICK_FIND_TNEB: 'Click your location on the map to find your TNEB Section Office.',
@@ -160,6 +160,10 @@ export const translations = {
     UPDATE_PREPARING: 'Please wait while we prepare the new version.',
     UPDATE_READY: 'A newer version is ready with improvements.',
     REFRESH_NOW: 'REFRESH NOW',
+    VIEW_RESULTS: 'VIEW RESULTS',
+    MINIMIZE: 'Minimize',
+    EXPAND_FILTERS: 'Expand Filters',
+    MINIMIZE_FILTERS: 'Minimize Filters',
 
     // Map Specific
     CLICK_TO_VIEW_JURISDICTION: 'Click to view jurisdiction',
@@ -380,7 +384,7 @@ export const translations = {
     LOCATING_SUBTEXT: 'உள்ளூர் சேவை விவரங்களை வழங்க உங்கள் சரியான பகுதியைக் கண்டறியவும்.',
     GPS_ACTIVE: 'GPS செயலில் உள்ளது',
     SEARCH_PLACEHOLDER: 'மாவட்டங்கள், பின்கோட்கள் அல்லது அலுவலகங்களைத் தேடுங்கள்...',
-    EXPERIMENTAL: 'சோதனை முயற்சி',
+    EXPERIMENTAL: 'BETA',
 
     // Search Specifics
     SEARCH_HEALTH: 'மருத்துவமனைகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
@@ -491,7 +495,7 @@ export const translations = {
     INDEPENDENT_PORTAL: 'சுதந்திரமான தமிழ்நாடு GIS தளம்',
     ASSEMBLY: 'சட்டமன்றம்',
     PARLIAMENT: 'நாடாளுமன்றம்',
-    HEALTH_EXPERIMENTAL_DESC: 'அனைத்து சுகாதார விவரங்களையும் தெளிவான முறையில் எவ்வாறு காண்பிப்பது என்பது குறித்து நாங்கள் இன்னும் ஆய்வு செய்து வருகிறோம்.',
+    HEALTH_EXPERIMENTAL_DESC: 'சுகாதார வசதிகளைக் கண்டறியும் முறையை நாங்கள் இன்னும் மேம்படுத்தி வருகிறோம்.',
     OR: 'அல்லது',
     SERVICE_LAYERS_ARIA: 'சேவை அடுக்குகள்',
     CLICK_FIND_TNEB: 'உங்கள் TNEB பிரிவு அலுவலகத்தைக் கண்டறிய வரைபடத்தில் உங்கள் இருப்பிடத்தைக் கிளிக் செய்யவும்.',
@@ -508,6 +512,10 @@ export const translations = {
     UPDATE_PREPARING: 'தயவுசெய்து காத்திருக்கவும்.',
     UPDATE_READY: 'மேம்படுத்தப்பட்ட புதிய பதிப்பு தயாராக உள்ளது.',
     REFRESH_NOW: 'புதுப்பிக்கவும்',
+    VIEW_RESULTS: 'முடிவுகளைக் காண்க',
+    MINIMIZE: 'சிறிதாக்கு',
+    EXPAND_FILTERS: 'வடிப்பான்களை விரிவுபடுத்து',
+    MINIMIZE_FILTERS: 'வடிப்பான்களைச் சிறிதாக்கு',
 
     // Map Specific
     CLICK_TO_VIEW_JURISDICTION: 'எல்லையைப் பார்க்க கிளிக் செய்யவும்',

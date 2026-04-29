@@ -6,7 +6,8 @@ import {
   Building2, 
   Filter,
   CheckCircle2,
-  ChevronRight
+  ChevronRight,
+  ChevronDown
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
@@ -14,11 +15,12 @@ import { useMapStore } from '../../store/useMapStore';
 interface HealthSummaryCardProps {
   summary: HealthSummary;
   onClearFilters?: () => void;
+  onMinimize?: () => void;
 }
 
 import { useTranslation } from '../../i18n/translations';
 
-export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, onClearFilters }) => {
+export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, onClearFilters, onMinimize }) => {
   const { t } = useTranslation();
   
   const displayActiveFilters = summary.scope === 'STATE' 
@@ -120,6 +122,9 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
       className="glass result-card health-summary-card"
       style={{ padding: '24px' }}
     >
+      {isMobile && onMinimize && (
+        <div className="result-card-drag-handle" onClick={onMinimize} />
+      )}
       <div className="flex-col gap-4" style={{ 
         overflowY: 'auto', 
         flex: 1, 
@@ -159,9 +164,27 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
               {guidance.nextStep}
             </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: '32px', fontWeight: 900, color: 'var(--accent)', lineHeight: 1 }}>{summary.total}</div>
-            <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{t('FACILITIES')}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+            {onMinimize && isMobile && (
+               <button 
+                onClick={onMinimize}
+                style={{ 
+                  background: 'rgba(0,0,0,0.05)', 
+                  border: 'none', 
+                  padding: '6px', 
+                  borderRadius: '6px',
+                  display: 'flex',
+                  cursor: 'pointer',
+                  color: '#f59e0b'
+                }}
+              >
+                <ChevronDown size={16} />
+              </button>
+            )}
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ fontSize: '32px', fontWeight: 900, color: 'var(--accent)', lineHeight: 1 }}>{summary.total}</div>
+              <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{t('FACILITIES')}</div>
+            </div>
           </div>
         </div>
 

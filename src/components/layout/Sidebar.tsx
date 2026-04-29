@@ -78,7 +78,6 @@ const Sidebar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="mobile-backdrop"
-            style={{ display: window.innerWidth > 768 ? 'none' : 'block' }}
             onClick={() => setSidebarOpen(false)}
           />
         )}
@@ -88,7 +87,7 @@ const Sidebar: React.FC = () => {
         role="navigation"
         aria-label={t('SERVICE_LAYERS_ARIA') || "Service Layers"}
         initial={false}
-        animate={{ width: isSidebarOpen ? 280 : (window.innerWidth > 768 ? 0 : 0) }}
+        animate={{ width: isSidebarOpen ? 280 : 0 }}
         transition={{ duration: 0.2 }}
         className={`sidebar ${!isSidebarOpen ? 'sidebar-closed' : ''}`}
       >
@@ -152,7 +151,7 @@ const Sidebar: React.FC = () => {
                       <motion.span 
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="badge-experimental"
+                        className="badge-beta"
                         title={t('HEALTH_EXPERIMENTAL_DESC')}
                       >
                         {t('EXPERIMENTAL')}
@@ -245,7 +244,7 @@ const Sidebar: React.FC = () => {
             <Languages size={20} />
             {isSidebarOpen && <span>{language === 'en' ? 'தமிழ்' : 'English'}</span>}
             {isSidebarOpen && (
-              <span className="badge-experimental">
+              <span className="badge-beta">
                 {t('EXPERIMENTAL')}
               </span>
             )}

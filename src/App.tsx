@@ -21,6 +21,7 @@ import MapSkeleton from './components/layout/MapSkeleton';
 import SchemaData from './components/SchemaData';
 import { useLocation } from 'react-router-dom';
 import NetworkErrorOverlay from './components/NetworkErrorOverlay';
+import { PostalLegendPanel } from './features/postal/PostalFiltersPanel';
 import { trackEvent } from './lib/firebase';
 
 
@@ -102,6 +103,8 @@ function App() {
             />
           </div>
         )}
+        
+        {activeLayer === 'PINCODE' && <PostalLegendPanel />}
 
         <PWAUpdater />
       </main>

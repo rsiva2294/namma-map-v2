@@ -358,6 +358,18 @@ html,
   letter-spacing: 0.5px;
 }
 
+.badge-beta {
+  font-size: 8px;
+  padding: 2px 5px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 4px;
+  margin-left: auto;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
 .sidebar-divider {
   height: 1px;
   background: var(--border-glass);
@@ -716,8 +728,7 @@ html,
   }
   
   /* Add a drag handle visual for bottom sheets */
-  .result-card::before {
-    content: '';
+  .result-card-drag-handle {
     position: absolute;
     top: 8px;
     left: 50%;
@@ -727,6 +738,7 @@ html,
     background: var(--border-glass);
     border-radius: 2px;
     z-index: 10;
+    cursor: pointer;
   }
 }
 
@@ -957,6 +969,7 @@ html,
 .modal-content {
   width: 100%;
   max-width: 480px;
+  max-height: 90dvh;
   border-radius: 24px;
   overflow: hidden;
   display: flex;
@@ -1000,6 +1013,8 @@ html,
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .modal-description {
@@ -1015,6 +1030,8 @@ html,
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .modal-data-row {
@@ -1255,6 +1272,31 @@ html,
   font-weight: 500;
   max-width: 220px;
   line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .locating-overlay {
+    padding: 24px;
+    min-width: 280px;
+    width: calc(100% - 32px);
+    border-radius: 24px;
+    gap: 16px;
+  }
+
+  .locating-icon-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+  }
+
+  .locating-text {
+    font-size: 18px;
+  }
+
+  .locating-subtext {
+    font-size: 13px;
+    max-width: none;
+  }
 }
 
 .pulse-locating {
@@ -1688,6 +1730,36 @@ html,
     width: auto;
     padding: 12px;
   }
+
+  .postal-legend-panel.collapsed {
+    width: fit-content;
+    padding: 8px 12px;
+  }
+}
+
+/* Result Restore Button (Mobile) */
+.result-restore-btn {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: var(--z-bottom-sheet);
+  border: none;
+  cursor: pointer;
+}
+
+.result-cards-stack.minimized {
+  pointer-events: none;
 }
 
 .legend-header {

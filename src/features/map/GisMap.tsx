@@ -10,7 +10,6 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { getOfficeTypeLabelKey } from '../../utils/postal';
-import { PostalLegendPanel } from '../postal/PostalFiltersPanel';
 import { useTranslation } from '../../i18n/translations';
 import UserLocationMarker from './UserLocationMarker';
 import { isWithinTamilNadu } from '../../utils/urlParser';
@@ -570,7 +569,6 @@ const GisMap: React.FC = () => {
         </Marker>
       ))}
 
-      {activeLayer === 'PINCODE' && <PostalLegendPanel />}
 
       {activeLayer === 'TNEB' && jurisdictionGeometry && (
         <>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMapStore } from '../../store/useMapStore';
 import type { HealthFilters, HealthScope } from '../../types/gis';
 import { useTranslation } from '../../i18n/translations';
-import { ChevronDown, ChevronRight, Activity, Stethoscope, Beaker, Globe, Navigation, Search } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronUp, Activity, Stethoscope, Beaker, Globe, Navigation, Search } from 'lucide-react';
 
 interface HealthFiltersPanelProps {
   onFilterChange: (filters: HealthFilters) => void;
@@ -23,6 +23,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
 
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set(['care']));
   const [revealStage, setRevealStage] = useState(0); // 0: Basic, 1: Services, 2: Expert
+  const [isMinimized, setIsMinimized] = useState(false);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   const toggleGroup = (id: string) => {
     const next = new Set(expandedGroups);
@@ -136,12 +138,45 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       borderRadius: '20px',
       border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'}`,
       marginTop: '8px',
-      maxHeight: '85dvh',
-      overflowY: 'auto',
-      boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.2)'
+      maxHeight: isMinimized && isMobile ? 'unset' : '85dvh',
+      overflowY: isMinimized && isMobile ? 'hidden' : 'auto',
+      boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.2)',
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
     }} className="custom-scrollbar health-filters-inner">
       
-      {/* Scope Switcher */}
+      {/* Minimize Toggle (Mobile only) */}
+      {isMobile && (
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          padding: '4px 0',
+          borderBottom: isMinimized ? 'none' : `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`,
+          marginBottom: isMinimized ? 0 : '8px'
+        }}>
+          <button 
+            onClick={() => setIsMinimized(!isMinimized)}
+            style={{
+              background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
+              border: 'none',
+              padding: '6px 24px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              color: '#f59e0b'
+            }}
+          >
+            {isMinimized ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
+            <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+              {isMinimized ? t('EXPAND_FILTERS') || 'Expand Filters' : t('MINIMIZE_FILTERS') || 'Minimize Filters'}
+            </span>
+          </button>
+        </div>
+      )}
+
+      {(!isMinimized || !isMobile) && (
+        <>
       <div style={{ padding: '8px 12px' }}>
         <div style={{ 
           display: 'grid', 
@@ -170,8 +205,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '5px',
-                  minHeight: '70px',
-                  padding: '10px 4px',
+                  minHeight: '64px',
+                  padding: '8px 4px',
                   borderRadius: '11px',
                   border: `1px solid ${isActive ? 'rgba(255,255,255,0.7)' : 'transparent'}`,
                   background: isActive 
@@ -503,6 +538,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           >
             {t('HIDE_EXPERT_FILTERS')}
           </button>
+        </>
+      )}
         </>
       )}
     </div>
