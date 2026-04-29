@@ -3,10 +3,20 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 import { APP_VERSION } from '../constants';
 import UpdateNotification from './UpdateNotification';
 
+const DISMISSED_VERSION_KEY = 'nammaMap:lastDismissedUpdateVersion';
+
+const getStoredDismissedVersion = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  return window.localStorage.getItem(DISMISSED_VERSION_KEY);
+};
+
 const PWAUpdater: React.FC = () => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [availableVersion, setAvailableVersion] = useState<string | undefined>(undefined);
-  const [dismissedVersion, setDismissedVersion] = useState<string | null>(null);
+  const [dismissedVersion, setDismissedVersion] = useState<string | null>(getStoredDismissedVersion);
 
   const {
     needRefresh: [needRefresh, setNeedRefresh],
@@ -41,10 +51,7 @@ const PWAUpdater: React.FC = () => {
       try {
         const res = await fetch('/version.json', { cache: 'no-cache' });
         const data = await res.json();
-        if (data.version && data.version !== APP_VERSION && data.version !== dismissedVersion) {
-          setAvailableVersion(data.version);
-          setNeedRefresh(true);
-        }
+        setAvailableVersion(data.version);
       } catch (err) {
         console.error('[VersionControl] Failed to poll version:', err);
       }
@@ -54,11 +61,17 @@ const PWAUpdater: React.FC = () => {
     checkVersion();
 
     return () => clearInterval(interval);
-  }, [setNeedRefresh, dismissedVersion]);
+  }, []);
+
+  const shouldShowUpdate =
+    Boolean(needRefresh) &&
+    Boolean(availableVersion) &&
+    availableVersion !== APP_VERSION &&
+    availableVersion !== dismissedVersion;
 
   return (
     <UpdateNotification 
-      show={needRefresh} 
+      show={shouldShowUpdate} 
       isUpdating={isUpdating}
       currentVersion={APP_VERSION}
       availableVersion={availableVersion}
@@ -66,6 +79,7 @@ const PWAUpdater: React.FC = () => {
       onClose={() => {
         if (availableVersion) {
           setDismissedVersion(availableVersion);
+          window.localStorage.setItem(DISMISSED_VERSION_KEY, availableVersion);
         }
         setNeedRefresh(false);
       }}
