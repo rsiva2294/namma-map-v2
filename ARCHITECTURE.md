@@ -47,7 +47,7 @@ We use **Zustand** for lightweight, performant state.
 
 ### 3. Data Strategy (Efficiency)
 *   **TopoJSON Compression**: We use TopoJSON instead of raw GeoJSON, reducing file sizes by up to 80% through shared topology and quantization.
-*   **Update Notification**: A polling system in `App.tsx` compares the local `APP_VERSION` with a server-side `version.json` every 5 minutes, prompting users to refresh when new builds are deployed.
+*   **Update Notification**: A polling system in `App.tsx` compares the local `APP_VERSION` with a server-side `version.json` every 5 minutes. To ensure a smooth UX, dismissed update notifications are persisted in `localStorage`, preventing redundant prompts for the same version within a user session.
 
 ### 4. Internationalization (i18n)
 We use a custom, lightweight translation system built for speed and low bundle size.

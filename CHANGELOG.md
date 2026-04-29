@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-04-30
+### Added
+- **Mobile UI/UX Overhaul**: Comprehensive refinements to result cards, health filters, and postal legends for a more native, fluid experience on mobile devices.
+- **Smart Update Persistence**: Implemented `localStorage` persistence for dismissed update notifications, ensuring users aren't repeatedly prompted for the same version.
+- **Update Display Gate**: Added logic to prevent redundant version check prompts during active sessions.
+- **Postal Legend Panel**: Added a dedicated legend for the Pincode layer to help users distinguish between different postal office types and status indicators.
+
+### Changed
+- **GIS Worker Optimization**: Refined spatial indexing performance and improved boundary resolution logic for complex jurisdictions.
+- **Health Filtering Logic**: Standardized health facility filtering to treat facility types as mandatory (AND) while keeping capabilities flexible (OR).
+- **Unit Test Architecture**: Refactored `vitest` suite to utilize production modules directly, ensuring tests accurately reflect the latest GIS engine behavior.
+
+### Fixed
+- **Local Body Resolution**: Corrected an edge case where certain Village Panchayats failed to resolve during high-zoom map interactions.
+- **Sidebar Visibility**: Resolved a regression where Assembly and Parliamentary sub-tabs were hidden in specific layer configurations.
+- **Build Integrity**: Fixed several `TS6133` (unused variable) errors in `App.tsx` that were blocking production compilation.
+- **Tutorial UI**: Fixed stacking context (z-index) and focus-blur issues in the `driver.js` onboarding guide.
+- **React Stability**: Eliminated "duplicate key" warnings in result lists and filter panels.
+
 ## [1.5.0] - 2026-04-28
 ### Added
 - **Interactive Onboarding Tutorial**: Implemented a step-by-step guided tour using `driver.js` to help new users discover core features (Service Layers, Smart Search, GPS Location).

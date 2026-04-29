@@ -7,7 +7,7 @@ Features that provide immediate value with minimal architectural changes.
 
 - [ ] **Deep Linking & Shareable URLs**: State-reflective URLs (e.g., `/tneb/section-code`) to allow users to share specific jurisdictions.
 - [x] **Navigation Integration**: "Get Directions" button in Result Cards that opens Google Maps/Apple Maps.
-- [/] **Bilingual Support (Tamil/English)**: Phase 1 (UI Shell & District Localization) complete.
+- [x] **Bilingual Support (Tamil/English)**: Full UI and GIS data localization complete.
 - [ ] **Enhanced Result Metadata**: Include phone numbers, operating hours, and official contact emails for offices.
 - [x] **Police Stations & Jurisdictions**: Complete boundary mapping and station point integration.
 
@@ -20,7 +20,7 @@ Features that improve retention and ease of use.
 - [x] **Local Bodies V2**: Unified discovery for Corporations, Municipalities, Town Panchayats, and Village Panchayats.
 - [x] **Crowdsourced Feedback**: "Report an Issue" button for data corrections (location shifts, name changes).
 - [x] **Mobile Responsiveness & Performance**: Premium bottom sheet interactions and IndexedDB data caching.
-- [ ] **Interactive Legend**: A visual guide to map markers, colors, and boundary types.
+- [x] **Interactive Legends**: Visual guides for map markers and boundary types (Postal, Health).
 
 ## 📡 Phase 3: Real-Time & Advanced GIS (Long Term)
 Features requiring external API integrations or complex spatial logic.
@@ -38,4 +38,4 @@ Internal and research-oriented features.
 - [ ] **Automated Data Pipeline**: Scripts to automatically fetch and convert raw government CSV/JSON into optimized TopoJSON.
 
 ---
-*Last Updated: April 27, 2026 (Tamil Support & SEO Release)*
+*Last Updated: April 30, 2026 (Mobile Responsive Overhaul)*
