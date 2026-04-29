@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'https://namma-map.web.app';
+const BASE_URL = 'https://nammamap.in';
 const LAYERS = ['pincode', 'pds', 'tneb', 'constituency', 'police', 'health', 'local-bodies'];
 const DISTRICT_DATA_DIR = 'public/data/postal_by_district';
 

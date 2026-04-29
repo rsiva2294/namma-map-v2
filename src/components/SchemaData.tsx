@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '../constants/site';
 
 const SchemaData: React.FC = () => {
   const schema = {
@@ -6,13 +7,13 @@ const SchemaData: React.FC = () => {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://namma-map.web.app/#website",
-        "url": "https://namma-map.web.app/",
-        "name": "NammaMap",
-        "description": "Independent Tamil Nadu Civic GIS Portal. Find Police Stations, TNEB Offices, Health Facilities, Ration Shops, and Local Bodies using pinpoint local or global search.",
+        "@id": `${SITE_URL}/#website`,
+        "url": SITE_URL,
+        "name": SITE_NAME,
+        "description": SITE_DESCRIPTION,
         "publisher": {
-          "@type": "Person",
-          "name": "Sivakaminathan Muthusamy"
+          "@type": "Organization",
+          "name": SITE_NAME
         },
         "inLanguage": "en-US"
       },

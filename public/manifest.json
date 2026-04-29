@@ -1,6 +1,9 @@
 {
   "short_name": "NammaMap",
   "name": "NammaMap: Tamil Nadu Civic GIS",
+  "id": "/",
+  "scope": "/",
+  "description": "Tamil Nadu civic GIS portal for finding pincodes, PDS ration shops, TNEB offices, police stations, health facilities, and local bodies.",
   "icons": [
     {
       "src": "branding/icon.png",
@@ -13,7 +16,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#0f172a",
   "background_color": "#0f172a"

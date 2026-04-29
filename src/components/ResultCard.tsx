@@ -68,6 +68,14 @@ const ResultCard: React.FC<ResultCardProps> = ({
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
+  const handleDirections = () => {
+    if (onAction) {
+      onAction();
+    } else if (onDirections) {
+      onDirections();
+    }
+  };
+
   return (
     <motion.div
       initial={isMobile ? { opacity: 0, y: 100 } : { opacity: 0, x: 50, scale: 0.95 }}
@@ -196,17 +204,19 @@ const ResultCard: React.FC<ResultCardProps> = ({
 
       {/* Footer Button */}
       {(onDirections || onAction) && (
-        <button
-          onClick={onAction || onDirections}
-          className="result-card-action-button"
-          style={{ backgroundColor: colors.button }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = colors.hover)}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = colors.button)}
-          aria-label={actionLabel || t('DIRECTIONS')}
-        >
-          {onAction ? <Send size={16} /> : <MapPin size={16} />}
-          {actionLabel || t('DIRECTIONS')}
-        </button>
+        <div className="result-card-footer">
+          <button
+            onClick={handleDirections}
+            className="result-card-action-button"
+            style={{ backgroundColor: colors.button }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = colors.hover)}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = colors.button)}
+            aria-label={actionLabel || t('DIRECTIONS')}
+          >
+            {onAction ? <Send size={16} /> : <MapPin size={16} />}
+            {actionLabel || t('DIRECTIONS')}
+          </button>
+        </div>
       )}
     </motion.div>
   );

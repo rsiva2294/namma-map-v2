@@ -724,7 +724,6 @@ html,
     max-height: 85dvh;
     z-index: var(--z-bottom-sheet);
     box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
-    padding-bottom: env(safe-area-inset-bottom, 12px);
   }
   
   /* Add a drag handle visual for bottom sheets */
@@ -876,6 +875,14 @@ html,
   opacity: 1;
 }
 
+.result-card-footer {
+  margin-top: auto;
+  flex-shrink: 0;
+  padding-bottom: env(safe-area-inset-bottom, 12px);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-glass);
+}
+
 .result-card-action-button {
   width: 100%;
   display: flex;
@@ -889,8 +896,6 @@ html,
   color: #fff;
   cursor: pointer;
   transition: all 0.2s;
-  flex-shrink: 0;
-  margin-top: auto;
 }
 
 .result-card-action-button:hover {
@@ -1723,17 +1728,7 @@ html,
 
 @media (max-width: 768px) {
   .postal-legend-panel {
-    top: 140px;
-    bottom: auto;
-    left: 12px;
-    right: 12px;
-    width: auto;
-    padding: 12px;
-  }
-
-  .postal-legend-panel.collapsed {
-    width: fit-content;
-    padding: 8px 12px;
+    display: none;
   }
 }
 

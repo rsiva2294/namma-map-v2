@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.1] - 2026-04-30
+### Fixed
+- **Mobile Result Card Layout**: Resolved a critical visibility issue where the "GET DIRECTIONS" button was clipped on mobile screens by implementing a fixed-footer layout and refined flexbox shrinking.
+- **Police Module Directions**: Improved reliability of the directions feature by adding a fallback to geometry coordinates for stations with missing property metadata.
+- **Mobile Map Space**: Optimized mobile viewport real estate by hiding the Postal Legend Panel on small screens, as requested.
+
 ## [1.6.0] - 2026-04-30
 ### Added
 - **Mobile UI/UX Overhaul**: Comprehensive refinements to result cards, health filters, and postal legends for a more native, fluid experience on mobile devices.

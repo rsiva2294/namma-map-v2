@@ -363,8 +363,9 @@ const ResultContainer: React.FC = () => {
                   ] : [])
                 ]}
                 onClose={() => setPoliceResolution(null)}
-                onDirections={policeResolution.station?.properties.station_location ? () => {
-                  const coords = policeResolution.station!.properties.station_location as Position;
+                onDirections={policeResolution.station ? () => {
+                  const coords = (policeResolution.station!.properties.station_location || 
+                                 policeResolution.station!.geometry.coordinates) as Position;
                   window.open(`https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`, '_blank');
                 } : undefined}
                 onReport={() => handleReport('Police Station', {
