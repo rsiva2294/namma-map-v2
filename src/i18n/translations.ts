@@ -344,7 +344,7 @@ export const translations = {
     TUTORIAL_MAP_DESC: 'Tap anywhere on the map to discover which service office is responsible for that exact spot.',
     TUTORIAL_LANG_TITLE: 'Language',
     TUTORIAL_LANG_DESC: 'Switch between English and Tamil at any time.',
-    HELP: 'Help',
+    TUTORIAL: 'Tutorial',
   },
   ta: {
     // Sidebar Labels
@@ -689,7 +689,7 @@ export const translations = {
     TUTORIAL_MAP_DESC: 'வரைபடத்தில் எங்காவது கிளிக் செய்து, அந்த இடத்திற்கு எந்தச் சேவை அலுவலகம் பொறுப்பு என்பதைக் கண்டறியவும்.',
     TUTORIAL_LANG_TITLE: 'மொழி',
     TUTORIAL_LANG_DESC: 'எந்த நேரத்திலும் ஆங்கிலம் மற்றும் தமிழுக்கு இடையே மாறவும்.',
-    HELP: 'உதவி',
+    TUTORIAL: 'வழிகாட்டி',
   }
 };
 

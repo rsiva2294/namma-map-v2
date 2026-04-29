@@ -45,9 +45,14 @@ const SearchBar: React.FC = () => {
     }
   };
 
+  const escapeRegExp = (string: string) => {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
+
   const highlightMatch = (text: string, query: string) => {
     if (!query) return text;
-    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    const escapedQuery = escapeRegExp(query);
+    const parts = text.split(new RegExp(`(${escapedQuery})`, 'gi'));
     return parts.map((part, i) => 
       part.toLowerCase() === query.toLowerCase() 
         ? <strong key={i} style={{ color: 'var(--accent)', fontWeight: '700' }}>{part}</strong> 

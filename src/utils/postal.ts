@@ -3,20 +3,21 @@
  */
 
 export const getOfficeTypeLabelKey = (type: string): string => {
+  // Use existing translation keys directly
   const mapping: Record<string, string> = {
-    'HO': 'MAIN_POST_OFFICE',
-    'SO': 'SUB_POST_OFFICE',
-    'BO': 'BRANCH_POST_OFFICE',
-    'PO': 'POST_OFFICE'
+    'HO': 'HO',
+    'SO': 'SO',
+    'BO': 'BO',
+    'PO': 'PO'
   };
   return mapping[type] || type;
 };
 
 export const getDeliveryLabelKey = (status: string): string => {
   if (status?.toLowerCase().includes('non')) {
-    return 'NO_HOME_DELIVERY';
+    return 'NON_DELIVERY';
   }
-  return 'DELIVERY_AVAILABLE';
+  return 'DELIVERY';
 };
 
 export const getOfficeExplanationKey = (type: string, delivery: string): string => {

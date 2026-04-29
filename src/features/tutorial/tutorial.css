@@ -107,6 +107,18 @@
   isolation: isolate !important;
 }
 
+/* 
+  Fix for Stacking Context:
+  If a parent has a z-index or backdrop-filter, it creates a new stacking context.
+  We must promote the parent as well.
+*/
+.floating-search-container:has(.driver-active-element),
+.main-content:has(.driver-active-element),
+.sidebar:has(.driver-active-element) {
+  z-index: 1000000001 !important;
+  isolation: auto !important;
+}
+
 @keyframes driver-pulse {
   0% {
     box-shadow: 0 0 0 0px var(--accent), 0 0 0px rgba(14, 165, 233, 0);

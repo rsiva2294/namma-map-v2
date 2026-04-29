@@ -22,7 +22,7 @@ export const districtMap: Record<string, string> = {
   'Ramanathapuram': 'ராமநாதபுரம்',
   'Ranipet': 'ராணிப்பேட்டை',
   'Salem': 'சேலம்',
-  'Sivaganga': 'சிவகாசி',
+  'Sivaganga': 'சிவகங்கை',
   'Tenkasi': 'தென்காசி',
   'Thanjavur': 'தஞ்சாவூர்',
   'Theni': 'தேனி',

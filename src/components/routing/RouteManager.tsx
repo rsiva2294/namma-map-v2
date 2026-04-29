@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { getLayerFromSlug, getLayerSlug } from '../../utils/routeUtils';
 import { useMapStore } from '../../store/useMapStore';
 import type { ServiceLayer } from '../../types/gis';
 
@@ -19,10 +20,10 @@ export const RouteManager = () => {
   useEffect(() => {
     isSyncingRef.current = true;
     if (layer) {
-      const upperLayer = layer.toUpperCase() as ServiceLayer;
+      const resolvedLayer = getLayerFromSlug(layer);
       const validLayers: ServiceLayer[] = ['PINCODE', 'PDS', 'TNEB', 'CONSTITUENCY', 'POLICE', 'HEALTH', 'LOCAL_BODIES_V2'];
-      if (validLayers.includes(upperLayer) && upperLayer !== activeLayer) {
-        setActiveLayer(upperLayer);
+      if (resolvedLayer && validLayers.includes(resolvedLayer) && resolvedLayer !== activeLayer) {
+        setActiveLayer(resolvedLayer);
       }
     }
 
@@ -42,7 +43,7 @@ export const RouteManager = () => {
   useEffect(() => {
     if (isSyncingRef.current) return;
 
-    const currentLayerPath = activeLayer.toLowerCase();
+    const currentLayerPath = getLayerSlug(activeLayer);
     const currentDistrictPath = activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : '';
     const newPath = `/${currentLayerPath}${currentDistrictPath}`;
 

@@ -24,6 +24,7 @@ import { trackEvent } from './lib/firebase';
 import { APP_VERSION } from './constants';
 import { useState } from 'react';
 import TutorialGuide from './features/tutorial/TutorialGuide';
+import { getLayerSlug } from './utils/routeUtils';
 
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -160,8 +161,8 @@ function App() {
       <SchemaData />
       <Helmet>
         <title>{getPageTitle()}</title>
-        <meta name="description" content={`Find ${activeLayer.toLowerCase()} services, police jurisdictions, and civic infrastructure across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping and global search.`} />
-        <link rel="canonical" href={`https://namma-map.web.app/${activeLayer.toLowerCase()}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
+        <meta name="description" content={`Find ${getLayerSlug(activeLayer)} services, police jurisdictions, and civic infrastructure across ${activeDistrict || 'Tamil Nadu'} with precision GIS mapping and global search.`} />
+        <link rel="canonical" href={`https://namma-map.web.app/${getLayerSlug(activeLayer)}${activeDistrict ? '/' + encodeURIComponent(activeDistrict) : ''}`} />
         
         {/* OpenGraph / Facebook */}
         <meta property="og:type" content="website" />

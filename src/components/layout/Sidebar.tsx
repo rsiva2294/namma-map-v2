@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { getLayerSlug } from '../../utils/routeUtils';
 import { useMapStore } from '../../store/useMapStore';
 import { useTranslation } from '../../i18n/translations';
 import type { ServiceLayer } from '../../types/gis';
@@ -131,7 +132,7 @@ const Sidebar: React.FC = () => {
             {category.items.map((item) => (
               <React.Fragment key={item.id}>
                 <Link
-                  to={`/${item.id.toLowerCase()}${activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : ''}`}
+                  to={`/${getLayerSlug(item.id)}${activeDistrict ? `/${encodeURIComponent(activeDistrict)}` : ''}`}
                   className={`sidebar-menu-item ${activeLayer === item.id ? 'active' : ''}`}
                   aria-pressed={activeLayer === item.id}
                 >
@@ -252,10 +253,10 @@ const Sidebar: React.FC = () => {
           <button 
             className="sidebar-menu-item" 
             onClick={() => setIsTutorialOpen(true)} 
-            aria-label={t('HELP')}
+            aria-label={t('TUTORIAL')}
           >
             <HelpCircle size={20} color="var(--accent)" />
-            {isSidebarOpen && <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{t('HELP')}</span>}
+            {isSidebarOpen && <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{t('TUTORIAL')}</span>}
           </button>
         </div>
       </motion.div>
