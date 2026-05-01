@@ -1,20 +1,80 @@
 :root {
-  /* Colors - Modern Slate/Cyan Palette */
-  --bg-main: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --bg-glass: rgba(15, 23, 42, 0.6);
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent: #0ea5e9;
-  --accent-rgb: 14, 165, 233;
-  --accent-hover: #38bdf8;
-  --danger: #ef4444;
+  /* Material Design 3 Tokens - NammaMap Design System */
+  --surface: #faf8ff;
+  --surface-dim: #d9d9e4;
+  --surface-bright: #faf8ff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3fd;
+  --surface-container: #ededf8;
+  --surface-container-high: #e7e7f2;
+  --surface-container-highest: #e1e2ec;
+  --on-surface: #191b23;
+  --on-surface-variant: #434654;
+  --inverse-surface: #2e3038;
+  --inverse-on-surface: #f0f0fb;
+  --outline: #737685;
+  --outline-variant: #c3c6d6;
+  --surface-tint: #0c56d0;
+  
+  --primary: #003d9b;
+  --on-primary: #ffffff;
+  --primary-container: #0052cc;
+  --on-primary-container: #c4d2ff;
+  --inverse-primary: #b2c5ff;
+  
+  --secondary: #565e74;
+  --on-secondary: #ffffff;
+  --secondary-container: #dae2fd;
+  --on-secondary-container: #5c647a;
+  
+  --tertiary: #7b2600;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #a33500;
+  --on-tertiary-container: #ffc6b2;
+  
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  /* Semantic Layers */
+  --health-rose: #E11D48;
+  --police-slate: #475569;
+  --transport-indigo: #4F46E5;
+  --revenue-amber: #D97706;
 
   /* Glassmorphism */
+  --glass-surface: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
   --blur-std: 12px;
   --blur-heavy: 24px;
-  --shadow-std: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-std: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+  /* Legacy Mapping (for compatibility) */
+  --bg-main: var(--surface);
+  --bg-card: var(--surface-container);
+  --bg-glass: var(--glass-surface);
+  --border-glass: var(--glass-border);
+  --text-primary: var(--on-surface);
+  --text-secondary: var(--on-surface-variant);
+  --accent: var(--primary);
+  --danger: var(--error);
+
+  /* Rounded Corners */
+  --rounded-sm: 0.25rem;
+  --rounded-std: 0.5rem;
+  --rounded-md: 0.75rem;
+  --rounded-lg: 1rem;
+  --rounded-xl: 1.5rem;
+  --rounded-full: 9999px;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-gutter: 16px;
+  --margin-mobile: 16px;
+  --margin-desktop: 24px;
+  --bottom-sheet-peak: 25dvh;
+  --bottom-sheet-expanded: 85dvh;
 
   /* Z-Index Scale */
   --z-map: 0;
@@ -26,16 +86,13 @@
   --z-overlay: 5000;
   --z-modal: 6000;
 
-  /* Responsive Breakpoints */
-  --mobile-width: 768px;
-
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Public Sans', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: var(--text-primary);
-  background-color: var(--bg-main);
+  color-scheme: light;
+  color: var(--on-surface);
+  background-color: var(--surface);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -145,19 +202,74 @@ html,
 }
 
 .glass {
-  background: var(--bg-glass);
+  background: var(--glass-surface);
   backdrop-filter: blur(var(--blur-std));
   -webkit-backdrop-filter: blur(var(--blur-std));
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-std);
+  border-radius: var(--rounded-lg);
 }
 
 .glass-heavy {
-  background: var(--bg-glass);
+  background: var(--glass-surface);
   backdrop-filter: blur(var(--blur-heavy));
   -webkit-backdrop-filter: blur(var(--blur-heavy));
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-std);
+  border-radius: var(--rounded-xl);
+}
+
+/* Typography Utility Classes */
+.text-headline-xl {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-headline-lg {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-headline-md {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-body-lg {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-body-md {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-label-caps {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text-bilingual-subtext {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* Leaflet Overrides */

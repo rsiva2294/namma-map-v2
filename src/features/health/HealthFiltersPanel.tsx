@@ -16,8 +16,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
     activeDistrict,
     setActiveDistrict,
     setSearchResult,
-    setTriggerLocateMe,
-    theme
+    setTriggerLocateMe
   } = useMapStore();
   const { t } = useTranslation();
 
@@ -62,7 +61,6 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
     onFilterChange({ ...healthFilters, facilityTypes: next });
   };
 
-  const isDark = theme === 'dark';
 
   const quickServices = [
     { id: 'emergency', label: t('EMERGENCY'), icon: '🚑', keys: ['isFru', 'hasStemiHub', 'hasStemiSpoke'] },
@@ -113,17 +111,17 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
         background: 'transparent',
         border: 'none',
         cursor: 'pointer',
-        color: expandedGroups.has(id) ? 'var(--accent)' : 'var(--text-primary)',
+        color: expandedGroups.has(id) ? 'var(--primary)' : 'var(--on-surface)',
         transition: 'all 0.2s'
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <Icon size={16} strokeWidth={2.5} opacity={expandedGroups.has(id) ? 1 : 0.6} />
-        <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+        <span className="text-label-caps" style={{ letterSpacing: '1px' }}>
           {label}
         </span>
       </div>
-      {expandedGroups.has(id) ? <ChevronDown size={16} style={{ color: '#f59e0b' }} /> : <ChevronRight size={14} />}
+      {expandedGroups.has(id) ? <ChevronDown size={16} style={{ color: 'var(--revenue-amber)' }} /> : <ChevronRight size={14} />}
     </button>
   );
 
@@ -133,14 +131,14 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       flexDirection: 'column',
       gap: '8px',
       padding: '8px',
-      background: isDark ? 'rgba(15, 23, 42, 0.9)' : 'rgba(255, 255, 255, 0.95)',
+      background: 'var(--glass-surface)',
       backdropFilter: 'blur(20px)',
-      borderRadius: '20px',
-      border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'}`,
+      borderRadius: 'var(--rounded-xl)',
+      border: '1px solid var(--glass-border)',
       marginTop: '8px',
-      maxHeight: isMinimized && isMobile ? 'unset' : '85dvh',
+      maxHeight: isMinimized && isMobile ? 'unset' : 'var(--bottom-sheet-expanded)',
       overflowY: isMinimized && isMobile ? 'hidden' : 'auto',
-      boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.2)',
+      boxShadow: 'var(--shadow-std)',
       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
     }} className="custom-scrollbar health-filters-inner">
       
@@ -150,13 +148,13 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           display: 'flex', 
           justifyContent: 'center', 
           padding: '4px 0',
-          borderBottom: isMinimized ? 'none' : `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`,
+          borderBottom: isMinimized ? 'none' : '1px solid var(--outline-variant)',
           marginBottom: isMinimized ? 0 : '8px'
         }}>
           <button 
             onClick={() => setIsMinimized(!isMinimized)}
             style={{
-              background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
+              background: 'var(--surface-container-high)',
               border: 'none',
               padding: '6px 24px',
               borderRadius: '20px',
@@ -164,11 +162,11 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              color: '#f59e0b'
+              color: 'var(--revenue-amber)'
             }}
           >
-            {isMinimized ? <ChevronDown size={18} style={{ color: '#f59e0b' }} /> : <ChevronUp size={18} style={{ color: '#f59e0b' }} />}
-            <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+            {isMinimized ? <ChevronDown size={18} style={{ color: 'var(--revenue-amber)' }} /> : <ChevronUp size={18} style={{ color: 'var(--revenue-amber)' }} />}
+            <span className="text-label-caps" style={{ fontSize: '10px', letterSpacing: '1px' }}>
               {isMinimized ? t('EXPAND_FILTERS') || 'Expand Filters' : t('MINIMIZE_FILTERS') || 'Minimize Filters'}
             </span>
           </button>
@@ -182,10 +180,10 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           display: 'grid', 
           gridTemplateColumns: '1fr 1fr 1fr', 
           gap: '6px', 
-          background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(2, 132, 199, 0.08)',
+          background: 'var(--surface-container-low)',
           padding: '4px',
           borderRadius: '14px',
-          border: `1px solid ${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(2, 132, 199, 0.12)'}`
+          border: '1px solid var(--outline-variant)'
         }}>
           {[
             { id: 'STATE', label: t('STATEWIDE'), icon: Globe },
@@ -208,25 +206,19 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   minHeight: '64px',
                   padding: '8px 4px',
                   borderRadius: '11px',
-                  border: `1px solid ${isActive ? 'rgba(255,255,255,0.7)' : 'transparent'}`,
+                  border: `1px solid ${isActive ? 'var(--primary)' : 'transparent'}`,
                   background: isActive 
-                    ? 'linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%)'
+                    ? 'var(--primary)'
                     : 'transparent',
-                  color: isActive ? '#ffffff' : 'var(--text-secondary)',
+                  color: isActive ? 'var(--on-primary)' : 'var(--on-surface-variant)',
                   cursor: 'pointer',
-                  transition: 'background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s',
-                  boxShadow: isActive 
-                    ? (isDark ? '0 12px 24px rgba(14, 165, 233, 0.32)' : '0 10px 22px rgba(2, 132, 199, 0.28)')
-                    : 'none',
+                  transition: 'all 0.2s',
+                  boxShadow: isActive ? 'var(--shadow-std)' : 'none',
                   transform: isActive ? 'translateY(-1px)' : 'translateY(0)'
                 }}
               >
                 <Icon size={isActive ? 19 : 17} strokeWidth={isActive ? 3 : 2.2} />
-                <span style={{ 
-                  fontSize: '11px', 
-                  fontWeight: 800, 
-                  lineHeight: 1.1
-                }}>
+                <span className="text-label-caps" style={{ fontSize: '10px', lineHeight: 1.1 }}>
                   {scope.label}
                 </span>
               </button>
@@ -238,13 +230,13 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       {/* Assistant Section */}
       <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <label style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+          <label className="text-label-caps" style={{ color: 'var(--primary)', letterSpacing: '1.5px' }}>
             {t('HEALTH_ASSISTANT')}
           </label>
-          <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 700 }}>
+          <span className="text-body-md" style={{ color: 'var(--on-surface)', fontWeight: 700 }}>
             {healthScope === 'STATE' ? t('TN_HEALTH_SERVICES') : (activeDistrict ? `${t('HEALTH_IN')} ${activeDistrict}` : t('EXPLORE_LOCAL_HEALTH'))}
           </span>
-          <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 500 }}>
+          <span className="text-bilingual-subtext" style={{ color: 'var(--on-surface-variant)' }}>
             {t('CHOOSE_NEED_SEARCH')}
           </span>
         </div>
@@ -264,9 +256,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   fontSize: '11px',
                   fontWeight: 600,
                   borderRadius: '12px',
-                  border: `1px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
-                  background: isActive ? 'rgba(14, 165, 233, 0.1)' : (isDark ? 'rgba(30, 41, 59, 0.4)' : '#fff'),
-                  color: isActive ? 'var(--accent)' : 'var(--text-primary)',
+                  border: `1px solid ${isActive ? 'var(--primary)' : 'var(--outline-variant)'}`,
+                  background: isActive ? 'var(--primary-container)' : 'var(--surface-container-low)',
+                  color: isActive ? 'var(--on-primary-container)' : 'var(--on-surface)',
                   cursor: 'pointer',
                   transition: 'all 0.2s'
                 }}
@@ -284,8 +276,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
       {/* Facility Levels */}
       <div style={{ padding: '8px 16px 16px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-          <Stethoscope size={14} color="var(--accent)" />
-          <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-secondary)', letterSpacing: '1px' }}>
+          <Stethoscope size={14} color="var(--primary)" />
+          <span className="text-label-caps" style={{ color: 'var(--on-surface-variant)', letterSpacing: '1px' }}>
             {t('FACILITY_GROUPS')}
           </span>
         </div>
@@ -315,12 +307,12 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   fontSize: '12px',
                   fontWeight: 600,
                   borderRadius: '10px',
-                  background: isActive ? 'rgba(14, 165, 233, 0.1)' : 'transparent',
-                  border: `2px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
-                  color: isActive ? 'var(--accent)' : 'var(--text-primary)',
+                  background: isActive ? 'var(--primary-container)' : 'transparent',
+                  border: `2px solid ${isActive ? 'var(--primary)' : 'var(--outline-variant)'}`,
+                  color: isActive ? 'var(--on-primary-container)' : 'var(--on-surface)',
                   cursor: isDisabled ? 'not-allowed' : 'pointer',
                   transition: 'all 0.2s',
-                  boxShadow: isActive ? '0 4px 12px rgba(14, 165, 233, 0.15)' : 'none',
+                  boxShadow: isActive ? 'var(--shadow-std)' : 'none',
                   opacity: isDisabled ? 0.5 : 1
                 }}
                 title={isDisabled ? t('ZOOM_IN_FOR_LOCAL') : ''}
@@ -333,8 +325,8 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   width: '14px', 
                   height: '14px', 
                   borderRadius: '4px', // Square for checkbox
-                  border: `2px solid ${isActive ? 'var(--accent)' : 'var(--text-secondary)'}`,
-                  background: isActive ? 'var(--accent)' : 'transparent',
+                  border: `2px solid ${isActive ? 'var(--primary)' : 'var(--on-surface-variant)'}`,
+                  background: isActive ? 'var(--primary)' : 'transparent',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -358,9 +350,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
               padding: '12px',
               fontSize: '11px',
               fontWeight: 700,
-              color: 'var(--accent)',
+              color: 'var(--primary)',
               background: 'transparent',
-              border: `1px dashed var(--accent)`,
+              border: `1px dashed var(--primary)`,
               borderRadius: '10px',
               cursor: 'pointer',
               marginTop: '8px'
@@ -396,9 +388,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                         fontSize: '11px',
                         fontWeight: 600,
                         borderRadius: '20px',
-                        border: `1px solid ${isActive ? cap.color : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)')}`,
+                        border: `1px solid ${isActive ? cap.color : 'var(--outline-variant)'}`,
                         background: isActive ? `${cap.color}15` : 'transparent',
-                        color: isActive ? cap.color : 'var(--text-secondary)',
+                        color: isActive ? cap.color : 'var(--on-surface-variant)',
                         cursor: 'pointer',
                         transition: 'all 0.2s'
                       }}
@@ -420,9 +412,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                   padding: '10px',
                   fontSize: '11px',
                   fontWeight: 700,
-                  color: 'var(--accent)',
+                  color: 'var(--primary)',
                   background: 'transparent',
-                  border: `1px dashed var(--accent)`,
+                  border: `1px dashed var(--primary)`,
                   borderRadius: '10px',
                   cursor: 'pointer'
                 }}
@@ -476,7 +468,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                         fontSize: '11px',
                         fontWeight: 600,
                         borderRadius: '20px',
-                        border: `1px solid ${isActive ? cap.color : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)')}`,
+                        border: `1px solid ${isActive ? cap.color : 'var(--outline-variant)'}`,
                         background: isActive ? `${cap.color}15` : 'transparent',
                         color: isActive ? cap.color : 'var(--text-secondary)',
                         cursor: 'pointer',
@@ -494,7 +486,7 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
           {/* Expert: Raw Facility Types */}
           <div style={{ display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--border-glass)' }}>
             <div style={{ padding: '16px 16px 8px 16px' }}>
-              <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-secondary)', letterSpacing: '1px' }}>
+              <span className="text-label-caps" style={{ color: 'var(--on-surface-variant)', letterSpacing: '1px' }}>
                 {t('SPECIFIC_FACILITY_TYPES')}
               </span>
             </div>
@@ -510,9 +502,9 @@ export const HealthFiltersPanel: React.FC<HealthFiltersPanelProps> = ({ onFilter
                       fontSize: '10px',
                       fontWeight: 600,
                       borderRadius: '8px',
-                      border: `1px solid ${isActive ? 'var(--accent)' : (isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)')}`,
-                      background: isActive ? 'rgba(14, 165, 233, 0.05)' : 'transparent',
-                      color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
+                      border: `1px solid ${isActive ? 'var(--primary)' : 'var(--outline-variant)'}`,
+                      background: isActive ? 'var(--primary-container)' : 'transparent',
+                      color: isActive ? 'var(--on-primary-container)' : 'var(--on-surface-variant)',
                       cursor: 'pointer'
                     }}
                   >

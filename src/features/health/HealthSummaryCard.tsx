@@ -134,27 +134,25 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
         <div className="flex items-start justify-between" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
           <div className="flex flex-col">
             <div className="flex items-center gap-2" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-              <div style={{ padding: '6px', background: 'rgba(14, 165, 233, 0.1)', borderRadius: '8px', display: 'flex' }}>
-                <Activity size={16} color="var(--accent)" />
+              <div style={{ padding: '6px', background: 'var(--primary-container)', borderRadius: 'var(--rounded-std)', display: 'flex' }}>
+                <Activity size={16} color="var(--primary)" />
               </div>
-              <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+              <span className="text-label-caps" style={{ color: 'var(--primary)', letterSpacing: '1.5px' }}>
                 {guidance.label}
               </span>
             </div>
-            <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.5px', marginBottom: '4px' }}>
+            <h3 className="text-headline-md" style={{ color: 'var(--on-surface)', letterSpacing: '-0.5px', marginBottom: '4px' }}>
               {guidance.title}
             </h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, maxWidth: '240px', marginBottom: '8px' }}>
+            <p className="text-bilingual-subtext" style={{ color: 'var(--on-surface-variant)', lineHeight: 1.5, maxWidth: '240px', marginBottom: '8px' }}>
               {guidance.copy}
             </p>
-            <div style={{ 
-              fontSize: '11px', 
-              fontWeight: 700, 
-              color: 'var(--accent)', 
-              background: 'rgba(14, 165, 233, 0.05)', 
+            <div className="text-label-std" style={{ 
+              color: 'var(--primary)', 
+              background: 'var(--primary-container)', 
               padding: '8px 12px', 
-              borderRadius: '8px',
-              borderLeft: '3px solid var(--accent)',
+              borderRadius: 'var(--rounded-std)',
+              borderLeft: '3px solid var(--primary)',
               marginBottom: '16px',
               display: 'flex',
               alignItems: 'center',
@@ -182,8 +180,8 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
               </button>
             )}
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '32px', fontWeight: 900, color: 'var(--accent)', lineHeight: 1 }}>{summary.total}</div>
-              <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{t('FACILITIES')}</div>
+              <div className="text-headline-xl" style={{ color: 'var(--primary)', lineHeight: 1 }}>{summary.total}</div>
+              <div className="text-label-caps" style={{ color: 'var(--on-surface-variant)', letterSpacing: '0.5px' }}>{t('FACILITIES')}</div>
             </div>
           </div>
         </div>
@@ -195,15 +193,15 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
               alignItems: 'center', 
               justifyContent: 'space-between', 
               padding: '10px 12px', 
-              background: 'rgba(255, 255, 255, 0.03)', 
-              borderRadius: '10px',
-              border: '1px solid var(--border-glass)'
+              background: 'var(--surface-container-low)', 
+              borderRadius: 'var(--rounded-std)',
+              border: '1px solid var(--outline-variant)'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
-                <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>{type}</span>
+                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)' }} />
+                <span className="text-label-std" style={{ color: 'var(--on-surface-variant)' }}>{type}</span>
               </div>
-              <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>{count}</span>
+              <span className="text-body-md" style={{ color: 'var(--on-surface)' }}>{count}</span>
             </div>
           ))}
         </div>
@@ -216,9 +214,9 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
             borderRadius: '16px',
             border: '1px solid rgba(14, 165, 233, 0.1)'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent)', marginBottom: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', marginBottom: '12px' }}>
               <CheckCircle2 size={14} />
-              <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('HIGHLIGHTS')}</span>
+              <span className="text-label-caps" style={{ letterSpacing: '1px' }}>{t('HIGHLIGHTS')}</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               {Object.entries(summary.countsByCapability)
@@ -247,8 +245,8 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                   };
                   return (
                     <div key={key || index} style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-secondary)', fontWeight: 600 }}>{labelMap[key] || key}</span>
-                      <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>{count}</span>
+                      <span className="text-bilingual-subtext" style={{ color: 'var(--on-surface-variant)' }}>{labelMap[key] || key}</span>
+                      <span className="text-body-md" style={{ color: 'var(--on-surface)' }}>{count}</span>
                     </div>
                   );
                 })}
@@ -259,14 +257,14 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
         {displayActiveFilters.length > 0 && (
           <div style={{ padding: '12px 0', borderTop: '1px solid var(--border-glass)', marginBottom: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--on-surface-variant)' }}>
                 <Filter size={12} />
-                <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' }}>{t('ACTIVE_FILTERS')}</span>
+                <span className="text-label-caps" style={{ fontSize: '10px' }}>{t('ACTIVE_FILTERS')}</span>
               </div>
               {onClearFilters && (
                 <button 
                   onClick={onClearFilters}
-                  style={{ background: 'none', border: 'none', color: 'var(--accent)', fontSize: '10px', fontWeight: 700, cursor: 'pointer' }}
+                  style={{ background: 'none', border: 'none', color: 'var(--primary)', fontSize: '10px', fontWeight: 700, cursor: 'pointer' }}
                 >
                   {t('CLEAR_ALL')}
                 </button>
@@ -279,9 +277,9 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
                   alignItems: 'center', 
                   gap: '4px', 
                   padding: '4px 8px', 
-                  background: 'rgba(14, 165, 233, 0.1)', 
-                  color: 'var(--accent)', 
-                  borderRadius: '6px', 
+                  background: 'var(--primary-container)', 
+                  color: 'var(--on-primary-container)', 
+                  borderRadius: 'var(--rounded-std)', 
                   fontSize: '10px', 
                   fontWeight: 700 
                 }}>
@@ -297,9 +295,9 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
           <div style={{
             marginTop: '8px',
             padding: '16px',
-            background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.05))',
-            borderRadius: '16px',
-            border: '1px dashed var(--accent)',
+            background: 'var(--surface-container-low)',
+            borderRadius: 'var(--rounded-xl)',
+            border: '1px dashed var(--primary)',
             textAlign: 'center'
           }}>
             <p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '12px' }}>
@@ -308,7 +306,7 @@ export const HealthSummaryCard: React.FC<HealthSummaryCardProps> = ({ summary, o
             <button 
               onClick={() => setTriggerLocateMe(true)}
               className="btn-primary" 
-              style={{ width: '100%', padding: '10px', fontSize: '12px' }}
+              style={{ width: '100%', padding: '10px', fontSize: '12px', borderRadius: 'var(--rounded-std)' }}
             >
               <MapPin size={14} />
               {t('FIND_FACILITIES_NEAR_ME')}

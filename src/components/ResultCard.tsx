@@ -19,40 +19,40 @@ export interface ResultCardProps {
 
 const colorMap = {
   blue: {
-    bg: '#eff6ff',
-    text: '#2563eb',
-    button: '#2563eb',
-    hover: '#1d4ed8'
+    bg: 'var(--primary-container)',
+    text: 'var(--on-primary-container)',
+    button: 'var(--primary)',
+    hover: 'var(--primary-fixed-dim)'
   },
   red: {
-    bg: '#fef2f2',
-    text: '#ef4444',
-    button: '#ef4444',
-    hover: '#dc2626'
+    bg: 'var(--error-container)',
+    text: 'var(--on-error-container)',
+    button: 'var(--error)',
+    hover: 'var(--error)'
   },
   orange: {
-    bg: '#fff7ed',
-    text: '#f97316',
-    button: '#f97316',
-    hover: '#ea580c'
+    bg: 'var(--tertiary-container)',
+    text: 'var(--on-tertiary-container)',
+    button: 'var(--tertiary)',
+    hover: 'var(--tertiary)'
   },
   indigo: {
-    bg: '#eef2ff',
-    text: '#4f46e5',
-    button: '#4f46e5',
-    hover: '#4338ca'
+    bg: 'var(--secondary-container)',
+    text: 'var(--on-secondary-container)',
+    button: 'var(--secondary)',
+    hover: 'var(--secondary)'
   },
   slate: {
-    bg: '#f1f5f9',
-    text: '#334155',
-    button: '#334155',
-    hover: '#1e293b'
+    bg: 'var(--surface-container-highest)',
+    text: 'var(--on-surface-variant)',
+    button: 'var(--on-surface)',
+    hover: 'var(--inverse-surface)'
   },
   rose: {
-    bg: '#fff1f2',
-    text: '#e11d48',
-    button: '#e11d48',
-    hover: '#be123c'
+    bg: 'rgba(225, 29, 72, 0.1)',
+    text: 'var(--health-rose)',
+    button: 'var(--health-rose)',
+    hover: 'var(--health-rose)'
   }
 };
 
@@ -91,7 +91,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
       <div className="result-card-header">
         <div className="result-card-title-group">
           {icon && <span style={{ color: colors.text, display: 'flex' }}>{icon}</span>}
-          <h3 className="result-card-title">{title}</h3>
+          <h3 className="result-card-title text-headline-md">{title}</h3>
         </div>
         <div className="result-card-header-actions">
           {isMobile && (onDirections || onAction) && (
@@ -165,17 +165,17 @@ const ResultCard: React.FC<ResultCardProps> = ({
       <div style={{ 
         padding: '8px 12px', 
         margin: '0 16px 12px 16px', 
-        borderRadius: '8px', 
-        background: 'rgba(0,0,0,0.03)', 
-        border: '1px dashed rgba(0,0,0,0.1)',
-        fontSize: '10px',
-        color: 'var(--text-secondary)',
+        borderRadius: 'var(--rounded-std)', 
+        background: 'var(--surface-container-low)', 
+        border: '1px dashed var(--outline-variant)',
+        fontSize: '11px',
+        color: 'var(--on-surface-variant)',
         lineHeight: '1.4',
         display: 'flex',
         gap: '6px'
       }}>
         <span style={{ fontSize: '12px', marginTop: '-1px' }}>📍</span>
-        <span><strong>{t('ACCURACY')}:</strong> {t('VICINITY_DISCLAIMER')}</span>
+        <span><strong className="text-label-caps" style={{ fontSize: '10px' }}>{t('ACCURACY')}:</strong> {t('VICINITY_DISCLAIMER')}</span>
       </div>
 
       {/* Body */}

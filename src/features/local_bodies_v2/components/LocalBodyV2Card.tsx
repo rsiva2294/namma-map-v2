@@ -1,6 +1,5 @@
 import React from 'react';
 import { Landmark, MapPin, Building2, LayoutGrid, Info } from 'lucide-react';
-import { useMapStore } from '../../../store/useMapStore';
 import { useTranslation } from '../../../i18n/translations';
 import type { LocalBodyV2Feature } from '../../../types/gis_v2';
 
@@ -9,16 +8,15 @@ interface LocalBodyV2CardProps {
 }
 
 export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => {
-  const { theme } = useMapStore();
   const { t } = useTranslation();
   const { name, type, district, block, taluk, category, pincode } = feature.properties;
 
   const typeColors: Record<string, string> = {
-    CORPORATION: '#6366f1', // Indigo
-    MUNICIPALITY: '#8b5cf6', // Violet
-    TOWN_PANCHAYAT: '#ec4899', // Pink
-    VILLAGE_PANCHAYAT: '#10b981', // Emerald
-    UNKNOWN_LOCAL_BODY: '#94a3b8' // Slate
+    CORPORATION: 'var(--transport-indigo)',
+    MUNICIPALITY: 'var(--primary)',
+    TOWN_PANCHAYAT: 'var(--health-rose)',
+    VILLAGE_PANCHAYAT: '#10b981', // Keep emerald for villages
+    UNKNOWN_LOCAL_BODY: 'var(--on-surface-variant)'
   };
 
   const details = [
@@ -30,19 +28,19 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
   ].filter(d => d.value);
 
   return (
-    <div className={`local-body-v2-card ${theme}`} style={{
-      background: theme === 'dark' ? '#1e293b' : '#ffffff',
-      borderRadius: '16px',
+    <div className="local-body-v2-card" style={{
+      background: 'var(--surface-container-low)',
+      borderRadius: 'var(--rounded-xl)',
       overflow: 'hidden',
-      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-      border: `1px solid ${theme === 'dark' ? '#334155' : '#e2e8f0'}`,
+      boxShadow: 'var(--shadow-std)',
+      border: '1px solid var(--outline-variant)',
       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
     }}>
       {/* Header with Type Badge */}
       <div style={{
         padding: '20px',
         background: `linear-gradient(135deg, ${typeColors[type]}15, ${typeColors[type]}05)`,
-        borderBottom: `1px solid ${theme === 'dark' ? '#334155' : '#e2e8f0'}`,
+        borderBottom: '1px solid var(--outline-variant)',
         position: 'relative'
       }}>
         <div style={{
@@ -62,10 +60,8 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
           {t(type as any)}
         </div>
         
-        <h2 style={{
-          fontSize: '1.25rem',
-          fontWeight: 800,
-          color: theme === 'dark' ? '#f8fafc' : '#1e293b',
+        <h2 className="text-headline-md" style={{
+          color: 'var(--on-surface)',
           margin: 0,
           lineHeight: 1.2
         }}>
@@ -86,22 +82,18 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
               flexDirection: 'column',
               gap: '4px'
             }}>
-              <div style={{
+              <div className="text-label-caps" style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: theme === 'dark' ? '#94a3b8' : '#64748b',
-                fontSize: '0.7rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
+                color: 'var(--on-surface-variant)',
                 letterSpacing: '0.025em'
               }}>
                 <detail.icon size={12} />
                 {detail.label}
               </div>
-              <div style={{
-                color: theme === 'dark' ? '#f1f5f9' : '#334155',
-                fontSize: '0.875rem',
+              <div className="text-label-std" style={{
+                color: 'var(--on-surface)',
                 fontWeight: 600
               }}>
                 {detail.value}
@@ -113,11 +105,10 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
       </div>
       
       {/* Footer Branding */}
-      <div style={{
+      <div className="text-bilingual-subtext" style={{
         padding: '12px 20px',
-        background: theme === 'dark' ? '#0f172a' : '#f8fafc',
-        fontSize: '0.65rem',
-        color: theme === 'dark' ? '#64748b' : '#94a3b8',
+        background: 'var(--surface-container-high)',
+        color: 'var(--on-surface-variant)',
         display: 'flex',
         alignItems: 'center',
         gap: '4px'

@@ -44,28 +44,28 @@ const Sidebar: React.FC = () => {
     {
       label: t('ESSENTIALS'),
       items: [
-        { id: 'PINCODE' as ServiceLayer, label: t('PINCODE'), icon: MapPin, color: '#3b82f6' },
-        { id: 'PDS' as ServiceLayer, label: t('PDS'), icon: ShoppingCart, color: '#ef4444' },
-        { id: 'HEALTH' as ServiceLayer, label: t('HEALTH'), icon: Activity, color: '#be123c' },
+        { id: 'PINCODE' as ServiceLayer, label: t('PINCODE'), icon: MapPin, color: 'var(--primary)' },
+        { id: 'PDS' as ServiceLayer, label: t('PDS'), icon: ShoppingCart, color: 'var(--error)' },
+        { id: 'HEALTH' as ServiceLayer, label: t('HEALTH'), icon: Activity, color: 'var(--health-rose)' },
       ]
     },
     {
       label: t('CIVIC'),
       items: [
-        { id: 'LOCAL_BODIES_V2' as ServiceLayer, label: t('LOCAL_BODIES_V2'), icon: Building2, color: '#6366f1' },
-        { id: 'CONSTITUENCY' as ServiceLayer, label: t('CONSTITUENCY'), icon: Landmark, color: '#6366f1' },
+        { id: 'LOCAL_BODIES_V2' as ServiceLayer, label: t('LOCAL_BODIES_V2'), icon: Building2, color: 'var(--transport-indigo)' },
+        { id: 'CONSTITUENCY' as ServiceLayer, label: t('CONSTITUENCY'), icon: Landmark, color: 'var(--transport-indigo)' },
       ]
     },
     {
       label: t('SAFETY'),
       items: [
-        { id: 'POLICE' as ServiceLayer, label: t('POLICE'), icon: Shield, color: '#475569' },
+        { id: 'POLICE' as ServiceLayer, label: t('POLICE'), icon: Shield, color: 'var(--police-slate)' },
       ]
     },
     {
       label: t('UTILITIES'),
       items: [
-        { id: 'TNEB' as ServiceLayer, label: t('TNEB'), icon: Zap, color: '#f59e0b' },
+        { id: 'TNEB' as ServiceLayer, label: t('TNEB'), icon: Zap, color: 'var(--revenue-amber)' },
       ]
     }
   ];
@@ -182,7 +182,7 @@ const Sidebar: React.FC = () => {
                       >
                         <div className="tab-group" style={{ 
                           display: 'flex', 
-                          background: theme === 'dark' ? '#1e293b' : '#f1f5f9',
+                          background: 'var(--surface-container-high)',
                           borderRadius: '8px',
                           padding: '4px',
                           gap: '4px',
@@ -199,9 +199,9 @@ const Sidebar: React.FC = () => {
                               borderRadius: '6px',
                               border: 'none',
                               cursor: 'pointer',
-                              background: constituencyType === 'AC' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
-                              color: constituencyType === 'AC' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
-                              boxShadow: constituencyType === 'AC' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                              background: constituencyType === 'AC' ? 'var(--surface)' : 'transparent',
+                              color: constituencyType === 'AC' ? 'var(--on-surface)' : 'var(--on-surface-variant)',
+                              boxShadow: constituencyType === 'AC' ? 'var(--shadow-std)' : 'none',
                               transition: 'all 0.2s'
                             }}
                           >
@@ -218,9 +218,9 @@ const Sidebar: React.FC = () => {
                               borderRadius: '6px',
                               border: 'none',
                               cursor: 'pointer',
-                              background: constituencyType === 'PC' ? (theme === 'dark' ? '#334155' : '#fff') : 'transparent',
-                              color: constituencyType === 'PC' ? (theme === 'dark' ? '#f8fafc' : '#1e293b') : (theme === 'dark' ? '#94a3b8' : '#64748b'),
-                              boxShadow: constituencyType === 'PC' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                              background: constituencyType === 'PC' ? 'var(--surface)' : 'transparent',
+                              color: constituencyType === 'PC' ? 'var(--on-surface)' : 'var(--on-surface-variant)',
+                              boxShadow: constituencyType === 'PC' ? 'var(--shadow-std)' : 'none',
                               transition: 'all 0.2s'
                             }}
                           >

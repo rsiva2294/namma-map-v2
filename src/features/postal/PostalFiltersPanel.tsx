@@ -27,7 +27,7 @@ export const PostalLegendPanel: React.FC = () => {
         <span className="legend-title" style={{ flex: 1, marginRight: '12px' }}>
           {language === 'ta' ? 'அஞ்சல் அலுவலகக் குறிப்புகள்' : 'Post Office Legend'}
         </span>
-        <div style={{ display: 'flex', color: '#f59e0b' }}>
+        <div style={{ display: 'flex', color: 'var(--revenue-amber)' }}>
           {isCollapsed ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
         </div>
       </div>
@@ -36,28 +36,28 @@ export const PostalLegendPanel: React.FC = () => {
         <>
           <div className="legend-items">
         <div className="legend-item">
-          <div className="legend-swatch" style={{ background: '#3b82f6' }}>
+          <div className="legend-swatch" style={{ background: 'var(--primary)' }}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <span className="legend-label">{language === 'ta' ? 'தலைமை அஞ்சலகம் (HO)' : 'Main Post Office (HO)'}</span>
+          <span className="legend-label text-label-std">{language === 'ta' ? 'தலைமை அஞ்சலகம் (HO)' : 'Main Post Office (HO)'}</span>
         </div>
         
         <div className="legend-item">
           <div className="legend-swatch" style={{ background: '#10b981' }}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <span className="legend-label">{language === 'ta' ? 'விநியோகம் உண்டு' : 'Delivery Available'}</span>
+          <span className="legend-label text-label-std">{language === 'ta' ? 'விநியோகம் உண்டு' : 'Delivery Available'}</span>
         </div>
 
         <div className="legend-item">
-          <div className="legend-swatch" style={{ background: '#f59e0b' }}>
+          <div className="legend-swatch" style={{ background: 'var(--revenue-amber)' }}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <span className="legend-label">{language === 'ta' ? 'கவுண்டர் சேவைகள் மட்டும்' : 'Counter Services Only'}</span>
+          <span className="legend-label text-label-std">{language === 'ta' ? 'கவுண்டர் சேவைகள் மட்டும்' : 'Counter Services Only'}</span>
         </div>
       </div>
       
-          <div className="legend-footer">
+          <div className="legend-footer text-bilingual-subtext">
             <Info size={12} />
             {validOfficesCount} {language === 'ta' ? 'அலுவலகங்கள் இந்தப் பகுதியில் உள்ளன' : 'offices in this area'}
           </div>

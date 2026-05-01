@@ -170,41 +170,41 @@ const SearchBar: React.FC = () => {
                     title = suggestion.properties.shop_code as string;
                     subtitle = `${suggestion.properties.name} - ${suggestion.properties.taluk || ''}`;
                     Icon = ShoppingCart;
-                    iconColor = '#ef4444';
+                    iconColor = 'var(--error)';
                   } else if (suggestion.suggestionType === 'TNEB_SECTION') {
                     title = (suggestion.properties.section_na || suggestion.properties.section_office || '') as string;
                     subtitle = `TNEB Section - ${suggestion.properties.circle_nam || ''}`;
                     Icon = Zap;
-                    iconColor = '#f59e0b';
+                    iconColor = 'var(--revenue-amber)';
                   } else if (suggestion.suggestionType === 'DISTRICT') {
                     title = (suggestion.properties.district || suggestion.properties.DISTRICT || suggestion.properties.NAME || '') as string;
                     subtitle = t('SUB_DISTRICT_BOUNDARY');
                     Icon = Building2;
-                    iconColor = '#64748b';
+                    iconColor = 'var(--on-surface-variant)';
                   } else if (suggestion.suggestionType === 'CONSTITUENCY') {
                     const isPc = !!suggestion.properties.parliame_1 && !suggestion.properties.assembly_c;
                     const num = suggestion.properties.assembly_1 || suggestion.properties.parliament;
                     title = (suggestion.properties.assembly_c || suggestion.properties.parliame_1 || 'Constituency') as string;
                     subtitle = isPc ? `PC #${num} - ${t('SUB_PC')}` : `AC #${num} - ${t('SUB_AC')} (${suggestion.properties.parliame_1})`;
                     Icon = Landmark;
-                    iconColor = '#4f46e5';
+                    iconColor = 'var(--transport-indigo)';
                   } else if (suggestion.suggestionType === 'POLICE_STATION') {
                     title = (suggestion.properties.ps_name || '') as string;
                     subtitle = t('SUB_POLICE');
                     Icon = Shield;
-                    iconColor = '#334155';
+                    iconColor = 'var(--police-slate)';
                   } else if (suggestion.suggestionType === 'HEALTH_FACILITY') {
                     const typeLabel = (suggestion.properties.facility_t && t(suggestion.properties.facility_t as any)) || String(suggestion.properties.facility_t || t('HEALTH'));
                     
                     title = (suggestion.properties.facility_n || '') as string;
                     subtitle = `${typeLabel} • ${suggestion.properties.district_n || suggestion.properties.district || ''} • ${suggestion.properties.block_name || t('SUB_LOCAL_AREA')}`;
                     Icon = Activity;
-                    iconColor = '#f43f5e';
+                    iconColor = 'var(--health-rose)';
                   } else if (suggestion.suggestionType === 'COORDINATES') {
                     title = t('GO_TO_COORDINATES');
                     subtitle = (suggestion.properties.name || '') as string;
                     Icon = Navigation;
-                    iconColor = 'var(--accent)';
+                    iconColor = 'var(--primary)';
                   } else if (suggestion.suggestionType === 'GLOBAL_PLACE') {
                     title = (suggestion.properties.main_text || suggestion.properties.name || '') as string;
                     subtitle = (suggestion.properties.secondary_text || t('CAT_GLOBAL')) as string;
@@ -216,7 +216,7 @@ const SearchBar: React.FC = () => {
                     title = pin ? `${pin} - ${name}` : name;
                     subtitle = suggestion.properties.district ? `${suggestion.properties.district} ${t('DISTRICT')}` : t('SUB_AREA_BOUNDARY');
                     Icon = MapPin;
-                    iconColor = '#3b82f6';
+                    iconColor = 'var(--primary)';
                   }
                   
                   return (
