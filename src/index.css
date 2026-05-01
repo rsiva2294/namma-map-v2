@@ -387,6 +387,16 @@ html,
   gap: 8px;
 }
 
+.sidebar-version-tag {
+  margin-top: 12px;
+  padding: 0 16px;
+  font-size: 10px;
+  font-family: monospace;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-secondary);

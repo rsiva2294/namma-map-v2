@@ -21,6 +21,8 @@ import { getLayerSlug } from '../../utils/routeUtils';
 import { useMapStore } from '../../store/useMapStore';
 import { useTranslation } from '../../i18n/translations';
 import type { ServiceLayer } from '../../types/gis';
+import { APP_VERSION } from '../../constants';
+import { formatVersion } from '../../utils/version';
 
 const Sidebar: React.FC = () => {
   const isSidebarOpen = useMapStore(state => state.isSidebarOpen);
@@ -267,6 +269,11 @@ const Sidebar: React.FC = () => {
             <HelpCircle size={20} color="var(--accent)" />
             {isSidebarOpen && <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{t('TUTORIAL')}</span>}
           </button>
+          {isSidebarOpen && (
+            <div className="sidebar-version-tag">
+              v{formatVersion(APP_VERSION)}
+            </div>
+          )}
         </div>
       </motion.div>
     </motion.aside>
