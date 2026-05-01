@@ -56,13 +56,16 @@ function App() {
 
   // Defer Map Loading to prioritize FCP/LCP
   useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const delay = isMobile ? 2500 : 800; // Longer delay on mobile to allow CPU to settle
+    
     const timer = setTimeout(() => {
       if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => setShouldLoadMap(true));
+        (window as any).requestIdleCallback(() => setShouldLoadMap(true), { timeout: 2000 });
       } else {
         setShouldLoadMap(true);
       }
-    }, 150); 
+    }, delay); 
     return () => clearTimeout(timer);
   }, []);
 

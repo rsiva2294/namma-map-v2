@@ -132,7 +132,7 @@ html,
 
 .app-container {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -723,9 +723,10 @@ html,
     right: 0;
     width: 100%;
     border-radius: 24px 24px 0 0;
-    max-height: 85dvh;
+    max-height: 80dvh; /* Slightly reduced to ensure it never overflows top */
     z-index: var(--z-bottom-sheet);
     box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+    padding-bottom: env(safe-area-inset-bottom, 20px); /* Direct padding for the card container */
   }
   
   /* Add a drag handle visual for bottom sheets */
@@ -896,7 +897,7 @@ html,
 .result-card-footer {
   margin-top: auto;
   flex-shrink: 0;
-  padding-bottom: env(safe-area-inset-bottom, 12px);
+  padding-bottom: env(safe-area-inset-bottom, 16px);
   background: var(--bg-card);
   border-top: 1px solid var(--border-glass);
 }
@@ -1577,10 +1578,11 @@ html,
     left: 0;
     right: 0;
     width: 100%;
-    max-height: 85dvh;
+    max-height: 85svh; /* Use Small Viewport Height to be safe */
     padding: 0;
-    gap: 0; /* Stacked bottom sheets don't usually have gaps */
+    gap: 0;
     z-index: var(--z-bottom-sheet);
+    padding-bottom: env(safe-area-inset-bottom, 0);
   }
 
   .result-cards-stack .result-card {
