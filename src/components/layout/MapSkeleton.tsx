@@ -7,7 +7,7 @@ const MapSkeleton: React.FC = () => {
       {/* Sidebar Skeleton */}
       <div className="skeleton-sidebar glass">
         <div className="skeleton-logo-group">
-          <div className="skeleton-logo pulse" />
+          <img src="/branding/icon.png" className="skeleton-logo" alt="NammaMap Logo" />
           <div className="skeleton-text-short pulse" />
         </div>
         <div className="skeleton-nav">
@@ -80,7 +80,6 @@ const MapSkeleton: React.FC = () => {
           width: 32px;
           height: 32px;
           border-radius: 8px;
-          background: var(--bg-card);
         }
 
         .skeleton-text-short {

@@ -16,7 +16,7 @@ const HealthFiltersPanel = React.lazy(() => import('./features/health/HealthFilt
 const HealthAreaPrompt = React.lazy(() => import('./features/health/HealthAreaPrompt').then(m => ({ default: m.HealthAreaPrompt })));
 
 import LocatingOverlay from './components/LocatingOverlay';
-const TutorialGuide = React.lazy(() => import('./features/tutorial/TutorialGuide'));
+const TutorialGuide = React.lazy(() => import('./features/tutorial/TutorialGuide'));
 
 import SEO from './components/layout/SEO';
 const PWAUpdater = React.lazy(() => import('./components/PWAUpdater'));
@@ -35,13 +35,14 @@ import { trackEvent } from './lib/firebase';
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
 
 function App() {
+  const [shouldLoadMap, setShouldLoadMap] = React.useState(false);
   const { t } = useTranslation();
   const theme = useMapStore(state => state.theme);
   const activeLayer = useMapStore(state => state.activeLayer);
   const setHealthFilters = useMapStore(state => state.setHealthFilters);
   const activeDistrict = useMapStore(state => state.activeDistrict);
-  const language = useMapStore(state => state.language);
-  const location = useLocation();
+  const language = useMapStore(state => state.language);
+  const location = useLocation();
 
   // Track Page Views
   useEffect(() => {
@@ -53,7 +54,17 @@ function App() {
   }, [location, activeLayer, activeDistrict]);
 
 
-
+  // Defer Map Loading to prioritize FCP/LCP
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => setShouldLoadMap(true));
+      } else {
+        setShouldLoadMap(true);
+      }
+    }, 150); 
+    return () => clearTimeout(timer);
+  }, []);
 
 
 
@@ -83,7 +94,7 @@ function App() {
       <main className="main-content" role="main" id="main-content" tabIndex={-1}>
         <ErrorBoundary>
           <Suspense fallback={<MapSkeleton />}>
-            <GisMap />
+            {shouldLoadMap ? <GisMap /> : <MapSkeleton />}
           </Suspense>
         </ErrorBoundary>
 
