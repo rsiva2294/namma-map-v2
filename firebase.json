@@ -1,88 +1,127 @@
 {
-  "hosting": {
-    "site": "namma-map",
-    "public": "dist",
-    "predeploy": [
-      "npm run build"
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "/**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache, no-store, must-revalidate"
-          },
-          {
-            "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://www.googletagmanager.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://*.tile.thunderforest.com https://*.basemaps.cartocdn.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.sentry.io https://*.google-analytics.com https://*.analytics.google.com;"
-          },
-          {
-            "key": "Strict-Transport-Security",
-            "value": "max-age=31536000; includeSubDomains; preload"
-          },
-          {
-            "key": "X-Content-Type-Options",
-            "value": "nosniff"
-          },
-          {
-            "key": "X-Frame-Options",
-            "value": "DENY"
-          },
-          {
-            "key": "X-XSS-Protection",
-            "value": "1; mode=block"
-          },
-          {
-            "key": "Referrer-Policy",
-            "value": "strict-origin-when-cross-origin"
-          }
-        ]
-      },
-      {
-        "source": "/assets/**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
-      },
-      {
-        "source": "/data/**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=86400"
-          }
-        ]
-      },
-      {
-        "source": "**/*.@(js|css|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=604800"
-          }
-        ]
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/api/geocode",
-        "function": "geocodeAddress"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
+  "hosting": [
+    {
+      "target": "prod-site",
+      "public": "dist",
+      "predeploy": [
+        "npm run build"
+      ],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://www.googletagmanager.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://*.tile.thunderforest.com https://*.basemaps.cartocdn.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.sentry.io https://*.google-analytics.com https://*.analytics.google.com;"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            }
+          ]
+        },
+        {
+          "source": "/assets/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "/data/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=86400"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js|css|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=604800"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/api/geocode",
+          "function": "geocodeAddress"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "staging-site",
+      "public": "dist",
+      "predeploy": [
+        "npm run build"
+      ],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "/**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://www.googletagmanager.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://*.tile.thunderforest.com https://*.basemaps.cartocdn.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.sentry.io https://*.google-analytics.com https://*.analytics.google.com;"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/api/geocode",
+          "function": "geocodeAddress"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ],
   "functions": {
     "source": "functions",
     "predeploy": [
