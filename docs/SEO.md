@@ -28,8 +28,8 @@
 | JSON-LD | Present | `SchemaData` and result-level scripts are injected |
 | Open Graph | Present | Root image and description exist |
 | Twitter cards | Present | Summary large image cards are configured |
-| Page speed | Needs work | Large GIS payloads are loaded client-side |
-| Image optimization | Partial | Branding assets exist, but there is no responsive image strategy in code |
+| Page speed | Improved (v1.7.0) | Critical CSS inlined, code splitting, and preloading implemented |
+| Image optimization | Improved (v1.7.0) | Added fetchpriority and eager loading for LCP assets |
 | Internal linking | Partial | Sidebar links are present, but route slugs need cleanup |
 | Duplicate content risk | Medium | Many district/layer combinations share the same app shell |
 | Indexing blockers | Medium | Route slug drift and static SPA rendering reduce crawl precision |

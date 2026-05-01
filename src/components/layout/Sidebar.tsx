@@ -113,6 +113,8 @@ const Sidebar: React.FC = () => {
               <img
                 src="/branding/icon.png"
                 alt="NammaMap Logo"
+                loading="eager"
+                fetchPriority="high"
                 style={{ width: 32, height: 32, objectFit: 'contain' }}
               />
               <motion.span

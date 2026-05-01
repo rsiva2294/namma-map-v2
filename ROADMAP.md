@@ -38,4 +38,4 @@ Internal and research-oriented features.
 - [ ] **Automated Data Pipeline**: Scripts to automatically fetch and convert raw government CSV/JSON into optimized TopoJSON.
 
 ---
-*Last Updated: April 30, 2026 (Mobile Responsive Overhaul)*
+*Last Updated: May 1, 2026 (Performance & Bundle Optimization Overhaul)*

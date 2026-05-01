@@ -5,22 +5,30 @@ import { useMapStore } from './store/useMapStore';
 import Sidebar from './components/layout/Sidebar';
 import SearchBar from './components/layout/SearchBar';
 import ResultContainer from './components/layout/ResultContainer';
-import ReportModal from './components/ReportModal';
-import LegalModal from './components/LegalModal';
+const ReportModal = React.lazy(() => import('./components/ReportModal'));
+
+const LegalModal = React.lazy(() => import('./components/LegalModal'));
+
 import { useTranslation } from './i18n/translations';
 import ErrorBoundary from './components/ErrorBoundary';
-import { HealthFiltersPanel } from './features/health/HealthFiltersPanel';
-import { HealthAreaPrompt } from './features/health/HealthAreaPrompt';
+const HealthFiltersPanel = React.lazy(() => import('./features/health/HealthFiltersPanel').then(m => ({ default: m.HealthFiltersPanel })));
+
+const HealthAreaPrompt = React.lazy(() => import('./features/health/HealthAreaPrompt').then(m => ({ default: m.HealthAreaPrompt })));
+
 import LocatingOverlay from './components/LocatingOverlay';
-import TutorialGuide from './features/tutorial/TutorialGuide';
+const TutorialGuide = React.lazy(() => import('./features/tutorial/TutorialGuide'));
+
 import SEO from './components/layout/SEO';
-import PWAUpdater from './components/PWAUpdater';
+const PWAUpdater = React.lazy(() => import('./components/PWAUpdater'));
+
 import { RouteManager } from './components/routing/RouteManager';
 import MapSkeleton from './components/layout/MapSkeleton';
 import SchemaData from './components/SchemaData';
 import { useLocation } from 'react-router-dom';
-import NetworkErrorOverlay from './components/NetworkErrorOverlay';
-import { PostalLegendPanel } from './features/postal/PostalFiltersPanel';
+const NetworkErrorOverlay = React.lazy(() => import('./components/NetworkErrorOverlay'));
+
+const PostalLegendPanel = React.lazy(() => import('./features/postal/PostalFiltersPanel').then(m => ({ default: m.PostalLegendPanel })));
+
 import { trackEvent } from './lib/firebase';
 
 
@@ -56,7 +64,10 @@ function App() {
 
   return (
     <div className={`app-container ${theme}-mode lang-${language}`}>
-      <TutorialGuide />
+      <Suspense fallback={null}>
+        <TutorialGuide />
+      </Suspense>
+
       <a href="#main-content" className="skip-link">{t('SKIP_TO_RESULTS')}</a>
       <SchemaData />
       <SEO />
@@ -77,7 +88,9 @@ function App() {
         </ErrorBoundary>
 
         <SearchBar />
-        <NetworkErrorOverlay />
+        <Suspense fallback={null}>
+          <NetworkErrorOverlay />
+
         <LocatingOverlay />
         <HealthAreaPrompt />
         <ResultContainer />
@@ -97,6 +110,8 @@ function App() {
         {activeLayer === 'PINCODE' && <PostalLegendPanel />}
 
         <PWAUpdater />
+        </Suspense>
+
       </main>
     </div>
   );

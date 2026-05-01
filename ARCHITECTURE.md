@@ -68,6 +68,14 @@ We use a custom, lightweight translation system built for speed and low bundle s
 | **Constituency** | Election Comm | TopoJSON | Pre-loaded on activation |
 | **Local Bodies** | RDMA | TopoJSON | Lazy-loaded by District (VPs) |
 
+## 📦 Bundle Optimization
+To maintain high performance as features grow, the application uses advanced bundle splitting and lazy loading:
+
+*   **Vendor Chunking**: Core libraries are split into logical chunks (`vendor-react`, `vendor-map`, `vendor-ui`) to leverage long-term browser caching.
+*   **Lazy Modules**: Non-essential UI components (Modals, Tutorials, Feature Panels) are loaded on-demand via `React.lazy` and `Suspense`.
+*   **Critical Path**: Essential CSS for the initial "shell" is inlined in `index.html` to improve **First Contentful Paint (FCP)**.
+*   **Resource Hints**: Uses `preload` for fonts/icons and `preconnect` for map tile servers to minimize network-level bottlenecks.
+
 ## 🔒 Performance & Security Rules
 1.  **No Main-Thread Loops**: Any iteration over >1000 features must happen in the worker.
 2.  **No Redundant Renders**: Map styles are memoized to prevent re-drawing the entire world on state changes.

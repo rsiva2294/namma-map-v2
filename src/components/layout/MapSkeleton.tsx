@@ -124,8 +124,8 @@ const MapSkeleton: React.FC = () => {
           transform: translateX(-50%);
           width: 90%;
           max-width: 500px;
-          height: 52px;
-          border-radius: 16px;
+          height: 56px;
+          border-radius: 28px;
           background: var(--bg-card);
           z-index: 20;
           border: 1px solid var(--border);

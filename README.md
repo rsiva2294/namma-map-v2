@@ -14,6 +14,7 @@ The app combines a React + Leaflet frontend, a Web Worker search/indexing pipeli
 - Firebase Analytics, Performance, and Sentry telemetry
 - PWA support with update prompts
 - English and Tamil translations
+- Advanced bundle splitting and performance-optimized resource loading
 - JSON-LD, Open Graph, Twitter, sitemap, and robots support
 
 ## Quick Start
