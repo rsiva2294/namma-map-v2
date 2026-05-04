@@ -292,8 +292,6 @@ export interface ElectionResult {
   constituencyId: number;
 }
 
-}
-
 export const PARTY_COLORS: Record<string, string> = {
   'ADMK': '#A08547',
   'DMK': '#05F86E',
