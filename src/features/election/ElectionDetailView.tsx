@@ -32,8 +32,7 @@ export const ElectionDetailView: React.FC<ElectionDetailViewProps> = ({
 
   const { detail, isLoading, error } = useConstituencyDetail(constituencyId, constituencyName);
 
-  // Initial summary data from global store
-  const basicResult = electionResults ? electionResults[constituencyId] : null;
+  // Initial data for ResultCard
 
   const initialData = [
     ...(district ? [{ label: t('DISTRICT'), value: translateDistrict(district, language) || 'N/A' }] : []),
