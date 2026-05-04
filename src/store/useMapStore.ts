@@ -19,7 +19,8 @@ import type {
   HealthScope,
   HealthFilters,
   HealthSummary,
-  ElectionResult
+  ElectionResult,
+  DetailedElectionResult
 } from '../types/gis';
 import type { LocalBodyV2Feature } from '../types/gis_v2';
 import { trackEvent } from '../lib/firebase';
@@ -92,6 +93,7 @@ interface MapState {
   electionResults: Record<number, ElectionResult> | null;
   electionLastUpdated: string | null;
   isElectionLive: boolean;
+  detailedElectionResults: Record<number, DetailedElectionResult>;
 
   // Actions
   setHasSeenTutorial: (val: boolean) => void;
@@ -148,6 +150,7 @@ interface MapState {
   setIsResultMinimized: (val: boolean) => void;
   setElectionResults: (results: Record<number, ElectionResult> | null, lastUpdated?: string) => void;
   setIsElectionLive: (live: boolean) => void;
+  setDetailedElectionResult: (id: number, result: DetailedElectionResult) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -234,6 +237,7 @@ export const useMapStore = create<MapState>((set) => ({
   electionResults: null,
   electionLastUpdated: null,
   isElectionLive: false,
+  detailedElectionResults: {},
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setHasSeenTutorial: (val) => {
@@ -413,5 +417,8 @@ export const useMapStore = create<MapState>((set) => ({
     electionResults: results, 
     electionLastUpdated: lastUpdated || new Date().toLocaleTimeString() 
   }),
-  setIsElectionLive: (live) => set({ isElectionLive: live })
+  setIsElectionLive: (live) => set({ isElectionLive: live }),
+  setDetailedElectionResult: (id, result) => set((state) => ({
+    detailedElectionResults: { ...state.detailedElectionResults, [id]: result }
+  }))
 }));

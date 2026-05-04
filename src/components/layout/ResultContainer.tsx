@@ -1,4 +1,4 @@
-import { ShoppingCart, Zap, MapPin, AlertCircle, Landmark, Shield, Activity, ChevronUp } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle, Shield, Activity, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useMapStore } from '../../store/useMapStore';
@@ -7,6 +7,7 @@ import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { LocalBodyV2Card } from '../../features/local_bodies_v2/components/LocalBodyV2Card';
 import { getOfficeTypeLabelKey, getOfficeExplanationKey } from '../../utils/postal';
+import { ElectionDetailView } from '../../features/election/ElectionDetailView';
 
 import { useTranslation } from '../../i18n/translations';
 import { translateDistrict } from '../../i18n/districts';
@@ -311,23 +312,13 @@ const ResultContainer: React.FC = () => {
 
             {/* Constituency Info */}
             {activeLayer === 'CONSTITUENCY' && searchResult && (
-              <ResultCard
-                key="constituency-info"
-                themeColor="indigo"
-                title={(searchResult.properties.assembly_c || searchResult.properties.parliame_1 || t('CAT_CONSTITUENCY')) as string}
-                icon={<Landmark size={20} />}
-                data={searchResult.properties.assembly_c ? [
-                  { label: t('AC_NUMBER'), value: searchResult.properties.assembly_1?.toString() || 'N/A', isPill: true },
-                  { label: t('DISTRICT'), value: translateDistrict(searchResult.properties.district_n as string, language) || 'N/A' },
-                  { label: t('CAT_CONSTITUENCY'), value: searchResult.properties.parliame_1 as string || 'N/A' },
-                ] : [
-                  { label: t('PC_NUMBER'), value: searchResult.properties.parliament?.toString() || 'N/A', isPill: true },
-                  { label: t('STATE'), value: t('TN') }
-                ]}
-                onClose={clearSearch}
-                onReport={() => handleReport('Constituency', searchResult.properties)}
-                onMinimize={() => setIsResultMinimized(true)}
-                featureId={`const_${searchResult.properties.assembly_1 || searchResult.properties.parliament}`}
+              <ElectionDetailView
+                key={`const-detail-${searchResult.properties.assembly_1 || searchResult.properties.parliament}`}
+                constituencyId={Number(searchResult.properties.assembly_1 || searchResult.properties.parliament)}
+                constituencyName={(searchResult.properties.assembly_c || searchResult.properties.parliame_1 || t('CAT_CONSTITUENCY')) as string}
+                district={searchResult.properties.district_n as string}
+                parentPc={searchResult.properties.parliame_1 as string}
+                pcNumber={Number(searchResult.properties.parliament)}
               />
             )}
 

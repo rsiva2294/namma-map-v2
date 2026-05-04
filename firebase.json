@@ -87,6 +87,10 @@
           "function": "recordVisit"
         },
         {
+          "source": "/api/election-detail",
+          "function": "getConstituencyDetail"
+        },
+        {
           "source": "**",
           "destination": "/index.html"
         }
@@ -130,6 +134,10 @@
         {
           "source": "/api/record-visit",
           "function": "recordVisit"
+        },
+        {
+          "source": "/api/election-detail",
+          "function": "getConstituencyDetail"
         },
         {
           "source": "**",
