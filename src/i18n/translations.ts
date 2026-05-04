@@ -162,6 +162,9 @@ export const translations = {
     VERIFY_NOW: 'Is this information correct?',
     VERIFIED_BY: 'Verified by {{count}} people',
     THANK_YOU_VERIFY: 'Thank you for verifying!',
+    YES_CORRECT: 'Yes, Correct',
+    NO_INCORRECT: 'No, Incorrect',
+    THANKS_REPORTING: 'Thanks for reporting!',
 
     // Map Specific
     CLICK_TO_VIEW_JURISDICTION: 'Click to view jurisdiction',
@@ -609,6 +612,9 @@ export const translations = {
     VERIFY_NOW: 'இந்த தகவல் சரியா?',
     VERIFIED_BY: '{{count}} பேரால் சரிபார்க்கப்பட்டது',
     THANK_YOU_VERIFY: 'சரிபார்த்தமைக்கு நன்றி!',
+    YES_CORRECT: 'ஆம், சரி',
+    NO_INCORRECT: 'இல்லை, தவறு',
+    THANKS_REPORTING: 'தகவலுக்கு நன்றி!',
 
     // Health Assistant & Filters
     HEALTH_ASSISTANT: 'சுகாதார உதவியாளர்',

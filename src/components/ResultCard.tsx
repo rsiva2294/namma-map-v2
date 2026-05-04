@@ -182,7 +182,11 @@ const ResultCard: React.FC<ResultCardProps> = ({
 
       {/* Community Verification */}
       {featureId && (
-        <VerificationBadge featureId={featureId} themeColor={themeColor} />
+        <VerificationBadge 
+          featureId={featureId} 
+          themeColor={themeColor} 
+          onReport={onReport}
+        />
       )}
 
       {/* Body */}
