@@ -4,31 +4,24 @@ import { useMapStore } from '../../store/useMapStore';
 import { useTranslation } from '../../i18n/translations';
 import { PARTY_COLORS } from '../../types/gis';
 
+import { RefreshCw } from 'lucide-react';
+
 const ElectionDashboard: React.FC = () => {
-  const { electionResults, electionLastUpdated, isElectionLive, activeLayer, theme } = useMapStore();
+  const { stateSummary, stateSummaryLoading, fetchStateSummary, electionLastUpdated, isElectionLive, activeLayer, theme, searchResult } = useMapStore();
   const { t } = useTranslation();
   const [isMinimized, setIsMinimized] = React.useState(window.innerWidth < 768);
 
-  const summary = useMemo(() => {
-    if (!electionResults) return null;
-    const counts: Record<string, number> = {};
-    Object.values(electionResults).forEach(res => {
-      counts[res.party] = (counts[res.party] || 0) + 1;
-    });
-    
-    // Sort by count descending
-    return Object.entries(counts)
-      .sort(([, a], [, b]) => b - a)
-      .map(([party, count]) => ({ party, count }));
-  }, [electionResults]);
+  React.useEffect(() => {
+    if (activeLayer === 'CONSTITUENCY' && isElectionLive && !stateSummary && !stateSummaryLoading) {
+      fetchStateSummary();
+    }
+  }, [activeLayer, isElectionLive, stateSummary, stateSummaryLoading, fetchStateSummary]);
 
   const totalReported = useMemo(() => {
-    return electionResults ? Object.keys(electionResults).length : 0;
-  }, [electionResults]);
+    return stateSummary ? stateSummary.reduce((acc, curr) => acc + curr.won + curr.leading, 0) : 0;
+  }, [stateSummary]);
 
-  const searchResult = useMapStore(state => state.searchResult);
-
-  if (activeLayer !== 'CONSTITUENCY' || !isElectionLive || !summary || searchResult) return null;
+  if (activeLayer !== 'CONSTITUENCY' || !isElectionLive || searchResult || !stateSummary) return null;
 
   const isMobile = window.innerWidth < 768;
 
@@ -104,10 +97,35 @@ const ElectionDashboard: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              color: 'var(--text-primary)'
+              color: 'var(--text-primary)',
+              marginLeft: 'auto'
             }}
           >
             {isMinimized ? '↑' : '↓'}
+          </button>
+        )}
+        
+        {!isMinimized && (
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!stateSummaryLoading) fetchStateSummary();
+            }}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: stateSummaryLoading ? 'not-allowed' : 'pointer',
+              color: 'var(--text-secondary)',
+              padding: '4px',
+              marginLeft: isMobile ? '8px' : 'auto',
+              opacity: stateSummaryLoading ? 0.5 : 1
+            }}
+            title="Refresh Results"
+          >
+            <RefreshCw size={16} className={stateSummaryLoading ? 'animate-spin' : ''} />
           </button>
         )}
       </div>
@@ -148,23 +166,38 @@ const ElectionDashboard: React.FC = () => {
               overflowY: 'auto',
               paddingRight: '4px'
             }} className="custom-scrollbar">
-              {summary.map(({ party, count }) => (
-                <div key={party} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{ 
-                    width: '12px', 
-                    height: '12px', 
-                    borderRadius: '3px', 
-                    background: PARTY_COLORS[party] || PARTY_COLORS['OTHERS'],
-                    border: '1px solid rgba(255,255,255,0.2)'
-                  }} />
-                  <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', flex: 1 }}>
-                    {t(`PARTY_${party}` as any).replace('PARTY_', '')}
-                  </span>
-                  <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)' }}>
-                    {count}
-                  </span>
-                </div>
-              ))}
+              {stateSummary.map(({ party, won, leading, total }) => {
+                const shortParty = party.split(' - ')[1] || party;
+                return (
+                  <div key={party} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ 
+                      width: '12px', 
+                      height: '12px', 
+                      borderRadius: '3px', 
+                      background: PARTY_COLORS[shortParty] || PARTY_COLORS['OTHERS'],
+                      border: '1px solid rgba(255,255,255,0.2)'
+                    }} />
+                    <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-primary)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {t(`PARTY_${shortParty}` as any).replace('PARTY_', '')}
+                    </span>
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                      {won > 0 && (
+                        <span style={{ fontSize: '11px', fontWeight: 700, color: '#16a34a', background: 'rgba(22, 163, 74, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                          W: {won}
+                        </span>
+                      )}
+                      {leading > 0 && (
+                        <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)', background: 'rgba(0, 0, 0, 0.05)', padding: '2px 6px', borderRadius: '4px' }}>
+                          L: {leading}
+                        </span>
+                      )}
+                      <span style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', width: '24px', textAlign: 'right' }}>
+                        {total}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </>

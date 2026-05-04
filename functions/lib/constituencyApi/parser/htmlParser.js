@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseEciHtml = void 0;
+exports.parseStateSummaryHtml = exports.parseEciHtml = void 0;
 const cheerio = require("cheerio");
 const parseEciHtml = (html) => {
     const $ = cheerio.load(html);
@@ -39,4 +39,26 @@ const parseEciHtml = (html) => {
     return candidates;
 };
 exports.parseEciHtml = parseEciHtml;
+const parseStateSummaryHtml = (html) => {
+    const $ = cheerio.load(html);
+    const results = [];
+    $('table.table tbody tr').each((_, element) => {
+        const el = $(element);
+        const cols = el.find('td');
+        if (cols.length >= 4) {
+            const party = $(cols[0]).text().trim();
+            // Skip the "Total" row at the bottom
+            if (party !== 'Total') {
+                results.push({
+                    party,
+                    won: parseInt($(cols[1]).text().trim()) || 0,
+                    leading: parseInt($(cols[2]).text().trim()) || 0,
+                    total: parseInt($(cols[3]).text().trim()) || 0
+                });
+            }
+        }
+    });
+    return results;
+};
+exports.parseStateSummaryHtml = parseStateSummaryHtml;
 //# sourceMappingURL=htmlParser.js.map

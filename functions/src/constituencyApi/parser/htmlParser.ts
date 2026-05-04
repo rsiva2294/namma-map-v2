@@ -52,3 +52,36 @@ export const parseEciHtml = (html: string): Candidate[] => {
 
   return candidates;
 };
+
+export interface StateSummary {
+  party: string;
+  won: number;
+  leading: number;
+  total: number;
+}
+
+export const parseStateSummaryHtml = (html: string): StateSummary[] => {
+  const $ = cheerio.load(html);
+  const results: StateSummary[] = [];
+  
+  $('table.table tbody tr').each((_, element) => {
+    const el = $(element);
+    const cols = el.find('td');
+    
+    if (cols.length >= 4) {
+      const party = $(cols[0]).text().trim();
+      
+      // Skip the "Total" row at the bottom
+      if (party !== 'Total') {
+        results.push({
+          party,
+          won: parseInt($(cols[1]).text().trim()) || 0,
+          leading: parseInt($(cols[2]).text().trim()) || 0,
+          total: parseInt($(cols[3]).text().trim()) || 0
+        });
+      }
+    }
+  });
+  
+  return results;
+};

@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import { getConstituency } from '../controllers/constituencyController';
+import { getConstituency, getStateSummary } from '../controllers/constituencyController';
 
 const router = Router();
 
+router.get('/state', getStateSummary);
 router.get('/:id', getConstituency);
 
 export default router;

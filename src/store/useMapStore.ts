@@ -24,6 +24,13 @@ import type {
 import type { LocalBodyV2Feature } from '../types/gis_v2';
 import { trackEvent } from '../lib/firebase';
 
+export interface StateSummary {
+  party: string;
+  won: number;
+  leading: number;
+  total: number;
+}
+
 interface MapState {
   view: {
     center: [number, number];
@@ -92,6 +99,8 @@ interface MapState {
   electionResults: Record<number, ElectionResult> | null;
   electionLastUpdated: string | null;
   isElectionLive: boolean;
+  stateSummary: StateSummary[] | null;
+  stateSummaryLoading: boolean;
 
   // Actions
   setHasSeenTutorial: (val: boolean) => void;
@@ -148,6 +157,7 @@ interface MapState {
   setIsResultMinimized: (val: boolean) => void;
   setElectionResults: (results: Record<number, ElectionResult> | null, lastUpdated?: string) => void;
   setIsElectionLive: (live: boolean) => void;
+  fetchStateSummary: () => Promise<void>;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -234,6 +244,8 @@ export const useMapStore = create<MapState>((set) => ({
   electionResults: null,
   electionLastUpdated: null,
   isElectionLive: false,
+  stateSummary: null,
+  stateSummaryLoading: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setHasSeenTutorial: (val) => {
@@ -413,5 +425,27 @@ export const useMapStore = create<MapState>((set) => ({
     electionResults: results, 
     electionLastUpdated: lastUpdated || new Date().toLocaleTimeString() 
   }),
-  setIsElectionLive: (live) => set({ isElectionLive: live })
+  setIsElectionLive: (live) => set({ isElectionLive: live }),
+  fetchStateSummary: async () => {
+    set({ stateSummaryLoading: true });
+    try {
+      const url = import.meta.env.DEV
+        ? `http://127.0.0.1:5001/${import.meta.env.VITE_FIREBASE_PROJECT_ID}/asia-south1/constituencyApi/api/constituency/state`
+        : `/api/constituency/state`;
+        
+      const response = await fetch(url).catch(() => {
+        return fetch(`/api/constituency/state`);
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        set({ stateSummary: data, electionLastUpdated: new Date().toLocaleTimeString(), stateSummaryLoading: false });
+      } else {
+        set({ stateSummaryLoading: false });
+      }
+    } catch (e) {
+      console.error('Failed to fetch state summary', e);
+      set({ stateSummaryLoading: false });
+    }
+  }
 }));

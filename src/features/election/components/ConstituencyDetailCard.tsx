@@ -95,8 +95,20 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
 
       <div style={{ padding: '8px' }}>
         {data.candidates.slice(0, 5).map((candidate: any, idx: number) => {
-          const isWinnerOrLeading = candidate.status === 'Won' || candidate.status === 'Leading';
+          const hasWon = candidate.status === 'Won';
+          const isWinnerOrLeading = hasWon || candidate.status === 'Leading';
           const partyColor = PARTY_COLORS[candidate.party] || '#94a3b8';
+          
+          let background = 'transparent';
+          let border = '1px solid transparent';
+          
+          if (hasWon) {
+            background = isDark ? 'rgba(34, 197, 94, 0.15)' : 'rgba(34, 197, 94, 0.1)';
+            border = `1px solid rgba(34, 197, 94, 0.4)`;
+          } else if (isWinnerOrLeading) {
+            background = isDark ? '#1e293b' : '#f8fafc';
+            border = `1px solid ${partyColor}40`;
+          }
           
           return (
             <div 
@@ -107,8 +119,8 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
                 padding: '12px',
                 margin: '4px',
                 borderRadius: '8px',
-                background: isWinnerOrLeading ? (isDark ? '#1e293b' : '#f8fafc') : 'transparent',
-                border: isWinnerOrLeading ? `1px solid ${partyColor}40` : `1px solid transparent`,
+                background,
+                border,
                 gap: '12px'
               }}
             >
@@ -121,7 +133,9 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
               
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  {isWinnerOrLeading ? (
+                  {hasWon ? (
+                    <Trophy size={14} color={isDark ? '#4ade80' : '#16a34a'} />
+                  ) : isWinnerOrLeading ? (
                     <Trophy size={14} color={partyColor} />
                   ) : (
                     <User size={14} color={subTextColor} />
@@ -153,7 +167,12 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
                     {candidate.party}
                   </span>
                   <span>•</span>
-                  <span>{candidate.status}</span>
+                  <span style={{ 
+                    color: hasWon ? (isDark ? '#4ade80' : '#16a34a') : 'inherit',
+                    fontWeight: hasWon ? 700 : 'inherit'
+                  }}>
+                    {candidate.status}
+                  </span>
                 </div>
               </div>
 
