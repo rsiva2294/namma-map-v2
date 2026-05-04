@@ -131,3 +131,13 @@ export const recordVisit = onRequest(
     }
   }
 );
+
+import constituencyApp from "./constituencyApi/app";
+
+export const constituencyApi = onRequest(
+  {
+    cors: false, // CORS is handled in the Express app
+    region: "asia-south1"
+  },
+  constituencyApp
+);

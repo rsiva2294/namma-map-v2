@@ -68,6 +68,46 @@ The function forwards the Google Geocoding JSON payload and adds cache headers.
 | Missing secret | `500` with `{ error: "Failed to resolve address" }` |
 | Upstream Google error | `500` with `{ error: "Failed to resolve address" }` |
 
+### `GET /api/constituency/:id`
+
+Fetches live election results for a given constituency ID from the ECI website.
+
+| Field | Details |
+|---|---|
+| Method | `GET` |
+| Path | `/api/constituency/:id` |
+| Params | `id` is required (the constituency AC number) |
+| Request body | None |
+| Auth | Not required |
+| Handler | `functions/src/constituencyApi/index.ts` |
+| Upstream dependency | Election Commission of India (ECI) public site |
+
+#### Request example
+
+```http
+GET /api/constituency/195 HTTP/1.1
+```
+
+#### Success response
+
+The function parses the ECI candidate cards and returns a structured JSON payload:
+```json
+{
+  "constituencyId": 195,
+  "candidates": [
+    { "name": "Candidate A", "party": "Party X", "votes": 45000, "status": "Leading" }
+  ],
+  "lastUpdated": 1777885412051
+}
+```
+
+#### Error cases
+
+| Condition | Response |
+|---|---|
+| Invalid ID | `400` with `{ error: "Invalid constituency ID" }` |
+| Upstream fetch error | `500` with `{ error: "Failed to fetch constituency data" }` |
+
 ## Internal Worker Command Surface
 
 The application also has an internal message-based API between the UI and `src/workers/gis.worker.ts`.

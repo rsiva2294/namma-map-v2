@@ -26,7 +26,9 @@ const ElectionDashboard: React.FC = () => {
     return electionResults ? Object.keys(electionResults).length : 0;
   }, [electionResults]);
 
-  if (activeLayer !== 'CONSTITUENCY' || !isElectionLive || !summary) return null;
+  const searchResult = useMapStore(state => state.searchResult);
+
+  if (activeLayer !== 'CONSTITUENCY' || !isElectionLive || !summary || searchResult) return null;
 
   const isMobile = window.innerWidth < 768;
 

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.recordVisit = exports.fetchElectionResults = exports.geocodeAddress = void 0;
+exports.constituencyApi = exports.recordVisit = exports.fetchElectionResults = exports.geocodeAddress = void 0;
 const https_1 = require("firebase-functions/v2/https");
 const params_1 = require("firebase-functions/params");
 const admin = require("firebase-admin");
@@ -106,4 +106,9 @@ exports.recordVisit = (0, https_1.onRequest)({
         res.status(500).send({ error: "Internal tracking error" });
     }
 });
+const app_1 = require("./constituencyApi/app");
+exports.constituencyApi = (0, https_1.onRequest)({
+    cors: false, // CORS is handled in the Express app
+    region: "asia-south1"
+}, app_1.default);
 //# sourceMappingURL=index.js.map
