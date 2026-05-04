@@ -50,3 +50,35 @@ export const geocodeAddress = onRequest(
     });
   }
 );
+
+export const fetchElectionResults = onRequest(
+  { 
+    cors: true,
+    region: "asia-south1"
+  }, 
+  async (req, res) => {
+    try {
+      const url = "https://results.eci.gov.in/ResultAcGenMay2026/election-json-S22-live.json";
+      // We add a browser-like User-Agent because some government sites block default node-fetch agents
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`ECI API responded with status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      // Short cache for live results (30 seconds) to match polling interval
+      res.set("Cache-Control", "public, max-age=30, s-maxage=30");
+      res.status(200).send(data);
+    } catch (error) {
+      console.error("Election fetch error:", error);
+      res.status(500).send({ error: "Failed to fetch election results" });
+    }
+  }
+);

@@ -30,6 +30,10 @@ const NetworkErrorOverlay = React.lazy(() => import('./components/NetworkErrorOv
 const PostalLegendPanel = React.lazy(() => import('./features/postal/PostalFiltersPanel').then(m => ({ default: m.PostalLegendPanel })));
 
 import { trackEvent } from './lib/firebase';
+import { useElectionResults } from './hooks/useElectionResults';
+
+const ElectionDashboard = React.lazy(() => import('./features/election/ElectionDashboard'));
+const ElectionDisclaimer = React.lazy(() => import('./features/election/ElectionDisclaimer'));
 
 
 const GisMap = React.lazy(() => import('./features/map/GisMap'));
@@ -43,6 +47,8 @@ function App() {
   const activeDistrict = useMapStore(state => state.activeDistrict);
   const language = useMapStore(state => state.language);
   const location = useLocation();
+
+  useElectionResults();
 
   // Track Page Views
   useEffect(() => {
@@ -89,7 +95,7 @@ function App() {
 
       <Routes>
         <Route path="/:layer/:district?" element={<RouteManager />} />
-        <Route path="/" element={<Navigate to="/pincode" replace />} />
+        <Route path="/" element={<Navigate to="/constituency" replace />} /> {/* Temporary: Default to constituency for election period */}
       </Routes>
 
       <Sidebar />
@@ -122,6 +128,9 @@ function App() {
         )}
         
         {activeLayer === 'PINCODE' && <PostalLegendPanel />}
+
+        <ElectionDashboard />
+        <ElectionDisclaimer />
 
         <PWAUpdater />
         </Suspense>

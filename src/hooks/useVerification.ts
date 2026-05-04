@@ -4,6 +4,8 @@ import { database } from '../lib/firebase';
 
 const STORAGE_KEY_PREFIX = 'nammamap_verified_';
 
+const sanitizePath = (path: string) => path.replace(/[.#$[\]]/g, '_');
+
 export const useVerification = (featureId: string | undefined) => {
   const [count, setCount] = useState<number>(0);
   const [isVerified, setIsVerified] = useState<boolean>(false);
@@ -17,7 +19,7 @@ export const useVerification = (featureId: string | undefined) => {
     setIsVerified(!!stored);
 
     // Subscribe to real-time count
-    const countRef = ref(database, `verifications/${featureId}`);
+    const countRef = ref(database, `verifications/${sanitizePath(featureId)}`);
     const unsubscribe = onValue(countRef, (snapshot) => {
       setCount(snapshot.val() || 0);
       setIsLoading(false);
@@ -33,7 +35,7 @@ export const useVerification = (featureId: string | undefined) => {
     if (!featureId || !database || isVerified) return;
 
     try {
-      const countRef = ref(database, `verifications/${featureId}`);
+      const countRef = ref(database, `verifications/${sanitizePath(featureId)}`);
       
       // Atomic increment using transaction
       await runTransaction(countRef, (currentCount) => {

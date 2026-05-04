@@ -1,10 +1,18 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useMemo, useEffect, useRef, useCallback } from 'react';
 import { MapContainer, TileLayer, ZoomControl, GeoJSON, useMap, CircleMarker, Tooltip, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { useMapStore } from '../../store/useMapStore';
-import type { GisFeature, PdsShop, Geometry, Point, PoliceStationProperties, HealthFacility, PoliceResolutionResult } from '../../types/gis';
+import type { 
+  GisFeature, 
+  PdsShop, 
+  Geometry, 
+  Point,
+  PoliceStationProperties,
+  HealthFacility, 
+  PoliceResolutionResult 
+} from '../../types/gis';
 import type { LocalBodyV2Feature } from '../../types/gis_v2';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
@@ -153,7 +161,7 @@ const MapEvents: React.FC<{ onResolve: (lat: number, lng: number, layer: string)
 
 const GisMap: React.FC = () => {
   const { isReady, loadDistricts, loadStateBoundary, loadPincodes, loadTnebStatewide, loadTnebDistrict, loadPds, loadPdsIndex, loadConstituencies, loadPoliceData, loadHealthManifest, loadHealthPriority, loadHealthDistrict, loadHealthSearchIndex, loadLocalBodiesV2, resolveLocation, getSuggestions, selectSuggestion, resolveHealthFacility } = useGisWorker();
-  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2, globalLocation, setView, setUserLocation } = useMapStore();
+  const { activeLayer, searchQuery, searchResult, pdsData, activeDistrict, jurisdictionDetails, jurisdictionGeometry, districtsData, stateBoundaryData, acData, pcData, constituencyType, selectedPoliceStation, policeResolution, policeStationsData, selectedPdsShop, setSelectedPdsShop, theme, selectedSuggestion, setSelectedSuggestion, triggerLocateMe, setTriggerLocateMe, setIsLocating, setSearchSuggestions, isUserTyping, setUserTyping, selectedPostalOffices, setSelectedPostalOffice, selectedPostalOffice, healthPriorityData, healthDistrictData, selectedHealthFacility, healthScope, isHealthLoading, selectedLocalBodyV2, globalLocation, setView, setUserLocation, electionResults } = useMapStore();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -308,6 +316,24 @@ const GisMap: React.FC = () => {
     fillOpacity: isAreaSelected ? 0.05 : 0.1,
     interactive: false
   };
+
+  const getConstituencyStyle = useCallback((feature?: any) => {
+    const acNo = feature?.properties?.assembly_1 as number | undefined;
+    const result = (electionResults && acNo) ? electionResults[acNo] : null;
+
+    if (result) {
+      return {
+        fillColor: result.color,
+        weight: 1,
+        opacity: 1,
+        color: '#ffffff',
+        fillOpacity: theme === 'dark' ? 0.5 : 0.6,
+        interactive: false
+      };
+    }
+
+    return constituencyStyle;
+  }, [electionResults, constituencyStyle, theme]);
  
 
  
@@ -544,9 +570,9 @@ const GisMap: React.FC = () => {
 
       {activeLayer === 'CONSTITUENCY' && (constituencyType === 'AC' ? acData : pcData) && (
         <GeoJSON 
-          key={`constituencies-${constituencyType}-${theme}-${isAreaSelected}`}
+          key={`constituencies-${constituencyType}-${theme}-${isAreaSelected}-${Object.keys(electionResults || {}).length}`}
           data={constituencyType === 'AC' ? acData! : pcData!}
-          style={constituencyStyle}
+          style={getConstituencyStyle}
           interactive={false}
         />
       )}

@@ -78,6 +78,16 @@ export default defineConfig(({ mode }) => {
     test: {
       environment: 'jsdom',
       globals: true
+    },
+    server: {
+      proxy: {
+        '/eci-api': {
+          target: 'https://results.eci.gov.in',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/eci-api/, ''),
+          secure: false
+        }
+      }
     }
   }
 })

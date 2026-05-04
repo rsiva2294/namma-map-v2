@@ -283,3 +283,24 @@ export interface HealthSummary {
   district?: string;
   pincode?: string;
 }
+
+export interface ElectionResult {
+  party: string;
+  candidate: string;
+  color: string;
+  status: 'LEADING' | 'WON' | string;
+  constituencyId: number;
+}
+
+export const PARTY_COLORS: Record<string, string> = {
+  'ADMK': '#A08547',
+  'DMK': '#05F86E',
+  'TVK': '#e72bd9',
+  'CPI': '#e70d21',
+  'BJP': '#ff9933',
+  'INC': '#19AAED',
+  'NTK': '#800000',
+  'PMK': '#ffff00',
+  'VCK': '#0000ff',
+  'OTHERS': '#94a3b8'
+};

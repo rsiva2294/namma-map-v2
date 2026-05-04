@@ -38,6 +38,7 @@ const Sidebar: React.FC = () => {
   const setConstituencyType = useMapStore(state => state.setConstituencyType);
   const setLegalModal = useMapStore(state => state.setLegalModal);
   const setIsTutorialOpen = useMapStore(state => state.setIsTutorialOpen);
+  const isElectionLive = useMapStore(state => state.isElectionLive);
 
   const { t } = useTranslation();
   const visitorCount = useVisitorCount();
@@ -161,6 +162,25 @@ const Sidebar: React.FC = () => {
                         title={t('HEALTH_EXPERIMENTAL_DESC')}
                       >
                         {t('EXPERIMENTAL')}
+                      </motion.span>
+                    )}
+                    {isSidebarOpen && item.id === 'CONSTITUENCY' && isElectionLive && (
+                      <motion.span 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        style={{
+                          background: '#ef4444',
+                          color: 'white',
+                          fontSize: '8px',
+                          fontWeight: 900,
+                          padding: '2px 6px',
+                          borderRadius: '10px',
+                          marginLeft: '8px',
+                          letterSpacing: '0.5px',
+                          boxShadow: '0 0 10px rgba(239, 68, 68, 0.5)'
+                        }}
+                      >
+                        LIVE
                       </motion.span>
                     )}
                   </AnimatePresence>

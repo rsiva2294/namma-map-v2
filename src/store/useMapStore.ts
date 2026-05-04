@@ -18,7 +18,8 @@ import type {
   HealthFacility,
   HealthScope,
   HealthFilters,
-  HealthSummary
+  HealthSummary,
+  ElectionResult
 } from '../types/gis';
 import type { LocalBodyV2Feature } from '../types/gis_v2';
 import { trackEvent } from '../lib/firebase';
@@ -88,6 +89,9 @@ interface MapState {
   isTutorialOpen: boolean;
   hasNetworkError: boolean;
   isResultMinimized: boolean;
+  electionResults: Record<number, ElectionResult> | null;
+  electionLastUpdated: string | null;
+  isElectionLive: boolean;
 
   // Actions
   setHasSeenTutorial: (val: boolean) => void;
@@ -142,6 +146,8 @@ interface MapState {
   setPostalFilters: (filters: Partial<MapState['postalFilters']>) => void;
   setHasNetworkError: (val: boolean) => void;
   setIsResultMinimized: (val: boolean) => void;
+  setElectionResults: (results: Record<number, ElectionResult> | null, lastUpdated?: string) => void;
+  setIsElectionLive: (live: boolean) => void;
 }
 
 export const useMapStore = create<MapState>((set) => ({
@@ -225,6 +231,9 @@ export const useMapStore = create<MapState>((set) => ({
   isTutorialOpen: false,
   hasNetworkError: false,
   isResultMinimized: false,
+  electionResults: null,
+  electionLastUpdated: null,
+  isElectionLive: false,
 
   setView: (center, zoom) => set({ view: { center, zoom } }),
   setHasSeenTutorial: (val) => {
@@ -399,5 +408,10 @@ export const useMapStore = create<MapState>((set) => ({
   setGlobalLocation: (location) => set({ globalLocation: location }),
   setUserLocation: (location) => set({ userLocation: location }),
   setHasNetworkError: (val) => set({ hasNetworkError: val }),
-  setIsResultMinimized: (val) => set({ isResultMinimized: val })
+  setIsResultMinimized: (val) => set({ isResultMinimized: val }),
+  setElectionResults: (results, lastUpdated) => set({ 
+    electionResults: results, 
+    electionLastUpdated: lastUpdated || new Date().toLocaleTimeString() 
+  }),
+  setIsElectionLive: (live) => set({ isElectionLive: live })
 }));
