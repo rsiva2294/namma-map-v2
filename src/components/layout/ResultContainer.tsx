@@ -7,7 +7,6 @@ import { HealthSummaryCard } from '../../features/health/HealthSummaryCard';
 import { useGisWorker } from '../../hooks/useGisWorker';
 import { LocalBodyV2Card } from '../../features/local_bodies_v2/components/LocalBodyV2Card';
 import { getOfficeTypeLabelKey, getOfficeExplanationKey } from '../../utils/postal';
-import { ElectionDetailView } from '../../features/election/ElectionDetailView';
 
 import { useTranslation } from '../../i18n/translations';
 import { translateDistrict } from '../../i18n/districts';
@@ -310,17 +309,6 @@ const ResultContainer: React.FC = () => {
               );
             })()}
 
-            {/* Constituency Info */}
-            {activeLayer === 'CONSTITUENCY' && searchResult && (
-              <ElectionDetailView
-                key={`const-detail-${searchResult.properties.assembly_1 || searchResult.properties.parliament}`}
-                constituencyId={Number(searchResult.properties.assembly_1 || searchResult.properties.parliament)}
-                constituencyName={(searchResult.properties.assembly_c || searchResult.properties.parliame_1 || t('CAT_CONSTITUENCY')) as string}
-                district={searchResult.properties.district_n as string}
-                parentPc={searchResult.properties.parliame_1 as string}
-                pcNumber={Number(searchResult.properties.parliament)}
-              />
-            )}
 
             {/* Police Station Info */}
             {activeLayer === 'POLICE' && policeResolution && (
