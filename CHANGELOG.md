@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.3] - 2026-05-04
+### Added
+- **Feature Merge**: Successfully merged the Live Visitor Counter (unique IP tracking) and the Constituency Live Election Results features into a single unified deployment.
+- **Backend Analytics**: Deployed the `recordVisit` Firebase Cloud Function alongside the `constituencyApi` proxy to simultaneously track analytics and bypass ECI firewalls.
+
+### Fixed
+- **UI Compilation**: Resolved a TypeScript compilation error in `ResultContainer` caused by a missing icon import after merging branches.
+- **Database Synchronization**: Synchronized the new `total_unique_ips` analytics counter with legacy numbers to prevent artificial drop-offs in the public UI.
+
 ## [1.8.2] - 2026-05-04
 ### Added
 - **Constituency Detail View**: Implemented a real-time, candidate-wise results view for the 2026 Tamil Nadu elections.
