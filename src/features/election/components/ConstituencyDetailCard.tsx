@@ -94,7 +94,7 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
       </div>
 
       <div style={{ padding: '8px' }}>
-        {data.candidates.map((candidate: any, idx: number) => {
+        {data.candidates.slice(0, 5).map((candidate: any, idx: number) => {
           const isWinnerOrLeading = candidate.status === 'Won' || candidate.status === 'Leading';
           const partyColor = PARTY_COLORS[candidate.party] || '#94a3b8';
           
