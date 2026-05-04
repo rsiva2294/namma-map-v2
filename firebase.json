@@ -83,8 +83,8 @@
           "function": "fetchElectionResults"
         },
         {
-          "source": "/eci-api/**",
-          "function": "proxyEci"
+          "source": "/api/election-detail",
+          "function": "getConstituencyDetail"
         },
         {
           "source": "**",
@@ -128,8 +128,8 @@
           "function": "fetchElectionResults"
         },
         {
-          "source": "/eci-api/**",
-          "function": "proxyEci"
+          "source": "/api/election-detail",
+          "function": "getConstituencyDetail"
         },
         {
           "source": "**",
