@@ -1,4 +1,4 @@
-import { ShoppingCart, Zap, MapPin, AlertCircle, Shield, Activity, ChevronUp } from 'lucide-react';
+import { ShoppingCart, Zap, MapPin, AlertCircle, Shield, Activity, ChevronUp, Landmark } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useMapStore } from '../../store/useMapStore';
