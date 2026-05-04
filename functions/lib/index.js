@@ -1,20 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-<<<<<<< HEAD
-exports.recordVisit = exports.fetchElectionResults = exports.geocodeAddress = void 0;
-=======
-exports.getConstituencyDetail = exports.fetchElectionResults = exports.geocodeAddress = void 0;
->>>>>>> feat/constituency-detail-view
+exports.getConstituencyDetail = exports.recordVisit = exports.fetchElectionResults = exports.geocodeAddress = void 0;
 const https_1 = require("firebase-functions/v2/https");
 const params_1 = require("firebase-functions/params");
 const admin = require("firebase-admin");
 const cors = require("cors");
-<<<<<<< HEAD
+const cheerio = require("cheerio");
 // Initialize admin SDK for RTDB access
 admin.initializeApp();
-=======
-const cheerio = require("cheerio");
->>>>>>> feat/constituency-detail-view
 // Define the secret parameter. The value will be injected securely at runtime
 // from Firebase Secret Manager.
 const googleMapsApiKey = (0, params_1.defineSecret)("GOOGLE_MAPS_API_KEY");
@@ -78,7 +71,6 @@ exports.fetchElectionResults = (0, https_1.onRequest)({
         res.status(500).send({ error: "Failed to fetch election results" });
     }
 });
-<<<<<<< HEAD
 /**
  * Record a visitor's session and IP for strict analytics.
  * - Increments total_unique_ips if IP is new.
@@ -113,7 +105,8 @@ exports.recordVisit = (0, https_1.onRequest)({
     catch (error) {
         console.error("Visit recording error:", error);
         res.status(500).send({ error: "Internal tracking error" });
-=======
+    }
+});
 exports.getConstituencyDetail = (0, https_1.onRequest)({
     cors: true,
     region: "asia-south1",
@@ -130,13 +123,8 @@ exports.getConstituencyDetail = (0, https_1.onRequest)({
         console.log(`[ECI] Fetching details for ${constituencyName} (#${constituencyId}) from ${url}`);
         const response = await fetch(url, {
             headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Referer': 'https://results.eci.gov.in/ResultAcGenMay2026/',
-                'Cache-Control': 'no-cache',
-                'Pragma': 'no-cache',
-                'DNT': '1'
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8'
             }
         });
         if (!response.ok) {
@@ -188,7 +176,6 @@ exports.getConstituencyDetail = (0, https_1.onRequest)({
             error: "Internal Processing Error",
             message: error?.message || String(error)
         });
->>>>>>> feat/constituency-detail-view
     }
 });
 //# sourceMappingURL=index.js.map
