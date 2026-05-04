@@ -165,6 +165,8 @@ export const translations = {
     YES_CORRECT: 'Yes, Correct',
     NO_INCORRECT: 'No, Incorrect',
     THANKS_REPORTING: 'Thanks for reporting!',
+    SENDING: 'Sending...',
+    SENT: 'Sent!',
 
     // Map Specific
     CLICK_TO_VIEW_JURISDICTION: 'Click to view jurisdiction',
@@ -615,6 +617,8 @@ export const translations = {
     YES_CORRECT: 'ஆம், சரி',
     NO_INCORRECT: 'இல்லை, தவறு',
     THANKS_REPORTING: 'தகவலுக்கு நன்றி!',
+    SENDING: 'அனுப்பப்படுகிறது...',
+    SENT: 'அனுப்பப்பட்டது!',
 
     // Health Assistant & Filters
     HEALTH_ASSISTANT: 'சுகாதார உதவியாளர்',
