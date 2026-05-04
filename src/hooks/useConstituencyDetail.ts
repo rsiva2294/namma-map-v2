@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useMapStore } from '../store/useMapStore';
-import type { DetailedElectionResult } from '../types/gis';
+
 
 export const useConstituencyDetail = (constituencyId: number | null, constituencyName: string) => {
   const [isLoading, setIsLoading] = useState(false);
