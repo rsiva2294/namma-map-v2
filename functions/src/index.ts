@@ -82,3 +82,43 @@ export const fetchElectionResults = onRequest(
     }
   }
 );
+export const proxyEci = onRequest(
+  { 
+    cors: true,
+    region: "asia-south1"
+  }, 
+  async (req, res) => {
+    try {
+      // Extract the path after /eci-api
+      // Firebase rewrites keep the full path in req.url or req.path
+      const urlPath = req.url.split('?')[0].replace(/^\/eci-api/, '');
+      const url = `https://results.eci.gov.in/ResultAcGenMay2026${urlPath}`;
+      
+      console.log(`Proxying ECI request to: ${url}`);
+
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`ECI API responded with status: ${response.status}`);
+      }
+
+      const body = await response.text();
+      
+      // Mirror content type
+      const contentType = response.headers.get('content-type');
+      if (contentType) res.set('Content-Type', contentType);
+
+      // Short cache for live results (60 seconds)
+      res.set("Cache-Control", "public, max-age=60, s-maxage=60");
+      res.status(200).send(body);
+    } catch (error) {
+      console.error("ECI Proxy error:", error);
+      res.status(500).send({ error: "Failed to proxy ECI request" });
+    }
+  }
+);

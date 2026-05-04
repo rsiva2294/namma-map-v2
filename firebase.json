@@ -83,6 +83,10 @@
           "function": "fetchElectionResults"
         },
         {
+          "source": "/eci-api/**",
+          "function": "proxyEci"
+        },
+        {
           "source": "**",
           "destination": "/index.html"
         }
@@ -122,6 +126,10 @@
         {
           "source": "/api/election",
           "function": "fetchElectionResults"
+        },
+        {
+          "source": "/eci-api/**",
+          "function": "proxyEci"
         },
         {
           "source": "**",

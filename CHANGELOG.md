@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Live ECI Results**: Integrated an asynchronous fetch-and-parse system for `results.eci.gov.in` with progressive UI enhancement.
 - **Vote Tally & Margins**: Added detailed candidate breakdowns (Top 5) and automatic lead margin calculations for all 234 constituencies.
 - **Results Caching**: Optimized performance with a global results cache to minimize redundant network requests during map interactions.
+- **Production Proxy**: Implemented a Cloud Function proxy (`proxyEci`) to bypass CORS restrictions for live ECI data in production and staging environments.
 
 ### Changed
 - **Mobile Stacked UI**: Improved the bottom sheet layout to support multiple scrollable cards for better information hierarchy on mobile devices.
