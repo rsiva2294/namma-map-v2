@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.8.1] - 2026-05-04
+### Added
+- **Constituency Detail View**: Integrated a live election results feature that displays candidate standings, vote counts, and party affiliations directly within the map.
+- **ECI Scraper Microservice**: Developed a highly isolated Firebase Cloud Function utilizing Cheerio to scrape and parse live HTML from the Election Commission of India website.
+- **Sub-200ms API Caching**: Implemented an in-memory 30-second TTL cache in the backend to ensure instantaneous responses and prevent excess load on external servers.
+
 ### Changed
 - **Temporary Default Landing**: Set the `/constituency` layer as the default home page for the 2026 election period to prioritize civic information.
 

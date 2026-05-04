@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchElectionResults = exports.geocodeAddress = void 0;
+exports.constituencyApi = exports.fetchElectionResults = exports.geocodeAddress = void 0;
 const https_1 = require("firebase-functions/v2/https");
 const params_1 = require("firebase-functions/params");
 const cors = require("cors");
@@ -67,4 +67,9 @@ exports.fetchElectionResults = (0, https_1.onRequest)({
         res.status(500).send({ error: "Failed to fetch election results" });
     }
 });
+const app_1 = require("./constituencyApi/app");
+exports.constituencyApi = (0, https_1.onRequest)({
+    cors: false, // CORS is handled in the Express app
+    region: "asia-south1"
+}, app_1.default);
 //# sourceMappingURL=index.js.map

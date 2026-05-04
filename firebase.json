@@ -75,6 +75,10 @@
       ],
       "rewrites": [
         {
+          "source": "/api/constituency/**",
+          "function": "constituencyApi"
+        },
+        {
           "source": "/api/geocode",
           "function": "geocodeAddress"
         },
@@ -115,6 +119,10 @@
         }
       ],
       "rewrites": [
+        {
+          "source": "/api/constituency/**",
+          "function": "constituencyApi"
+        },
         {
           "source": "/api/geocode",
           "function": "geocodeAddress"
