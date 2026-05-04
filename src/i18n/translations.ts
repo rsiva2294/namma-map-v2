@@ -31,15 +31,8 @@ export const translations = {
     LOCATE_ME: 'Locating you...',
     LOCATING_SUBTEXT: 'Finding your exact area to provide local service details.',
     GPS_ACTIVE: 'GPS Active',
-    SEARCH_PLACEHOLDER: 'Search Districts, Pincodes, or Offices...',
+    SEARCH_PLACEHOLDER: 'Search for an area, pincode, or office...',
     EXPERIMENTAL: 'BETA',
-
-    // Search Specifics
-    SEARCH_HEALTH: 'Search Hospitals, Districts, or Pincodes...',
-    SEARCH_PDS: 'Search Ration Shops, Districts, or Pincodes...',
-    SEARCH_TNEB: 'Search TNEB Offices, Districts, or Pincodes...',
-    SEARCH_POLICE: 'Search Police Stations, Districts, or Pincodes...',
-    SEARCH_CONSTITUENCY: 'Search Constituencies, Districts, or Pincodes...',
 
     // Actions
     DIRECTIONS: 'GET DIRECTIONS',
@@ -161,6 +154,7 @@ export const translations = {
     UPDATE_READY: 'A newer version is ready with improvements.',
     REFRESH_NOW: 'REFRESH NOW',
     VIEW_RESULTS: 'VIEW RESULTS',
+    TOTAL_VISITS: 'Total Visits',
     MINIMIZE: 'Minimize',
     EXPAND_FILTERS: 'Expand Filters',
     MINIMIZE_FILTERS: 'Minimize Filters',
@@ -383,15 +377,8 @@ export const translations = {
     LOCATE_ME: 'உங்கள் இருப்பிடம் கண்டறியப்படுகிறது...',
     LOCATING_SUBTEXT: 'உள்ளூர் சேவை விவரங்களை வழங்க உங்கள் சரியான பகுதியைக் கண்டறியவும்.',
     GPS_ACTIVE: 'GPS செயலில் உள்ளது',
-    SEARCH_PLACEHOLDER: 'மாவட்டங்கள், பின்கோட்கள் அல்லது அலுவலகங்களைத் தேடுங்கள்...',
+    SEARCH_PLACEHOLDER: 'பகுதி, பின்கோடு அல்லது அலுவலகத்தைத் தேடுங்கள்...',
     EXPERIMENTAL: 'BETA',
-
-    // Search Specifics
-    SEARCH_HEALTH: 'மருத்துவமனைகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
-    SEARCH_PDS: 'ரேஷன் கடைகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
-    SEARCH_TNEB: 'மின்சார வாரிய அலுவலகங்கள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
-    SEARCH_POLICE: 'காவல் நிலையங்கள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
-    SEARCH_CONSTITUENCY: 'தொகுதிகள், மாவட்டங்கள் அல்லது பின்கோட்களைத் தேடுங்கள்...',
 
     // Actions
     DIRECTIONS: 'வழிசெலுத்தல்',
@@ -513,6 +500,7 @@ export const translations = {
     UPDATE_READY: 'மேம்படுத்தப்பட்ட புதிய பதிப்பு தயாராக உள்ளது.',
     REFRESH_NOW: 'புதுப்பிக்கவும்',
     VIEW_RESULTS: 'முடிவுகளைக் காண்க',
+    TOTAL_VISITS: 'மொத்த வருகைகள்',
     MINIMIZE: 'சிறிதாக்கு',
     EXPAND_FILTERS: 'வடிப்பான்களை விரிவுபடுத்து',
     MINIMIZE_FILTERS: 'வடிப்பான்களைச் சிறிதாக்கு',

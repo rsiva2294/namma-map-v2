@@ -60,7 +60,6 @@ const SearchBar: React.FC = () => {
     );
   };
 
-  const activeLayer = useMapStore(state => state.activeLayer);
   const groupedSuggestions = searchSuggestions.reduce((acc, curr) => {
     const type = (curr.suggestionType || 'OTHER').toString();
     const safeType = type.trim() || 'OTHER';
@@ -98,13 +97,7 @@ const SearchBar: React.FC = () => {
           }}
           onKeyDown={handleKeyDown}
           placeholder={
-            isLocating ? t('LOCATING') :
-            activeLayer === 'HEALTH' ? t('SEARCH_HEALTH') :
-            activeLayer === 'PDS' ? t('SEARCH_PDS') :
-            activeLayer === 'TNEB' ? t('SEARCH_TNEB') :
-            activeLayer === 'POLICE' ? t('SEARCH_POLICE') :
-            activeLayer === 'CONSTITUENCY' ? t('SEARCH_CONSTITUENCY') :
-            t('SEARCH_PLACEHOLDER')
+            isLocating ? t('LOCATING') : t('SEARCH_PLACEHOLDER')
           }
           className="search-input"
           aria-label={t('SEARCH_FOR_LOCATION')}

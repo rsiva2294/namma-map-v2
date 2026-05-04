@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, logEvent } from 'firebase/analytics';
 import { getPerformance } from 'firebase/performance';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -9,7 +10,8 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL
 };
 
 // Initialize Firebase
@@ -18,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Services
 export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
 export const performance = typeof window !== 'undefined' ? getPerformance(app) : null;
+export const database = typeof window !== 'undefined' ? getDatabase(app) : null;
 
 /**
  * Utility to log analytics events safely

@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2026-05-04
+### Added
+- **Site Visitor Counter**: Implemented a real-time visitor counter in the Sidebar settings using Firebase Realtime Database.
+- **Session-Aware Tracking**: Uses atomic transactions and `sessionStorage` to ensure accurate, non-inflated visit counts.
+- **Live UI Feedback**: Added a subtle green pulse indicator to the visitor counter to signify live connectivity.
+
+### Changed
+- **Unified Search Experience**: Simplified the search bar placeholder to a single, consistent string ("Search for an area, pincode, or office...") across all service modules.
+- **Search Logic Cleanup**: Removed redundant layer-specific translation keys and streamlined the `SearchBar` component's conditional logic.
+- **Firebase Configuration**: Migrated the `databaseURL` to environment variables for better project management and regional instance support (Asia Southeast).
+
+### Fixed
+- **Code Hygiene**: Resolved unused variable errors in the `SearchBar` component to ensure clean production builds.
+
 ## [1.7.0] - 2026-05-01
 ### Added
 - **Core Web Vitals Optimization**: Implemented a comprehensive performance overhaul focusing on LCP, FCP, and TBT.

@@ -23,6 +23,7 @@ import { useTranslation } from '../../i18n/translations';
 import type { ServiceLayer } from '../../types/gis';
 import { APP_VERSION } from '../../constants';
 import { formatVersion } from '../../utils/version';
+import { useVisitorCount } from '../../hooks/useVisitorCount';
 
 const Sidebar: React.FC = () => {
   const isSidebarOpen = useMapStore(state => state.isSidebarOpen);
@@ -39,6 +40,7 @@ const Sidebar: React.FC = () => {
   const setIsTutorialOpen = useMapStore(state => state.setIsTutorialOpen);
 
   const { t } = useTranslation();
+  const visitorCount = useVisitorCount();
 
   const categories = [
     {
@@ -271,7 +273,17 @@ const Sidebar: React.FC = () => {
           </button>
           {isSidebarOpen && (
             <div className="sidebar-version-tag">
-              v{formatVersion(APP_VERSION)}
+              <div>v{formatVersion(APP_VERSION)}</div>
+              {visitorCount !== null && (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{ marginTop: '6px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', opacity: 0.8 }}
+                >
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
+                  <span>{t('TOTAL_VISITS')}: <strong style={{ color: 'var(--text-primary)' }}>{visitorCount.toLocaleString()}</strong></span>
+                </motion.div>
+              )}
             </div>
           )}
         </div>
