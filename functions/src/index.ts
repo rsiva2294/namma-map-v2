@@ -92,7 +92,7 @@ export const proxyEci = onRequest(
       // Extract the path after /eci-api
       // Firebase rewrites keep the full path in req.url or req.path
       const urlPath = req.url.split('?')[0].replace(/^\/eci-api/, '');
-      const url = `https://results.eci.gov.in/ResultAcGenMay2026${urlPath}`;
+      const url = `https://results.eci.gov.in${urlPath}`;
       
       console.log(`Proxying ECI request to: ${url}`);
 
