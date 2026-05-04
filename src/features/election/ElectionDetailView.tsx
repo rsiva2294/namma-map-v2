@@ -26,7 +26,6 @@ export const ElectionDetailView: React.FC<ElectionDetailViewProps> = ({
   const { t } = useTranslation();
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
   const language = useMapStore(state => state.language);
-  const electionResults = useMapStore(state => state.electionResults);
   const clearSearch = useMapStore(state => state.clearSearch);
   const setIsResultMinimized = useMapStore(state => state.setIsResultMinimized);
 
