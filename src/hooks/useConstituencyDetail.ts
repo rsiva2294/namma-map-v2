@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useMapStore } from '../store/useMapStore';
-import type { CandidateResult, DetailedElectionResult } from '../types/gis';
+import type { DetailedElectionResult } from '../types/gis';
 
 export const useConstituencyDetail = (constituencyId: number | null, constituencyName: string) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [detail, setDetail] = useState<DetailedElectionResult | null>(null);
   const { detailedElectionResults, setDetailedElectionResult } = useMapStore();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export const useConstituencyDetail = (constituencyId: number | null, constituenc
         // Update global results cache
         if (data.candidates && data.candidates.length > 0) {
           setDetailedElectionResult(constituencyId, data);
-          setDetail(data);
         }
       } catch (err) {
         console.error('Error fetching election details:', err);
