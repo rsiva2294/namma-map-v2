@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useMapStore } from '../../store/useMapStore';
 import { useTranslation } from '../../i18n/translations';
 import { PARTY_COLORS } from '../../types/gis';
+import { getPartyLogo } from '../../utils/partyLogo';
 
 import { RefreshCw } from 'lucide-react';
 
@@ -17,9 +18,16 @@ const ElectionDashboard: React.FC = () => {
     }
   }, [activeLayer, isElectionLive, stateSummary, stateSummaryLoading, fetchStateSummary]);
 
-  const totalReported = useMemo(() => {
-    return stateSummary ? stateSummary.reduce((acc, curr) => acc + curr.won + curr.leading, 0) : 0;
+  const totals = useMemo(() => {
+    if (!stateSummary) return { won: 0, leading: 0, total: 0 };
+    return stateSummary.reduce((acc, curr) => ({
+      won: acc.won + curr.won,
+      leading: acc.leading + curr.leading,
+      total: acc.total + curr.won + curr.leading
+    }), { won: 0, leading: 0, total: 0 });
   }, [stateSummary]);
+
+  const totalReported = totals.total;
 
   if (activeLayer !== 'CONSTITUENCY' || !isElectionLive || searchResult || !stateSummary) return null;
 
@@ -55,12 +63,12 @@ const ElectionDashboard: React.FC = () => {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <span style={{ 
-            fontSize: '10px', 
-            fontWeight: 800, 
-            color: 'var(--accent)', 
-            textTransform: 'uppercase', 
-            letterSpacing: '1px' 
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 800,
+            color: 'var(--accent)',
+            textTransform: 'uppercase',
+            letterSpacing: '1px'
           }}>
             {t('ELECTION_LIVE')}
           </span>
@@ -80,9 +88,9 @@ const ElectionDashboard: React.FC = () => {
             </span>
           )}
         </div>
-        
+
         {isMobile && (
-          <button 
+          <button
             onClick={(e) => {
               e.stopPropagation();
               setIsMinimized(!isMinimized);
@@ -104,9 +112,9 @@ const ElectionDashboard: React.FC = () => {
             {isMinimized ? '↑' : '↓'}
           </button>
         )}
-        
+
         {!isMinimized && (
-          <button 
+          <button
             onClick={(e) => {
               e.stopPropagation();
               if (!stateSummaryLoading) fetchStateSummary();
@@ -139,17 +147,17 @@ const ElectionDashboard: React.FC = () => {
           )}
 
           {/* Progress Bar */}
-          <div style={{ 
-            width: '100%', 
-            height: '6px', 
-            background: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+          <div style={{
+            width: '100%',
+            height: '6px',
+            background: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
             borderRadius: '3px',
             overflow: 'hidden'
           }}>
-            <motion.div 
+            <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${(totalReported / 234) * 100}%` }}
-              style={{ height: '100%', background: 'var(--accent)' }} 
+              style={{ height: '100%', background: 'var(--accent)' }}
             />
           </div>
 
@@ -158,9 +166,9 @@ const ElectionDashboard: React.FC = () => {
             <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)' }}>
               {t('LEADS_BY_PARTY')}
             </span>
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
               gap: '8px',
               maxHeight: isMobile ? '200px' : '250px',
               overflowY: 'auto',
@@ -168,15 +176,19 @@ const ElectionDashboard: React.FC = () => {
             }} className="custom-scrollbar">
               {stateSummary.map(({ party, won, leading, total }) => {
                 const shortParty = party.split(' - ')[1] || party;
+                const logoUrl = getPartyLogo(shortParty);
                 return (
                   <div key={party} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ 
-                      width: '12px', 
-                      height: '12px', 
-                      borderRadius: '3px', 
+                    <div style={{
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
                       background: PARTY_COLORS[shortParty] || PARTY_COLORS['OTHERS'],
-                      border: '1px solid rgba(255,255,255,0.2)'
+                      flexShrink: 0
                     }} />
+                    {logoUrl && (
+                      <img src={logoUrl} alt={shortParty} style={{ width: '16px', height: '16px', objectFit: 'contain', borderRadius: '2px' }} />
+                    )}
                     <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-primary)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {t(`PARTY_${shortParty}` as any).replace('PARTY_', '')}
                     </span>
@@ -198,6 +210,32 @@ const ElectionDashboard: React.FC = () => {
                   </div>
                 );
               })}
+
+              {/* Total Row */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                marginTop: '4px',
+                paddingTop: '8px',
+                borderTop: `1px dashed ${theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`
+              }}>
+                <div style={{ width: '8px', height: '8px' }} /> {/* Spacer to align with party dots */}
+                <span style={{ fontSize: '12px', fontWeight: 800, color: 'var(--text-primary)', flex: 1 }}>
+                  {t('TOTAL' as any)}
+                </span>
+                <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#16a34a' }}>
+                    W: {totals.won}
+                  </span>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)' }}>
+                    L: {totals.leading}
+                  </span>
+                  <span style={{ fontSize: '13px', fontWeight: 900, color: 'var(--text-primary)', width: '24px', textAlign: 'right' }}>
+                    {totals.total}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </>

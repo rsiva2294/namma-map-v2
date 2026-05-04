@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.5] - 2026-05-04
+### Added
+- **Party Flag Integration**: Standardized and integrated 16 party logos (WebP/SVG) across the state-wide dashboard and constituency detail cards.
+- **Dynamic Party Mapping**: Implemented a robust utility to map mixed-format party strings (full names and abbreviations) to optimized visual assets and legend colors.
+- **Dashboard Totals Row**: Added an aggregate summary row to the election dashboard showing total "Won" and "Leading" seats across all parties.
+
+### Changed
+- **Visual Branding**: Enhanced the map legend to display party flags alongside map color indicators for improved spatial recognition.
+- **UI Refinement**: Styled candidate rows with party-specific color bars and integrated mini-logos within the candidate party badges.
+
 ## [1.8.4] - 2026-05-04
 ### Added
 - **Election State Summary**: Implemented a state-level dashboard displaying Won/Leading metrics per party directly on page load.

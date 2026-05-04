@@ -4,13 +4,14 @@ import { useConstituencyDetail } from '../../../hooks/useConstituencyDetail';
 import { useMapStore } from '../../../store/useMapStore';
 import { Activity, AlertCircle, Trophy, User } from 'lucide-react';
 import { PARTY_COLORS } from '../../../types/gis';
+import { getPartyLogo } from '../../../utils/partyLogo';
 
 interface ConstituencyDetailCardProps {
   constituencyId: number;
   constituencyName: string;
 }
 
-export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({ 
+export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
   constituencyId,
   constituencyName
 }) => {
@@ -65,7 +66,7 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
   }
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       style={{
@@ -77,8 +78,8 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
         border: `1px solid ${borderColor}`
       }}
     >
-      <div style={{ 
-        padding: '12px 16px', 
+      <div style={{
+        padding: '12px 16px',
         borderBottom: `1px solid ${borderColor}`,
         background: isDark ? '#0f172a' : '#f8fafc',
         display: 'flex',
@@ -98,10 +99,10 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
           const hasWon = candidate.status === 'Won';
           const isWinnerOrLeading = hasWon || candidate.status === 'Leading';
           const partyColor = PARTY_COLORS[candidate.party] || '#94a3b8';
-          
+
           let background = 'transparent';
           let border = '1px solid transparent';
-          
+
           if (hasWon) {
             background = isDark ? 'rgba(34, 197, 94, 0.15)' : 'rgba(34, 197, 94, 0.1)';
             border = `1px solid rgba(34, 197, 94, 0.4)`;
@@ -109,9 +110,9 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
             background = isDark ? '#1e293b' : '#f8fafc';
             border = `1px solid ${partyColor}40`;
           }
-          
+
           return (
-            <div 
+            <div
               key={idx}
               style={{
                 display: 'flex',
@@ -130,7 +131,7 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
                 background: partyColor,
                 borderRadius: '4px'
               }} />
-              
+
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   {hasWon ? (
@@ -140,34 +141,38 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
                   ) : (
                     <User size={14} color={subTextColor} />
                   )}
-                  <span style={{ 
-                    fontWeight: isWinnerOrLeading ? 700 : 500, 
+                  <span style={{
+                    fontWeight: isWinnerOrLeading ? 700 : 500,
                     color: textColor,
                     fontSize: '0.95rem'
                   }}>
                     {candidate.name}
                   </span>
                 </div>
-                <div style={{ 
-                  fontSize: '0.8rem', 
+                <div style={{
+                  fontSize: '0.8rem',
                   color: subTextColor,
                   marginTop: '2px',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px'
                 }}>
-                  <span style={{
-                    background: `${partyColor}20`,
-                    color: partyColor,
-                    padding: '2px 6px',
-                    borderRadius: '4px',
-                    fontWeight: 600,
-                    fontSize: '0.7rem'
-                  }}>
-                    {candidate.party}
-                  </span>
+                  {(() => {
+                    const shortParty = candidate.party.split(' - ')[1] || candidate.party;
+                    const logoUrl = getPartyLogo(shortParty);
+                    return logoUrl ? (
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: `${partyColor}20`, color: partyColor, padding: '2px 6px', borderRadius: '4px', fontWeight: 600, fontSize: '0.7rem' }}>
+                        <img src={logoUrl} alt={shortParty} style={{ width: '12px', height: '12px', objectFit: 'contain' }} />
+                        {candidate.party}
+                      </span>
+                    ) : (
+                      <span style={{ background: `${partyColor}20`, color: partyColor, padding: '2px 6px', borderRadius: '4px', fontWeight: 600, fontSize: '0.7rem' }}>
+                        {candidate.party}
+                      </span>
+                    );
+                  })()}
                   <span>•</span>
-                  <span style={{ 
+                  <span style={{
                     color: hasWon ? (isDark ? '#4ade80' : '#16a34a') : 'inherit',
                     fontWeight: hasWon ? 700 : 'inherit'
                   }}>
@@ -177,8 +182,8 @@ export const ConstituencyDetailCard: React.FC<ConstituencyDetailCardProps> = ({
               </div>
 
               <div style={{ textAlign: 'right' }}>
-                <div style={{ 
-                  fontWeight: 700, 
+                <div style={{
+                  fontWeight: 700,
                   color: textColor,
                   fontSize: '1.05rem',
                   fontVariantNumeric: 'tabular-nums'
