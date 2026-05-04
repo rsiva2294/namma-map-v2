@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.2] - 2026-05-04
+### Added
+- **Constituency Detail View**: Implemented a real-time, candidate-wise results view for the 2026 Tamil Nadu elections.
+- **Live ECI Results**: Integrated an asynchronous fetch-and-parse system for `results.eci.gov.in` with progressive UI enhancement.
+- **Vote Tally & Margins**: Added detailed candidate breakdowns (Top 5) and automatic lead margin calculations for all 234 constituencies.
+- **Results Caching**: Optimized performance with a global results cache to minimize redundant network requests during map interactions.
+
+### Changed
+- **Mobile Stacked UI**: Improved the bottom sheet layout to support multiple scrollable cards for better information hierarchy on mobile devices.
+
 ## [1.8.1] - 2026-05-04
 ### Changed
 - **Temporary Default Landing**: Set the `/constituency` layer as the default home page for the 2026 election period to prioritize civic information.

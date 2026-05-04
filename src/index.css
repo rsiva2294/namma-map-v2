@@ -1538,7 +1538,7 @@ html,
   gap: 12px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
-  pointer-events: none; /* Let clicks pass through empty spaces */
+  pointer-events: none; /* Let clicks pass through empty spaces on desktop */
   scrollbar-width: none; /* Hide scrollbar for cleaner look */
   -ms-overflow-style: none;
   padding: 4px; /* Space for box shadows */
@@ -1593,6 +1593,7 @@ html,
     gap: 0;
     z-index: var(--z-bottom-sheet);
     padding-bottom: env(safe-area-inset-bottom, 0);
+    pointer-events: auto; /* Enable touch scrolling on the container */
   }
 
   .result-cards-stack .result-card {
