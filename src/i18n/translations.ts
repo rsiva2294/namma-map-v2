@@ -44,13 +44,6 @@ export const translations = {
     PARTY_VCK: 'VCK',
     PARTY_OTHERS: 'Others',
     PARTY_NA: 'Waiting for Results',
-    LEADER: 'Leader',
-    PARTY: 'Party',
-    LOADING_DETAILED_RESULTS: 'Loading detailed results...',
-    LEAD_MARGIN: 'Lead Margin',
-    VOTES: 'Votes',
-    CANDIDATE_NAME: 'Candidate Name',
-    ELECTION_SUMMARY: 'Election Summary',
 
     // UI Elements
     ABOUT_LEGAL: 'About & Legal',
@@ -429,11 +422,6 @@ export const translations = {
     PARTY_VCK: 'விசிக',
     PARTY_OTHERS: 'மற்றவை',
     PARTY_NA: 'முடிவுகளுக்காக காத்திருக்கிறது',
-    LEADER: 'முன்னிலை வகிப்பவர்',
-    PARTY: 'கட்சி',
-    LOADING_DETAILED_RESULTS: 'விரிவான முடிவுகள் ஏற்றப்படுகின்றன...',
-    LEAD_MARGIN: 'வாக்கு வித்தியாசம்',
-    VOTES: 'வாக்குகள்',
 
     // UI Elements
     ABOUT_LEGAL: 'விவரங்கள் & சட்டவிதிகள்',

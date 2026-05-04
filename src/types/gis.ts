@@ -292,20 +292,6 @@ export interface ElectionResult {
   constituencyId: number;
 }
 
-export interface CandidateResult {
-  name: string;
-  party: string;
-  votes: number;
-  status: 'leading' | 'trailing';
-  delta: number;
-}
-
-export interface DetailedElectionResult {
-  constituencyId: number;
-  constituencyName: string;
-  candidates: CandidateResult[];
-  margin: number;
-  lastUpdated: string;
 }
 
 export const PARTY_COLORS: Record<string, string> = {
