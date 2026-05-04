@@ -2,6 +2,7 @@ import React from 'react';
 import { Landmark, MapPin, Building2, LayoutGrid, Info } from 'lucide-react';
 import { useMapStore } from '../../../store/useMapStore';
 import { useTranslation } from '../../../i18n/translations';
+import { VerificationBadge } from '../../../components/common/VerificationBadge';
 import type { LocalBodyV2Feature } from '../../../types/gis_v2';
 
 interface LocalBodyV2CardProps {
@@ -109,7 +110,13 @@ export const LocalBodyV2Card: React.FC<LocalBodyV2CardProps> = ({ feature }) => 
             </div>
           ))}
         </div>
-
+        
+        <div style={{ marginTop: '20px', marginLeft: '-20px', marginRight: '-20px' }}>
+          <VerificationBadge 
+            featureId={`localbody_${pincode}_${name.replace(/\s+/g, '_')}`} 
+            themeColor="indigo" 
+          />
+        </div>
       </div>
       
       {/* Footer Branding */}

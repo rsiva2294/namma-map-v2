@@ -137,6 +137,7 @@ const ResultContainer: React.FC = () => {
                 }}
                 onReport={() => handleReport('PDS Shop', selectedPdsShop.properties)}
                 onMinimize={() => setIsResultMinimized(true)}
+                featureId={`pds_${selectedPdsShop.properties.shop_code}`}
               />
             )}
 
@@ -192,6 +193,7 @@ const ResultContainer: React.FC = () => {
                 } : undefined}
                 onReport={() => handleReport('TNEB Section', jurisdictionDetails)}
                 onMinimize={() => setIsResultMinimized(true)}
+                featureId={`tneb_${jurisdictionDetails.section_co || jurisdictionDetails.section_office}`}
               />
             )}
 
@@ -245,6 +247,7 @@ const ResultContainer: React.FC = () => {
                   } : undefined}
                   onReport={() => handleReport('Pincode Area', searchResult.properties)}
                   onMinimize={() => setIsResultMinimized(true)}
+                  featureId={`pincode_${searchResult.properties.PIN_CODE || searchResult.properties.pincode}`}
                 />
               );
             })()}
@@ -271,6 +274,7 @@ const ResultContainer: React.FC = () => {
                 } : undefined}
                 onReport={() => handleReport('Post Office', selectedPostalOffice as unknown as Record<string, unknown>)}
                 onMinimize={() => setIsResultMinimized(true)}
+                featureId={`postal_${selectedPostalOffice.pincode}_${selectedPostalOffice.officename.replace(/\s+/g, '_')}`}
               />
             )}
 
@@ -323,6 +327,7 @@ const ResultContainer: React.FC = () => {
                 onClose={clearSearch}
                 onReport={() => handleReport('Constituency', searchResult.properties)}
                 onMinimize={() => setIsResultMinimized(true)}
+                featureId={`const_${searchResult.properties.assembly_1 || searchResult.properties.parliament}`}
               />
             )}
 
@@ -377,6 +382,7 @@ const ResultContainer: React.FC = () => {
                   method: policeResolution.debug.method
                 })}
                 onMinimize={() => setIsResultMinimized(true)}
+                featureId={`police_${policeResolution.boundary.properties.police_s_1}`}
               />
             )}
 
@@ -489,6 +495,7 @@ const ResultContainer: React.FC = () => {
                 }}
                 onReport={() => handleReport('Health Facility', selectedHealthFacility.properties)}
                 onMinimize={() => setIsResultMinimized(true)}
+                featureId={`health_${selectedHealthFacility.properties.nin_number || selectedHealthFacility.properties.facility_n}`}
               />
             )}
 

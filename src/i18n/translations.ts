@@ -158,6 +158,10 @@ export const translations = {
     MINIMIZE: 'Minimize',
     EXPAND_FILTERS: 'Expand Filters',
     MINIMIZE_FILTERS: 'Minimize Filters',
+    COMMUNITY_VERIFICATION: 'Community Verification',
+    VERIFY_NOW: 'Is this information correct?',
+    VERIFIED_BY: 'Verified by {{count}} people',
+    THANK_YOU_VERIFY: 'Thank you for verifying!',
 
     // Map Specific
     CLICK_TO_VIEW_JURISDICTION: 'Click to view jurisdiction',
@@ -601,6 +605,10 @@ export const translations = {
     NETWORK_ERROR_DESC: 'எங்கள் தரவு சேவையகங்களுடன் இணைப்பதில் சிக்கல் உள்ளது. உங்கள் இணைய இணைப்பைச் சரிபார்க்கவும்.',
     RETRY: 'மீண்டும் முயற்சி செய்',
     HIDE: 'மறை',
+    COMMUNITY_VERIFICATION: 'சமூக சரிபார்ப்பு',
+    VERIFY_NOW: 'இந்த தகவல் சரியா?',
+    VERIFIED_BY: '{{count}} பேரால் சரிபார்க்கப்பட்டது',
+    THANK_YOU_VERIFY: 'சரிபார்த்தமைக்கு நன்றி!',
 
     // Health Assistant & Filters
     HEALTH_ASSISTANT: 'சுகாதார உதவியாளர்',

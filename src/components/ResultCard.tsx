@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Copy, MapPin, Send, ChevronDown, Navigation, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n/translations';
+import { VerificationBadge } from './common/VerificationBadge';
 
 export interface ResultCardProps {
   title: string;
@@ -15,6 +16,7 @@ export interface ResultCardProps {
   actionLabel?: string;
   onAction?: () => void;
   onMinimize?: () => void;
+  featureId?: string;
 }
 
 const colorMap = {
@@ -57,7 +59,7 @@ const colorMap = {
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ 
-  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction, onMinimize 
+  title, icon, themeColor, data, badges, onClose, onDirections, onReport, actionLabel, onAction, onMinimize, featureId 
 }) => {
   const colors = colorMap[themeColor];
   const { t } = useTranslation();
@@ -177,6 +179,11 @@ const ResultCard: React.FC<ResultCardProps> = ({
         <span style={{ fontSize: '12px', marginTop: '-1px' }}>📍</span>
         <span><strong>{t('ACCURACY')}:</strong> {t('VICINITY_DISCLAIMER')}</span>
       </div>
+
+      {/* Community Verification */}
+      {featureId && (
+        <VerificationBadge featureId={featureId} themeColor={themeColor} />
+      )}
 
       {/* Body */}
       <div className="result-card-body">
