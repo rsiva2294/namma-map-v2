@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => {
   const isElectionLive = useMapStore(state => state.isElectionLive);
 
   const { t } = useTranslation();
-  const visitorCount = useVisitorCount();
+  const { total, today } = useVisitorCount();
 
   const categories = [
     {
@@ -294,16 +294,23 @@ const Sidebar: React.FC = () => {
           {isSidebarOpen && (
             <div className="sidebar-version-tag">
               <div>v{formatVersion(APP_VERSION)}</div>
-              {visitorCount !== null && (
+              <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
                 <motion.div 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  style={{ marginTop: '6px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', opacity: 0.8 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px', opacity: 0.8, fontSize: '11px' }}
                 >
                   <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
-                  <span>{t('TOTAL_VISITS')}: <strong style={{ color: 'var(--text-primary)' }}>{visitorCount.toLocaleString()}</strong></span>
+                  <span>{t('TOTAL_VISITS')}: <strong style={{ color: 'var(--text-primary)' }}>{(total || 0).toLocaleString()}</strong></span>
                 </motion.div>
-              )}
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{ opacity: 0.6, fontSize: '10px', fontWeight: 500 }}
+                >
+                  {t('TODAY_VISITS')}: {(today || 0).toLocaleString()}
+                </motion.div>
+              </div>
             </div>
           )}
         </div>

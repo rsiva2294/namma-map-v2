@@ -86,6 +86,10 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/eci-api/, ''),
           secure: false
+        },
+        '/api': {
+          target: 'http://localhost:5000',
+          changeOrigin: true,
         }
       }
     }

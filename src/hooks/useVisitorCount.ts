@@ -1,37 +1,53 @@
 import { useState, useEffect } from 'react';
-import { ref, onValue, runTransaction } from 'firebase/database';
+import { ref, onValue } from 'firebase/database';
 import { database } from '../lib/firebase';
 
-export const useVisitorCount = () => {
-  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+export interface VisitorStats {
+  total: number | null;
+  today: number | null;
+}
+
+export const useVisitorCount = (): VisitorStats => {
+  const [stats, setStats] = useState<VisitorStats>({ total: null, today: null });
 
   useEffect(() => {
     if (!database) return;
 
-    const statsRef = ref(database, 'stats/visitor_count');
+    // 1. Determine Today's Key in IST (matches Cloud Function)
+    const todayKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
+    
+    const totalRef = ref(database, 'stats/total_unique_ips');
+    const dailyRef = ref(database, `stats/daily_visits/${todayKey}`);
 
-    // 1. Increment count once per session
+    // 2. Trigger tracking once per session via Cloud Function
     const hasVisited = sessionStorage.getItem('nm_visited');
     if (!hasVisited) {
-      runTransaction(statsRef, (currentCount) => {
-        return (currentCount || 0) + 1;
+      // We use the relative /api path which is proxied to the emulator in dev 
+      // and handled by hosting rewrites in production.
+      fetch('/api/record-visit', { 
+        method: 'POST', 
+        mode: 'no-cors' 
       }).then(() => {
         sessionStorage.setItem('nm_visited', 'true');
       }).catch(err => {
-        console.warn('[VisitorCount] Failed to increment:', err);
+        console.warn('[VisitorCount] Cloud tracking skipped:', err);
       });
     }
 
-    // 2. Subscribe to live updates
-    const unsubscribe = onValue(statsRef, (snapshot) => {
-      const data = snapshot.val();
-      if (typeof data === 'number') {
-        setVisitorCount(data);
-      }
+    // 3. Subscribe to live updates for both counters
+    const unsubTotal = onValue(totalRef, (snapshot) => {
+      setStats(prev => ({ ...prev, total: snapshot.val() }));
     });
 
-    return () => unsubscribe();
+    const unsubDaily = onValue(dailyRef, (snapshot) => {
+      setStats(prev => ({ ...prev, today: snapshot.val() }));
+    });
+
+    return () => {
+      unsubTotal();
+      unsubDaily();
+    };
   }, []);
 
-  return visitorCount;
+  return stats;
 };

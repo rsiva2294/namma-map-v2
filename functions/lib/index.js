@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchElectionResults = exports.geocodeAddress = void 0;
+exports.recordVisit = exports.fetchElectionResults = exports.geocodeAddress = void 0;
 const https_1 = require("firebase-functions/v2/https");
 const params_1 = require("firebase-functions/params");
+const admin = require("firebase-admin");
 const cors = require("cors");
+// Initialize admin SDK for RTDB access
+admin.initializeApp();
 // Define the secret parameter. The value will be injected securely at runtime
 // from Firebase Secret Manager.
 const googleMapsApiKey = (0, params_1.defineSecret)("GOOGLE_MAPS_API_KEY");
@@ -65,6 +68,42 @@ exports.fetchElectionResults = (0, https_1.onRequest)({
     catch (error) {
         console.error("Election fetch error:", error);
         res.status(500).send({ error: "Failed to fetch election results" });
+    }
+});
+/**
+ * Record a visitor's session and IP for strict analytics.
+ * - Increments total_unique_ips if IP is new.
+ * - Increments daily_visits for every session.
+ */
+exports.recordVisit = (0, https_1.onRequest)({
+    cors: true,
+    region: "asia-south1"
+}, async (req, res) => {
+    try {
+        // 1. Extract IP address (handles proxies)
+        const ipRaw = (req.headers['x-forwarded-for'] || req.ip || 'unknown');
+        const ip = ipRaw.split(',')[0].trim();
+        const escapedIp = ip.replace(/\./g, '_').replace(/[:[\]]/g, '_'); // Escape dots and IPv6 chars for RTDB
+        // 2. Determine Date in IST (Asia/Kolkata)
+        const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
+        const db = admin.database();
+        // 3. Unique IP Tracking (Total)
+        const ipRef = db.ref(`visitor_ips/${escapedIp}`);
+        const ipSnapshot = await ipRef.get();
+        if (!ipSnapshot.exists()) {
+            await ipRef.set({
+                firstSeen: admin.database.ServerValue.TIMESTAMP,
+                ip: ip // Store original for debugging if needed (RTDB keys are escaped)
+            });
+            await db.ref('stats/total_unique_ips').transaction(c => (c || 0) + 1);
+        }
+        // 4. Daily Session Tracking
+        await db.ref(`stats/daily_visits/${today}`).transaction(c => (c || 0) + 1);
+        res.status(200).send({ success: true, ip_status: ipSnapshot.exists() ? 'returning' : 'new' });
+    }
+    catch (error) {
+        console.error("Visit recording error:", error);
+        res.status(500).send({ error: "Internal tracking error" });
     }
 });
 //# sourceMappingURL=index.js.map
